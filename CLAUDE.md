@@ -59,4 +59,5 @@ Examples:
 - Phase 2: Content pipeline — PDF → JSON → ChromaDB ✓
 - Phase 3: Backend API skeleton — routes, models, auth, rate limiting ✓
 - Phase 4: Learning module — Ollama, ChromaDB retrieval, explain endpoint ✓
-- Phase 5: Evaluation module — rubric scoring, feedback, improved answer ← current
+- Phase 5: Evaluation module — rubric scoring, feedback, improved answer ✓
+- Phase 6: React web frontend — learn, practice, evaluate, progress UI ← current
