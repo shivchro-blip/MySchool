@@ -1,0 +1,16 @@
+export default {
+  content: ['./index.html', './src/**/*.{js,jsx}'],
+  theme: {
+    extend: {
+      colors: {
+        admin: {
+          50:  '#faf5ff',
+          500: '#8b5cf6',
+          600: '#7c3aed',
+          700: '#6d28d9',
+        },
+      },
+    },
+  },
+  plugins: [],
+}

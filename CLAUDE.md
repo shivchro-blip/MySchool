@@ -61,4 +61,5 @@ Examples:
 - Phase 4: Learning module — Ollama, ChromaDB retrieval, explain endpoint ✓
 - Phase 5: Evaluation module — rubric scoring, feedback, improved answer ✓
 - Phase 6: React web frontend — learn, practice, evaluate, progress UI ✓
-- Phase 7: Flutter mobile app — Android/iOS, same API ← current
+- Phase 7: Flutter mobile app — Android/iOS, same API ✓
+- Phase 8: Admin panel — content validation, evaluation review, pipeline ← current
