@@ -58,4 +58,5 @@ Examples:
 - Phase 1: Database schema, RLS, seed data ✓
 - Phase 2: Content pipeline — PDF → JSON → ChromaDB ✓
 - Phase 3: Backend API skeleton — routes, models, auth, rate limiting ✓
-- Phase 4: Learning module — Ollama, ChromaDB retrieval, explain endpoint ← current
+- Phase 4: Learning module — Ollama, ChromaDB retrieval, explain endpoint ✓
+- Phase 5: Evaluation module — rubric scoring, feedback, improved answer ← current

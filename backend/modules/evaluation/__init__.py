@@ -1,3 +1,3 @@
-# Evaluation module
-# Responsibilities: score student answers, generate feedback
-# Do NOT put LLM calls here — use ai/router.py
+from .service import evaluate_answer, retry_evaluation
+
+__all__ = ["evaluate_answer", "retry_evaluation"]
