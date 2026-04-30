@@ -54,4 +54,5 @@ Examples:
 - Never install a package without adding it to pyproject.toml
 
 ## Phase Log (Update This at the Start of Every Phase)
-- Phase 0: Project scaffold ← current
+- Phase 0: Project scaffold ✓
+- Phase 1: Database schema, RLS, seed data ← current
