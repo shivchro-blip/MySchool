@@ -56,4 +56,5 @@ Examples:
 ## Phase Log (Update This at the Start of Every Phase)
 - Phase 0: Project scaffold ✓
 - Phase 1: Database schema, RLS, seed data ✓
-- Phase 2: Content pipeline — PDF → JSON → ChromaDB ← current
+- Phase 2: Content pipeline — PDF → JSON → ChromaDB ✓
+- Phase 3: Backend API skeleton — routes, models, auth, rate limiting ← current
