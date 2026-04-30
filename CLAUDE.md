@@ -57,4 +57,5 @@ Examples:
 - Phase 0: Project scaffold ✓
 - Phase 1: Database schema, RLS, seed data ✓
 - Phase 2: Content pipeline — PDF → JSON → ChromaDB ✓
-- Phase 3: Backend API skeleton — routes, models, auth, rate limiting ← current
+- Phase 3: Backend API skeleton — routes, models, auth, rate limiting ✓
+- Phase 4: Learning module — Ollama, ChromaDB retrieval, explain endpoint ← current

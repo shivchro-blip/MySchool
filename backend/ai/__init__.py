@@ -1,3 +1,3 @@
-# AI layer
-# All LLM calls go through router.py in this folder
-# Never call Ollama or OpenRouter from anywhere else
+from .router import call_llm
+
+__all__ = ["call_llm"]
