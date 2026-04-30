@@ -1,0 +1,20 @@
+[project]
+name = "exam-coach-backend"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.111.0",
+    "uvicorn[standard]",
+    "pydantic>=2.0",
+    "pydantic-settings",
+    "supabase",
+    "chromadb",
+    "httpx",
+    "python-multipart",
+    "python-dotenv",
+    "pdfplumber",
+    "langchain-text-splitters",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["backend/tests"]
