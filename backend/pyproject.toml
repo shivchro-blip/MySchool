@@ -13,7 +13,10 @@ dependencies = [
     "python-multipart",
     "python-dotenv",
     "pdfplumber",
+    "pymupdf",
     "langchain-text-splitters",
+    "sentence-transformers",
+    "rich",
 ]
 
 [tool.pytest.ini_options]
