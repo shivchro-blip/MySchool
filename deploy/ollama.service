@@ -1,0 +1,21 @@
+# Systemd service for Ollama
+# Place at: /etc/systemd/system/ollama.service
+# This ensures Ollama restarts on reboot
+
+[Unit]
+Description=Ollama Local LLM Server
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+ExecStart=/usr/local/bin/ollama serve
+Restart=always
+RestartSec=10
+Environment=OLLAMA_HOST=127.0.0.1:11434
+Environment=OLLAMA_MODELS=/opt/examcoach/.ollama/models
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
