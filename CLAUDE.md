@@ -40,6 +40,13 @@ Core loop: Learn → Ask → Practice → Write → Evaluate → Improve
 - ai/router.py is called ONLY by AIGate — never directly from modules or routes
 - Modules instantiate repositories and AIGate — they never touch get_db()
 
+## Validation Contract (enforced in code)
+- Content chunks in ChromaDB are only used for evaluation if is_validated=True in Supabase
+- is_validated is set to True ONLY by an admin in the admin panel
+- If no validated chunks exist for a chapter, evaluation uses answer key only
+- The student's feedback will contain a ⚠️ warning when unvalidated content is used
+- Cache keys include :validated=True/False so validated and unvalidated results are cached separately
+
 ## AI Router Rule
 1. Always call Ollama first
 2. Fall back to OpenRouter only if Ollama is unavailable or user is on paid plan

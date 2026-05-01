@@ -25,7 +25,7 @@ ANSWER KEY:
 MARKING RUBRIC:
 {rubric}
 
-REFERENCE CONTENT FROM TEXTBOOK:
+VALIDATED REFERENCE CONTENT FROM TEXTBOOK:
 {context_chunks}
 
 STUDENT ANSWER:
@@ -81,3 +81,10 @@ Evaluate the new answer and respond with ONLY this JSON:
   "grammar_comment": "Grammar assessment",
   "improved_answer": "Complete model answer for full marks"
 }}"""
+
+__all__ = [
+    "EVALUATE_SYSTEM_PROMPT",
+    "EVALUATE_USER_PROMPT",
+    "IMPROVE_SYSTEM_PROMPT",
+    "IMPROVE_USER_PROMPT",
+]

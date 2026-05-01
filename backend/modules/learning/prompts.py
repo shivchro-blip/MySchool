@@ -40,3 +40,11 @@ TRANSLATE_USER_PROMPT = """Translate this explanation into Tamil for a Tamil Nad
 {english_explanation}
 
 Respond with ONLY the Tamil translation, no English."""
+
+# Exported names — prevents accidental import of internals
+__all__ = [
+    "EXPLAIN_SYSTEM_PROMPT",
+    "EXPLAIN_USER_PROMPT",
+    "TRANSLATE_SYSTEM_PROMPT",
+    "TRANSLATE_USER_PROMPT",
+]

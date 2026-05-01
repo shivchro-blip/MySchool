@@ -1,5 +1,15 @@
-import asyncio
+"""
+Ollama Connection Test
+Verifies Ollama is running and the model responds correctly.
+Run this before starting the backend for the first time.
+
+Usage:
+    python scripts/test_ollama.py
+"""
+
 import sys
+import asyncio
+import json
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "backend"))
@@ -10,57 +20,78 @@ from rich.console import Console
 console = Console()
 
 
-async def main():
+async def main() -> None:
     console.rule("[bold]Ollama Connection Test[/bold]")
+    passed = 0
+    failed = 0
 
-    console.print("\n[blue]Step 1:[/blue] Checking Ollama server...")
-    available = await is_ollama_available()
-    if not available:
-        console.print("[red]FAIL[/red] Ollama is not running.")
-        console.print("Start it with: ollama serve")
-        sys.exit(1)
-    console.print("[green]OK[/green] Ollama server is reachable")
-
-    console.print("\n[blue]Step 2:[/blue] Checking loaded models...")
-    models = await get_loaded_models()
-    console.print(f"  Available models: {models}")
-    if not any("mistral" in m for m in models):
-        console.print("[yellow]WARN[/yellow] mistral:7b-instruct not found")
-        console.print("Pull it with: ollama pull mistral:7b-instruct")
+    # Check 1: Server reachable
+    console.print("\n[blue]Check 1:[/blue] Ollama server reachable...")
+    if await is_ollama_available():
+        console.print("[green]PASS[/green] Ollama server is up")
+        passed += 1
     else:
-        console.print("[green]OK[/green] mistral:7b-instruct is available")
+        console.print("[red]FAIL[/red] Ollama not reachable. Run: ollama serve")
+        failed += 1
+        sys.exit(1)
 
-    console.print("\n[blue]Step 3:[/blue] Testing chat response...")
-    messages = [
-        {"role": "system", "content": "You are a helpful assistant. Reply in exactly 10 words."},
-        {"role": "user",   "content": "What is the capital of France?"},
-    ]
+    # Check 2: Model available
+    console.print("\n[blue]Check 2:[/blue] Model available...")
+    models = await get_loaded_models()
+    console.print(f"  Available: {models}")
+    if any("mistral" in m for m in models):
+        console.print("[green]PASS[/green] mistral:7b-instruct found")
+        passed += 1
+    else:
+        console.print("[yellow]WARN[/yellow] mistral:7b-instruct not found")
+        console.print("  Pull it: ollama pull mistral:7b-instruct")
+        failed += 1
+
+    # Check 3: Basic chat
+    console.print("\n[blue]Check 3:[/blue] Basic chat response...")
     try:
-        response = await chat(messages=messages, max_tokens=50)
+        response = await chat(
+            messages=[
+                {"role": "system",  "content": "Reply in exactly 5 words."},
+                {"role": "user",    "content": "What is the capital of France?"},
+            ],
+            max_tokens=20,
+        )
         console.print(f"  Response: [italic]{response}[/italic]")
-        console.print("[green]OK[/green] Chat is working")
+        console.print("[green]PASS[/green] Chat is working")
+        passed += 1
     except Exception as e:
         console.print(f"[red]FAIL[/red] Chat error: {e}")
-        sys.exit(1)
+        failed += 1
 
-    console.print("\n[blue]Step 4:[/blue] Testing JSON response format...")
-    json_messages = [
-        {"role": "system", "content": "Always respond with valid JSON only. No other text."},
-        {"role": "user",   "content": 'Return this JSON: {"status": "ok", "test": true}'},
-    ]
+    # Check 4: JSON output
+    console.print("\n[blue]Check 4:[/blue] JSON response format...")
     try:
-        import json
-        response = await chat(messages=json_messages, max_tokens=50)
-        parsed = json.loads(response.strip())
-        console.print(f"  Parsed JSON: {parsed}")
-        console.print("[green]OK[/green] JSON responses working")
+        response = await chat(
+            messages=[
+                {"role": "system", "content": "Respond with valid JSON only. No markdown."},
+                {"role": "user",   "content": 'Return: {"status": "ok"}'},
+            ],
+            max_tokens=30,
+        )
+        json.loads(response.strip())
+        console.print(f"  Parsed: {response.strip()}")
+        console.print("[green]PASS[/green] JSON responses working")
+        passed += 1
     except Exception as e:
-        console.print(f"[yellow]WARN[/yellow] JSON parsing issue: {e}")
-        console.print("  This may cause issues with the explain endpoint.")
+        console.print(f"[yellow]WARN[/yellow] JSON issue: {e}")
+        console.print("  This may cause parse errors in the explain endpoint.")
+        failed += 1
 
-    console.rule("[bold green]Ollama Test Complete[/bold green]")
-    console.print("\nOllama is ready. Start the backend with:")
-    console.print("  cd backend && uvicorn main:app --reload --port 8000")
+    # Summary
+    console.rule(
+        f"[bold green]{passed} passed, {failed} failed[/bold green]"
+        if failed == 0
+        else f"[bold yellow]{passed} passed, {failed} failed[/bold yellow]"
+    )
+    if failed == 0:
+        console.print("Ollama is ready. Start backend: uvicorn main:app --reload")
+    sys.exit(0 if failed == 0 else 1)
 
 
 if __name__ == "__main__":
