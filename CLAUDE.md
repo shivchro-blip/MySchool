@@ -16,20 +16,34 @@ Core loop: Learn → Ask → Practice → Write → Evaluate → Improve
 - Auth: Supabase Auth
 
 ## Folder Roles (Never Mix These)
-- backend/modules/learning/           → concept retrieval and explanation only
-- backend/modules/evaluation/         → scoring and feedback only
-- backend/modules/content_pipeline/   → PDF processing and embedding only
-- backend/ai/                         → ALL LLM calls go here only, never inside modules
-- backend/db/                         → ALL database queries go here only
-- content/raw/                        → drop PDFs here (gitignored)
-- content/structured/                 → JSON output from content pipeline
-- content/embeddings/                 → ChromaDB local vector store (gitignored)
-- scripts/                            → one-time or offline scripts only
+- backend/db/client.py                       → Supabase client only — used ONLY by repositories
+- backend/db/repositories/syllabus_repo.py   → all syllabus DB queries
+- backend/db/repositories/questions_repo.py  → all question DB queries
+- backend/db/repositories/responses_repo.py  → all response DB queries
+- backend/db/repositories/cache_repo.py      → all cache DB queries
+- backend/db/repositories/users_repo.py      → all user DB queries
+- backend/core/ai_gate.py                    → single entry point for ALL AI calls
+                                               handles: rate limit + cache + LLM + logging
+- backend/ai/router.py                       → pure LLM dispatch only (Ollama → OpenRouter)
+                                               called ONLY by AIGate
+- backend/modules/learning/                  → explain topic logic only
+- backend/modules/evaluation/                → score + feedback logic only
+- backend/modules/content_pipeline/          → PDF extraction + embedding only
+- content/raw/                               → drop PDFs here (gitignored)
+- content/structured/                        → JSON output from content pipeline
+- content/embeddings/                        → ChromaDB local vector store (gitignored)
+- scripts/                                   → one-time or offline scripts only
+
+## Architecture Rules
+- get_db() is called ONLY inside db/repositories/*.py — nowhere else
+- AIGate is the ONLY class that checks rate limits, reads cache, and logs usage
+- ai/router.py is called ONLY by AIGate — never directly from modules or routes
+- Modules instantiate repositories and AIGate — they never touch get_db()
 
 ## AI Router Rule
 1. Always call Ollama first
 2. Fall back to OpenRouter only if Ollama is unavailable or user is on paid plan
-3. LLM calls must NEVER be made directly from modules — always go through backend/ai/router.py
+3. LLM calls must NEVER be made directly from modules — always go through core/ai_gate.py
 
 ## API Route Pattern
 All routes follow: /api/v1/{module}/{action}

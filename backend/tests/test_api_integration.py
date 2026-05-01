@@ -137,17 +137,17 @@ def test_unknown_route_returns_404():
 # ── Cache key generation ─────────────────────────────────────────────────────
 
 def test_cache_key_is_deterministic():
-    from db.cache import make_cache_key
-    key1 = make_cache_key('explain', 'same content')
-    key2 = make_cache_key('explain', 'same content')
-    key3 = make_cache_key('explain', 'different content')
+    from db.repositories import CacheRepository
+    key1 = CacheRepository.make_key('explain', 'same content')
+    key2 = CacheRepository.make_key('explain', 'same content')
+    key3 = CacheRepository.make_key('explain', 'different content')
     assert key1 == key2
     assert key1 != key3
     assert len(key1) == 64  # SHA256 hex
 
 
 def test_cache_key_differs_by_type():
-    from db.cache import make_cache_key
-    key1 = make_cache_key('explain',  'content')
-    key2 = make_cache_key('evaluate', 'content')
+    from db.repositories import CacheRepository
+    key1 = CacheRepository.make_key('explain',  'content')
+    key2 = CacheRepository.make_key('evaluate', 'content')
     assert key1 != key2
