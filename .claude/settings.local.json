@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git commit *)",
+      "Bash(git add *)",
+      "Bash(gh repo *)",
+      "WebFetch(domain:github.com)",
+      "PowerShell(python _graphify_ast_extract.py)",
+      "Bash(git init *)",
+      "Bash(graphify hook *)",
+      "PowerShell(python _graphify_build.py)",
+      "PowerShell(python _graphify_label.py)",
+      "PowerShell(python _graphify_html.py)",
+      "PowerShell(python _graphify_benchmark.py; python _graphify_finalize.py)",
+      "PowerShell($env:PYTHONIOENCODING = \"utf-8\"; python _graphify_benchmark.py 2>&1 | ForEach-Object { $_ -replace '[^\\\\x00-\\\\x7F]', '?' })",
+      "Bash(python -m pytest tests/ -v --tb=short)",
+      "Bash(python -c 'import ast; import sys; errors = []; *)"
+    ]
+  }
+}
