@@ -75,6 +75,11 @@ export default {
       },
       borderRadius: {
         'pill': '100px',
+        xs:    '6px',
+        sm:    '10px',
+        md:    '14px',
+        lg:    '20px',
+        xl:    '28px',
       },
       boxShadow: {
         card:    '0 0 0 1px rgb(0 0 0 / 0.04), 0 1px 3px 0 rgb(0 0 0 / 0.05)',
