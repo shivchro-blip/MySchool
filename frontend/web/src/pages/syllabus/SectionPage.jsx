@@ -34,15 +34,17 @@ export default function SectionPage() {
   const categoryData = getCategory(year, subject, category)
   const crumbs       = buildBreadcrumbs(year, subject, category, lesson, section, SYLLABUS)
 
-  if (!lessonData)  return <NotFound message={`Lesson "${lesson}" not found`} />
-  if (!sectionData) return <NotFound message={`Section "${section}" not found`} />
+  if (!lessonData) return <NotFound message={`Lesson "${lesson}" not found`} />
 
-  // Rich content exists — render the full chapter experience directly.
-  // Skip for 'practice': PracticeSection has its own registry and renderer.
+  // Rich content check MUST come before sectionData check:
+  // LearnRichPage tab IDs (e.g. "text-explained") are not LESSON_SECTIONS slugs,
+  // so getSection() returns undefined for them — but we still want LearnRichPage.
   const richContent = contentRegistry[lesson]
   if (richContent) {
     return <LearnRichPage content={richContent} chapterSlug={lesson} />
   }
+
+  if (!sectionData) return <NotFound message={`Section "${section}" not found`} />
 
   const SectionComponent = SECTION_COMPONENTS[section]
 
