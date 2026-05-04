@@ -2,34 +2,469 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ── Geist Sans (variable) ───────────────────────────────── */
+@font-face {
+  font-family: 'Geist';
+  src: url('/fonts/geist-sans/Geist-Variable.woff2') format('woff2-variations');
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+/* ── Geist Mono (variable) ───────────────────────────────── */
+@font-face {
+  font-family: 'Geist Mono';
+  src: url('/fonts/geist-mono/GeistMono-Variable.woff2') format('woff2-variations');
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+:root {
+  /* ══════════════════════════════════════════════════════════
+     PAPER THEME — warm study-desk aesthetic
+     Hex fallbacks first; oklch override in @supports block.
+     ══════════════════════════════════════════════════════════ */
+  --bg:          #f5f1eb;
+  --bg-2:        #faf8f4;
+  --bg-sunk:     #ede9e2;
+  --line:        #d9d3c8;
+  --line-soft:   #e5e0d8;
+  --ink:         #2e2a24;
+  --ink-2:       #5a5349;
+  --ink-3:       #6e6760;
+  --ink-4:       #b0a89f;
+  --accent:      #3b5ea6;
+  --accent-soft: #e0e8f7;
+  --accent-ink:  #2c4880;
+  --good:        #4a8c6a;
+  --good-soft:   #e0f0e8;
+  --good-ink:    #2f6850;
+  --warn:        #a07030;
+  --warn-soft:   #f5ede0;
+  --pos:         #b86a2a;
+  --pos-soft:    #f4e8d8;
+  --danger:      #b03a30;
+  --highlight:   #f5f0c8;
+
+  /* ── Layout rail widths ──────────────────────────────────── */
+  --rail-sidebar:           220px;
+  --rail-sidebar-collapsed:  64px;
+  --rail-left:              220px;
+  --rail-right:             280px;
+  --rail-subject:           320px;
+  --rail-parts:             240px;
+  --rail-map:               240px;
+
+  /* ── Motion ──────────────────────────────────────────────── */
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+  --duration-slow: 300ms;
+  --duration-ring: 600ms;
+  --ease-out:    cubic-bezier(0.0, 0.0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+@supports (color: oklch(0 0 0)) {
+  :root {
+    --bg:          oklch(0.965 0.012 80);
+    --bg-2:        oklch(0.985 0.008 85);
+    --bg-sunk:     oklch(0.945 0.014 78);
+    --line:        oklch(0.88 0.014 75);
+    --line-soft:   oklch(0.92 0.012 78);
+    --ink:         oklch(0.25 0.018 60);
+    --ink-2:       oklch(0.42 0.014 55);
+    --ink-3:       oklch(0.48 0.012 55);
+    --ink-4:       oklch(0.72 0.010 55);
+    --accent:      oklch(0.45 0.13 245);
+    --accent-soft: oklch(0.93 0.04 245);
+    --accent-ink:  oklch(0.35 0.14 245);
+    --good:        oklch(0.55 0.09 155);
+    --good-soft:   oklch(0.93 0.04 155);
+    --good-ink:    oklch(0.40 0.10 155);
+    --warn:        oklch(0.62 0.13 60);
+    --warn-soft:   oklch(0.94 0.05 70);
+    --pos:         oklch(0.55 0.13 50);
+    --pos-soft:    oklch(0.94 0.05 60);
+    --danger:      oklch(0.50 0.18 25);
+    --highlight:   oklch(0.93 0.07 95);
+  }
+}
+
+:root {
+  /* ── Base surfaces ── */
+  --ec-bg-page:        #4A90E2;   /* Page background — soft blue */
+  --ec-bg-card:        #0D1228;   /* Card / banner background */
+  --ec-bg-card-hover:  #111630;   /* Card hover state */
+  --ec-bg-sidebar:     #0A0E1A;   /* Sidebar background */
+  --ec-border:         #1A2040;   /* Default border */
+  --ec-border-subtle:  #161B2E;   /* Subtle dividers */
+
+  /* ── Text ── */
+  --ec-text-primary:   #EEF0FF;   /* Headings, titles */
+  --ec-text-body:      #9DA8CC;   /* Body paragraphs */
+  --ec-text-muted:     #4B5675;   /* Nav links, metadata */
+  --ec-text-dimmed:    #3A4268;   /* Inactive sidebar items */
+
+  /* ── Brand accent — Blue (focus, active, progress) ── */
+  --ec-blue:           #1B4FD8;   /* Primary action, active nav, step pill */
+  --ec-blue-dim:       rgba(27,79,216,0.10);  /* Active nav background */
+  --ec-blue-border:    rgba(27,79,216,0.30);  /* Tag borders */
+  --ec-blue-text:      #93A4F4;   /* Active nav text, tag text */
+  --ec-blue-meta:      #3D5296;   /* Section labels, metadata */
+
+  /* ── Amber (key terms, memory triggers) ── */
+  --ec-amber:          #F59E0B;   /* Key term highlights, Career card accent */
+  --ec-amber-bg:       #1A1200;   /* Career card background */
+  --ec-amber-border:   #2E2000;   /* Career card border */
+
+  /* ── Teal (info labels, Education card) ── */
+  --ec-teal:           #0EA5E9;   /* Education card accent, decorative ring */
+  --ec-teal-bg:        #071A1A;   /* Education card background */
+  --ec-teal-border:    #0D3535;   /* Education card border */
+
+  /* ── Violet (awards, secondary accent) ── */
+  --ec-violet:         #7C6FE8;   /* Awards card accent */
+  --ec-violet-bg:      #0F0D22;   /* Awards card background */
+  --ec-violet-border:  #1E1A40;   /* Awards card border */
+
+  /* ── Semantic (do not repurpose) ── */
+  --ec-success:        #22C55E;   /* Correct answers */
+  --ec-success-bg:     #071A0F;   /* Model answer / correct state background */
+  --ec-success-border: #0D3520;   /* Model answer / correct state border */
+  --ec-danger:         #EF4444;   /* Wrong answers, errors */
+  --ec-warning:        #F59E0B;   /* Same as amber — caution states */
+
+  /* ── Typography ── */
+  --ec-text-xs:        10px;
+  --ec-text-sm:        11px;
+  --ec-text-base:      13px;
+  --ec-text-md:        14px;
+  --ec-text-lg:        17px;
+  --ec-text-xl:        22px;
+  --ec-text-2xl:       26px;
+  --ec-leading:        1.85;
+  --ec-tracking-wide:  0.1em;
+
+  /* ── Radius ── */
+  --ec-radius-sm:   6px;
+  --ec-radius-md:   8px;
+  --ec-radius-lg:  10px;
+  --ec-radius-pill: 100px;
+}
+
 @layer base {
   body {
-    @apply font-sans;
+    @apply font-sans text-gray-900;
+    background-color: var(--bg);
   }
 }
 
 @layer components {
   .btn-primary {
-    @apply bg-brand-600 text-white px-4 py-2 rounded-lg font-medium
-           hover:bg-brand-700 active:bg-brand-900
-           disabled:opacity-50 disabled:cursor-not-allowed
-           transition-colors duration-150;
+    @apply inline-flex items-center justify-center gap-1.5
+           bg-brand-600 text-white px-4 py-2 rounded-xl font-medium text-sm
+           hover:bg-brand-700 active:bg-brand-800
+           disabled:opacity-40 disabled:cursor-not-allowed
+           transition-all duration-150 shadow-sm;
   }
   .btn-secondary {
-    @apply bg-white text-gray-700 px-4 py-2 rounded-lg font-medium
-           border border-gray-200 hover:bg-gray-50
-           disabled:opacity-50 disabled:cursor-not-allowed
-           transition-colors duration-150;
+    @apply inline-flex items-center justify-center gap-1.5
+           bg-white text-gray-700 px-4 py-2 rounded-xl font-medium text-sm
+           border border-gray-200 hover:bg-gray-50 hover:border-gray-300
+           disabled:opacity-40 disabled:cursor-not-allowed
+           transition-all duration-150;
   }
   .card {
-    @apply bg-white rounded-xl shadow-sm border border-gray-100 p-4;
+    @apply bg-white rounded-2xl shadow-card border border-gray-100 p-4;
+  }
+  .card-hover {
+    @apply card hover:shadow-card-md hover:-translate-y-0.5 transition-all duration-150;
   }
   .input {
-    @apply w-full border border-gray-200 rounded-lg px-3 py-2
-           focus:outline-none focus:ring-2 focus:ring-brand-500
-           focus:border-transparent text-sm;
+    @apply w-full border border-gray-200 rounded-xl px-3.5 py-2.5
+           focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent
+           text-sm bg-white placeholder:text-gray-400 transition-shadow;
   }
   .badge {
-    @apply inline-flex items-center px-2 py-0.5 rounded text-xs font-medium;
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+  .section-label {
+    @apply text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3;
+  }
+  .badge-brand {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold
+           bg-brand-100 text-brand-700;
+  }
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  .rich-highlight {
+    background-color: var(--ec-amber-bg);
+    color: var(--ec-amber);
+    border: 0.5px solid var(--ec-amber-border);
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-size: 0.8125rem;
+    font-weight: 500;
+  }
+  .skeleton {
+    @apply bg-gray-100 animate-pulse;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════
+   EC Dark Theme — Component Classes
+   All values reference :root tokens only — no raw hex.
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Hero banner ─────────────────────────────────────────── */
+.ec-hero-banner {
+  background: var(--ec-bg-card);
+  border: 0.5px solid var(--ec-border);
+  border-radius: var(--ec-radius-lg);
+  position: relative;
+  overflow: hidden;
+  padding: 20px 24px 22px;
+  margin-bottom: 24px;
+}
+
+/* Ring 1 — blue, top-right */
+.ec-hero-ring-1 {
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 36px solid var(--ec-blue);
+  opacity: 0.06;
+  pointer-events: none;
+}
+
+/* Ring 2 — teal, inset */
+.ec-hero-banner::after {
+  content: '';
+  position: absolute;
+  top: 10px;
+  right: 88px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 26px solid var(--ec-teal);
+  opacity: 0.07;
+  pointer-events: none;
+}
+
+/* ── Section heading ─────────────────────────────────────── */
+.ec-section-head {
+  font-size: var(--ec-text-lg);
+  font-weight: 700;
+  color: var(--ec-text-primary);
+  position: relative;
+  padding-bottom: 10px;
+  margin-top: 22px;
+  margin-bottom: 14px;
+}
+
+.ec-section-head::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 32px;
+  height: 2px;
+  background: var(--ec-blue);
+  border-radius: 2px;
+}
+
+/* ── Prose area — strong / em coloring ──────────────────── */
+.ec-prose {
+  color: var(--ec-text-body);
+  font-size: var(--ec-text-base);
+  line-height: var(--ec-leading);
+}
+
+.ec-prose p { color: var(--ec-text-body); }
+
+.ec-prose strong {
+  color: var(--ec-amber);
+  font-weight: 600;
+}
+
+.ec-prose em {
+  color: var(--ec-text-primary);
+  font-style: italic;
+}
+
+/* ── Think box ───────────────────────────────────────────── */
+.ec-think-box {
+  background: var(--ec-bg-card-hover);
+  border-left: 4px solid var(--ec-blue);
+  border-radius: 0 12px 12px 0;
+  padding: 16px 18px;
+  margin: 16px 0;
+  color: var(--ec-text-body);
+}
+
+/* ── Quote block ─────────────────────────────────────────── */
+.ec-quote-block {
+  background: var(--ec-bg-card);
+  border: 0.5px solid var(--ec-border);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin: 16px 0;
+  color: var(--ec-text-body);
+}
+
+/* ── Device block ────────────────────────────────────────── */
+.ec-device-block {
+  background: var(--ec-bg-card);
+  border: 0.5px solid var(--ec-border);
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  color: var(--ec-text-body);
+}
+
+/* ── Info cards (Education / Career / Awards) ────────────── */
+.ec-info-card {
+  border-width: 0.5px;
+  border-style: solid;
+  border-left-width: 2px;
+  border-radius: 0 8px 8px 0;
+  padding: 13px 16px;
+  margin-bottom: 10px;
+  transition: all 0.2s ease;
+}
+
+.ec-info-card-label {
+  font-size: var(--ec-text-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--ec-tracking-wide);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.ec-info-card-value {
+  font-size: var(--ec-text-base);
+  line-height: 1.75;
+  color: var(--ec-text-body);
+}
+
+.ec-info-card--teal {
+  background: var(--ec-teal-bg);
+  border-color: var(--ec-teal-border);
+  border-left-color: var(--ec-teal);
+}
+.ec-info-card--teal .ec-info-card-label { color: var(--ec-teal); }
+
+.ec-info-card--amber {
+  background: var(--ec-amber-bg);
+  border-color: var(--ec-amber-border);
+  border-left-color: var(--ec-amber);
+}
+.ec-info-card--amber .ec-info-card-label { color: var(--ec-amber); }
+
+.ec-info-card--violet {
+  background: var(--ec-violet-bg);
+  border-color: var(--ec-violet-border);
+  border-left-color: var(--ec-violet);
+}
+.ec-info-card--violet .ec-info-card-label { color: var(--ec-violet); }
+
+.ec-info-card--neutral {
+  background: var(--ec-bg-card-hover);
+  border-color: var(--ec-border);
+  border-left-color: var(--ec-border);
+}
+.ec-info-card--neutral .ec-info-card-label { color: var(--ec-text-muted); }
+
+/* ── Hero tags ───────────────────────────────────────────── */
+.ec-tag {
+  font-size: var(--ec-text-sm);
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: var(--ec-radius-pill);
+  background: var(--ec-blue-dim);
+  border: 0.5px solid var(--ec-blue-border);
+  color: var(--ec-blue-text);
+  transition: all 0.2s ease;
+}
+
+/* ── Sidebar nav items ───────────────────────────────────── */
+.ec-sidenav-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 8px 12px;
+  font-size: var(--ec-text-base);
+  border-left: 2px solid transparent;
+  border-radius: 0 var(--ec-radius-sm) var(--ec-radius-sm) 0;
+  color: var(--ec-text-muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 2px;
+  background: transparent;
+}
+
+.ec-sidenav-item:hover {
+  color: var(--ec-blue-text);
+  background: var(--ec-blue-dim);
+}
+
+.ec-sidenav-item--active {
+  color: var(--ec-blue-text);
+  background: var(--ec-blue-dim);
+  border-left-color: var(--ec-blue);
+  font-weight: 600;
+}
+
+/* ── EC dark buttons ─────────────────────────────────────── */
+.ec-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: var(--ec-blue);
+  color: var(--ec-text-primary);
+  padding: 8px 20px;
+  border-radius: var(--ec-radius-pill);
+  font-size: var(--ec-text-base);
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ec-btn-primary:hover { opacity: 0.85; }
+
+.ec-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: transparent;
+  color: var(--ec-text-body);
+  padding: 8px 20px;
+  border-radius: var(--ec-radius-pill);
+  font-size: var(--ec-text-base);
+  font-weight: 500;
+  border: 0.5px solid var(--ec-border);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ec-btn-secondary:hover {
+  color: var(--ec-text-primary);
+  border-color: var(--ec-blue-border);
+  background: var(--ec-blue-dim);
+}
+
+/* ── Webkit scrollbar ────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--ec-bg-card); }
+::-webkit-scrollbar-thumb {
+  background: var(--ec-border);
+  border-radius: 3px;
+  transition: background 0.2s ease;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--ec-blue); }
