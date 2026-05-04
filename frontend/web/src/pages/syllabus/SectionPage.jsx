@@ -40,7 +40,7 @@ export default function SectionPage() {
   // Rich content exists — render the full chapter experience directly.
   // Skip for 'practice': PracticeSection has its own registry and renderer.
   const richContent = contentRegistry[lesson]
-  if (richContent && section !== 'practice') {
+  if (richContent) {
     return <LearnRichPage content={richContent} chapterSlug={lesson} />
   }
 

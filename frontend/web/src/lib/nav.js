@@ -10,7 +10,7 @@ export function buildPath(year, subject, category, lesson, section) {
 }
 
 export function buildBreadcrumbs(year, subject, category, lesson, section, syllabus) {
-  const crumbs = []
+  const crumbs = [{ label: 'Courses', to: '/courses' }]
 
   if (year) {
     crumbs.push({

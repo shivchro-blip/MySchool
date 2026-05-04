@@ -1,10 +1,14 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { isLoggedIn } from './api/auth'
 
-import LoginPage from './pages/LoginPage'
-import ProgressPage from './pages/ProgressPage'
+import LoginPage        from './pages/LoginPage'
+import ProgressPage     from './pages/ProgressPage'
+import DashboardPage    from './pages/DashboardPage'
+import CoursesIndexPage from './pages/CoursesIndexPage'
+import ActivityPage     from './pages/ActivityPage'
+import CertificatePage  from './pages/CertificatePage'
 
-import AppShell from './components/layout/AppShell'
+import DashboardShell from './components/layout/DashboardShell'
 
 import YearPage         from './pages/syllabus/YearPage'
 import SubjectPage      from './pages/syllabus/SubjectPage'
@@ -17,11 +21,20 @@ function Guard({ children }) {
   return isLoggedIn() ? children : <Navigate to="/login" replace />
 }
 
-function SyllabusShell({ children }) {
+function DashShell({ children }) {
   return (
     <Guard>
-      <AppShell>{children}</AppShell>
+      <DashboardShell>{children}</DashboardShell>
     </Guard>
+  )
+}
+
+// Thin content wrapper — matches the max-width + padding the old AppShell provided
+function CourseContent({ children }) {
+  return (
+    <div className="max-w-3xl mx-auto px-4 py-6 lg:py-8">
+      {children}
+    </div>
   )
 }
 
@@ -32,28 +45,65 @@ export default function App() {
 
         <Route path="/login" element={<LoginPage />} />
 
-        <Route path="/progress" element={
-          <SyllabusShell><ProgressPage /></SyllabusShell>
+        {/* ── Dashboard shell routes ─────────────────────────── */}
+        <Route path="/" element={
+          <DashShell><DashboardPage /></DashShell>
         } />
 
+        <Route path="/courses" element={
+          <DashShell>
+            <CourseContent><CoursesIndexPage /></CourseContent>
+          </DashShell>
+        } />
+
+        <Route path="/progress" element={
+          <DashShell>
+            <CourseContent><ProgressPage /></CourseContent>
+          </DashShell>
+        } />
+
+        <Route path="/activity" element={
+          <DashShell><ActivityPage /></DashShell>
+        } />
+
+        <Route path="/certificate" element={
+          <DashShell><CertificatePage /></DashShell>
+        } />
+
+        {/* ── Syllabus drill-down — stays in DashboardShell ─── */}
+        {/* Internal navigate() calls use /:year/... so these   */}
+        {/* routes keep the user in the EduFlow shell throughout */}
         <Route path="/:year" element={
-          <SyllabusShell><YearPage /></SyllabusShell>
+          <DashShell>
+            <CourseContent><YearPage /></CourseContent>
+          </DashShell>
         } />
         <Route path="/:year/:subject" element={
-          <SyllabusShell><SubjectPage /></SyllabusShell>
+          <DashShell>
+            <CourseContent><SubjectPage /></CourseContent>
+          </DashShell>
         } />
         <Route path="/:year/:subject/:category" element={
-          <SyllabusShell><LessonListPage /></SyllabusShell>
+          <DashShell>
+            <CourseContent><LessonListPage /></CourseContent>
+          </DashShell>
         } />
         <Route path="/:year/:subject/:category/:lesson" element={
-          <SyllabusShell><LessonDetailPage /></SyllabusShell>
+          <DashShell>
+            <CourseContent><LessonDetailPage /></CourseContent>
+          </DashShell>
         } />
         <Route path="/:year/:subject/:category/:lesson/:section" element={
-          <SyllabusShell><SectionPage /></SyllabusShell>
+          <DashShell>
+            <CourseContent><SectionPage /></CourseContent>
+          </DashShell>
         } />
 
-        <Route path="/" element={<SyllabusShell><YearPage /></SyllabusShell>} />
-        <Route path="*" element={<SyllabusShell><NotFound /></SyllabusShell>} />
+        <Route path="*" element={
+          <DashShell>
+            <CourseContent><NotFound /></CourseContent>
+          </DashShell>
+        } />
 
       </Routes>
     </BrowserRouter>

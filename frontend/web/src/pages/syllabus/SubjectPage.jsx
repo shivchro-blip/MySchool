@@ -54,7 +54,7 @@ function LessonRow({ lesson, unit, year, subject }) {
       {/* Learn / Practice buttons */}
       <div className="flex gap-1.5 shrink-0">
         <button
-          onClick={() => navigate(`/${year}/${subject}/${lesson.category}/${lesson.slug}/text`)}
+          onClick={() => navigate(`/${year}/${subject}/${lesson.category}/${lesson.slug}`)}
           className="px-3.5 py-1.5 rounded-[14px] text-white text-xs font-semibold transition-opacity"
           style={{ background: unit.color, opacity: hov ? 1 : 0.88 }}
         >

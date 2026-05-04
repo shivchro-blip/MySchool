@@ -21,9 +21,15 @@ function McqPart({ part, done, score, onAnswer }) {
       {part.sections.map((sec, si) => (
         <div key={si}>
           <p
-            className={`text-[10px] font-bold tracking-[0.1em] uppercase text-ink-4
-                        pb-2 border-b border-line-soft mb-3
+            className={`text-[10px] font-bold tracking-[0.1em] uppercase mb-3
                         ${si === 0 ? '' : 'mt-7'}`}
+            style={{
+              background: 'rgba(46,196,182,0.10)',
+              borderLeft: '3px solid #2ec4b6',
+              color: '#0b6b65',
+              padding: '10px 14px',
+              borderRadius: '0 8px 8px 0',
+            }}
           >
             {sec.label}
           </p>
@@ -103,7 +109,16 @@ function ReferencePart({ part, cur, onNav, revealed, onToggle, answers, onAnswer
 
   return (
     <div>
-      <p className="text-[12px] text-ink-3 italic mb-4 leading-relaxed">{part.instruction}</p>
+      <p
+        className="text-[12px] italic mb-4 leading-relaxed"
+        style={{
+          background: 'rgba(46,196,182,0.08)',
+          borderLeft: '3px solid #2ec4b6',
+          color: '#0b6b65',
+          padding: '10px 14px',
+          borderRadius: '0 8px 8px 0',
+        }}
+      >{part.instruction}</p>
 
       <div
         className="bg-bg-2 rounded-xl px-5 py-5 border"
@@ -201,7 +216,16 @@ function EssayPart({ part, answers, onAnswer, revealed, onToggle }) {
 
   return (
     <div>
-      <p className="text-[12px] text-ink-3 italic mb-4 leading-relaxed">{part.instruction}</p>
+      <p
+        className="text-[12px] italic mb-4 leading-relaxed"
+        style={{
+          background: 'rgba(46,196,182,0.08)',
+          borderLeft: '3px solid #2ec4b6',
+          color: '#0b6b65',
+          padding: '10px 14px',
+          borderRadius: '0 8px 8px 0',
+        }}
+      >{part.instruction}</p>
 
       {part.questions.map((q, i) => (
         <div
@@ -319,26 +343,6 @@ export default function PracticeRichPage({ content, chapterSlug }) {
 
   return (
     <div>
-      {/* Header */}
-      <div className="mb-5">
-        <p className="text-[11px] font-semibold uppercase tracking-widest text-accent mb-1">
-          {content.meta.unit}
-        </p>
-        <h1 className="text-2xl font-bold text-ink leading-snug mb-1">Practice Paper</h1>
-        <p className="text-sm text-ink-3 mb-3">{content.meta.subject}</p>
-        <div className="flex gap-1.5 flex-wrap">
-          <span className="text-[11px] font-medium px-2.5 py-0.5 rounded-full bg-accent-soft text-accent-ink">
-            Time: {content.meta.time}
-          </span>
-          <span className="text-[11px] font-medium px-2.5 py-0.5 rounded-full bg-accent-soft text-accent-ink">
-            Marks: {content.meta.totalMarks}
-          </span>
-          <span className="text-[11px] font-medium px-2.5 py-0.5 rounded-full bg-accent-soft text-accent-ink">
-            {content.meta.instructions}
-          </span>
-        </div>
-      </div>
-
       {/* Part tabs */}
       <div
         className="scroll-strip -mx-1 px-1 mb-6"

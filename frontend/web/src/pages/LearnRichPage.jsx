@@ -2,8 +2,11 @@ import { useState, useEffect, useRef } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { api } from '../api/client'
 import practiceRegistry from '../content/practiceRegistry'
+import { Breadcrumb } from '../components/nav'
 import PracticeRichPage from './PracticeRichPage'
 import { resolveTabIcon, stripTabLabel } from '../utils/resolveTabIcon'
+import { buildBreadcrumbs } from '../lib/nav'
+import { SYLLABUS } from '../data/syllabus'
 
 const STAT_COLOR = {
   Education:       '#0ea5e9',
@@ -302,32 +305,15 @@ function AskAIPanel({ chapterSlug }) {
 }
 
 export default function LearnRichPage({ content, chapterSlug }) {
-  const [activeTab, setActiveTab] = useState(content.tabs[0].id)
   const navigate = useNavigate()
-  const { year, subject, category, lesson } = useParams()
+  const { year, subject, category, lesson, section } = useParams()
   const practiceUrl = (year && subject && category && lesson)
     ? `/${year}/${subject}/${category}/${lesson}/practice`
     : `/${chapterSlug}/practice`
 
-  // Derive content type from the eyebrow field (e.g. "Unit 1 · Prose · ...")
   const contentType = /\bPoem\b/i.test(content.eyebrow) ? 'poem'
     : /\bPlay\b|\bDrama\b/i.test(content.eyebrow) ? 'drama'
     : 'prose'
-
-  // Ref on the active pill so it scrolls into view when the tab changes
-  const activeTabRef = useRef(null)
-  useEffect(() => {
-    activeTabRef.current?.scrollIntoView({
-      behavior: 'smooth',
-      block: 'nearest',
-      inline: 'center',
-    })
-  }, [activeTab])
-
-  function switchTab(id) {
-    setActiveTab(id)
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  }
 
   // Chapters that pre-declare practice/askai tabs use them as-is.
   // All others get them injected here so no data file needs editing.
@@ -345,19 +331,51 @@ export default function LearnRichPage({ content, chapterSlug }) {
     return extra.length ? [...tabs, ...extra] : tabs
   })()
 
+  // Initialize from URL section param; fall back to first tab
+  const [activeTab, setActiveTab] = useState(
+    () => allTabs.find(t => t.id === section)?.id ?? allTabs[0].id
+  )
+
+  // Sync when section param changes (browser back/forward, direct URL load)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => {
+    setActiveTab(allTabs.find(t => t.id === section)?.id ?? allTabs[0].id)
+  }, [section])
+
+  const activeTabRef = useRef(null)
+  useEffect(() => {
+    activeTabRef.current?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'nearest',
+      inline: 'center',
+    })
+  }, [activeTab])
+
+  function switchTab(id) {
+    if (year && subject && category && lesson) {
+      navigate(`/${year}/${subject}/${category}/${lesson}/${id}`)
+    } else {
+      setActiveTab(id)
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
   const visibleTabs = allTabs.filter(t => !t.hidden)
   const panel = allTabs.find(t => t.id === activeTab)
+
+  // Full breadcrumb chain from route params; fall back to 2-segment for standalone use
+  const crumbs = (year && subject)
+    ? buildBreadcrumbs(year, subject, category, lesson, null, SYLLABUS)
+    : [
+        { label: 'Courses', to: '/courses' },
+        { label: content.eyebrow, to: null },
+      ]
 
   return (
     <div>
       {/* Chapter header — white card */}
       <div className="bg-white border border-line rounded-2xl px-6 pt-5 pb-5 mb-5">
-        <p
-          className="text-[11px] font-semibold uppercase tracking-[0.15em] mb-2"
-          style={{ color: '#2A7B6F' }}
-        >
-          {content.eyebrow}
-        </p>
+        <Breadcrumb crumbs={crumbs} />
         <h1
           className="font-serif text-[26px] font-bold leading-tight mb-1.5"
           style={{ color: 'var(--ink)' }}
