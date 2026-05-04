@@ -1,0 +1,1418 @@
+{
+  "communities": {
+    "0": [
+      "ai_router_call_llm",
+      "ai_router_call_llm_direct",
+      "ai_router_rationale_13",
+      "ai_router_rationale_53",
+      "backend_ai_init_py",
+      "backend_ai_router_py",
+      "backend_core_ai_gate_py",
+      "backend_core_errors_py",
+      "backend_models_evaluation_py",
+      "backend_tests_test_api_integration_py",
+      "core_AIGate_call",
+      "core_ai_gate_aigate",
+      "core_ai_gate_aigate_call",
+      "core_ai_gate_rationale_10",
+      "core_ai_gate_rationale_29",
+      "core_errors_aiunavailableerror",
+      "core_errors_aiunavailableerror_init",
+      "core_errors_apperror",
+      "core_errors_apperror_init",
+      "core_errors_notfounderror",
+      "core_errors_notfounderror_init",
+      "core_errors_ratelimiterror",
+      "core_errors_ratelimiterror_init",
+      "evaluation_service_rationale_136",
+      "evaluation_service_rationale_359",
+      "evaluation_service_rationale_45",
+      "exception",
+      "models_evaluation_evaluationresponse",
+      "models_evaluation_feedbackdetail",
+      "models_evaluation_retryrequest",
+      "models_evaluation_submitanswerrequest",
+      "tests_test_api_integration_as_admin",
+      "tests_test_api_integration_as_student",
+      "tests_test_api_integration_rationale_1",
+      "tests_test_api_integration_rationale_115",
+      "tests_test_api_integration_rationale_128",
+      "tests_test_api_integration_rationale_141",
+      "tests_test_api_integration_rationale_153",
+      "tests_test_api_integration_rationale_193",
+      "tests_test_api_integration_rationale_215",
+      "tests_test_api_integration_rationale_226",
+      "tests_test_api_integration_rationale_247",
+      "tests_test_api_integration_rationale_276",
+      "tests_test_api_integration_rationale_290",
+      "tests_test_api_integration_rationale_30",
+      "tests_test_api_integration_rationale_304",
+      "tests_test_api_integration_rationale_329",
+      "tests_test_api_integration_rationale_343",
+      "tests_test_api_integration_rationale_360",
+      "tests_test_api_integration_rationale_380",
+      "tests_test_api_integration_rationale_39",
+      "tests_test_api_integration_test_admin_pending_content_returns_list",
+      "tests_test_api_integration_test_admin_pending_evaluations_returns_list",
+      "tests_test_api_integration_test_admin_requires_auth",
+      "tests_test_api_integration_test_cache_key_differs_by_type",
+      "tests_test_api_integration_test_cache_key_is_deterministic",
+      "tests_test_api_integration_test_evaluation_submit_not_found_returns_404",
+      "tests_test_api_integration_test_evaluation_submit_rate_limit_returns_429",
+      "tests_test_api_integration_test_evaluation_submit_requires_auth",
+      "tests_test_api_integration_test_evaluation_submit_returns_score",
+      "tests_test_api_integration_test_get_chapters_404_for_unknown_subject",
+      "tests_test_api_integration_test_get_chapters_returns_list",
+      "tests_test_api_integration_test_get_questions_for_chapter",
+      "tests_test_api_integration_test_get_questions_passes_marks_filter",
+      "tests_test_api_integration_test_get_subjects_returns_list",
+      "tests_test_api_integration_test_get_topics_for_chapter",
+      "tests_test_api_integration_test_health_endpoint",
+      "tests_test_api_integration_test_history_route_returns_list",
+      "tests_test_api_integration_test_learning_content_returns_chunks",
+      "tests_test_api_integration_test_learning_explain_rate_limit_returns_429",
+      "tests_test_api_integration_test_learning_explain_requires_auth",
+      "tests_test_api_integration_test_learning_explain_returns_response",
+      "tests_test_api_integration_test_progress_requires_auth",
+      "tests_test_api_integration_test_progress_route_empty_for_new_user",
+      "tests_test_api_integration_test_progress_route_returns_stats",
+      "tests_test_api_integration_test_submit_rejects_invalid_uuid",
+      "tests_test_api_integration_test_submit_rejects_short_answer",
+      "tests_test_api_integration_test_unknown_route_returns_404"
+    ],
+    "1": [
+      "api_service_dart",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_config_theme_dart_apptheme",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_main_dart_build",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_main_dart_examcoachapp",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_main_dart_main",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_screens_home_screen_dart_build",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_screens_home_screen_dart_center",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_screens_home_screen_dart_homescreen",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_screens_home_screen_dart_homescreenstate",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_screens_home_screen_dart_initstate",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_screens_home_screen_dart_scaffold",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_screens_home_screen_dart_sizedbox",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_screens_home_screen_dart_text",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_screens_learn_screen_dart_build",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_screens_learn_screen_dart_center",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_screens_learn_screen_dart_initstate",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_screens_learn_screen_dart_learnscreen",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_screens_learn_screen_dart_learnscreenstate",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_screens_learn_screen_dart_scaffold",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_screens_learn_screen_dart_sizedbox",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_screens_learn_screen_dart_text",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_screens_practice_screen_dart_build",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_screens_practice_screen_dart_buildlist",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_screens_practice_screen_dart_buildresult",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_screens_practice_screen_dart_buildwrite",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_screens_practice_screen_dart_center",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_screens_practice_screen_dart_color",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_screens_practice_screen_dart_feedbackcard",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_screens_practice_screen_dart_initstate",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_screens_practice_screen_dart_practicescreen",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_screens_practice_screen_dart_practicescreenstate",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_screens_practice_screen_dart_scaffold",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_screens_practice_screen_dart_sizedbox",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_screens_practice_screen_dart_startquestion",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_screens_practice_screen_dart_text",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_services_evaluation_service_dart_evaluationservice",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_services_learning_service_dart_learningservice",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_services_syllabus_service_dart_syllabusservice",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_widgets_app_button_dart_appbutton",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_widgets_app_button_dart_build",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_widgets_app_button_dart_elevatedbutton",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_widgets_app_button_dart_outlinedbutton",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_widgets_app_button_dart_sizedbox",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_widgets_error_view_dart_build",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_widgets_error_view_dart_container",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_widgets_error_view_dart_errorview",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_widgets_error_view_dart_sizedbox",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_widgets_marks_chip_dart_build",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_widgets_marks_chip_dart_container",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_widgets_marks_chip_dart_markschip",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_widgets_score_card_dart_build",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_widgets_score_card_dart_card",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_widgets_score_card_dart_scorecard",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_widgets_score_card_dart_sizedbox",
+      "config_config_dart",
+      "frontend_app_lib_config_theme_dart",
+      "frontend_app_lib_main_dart",
+      "frontend_app_lib_screens_home_screen_dart",
+      "frontend_app_lib_screens_learn_screen_dart",
+      "frontend_app_lib_screens_practice_screen_dart",
+      "frontend_app_lib_services_evaluation_service_dart",
+      "frontend_app_lib_services_learning_service_dart",
+      "frontend_app_lib_services_syllabus_service_dart",
+      "frontend_app_lib_widgets_app_button_dart",
+      "frontend_app_lib_widgets_error_view_dart",
+      "frontend_app_lib_widgets_marks_chip_dart",
+      "frontend_app_lib_widgets_score_card_dart",
+      "models_evaluation_model_dart",
+      "models_learning_model_dart",
+      "models_syllabus_model_dart",
+      "package_flutter_material_dart",
+      "package_google_fonts_google_fonts_dart",
+      "router_dart",
+      "services_learning_service_dart",
+      "services_syllabus_service_dart",
+      "widgets_error_view_dart",
+      "widgets_marks_chip_dart",
+      "widgets_score_card_dart"
+    ],
+    "2": [
+      "api_v1_admin_router",
+      "api_v1_admin_trigger_pipeline",
+      "api_v1_deps",
+      "api_v1_evaluation_router",
+      "api_v1_learning_router",
+      "api_v1_router",
+      "api_v1_syllabus_router",
+      "api_v1_users_router",
+      "backend_api_v1_admin_py",
+      "backend_core_admin_auth_py",
+      "backend_core_auth_py",
+      "backend_db_client_py",
+      "backend_main_health_check",
+      "backend_main_py",
+      "backend_models_common_py",
+      "backend_models_init_py",
+      "backend_models_learning_py",
+      "backend_models_syllabus_py",
+      "backend_models_user_py",
+      "basemodel",
+      "config_Settings",
+      "core_admin_auth_get_admin_user",
+      "core_auth_get_current_user",
+      "core_auth_get_optional_user",
+      "core_errors_register_error_handlers",
+      "db_client_get_db",
+      "db_client_get_public_db",
+      "db_client_rationale_23",
+      "main_app",
+      "main_health_check",
+      "models_common_errorresponse",
+      "models_common_healthresponse",
+      "models_common_paginatedresponse",
+      "models_learning_explainrequest",
+      "models_learning_explainresponse",
+      "models_syllabus_chapterresponse",
+      "models_syllabus_contentchunkresponse",
+      "models_syllabus_questionresponse",
+      "models_syllabus_rationale_1",
+      "models_syllabus_subjectresponse",
+      "models_syllabus_syllabustreeresponse",
+      "models_syllabus_topicresponse",
+      "models_user_updateprofilerequest",
+      "models_user_userprofileresponse",
+      "ollama_client_chat",
+      "openrouter_client_chat",
+      "v1_admin_create_question",
+      "v1_admin_createquestionrequest",
+      "v1_admin_delete_chunk",
+      "v1_admin_delete_question",
+      "v1_admin_edit_chunk",
+      "v1_admin_get_all_questions",
+      "v1_admin_get_pending_content",
+      "v1_admin_get_pending_evaluations",
+      "v1_admin_get_system_stats",
+      "v1_admin_group_by",
+      "v1_admin_invalidate_chunk",
+      "v1_admin_review_evaluation",
+      "v1_admin_reviewevaluationrequest",
+      "v1_admin_triggerpipelinerequest",
+      "v1_admin_update_question",
+      "v1_admin_updatequestionrequest",
+      "v1_admin_validate_chunk"
+    ],
+    "3": [
+      "backend_api_v1_evaluation_py",
+      "backend_modules_evaluation_init_py",
+      "backend_modules_evaluation_rubric_py",
+      "backend_modules_evaluation_service_py",
+      "backend_tests_test_evaluation_py",
+      "backend_tests_test_validation_guard_py",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_models_evaluation_model_dart_color",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_models_evaluation_model_dart_evaluationresponse",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_models_evaluation_model_dart_feedbackdetail",
+      "evaluation_rubric_format_answer_key",
+      "evaluation_rubric_format_rubric",
+      "evaluation_rubric_rationale_1",
+      "evaluation_rubric_rationale_16",
+      "evaluation_rubric_rationale_37",
+      "evaluation_rubric_rationale_57",
+      "evaluation_rubric_validate_awarded_marks",
+      "evaluation_service_evaluate_answer",
+      "evaluation_service_fallback_context",
+      "evaluation_service_get_validated_context",
+      "evaluation_service_parse_evaluation_response",
+      "evaluation_service_retry_evaluation",
+      "frontend_app_lib_models_evaluation_model_dart",
+      "models_evaluation_progressresponse",
+      "repositories_responses_repo_responsesrepository",
+      "repositories_responses_repo_responsesrepository_create",
+      "repositories_responses_repo_responsesrepository_get_by_id_and_user",
+      "repositories_responses_repo_responsesrepository_get_by_user",
+      "repositories_responses_repo_responsesrepository_get_pending_review",
+      "repositories_responses_repo_responsesrepository_init",
+      "repositories_responses_repo_responsesrepository_submit_human_review",
+      "repositories_responses_repo_responsesrepository_update_evaluation",
+      "scripts_test_evaluation_main",
+      "scripts_test_evaluation_py",
+      "tests_test_content_pipeline_test_format_answer_key_with_points",
+      "tests_test_content_pipeline_test_validate_marks_boundary",
+      "tests_test_evaluation_test_format_answer_key_none",
+      "tests_test_evaluation_test_format_answer_key_with_points",
+      "tests_test_evaluation_test_format_rubric_adds_guidance",
+      "tests_test_evaluation_test_parse_clamps_marks",
+      "tests_test_evaluation_test_parse_decimal_marks",
+      "tests_test_evaluation_test_parse_invalid_json_returns_zero",
+      "tests_test_evaluation_test_parse_valid_evaluation",
+      "tests_test_evaluation_test_parse_with_markdown_fence",
+      "tests_test_evaluation_test_validate_marks_clamps_above_max",
+      "tests_test_evaluation_test_validate_marks_clamps_below_zero",
+      "tests_test_evaluation_test_validate_marks_exact_value",
+      "tests_test_evaluation_test_validate_marks_rounds_to_half",
+      "tests_test_tn_board_test_rubric_format_uses_board_label",
+      "tests_test_validation_guard_rationale_103",
+      "tests_test_validation_guard_rationale_128",
+      "tests_test_validation_guard_rationale_17",
+      "tests_test_validation_guard_rationale_57",
+      "tests_test_validation_guard_rationale_9",
+      "tests_test_validation_guard_test_fallback_context_is_not_empty",
+      "tests_test_validation_guard_test_get_validated_context_excludes_unvalidated",
+      "tests_test_validation_guard_test_get_validated_context_includes_validated",
+      "tests_test_validation_guard_test_get_validated_context_no_chromadb_results",
+      "tests_test_validation_guard_test_unvalidated_content_adds_warning_to_feedback",
+      "v1_evaluation_get_history",
+      "v1_evaluation_get_progress",
+      "v1_evaluation_retry_answer",
+      "v1_evaluation_submit_answer"
+    ],
+    "4": [
+      "backend_api_v1_deps_py",
+      "backend_api_v1_learning_py",
+      "backend_api_v1_router_py",
+      "backend_api_v1_syllabus_py",
+      "backend_api_v1_users_py",
+      "backend_db_repositories_cache_repo_py",
+      "backend_db_repositories_init_py",
+      "backend_db_repositories_questions_repo_py",
+      "backend_db_repositories_responses_repo_py",
+      "backend_db_repositories_syllabus_repo_py",
+      "backend_db_repositories_users_repo_py",
+      "models_user_usagestatsresponse",
+      "repositories_cache_repo_make_key",
+      "repositories_questions_repo_questionsrepository",
+      "repositories_questions_repo_questionsrepository_create",
+      "repositories_questions_repo_questionsrepository_deactivate",
+      "repositories_questions_repo_questionsrepository_get_all",
+      "repositories_questions_repo_questionsrepository_get_by_chapter",
+      "repositories_questions_repo_questionsrepository_get_by_id",
+      "repositories_questions_repo_questionsrepository_init",
+      "repositories_questions_repo_questionsrepository_update",
+      "repositories_syllabus_repo_syllabusrepository",
+      "repositories_syllabus_repo_syllabusrepository_delete_chunk",
+      "repositories_syllabus_repo_syllabusrepository_get_all_subjects",
+      "repositories_syllabus_repo_syllabusrepository_get_chapter_by_id",
+      "repositories_syllabus_repo_syllabusrepository_get_chapters_by_subject",
+      "repositories_syllabus_repo_syllabusrepository_get_pending_chunks",
+      "repositories_syllabus_repo_syllabusrepository_get_subject_by_code",
+      "repositories_syllabus_repo_syllabusrepository_get_subject_by_id",
+      "repositories_syllabus_repo_syllabusrepository_get_topic_by_id",
+      "repositories_syllabus_repo_syllabusrepository_get_topics_by_chapter",
+      "repositories_syllabus_repo_syllabusrepository_get_validated_chunks_by_chapter",
+      "repositories_syllabus_repo_syllabusrepository_init",
+      "repositories_syllabus_repo_syllabusrepository_insert_chunks",
+      "repositories_syllabus_repo_syllabusrepository_update_chunk",
+      "repositories_syllabus_repo_syllabusrepository_validate_chunk",
+      "repositories_users_repo_usersrepository",
+      "repositories_users_repo_usersrepository_get_by_id",
+      "repositories_users_repo_usersrepository_get_plan_and_calls",
+      "repositories_users_repo_usersrepository_increment_ai_calls",
+      "repositories_users_repo_usersrepository_init",
+      "repositories_users_repo_usersrepository_is_over_limit",
+      "repositories_users_repo_usersrepository_log_usage",
+      "repositories_users_repo_usersrepository_total_count",
+      "repositories_users_repo_usersrepository_update_profile",
+      "v1_deps_rationale_1",
+      "v1_learning_explain_topic_endpoint",
+      "v1_learning_get_chapter_content",
+      "v1_syllabus_get_chapters",
+      "v1_syllabus_get_questions",
+      "v1_syllabus_get_subjects",
+      "v1_syllabus_get_topics",
+      "v1_users_get_profile",
+      "v1_users_get_usage",
+      "v1_users_update_profile"
+    ],
+    "5": [
+      "backend_core_tn_board_py",
+      "backend_tests_test_tn_board_py",
+      "core_ai_gate_aigate_init",
+      "core_tn_board_get_exam_pattern",
+      "core_tn_board_get_mark_guidance",
+      "core_tn_board_rationale_1",
+      "core_tn_board_rationale_231",
+      "core_tn_board_rationale_241",
+      "core_tn_board_rationale_251",
+      "core_tn_board_rationale_261",
+      "core_tn_board_rationale_268",
+      "core_tn_board_validate_class_level",
+      "core_tn_board_validate_content_type",
+      "core_tn_board_validate_marks",
+      "evaluation_rubric_get_mark_guidance",
+      "evaluation_rubric_rationale_11",
+      "models_syllabus_content_type_must_be_valid",
+      "models_syllabus_marks_must_be_valid",
+      "repositories_cache_repo_cacherepository",
+      "repositories_cache_repo_cacherepository_get",
+      "repositories_cache_repo_cacherepository_init",
+      "repositories_cache_repo_cacherepository_purge_expired",
+      "repositories_cache_repo_cacherepository_set",
+      "repositories_cache_repo_cacherepository_stats",
+      "tests_test_tn_board_rationale_1",
+      "tests_test_tn_board_rationale_120",
+      "tests_test_tn_board_rationale_129",
+      "tests_test_tn_board_test_board_context_mentions_all_mark_levels",
+      "tests_test_tn_board_test_board_context_mentions_student_profile",
+      "tests_test_tn_board_test_board_context_mentions_tnbse",
+      "tests_test_tn_board_test_chunk_types_match_db_constraint",
+      "tests_test_tn_board_test_evaluate_prompt_includes_board_context",
+      "tests_test_tn_board_test_evaluate_prompt_includes_mark_rules",
+      "tests_test_tn_board_test_exam_pattern_grammar_no_10_mark",
+      "tests_test_tn_board_test_exam_pattern_prose_has_10_mark",
+      "tests_test_tn_board_test_explain_prompt_includes_board_context",
+      "tests_test_tn_board_test_mark_guidance_10_requires_intro_and_conclusion",
+      "tests_test_tn_board_test_mark_guidance_2_has_partial_credit_rule",
+      "tests_test_tn_board_test_mark_guidance_exists_for_all_levels",
+      "tests_test_tn_board_test_question_types_match_db_constraint",
+      "tests_test_tn_board_test_subject_registry_class_levels_are_valid",
+      "tests_test_tn_board_test_subject_registry_has_eng1",
+      "tests_test_tn_board_test_supported_languages_are_en_and_ta",
+      "tests_test_tn_board_test_valid_class_levels_are_plus1_and_plus2",
+      "tests_test_tn_board_test_valid_content_types",
+      "tests_test_tn_board_test_valid_mark_levels_are_1_2_5_10",
+      "tests_test_tn_board_test_validate_class_level_accepts_valid",
+      "tests_test_tn_board_test_validate_class_level_rejects_invalid",
+      "tests_test_tn_board_test_validate_content_type_accepts_valid",
+      "tests_test_tn_board_test_validate_content_type_rejects_invalid",
+      "tests_test_tn_board_test_validate_marks_accepts_valid",
+      "tests_test_tn_board_test_validate_marks_rejects_invalid"
+    ],
+    "6": [
+      "backend_modules_content_pipeline_db_loader_py",
+      "backend_modules_content_pipeline_embedder_py",
+      "backend_modules_content_pipeline_extractor_py",
+      "backend_modules_content_pipeline_init_py",
+      "backend_modules_content_pipeline_structurer_py",
+      "backend_tests_test_content_pipeline_py",
+      "content_pipeline_db_loader_load_chunks_to_db",
+      "content_pipeline_db_loader_mark_chunk_validated",
+      "content_pipeline_db_loader_rationale_18",
+      "content_pipeline_db_loader_rationale_50",
+      "content_pipeline_embedder_embed_chunks",
+      "content_pipeline_embedder_get_chroma_client",
+      "content_pipeline_embedder_get_collection_stats",
+      "content_pipeline_embedder_get_or_create_collection",
+      "content_pipeline_embedder_search_similar",
+      "content_pipeline_extractor_extract_pdf_pages",
+      "content_pipeline_extractor_extract_pdf_tables",
+      "content_pipeline_structurer_clean_text",
+      "content_pipeline_structurer_detect_section_type",
+      "content_pipeline_structurer_load_structured_json",
+      "content_pipeline_structurer_save_structured_json",
+      "content_pipeline_structurer_split_into_sections",
+      "content_pipeline_structurer_structure_content",
+      "scripts_chunk_embed_main",
+      "scripts_chunk_embed_parse_args",
+      "scripts_chunk_embed_py",
+      "scripts_chunk_embed_rationale_1",
+      "scripts_pdf_extract_main",
+      "scripts_pdf_extract_parse_args",
+      "scripts_pdf_extract_py",
+      "scripts_pdf_extract_rationale_1",
+      "scripts_pipeline_test_main",
+      "scripts_pipeline_test_py",
+      "scripts_pipeline_test_rationale_1",
+      "scripts_seed_db_main",
+      "scripts_seed_db_parse_args",
+      "scripts_seed_db_py",
+      "scripts_seed_db_rationale_1",
+      "scripts_seed_db_run",
+      "tests_test_content_pipeline_rationale_1",
+      "tests_test_content_pipeline_test_clean_text_removes_page_numbers",
+      "tests_test_content_pipeline_test_detect_section_author",
+      "tests_test_content_pipeline_test_detect_section_glossary",
+      "tests_test_content_pipeline_test_detect_section_summary",
+      "tests_test_content_pipeline_test_detect_section_unknown_returns_none",
+      "tests_test_content_pipeline_test_structure_content_filters_short_chunks",
+      "tests_test_content_pipeline_test_structure_content_returns_chunks",
+      "v1_admin_trigger_pipeline"
+    ],
+    "7": [
+      "c_projects_tnschool_exam_coach_frontend_app_lib_screens_login_screen_dart_build",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_screens_login_screen_dart_loginscreen",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_screens_login_screen_dart_loginscreenstate",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_screens_login_screen_dart_scaffold",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_screens_login_screen_dart_sizedbox",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_screens_login_screen_dart_text",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_screens_progress_screen_dart_build",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_screens_progress_screen_dart_center",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_screens_progress_screen_dart_initstate",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_screens_progress_screen_dart_progressscreen",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_screens_progress_screen_dart_progressscreenstate",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_screens_progress_screen_dart_scaffold",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_screens_progress_screen_dart_sizedbox",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_screens_progress_screen_dart_statcard",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_screens_progress_screen_dart_text",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_services_api_service_dart_apiexception",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_services_api_service_dart_apiservice",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_services_api_service_dart_handle",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_services_api_service_dart_jsondecode",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_services_api_service_dart_tostring",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_services_api_service_dart_url",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_services_auth_service_dart_authservice",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_services_auth_service_dart_exception",
+      "config_app_config_dart",
+      "config_theme_dart",
+      "dart_convert",
+      "frontend_app_lib_router_dart",
+      "frontend_app_lib_screens_login_screen_dart",
+      "frontend_app_lib_screens_progress_screen_dart",
+      "frontend_app_lib_services_api_service_dart",
+      "frontend_app_lib_services_auth_service_dart",
+      "package_flutter_secure_storage_flutter_secure_storage_dart",
+      "package_go_router_go_router_dart",
+      "package_http_http_dart",
+      "screens_home_screen_dart",
+      "screens_learn_screen_dart",
+      "screens_login_screen_dart",
+      "screens_practice_screen_dart",
+      "screens_progress_screen_dart",
+      "services_auth_service_dart",
+      "services_evaluation_service_dart",
+      "widgets_app_button_dart"
+    ],
+    "8": [
+      "backend_modules_init_py",
+      "backend_modules_learning_init_py",
+      "backend_modules_learning_service_py",
+      "backend_tests_test_learning_py",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_models_learning_model_dart_explainresponse",
+      "evaluation_init_evaluate_answer",
+      "frontend_app_lib_models_learning_model_dart",
+      "learning_prompts_explain_system_prompt",
+      "learning_prompts_explain_user_prompt",
+      "learning_prompts_translate_system_prompt",
+      "learning_prompts_translate_user_prompt",
+      "learning_service_explain_topic",
+      "learning_service_parse_explain_response",
+      "learning_service_translate_to_tamil",
+      "test_api_integration_as_admin_fixture",
+      "test_api_integration_as_student_fixture",
+      "test_api_integration_test_evaluation_submit",
+      "test_api_integration_test_learning_explain",
+      "test_content_pipeline_test_format_answer_key",
+      "test_evaluation_test_parse_valid",
+      "test_evaluation_test_validate_marks",
+      "test_learning_test_parse_clean_json",
+      "test_learning_test_parse_invalid",
+      "test_learning_test_parse_markdown_fences",
+      "test_tn_board_test_evaluate_prompt",
+      "test_tn_board_test_explain_prompt",
+      "test_validation_guard_test_excludes_unvalidated",
+      "test_validation_guard_test_includes_validated",
+      "test_validation_guard_test_warning_in_feedback",
+      "tests_test_learning_test_parse_clean_json",
+      "tests_test_learning_test_parse_invalid_json_returns_raw",
+      "tests_test_learning_test_parse_json_with_markdown_fences",
+      "tests_test_learning_test_parse_json_without_fences"
+    ],
+    "9": [
+      "adminapi_client",
+      "api_service_apiservice",
+      "app_config_appconfig",
+      "auth_service_authservice",
+      "config_configbarrel",
+      "contentpage_contentpage",
+      "dashboardpage_dashboardpage",
+      "evaluation_model_evaluationresponse",
+      "evaluation_model_feedbackdetail",
+      "evaluation_service_evaluationservice",
+      "evaluationspage_evaluationspage",
+      "home_screen_homescreen",
+      "learn_screen_learnscreen",
+      "learning_model_explainresponse",
+      "learning_service_learningservice",
+      "login_screen_loginscreen",
+      "loginpage_loginpage",
+      "main_examcoachapp",
+      "pipelinepage_pipelinepage",
+      "practice_screen_practicescreen",
+      "progress_screen_progressscreen",
+      "questionspage_questionspage",
+      "router_approuter",
+      "syllabus_model_chapter",
+      "syllabus_model_question",
+      "syllabus_model_subject",
+      "syllabus_model_topic",
+      "syllabus_service_syllabusservice",
+      "theme_apptheme"
+    ],
+    "10": [
+      "cache_repo_CacheRepository",
+      "content_pipeline_db_loader",
+      "content_pipeline_embedder",
+      "content_pipeline_extractor",
+      "content_pipeline_init_package",
+      "content_pipeline_structurer",
+      "evaluation_prompts",
+      "evaluation_rubric",
+      "evaluation_service",
+      "models_evaluation_EvaluationResponse",
+      "models_evaluation_FeedbackDetail",
+      "models_evaluation_RetryRequest",
+      "models_evaluation_SubmitAnswerRequest",
+      "models_syllabus_ContentChunkResponse",
+      "models_syllabus_QuestionResponse",
+      "models_user_UsageStatsResponse",
+      "models_user_UserProfileResponse",
+      "modules_init_package",
+      "questions_repo_QuestionsRepository",
+      "repositories_init_package",
+      "responses_repo_ResponsesRepository",
+      "syllabus_repo_SyllabusRepository",
+      "users_repo_UsersRepository"
+    ],
+    "11": [
+      "adminreadme_admin",
+      "adminreadme_cache_behaviour",
+      "adminreadme_evaluation_review",
+      "adminreadme_pipeline_trigger",
+      "adminreadme_validation_contract",
+      "chunkembed_chunkembed",
+      "claudemd_examcoach",
+      "claudemd_examcoach_aigate",
+      "claudemd_examcoach_tn_board",
+      "claudemd_root",
+      "contentpipeline_module",
+      "evaluationservice_module",
+      "pdfextract_pdfextract",
+      "phasenavigation_appshell",
+      "phasenavigation_doc",
+      "phasenavigation_navjs",
+      "phasenavigation_sidebar",
+      "phasenavigation_syllabusjs",
+      "pipelinetest_pipelinetest",
+      "seeddb_seeddb",
+      "testevaluation_testevaluation"
+    ],
+    "12": [
+      "badge_badge",
+      "bottomnav_bottomnav",
+      "button_button",
+      "card_card",
+      "chapterspage_chapterspage",
+      "homepage_homepage",
+      "input_input",
+      "layout_index",
+      "learnpage_learnpage",
+      "loopstepper_loopstepper",
+      "marksbadge_marksbadge",
+      "pageshell_pageshell",
+      "scorering_scorering",
+      "sidebar_sidebar",
+      "skeleton_skeleton",
+      "skeletoncard_skeletoncard",
+      "spinner_spinner",
+      "textarea_textarea",
+      "topbar_topbar",
+      "ui_index"
+    ],
+    "13": [
+      "api_auth_js_authModule",
+      "api_client_js_apiClient",
+      "api_evaluation_js_evaluationApi",
+      "api_learning_js_learningApi",
+      "api_syllabus_js_syllabusApi",
+      "app_jsx_App",
+      "components_Layout_jsx_Layout",
+      "components_PhaseBar_jsx_PhaseBar",
+      "endpoint_evaluation_submit",
+      "endpoint_learning_explain",
+      "endpoint_syllabus_subjects",
+      "learning_service_dart_LearningService",
+      "main_jsx_main",
+      "playwright_config_js_PlaywrightConfig",
+      "syllabus_service_dart_SyllabusService",
+      "vite_config_js_ViteConfig"
+    ],
+    "14": [
+      "api_v1_admin_validate_chunk",
+      "api_v1_evaluation_submit_answer",
+      "api_v1_learning_explain_topic_endpoint",
+      "backend_modules_evaluation_prompts_py",
+      "backend_modules_learning_prompts_py",
+      "core_AIGate",
+      "core_errors_AIUnavailableError",
+      "core_errors_AppError",
+      "core_errors_NotFoundError",
+      "core_errors_RateLimitError",
+      "core_tn_board",
+      "core_tn_board_BOARD_CONTEXT_FOR_AI",
+      "core_tn_board_MARK_LEVEL_GUIDANCE",
+      "evaluation_prompts_rationale_1",
+      "learning_prompts_rationale_1"
+    ],
+    "15": [
+      "api_auth_gettoken",
+      "api_auth_isloggedin",
+      "api_auth_loginwithemail",
+      "api_auth_logout",
+      "api_auth_signupwithemail",
+      "components_layout_layout",
+      "frontend_admin_src_app_jsx",
+      "frontend_web_src_api_auth_js",
+      "frontend_web_src_app_jsx",
+      "frontend_web_src_components_layout_jsx",
+      "src_app_app",
+      "src_app_guard"
+    ],
+    "16": [
+      "helpers_mockapiRoutes",
+      "helpers_mocklogin",
+      "helpers_routes",
+      "homespec_homepage",
+      "learnspec_learnpage",
+      "practicepage_learn_practice_evaluate_improve_loop",
+      "practicepage_practicepage",
+      "practicespec_practicepage",
+      "progresspage_progresspage",
+      "progressspec_progresspage",
+      "topicdetailpage_topicdetailpage",
+      "topiclistpage_topiclistpage"
+    ],
+    "17": [
+      "ai_ollama_client_chat",
+      "ai_ollama_client_get_loaded_models",
+      "ai_ollama_client_is_ollama_available",
+      "ai_ollama_client_rationale_29",
+      "ai_openrouter_client_chat",
+      "ai_openrouter_client_rationale_14",
+      "backend_ai_ollama_client_py",
+      "backend_ai_openrouter_client_py",
+      "scripts_test_ollama_main",
+      "scripts_test_ollama_py",
+      "scripts_test_ollama_rationale_1"
+    ],
+    "18": [
+      "c_projects_tnschool_exam_coach_frontend_app_lib_models_syllabus_model_dart_chapter",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_models_syllabus_model_dart_question",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_models_syllabus_model_dart_subject",
+      "c_projects_tnschool_exam_coach_frontend_app_lib_models_syllabus_model_dart_topic",
+      "frontend_app_lib_models_syllabus_model_dart"
+    ],
+    "19": [
+      "api_evaluation_gethistory",
+      "api_evaluation_getprogress",
+      "api_evaluation_retryanswer",
+      "api_evaluation_submitanswer",
+      "frontend_web_src_api_evaluation_js"
+    ],
+    "20": [
+      "api_syllabus_getchapters",
+      "api_syllabus_getquestions",
+      "api_syllabus_getsubjects",
+      "api_syllabus_gettopics",
+      "frontend_web_src_api_syllabus_js"
+    ],
+    "21": [
+      "frontend_web_src_pages_homepage_jsx",
+      "pages_homepage_chapterrow",
+      "pages_homepage_continuebanner",
+      "pages_homepage_homepage",
+      "pages_homepage_stattile"
+    ],
+    "22": [
+      "admin_api_client",
+      "admin_app_guard",
+      "admin_app_jsx",
+      "admin_main_jsx",
+      "admin_vite_config"
+    ],
+    "23": [
+      "backend_tests_test_health_py",
+      "tests_test_health_test_docs_available_in_dev",
+      "tests_test_health_test_health_has_required_fields",
+      "tests_test_health_test_health_returns_200"
+    ],
+    "24": [
+      "api_client_gettoken",
+      "api_client_request",
+      "frontend_admin_src_api_client_js",
+      "frontend_web_src_api_client_js"
+    ],
+    "25": [
+      "frontend_web_src_components_ui_skeleton_jsx",
+      "ui_skeleton_skeletoncard",
+      "ui_skeleton_skeletonline",
+      "ui_skeleton_skeletontext"
+    ],
+    "26": [
+      "e2e_helpers_clearlogin",
+      "e2e_helpers_mockapiroutes",
+      "e2e_helpers_mocklogin",
+      "frontend_web_tests_e2e_helpers_js"
+    ],
+    "27": [
+      "admin_components_index",
+      "admin_layout_component",
+      "admin_statcard_component",
+      "admin_tailwind_config"
+    ],
+    "28": [
+      "backend_config_py",
+      "backend_config_settings",
+      "basesettings"
+    ],
+    "29": [
+      "backend_tests_test_syllabus_py",
+      "tests_test_syllabus_test_get_subjects_has_eng1",
+      "tests_test_syllabus_test_get_subjects_returns_list"
+    ],
+    "30": [
+      "frontend_admin_src_pages_loginpage_jsx",
+      "frontend_web_src_pages_loginpage_jsx",
+      "pages_loginpage_loginpage"
+    ],
+    "31": [
+      "api_learning_explaintopic",
+      "api_learning_getchaptercontent",
+      "frontend_web_src_api_learning_js"
+    ],
+    "32": [
+      "frontend_web_src_components_layout_sidebar_jsx",
+      "layout_sidebar_navitem",
+      "layout_sidebar_sidebar"
+    ],
+    "33": [
+      "models_syllabus_ChapterResponse",
+      "models_syllabus_SubjectResponse",
+      "models_syllabus_SyllabusTreeResponse"
+    ],
+    "34": [
+      "components_adminlayout_adminlayout",
+      "frontend_admin_src_components_adminlayout_jsx"
+    ],
+    "35": [
+      "components_statcard_statcard",
+      "frontend_admin_src_components_statcard_jsx"
+    ],
+    "36": [
+      "frontend_admin_src_pages_contentpage_jsx",
+      "pages_contentpage_contentpage"
+    ],
+    "37": [
+      "frontend_admin_src_pages_dashboardpage_jsx",
+      "pages_dashboardpage_dashboardpage"
+    ],
+    "38": [
+      "frontend_admin_src_pages_evaluationspage_jsx",
+      "pages_evaluationspage_evaluationspage"
+    ],
+    "39": [
+      "frontend_admin_src_pages_pipelinepage_jsx",
+      "pages_pipelinepage_pipelinepage"
+    ],
+    "40": [
+      "frontend_admin_src_pages_questionspage_jsx",
+      "pages_questionspage_questionspage"
+    ],
+    "41": [
+      "c_projects_tnschool_exam_coach_frontend_app_lib_config_app_config_dart_appconfig",
+      "frontend_app_lib_config_app_config_dart"
+    ],
+    "42": [
+      "components_errormessage_errormessage",
+      "frontend_web_src_components_errormessage_jsx"
+    ],
+    "43": [
+      "components_marksbadge_marksbadge",
+      "frontend_web_src_components_marksbadge_jsx"
+    ],
+    "44": [
+      "components_phasebar_phasebar",
+      "frontend_web_src_components_phasebar_jsx"
+    ],
+    "45": [
+      "components_scorebadge_scorebadge",
+      "frontend_web_src_components_scorebadge_jsx"
+    ],
+    "46": [
+      "components_spinner_spinner",
+      "frontend_web_src_components_spinner_jsx"
+    ],
+    "47": [
+      "frontend_web_src_components_layout_bottomnav_jsx",
+      "layout_bottomnav_bottomnav"
+    ],
+    "48": [
+      "frontend_web_src_components_layout_pageshell_jsx",
+      "layout_pageshell_pageshell"
+    ],
+    "49": [
+      "frontend_web_src_components_layout_topbar_jsx",
+      "layout_topbar_topbar"
+    ],
+    "50": [
+      "frontend_web_src_components_ui_badge_jsx",
+      "ui_badge_badge"
+    ],
+    "51": [
+      "frontend_web_src_components_ui_button_jsx",
+      "ui_button_button"
+    ],
+    "52": [
+      "frontend_web_src_components_ui_card_jsx",
+      "ui_card_card"
+    ],
+    "53": [
+      "frontend_web_src_components_ui_input_jsx",
+      "ui_input_input"
+    ],
+    "54": [
+      "frontend_web_src_components_ui_loopstepper_jsx",
+      "ui_loopstepper_loopstepper"
+    ],
+    "55": [
+      "frontend_web_src_components_ui_marksbadge_jsx",
+      "ui_marksbadge_marksbadge"
+    ],
+    "56": [
+      "frontend_web_src_components_ui_scorering_jsx",
+      "ui_scorering_scorering"
+    ],
+    "57": [
+      "frontend_web_src_components_ui_skeletoncard_jsx",
+      "ui_skeletoncard_skeletoncard"
+    ],
+    "58": [
+      "frontend_web_src_components_ui_textarea_jsx",
+      "ui_textarea_textarea"
+    ],
+    "59": [
+      "frontend_web_src_pages_chapterspage_jsx",
+      "pages_chapterspage_chapterspage"
+    ],
+    "60": [
+      "frontend_web_src_pages_learnpage_jsx",
+      "pages_learnpage_learnpage"
+    ],
+    "61": [
+      "frontend_web_src_pages_notfoundpage_jsx",
+      "pages_notfoundpage_notfoundpage"
+    ],
+    "62": [
+      "frontend_web_src_pages_practicepage_jsx",
+      "pages_practicepage_practicepage"
+    ],
+    "63": [
+      "frontend_web_src_pages_progresspage_jsx",
+      "pages_progresspage_progresspage"
+    ],
+    "64": [
+      "frontend_web_src_pages_topicdetailpage_jsx",
+      "pages_topicdetailpage_topicdetailpage"
+    ],
+    "65": [
+      "frontend_web_src_pages_topiclistpage_jsx",
+      "pages_topiclistpage_topiclistpage"
+    ],
+    "66": [
+      "test_api_integration_test_health_endpoint",
+      "test_health_test_returns_200"
+    ],
+    "67": [
+      "components_ErrorMessage_jsx_ErrorMessage",
+      "error_view_dart_ErrorView"
+    ],
+    "68": [
+      "components_MarksBadge_jsx_MarksBadge",
+      "marks_chip_dart_MarksChip"
+    ],
+    "69": [
+      "postcss_config_js_PostCSSConfig",
+      "tailwind_config_js_TailwindConfig"
+    ],
+    "70": [
+      "components_ScoreBadge_jsx_ScoreBadge",
+      "score_card_dart_ScoreCard"
+    ],
+    "71": [
+      "authspec_authentication",
+      "helpers_components"
+    ],
+    "72": [
+      "ollama_client_module",
+      "testollama_testollama"
+    ],
+    "73": [
+      "backend_api_init_py"
+    ],
+    "74": [
+      "backend_api_v1_init_py"
+    ],
+    "75": [
+      "backend_core_init_py"
+    ],
+    "76": [
+      "backend_db_init_py"
+    ],
+    "77": [
+      "backend_tests_init_py"
+    ],
+    "78": [
+      "frontend_admin_postcss_config_js"
+    ],
+    "79": [
+      "frontend_admin_tailwind_config_js"
+    ],
+    "80": [
+      "frontend_admin_vite_config_js"
+    ],
+    "81": [
+      "frontend_admin_src_main_jsx"
+    ],
+    "82": [
+      "frontend_admin_src_components_index_js"
+    ],
+    "83": [
+      "frontend_app_lib_config_config_dart"
+    ],
+    "84": [
+      "frontend_web_playwright_config_js"
+    ],
+    "85": [
+      "frontend_web_postcss_config_js"
+    ],
+    "86": [
+      "frontend_web_tailwind_config_js"
+    ],
+    "87": [
+      "frontend_web_vite_config_js"
+    ],
+    "88": [
+      "frontend_web_src_main_jsx"
+    ],
+    "89": [
+      "frontend_web_src_components_layout_index_js"
+    ],
+    "90": [
+      "frontend_web_src_components_ui_index_js"
+    ],
+    "91": [
+      "frontend_web_tests_e2e_auth_spec_js"
+    ],
+    "92": [
+      "frontend_web_tests_e2e_home_spec_js"
+    ],
+    "93": [
+      "frontend_web_tests_e2e_learn_spec_js"
+    ],
+    "94": [
+      "frontend_web_tests_e2e_practice_spec_js"
+    ],
+    "95": [
+      "frontend_web_tests_e2e_progress_spec_js"
+    ],
+    "96": [
+      "readme_project"
+    ],
+    "97": [
+      "deploy_production_checklist"
+    ],
+    "98": [
+      "deploy_readme"
+    ],
+    "99": [
+      "frontend_admin_index"
+    ],
+    "100": [
+      "frontend_web_index"
+    ],
+    "101": [
+      "ollama_client_is_available"
+    ],
+    "102": [
+      "ollama_client_get_loaded_models"
+    ],
+    "103": [
+      "api_v1_evaluation_get_progress"
+    ],
+    "104": [
+      "db_init_layer"
+    ],
+    "105": [
+      "models_common_HealthResponse"
+    ],
+    "106": [
+      "models_common_ErrorResponse"
+    ],
+    "107": [
+      "models_common_PaginatedResponse"
+    ],
+    "108": [
+      "models_evaluation_ProgressResponse"
+    ],
+    "109": [
+      "models_learning_ExplainRequest"
+    ],
+    "110": [
+      "models_learning_ExplainResponse"
+    ],
+    "111": [
+      "models_syllabus_TopicResponse"
+    ],
+    "112": [
+      "models_user_UpdateProfileRequest"
+    ],
+    "113": [
+      "evaluation_init_retry_evaluation"
+    ],
+    "114": [
+      "learning_init_explain_topic"
+    ],
+    "115": [
+      "test_api_integration_test_get_subjects"
+    ],
+    "116": [
+      "test_api_integration_test_cache_key"
+    ],
+    "117": [
+      "test_content_pipeline_test_clean_text"
+    ],
+    "118": [
+      "test_content_pipeline_test_structure_content"
+    ],
+    "119": [
+      "test_content_pipeline_test_validate_marks"
+    ],
+    "120": [
+      "test_evaluation_test_parse_clamps"
+    ],
+    "121": [
+      "test_evaluation_test_parse_markdown_fence"
+    ],
+    "122": [
+      "test_health_test_has_required_fields"
+    ],
+    "123": [
+      "test_syllabus_test_get_subjects"
+    ],
+    "124": [
+      "test_tn_board_test_class_levels"
+    ],
+    "125": [
+      "test_tn_board_test_mark_guidance"
+    ],
+    "126": [
+      "test_tn_board_test_board_context"
+    ],
+    "127": [
+      "test_validation_guard_test_fallback"
+    ],
+    "128": [
+      "admin_postcss_config"
+    ],
+    "129": [
+      "app_button_dart_AppButton"
+    ],
+    "130": [
+      "notfoundpage_notfoundpage"
+    ],
+    "131": [
+      "helpers_clearlogin"
+    ]
+  },
+  "cohesion": {
+    "0": 0.05,
+    "1": 0.03,
+    "2": 0.05,
+    "3": 0.05,
+    "4": 0.04,
+    "5": 0.05,
+    "6": 0.07,
+    "7": 0.05,
+    "8": 0.07,
+    "9": 0.12,
+    "10": 0.14,
+    "11": 0.13,
+    "12": 0.18,
+    "13": 0.15,
+    "14": 0.17,
+    "15": 0.2,
+    "16": 0.3,
+    "17": 0.2,
+    "18": 0.4,
+    "19": 0.4,
+    "20": 0.4,
+    "21": 0.4,
+    "22": 0.5,
+    "23": 0.5,
+    "24": 0.83,
+    "25": 0.5,
+    "26": 0.5,
+    "27": 0.67,
+    "28": 0.67,
+    "29": 0.67,
+    "30": 0.67,
+    "31": 0.67,
+    "32": 0.67,
+    "33": 0.67,
+    "34": 1.0,
+    "35": 1.0,
+    "36": 1.0,
+    "37": 1.0,
+    "38": 1.0,
+    "39": 1.0,
+    "40": 1.0,
+    "41": 1.0,
+    "42": 1.0,
+    "43": 1.0,
+    "44": 1.0,
+    "45": 1.0,
+    "46": 1.0,
+    "47": 1.0,
+    "48": 1.0,
+    "49": 1.0,
+    "50": 1.0,
+    "51": 1.0,
+    "52": 1.0,
+    "53": 1.0,
+    "54": 1.0,
+    "55": 1.0,
+    "56": 1.0,
+    "57": 1.0,
+    "58": 1.0,
+    "59": 1.0,
+    "60": 1.0,
+    "61": 1.0,
+    "62": 1.0,
+    "63": 1.0,
+    "64": 1.0,
+    "65": 1.0,
+    "66": 1.0,
+    "67": 1.0,
+    "68": 1.0,
+    "69": 1.0,
+    "70": 2.0,
+    "71": 1.0,
+    "72": 1.0,
+    "73": 1.0,
+    "74": 1.0,
+    "75": 1.0,
+    "76": 1.0,
+    "77": 1.0,
+    "78": 1.0,
+    "79": 1.0,
+    "80": 1.0,
+    "81": 1.0,
+    "82": 1.0,
+    "83": 1.0,
+    "84": 1.0,
+    "85": 1.0,
+    "86": 1.0,
+    "87": 1.0,
+    "88": 1.0,
+    "89": 1.0,
+    "90": 1.0,
+    "91": 1.0,
+    "92": 1.0,
+    "93": 1.0,
+    "94": 1.0,
+    "95": 1.0,
+    "96": 1.0,
+    "97": 1.0,
+    "98": 1.0,
+    "99": 1.0,
+    "100": 1.0,
+    "101": 1.0,
+    "102": 1.0,
+    "103": 1.0,
+    "104": 1.0,
+    "105": 1.0,
+    "106": 1.0,
+    "107": 1.0,
+    "108": 1.0,
+    "109": 1.0,
+    "110": 1.0,
+    "111": 1.0,
+    "112": 1.0,
+    "113": 1.0,
+    "114": 1.0,
+    "115": 1.0,
+    "116": 1.0,
+    "117": 1.0,
+    "118": 1.0,
+    "119": 1.0,
+    "120": 1.0,
+    "121": 1.0,
+    "122": 1.0,
+    "123": 1.0,
+    "124": 1.0,
+    "125": 1.0,
+    "126": 1.0,
+    "127": 1.0,
+    "128": 1.0,
+    "129": 1.0,
+    "130": 1.0,
+    "131": 1.0
+  },
+  "gods": [
+    {
+      "id": "core_errors_notfounderror",
+      "label": "NotFoundError",
+      "degree": 27
+    },
+    {
+      "id": "core_errors_ratelimiterror",
+      "label": "RateLimitError",
+      "degree": 27
+    },
+    {
+      "id": "db_client_get_db",
+      "label": "get_db()",
+      "degree": 24
+    },
+    {
+      "id": "repositories_syllabus_repo_syllabusrepository",
+      "label": "SyllabusRepository",
+      "degree": 23
+    },
+    {
+      "id": "core_ai_gate_aigate",
+      "label": "AIGate",
+      "degree": 15
+    },
+    {
+      "id": "repositories_users_repo_usersrepository",
+      "label": "UsersRepository",
+      "degree": 13
+    },
+    {
+      "id": "evaluation_service_evaluate_answer",
+      "label": "evaluate_answer()",
+      "degree": 13
+    },
+    {
+      "id": "learning_service_explain_topic",
+      "label": "explain_topic()",
+      "degree": 13
+    },
+    {
+      "id": "package_flutter_material_dart",
+      "label": "package:flutter/material.dart",
+      "degree": 13
+    },
+    {
+      "id": "repositories_responses_repo_responsesrepository",
+      "label": "ResponsesRepository",
+      "degree": 12
+    }
+  ],
+  "surprises": [
+    {
+      "source": "get_current_user()",
+      "target": "get_admin_user()",
+      "source_files": [
+        "backend\\core\\auth.py",
+        "backend\\core\\admin_auth.py"
+      ],
+      "confidence": "INFERRED",
+      "relation": "semantically_similar_to",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories; semantically similar concepts with no structural link"
+    },
+    {
+      "source": "_parse_explain_response()",
+      "target": "evaluate_answer (evaluation export)",
+      "source_files": [
+        "backend\\modules\\learning\\service.py",
+        "exam-coach/backend/modules/evaluation/__init__.py"
+      ],
+      "confidence": "INFERRED",
+      "relation": "semantically_similar_to",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories; semantically similar concepts with no structural link"
+    },
+    {
+      "source": "Human Evaluation Review (Admin)",
+      "target": "test_evaluation.py Script",
+      "source_files": [
+        "exam-coach/admin/README.md",
+        "exam-coach/scripts/test_evaluation.py"
+      ],
+      "confidence": "INFERRED",
+      "relation": "semantically_similar_to",
+      "why": "inferred connection - not explicitly stated in source; crosses file types (code \u2194 doc); semantically similar concepts with no structural link"
+    },
+    {
+      "source": "health_check()",
+      "target": "get_collection_stats()",
+      "source_files": [
+        "backend\\main.py",
+        "backend\\modules\\content_pipeline\\embedder.py"
+      ],
+      "confidence": "INFERRED",
+      "relation": "calls",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories; bridges separate communities"
+    },
+    {
+      "source": "Try Ollama first, fall back to OpenRouter.     Returns (response_text, model_use",
+      "target": "AIGate",
+      "source_files": [
+        "backend\\ai\\router.py",
+        "backend\\core\\ai_gate.py"
+      ],
+      "confidence": "INFERRED",
+      "relation": "uses",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories; peripheral node `Try Ollama first, fall back to OpenRouter.     Returns (response_text, model_use` unexpectedly reaches hub `AIGate`"
+    }
+  ],
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `package:flutter/material.dart` connect `Community 1` to `Community 3`, `Community 7`?",
+      "why": "High betweenness centrality (0.140) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `evaluate_answer()` connect `Community 3` to `Community 0`, `Community 4`?",
+      "why": "High betweenness centrality (0.136) - this node is a cross-community bridge."
+    },
+    {
+      "type": "verify_inferred",
+      "question": "Are the 24 inferred relationships involving `NotFoundError` (e.g. with `Retrieve content chunks for evaluation context.      GUARD: Only validated chunk` and `Context string used when no validated chunks are available.     The AI will scor`) actually correct?",
+      "why": "`NotFoundError` has 24 INFERRED edges - model-reasoned connections that need verification."
+    },
+    {
+      "type": "verify_inferred",
+      "question": "Are the 24 inferred relationships involving `RateLimitError` (e.g. with `AIGate` and `Single entry point for every AI call.     Handles in order: rate limit \u2192 cache \u2192`) actually correct?",
+      "why": "`RateLimitError` has 24 INFERRED edges - model-reasoned connections that need verification."
+    },
+    {
+      "type": "verify_inferred",
+      "question": "Are the 18 inferred relationships involving `get_db()` (e.g. with `health_check()` and `get_pending_content()`) actually correct?",
+      "why": "`get_db()` has 18 INFERRED edges - model-reasoned connections that need verification."
+    },
+    {
+      "type": "verify_inferred",
+      "question": "Are the 8 inferred relationships involving `SyllabusRepository` (e.g. with `get_chapter_content()` and `get_subjects()`) actually correct?",
+      "why": "`SyllabusRepository` has 8 INFERRED edges - model-reasoned connections that need verification."
+    },
+    {
+      "type": "isolated_nodes",
+      "question": "What connects `Send chat request to Ollama.     messages: [{\"role\": \"system\"|\"user\"|\"assistant\"`, `Send chat request to OpenRouter.     Same interface as ollama_client.chat for ea`, `Shared FastAPI dependencies for api/v1 routes. All route modules import auth dep` to the rest of the system?",
+      "why": "221 weakly-connected nodes found - possible documentation gaps or missing edges."
+    }
+  ]
+}
