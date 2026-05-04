@@ -1,4 +1,4 @@
-export default {
+﻿export default {
   eyebrow: 'Unit 4 · Prose · Plus One General English',
   title: 'Tight Corners',
   author: 'Edward Verrall Lucas',
@@ -19,7 +19,7 @@ export default {
         {
           type: 'author-stat',
           label: 'Career',
-          value: 'Lived 1868–1938 · English humorist, essayist, playwright, biographer, publisher, poet, novelist · Joined Punch in 1904 · Celebrated for short essays',
+          value: 'Lived 1868-1938 · English humorist, essayist, playwright, biographer, publisher, poet, novelist · Joined Punch in 1904 · Celebrated for short essays',
         },
         {
           type: 'author-stat',
@@ -29,7 +29,7 @@ export default {
         {
           type: 'think-box',
           label: 'Why this matters for the story',
-          text: 'Understanding Lucas as a humorist helps us read "Tight Corners" properly. The crisis is not physical — it is a comedy of social and financial embarrassment. Lucas uses exaggeration, irony, and self-mockery to make the panic feel real and funny at the same time.',
+          text: 'Understanding Lucas as a humorist helps us read "Tight Corners" properly. The crisis is not physical -- it is a comedy of social and financial embarrassment. Lucas uses exaggeration, irony, and self-mockery to make the panic feel real and funny at the same time.',
         },
         { type: 'nav', next: 'before-read', nextLabel: 'Next: Before We Read →' },
       ],
@@ -47,8 +47,8 @@ export default {
         },
         {
           type: 'quote-block',
-          quote: 'The talk was running on the critical situations in which we had found ourselves — those of us whose lives were adventurous enough to comprise any.',
-          context: 'Opening of the lesson — the group discussing tight corners',
+          quote: 'The talk was running on the critical situations in which we had found ourselves -- those of us whose lives were adventurous enough to comprise any.',
+          context: 'Opening of the lesson -- the group discussing tight corners',
         },
         {
           type: 'teacher-voice',
@@ -68,10 +68,10 @@ export default {
       id: 'text-explained',
       label: 'Text Explained',
       blocks: [
-        { type: 'section-head', text: 'Phase 1 — Different Kinds of Tight Corners' },
+        { type: 'section-head', text: 'Phase 1 -- Different Kinds of Tight Corners' },
         {
           type: 'quote-block',
-          quote: 'The talk was running on the critical situations in which we had found ourselves — those of us whose lives were adventurous enough to comprise any.',
+          quote: 'The talk was running on the critical situations in which we had found ourselves -- those of us whose lives were adventurous enough to comprise any.',
           context: 'Opening of the lesson',
         },
         {
@@ -84,7 +84,7 @@ export default {
           text: 'This phase helps answer the textbook question on the difference between physical and mental tight corners.',
         },
 
-        { type: 'section-head', text: "Phase 2 — Entering Christie's" },
+        { type: 'section-head', text: "Phase 2 -- Entering Christie's" },
         {
           type: 'quote-block',
           quote: "Yes. I had been lunching rather well at a club in St. James's Street with an old friend from abroad, and passing along King Street afterwards, he persuaded me to look in at the sale-room.",
@@ -100,7 +100,7 @@ export default {
           text: 'The narrator is not a serious buyer. His folly begins when he imitates rich bidders without having money.',
         },
 
-        { type: 'section-head', text: 'Phase 3 — Bidding for Fun' },
+        { type: 'section-head', text: 'Phase 3 -- Bidding for Fun' },
         {
           type: 'quote-block',
           quote: 'I found myself bidding too just for fun.',
@@ -116,7 +116,7 @@ export default {
           text: 'This phase gives the answer to why the narrator believed he would not be caught: other bidders always went higher.',
         },
 
-        { type: 'section-head', text: 'Phase 4 — The Fatal "And Fifty!"' },
+        { type: 'section-head', text: 'Phase 4 -- The Fatal "And Fifty!"' },
         {
           type: 'quote-block',
           quote: 'There was a rustle of excitement, and at the end of it I heard my own voice saying, "And fifty!"',
@@ -132,7 +132,7 @@ export default {
           text: 'The sentence "I heard my own voice" is important because it suggests an impulsive act, almost as if the words escaped before thought could stop them.',
         },
 
-        { type: 'section-head', text: 'Phase 5 — The Mental Crisis' },
+        { type: 'section-head', text: 'Phase 5 -- The Mental Crisis' },
         {
           type: 'quote-block',
           quote: "That was a nice pickle to be in! Here was I, with sixty-three pounds in the world and not five hundred pounds' worth of securities...",
@@ -148,7 +148,7 @@ export default {
           text: "This phase is the lesson's psychological centre. His danger is public humiliation and financial ruin.",
         },
 
-        { type: 'section-head', text: 'Phase 6 — The Unexpected Rescue' },
+        { type: 'section-head', text: 'Phase 6 -- The Unexpected Rescue' },
         {
           type: 'quote-block',
           quote: 'A voice at my ear suddenly said, "Beg pardon. Sir, but was you the gent that bought the big Daubigny?"',
@@ -164,7 +164,7 @@ export default {
           text: 'The rescue is luck, but the profit comes from quick thinking.',
         },
 
-        { type: 'section-head', text: 'Phase 7 — Turning Disaster into Profit' },
+        { type: 'section-head', text: 'Phase 7 -- Turning Disaster into Profit' },
         {
           type: 'quote-block',
           quote: '"Tell him I\'ll take a hundred," I said. And I got it.',
@@ -239,7 +239,7 @@ export default {
       blocks: [
         {
           type: 'teacher-voice',
-          html: '<p>These words come directly from the lesson. Learn the meaning, antonym, and synonym for each — the glossary is a frequent source of MCQ questions in Tamil Nadu board exams.</p>',
+          html: '<p>These words come directly from the lesson. Learn the meaning, antonym, and synonym for each -- the glossary is a frequent source of MCQ questions in Tamil Nadu board exams.</p>',
         },
         { type: 'gloss-row', word: 'Brittany', def: 'A region on the coast of North-West France', eg: 'Synonym: French coastal region · Antonym: inland region' },
         { type: 'gloss-row', word: 'bloatocrat', def: 'A fat and rich person of high station (coined by blending "bloated" and "aristocrat")', eg: 'Synonym: rich aristocrat · Antonym: poor commoner' },
@@ -312,7 +312,7 @@ export default {
           type: 'teacher-voice',
           html: `<h3 style="font-size:1rem;font-weight:600;margin:0 0 12px">1. Choose the most appropriate answer (MCQ)</h3>
 <p>a) difficult situation. &nbsp; b) French school of painters. &nbsp; c) was persuaded by his friend. &nbsp; d) there were bidders quoting higher prices. &nbsp; e) amount he asked for.</p>
-<h3 style="font-size:1rem;font-weight:600;margin:18px 0 12px">Section A — Answer the following questions</h3>
+<h3 style="font-size:1rem;font-weight:600;margin:18px 0 12px">Section A -- Answer the following questions</h3>
 <div style="margin-bottom:10px"><p><strong>a) What is a tight corner? What happens when one finds oneself in a tight corner?</strong></p><p>A tight corner is a difficult or dangerous situation from which escape is hard. When one is in a tight corner, one feels trapped and must think carefully to avoid loss or humiliation.</p></div>
 <div style="margin-bottom:10px"><p><strong>b) What is the difference between a physical and mental tight corner?</strong></p><p>A physical tight corner involves bodily danger, such as a tiger, tide, fire, or war. A mental tight corner involves fear, shame, debt, or anxiety, as happened to the narrator at Christie's.</p></div>
 <div style="margin-bottom:10px"><p><strong>c) Why did the narrator visit Christie's?</strong></p><p>The narrator visited Christie's because he had been lunching with an old friend from abroad, and the friend persuaded him to look into the sale-room while they were passing along King Street.</p></div>
@@ -323,7 +323,7 @@ export default {
 <div style="margin-bottom:10px"><p><strong>h) Why did the narrator feel he could have welcomed a firing party?</strong></p><p>He felt so ashamed and frightened by the situation that even a firing party seemed welcome. This exaggeration shows how terrible the mental pressure was.</p></div>
 <div style="margin-bottom:10px"><p><strong>i) What was the bidder's offer to the narrator?</strong></p><p>The bidder who had first offered four thousand guineas wanted to know whether the narrator would accept fifty guineas for giving up his bid.</p></div>
 <div style="margin-bottom:10px"><p><strong>j) How did the narrator take advantage of the situation?</strong></p><p>The narrator did not accept fifty guineas immediately. He asked if that was the most the bidder would offer and then demanded one hundred guineas, which he received.</p></div>
-<h3 style="font-size:1rem;font-weight:600;margin:18px 0 12px">Section B — Paragraph answers</h3>
+<h3 style="font-size:1rem;font-weight:600;margin:18px 0 12px">Section B -- Paragraph answers</h3>
 <div style="margin-bottom:10px"><p><strong>a) Narrate the circumstances that led to the narrator getting into a tight corner, by his own folly.</strong></p><p>The narrator visited Christie's sale-room only because his friend persuaded him. He had no intention of buying anything and had only sixty-three pounds in the bank. At the auction, Barbizon pictures were being sold for huge sums. The narrator began bidding just for fun, because each time someone else raised the price and saved him. Ignoring his friend's warning, he added "And fifty!" to a bid of four thousand guineas. When the original bidder stopped, the hammer fell, and the narrator became the buyer of a picture for four thousand and fifty guineas. His own folly put him in a tight corner.</p></div>
 <div style="margin-bottom:10px"><p><strong>b) Trace the thoughts that went on in the mind of the narrator when picture after picture was put up and sold at the auction.</strong></p><p>After the hammer fell, the narrator was stunned and dazed. As picture after picture was put up and sold, he saw none of them. His mind ran over possible sources of money. He thought of uncles and other people from whom he might borrow, but realized that it was not possible. He wondered whether moneylenders who spoke glibly about "note of hand only" really meant it. He also considered confessing his poverty to Christie's staff and asking them to put the picture up again. But he feared disbelief and humiliation.</p></div>
 <div style="margin-bottom:10px"><p><strong>c) Explain how the narrator got out of the tight corner that he was in.</strong></p><p>The narrator was saved by a sudden stroke of luck. A clerk approached him and said that the gentleman who had offered four thousand guineas wanted to buy the picture and would give the narrator fifty guineas for his bid. The narrator was overjoyed, because he would have accepted even fifty farthings to escape. However, he showed presence of mind and asked whether that was the highest offer. Encouraged by the clerk, he demanded one hundred guineas. The dealer accepted, the picture went to him, and the narrator escaped humiliation with a cheque.</p></div>
@@ -340,21 +340,21 @@ export default {
       blocks: [
         {
           type: 'teacher-voice',
-          html: `<h3 style="font-size:1rem;font-weight:600;margin:0 0 10px">Warm Up — Auction Flow</h3>
+          html: `<h3 style="font-size:1rem;font-weight:600;margin:0 0 10px">Warm Up -- Auction Flow</h3>
 <p>The warm-up explains how an auction works: enter the sale-room, decide the item, get a registration card, listen to the opening price, bid higher, continue until the highest price is announced thrice, hand over the card, and make payment by cheque or approved mode. This matters because the narrator ignores the seriousness of this process.</p>
 <h3 style="font-size:1rem;font-weight:600;margin:18px 0 10px">Summary Sequence</h3>
 <p>Correct order: d, l, e, j, f, c, i, a, g, n, b, h, k, o, m. The sequence shows how the narrator entered Christie's, bid for fun, got trapped by the highest bid, suffered panic, received the dealer's offer, demanded a hundred guineas, and escaped humiliation.</p>
-<h3 style="font-size:1rem;font-weight:600;margin:18px 0 10px">Vocabulary — Auction House Puzzler</h3>
+<h3 style="font-size:1rem;font-weight:600;margin:18px 0 10px">Vocabulary -- Auction House Puzzler</h3>
 <p>Across answers: auctioneer, apron, baize, bid. Down answers: Daubigny, Barbizon, Christie's, picture. These words connect directly with the auction setting.</p>
 <h3 style="font-size:1rem;font-weight:600;margin:18px 0 10px">Idioms</h3>
-<p><strong>by the skin of one's teeth</strong> — a narrow escape. <strong>tight corners</strong> — difficult situations. <strong>shot his bolt</strong> — used all his resources or done his utmost. <strong>in a nice pickle</strong> — in trouble. <strong>have cold feet</strong> — become frightened or nervous. Matching answers: alarm bells ringing — sign of something going wrong; back to the wall — in serious difficulty; grasp/clutch at straws — try any method to overcome a crisis; saved by the bell — help at the last moment; hang out to dry — abandoning one in difficulty.</p>
+<p><strong>by the skin of one's teeth</strong> -- a narrow escape. <strong>tight corners</strong> -- difficult situations. <strong>shot his bolt</strong> -- used all his resources or done his utmost. <strong>in a nice pickle</strong> -- in trouble. <strong>have cold feet</strong> -- become frightened or nervous. Matching answers: alarm bells ringing -- sign of something going wrong; back to the wall -- in serious difficulty; grasp/clutch at straws -- try any method to overcome a crisis; saved by the bell -- help at the last moment; hang out to dry -- abandoning one in difficulty.</p>
 <h3 style="font-size:1rem;font-weight:600;margin:18px 0 10px">Phrasal Verbs</h3>
-<p>Look into — investigate; look at — examine; look through — read quickly or inspect. Run over — hit with a vehicle or review quickly; run away — escape; run into — meet unexpectedly. Put on — wear or stage; put up — display or raise; put off — postpone.</p>
-<h3 style="font-size:1rem;font-weight:600;margin:18px 0 10px">Grammar — Conditional Clauses</h3>
+<p>Look into -- investigate; look at -- examine; look through -- read quickly or inspect. Run over -- hit with a vehicle or review quickly; run away -- escape; run into -- meet unexpectedly. Put on -- wear or stage; put up -- display or raise; put off -- postpone.</p>
+<h3 style="font-size:1rem;font-weight:600;margin:18px 0 10px">Grammar -- Conditional Clauses</h3>
 <p>Zero conditional: present simple + present simple, for general facts. First conditional: present simple + will, for possible future results. Second conditional: past simple + would, for unlikely or imaginary present/future situations. Third conditional: past perfect + would have + past participle, for imaginary past situations.</p>
-<h3 style="font-size:1rem;font-weight:600;margin:18px 0 10px">Grammar — Framing Questions and Question Tags</h3>
+<h3 style="font-size:1rem;font-weight:600;margin:18px 0 10px">Grammar -- Framing Questions and Question Tags</h3>
 <p>Information questions use who, what, whom, whose, which, where, when, why, and how. Question tags: positive statements take negative tags and negative statements take positive tags. Example: "You are a student, aren't you?"</p>
-<h3 style="font-size:1rem;font-weight:600;margin:18px 0 10px">Writing — Dialogue Writing</h3>
+<h3 style="font-size:1rem;font-weight:600;margin:18px 0 10px">Writing -- Dialogue Writing</h3>
 <p>Dialogue is a verbal conversation between two or more people. A sample continuation: "Muthu: That sounds exciting. Does the story have danger? Avinash: Yes, pirates, treasure maps, and sudden twists make it thrilling."</p>`,
         },
         { type: 'nav', practice: true },

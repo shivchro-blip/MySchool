@@ -6,7 +6,7 @@ from models import (
     RetryRequest,
     ProgressResponse,
 )
-from core.auth import get_current_user
+from api.v1.deps import get_current_user
 from core.errors import NotFoundError, AIUnavailableError, RateLimitError
 from modules.evaluation import evaluate_answer, retry_evaluation
 from db.repositories import ResponsesRepository

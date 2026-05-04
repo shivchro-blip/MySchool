@@ -198,11 +198,10 @@
     padding-bottom: env(safe-area-inset-bottom, 0px);
   }
   .rich-highlight {
-    background-color: var(--ec-amber-bg);
-    color: var(--ec-amber);
-    border: 0.5px solid var(--ec-amber-border);
-    padding: 1px 5px;
-    border-radius: 3px;
+    background-color: var(--warn-soft);
+    color: var(--warn);
+    padding: 1px 6px;
+    border-radius: 4px;
     font-size: 0.8125rem;
     font-weight: 500;
   }
@@ -458,6 +457,41 @@
   border-color: var(--ec-blue-border);
   background: var(--ec-blue-dim);
 }
+
+/* ── Scroll strip — horizontal pill / tab / chip rows ─────
+   Apply .scroll-strip to any flex row that overflows.
+   Children automatically get scroll-snap-align: start.     */
+.scroll-strip {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 0.5rem;
+  padding-bottom: 0.25rem;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--ink-3) transparent;
+}
+
+.scroll-strip > * {
+  flex-shrink: 0;
+  scroll-snap-align: start;
+}
+
+@supports (selector(::-webkit-scrollbar)) {
+  .scroll-strip::-webkit-scrollbar       { height: 3px; }
+  .scroll-strip::-webkit-scrollbar-track { background: transparent; }
+  .scroll-strip::-webkit-scrollbar-thumb {
+    background: var(--ink-3);
+    border-radius: 99px;
+  }
+  .scroll-strip::-webkit-scrollbar-thumb:hover {
+    background: var(--ink-2);
+  }
+}
+
+/* ── Ask AI message list — hide scrollbar ───────────────── */
+.chat-msg-list::-webkit-scrollbar { display: none; }
 
 /* ── Webkit scrollbar ────────────────────────────────────── */
 ::-webkit-scrollbar { width: 6px; }

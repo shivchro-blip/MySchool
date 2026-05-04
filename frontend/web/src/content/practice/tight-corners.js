@@ -1,6 +1,6 @@
-export default {
+﻿export default {
   meta: {
-    subject: 'General English — Class XI',
+    subject: 'General English -- Class XI',
     unit: 'Unit 4 · Prose · Tight Corners',
     time: '3.00 hrs',
     totalMarks: 90,
@@ -8,17 +8,17 @@ export default {
   },
 
   parts: [
-    /* ─── PART I — MCQ ─────────────────────────────────────────────── */
+    /* ─── PART I -- MCQ ─────────────────────────────────────────────── */
     {
       id: 'p1',
-      navLabel: 'Part I — MCQ (20×1)',
-      title: 'Part I — Objective Type',
+      navLabel: 'Part I -- MCQ (20×1)',
+      title: 'Part I -- Objective Type',
       type: 'mcq',
       scoreMax: 20,
       marksPer: 1,
       sections: [
         {
-          label: 'Vocabulary — meanings, synonyms, and antonyms',
+          label: 'Vocabulary -- meanings, synonyms, and antonyms',
           questions: [
             {
               id: 'q1',
@@ -175,11 +175,11 @@ export default {
       ],
     },
 
-    /* ─── PART II — REFERENCE TO CONTEXT ───────────────────────────── */
+    /* ─── PART II -- REFERENCE TO CONTEXT ───────────────────────────── */
     {
       id: 'p2',
-      navLabel: 'Part II — Reference (2×7)',
-      title: 'Part II — Short Answer / Reference to Context',
+      navLabel: 'Part II -- Reference (2×7)',
+      title: 'Part II -- Short Answer / Reference to Context',
       type: 'reference',
       scoreMax: 14,
       marksPer: 2,
@@ -258,15 +258,15 @@ export default {
       ],
     },
 
-    /* ─── PART III — SHORT ESSAY ────────────────────────────────────── */
+    /* ─── PART III -- SHORT ESSAY ────────────────────────────────────── */
     {
       id: 'p3',
-      navLabel: 'Part III — Short Essay (3×7)',
-      title: 'Part III — Short Essay / Paragraph Questions',
+      navLabel: 'Part III -- Short Essay (3×7)',
+      title: 'Part III -- Short Essay / Paragraph Questions',
       type: 'short-essay',
       scoreMax: 21,
       marksPer: 3,
-      instruction: 'Answer any 7 of the following 10 questions in two or three sentences. (Approx. 30–40 words per answer)',
+      instruction: 'Answer any 7 of the following 10 questions in two or three sentences. (Approx. 30-40 words per answer)',
       questions: [
         { q: "Describe the narrator's financial condition.", ans: 'The narrator had only sixty-three pounds in the bank and no securities worth five hundred pounds. He could not afford the four-thousand-and-fifty-guinea picture he accidentally bought.' },
         { q: 'What was the narrator doing at the auction?', ans: "The narrator entered Christie's with a friend and watched Barbizon pictures being sold. He then began bidding for fun, believing other buyers would always raise the price." },
@@ -281,15 +281,15 @@ export default {
       ],
     },
 
-    /* ─── PART IV — LONG ESSAY ──────────────────────────────────────── */
+    /* ─── PART IV -- LONG ESSAY ──────────────────────────────────────── */
     {
       id: 'p4',
-      navLabel: 'Part IV — Long Essay (5×7)',
-      title: 'Part IV — Long Essay Questions',
+      navLabel: 'Part IV -- Long Essay (5×7)',
+      title: 'Part IV -- Long Essay Questions',
       type: 'long-essay',
       scoreMax: 35,
       marksPer: 5,
-      instruction: 'Answer any 5 of the following 7 questions. Each answer should be about 100–150 words.',
+      instruction: 'Answer any 5 of the following 7 questions. Each answer should be about 100-150 words.',
       questions: [
         {
           q: 'Narrate the circumstances that led the narrator into a tight corner.',

@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
-import AdminLayout from '../components/AdminLayout'
-import StatCard    from '../components/StatCard'
+import { AdminLayout, StatCard } from '../components'
 import { adminApi } from '../api/client'
 
 export default function DashboardPage() {

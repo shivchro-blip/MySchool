@@ -1,6 +1,7 @@
 export { default as TopBar }         from './TopBar'
 export { default as BottomNav }      from './BottomNav'
 export { default as PageShell }      from './PageShell'
+export { default as AppShell }       from './AppShell'
 export { default as Sidebar }        from './Sidebar'
 export { default as TwoColLayout }   from './TwoColLayout'
 export { default as ThreeColLayout } from './ThreeColLayout'

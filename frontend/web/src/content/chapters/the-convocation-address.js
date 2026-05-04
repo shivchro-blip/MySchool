@@ -1,0 +1,343 @@
+export default {
+  eyebrow: 'Unit 5 · Prose · Class XI General English',
+  title: 'The Convocation Address',
+  author: 'Dr. Arignar Annadurai',
+  pills: ['Democracy', 'Education', 'Service', 'Responsibility'],
+  tabs: [
+    /* ─── AUTHOR ──────────────────────────────────────────────────────── */
+    {
+      id: 'author',
+      label: 'Author',
+      blocks: [
+        {
+          type: 'teacher-voice',
+          html: `<p>Let us meet <strong>Dr. Conjeevaram Natarajan Annadurai</strong>, who lived from <em>15 September 1909 to 3 February 1969</em>. The textbook tells us that he was popularly called <strong>Arignar Anna</strong>. He was an Indian politician who served as the Chief Minister of Tamil Nadu from 1967 to 1969.</p>
+<p>Anna was not only a political leader. He was a great orator and an acclaimed writer in Tamil. Jawaharlal Nehru hailed him as one of the greatest parliamentarians. He published several novels, short stories and plays which incorporated political and social themes. This matters because a leader who writes and speaks powerfully can shape public thinking, not merely govern public life.</p>
+<p>He was awarded the Chubb Fellowship at Yale University, becoming the first non-American to receive that honour. In the same year, he was awarded an Honorary Doctorate by Annamalai University. This lesson is an excerpt from his famous address at Annamalai University on <strong>18 November 1967</strong>, on the occasion of the Convocation ceremony.</p>`,
+        },
+        {
+          type: 'author-stat',
+          label: 'Career',
+          value: 'Dr. C. N. Annadurai (Arignar Anna) (1909–1969) · Chief Minister of Tamil Nadu 1967–1969 · Great orator and acclaimed Tamil writer · Jawaharlal Nehru called him one of the greatest parliamentarians',
+        },
+        {
+          type: 'author-stat',
+          label: 'Honours',
+          value: 'Chubb Fellowship at Yale University (first non-American to receive it) · Honorary Doctorate by Annamalai University · Published novels, short stories and plays on political and social themes',
+        },
+        {
+          type: 'think-box',
+          label: 'Why this matters for this text',
+          text: 'In this speech, Anna speaks as a public leader, a social thinker and a teacher of young graduates. He does not simply congratulate students; he reminds them that university education is a privilege created by society. Understanding Anna\'s political and social background helps us see why he connects education with democracy, common people, service and duty.',
+        },
+        { type: 'nav', next: 'before-read', nextLabel: 'Next: Before We Read →' },
+      ],
+    },
+
+    /* ─── BEFORE WE READ ─────────────────────────────────────────────── */
+    {
+      id: 'before-read',
+      label: 'Before We Read',
+      blocks: [
+        {
+          type: 'teacher-voice',
+          html: `<p>Think about your school building, playground, teachers, library and laboratory. Did you build them alone? Of course not. Society, parents, institutions, workers, governments and many unseen people make education possible. Anna's speech begins from this truth: what we receive from society must one day be returned through service.</p>`,
+        },
+        {
+          type: 'quote-block',
+          quote: 'What goes around comes around!',
+          context: 'The moral centre of the speech',
+        },
+        {
+          type: 'teacher-voice',
+          html: `<p>This introduction prepares us for the moral centre of the lesson. Development, education and health care come from the effort of many people. A graduate should therefore ask, "What will I give back?"</p>`,
+        },
+        { type: 'nav', next: 'text-explained', nextLabel: 'Next: Speech Explained →' },
+      ],
+    },
+
+    /* ─── SPEECH EXPLAINED ───────────────────────────────────────────── */
+    {
+      id: 'text-explained',
+      label: 'Speech Explained',
+      blocks: [
+        { type: 'section-head', text: 'Phase 1 — Gratitude and humility at the convocation' },
+        {
+          type: 'teacher-voice',
+          html: `<p>Anna begins by thanking Annamalai University for the unique honour conferred on him. He stands before the august assembly to deliver the Convocation Address, greeting the graduates and wishing them a bright future. But notice how he does not present himself as someone giving brand-new theories. He says he is conscious of his own limitations and will only reiterate cardinal principles already enunciated by past thinkers, adding the layman's point of view.</p>`,
+        },
+        {
+          type: 'think-box',
+          label: 'Notice this',
+          text: 'This opening is exam-important because it shows humility. A great leader begins not with pride, but with gratitude and responsibility.',
+        },
+
+        { type: 'section-head', text: 'Phase 2 — The age of the common man' },
+        {
+          type: 'teacher-voice',
+          html: `<p>Anna declares that this is the age of the common man. He says that systems of philosophy, politics, ethics and economics are meant for the common man, and universities are repositories of knowledge and nursing grounds for emissaries of thought, wisdom and service. Their role is growing because society has eschewed monarchy and autocracy and entered the era of democracy.</p>`,
+        },
+        {
+          type: 'think-box',
+          label: 'Notice this',
+          text: 'Here Anna shifts education away from the privileged few. He says knowledge must serve democracy and ordinary people.',
+        },
+
+        { type: 'section-head', text: 'Phase 3 — Universities then and now' },
+        {
+          type: 'teacher-voice',
+          html: `<p>Anna contrasts old universities with modern universities. In monarchical and feudal days, universities trained scholars and poets to adorn royal chambers and mansions. Wisdom was meant for the mansion, not for the marketplace. Scholars worked in secluded spheres, far from the noise of the common man. Today, however, the role of universities is not cloistered or confined. They must trim, train, guide and lead the common man to become a responsible citizen of democracy.</p>`,
+        },
+        {
+          type: 'quote-block',
+          quote: 'Wisdom was meant for the mansion, not for the market place.',
+          context: 'Anna contrasting old and modern education',
+        },
+        {
+          type: 'think-box',
+          label: 'Notice this',
+          text: 'The phrase "wisdom was meant for the mansion, not for the market place" is a key exam line. It shows how education was once separated from ordinary people.',
+        },
+
+        { type: 'section-head', text: 'Phase 4 — Democracy and broad-mindedness' },
+        {
+          type: 'teacher-voice',
+          html: `<p>Anna quotes <strong>Dr. S. Radhakrishnan</strong>, who said that democracy requires more qualities than other forms of government. Universities must develop the true spirit of democracy, appreciation of others' points of view and adjustment of differences through discussions. Democracy stays healthy through individual responsibility and judgement. Students must remember past struggles and understand present perils, possibilities, challenges and opportunities.</p>`,
+        },
+        {
+          type: 'think-box',
+          label: 'Notice this',
+          text: 'This phase gives the answer to why universities are necessary for democratic society. They create broad-minded citizens, not just degree holders.',
+        },
+
+        { type: 'section-head', text: 'Phase 5 — Education as a debt to society' },
+        {
+          type: 'teacher-voice',
+          html: `<p>Anna blesses the graduates with a prosperous future, but he warns that earning a decent living should not be the sole objective. University education is a privilege, and every graduate is deeply indebted to the community. Much of the money for higher education comes from revenue collected from the community, including <strong>tillers and toilers</strong> who never enjoyed this privilege but submit to discomfort so that the next generation can live better.</p>`,
+        },
+        {
+          type: 'think-box',
+          label: 'Notice this',
+          text: 'This is the moral heart of the speech. Anna makes graduates see education as a social debt, not merely a personal achievement.',
+        },
+
+        { type: 'section-head', text: 'Phase 6 — Service as the true repayment' },
+        {
+          type: 'teacher-voice',
+          html: `<p>Anna asks graduates how they will repay what they have drawn from the social chest. If they do not replenish it richly, coming generations will find only an empty coffer. Society expects an adequate return not so much in money as in service: toning up society, bringing light into dark alleys, sunshine into dingy places, solace to the afflicted, hope to the despondent and new life to everyone.</p>`,
+        },
+        {
+          type: 'think-box',
+          label: 'Notice this',
+          text: 'The repeated images of light, sunshine, solace and hope make service sound concrete and beautiful. This is useful for paragraph answers.',
+        },
+
+        { type: 'section-head', text: 'Phase 7 — Difficulties, courage and final blessing' },
+        {
+          type: 'teacher-voice',
+          html: `<p>Anna does not pretend service will be easy. He admits graduates may face selfish people, tyranny, discouragement and conflict between principles and practice. But he reminds them that men and women with the spirit of service have carried on the crusade successfully. He invokes the Tamil ideal from Purananuru and calls graduates inheritors of a rich legacy. He ends by blessing them to march towards the land of smiles.</p>`,
+        },
+        {
+          type: 'think-box',
+          label: 'Notice this',
+          text: 'The ending combines realism and optimism. Anna knows society is difficult, but he still trusts youth, education and service.',
+        },
+
+        { type: 'section-head', text: 'The Speech as a Whole' },
+        {
+          type: 'teacher-voice',
+          html: `<p>The speech moves from gratitude to duty. Anna begins humbly, places the common man at the centre, then builds the argument that education is a social gift which must be repaid through service. He does not ignore difficulties, but ends with hope and blessing. It is a speech about responsibility, not just celebration.</p>`,
+        },
+        { type: 'nav', next: 'key-lines', nextLabel: 'Next: Key Lines →' },
+      ],
+    },
+
+    /* ─── KEY LINES ──────────────────────────────────────────────────── */
+    {
+      id: 'key-lines',
+      label: 'Key Lines',
+      blocks: [
+        {
+          type: 'teacher-voice',
+          html: '<p>These seven lines are the most exam-important quotes from the speech. Each can appear in reference-to-context or short essay questions. Know what each line means and why it matters.</p>',
+        },
+        {
+          type: 'quote-block',
+          quote: 'This is the age of the common man.',
+          context: 'Anna places the common man at the centre of modern society. Key for theme questions on democracy and social responsibility.',
+        },
+        {
+          type: 'quote-block',
+          quote: 'Universities, as the repositories of knowledge and the nursing ground for the emissaries of thought, wisdom and service, have got a prominent role to play.',
+          context: 'Universities described as storehouses and training grounds for those who carry thought, wisdom and service into society. Likely reference-to-context line.',
+        },
+        {
+          type: 'quote-block',
+          quote: 'During the monarchical or feudal days, Universities had to train scholars and poets to adorn the chambers of royalty or the gilded mansions of lords and nobles.',
+          context: 'Shows how education once served the privileged classes. Important for comparing old and modern university roles.',
+        },
+        {
+          type: 'quote-block',
+          quote: 'Wisdom was meant for the mansion, not for the market place.',
+          context: 'Knowledge was reserved for the rich and powerful, not for ordinary people. Key theme line on the democratisation of education.',
+        },
+        {
+          type: 'quote-block',
+          quote: 'The role of the University today is not cloistered and confined as in the past.',
+          context: 'Modern universities must serve society broadly. Key word: "cloistered" -- restricted. Important for questions on change in the role of education.',
+        },
+        {
+          type: 'quote-block',
+          quote: 'University education is a privilege that you enjoy, for which you are deeply indebted to the community.',
+          context: 'Moral centre of the address. Anna reminds graduates that their education was made possible by society.',
+        },
+        {
+          type: 'quote-block',
+          quote: 'Unless you replenish it richly, coming generations will find only an empty coffer.',
+          context: 'Anna warns that graduates must return service to the social chest. The image of an empty coffer makes social debt vivid and urgent.',
+        },
+        { type: 'nav', next: 'glossary', nextLabel: 'Next: Glossary →' },
+      ],
+    },
+
+    /* ─── GLOSSARY ───────────────────────────────────────────────────── */
+    {
+      id: 'glossary',
+      label: 'Glossary',
+      blocks: [
+        {
+          type: 'teacher-voice',
+          html: '<p>These 25 words come directly from the speech. Learn the printed meaning for each -- the glossary is a frequent source of MCQ questions in Tamil Nadu board exams.</p>',
+        },
+        { type: 'gloss-row', word: 'conferred', def: 'Granted a title, degree, benefit or right', eg: 'Synonym: granted · Antonym: withheld' },
+        { type: 'gloss-row', word: 'reiterate', def: 'Say or do again', eg: 'Synonym: repeat · Antonym: say once' },
+        { type: 'gloss-row', word: 'enunciated', def: 'Spoke clearly; proclaimed', eg: 'Synonym: proclaimed · Antonym: mumbled' },
+        { type: 'gloss-row', word: 'ruggedness', def: 'Strength; toughness', eg: 'Synonym: toughness · Antonym: weakness' },
+        { type: 'gloss-row', word: 'repositories', def: 'Storehouses', eg: 'Synonym: storehouses · Antonym: empty places' },
+        { type: 'gloss-row', word: 'emissaries', def: 'Ambassadors', eg: 'Synonym: ambassadors · Antonym: enemies' },
+        { type: 'gloss-row', word: 'eschewed', def: 'Have nothing to do with; deliberately avoided', eg: 'Synonym: avoided · Antonym: embraced' },
+        { type: 'gloss-row', word: 'autocracy', def: 'Government by one ruler', eg: 'Synonym: dictatorship · Antonym: democracy' },
+        { type: 'gloss-row', word: 'feudal', def: 'Having to do with the Middle Ages; old', eg: 'Synonym: medieval · Antonym: modern' },
+        { type: 'gloss-row', word: 'confronting', def: 'Aggressively resisting', eg: 'Synonym: opposing · Antonym: avoiding' },
+        { type: 'gloss-row', word: 'secluded spheres', def: 'Isolated areas', eg: 'Synonym: isolated areas · Antonym: public spaces' },
+        { type: 'gloss-row', word: 'cloistered', def: 'Restricted; confined', eg: 'Synonym: confined · Antonym: open' },
+        { type: 'gloss-row', word: 'perseverance', def: 'Continued effort; steadfastness', eg: 'Synonym: steadfastness · Antonym: giving up' },
+        { type: 'gloss-row', word: 'inherent', def: 'Inborn; naturally existing', eg: 'Synonym: inborn · Antonym: acquired' },
+        { type: 'gloss-row', word: 'perils', def: 'Dangers and risks', eg: 'Synonym: dangers · Antonym: safety' },
+        { type: 'gloss-row', word: 'indebted', def: 'Obliged to repay', eg: 'Synonym: obliged · Antonym: free' },
+        { type: 'gloss-row', word: 'tillers', def: 'Persons who produce crops; cultivators', eg: 'Synonym: cultivators · Antonym: scholars' },
+        { type: 'gloss-row', word: 'toilers', def: 'Workers; people who perform hard physical labour', eg: 'Synonym: labourers · Antonym: idlers' },
+        { type: 'gloss-row', word: 'replenish', def: 'Refill', eg: 'Synonym: refill · Antonym: empty' },
+        { type: 'gloss-row', word: 'despondent', def: 'Depressed; frustrated', eg: 'Synonym: hopeless · Antonym: hopeful' },
+        { type: 'gloss-row', word: 'sermons', def: 'Preachings; moral teachings', eg: 'Synonym: teachings · Antonym: silence' },
+        { type: 'gloss-row', word: 'endowed', def: 'Gifted; given a quality or ability', eg: 'Synonym: gifted · Antonym: deprived' },
+        { type: 'gloss-row', word: 'crusade', def: 'Campaign for a good cause', eg: 'Synonym: campaign · Antonym: surrender' },
+        { type: 'gloss-row', word: 'inheritors', def: 'Successors', eg: 'Synonym: successors · Antonym: predecessors' },
+        { type: 'gloss-row', word: 'lustre', def: 'Glow of reflected light', eg: 'Synonym: glow · Antonym: dullness' },
+        { type: 'nav', next: 'themes', nextLabel: 'Next: Themes & Devices →' },
+      ],
+    },
+
+    /* ─── THEMES & DEVICES ───────────────────────────────────────────── */
+    {
+      id: 'themes',
+      label: 'Themes & Devices',
+      blocks: [
+        { type: 'section-head', text: 'Education must serve democracy' },
+        {
+          type: 'teacher-voice',
+          html: `<p>Anna says this is the age of the common man and that universities must make democracy fruitful and effective. In an essay, students should show that education is not meant for isolated scholarship alone, but for forming responsible citizens.</p>`,
+        },
+        { type: 'section-head', text: 'Privilege creates responsibility' },
+        {
+          type: 'teacher-voice',
+          html: `<p>Anna reminds graduates that their education is supported by the community, including tillers and toilers. The essay-ready point is that students must convert education into service because society has invested in them.</p>`,
+        },
+        { type: 'section-head', text: 'Service must survive difficulty' },
+        {
+          type: 'teacher-voice',
+          html: `<p>Anna admits that self-seekers, tyranny and discouragement may appear. Yet he asks graduates to carry forward the crusade of service as inheritors of a rich Tamil legacy.</p>`,
+        },
+        { type: 'section-head', text: 'Rhetorical devices' },
+        {
+          type: 'teacher-voice',
+          html: '<p>Anna uses these devices to make his speech memorable and persuasive. Know the name, the line, and the effect.</p>',
+        },
+        {
+          type: 'device-block',
+          kind: 'Metaphor',
+          line: '"social chest" and "empty coffer"',
+          exp: 'Society\'s resources are compared to a treasury. Graduates must refill it through service. If they do not, coming generations will find only an empty coffer. The metaphor makes social debt tangible.',
+        },
+        {
+          type: 'device-block',
+          kind: 'Imagery',
+          line: '"bringing light into the dark alleys, sunshine into dingy places"',
+          exp: 'Vivid light imagery makes service feel concrete and beautiful. Graduates are not just workers; they are bringers of hope and brightness to suffering people.',
+        },
+        {
+          type: 'device-block',
+          kind: 'Contrast',
+          line: '"Wisdom was meant for the mansion, not for the market place."',
+          exp: 'Mansion and market place are contrasted to show the shift from elite education to democratic education. The contrast is sharp and quotable.',
+        },
+        { type: 'nav', next: 'textbook-qa', nextLabel: 'Next: Textbook Q&A →' },
+      ],
+    },
+
+    /* ─── TEXTBOOK Q&A ───────────────────────────────────────────────── */
+    {
+      id: 'textbook-qa',
+      label: 'Textbook Q&A',
+      blocks: [
+        {
+          type: 'teacher-voice',
+          html: `<h3 style="font-size:1rem;font-weight:600;margin:0 0 12px">Section A — Answer in a sentence or two</h3>
+<div style="margin-bottom:10px"><p><strong>1. Who does the speaker claim to represent?</strong></p><p>The speaker claims to represent the common man in all his ruggedness. He says this is the age of the common man and that his point of view matters most.</p></div>
+<div style="margin-bottom:10px"><p><strong>2. Why are universities necessary for a society?</strong></p><p>Universities are necessary because they are repositories of knowledge and training grounds for emissaries of thought, wisdom and service. They prepare individuals to better society and make democracy fruitful.</p></div>
+<div style="margin-bottom:10px"><p><strong>3. What was the role of scholars and poets in olden days?</strong></p><p>In olden days, scholars and poets were trained to adorn the chambers of royalty and the mansions of lords and nobles. Their wisdom served the privileged, not the common people.</p></div>
+<div style="margin-bottom:10px"><p><strong>4. In what ways have universities improved the society?</strong></p><p>Universities have enlarged their role by training people for democratic citizenship. They develop responsibility, judgement, appreciation of others' views and the ability to serve society.</p></div>
+<div style="margin-bottom:10px"><p><strong>5. Universities develop broad-mindedness. How does Dr. Radhakrishnan drive home this idea?</strong></p><p>Dr. Radhakrishnan says universities develop the true spirit of democracy, appreciation of others' points of view and adjustment of differences through discussion. This keeps democracy healthy and strong.</p></div>
+<div style="margin-bottom:10px"><p><strong>6. What should the youngsters aim in life after their graduation?</strong></p><p>Youngsters should aim not only for personal material advancement but also for something higher and nobler. They must give back to society through service.</p></div>
+<div style="margin-bottom:10px"><p><strong>7. How can a graduate give back to his/her society?</strong></p><p>A graduate can give back by serving society, bringing light to dark alleys, comfort to the afflicted, hope to the despondent and new life to others.</p></div>
+<h3 style="font-size:1rem;font-weight:600;margin:18px 0 12px">Section B — Answer in three or four sentences</h3>
+<div style="margin-bottom:10px"><p><strong>1. "Wisdom was meant for the mansion, not for the marketplace" — What does this statement signify?</strong></p><p>The statement signifies that in monarchical and feudal days, knowledge served only kings, lords and privileged people. Scholars worked for royal courts and mansions, not for ordinary people. The common masses did not receive the benefit of learned thought. Anna uses this contrast to show how modern education must serve democracy.</p></div>
+<div style="margin-bottom:10px"><p><strong>2. According to the speaker, how should Universities mould the students of the present day?</strong></p><p>Universities should trim, train, guide and lead students to become responsible citizens of democracy. They must build patience, perseverance, faith and confidence. They should help students shoulder responsibilities and make democracy fruitful and effective.</p></div>
+<div style="margin-bottom:10px"><p><strong>3. How does Arignar Anna highlight the duties and responsibilities of graduates to the society?</strong></p><p>Anna reminds graduates that university education is a privilege funded by the community. Tillers and toilers who did not enjoy higher education also contribute to its maintenance. Therefore graduates must repay society through service, not merely through money.</p></div>
+<div style="margin-bottom:10px"><p><strong>4. Students are instilled with some of the essential values and skills while at the universities. Enumerate them.</strong></p><p>Universities instil democratic spirit, appreciation of other viewpoints, adjustment of differences through discussion, individual responsibility and judgement. They teach students to recall past struggles and understand present challenges and opportunities. These values prepare them for service.</p></div>
+<div style="margin-bottom:10px"><p><strong>5. What are the hindrances graduates face in their task of serving the society?</strong></p><p>Graduates may face a discouraging environment, selfish people, tyranny, decried patient workers and conflict between principles and practice. Their hopes may be dimmed and their determination disturbed. Yet Anna asks them to overcome these difficulties with the spirit of service.</p></div>
+<h3 style="font-size:1rem;font-weight:600;margin:18px 0 12px">Section C — Paragraph answers</h3>
+<div style="margin-bottom:10px"><p><strong>1. How do Universities mould students apart from imparting academic education to them?</strong></p><p>Universities mould students by preparing them for democratic citizenship, not merely by giving degrees. They develop the true spirit of democracy, appreciation of others' points of view and the ability to settle differences through discussion. They teach students to use individual responsibility and judgement. Anna says universities must trim, train, guide and lead the common man before he performs his duty as a citizen. They build patience, perseverance, faith and confidence. Thus, universities shape character, social awareness and public responsibility. They make students capable of contributing to society and making democracy fruitful and effective.</p></div>
+<div style="margin-bottom:10px"><p><strong>2. Common men contribute to the maintenance of institutions of higher education. Explain this statement.</strong></p><p>Anna explains that most of the money needed to maintain institutions of higher education comes from revenue collected from the community through the State. A good part of this revenue comes from tillers and toilers, people who produce crops, raise animals and perform hard physical labour. Many of them never enjoyed the privilege of university education, yet they accept discomfort so that the next generation can live better. Therefore, a graduate's education is not a private possession alone. It is supported by society, including common people. Graduates must remember this debt and repay it through service.</p></div>
+<div style="margin-bottom:10px"><p><strong>3. How does the speaker highlight the importance of giving back to the society?</strong></p><p>The speaker highlights giving back by reminding graduates that their university education is a privilege for which they are indebted to society. He asks what they will contribute to the social chest from which they have drawn so much. If they do not replenish it, coming generations will find only an empty coffer. Anna says society expects an adequate return, not mainly in money, but in service. Graduates must tone up society, bring light into dark alleys, sunshine into dingy places, solace to the afflicted and hope to the despondent.</p></div>
+<div style="margin-bottom:10px"><p><strong>4. Letter to a friend highlighting the core ideas of Anna's speech.</strong></p><p>Dear Friend, I had the rare privilege of listening to Dr. Arignar Anna's convocation address. His speech deeply moved me. He said this is the age of the common man and that universities must serve democracy by training responsible citizens. He reminded us that our education is a privilege made possible by society, especially by tillers and toilers who may never enter a university. He urged us to repay society through service, by bringing light, hope and comfort to people in need. His words made me feel that graduation is not the end of duty but the beginning of social responsibility. Yours lovingly.</p></div>`,
+        },
+        { type: 'nav', next: 'activities', nextLabel: 'Next: Activities →' },
+      ],
+    },
+
+    /* ─── ACTIVITIES ─────────────────────────────────────────────────── */
+    {
+      id: 'activities',
+      label: 'Activities',
+      blocks: [
+        {
+          type: 'teacher-voice',
+          html: `<h3 style="font-size:1rem;font-weight:600;margin:0 0 10px">Warm Up</h3>
+<p>The warm-up asks students to expand a mind map on democracy with ideas such as rights, voting, people, majority, individualism and politics. It also asks them to classify school facilities as individual and common: textbooks, uniform and stationery are individual; playground, laboratory, library, blackboard, sports equipment, washrooms, competent teachers, smart classroom and mid-day meals are common facilities provided by society and institutions.</p>
+<h3 style="font-size:1rem;font-weight:600;margin:18px 0 10px">Vocabulary — Semantic Fields</h3>
+<p>Words from education include university, graduates, knowledge, scholars, poets, wisdom, service and learning. Other semantic fields covered: music (Carnatic, keyboard, vocal, unplugged, orchestra, hip-hop, guitar); agriculture (fertile, cultivation, organic, harvest, livestock, uprooting); computer (hacker, desktop, mother-board, internet, proxy, recycle bin); commerce (dividend, industries, investment, trade, contracts); medicine (clinical, orthopaedic, operations, diagnostics, disease, cure).</p>
+<h3 style="font-size:1rem;font-weight:600;margin:18px 0 10px">Words with Different Functions</h3>
+<p>The textbook practises words such as book, frame, guide, play, plan and print as different word classes (noun and verb).</p>
+<h3 style="font-size:1rem;font-weight:600;margin:18px 0 10px">Listening and Speaking</h3>
+<p>The listening activity is based on Abraham Lincoln's letter to his son's teacher. The speaking task teaches speech structure: introduction should greet the audience, introduce yourself and introduce the topic; body should elaborate main points and give examples; conclusion should summarise views, main points and thank the audience.</p>
+<h3 style="font-size:1rem;font-weight:600;margin:18px 0 10px">Reading</h3>
+<p>The reading section explains open letters and gives Rabindranath Tagore's letter to Mahatma Gandhi from Shanti Niketan, April 12, 1919. Questions ask about fighting evil, Gandhi's ideal, India's opportunity to win freedom and Tagore's acknowledgement of Gandhi's work.</p>
+<h3 style="font-size:1rem;font-weight:600;margin:18px 0 10px">Grammar and Writing</h3>
+<p>Grammar focuses on direct and reported speech, including tense changes when the reporting verb is in the past tense. Writing includes formal letters such as placing orders, concession requests and permission letters, plus the letter of application. Tasks include responding to advertisements for part-time Graphic Artists and Female IELTS Teachers.</p>`,
+        },
+        { type: 'nav', practice: true },
+      ],
+    },
+  ],
+}

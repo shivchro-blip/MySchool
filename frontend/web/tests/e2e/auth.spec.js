@@ -1,7 +1,9 @@
 import { test, expect } from '@playwright/test'
+import { COMPONENTS } from './helpers'
 
 test.describe('Authentication', () => {
   test('login page loads correctly', async ({ page }) => {
+    test.info().annotations.push({ type: 'component', description: COMPONENTS.LoginPage })
     await page.goto('/login')
     await expect(page.locator('h1')).toContainText('AI Exam Coach')
     await expect(page.getByPlaceholder('your@email.com')).toBeVisible()
@@ -9,12 +11,14 @@ test.describe('Authentication', () => {
   })
 
   test('login tab is active by default', async ({ page }) => {
+    test.info().annotations.push({ type: 'component', description: COMPONENTS.LoginPage })
     await page.goto('/login')
     const loginBtn = page.getByRole('button', { name: 'Login' }).first()
     await expect(loginBtn).toBeVisible()
   })
 
   test('can switch to sign up tab', async ({ page }) => {
+    test.info().annotations.push({ type: 'component', description: COMPONENTS.LoginPage })
     await page.goto('/login')
     await page.getByRole('button', { name: 'Sign Up' }).click()
     await expect(
@@ -23,14 +27,15 @@ test.describe('Authentication', () => {
   })
 
   test('shows error for empty login', async ({ page }) => {
+    test.info().annotations.push({ type: 'component', description: COMPONENTS.LoginPage })
     await page.goto('/login')
     await page.getByRole('button', { name: 'Login' }).last().click()
-    // HTML5 validation — email field should be required
     const emailInput = page.getByPlaceholder('your@email.com')
     await expect(emailInput).toBeVisible()
   })
 
   test('redirects to login if not authenticated', async ({ page }) => {
+    test.info().annotations.push({ type: 'component', description: COMPONENTS.LoginPage })
     await page.goto('/')
     await expect(page).toHaveURL(/\/login/)
   })

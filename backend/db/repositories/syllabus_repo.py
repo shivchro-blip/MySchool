@@ -35,6 +35,26 @@ class SyllabusRepository:
         )
         return result.data
 
+    def get_subject_by_slug(self, slug: str) -> dict | None:
+        result = (
+            self._db.table("subjects")
+            .select("*")
+            .eq("slug", slug)
+            .maybe_single()
+            .execute()
+        )
+        return result.data
+
+    def get_chapter_by_slug(self, slug: str) -> dict | None:
+        result = (
+            self._db.table("chapters")
+            .select("*")
+            .eq("slug", slug)
+            .maybe_single()
+            .execute()
+        )
+        return result.data
+
     def get_chapters_by_subject(self, subject_id: str) -> list[dict]:
         result = (
             self._db.table("chapters")

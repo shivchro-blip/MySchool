@@ -1,7 +1,8 @@
-from fastapi import APIRouter, Depends, HTTPException
+import re
+from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, Form
 from pydantic import BaseModel, Field
 from uuid import UUID
-from core.admin_auth import get_admin_user
+from api.v1.deps import get_admin_user
 from db.client import get_db
 
 router = APIRouter()
@@ -334,6 +335,152 @@ def _group_by(items: list[dict], key: str) -> dict:
         val = item.get(key, "unknown")
         result[val] = result.get(val, 0) + 1
     return result
+
+
+# ── HTML practice import ─────────────────────────────────────────────────────
+
+@router.post("/questions/import-html")
+async def import_practice_html(
+    chapter_slug: str = Form(...),
+    file: UploadFile = File(...),
+    admin: dict = Depends(get_admin_user),
+):
+    html = (await file.read()).decode("utf-8")
+    try:
+        questions = _parse_practice_html(html)
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+
+    if not questions:
+        raise HTTPException(status_code=400, detail="No questions extracted from HTML")
+
+    db = get_db()
+    chapter = (
+        db.table("chapters")
+        .select("id, subject_id")
+        .eq("slug", chapter_slug)
+        .maybe_single()
+        .execute()
+    ).data
+    if not chapter:
+        raise HTTPException(status_code=404, detail=f"Chapter not found: {chapter_slug}")
+
+    rows = [
+        {
+            "subject_id":    chapter["subject_id"],
+            "chapter_id":    chapter["id"],
+            "question_text": q["question_text"],
+            "marks":         q["marks"],
+            "question_type": q["question_type"],
+            "answer_key":    q["answer_key"],
+            "rubric":        q.get("rubric"),
+            "source":        "manual",
+            "is_validated":  False,
+        }
+        for q in questions
+    ]
+
+    result = db.table("questions").insert(rows).execute()
+    return {"inserted": len(result.data), "chapter_slug": chapter_slug}
+
+
+def _unescape_js(s: str) -> str:
+    return s.replace("\\'", "'").replace('\\"', '"').replace("\\\\", "\\")
+
+
+def _extract_js_array(script: str, var_name: str) -> str:
+    """Return content inside const <var_name>=[...] using bracket counting."""
+    marker = f"const {var_name}=["
+    pos = script.find(marker)
+    if pos == -1:
+        return ""
+    pos += len(marker)
+    depth = 1
+    i = pos
+    while i < len(script) and depth > 0:
+        if script[i] == "[":
+            depth += 1
+        elif script[i] == "]":
+            depth -= 1
+        i += 1
+    return script[pos : i - 1]
+
+
+def _parse_p2(script: str) -> list[dict]:
+    content = _extract_js_array(script, "P2Qs")
+    if not content:
+        return []
+
+    entry_re = re.compile(
+        r'\{verse:`([^`]*)`[^[]*\[(.*?)\]\s*\}',
+        re.DOTALL,
+    )
+    sub_re = re.compile(
+        r"\{q:'((?:[^'\\]|\\.)*)',\s*a:'((?:[^'\\]|\\.)*)'\}",
+        re.DOTALL,
+    )
+
+    results = []
+    for entry in entry_re.finditer(content):
+        verse = entry.group(1).strip()
+        subs = [
+            {"q": _unescape_js(m.group(1)), "a": _unescape_js(m.group(2))}
+            for m in sub_re.finditer(entry.group(2))
+        ]
+        if not subs:
+            continue
+
+        sub_lines = "\n".join(
+            f"({chr(97 + i)}) {s['q']}" for i, s in enumerate(subs)
+        )
+        question_text = (
+            f'Read the following lines carefully and answer the questions:\n\n'
+            f'"{verse}"\n\n{sub_lines}'
+        )
+        answer_key = {f"sub_{chr(97 + i)}": s for i, s in enumerate(subs)}
+
+        results.append({
+            "question_text": question_text,
+            "marks":         2,
+            "question_type": "short_answer",
+            "answer_key":    answer_key,
+        })
+
+    return results
+
+
+def _parse_p3_p4(script: str, var_name: str, question_type: str) -> list[dict]:
+    content = _extract_js_array(script, var_name)
+    if not content:
+        return []
+
+    pattern = re.compile(
+        r"\{q:'((?:[^'\\]|\\.)*)',\s*mark:'(\d+)',\s*ans:'((?:[^'\\]|\\.)*)'\}",
+        re.DOTALL,
+    )
+
+    return [
+        {
+            "question_text": _unescape_js(m.group(1)),
+            "marks":         int(m.group(2)),
+            "question_type": question_type,
+            "answer_key":    {"model_answer": _unescape_js(m.group(3))},
+        }
+        for m in pattern.finditer(content)
+    ]
+
+
+def _parse_practice_html(html: str) -> list[dict]:
+    m = re.search(r"<script>(.*?)</script>", html, re.DOTALL)
+    if not m:
+        raise ValueError("No <script> block found in HTML")
+    script = m.group(1)
+
+    questions = []
+    questions.extend(_parse_p2(script))
+    questions.extend(_parse_p3_p4(script, "P3Qs", "paragraph"))
+    questions.extend(_parse_p3_p4(script, "P4Qs", "essay"))
+    return questions
 
 
 # ── Content pipeline trigger ─────────────────────────────────────────────────

@@ -1,18 +1,28 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
-import { isLoggedIn }    from './api/auth'
+import { isLoggedIn } from './api/auth'
 
-import LoginPage         from './pages/LoginPage'
-import HomePage          from './pages/HomePage'
-import CoursesPage       from './pages/CoursesPage'
-import SubjectsPage      from './pages/SubjectsPage'
-import TopicListPage     from './pages/TopicListPage'
-import TopicDetailPage   from './pages/TopicDetailPage'
-import LearnPage         from './pages/LearnPage'
-import PracticePage      from './pages/PracticePage'
-import ProgressPage      from './pages/ProgressPage'
+import LoginPage from './pages/LoginPage'
+import ProgressPage from './pages/ProgressPage'
+
+import AppShell from './components/layout/AppShell'
+
+import YearPage         from './pages/syllabus/YearPage'
+import SubjectPage      from './pages/syllabus/SubjectPage'
+import LessonListPage   from './pages/syllabus/LessonListPage'
+import LessonDetailPage from './pages/syllabus/LessonDetailPage'
+import SectionPage      from './pages/syllabus/SectionPage'
+import NotFound         from './pages/syllabus/NotFound'
 
 function Guard({ children }) {
   return isLoggedIn() ? children : <Navigate to="/login" replace />
+}
+
+function SyllabusShell({ children }) {
+  return (
+    <Guard>
+      <AppShell>{children}</AppShell>
+    </Guard>
+  )
 }
 
 export default function App() {
@@ -22,46 +32,28 @@ export default function App() {
 
         <Route path="/login" element={<LoginPage />} />
 
-        <Route path="/" element={
-          <Guard><HomePage /></Guard>
-        } />
-
-        <Route path="/courses" element={
-          <Guard><CoursesPage /></Guard>
-        } />
-        <Route path="/courses/:classId" element={
-          <Guard><SubjectsPage /></Guard>
-        } />
-        <Route path="/courses/:classId/:subjectSlug" element={
-          <Guard><TopicListPage /></Guard>
-        } />
-        <Route path="/courses/:classId/:subjectSlug/:chapterSlug" element={
-          <Guard><TopicDetailPage /></Guard>
-        } />
-
-        <Route path="/class/:id"   element={<Navigate to="/courses" replace />} />
-        <Route path="/subject/:id" element={<Navigate to="/courses" replace />} />
-
-        <Route path="/chapters" element={<Navigate to="/courses" replace />} />
-        <Route path="/chapters/:subjectSlug" element={
-          <Guard><TopicListPage /></Guard>
-        } />
-        <Route path="/chapters/:subjectSlug/:chapterSlug" element={
-          <Guard><TopicDetailPage /></Guard>
-        } />
-
-        <Route path="/learn/:chapterSlug" element={
-          <Guard><LearnPage /></Guard>
-        } />
-        <Route path="/practice/:chapterSlug" element={
-          <Guard><PracticePage /></Guard>
-        } />
-
         <Route path="/progress" element={
-          <Guard><ProgressPage /></Guard>
+          <SyllabusShell><ProgressPage /></SyllabusShell>
         } />
 
-        <Route path="*" element={<Navigate to="/" replace />} />
+        <Route path="/:year" element={
+          <SyllabusShell><YearPage /></SyllabusShell>
+        } />
+        <Route path="/:year/:subject" element={
+          <SyllabusShell><SubjectPage /></SyllabusShell>
+        } />
+        <Route path="/:year/:subject/:category" element={
+          <SyllabusShell><LessonListPage /></SyllabusShell>
+        } />
+        <Route path="/:year/:subject/:category/:lesson" element={
+          <SyllabusShell><LessonDetailPage /></SyllabusShell>
+        } />
+        <Route path="/:year/:subject/:category/:lesson/:section" element={
+          <SyllabusShell><SectionPage /></SyllabusShell>
+        } />
+
+        <Route path="/" element={<SyllabusShell><YearPage /></SyllabusShell>} />
+        <Route path="*" element={<SyllabusShell><NotFound /></SyllabusShell>} />
 
       </Routes>
     </BrowserRouter>

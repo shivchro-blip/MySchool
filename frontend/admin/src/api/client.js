@@ -19,9 +19,23 @@ async function request(method, path, body = null) {
   return res.json()
 }
 
+async function postForm(path, formData) {
+  const res = await fetch(`${BASE}${path}`, {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${getToken()}` },
+    body: formData,
+  })
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({ error: 'Request failed' }))
+    throw new Error(err.detail || err.error || 'Request failed')
+  }
+  return res.json()
+}
+
 export const adminApi = {
-  get:    path        => request('GET',    path),
-  post:   (path, b)   => request('POST',   path, b),
-  put:    (path, b)   => request('PUT',    path, b),
-  delete: path        => request('DELETE', path),
+  get:      path        => request('GET',    path),
+  post:     (path, b)   => request('POST',   path, b),
+  put:      (path, b)   => request('PUT',    path, b),
+  delete:   path        => request('DELETE', path),
+  postForm: (path, fd)  => postForm(path, fd),
 }

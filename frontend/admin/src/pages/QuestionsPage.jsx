@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react'
-import AdminLayout from '../components/AdminLayout'
+import { useState, useEffect, useRef } from 'react'
+import { AdminLayout } from '../components'
 import { adminApi } from '../api/client'
 
 export default function QuestionsPage() {
@@ -7,6 +7,15 @@ export default function QuestionsPage() {
   const [loading,   setL]     = useState(true)
   const [filter,    setFilter]= useState('all')
   const [error,     setError] = useState('')
+
+  // ── Import state ────────────────────────────────────────────────────────────
+  const [showImport,  setShowImport]  = useState(false)
+  const [importSlug,  setImportSlug]  = useState('')
+  const [importFile,  setImportFile]  = useState(null)
+  const [importing,   setImporting]   = useState(false)
+  const [importResult,setImportResult]= useState(null)
+  const [importError, setImportError] = useState('')
+  const fileRef = useRef(null)
 
   useEffect(() => { load() }, [])
 
@@ -37,6 +46,28 @@ export default function QuestionsPage() {
     }
   }
 
+  async function handleImport() {
+    if (!importSlug.trim()) { setImportError('Enter chapter slug.'); return }
+    if (!importFile)        { setImportError('Choose an HTML file.'); return }
+    setImporting(true)
+    setImportError('')
+    setImportResult(null)
+    try {
+      const fd = new FormData()
+      fd.append('chapter_slug', importSlug.trim())
+      fd.append('file', importFile)
+      const data = await adminApi.postForm('/questions/import-html', fd)
+      setImportResult(data)
+      setImportFile(null)
+      if (fileRef.current) fileRef.current.value = ''
+      load()
+    } catch (e) {
+      setImportError(e.message)
+    } finally {
+      setImporting(false)
+    }
+  }
+
   async function deactivate(id) {
     if (!confirm('Deactivate this question?')) return
     try {
@@ -63,6 +94,76 @@ export default function QuestionsPage() {
 
   return (
     <AdminLayout title="Question Management">
+
+      {/* ── Import from HTML ──────────────────────────────────────────────── */}
+      <div className="card mb-4">
+        <div className="flex items-center justify-between">
+          <div>
+            <h2 className="font-semibold text-gray-900 text-sm">Import from HTML</h2>
+            <p className="text-xs text-gray-400 mt-0.5">
+              Upload a TN Board practice HTML file — extracts 2-mark, 3-mark, and 5-mark questions automatically.
+            </p>
+          </div>
+          <button
+            onClick={() => { setShowImport(v => !v); setImportError(''); setImportResult(null) }}
+            className="text-sm text-admin-600 hover:underline whitespace-nowrap"
+          >
+            {showImport ? 'Hide' : 'Show'}
+          </button>
+        </div>
+
+        {showImport && (
+          <div className="mt-4 space-y-3">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Chapter Slug
+              </label>
+              <input
+                className="input font-mono text-sm"
+                placeholder="the-portrait-of-a-lady"
+                value={importSlug}
+                onChange={e => setImportSlug(e.target.value)}
+              />
+              <p className="text-xs text-gray-400 mt-1">
+                Must match the chapter slug in Supabase (same as the Learn page URL segment).
+              </p>
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Practice HTML File
+              </label>
+              <input
+                ref={fileRef}
+                type="file"
+                accept=".html"
+                className="block w-full text-sm text-gray-700 file:mr-3 file:py-1.5 file:px-3
+                           file:rounded file:border-0 file:text-sm file:font-medium
+                           file:bg-admin-50 file:text-admin-700 hover:file:bg-admin-100 cursor-pointer"
+                onChange={e => setImportFile(e.target.files[0] || null)}
+              />
+            </div>
+
+            {importError && (
+              <p className="text-sm text-red-600 bg-red-50 p-2 rounded">{importError}</p>
+            )}
+            {importResult && (
+              <p className="text-sm text-green-700 bg-green-50 p-2 rounded">
+                ✓ {importResult.inserted} questions imported for <strong>{importResult.chapter_slug}</strong>.
+                Go to Pending to validate them.
+              </p>
+            )}
+
+            <button
+              onClick={handleImport}
+              disabled={importing}
+              className="btn-primary"
+            >
+              {importing ? 'Importing...' : '↑ Import Questions'}
+            </button>
+          </div>
+        )}
+      </div>
+
       <div className="flex gap-2 mb-4">
         {['all', 'pending', 'validated', 'inactive'].map(f => (
           <button key={f} onClick={() => setFilter(f)}

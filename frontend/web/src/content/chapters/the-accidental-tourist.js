@@ -1,0 +1,317 @@
+export default {
+  eyebrow: 'Unit 6 · Prose · Class XI General English',
+  title: 'The Accidental Tourist',
+  author: 'Bill Bryson',
+  pills: ['Humour', 'Travel Mishaps', 'Self-Mockery', 'Clumsiness'],
+  tabs: [
+    /* ─── AUTHOR ──────────────────────────────────────────────────────── */
+    {
+      id: 'author',
+      label: 'Author',
+      blocks: [
+        {
+          type: 'teacher-voice',
+          html: `<p>Let us meet <strong>Bill Bryson</strong>, the travel writer whose humour often grows from ordinary confusion. In this lesson, he does not pretend to be a heroic traveller. Instead, he makes fun of himself. That is why students enjoy this prose piece: the narrator is intelligent, witty and experienced, yet he cannot manage simple practical actions without creating chaos.</p>
+<p>The textbook presents him through a comic travel experience rather than through a long biography. What matters most for this lesson is his narrative voice. He knows how to take an embarrassing accident and turn it into a story. He notices small details: the jammed zip, the tobacco rolling across the concourse, the navy-blue mouth, the spilled drink and the lost air miles. These details make the comedy vivid.</p>`,
+        },
+        {
+          type: 'think-box',
+          label: 'Why this matters for this text',
+          text: '"The Accidental Tourist" is funny because Bryson is both the victim and the storyteller. He laughs at himself before anyone else can. This self-mockery turns travel disaster into comedy and teaches us that even embarrassing moments can be handled with humour.',
+        },
+        { type: 'nav', next: 'before-read', nextLabel: 'Next: Before We Read →' },
+      ],
+    },
+
+    /* ─── BEFORE WE READ ─────────────────────────────────────────────── */
+    {
+      id: 'before-read',
+      label: 'Before We Read',
+      blocks: [
+        {
+          type: 'teacher-voice',
+          html: `<p>The warm-up asks us to think about formal occasions where some people appear elegant and graceful while others become awkward and nervous. This prepares us for Bill Bryson, a globetrotter who creates confusion in airports and aeroplanes even when he is trying to do simple things.</p>`,
+        },
+        {
+          type: 'quote-block',
+          quote: 'Of all the things I am not very good at, living in the real world is perhaps the most outstanding.',
+          context: 'Bill Bryson -- Opening line of the lesson',
+        },
+        {
+          type: 'teacher-voice',
+          html: `<p>This opening is exam-important because it gives the whole tone of the essay. Bryson is not boasting; he is admitting his weakness in a humorous way. The word <strong>"outstanding"</strong> is used with comic irony — his clumsiness is so great that it stands out above everything else.</p>`,
+        },
+        { type: 'nav', next: 'text-explained', nextLabel: 'Next: Text Explained →' },
+      ],
+    },
+
+    /* ─── TEXT EXPLAINED ─────────────────────────────────────────────── */
+    {
+      id: 'text-explained',
+      label: 'Text Explained',
+      blocks: [
+        { type: 'section-head', text: 'Phase 1 — Bryson admits he is easily confused' },
+        {
+          type: 'teacher-voice',
+          html: `<p>The lesson begins with a confession. Bryson says that living in the real world is perhaps the thing he is worst at. He gives examples: he may go looking for the lavatory in a cinema and end up outside a self-locking door, or return repeatedly to hotel desks because he has forgotten his room number. By saying <em>"I am, in short, easily confused,"</em> he prepares us for a travel disaster.</p>`,
+        },
+        {
+          type: 'think-box',
+          label: 'Notice this',
+          text: 'The humour begins with self-mockery. Bryson does not blame the world; he laughs at his own inability to manage simple tasks.',
+        },
+
+        { type: 'section-head', text: 'Phase 2 — The jammed zip at Logan Airport' },
+        {
+          type: 'teacher-voice',
+          html: `<p>Bryson and his family are travelling to England from <strong>Logan Airport</strong> in Boston. He remembers his British Airways frequent flyer card in his carry-on bag. The bag is hanging around his neck, but the zip is jammed. He pulls and yanks at it with grunts, frowns and increasing consternation. Then the zip gives way, the bag bursts open and everything flies out across an area about the size of a tennis court.</p>`,
+        },
+        {
+          type: 'think-box',
+          label: 'Notice this',
+          text: 'This is the first major comic catastrophe. A small practical task becomes a public scene.',
+        },
+
+        { type: 'section-head', text: 'Phase 3 — The fluttery cascade and the bleeding finger' },
+        {
+          type: 'teacher-voice',
+          html: `<p>Newspaper cuttings, loose papers, a tin of pipe tobacco, magazines, passport, English money and film are ejected. Documents rain down in a <strong>fluttery cascade</strong>, coins bounce away and the lidless tobacco tin rolls across the concourse disgorging its contents. Bryson first cries <em>"My tobacco!"</em> but then notices that he has gashed his finger and is shedding blood lavishly. His hair goes into panic mode.</p>`,
+        },
+        {
+          type: 'think-box',
+          label: 'Notice this',
+          text: 'The scene is funny because the disaster keeps changing direction. First luggage, then tobacco, then blood, then panic — each detail increases the chaos.',
+        },
+
+        { type: 'section-head', text: "Phase 4 — His wife's reaction and other travel catastrophes" },
+        {
+          type: 'teacher-voice',
+          html: `<p>Bryson's wife does not react with anger or exasperation. She simply looks at him with wonder and says, <em>"I can't believe you do this for a living."</em> Bryson admits that catastrophes always happen when he travels. Once, while tying his shoelace on a plane, the seat in front reclined and pinned him helplessly in the crash position. He escaped only by clawing the leg of the man sitting next to him.</p>`,
+        },
+        {
+          type: 'think-box',
+          label: 'Notice this',
+          text: "His wife's line is a key quote because Bryson is a travel writer, yet travel itself defeats him.",
+        },
+
+        { type: 'section-head', text: 'Phase 5 — The leaking pen and navy-blue mouth' },
+        {
+          type: 'teacher-voice',
+          html: `<p>Bryson says his worst plane experience happened when he was writing important thoughts in a notebook and sucking the end of his pen. He spoke for twenty minutes to an attractive young lady, amusing her with urbane <em>bons mots</em>. Then he went to the lavatory and discovered that the pen had leaked. His mouth, chin, tongue, teeth and gums were striking, scrub-resistant <strong>navy blue</strong> and would remain so for several days.</p>`,
+        },
+        {
+          type: 'think-box',
+          label: 'Notice this',
+          text: 'Classic embarrassment comedy. Bryson thinks he is suave, but the mirror reveals he has been talking with a blue mouth.',
+        },
+
+        { type: 'section-head', text: 'Phase 6 — The spilled drink and the white trousers' },
+        {
+          type: 'teacher-voice',
+          html: `<p>On another flight, Bryson knocked a soft drink into the lap of a sweet little lady sitting beside him. The flight attendant cleaned her, Bryson apologized and the woman accepted it. But when he tried to reach his drink again, he knocked it into her lap a <strong>second time</strong>. The lady was wearing white trousers, and Bryson remembers the look she gave him.</p>`,
+        },
+        {
+          type: 'think-box',
+          label: 'Notice this',
+          text: 'The comedy comes from repetition. One spill is an accident; the second spill makes the scene unforgettable.',
+        },
+
+        { type: 'section-head', text: 'Phase 7 — The lost air miles' },
+        {
+          type: 'teacher-voice',
+          html: `<p>Bryson wants to be suave and sophisticated, to rise from a dinner table without looking as if he has experienced an earthquake, and to avoid liquid mischief. Yet he says it will not happen. On a flight to Australia, the clerk refuses his frequent flyer miles because the ticket is in the name of <strong>B. Bryson</strong> while the card is in the name of <strong>W. Bryson</strong>. He explains the relationship between Bill and William, but she refuses. The title becomes a joke: he is an accidental tourist through and through.</p>`,
+        },
+        {
+          type: 'think-box',
+          label: 'Notice this',
+          text: 'The ending returns to the title. He is a tourist, but his travel is filled with accidents, confusion and comic defeat.',
+        },
+
+        { type: 'section-head', text: 'The Essay as a Whole' },
+        {
+          type: 'teacher-voice',
+          html: `<p>The lesson is a comic travel memoir. Bryson builds his humour entirely from self-mockery and exaggeration. Each incident is worse than the last. The writer is both the cause and the victim of every disaster. His tone is cheerful, and the reader laughs with him rather than at him.</p>`,
+        },
+        { type: 'nav', next: 'key-lines', nextLabel: 'Next: Key Lines →' },
+      ],
+    },
+
+    /* ─── KEY LINES ──────────────────────────────────────────────────── */
+    {
+      id: 'key-lines',
+      label: 'Key Lines',
+      blocks: [
+        {
+          type: 'teacher-voice',
+          html: '<p>These seven lines are the most exam-important quotes. Each can appear in reference-to-context or short essay questions. Know what each line means and why it matters.</p>',
+        },
+        {
+          type: 'quote-block',
+          quote: 'Of all the things I am not very good at, living in the real world is perhaps the most outstanding.',
+          context: 'Opening line giving the tone of the whole lesson. Key word: "outstanding" — used with irony; Bryson\'s clumsiness stands out above everything else.',
+        },
+        {
+          type: 'quote-block',
+          quote: 'I am, in short, easily confused.',
+          context: 'The narrator\'s self-definition. Useful for questions on character and theme.',
+        },
+        {
+          type: 'quote-block',
+          quote: "And here's where the trouble started.",
+          context: 'Builds narrative suspense before a simple action — opening a carry-on bag — becomes a public disaster.',
+        },
+        {
+          type: 'quote-block',
+          quote: 'I watched dumbstruck as a hundred carefully sorted documents came raining down in a fluttery cascade.',
+          context: 'Important for imagery. "Fluttery cascade" makes the papers look like a small waterfall of confusion.',
+        },
+        {
+          type: 'quote-block',
+          quote: "I can't believe you do this for a living.",
+          context: "Bryson's wife says this with wonder. Irony: a travel writer is so helpless while travelling.",
+        },
+        {
+          type: 'quote-block',
+          quote: "To this day, I don't know how I did it.",
+          context: 'Refers to spilling the drink on the same woman twice. Shows Bryson\'s comic helplessness.',
+        },
+        {
+          type: 'quote-block',
+          quote: 'I explained to her the close and venerable relationship between Bill and William, but she wouldn\'t have it.',
+          context: 'Explains why Bryson loses his air miles. Comedy lies in the official refusal to accept that Bill and William are the same person.',
+        },
+        { type: 'nav', next: 'glossary', nextLabel: 'Next: Glossary →' },
+      ],
+    },
+
+    /* ─── GLOSSARY ───────────────────────────────────────────────────── */
+    {
+      id: 'glossary',
+      label: 'Glossary',
+      blocks: [
+        {
+          type: 'teacher-voice',
+          html: '<p>These 15 words come directly from the lesson. Learn the printed meaning for each -- the glossary is a frequent source of MCQ questions in Tamil Nadu board exams.</p>',
+        },
+        { type: 'gloss-row', word: 'alley', def: 'A narrow passage-way between or behind buildings', eg: 'Synonym: lane · Antonym: wide road' },
+        { type: 'gloss-row', word: 'en famille', def: '(French) As a family', eg: 'Synonym: as a family · Antonym: alone' },
+        { type: 'gloss-row', word: 'yanked', def: 'Pulled with a jerk', eg: 'Synonym: jerked · Antonym: pushed gently' },
+        { type: 'gloss-row', word: 'consternation', def: 'Worry; anxiety', eg: 'Synonym: worry · Antonym: calm' },
+        { type: 'gloss-row', word: 'extravagantly', def: 'Excessively; in a showy manner', eg: 'Synonym: excessively · Antonym: modestly' },
+        { type: 'gloss-row', word: 'cascade', def: 'Waterfall', eg: 'Synonym: waterfall · Antonym: trickle' },
+        { type: 'gloss-row', word: 'concourse', def: 'The open central area in a large public building (here: airport)', eg: 'Synonym: hall · Antonym: private room' },
+        { type: 'gloss-row', word: 'disgorging', def: 'Discharging; pouring out', eg: 'Synonym: pouring out · Antonym: collecting' },
+        { type: 'gloss-row', word: 'gashed', def: 'Cut deeply', eg: 'Synonym: cut deeply · Antonym: healed' },
+        { type: 'gloss-row', word: 'hysterics', def: 'A fit of uncontrollable laughing or crying', eg: 'Synonym: panic · Antonym: calm' },
+        { type: 'gloss-row', word: 'exasperation', def: 'Irritation', eg: 'Synonym: irritation · Antonym: calmness' },
+        { type: 'gloss-row', word: 'catastrophe', def: 'A terrible disaster', eg: 'Synonym: disaster · Antonym: success' },
+        { type: 'gloss-row', word: 'bons mots', def: '(French) Witty remarks', eg: 'Synonym: witty remarks · Antonym: dull speech' },
+        { type: 'gloss-row', word: 'suave', def: 'Polite and sophisticated', eg: 'Synonym: sophisticated · Antonym: clumsy' },
+        { type: 'gloss-row', word: 'venerable', def: 'Valued; worthy of respect', eg: 'Synonym: respected · Antonym: insignificant' },
+        { type: 'nav', next: 'themes', nextLabel: 'Next: Themes & Devices →' },
+      ],
+    },
+
+    /* ─── THEMES & DEVICES ───────────────────────────────────────────── */
+    {
+      id: 'themes',
+      label: 'Themes & Devices',
+      blocks: [
+        { type: 'section-head', text: 'Self-mockery turns embarrassment into humour' },
+        {
+          type: 'teacher-voice',
+          html: `<p>Bryson openly admits that he is easily confused and narrates his failures with comic detail. In an essay, students should show how the narrator laughs at himself through incidents like the bag bursting open, the blue mouth and the spilled drinks.</p>`,
+        },
+        { type: 'section-head', text: 'Modern travel can magnify small mistakes' },
+        {
+          type: 'teacher-voice',
+          html: `<p>Airports and aeroplanes demand calm handling of bags, tickets, cards, seats and liquids. Bryson's minor mistakes become public catastrophes, showing how travel pressure can expose human clumsiness.</p>`,
+        },
+        { type: 'section-head', text: 'Identity and systems can clash absurdly' },
+        {
+          type: 'teacher-voice',
+          html: `<p>Bryson loses air miles because one document says B. Bryson and another says W. Bryson. The joke shows how official systems may ignore ordinary human explanations.</p>`,
+        },
+        { type: 'section-head', text: 'Literary devices' },
+        {
+          type: 'teacher-voice',
+          html: '<p>These devices are the tools Bryson uses to create the lesson\'s comic power. Know the name, the line, and the effect.</p>',
+        },
+        {
+          type: 'device-block',
+          kind: 'Hyperbole',
+          line: '"over an area about the size of a tennis court"',
+          exp: 'The mess created by the bag is exaggerated to comic effect. Comparing the scatter to a tennis court makes the incident sound enormous and ridiculous.',
+        },
+        {
+          type: 'device-block',
+          kind: 'Imagery',
+          line: '"fluttery cascade"',
+          exp: 'The falling documents are described as a fluttery cascade, making them look like a waterfall of paper. The image makes the chaos vivid and absurd.',
+        },
+        {
+          type: 'device-block',
+          kind: 'Irony',
+          line: 'Bryson writes about travel for a living, yet repeatedly fails at ordinary travel situations',
+          exp: 'The central irony of the lesson. A professional travel writer cannot manage bags, seats, pens or drinks. This gap between expertise and reality is the source of the humour.',
+        },
+        { type: 'nav', next: 'textbook-qa', nextLabel: 'Next: Textbook Q&A →' },
+      ],
+    },
+
+    /* ─── TEXTBOOK Q&A ───────────────────────────────────────────────── */
+    {
+      id: 'textbook-qa',
+      label: 'Textbook Q&A',
+      blocks: [
+        {
+          type: 'teacher-voice',
+          html: `<h3 style="font-size:1rem;font-weight:600;margin:0 0 12px">Section A — Answer in one or two sentences</h3>
+<div style="margin-bottom:10px"><p><strong>1. Give a few instances of Bryson's confused acts.</strong></p><p>Bryson often looks for the lavatory in a cinema and ends up outside a self-locking door. He also returns to hotel desks several times a day to ask his room number. At the airport, he pulls a jammed bag zip so hard that the bag bursts open.</p></div>
+<div style="margin-bottom:10px"><p><strong>2. What were the contents of Bryson's bag?</strong></p><p>The bag contained newspaper cuttings, loose papers, a fourteen-ounce tin of pipe tobacco, magazines, passport, English money and film. These items were scattered across the airport concourse when the zip gave way.</p></div>
+<div style="margin-bottom:10px"><p><strong>3. Describe the fluttery cascade of things tumbling from the bag.</strong></p><p>When the zip gave way, Bryson's documents came raining down in a fluttery cascade. Coins bounced away noisily, and the lidless tobacco tin rolled across the concourse, disgorging its contents.</p></div>
+<div style="margin-bottom:10px"><p><strong>4. Why did the author's concern over tobacco shift to his finger?</strong></p><p>At first Bryson cried for his tobacco because it had spilled across the airport. Then he noticed that he had gashed his finger on the zip and was shedding blood lavishly, so his concern shifted to the injury.</p></div>
+<div style="margin-bottom:10px"><p><strong>5. What happened to Bryson when he leaned to tie his shoelace?</strong></p><p>When Bryson leaned forward to tie his shoelace, the person in front threw his seat back into full recline. Bryson was pinned helplessly in the crash position.</p></div>
+<div style="margin-bottom:10px"><p><strong>6. How did Bryson free himself from the crash position?</strong></p><p>Bryson freed himself by clawing the leg of the man sitting next to him. This helped him escape from the helpless position into which the reclining seat had trapped him.</p></div>
+<div style="margin-bottom:10px"><p><strong>7. What was Bryson's worst accident on a plane?</strong></p><p>His worst accident was when his pen leaked while he was speaking to an attractive young lady. Later he discovered that his mouth, chin, tongue, teeth and gums were scrub-resistant navy blue.</p></div>
+<div style="margin-bottom:10px"><p><strong>8. What did Bryson wish to avoid in his life?</strong></p><p>Bryson wished to avoid looking clumsy and disorderly in public. He especially wanted to avoid "liquid mischief," such as spilling drinks during flights.</p></div>
+<div style="margin-bottom:10px"><p><strong>9. How would staying away from liquid mischief benefit Bryson?</strong></p><p>If Bryson stayed away from liquid mischief, he would not spill drinks on fellow passengers or embarrass himself. It would help him appear more controlled, polite and sophisticated.</p></div>
+<div style="margin-bottom:10px"><p><strong>10. Why did the clerk say that Bryson was not entitled to flyer miles?</strong></p><p>The clerk said Bryson was not entitled to flyer miles because the ticket was in the name of B. Bryson, while the card was in the name of W. Bryson. She refused to accept the connection between Bill and William.</p></div>
+<h3 style="font-size:1rem;font-weight:600;margin:18px 0 12px">Section B — Three or four sentences</h3>
+<div style="margin-bottom:10px"><p><strong>1. Why doesn't Bryson seem to be able to do easily what others seem to?</strong></p><p>Bryson is easily confused and clumsy in ordinary practical situations. He forgets room numbers, gets trapped outside self-locking doors, bursts open bags, injures himself, gets pinned by reclining seats and spills drinks. These examples show that simple tasks become complicated when he handles them.</p></div>
+<div style="margin-bottom:10px"><p><strong>2. What was the reaction of Bryson's wife to his antics?</strong></p><p>Bryson's wife looked at him with wonder, not anger or exasperation. After the airport bag disaster, she said she could not believe he did that for a living. Her reaction is funny because Bryson is a travel writer, but travel situations repeatedly defeat him.</p></div>
+<div style="margin-bottom:10px"><p><strong>3. Briefly describe the "accidents" encountered on the flight by Bryson.</strong></p><p>Bryson was once pinned in the crash position while tying his shoelace. In another flight, his pen leaked and turned his mouth navy blue. He also spilled a drink twice on the same lady wearing white trousers. These incidents show his comic clumsiness during travel.</p></div>
+<h3 style="font-size:1rem;font-weight:600;margin:18px 0 12px">Section C — Paragraph answers</h3>
+<div style="margin-bottom:10px"><p><strong>1. "To this day, I don't know how I did it" — What does "it" refer to?</strong></p><p>"It" refers to Bryson spilling a soft drink into the lap of the same lady twice on a plane. The first time, he accidentally knocked his drink over her. The flight attendant cleaned her, Bryson apologized and the lady accepted the situation. Then, while trying to reach for another drink, he somehow knocked it into her lap again. What makes the incident worse is that the lady was wearing white trousers. Bryson's statement shows both his helplessness and his comic disbelief at his own clumsiness.</p></div>
+<div style="margin-bottom:10px"><p><strong>2. "… But, when it's my own — well, I think hysterics are fully justified" — How?</strong></p><p>Bryson says this after gashing his finger on the jammed zip of his carry-on bag. He admits that he is not good around flowing blood generally, but when the blood is his own, he feels hysterics are justified. The humour lies in his exaggerated self-pity. At first he worries about the spilled tobacco, but immediately changes his cry to "My finger! My finger!" when he sees the blood. This reaction shows his nervousness and turns a small injury into a comic crisis.</p></div>
+<div style="margin-bottom:10px"><p><strong>3. Bring out the pun in the title "The Accidental Tourist."</strong></p><p>The title "The Accidental Tourist" contains a pun. It can mean a tourist who happens to travel by accident, but in this lesson it also means a tourist who repeatedly meets with accidents during trips. Bryson is a travel writer and globetrotter, yet his journeys are full of confusion and mishaps. His bag bursts open at the airport, he gets trapped in an aeroplane seat, his pen leaks, he spills drinks and he loses air miles. The title is therefore humorous because it describes both travel and accident at the same time.</p></div>
+<div style="margin-bottom:10px"><p><strong>4. Can a clumsy person train himself/herself to overcome shortcomings?</strong></p><p>Yes, a clumsy person can train himself or herself to overcome shortcomings. Such a person must first accept the problem without shame, as Bryson does humorously. Then practical habits can help: keeping important cards in fixed places, opening bags calmly, avoiding rushed movements, checking liquids before reaching across others and staying mindful in public places. Practice, patience and self-awareness can reduce accidents. Humour is useful too, because it prevents embarrassment from becoming fear.</p></div>
+<div style="margin-bottom:10px"><p><strong>5. As a fellow passenger of Bill Bryson, make a diary entry describing his clumsy behaviour.</strong></p><p>Dear Diary, Today I travelled on a flight with a passenger named Bill Bryson. At first he seemed pleasant and witty, but soon chaos followed him. He leaned down to tie his shoelace and got trapped when the seat in front reclined. Later, he spoke cheerfully with a lady, not knowing that his pen had leaked and turned his mouth blue. The worst moment came when he spilled a drink on a lady's white trousers, apologized and then spilled another drink on her again. It was inconvenient, but also strangely funny. I hope he travels more carefully next time.</p></div>`,
+        },
+        { type: 'nav', next: 'activities', nextLabel: 'Next: Activities →' },
+      ],
+    },
+
+    /* ─── ACTIVITIES ─────────────────────────────────────────────────── */
+    {
+      id: 'activities',
+      label: 'Activities',
+      blocks: [
+        {
+          type: 'teacher-voice',
+          html: `<h3 style="font-size:1rem;font-weight:600;margin:0 0 10px">Warm Up</h3>
+<p>The warm-up asks students to recall examples of awkward actions that cause discomfort or disturbance to others, such as spilling a hot drink on someone nearby. This connects directly with Bryson's travel mishaps.</p>
+<h3 style="font-size:1rem;font-weight:600;margin:18px 0 10px">Vocabulary — Foreign Words and Phrases</h3>
+<p>Printed examples: <strong>viva voce</strong> — a spoken examination; <strong>sine die</strong> — without a date being fixed; <strong>resume</strong> — a brief summary; <strong>rapport</strong> — close relationship with good understanding; <strong>bonafide</strong> — genuine. The exercise asks students to find meanings and use phrases such as bon voyage, in toto, liaison, ex gratia, en masse, en route, ad hoc, faux pas, par excellence, in camera, status quo, magnum opus, vox populi, incognito, deja vu, a-la-carte, via media, per capita, tete-a-tete and carte blanche.</p>
+<h3 style="font-size:1rem;font-weight:600;margin:18px 0 10px">Borrowed Words and Idioms</h3>
+<p>Indian-origin words: veranda, bungalow, chutney, cheetah, coir, bamboo, bandicoot, catamaran, guru, anna, masala and dabba. Idioms: <strong>right up one's alley</strong>, <strong>drive one up the wall</strong>, <strong>hit the road</strong>, <strong>take one for a ride</strong>, <strong>in panic mode</strong>. Idiom sentence answers: drive one up the wall, hit the road, took me for a ride, in panic mode, right up my alley.</p>
+<h3 style="font-size:1rem;font-weight:600;margin:18px 0 10px">Listening and Speaking</h3>
+<p>Listening answers: Cochin, Chitralayam, Quilon, Periyar, Venice. Speaking tasks: build an 8–10 exchange dialogue about boarding the wrong train to Delhi, and speak for a minute on conduct at formal occasions including table manners, appearance and speech.</p>
+<h3 style="font-size:1rem;font-weight:600;margin:18px 0 10px">Reading and Writing</h3>
+<p>The unit explains transcription (listening and writing in the same language) and translation (expressing meaning in another language). Writing focuses on Curriculum Vitae and form-filling. The CV model includes personal details, educational qualifications, skills, projects, extra-curricular activities, strengths and declaration. Form-filling rules: use a rough copy, fill neatly, use capitals where needed, avoid overwriting, sign, date and keep a copy.</p>`,
+        },
+        { type: 'nav', practice: true },
+      ],
+    },
+  ],
+}

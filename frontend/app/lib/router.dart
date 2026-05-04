@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'config/app_config.dart';
 import 'services/auth_service.dart';
 import 'screens/login_screen.dart';
 import 'screens/home_screen.dart';
@@ -34,6 +35,6 @@ final router = GoRouter(
     GoRoute(path: '/progress', builder: (_, __) => const ProgressScreen()),
   ],
   errorBuilder: (_, state) => Scaffold(
-    body: Center(child: Text('Page not found: ${state.error}')),
+    body: Center(child: Text('${AppConfig.appName}: page not found')),
   ),
 );

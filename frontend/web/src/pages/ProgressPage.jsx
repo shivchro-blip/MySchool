@@ -1,13 +1,21 @@
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { motion } from 'framer-motion'
+import { TrendingUp, ArrowLeft } from 'lucide-react'
 import { getProgress } from '../api/evaluation'
-import Layout from '../components/Layout'
-import Spinner from '../components/Spinner'
-import ErrorMessage from '../components/ErrorMessage'
+import { Card, Button } from '../components/ui'
+
+function scoreColor(pct) {
+  if (pct >= 80) return { bar: 'bg-good',    text: 'text-good'    }
+  if (pct >= 50) return { bar: 'bg-warn',    text: 'text-warn'    }
+  return               { bar: 'bg-danger',   text: 'text-danger'  }
+}
 
 export default function ProgressPage() {
-  const [data,    setData]    = useState(null)
-  const [loading, setLoading] = useState(true)
-  const [error,   setError]   = useState('')
+  const navigate                   = useNavigate()
+  const [data,    setData]         = useState(null)
+  const [loading, setLoading]      = useState(true)
+  const [error,   setError]        = useState('')
 
   useEffect(() => {
     getProgress()
@@ -17,77 +25,128 @@ export default function ProgressPage() {
   }, [])
 
   return (
-    <Layout title="My Progress">
-      {loading && <Spinner label="Loading progress..." />}
-      {error   && <ErrorMessage message={error} />}
+    <div>
+      {/* Page header */}
+      <div className="flex items-center gap-3 mb-6">
+        <button
+          onClick={() => navigate(-1)}
+          className="w-9 h-9 rounded-full flex items-center justify-center
+                     hover:bg-bg-sunk text-ink-3 transition-colors"
+        >
+          <ArrowLeft size={18} />
+        </button>
+        <div className="flex items-center gap-2.5">
+          <TrendingUp size={20} className="text-accent" />
+          <h1 className="text-xl font-bold text-ink">My Progress</h1>
+        </div>
+      </div>
 
-      {data && (
-        <div className="space-y-4">
-          <div className="grid grid-cols-2 gap-3">
-            <div className="card text-center">
-              <p className="text-3xl font-bold text-brand-600">{data.total_attempts}</p>
-              <p className="text-xs text-gray-500 mt-1">Total Attempts</p>
-            </div>
-            <div className="card text-center">
-              <p className="text-3xl font-bold text-brand-600">{data.average_score}%</p>
-              <p className="text-xs text-gray-500 mt-1">Average Score</p>
-            </div>
-          </div>
-
-          <div className="card">
-            <div className="flex justify-between text-sm mb-2">
-              <span className="font-medium text-gray-700">Overall Score</span>
-              <span className="text-gray-500">{data.average_score}%</span>
-            </div>
-            <div className="h-3 bg-gray-100 rounded-full overflow-hidden">
-              <div
-                className="h-full bg-brand-500 rounded-full transition-all"
-                style={{ width: `${data.average_score}%` }}
-              />
-            </div>
-          </div>
-
-          {data.by_chapter?.length > 0 && (
-            <div className="card">
-              <h3 className="font-semibold text-gray-900 mb-3 text-sm">By Chapter</h3>
-              <div className="space-y-3">
-                {data.by_chapter.map((ch, i) => (
-                  <div key={i}>
-                    <div className="flex justify-between text-xs text-gray-600 mb-1">
-                      <span>Chapter {i + 1}</span>
-                      <span>
-                        {ch.attempts} attempt{ch.attempts !== 1 ? 's' : ''} · {ch.average_score}%
-                      </span>
-                    </div>
-                    <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
-                      <div
-                        className={`h-full rounded-full transition-all ${
-                          ch.average_score >= 80
-                            ? 'bg-green-500'
-                            : ch.average_score >= 50
-                            ? 'bg-yellow-500'
-                            : 'bg-red-400'
-                        }`}
-                        style={{ width: `${ch.average_score}%` }}
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {data.total_attempts === 0 && (
-            <div className="text-center py-10 text-gray-400">
-              <p className="text-4xl mb-3">📝</p>
-              <p className="text-sm">No attempts yet.</p>
-              <a href="/" className="btn-primary inline-block mt-3 text-sm">
-                Start Practising
-              </a>
-            </div>
-          )}
+      {/* Loading */}
+      {loading && (
+        <div className="space-y-3">
+          {[1, 2, 3].map(i => (
+            <div key={i} className="h-20 bg-bg-sunk rounded-2xl animate-pulse" />
+          ))}
         </div>
       )}
-    </Layout>
+
+      {/* Error */}
+      {error && (
+        <Card padding="md">
+          <p className="text-sm text-danger">{error}</p>
+        </Card>
+      )}
+
+      {data && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="space-y-4"
+        >
+          {/* Stats row */}
+          <div className="grid grid-cols-2 gap-3">
+            <Card padding="md" className="text-center py-5">
+              <p className="text-3xl font-bold text-accent">{data.total_attempts}</p>
+              <p className="text-xs text-ink-3 mt-1.5 font-medium">Total Attempts</p>
+            </Card>
+            <Card padding="md" className="text-center py-5">
+              <p className={`text-3xl font-bold ${scoreColor(data.average_score).text}`}>
+                {data.average_score}%
+              </p>
+              <p className="text-xs text-ink-3 mt-1.5 font-medium">Avg Score</p>
+            </Card>
+          </div>
+
+          {/* Overall progress bar */}
+          {data.total_attempts > 0 && (
+            <Card padding="md">
+              <div className="flex justify-between text-sm mb-2.5">
+                <span className="font-medium text-ink-2">Overall Score</span>
+                <span className={`font-semibold ${scoreColor(data.average_score).text}`}>
+                  {data.average_score}%
+                </span>
+              </div>
+              <div className="h-2.5 bg-bg-sunk rounded-full overflow-hidden">
+                <motion.div
+                  initial={{ width: 0 }}
+                  animate={{ width: `${data.average_score}%` }}
+                  transition={{ duration: 0.7, ease: 'easeOut' }}
+                  className={`h-full rounded-full ${scoreColor(data.average_score).bar}`}
+                />
+              </div>
+            </Card>
+          )}
+
+          {/* By chapter */}
+          {data.by_chapter?.length > 0 && (
+            <Card padding="md">
+              <p className="text-xs font-bold text-ink-4 uppercase tracking-wide mb-4">
+                By Chapter
+              </p>
+              <div className="space-y-4">
+                {data.by_chapter.map((ch, i) => {
+                  const colors = scoreColor(ch.average_score)
+                  return (
+                    <div key={i}>
+                      <div className="flex justify-between text-xs text-ink-3 mb-1.5">
+                        <span className="font-medium text-ink-2">Chapter {i + 1}</span>
+                        <span>
+                          {ch.attempts} attempt{ch.attempts !== 1 ? 's' : ''} ·{' '}
+                          <span className={`${colors.text} font-semibold`}>
+                            {ch.average_score}%
+                          </span>
+                        </span>
+                      </div>
+                      <div className="h-2 bg-bg-sunk rounded-full overflow-hidden">
+                        <motion.div
+                          initial={{ width: 0 }}
+                          animate={{ width: `${ch.average_score}%` }}
+                          transition={{ duration: 0.5, delay: i * 0.07 }}
+                          className={`h-full rounded-full ${colors.bar}`}
+                        />
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
+            </Card>
+          )}
+
+          {/* Empty state */}
+          {data.total_attempts === 0 && (
+            <div className="text-center py-16">
+              <p className="text-5xl mb-4">📝</p>
+              <p className="text-base font-bold text-ink mb-1">No attempts yet</p>
+              <p className="text-sm text-ink-3 mb-6">
+                Practice questions to track your progress
+              </p>
+              <Button onClick={() => navigate('/plus1')}>
+                Start Practising
+              </Button>
+            </div>
+          )}
+        </motion.div>
+      )}
+    </div>
   )
 }

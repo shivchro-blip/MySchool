@@ -1,5 +1,6 @@
 from fastapi import APIRouter
-from .syllabus   import router as syllabus_router
+from .deps     import get_current_user, get_optional_user, get_admin_user  # noqa: F401
+from .syllabus import router as syllabus_router
 from .learning   import router as learning_router
 from .evaluation import router as evaluation_router
 from .users      import router as users_router

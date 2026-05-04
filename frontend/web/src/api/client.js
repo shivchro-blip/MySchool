@@ -1,4 +1,4 @@
-const BASE_URL = '/api/v1'
+﻿const BASE_URL = '/api/v1'
 
 function getToken() {
   return localStorage.getItem('exam_coach_token') || ''

@@ -1,7 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException
-from uuid import UUID
 from models import ExplainRequest, ExplainResponse
-from core.auth import get_current_user
+from api.v1.deps import get_current_user
 from core.errors import AIUnavailableError, RateLimitError
 from modules.learning import explain_topic
 
@@ -23,16 +22,20 @@ async def explain_topic_endpoint(
         raise AIUnavailableError()
 
 
-@router.get("/content/{chapter_id}")
+@router.get("/content/{chapter_slug}")
 async def get_chapter_content(
-    chapter_id: UUID,
+    chapter_slug: str,
     chunk_type: str | None = None,
     language: str = "en",
 ):
     from db.repositories import SyllabusRepository
-    chunks = SyllabusRepository().get_validated_chunks_by_chapter(
-        str(chapter_id),
+    repo = SyllabusRepository()
+    ch = repo.get_chapter_by_slug(chapter_slug)
+    if not ch:
+        raise HTTPException(status_code=404, detail="Chapter not found")
+    chunks = repo.get_validated_chunks_by_chapter(
+        ch["id"],
         chunk_type=chunk_type,
         language=language,
     )
-    return {"chapter_id": str(chapter_id), "chunks": chunks}
+    return {"chapter_id": ch["id"], "chunks": chunks}

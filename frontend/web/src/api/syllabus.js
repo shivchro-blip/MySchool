@@ -1,4 +1,4 @@
-import { api } from './client'
+﻿import { api } from './client'
 
 export async function getSubjects() {
   return api.get('/syllabus/subjects')

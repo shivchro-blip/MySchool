@@ -1,0 +1,340 @@
+﻿export default {
+  eyebrow: 'Unit 3 · Prose · Class XI General English',
+  title: 'Forgetting',
+  author: 'Robert Lynd',
+  pills: ['Humorous Essay', 'Memory', 'Absent-mindedness', 'Human Nature'],
+  tabs: [
+    /* ─── AUTHOR ──────────────────────────────────────────────────────── */
+    {
+      id: 'author',
+      label: 'Author',
+      blocks: [
+        {
+          type: 'teacher-voice',
+          html: `<p>Let us meet <strong>Robert Wilson Lynd</strong>, an Irish writer who lived from <em>1879 to 1949</em>. The textbook calls him one of the greatest essayists of the twentieth century, and that word "essayist" matters here. Lynd was not writing stories with heroes and villains; he was writing about ordinary human habits -- the kind of things we do every day and hardly notice.</p>
+<p>He began his career as a <strong>journalist</strong>. That means he trained himself to observe people, small events, public habits, and social oddities. He wrote many articles for leading newspapers and magazines such as <em>Daily News</em>, <em>The New Statesman</em>, and <em>Nation</em>. He wrote under the pseudonym <strong>"Y.Y."</strong>, and his essays covered simple and interesting topics.</p>
+<p>What makes Lynd special is his combination of humour, delight, irony, and satire. He can begin with a small subject like forgetting letters or medicines, then quietly make us think about memory, intelligence, family life, poets, statesmen, and philosophers. His writing is gentle, but it is also sharp.</p>
+<p>The textbook records that Lynd received an honorary literary Doctorate from Queen's University, Belfast in 1947. He was also honoured by the Royal Society of Literature with a silver medal and by <em>The Sunday Times</em> with a gold medal for Belles Lettres.</p>`,
+        },
+        {
+          type: 'author-stat',
+          label: 'Career',
+          value: 'Robert Wilson Lynd (1879-1949) · Irish writer · Journalist · Daily News, The New Statesman, Nation · Pseudonym: Y.Y.',
+        },
+        {
+          type: 'author-stat',
+          label: 'Honours',
+          value: "Honorary Doctorate, Queen's University Belfast, 1947 · Royal Society of Literature silver medal · The Sunday Times gold medal for Belles Lettres",
+        },
+        {
+          type: 'think-box',
+          label: 'Why this matters for this text',
+          text: 'In "Forgetting," Lynd does not scold forgetful people. Instead, he laughs with them, and sometimes even admires them. Understanding his humorous essay style helps us see that the lesson is not merely about memory failure; it is about how human beings are wonderfully efficient in some matters and charmingly absent-minded in others.',
+        },
+        { type: 'nav', next: 'before-read', nextLabel: 'Next: Before We Read →' },
+      ],
+    },
+
+    /* ─── BEFORE WE READ ─────────────────────────────────────────────── */
+    {
+      id: 'before-read',
+      label: 'Before We Read',
+      blocks: [
+        {
+          type: 'teacher-voice',
+          html: `<p>Have you ever gone to school and then suddenly remembered that your homework notebook is still on your table? Have you ever kept your pen "safely" somewhere and then forgotten where safety was? Before we laugh too much, let us notice something: most of the time we remember hundreds of things correctly. That is exactly Lynd's starting point.</p>
+<p>This is a <strong>humorous reflective essay</strong>. In simple words, Lynd takes an everyday habit -- forgetting -- and thinks about it with wit. He does not tell a single plot like a short story. Instead, he moves from observation to example, from example to reflection, and from reflection to a funny human truth.</p>`,
+        },
+        {
+          type: 'quote-block',
+          quote: 'It is the efficiency rather than the inefficiency of human memory that compels my wonder.',
+          context: 'Robert Lynd -- Central thesis of "Forgetting"',
+        },
+        {
+          type: 'teacher-voice',
+          html: `<p>This line is the key to the essay. We usually complain about forgetting, but Lynd turns the idea upside down. He says the real wonder is not that we forget a few things, but that we remember so much every day.</p>`,
+        },
+        { type: 'nav', next: 'text-explained', nextLabel: 'Next: Text Explained →' },
+      ],
+    },
+
+    /* ─── TEXT EXPLAINED ─────────────────────────────────────────────── */
+    {
+      id: 'text-explained',
+      label: 'Text Explained',
+      blocks: [
+        { type: 'section-head', text: 'Phase 1 -- The Wonder of Remembering' },
+        {
+          type: 'quote-block',
+          quote: 'It is the efficiency rather than the inefficiency of human memory that compels my wonder.',
+          context: "Lynd's central reversal -- wonder at memory, not forgetfulness",
+        },
+        {
+          type: 'teacher-voice',
+          html: `<p>Let us begin with Lynd's surprise. He is not amazed that people forget; he is amazed that they remember so much. Modern man remembers telephone numbers, friends' addresses, dates of good vintages, appointments, names of actors, actresses, cricketers, footballers, and even murderers. He remembers clothing, doors, lights, and daily duties. Lynd makes us see that memory is usually a successful servant.</p>`,
+        },
+        {
+          type: 'think-box',
+          label: 'Notice this',
+          text: "This is exam-important because it states Lynd's central reversal: memory is more efficient than inefficient.",
+        },
+
+        { type: 'section-head', text: 'Phase 2 -- Medicine and the Psychology of Forgetting' },
+        {
+          type: 'quote-block',
+          quote: 'Certain psychologists tell us that we forget things because we wish to forget them...',
+          context: 'The psychology behind forgetting medicines',
+        },
+        {
+          type: 'teacher-voice',
+          html: `<p>Now Lynd turns to medicines. He says only a very methodical man can remember to take medicine regularly. This is surprising because meals should remind us to take them. Psychologists may say people forget medicines because they dislike pills and potions. But Lynd humorously says even he, a devotee of advertised cure-alls, forgets medicine at the right hour.</p>`,
+        },
+        {
+          type: 'think-box',
+          label: 'Notice the humour',
+          text: 'Lynd includes himself among forgetful people, so the essay sounds friendly, not preachy.',
+        },
+
+        { type: 'section-head', text: 'Phase 3 -- The Unposted Letter' },
+        {
+          type: 'quote-block',
+          quote: 'The commonest form of forgetfulness, I suppose, occurs in the matter of posting letters.',
+          context: 'The letter that travels nowhere',
+        },
+        {
+          type: 'teacher-voice',
+          html: `<p>Lynd next says posting letters is the commonest form of forgetfulness. He distrusts visitors with important letters and even distrusts himself. If he carries a letter, he passes the first pillar-box before remembering it. Then he puts it in his pocket for safety, where it leads an "unadventurous life" until discovered later.</p>`,
+        },
+        {
+          type: 'think-box',
+          label: 'Notice this',
+          text: 'The letter becomes comic because it travels nowhere. It is safe, but useless.',
+        },
+
+        { type: 'section-head', text: 'Phase 4 -- Sportsmen, Anglers and Dreamland' },
+        {
+          type: 'quote-block',
+          quote: 'For the rest of the day, they are citizens of dreamland.',
+          context: 'Sportsmen and anglers absorbed in imagination',
+        },
+        {
+          type: 'teacher-voice',
+          html: `<p>Lynd then considers people who forget balls, bats, and fishing-rods in trains. Sportsmen are abstracted from the world because their minds are full of the game. Anglers forget their rods because they are dreaming of magnificent fishing stories. The forgotten fishing-rod becomes a tribute to the intensity of their enjoyment.</p>`,
+        },
+        {
+          type: 'think-box',
+          label: 'Notice this',
+          text: 'Here Lynd changes forgetfulness from a weakness into a sign of imagination.',
+        },
+
+        { type: 'section-head', text: 'Phase 5 -- Memory, Poets and Statesmen' },
+        {
+          type: 'quote-block',
+          quote: 'Memory, indeed, is half the substance of their art.',
+          context: 'Why poets need memory more than stockbrokers',
+        },
+        {
+          type: 'teacher-voice',
+          html: `<p>Lynd discusses whether a good memory is always desirable. Some people with perfect memories may not have great intelligence. Yet he believes great writers and composers usually possess exceptional memory. Poets remember better than stockbrokers. Statesmen, however, seem to have bad memories, and their accounts of the same event often contradict each other.</p>`,
+        },
+        {
+          type: 'think-box',
+          label: 'Notice this',
+          text: 'This section is useful for comparison questions: poets, stockbrokers, and statesmen are contrasted through memory.',
+        },
+
+        { type: 'section-head', text: 'Phase 6 -- The Father and the Perambulator' },
+        {
+          type: 'quote-block',
+          quote: 'How many men below the rank of a philosopher would be capable of such absent-mindedness as this?',
+          context: "The essay's funniest example of extreme absent-mindedness",
+        },
+        {
+          type: 'teacher-voice',
+          html: `<p>Finally Lynd tells the funniest example. A father takes the baby out in a perambulator, leaves the baby outside a public-house, and goes in for beer. His wife sees the baby, angrily wheels it home, and expects the father to return terrified. Instead, he comes home cheerfully asking what is for lunch, having forgotten both the baby and the outing. Lynd ends by saying most of us have prosaically efficient memories; otherwise the family could not survive in a modern city.</p>`,
+        },
+        {
+          type: 'think-box',
+          label: 'Notice this',
+          text: 'The ending is comic but serious. Ordinary memory keeps family life and city life functioning.',
+        },
+        { type: 'nav', next: 'key-lines', nextLabel: 'Next: Key Lines →' },
+      ],
+    },
+
+    /* ─── KEY LINES ──────────────────────────────────────────────────── */
+    {
+      id: 'key-lines',
+      label: 'Key Lines',
+      blocks: [
+        {
+          type: 'teacher-voice',
+          html: '<p>These seven lines are the most exam-important quotes from the essay. Each can appear in reference-to-context or short essay questions. Know what each line means and why it matters.</p>',
+        },
+        {
+          type: 'quote-block',
+          quote: 'It is the efficiency rather than the inefficiency of human memory that compels my wonder.',
+          context: 'Main thesis. Key word: "efficiency" -- Lynd praises memory before discussing its failures.',
+        },
+        {
+          type: 'quote-block',
+          quote: 'Modern man remembers even telephone numbers.',
+          context: "Supports Lynd's argument that daily memory is powerful. Key phrase: \"telephone numbers.\"",
+        },
+        {
+          type: 'quote-block',
+          quote: 'Chemists make their fortunes out of the medicines people forget to take.',
+          context: "Humorous exaggeration. Lynd's witty way of discussing ordinary forgetfulness. Key word: \"fortunes.\"",
+        },
+        {
+          type: 'quote-block',
+          quote: 'The commonest form of forgetfulness, I suppose, occurs in the matter of posting letters.',
+          context: 'Introduces the unposted-letter example. Key phrase: "commonest form."',
+        },
+        {
+          type: 'quote-block',
+          quote: 'For the rest of the day, they are citizens of dreamland.',
+          context: 'Describes absent-minded sportsmen. Key word: "dreamland" -- metaphor for absorbed imagination.',
+        },
+        {
+          type: 'quote-block',
+          quote: 'Memory, indeed, is half the substance of their art.',
+          context: 'Explains why poets need memory. Key word: "substance" -- memory is the raw material of art.',
+        },
+        {
+          type: 'quote-block',
+          quote: 'either he has a memory like a sieve or is an audacious perverter of the truth.',
+          context: 'Witty criticism of statesmen. Simile: "memory like a sieve" means memory that cannot retain facts. Key word: "sieve."',
+        },
+        { type: 'nav', next: 'glossary', nextLabel: 'Next: Glossary →' },
+      ],
+    },
+
+    /* ─── GLOSSARY ───────────────────────────────────────────────────── */
+    {
+      id: 'glossary',
+      label: 'Glossary',
+      blocks: [
+        {
+          type: 'teacher-voice',
+          html: '<p>These 16 words come directly from the essay. Learn the meaning, antonym, and synonym for each -- the glossary is a frequent source of MCQ questions in Tamil Nadu board exams.</p>',
+        },
+        { type: 'gloss-row', word: 'vintage', def: 'wine of high quality produced in a particular year', eg: 'Synonym: classic wine · Antonym: newness' },
+        { type: 'gloss-row', word: 'antipathy', def: 'strong dislike', eg: 'Synonym: dislike · Antonym: liking' },
+        { type: 'gloss-row', word: 'fortunes', def: 'huge sums of money', eg: 'Synonym: wealth · Antonym: poverty' },
+        { type: 'gloss-row', word: 'reluctant', def: 'unwilling', eg: 'Synonym: unwilling · Antonym: willing' },
+        { type: 'gloss-row', word: 'delinquent', def: 'a young person who is regularly involved in wrongdoing', eg: 'Synonym: wrongdoer · Antonym: law-abider' },
+        { type: 'gloss-row', word: 'exploits', def: 'daring or heroic acts or actions; feats', eg: 'Synonym: feats · Antonym: failures' },
+        { type: 'gloss-row', word: 'abstracted', def: 'lacking concentration on what is happening around', eg: 'Synonym: absent-minded · Antonym: alert' },
+        { type: 'gloss-row', word: 'prosaic', def: 'dull; ordinary', eg: 'Synonym: ordinary · Antonym: interesting' },
+        { type: 'gloss-row', word: 'mediocre', def: 'not very good; ordinary', eg: 'Synonym: ordinary · Antonym: excellent' },
+        { type: 'gloss-row', word: 'fallible', def: 'capable of making mistakes', eg: 'Synonym: imperfect · Antonym: infallible' },
+        { type: 'gloss-row', word: 'sieve', def: 'a strainer or filter', eg: 'Synonym: strainer · Antonym: container' },
+        { type: 'gloss-row', word: 'audacious', def: 'bold and daring', eg: 'Synonym: bold · Antonym: timid' },
+        { type: 'gloss-row', word: 'eccentric', def: 'tending to act strangely', eg: 'Synonym: strange · Antonym: normal' },
+        { type: 'gloss-row', word: 'indignant', def: 'being very angry', eg: 'Synonym: angry · Antonym: calm' },
+        { type: 'gloss-row', word: 'quivering', def: 'trembling; shivering', eg: 'Synonym: trembling · Antonym: steady' },
+        { type: 'gloss-row', word: 'vexation', def: 'irritation; annoyance', eg: 'Synonym: annoyance · Antonym: delight' },
+        { type: 'nav', next: 'themes', nextLabel: 'Next: Themes & Devices →' },
+      ],
+    },
+
+    /* ─── THEMES & DEVICES ───────────────────────────────────────────── */
+    {
+      id: 'themes',
+      label: 'Themes & Devices',
+      blocks: [
+        { type: 'section-head', text: 'Human memory is more efficient than we admit' },
+        {
+          type: 'teacher-voice',
+          html: `<p>Lynd reminds us that modern man remembers telephone numbers, addresses, appointments, names, clothing, front doors, and lights. In an essay answer, write that the essay begins by praising memory before it laughs at forgetfulness.</p>`,
+        },
+        { type: 'section-head', text: 'Forgetfulness may reveal inner preference' },
+        {
+          type: 'teacher-voice',
+          html: `<p>Psychologists say we forget things because we wish to forget them. Lynd applies this to medicines, letters, and daily tasks, showing that memory is often influenced by likes, dislikes, and attention.</p>`,
+        },
+        { type: 'section-head', text: 'Absent-mindedness can be almost a virtue' },
+        {
+          type: 'teacher-voice',
+          html: `<p>Lynd says poets and anglers may forget small objects because their minds are filled with more glorious matter. This does not excuse all carelessness, but it helps us see imagination behind some forgetfulness.</p>`,
+        },
+        { type: 'section-head', text: 'Literary devices' },
+        {
+          type: 'teacher-voice',
+          html: `<p>These devices are the tools Lynd uses to create the essay's wit and insight. Know the name, the line, and the effect.</p>`,
+        },
+        {
+          type: 'device-block',
+          kind: 'Humour',
+          line: 'Chemists make their fortunes out of the medicines people forget to take.',
+          exp: 'The sentence turns a common weakness into a witty economic joke. Lynd makes readers smile rather than feel scolded.',
+        },
+        {
+          type: 'device-block',
+          kind: 'Metaphor',
+          line: 'Memory, indeed, is half the substance of their art.',
+          exp: 'Lynd says memory is not just a tool for poets; it is part of the very material of poetry. Memory is substance -- the raw matter from which art is made.',
+        },
+        {
+          type: 'device-block',
+          kind: 'Simile',
+          line: 'either he has a memory like a sieve',
+          exp: 'A sieve lets liquid pass through. A "memory like a sieve" means a memory that cannot retain facts -- it loses everything.',
+        },
+        { type: 'nav', next: 'textbook-qa', nextLabel: 'Next: Textbook Q&A →' },
+      ],
+    },
+
+    /* ─── TEXTBOOK Q&A ───────────────────────────────────────────────── */
+    {
+      id: 'textbook-qa',
+      label: 'Textbook Q&A',
+      blocks: [
+        {
+          type: 'teacher-voice',
+          html: `<h3 style="font-size:1rem;font-weight:600;margin:0 0 12px">Section A -- Answer in a sentence or two</h3>
+<div style="margin-bottom:10px"><p><strong>a) What does Lynd actually wonder at?</strong></p><p>Lynd wonders at the efficiency of human memory rather than its inefficiency. He is amazed that people remember so many things in ordinary life.</p></div>
+<div style="margin-bottom:10px"><p><strong>b) Name a few things that a person remembers easily.</strong></p><p>A person remembers telephone numbers, friends' addresses, dates of good vintages, appointments, names of actors, actresses, cricketers, footballers, and many daily duties.</p></div>
+<div style="margin-bottom:10px"><p><strong>c) How do psychologists interpret forgetfulness?</strong></p><p>Psychologists say that we forget things because we wish to forget them. Lynd applies this idea especially to medicines and unpleasant tasks.</p></div>
+<div style="margin-bottom:10px"><p><strong>d) What is the commonest type of forgetfulness, according to Lynd?</strong></p><p>According to Lynd, the commonest type of forgetfulness is forgetting to post letters. He says even he is a poor person to trust with such a task.</p></div>
+<div style="margin-bottom:10px"><p><strong>e) What does the author mean when he says the letter in his pocket leads an unadventurous life?</strong></p><p>He means that the letter remains safely in his pocket and goes nowhere. It has no real adventure because it is never posted.</p></div>
+<div style="margin-bottom:10px"><p><strong>f) What are the articles the writer forgets most often?</strong></p><p>The writer most often forgets medicines and letters. He also discusses people forgetting balls, bats, fishing-rods, and even a baby in a perambulator.</p></div>
+<div style="margin-bottom:10px"><p><strong>g) Who are the citizens of dreamland? Why?</strong></p><p>Sportsmen and anglers become citizens of dreamland after their games or fishing. Their minds are filled with the day's excitement, so they forget ordinary things.</p></div>
+<div style="margin-bottom:10px"><p><strong>h) What is common about the angler and the poet?</strong></p><p>Both the angler and the poet may forget ordinary things because their minds are filled with more glorious matters. Their absent-mindedness comes from imagination.</p></div>
+<h3 style="font-size:1rem;font-weight:600;margin:18px 0 12px">Section B -- Paragraph answers</h3>
+<div style="margin-bottom:10px"><p><strong>a) What are the observations of Lynd on the capacity of humans to remember and forget things?</strong></p><p>Lynd observes that human memory is usually highly efficient. People remember telephone numbers, addresses, appointments, names, clothes, doors, lights, and many ordinary duties. He says the surprising thing is not that people forget, but that they remember so much. Yet there are areas where memory fails, especially medicines and letters. He also says that sportsmen, anglers, poets, and absent-minded people forget ordinary things because their minds are occupied elsewhere. Thus Lynd treats forgetfulness humorously, but also thoughtfully.</p></div>
+<div style="margin-bottom:10px"><p><strong>b) What does Lynd say about medicines and letters?</strong></p><p>Lynd says medicines should be easy to remember because they are connected with meals, but most people forget them. Psychologists may say people forget medicines because they dislike pills and potions. Lynd humorously says chemists make fortunes out of medicines people forget to take. He then says the commonest form of forgetfulness is posting letters. He himself often passes the pillar-box, puts the letter into his pocket, and forgets it completely.</p></div>
+<div style="margin-bottom:10px"><p><strong>c) How does Lynd explain the absent-mindedness of sportsmen and anglers?</strong></p><p>Lynd says sportsmen and anglers forget ordinary objects because their minds are filled with the excitement of their activities. A player may forget a ball or bat after the game because memories of the game dominate his mind. An angler may forget his fishing-rod because he is already day-dreaming about the glorious stories of his fishing trip. Lynd sees this kind of absent-mindedness almost as a virtue because it comes from intense enjoyment and imagination.</p></div>`,
+        },
+        { type: 'nav', next: 'activities', nextLabel: 'Next: Activities →' },
+      ],
+    },
+
+    /* ─── ACTIVITIES ─────────────────────────────────────────────────── */
+    {
+      id: 'activities',
+      label: 'Activities',
+      blocks: [
+        {
+          type: 'teacher-voice',
+          html: `<h3 style="font-size:1rem;font-weight:600;margin:0 0 10px">Warm Up</h3>
+<p>The unit begins with "Have you forgotten anything of late?" and asks students to fill bubbles with things people commonly forget. Good answers include homework, keys, phone numbers, lunch box, spectacles, passwords, and birthdays.</p>
+<h3 style="font-size:1rem;font-weight:600;margin:18px 0 10px">Vocabulary -- Homophones</h3>
+<p>Answers: whether/weather; loose/lose; packet/pocket; feet/feat; quote/coat; paused/passed; weary/wiry; gilt/guilt. These prepare students for Part I vocabulary questions.</p>
+<h3 style="font-size:1rem;font-weight:600;margin:18px 0 10px">Clipped Words</h3>
+<p>chimpanzee -- chimp; photograph -- photo; microphone -- mike; cafeteria -- cafe; gasoline -- gas; helicopter -- copter; telephone -- phone; university -- varsity; memorandum -- memo; influenza -- flu; hippopotamus -- hippo; bridegroom -- groom; fanatic -- fan; demonstration -- demo; perambulator -- pram; refrigerator -- fridge.</p>
+<h3 style="font-size:1rem;font-weight:600;margin:18px 0 10px">Listening Activity</h3>
+<p>The listening task contains anecdotes about Edison and Einstein. Students complete sentences about Edison travelling to New Jersey and Einstein taking a cab while trying to remember an address.</p>
+<h3 style="font-size:1rem;font-weight:600;margin:18px 0 10px">Speaking Activity</h3>
+<p>Topics: handling a forgotten train ticket; pacifying a friend whose birthday you forgot; discussing whether forgetfulness is the beginning of happiness; and exploring whether intelligence is linked with absent-mindedness.</p>
+<h3 style="font-size:1rem;font-weight:600;margin:18px 0 10px">Reading and Grammar</h3>
+<p>The reading section explains library classification, including the Reference Section, Stack, and Journal Section. Grammar focuses on subject-verb agreement, including singular/plural subjects and always-singular expressions such as "one of," "either of," and "everybody."</p>
+<h3 style="font-size:1rem;font-weight:600;margin:18px 0 10px">Writing</h3>
+<p>The writing task teaches biographical sketch writing. It asks students to write in the third person, include personal details, education, work, achievements, and special contribution. The sample is based on R.K. Narayan.</p>`,
+        },
+        { type: 'nav', practice: true },
+      ],
+    },
+  ],
+}

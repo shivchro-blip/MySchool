@@ -1,36 +1,15 @@
-# Rubric helpers
-# Used only by modules/evaluation/service.py
-# Validates marks and formats rubric context for the AI prompt
+"""
+Rubric helpers for Tamil Nadu State Board evaluation.
+Mark level guidance is sourced from core/tn_board.py — single source of truth.
+"""
 
 from typing import Any
-
-MARK_LEVELS: dict[int, dict[str, str]] = {
-    1: {
-        "description":     "Single fact or term",
-        "expected_length": "One word or one sentence",
-        "structure":       "No structure needed",
-    },
-    2: {
-        "description":     "Key term + brief explanation",
-        "expected_length": "2-3 sentences",
-        "structure":       "Term definition + context",
-    },
-    5: {
-        "description":     "3-4 developed points with explanation",
-        "expected_length": "One paragraph, 8-12 sentences",
-        "structure":       "Point 1 + Point 2 + Point 3 + (Point 4 optional)",
-    },
-    10: {
-        "description":     "Full structured essay",
-        "expected_length": "3-4 paragraphs, 200-300 words",
-        "structure":       "Introduction + 4-5 main points + Conclusion",
-    },
-}
+from core.tn_board import MARK_LEVEL_GUIDANCE, validate_marks
 
 
 def get_mark_guidance(marks: int) -> dict[str, str]:
     """Return marking guidance for a given mark level."""
-    return MARK_LEVELS.get(marks, MARK_LEVELS[2])
+    return MARK_LEVEL_GUIDANCE.get(marks, MARK_LEVEL_GUIDANCE[2])
 
 
 def format_answer_key(answer_key: dict | None) -> str:
@@ -55,12 +34,13 @@ def format_answer_key(answer_key: dict | None) -> str:
 
 
 def format_rubric(rubric: dict | None, marks: int) -> str:
-    """Convert rubric JSON to readable string for the AI prompt."""
+    """Convert rubric JSON + TN board guidance to readable string for AI."""
     guidance = get_mark_guidance(marks)
     base = (
-        f"Question Type: {guidance['description']}\n"
+        f"Question Type: {guidance['label']} — {guidance['description']}\n"
         f"Expected Length: {guidance['expected_length']}\n"
         f"Expected Structure: {guidance['structure']}\n"
+        f"Board Rule: {guidance['board_rule']}\n"
     )
 
     if not rubric:

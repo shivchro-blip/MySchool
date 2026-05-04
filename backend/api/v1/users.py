@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException
 from uuid import UUID
 from models import UserProfileResponse, UpdateProfileRequest, UsageStatsResponse
-from core.auth import get_current_user
+from api.v1.deps import get_current_user
 from db.repositories import UsersRepository
 from db.repositories.users_repo import FREE_DAILY_LIMIT
 
