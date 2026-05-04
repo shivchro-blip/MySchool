@@ -53,7 +53,10 @@
       "Bash(node *)",
       "Bash(python3 *)",
       "Bash(python _gen_never_never_nest.py)",
-      "Bash(Get-ChildItem -Path \"C:\\\\Projects\\\\TNSchool\\\\exam-coach\\\\frontend\\\\web\\\\src\" -Recurse -Include *.css, *.js -ErrorAction SilentlyContinue)"
+      "Bash(Get-ChildItem -Path \"C:\\\\Projects\\\\TNSchool\\\\exam-coach\\\\frontend\\\\web\\\\src\" -Recurse -Include *.css, *.js -ErrorAction SilentlyContinue)",
+      "Bash(Get-ChildItem -Path \"C:\\\\Projects\\\\TNSchool\\\\exam-coach\\\\frontend\\\\web\\\\src\" -Recurse -File -Name)",
+      "Bash(dir /B)",
+      "Bash(Get-ChildItem *)"
     ]
   }
 }
