@@ -3,7 +3,8 @@ import '../models/user_model.dart';
 import '../services/user_service.dart';
 
 class UserProvider extends ChangeNotifier {
-  final _svc = UserService();
+  final UserService _svc;
+  UserProvider([UserService? svc]) : _svc = svc ?? UserService();
 
   UserProfile? _profile;
   bool         _loading = false;

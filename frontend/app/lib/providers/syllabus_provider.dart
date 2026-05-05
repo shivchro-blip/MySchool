@@ -3,7 +3,8 @@ import '../models/syllabus_model.dart';
 import '../services/syllabus_service.dart';
 
 class SyllabusProvider extends ChangeNotifier {
-  final _svc = SyllabusService();
+  final SyllabusService _svc;
+  SyllabusProvider([SyllabusService? svc]) : _svc = svc ?? SyllabusService();
 
   List<Subject> _subjects    = [];
   bool          _loaded      = false;

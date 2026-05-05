@@ -71,9 +71,8 @@ export default function CoursesIndexPage() {
               {/* Info */}
               <div style={{ flex: 1, minWidth: 0 }}>
                 <div style={{ fontSize: 15, fontWeight: 700, color: '#1a1d27', marginBottom: 4 }}>
-                  {cfg.label} — {yearData.label}
+                  {cfg.subtitle}
                 </div>
-                <div style={{ fontSize: 12, color: '#6b7280' }}>{cfg.subtitle}</div>
                 <div style={{ display: 'flex', gap: 12, marginTop: 6 }}>
                   <span style={{ fontSize: 11, fontWeight: 600, color: cfg.color }}>
                     {subjects} subject{subjects !== 1 ? 's' : ''}
