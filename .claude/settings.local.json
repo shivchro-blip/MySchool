@@ -56,7 +56,14 @@
       "Bash(Get-ChildItem -Path \"C:\\\\Projects\\\\TNSchool\\\\exam-coach\\\\frontend\\\\web\\\\src\" -Recurse -Include *.css, *.js -ErrorAction SilentlyContinue)",
       "Bash(Get-ChildItem -Path \"C:\\\\Projects\\\\TNSchool\\\\exam-coach\\\\frontend\\\\web\\\\src\" -Recurse -File -Name)",
       "Bash(dir /B)",
-      "Bash(Get-ChildItem *)"
+      "Bash(Get-ChildItem *)",
+      "Bash(grep -v \"^\\\\s*//\")",
+      "Bash(npm uninstall *)",
+      "Bash(grep -v \"^$\")",
+      "Bash(Select-Object FullName)",
+      "Bash(flutter analyze *)",
+      "PowerShell(dart *)",
+      "PowerShell(Get-ChildItem -Recurse \"C:\\\\Projects\\\\TNSchool\\\\exam-coach\\\\frontend\\\\app\\\\test\" | ForEach-Object { $_.FullName })"
     ]
   }
 }
