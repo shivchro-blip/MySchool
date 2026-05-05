@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../config/theme.dart';
 import '../models/syllabus_model.dart';
 import '../models/learning_model.dart';
 import '../services/syllabus_service.dart';
@@ -7,33 +8,52 @@ import '../widgets/app_button.dart';
 import '../widgets/error_view.dart';
 
 class LearnScreen extends StatefulWidget {
-  final String chapterId;
-  const LearnScreen({super.key, required this.chapterId});
+  // chapterSlug — used for GET /chapters/{slug}/topics
+  // chapterId   — UUID, used for POST /learning/explain (passed via GoRouter extra)
+  final String   chapterSlug;
+  final Chapter? chapter; // optional — provided when navigating from ChapterDetailScreen
+
+  const LearnScreen({
+    super.key,
+    required this.chapterSlug,
+    this.chapter,
+  });
+
   @override
   State<LearnScreen> createState() => _LearnScreenState();
 }
 
 class _LearnScreenState extends State<LearnScreen> {
-  final _syllSvc = SyllabusService();
-  final _learnSvc = LearningService();
+  final _syllSvc      = SyllabusService();
+  final _learnSvc     = LearningService();
   final _questionCtrl = TextEditingController();
 
-  List<Topic>      _topics    = [];
+  List<Topic>      _topics   = [];
   Topic?           _topic;
-  String           _language  = 'en';
+  String           _language = 'en';
   ExplainResponse? _result;
-  bool             _loading   = false;
-  bool             _tLoading  = true;
-  String           _error     = '';
+  bool             _loading  = false;
+  bool             _tLoading = true;
+  String           _error    = '';
+
+  // Use chapter.id (UUID) if available; fall back to slug (may fail on backend)
+  String get _chapterId =>
+      widget.chapter?.id ?? widget.chapterSlug;
 
   @override
   void initState() {
     super.initState();
-    _syllSvc.getTopics(widget.chapterId).then((t) {
-      setState(() { _topics = t; _tLoading = false; });
+    _syllSvc.getTopics(widget.chapterSlug).then((t) {
+      if (mounted) setState(() { _topics = t; _tLoading = false; });
     }).catchError((e) {
-      setState(() { _error = e.toString(); _tLoading = false; });
+      if (mounted) setState(() { _error = e.toString(); _tLoading = false; });
     });
+  }
+
+  @override
+  void dispose() {
+    _questionCtrl.dispose();
+    super.dispose();
   }
 
   Future<void> _explain() async {
@@ -41,42 +61,56 @@ class _LearnScreenState extends State<LearnScreen> {
     setState(() { _loading = true; _error = ''; _result = null; });
     try {
       final res = await _learnSvc.explain(
-        chapterId: widget.chapterId,
+        chapterId: _chapterId,
         topicId:   _topic?.id,
         question:  _questionCtrl.text.trim(),
         language:  _language,
       );
-      setState(() => _result = res);
+      if (mounted) setState(() => _result = res);
     } catch (e) {
-      setState(() => _error = e.toString());
+      if (mounted) setState(() => _error = e.toString());
     } finally {
-      setState(() => _loading = false);
+      if (mounted) setState(() => _loading = false);
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    final title = widget.chapter?.title ?? 'Learn';
     return Scaffold(
-      appBar: AppBar(title: const Text('Learn')),
+      backgroundColor: AppTheme.surface,
+      appBar: AppBar(
+        title: Text(title, overflow: TextOverflow.ellipsis),
+      ),
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
           // Topic chips
           if (_tLoading)
-            const Center(child: CircularProgressIndicator()),
+            const Center(child: Padding(
+              padding: EdgeInsets.all(16),
+              child: CircularProgressIndicator(),
+            )),
+
           if (_topics.isNotEmpty) ...[
-            const Text('Select a topic',
-                style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600)),
+            const Text(
+              'Select a topic',
+              style: TextStyle(
+                fontSize: 13,
+                fontWeight: FontWeight.w600,
+                color: AppTheme.textSecondary,
+              ),
+            ),
             const SizedBox(height: 8),
             Wrap(
               spacing: 8,
               runSpacing: 6,
               children: _topics.map((t) => ChoiceChip(
-                label:      Text(t.title, style: const TextStyle(fontSize: 13)),
-                selected:   _topic?.id == t.id,
+                label: Text(t.title, style: const TextStyle(fontSize: 13)),
+                selected: _topic?.id == t.id,
                 onSelected: (_) => setState(() =>
                     _topic = _topic?.id == t.id ? null : t),
-                selectedColor: const Color(0xFF16A34A),
+                selectedColor: AppTheme.brand,
                 labelStyle: TextStyle(
                   color: _topic?.id == t.id ? Colors.white : null,
                 ),
@@ -85,9 +119,15 @@ class _LearnScreenState extends State<LearnScreen> {
             const SizedBox(height: 16),
           ],
 
-          // Question
-          const Text('Or ask a question',
-              style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600)),
+          // Question input
+          const Text(
+            'Or ask a question',
+            style: TextStyle(
+              fontSize: 13,
+              fontWeight: FontWeight.w600,
+              color: AppTheme.textSecondary,
+            ),
+          ),
           const SizedBox(height: 8),
           TextField(
             controller:  _questionCtrl,
@@ -101,19 +141,16 @@ class _LearnScreenState extends State<LearnScreen> {
           // Language toggle
           Row(
             children: [
-              const Text('Explain in: ',
-                  style: TextStyle(fontSize: 13)),
+              const Text('Explain in: ', style: TextStyle(fontSize: 13)),
               const SizedBox(width: 8),
               SegmentedButton<String>(
                 segments: const [
                   ButtonSegment(value: 'en', label: Text('English')),
                   ButtonSegment(value: 'ta', label: Text('Tamil')),
                 ],
-                selected:         {_language},
+                selected:           {_language},
                 onSelectionChanged: (v) => setState(() => _language = v.first),
-                style: SegmentedButton.styleFrom(
-                  minimumSize: const Size(80, 36),
-                ),
+                style: SegmentedButton.styleFrom(minimumSize: const Size(80, 36)),
               ),
             ],
           ),
@@ -128,7 +165,6 @@ class _LearnScreenState extends State<LearnScreen> {
 
           if (_error.isNotEmpty) ErrorView(message: _error),
 
-          // Result
           if (_result != null) ...[
             Card(
               child: Padding(
@@ -166,15 +202,11 @@ class _LearnScreenState extends State<LearnScreen> {
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text('✓ ',
-                                style: TextStyle(
-                                  color:      Color(0xFF16A34A),
-                                  fontWeight: FontWeight.w700,
-                                )),
-                            Expanded(
-                              child: Text(pt,
-                                  style: const TextStyle(fontSize: 13)),
-                            ),
+                            const Text('✓ ', style: TextStyle(
+                              color: AppTheme.success, fontWeight: FontWeight.w700,
+                            )),
+                            Expanded(child: Text(pt,
+                                style: const TextStyle(fontSize: 13))),
                           ],
                         ),
                       )),
@@ -198,7 +230,7 @@ class _LearnScreenState extends State<LearnScreen> {
                     const Text('💡 Exam Tip',
                         style: TextStyle(
                           fontWeight: FontWeight.w700,
-                          color:      Color(0xFF92400E),
+                          color: Color(0xFF92400E),
                         )),
                     const SizedBox(height: 4),
                     Text(_result!.examTip,

@@ -1,12 +1,14 @@
 class Subject {
   final String id;
+  final String slug;
   final String code;
   final String name;
   final String classLevel;
-  final bool isActive;
+  final bool   isActive;
 
   const Subject({
     required this.id,
+    required this.slug,
     required this.code,
     required this.name,
     required this.classLevel,
@@ -15,15 +17,17 @@ class Subject {
 
   factory Subject.fromJson(Map<String, dynamic> json) => Subject(
     id:         json['id'] as String,
+    slug:       json['slug'] as String? ?? json['code'] as String? ?? '',
     code:       json['code'] as String,
     name:       json['name'] as String,
-    classLevel: (json['class'] ?? json['class_level'] ?? '') as String,
+    classLevel: (json['class_level'] ?? json['class'] ?? '') as String,
     isActive:   json['is_active'] as bool? ?? true,
   );
 }
 
 class Chapter {
   final String id;
+  final String slug;
   final String subjectId;
   final int    number;
   final String title;
@@ -32,6 +36,7 @@ class Chapter {
 
   const Chapter({
     required this.id,
+    required this.slug,
     required this.subjectId,
     required this.number,
     required this.title,
@@ -41,6 +46,7 @@ class Chapter {
 
   factory Chapter.fromJson(Map<String, dynamic> json) => Chapter(
     id:          json['id'] as String,
+    slug:        json['slug'] as String? ?? '',
     subjectId:   json['subject_id'] as String,
     number:      json['number'] as int,
     title:       json['title'] as String,
@@ -49,11 +55,21 @@ class Chapter {
   );
 
   String get typeIcon => switch (contentType) {
-    'prose'      => '📖',
-    'poem'       => '🎵',
-    'grammar'    => '✏️',
-    'vocabulary' => '🔤',
-    _            => '📄',
+    'prose'        => '📖',
+    'poem'         => '🎵',
+    'grammar'      => '✏️',
+    'vocabulary'   => '🔤',
+    'supplementary'=> '📝',
+    _              => '📄',
+  };
+
+  String get typeLabel => switch (contentType) {
+    'prose'        => 'Prose',
+    'poem'         => 'Poetry',
+    'grammar'      => 'Grammar',
+    'vocabulary'   => 'Vocabulary',
+    'supplementary'=> 'Supplementary',
+    _              => contentType,
   };
 }
 
@@ -79,11 +95,11 @@ class Topic {
 }
 
 class Question {
-  final String  id;
-  final String  questionText;
-  final int     marks;
-  final String  questionType;
-  final bool    isValidated;
+  final String id;
+  final String questionText;
+  final int    marks;
+  final String questionType;
+  final bool   isValidated;
 
   const Question({
     required this.id,
@@ -102,10 +118,18 @@ class Question {
   );
 
   String get writingHint => switch (marks) {
-    1      => 'Write one sentence with the key term.',
-    2      => 'Write 2–3 sentences: key term + explanation.',
-    5      => 'Write a paragraph with 3–4 clear points.',
-    10     => 'Write an essay: intro + 4–5 points + conclusion.',
-    _      => 'Write your answer clearly.',
+    1  => 'Write one sentence with the key term.',
+    2  => 'Write 2–3 sentences: key term + explanation.',
+    5  => 'Write a paragraph with 3–4 clear points.',
+    10 => 'Write an essay: intro + 4–5 points + conclusion.',
+    _  => 'Write your answer clearly.',
+  };
+
+  String get partLabel => switch (marks) {
+    1  => 'Part I — Very Short Answer',
+    2  => 'Part II — Short Answer',
+    5  => 'Part III — Short Essay',
+    10 => 'Part IV — Long Essay',
+    _  => 'Questions',
   };
 }
