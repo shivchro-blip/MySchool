@@ -1,17 +1,405 @@
 export default {
-  eyebrow: 'Unit 2 · Class 12 English',
+  eyebrow: 'Unit 2 · Prose · Class XII General English',
   title: 'A Nice Cup of Tea',
-  author: 'Class 12 placeholder',
-  pills: ['Placeholder'],
+  author: 'George Orwell',
+  pills: ['Essay', 'Humour', 'Tea Culture', 'Style'],
   tabs: [
     {
-      id: 'overview',
-      label: 'Overview',
+      id: 'author',
+      label: 'About the Author',
       blocks: [
         {
           type: 'teacher-voice',
-          html: '<p>Class 12 content will be added here.</p>',
+          html: `<p>George Orwell was the pen name of Eric Arthur Blair (25 June 1903-21 January 1950). He was an English novelist, essayist, journalist and critic. The textbook notes that his writing is marked by clear prose, awareness of social iniquity, opposition to totalitarianism and candid support of democratic socialism.</p>
+<p>Orwell wrote literary criticism, poetry, fiction and polemical journalism. He is best known for <em>Animal Farm</em> and <em>Nineteen Eighty-Four</em>. His essays often mix observation, opinion and a strong sense of public life.</p>`,
         },
+        {
+          type: 'author-stat',
+          label: 'Full name',
+          value: 'Eric Arthur Blair',
+        },
+        {
+          type: 'author-stat',
+          label: 'Known as',
+          value: 'George Orwell',
+        },
+        {
+          type: 'author-stat',
+          label: 'Best known for',
+          value: 'Animal Farm and Nineteen Eighty-Four',
+        },
+        {
+          type: 'think-box',
+          label: 'Why this matters',
+          text: 'Orwell turns an everyday subject into a thoughtful essay. He uses the simple topic of tea to show how taste, habit, custom and opinion can all become part of a serious argument.',
+        },
+        { type: 'nav', next: 'intro', nextLabel: 'Next: Introduction →' },
+      ],
+    },
+    {
+      id: 'intro',
+      label: 'Introduction',
+      blocks: [
+        {
+          type: 'teacher-voice',
+          html: `<p>The warm-up asks about different kinds of tea and how tea powder is obtained from tea plants. That is a useful beginning, because Orwell also starts by treating tea as a familiar but surprisingly controversial subject.</p>
+<p>He says tea is one of the mainstays of civilization in England, Eire, Australia and New Zealand, yet people still argue fiercely about the best way to make it. This essay is funny because it is serious about a small thing.</p>`,
+        },
+        {
+          type: 'quote-block',
+          quote: 'tea is one of the mainstays of civilization',
+          context: 'Orwell explains why tea matters so much to people',
+        },
+        {
+          type: 'think-box',
+          label: 'Before you read',
+          text: 'Notice how the essay combines facts, opinions and a little humour. Orwell does not just describe tea; he argues for his own "golden rules" and explains why he believes them.',
+        },
+        { type: 'nav', back: 'author', next: 'text-explained', nextLabel: 'Next: The Text Explained →' },
+      ],
+    },
+    {
+      id: 'text-explained',
+      label: 'The Text Explained',
+      blocks: [
+        {
+          type: 'section-head',
+          text: 'Phase 1 -- Why tea deserves attention',
+        },
+        {
+          type: 'teacher-voice',
+          html: `<p>Orwell begins by saying that cookery books often say little or nothing about tea. He finds this curious because tea is such an important part of life. The subject is also controversial, because people disagree strongly about the right way to prepare it.</p>
+<p>He then announces his eleven "golden rules". The essay becomes a playful list of instructions, but each rule also shows his personal taste and the way he thinks about good tea.</p>`,
+        },
+        {
+          type: 'quote-block',
+          quote: 'If you look up "tea" in the first cookery book that comes to hand you will probably find that it is unmentioned.',
+          context: 'Orwell says tea is strangely neglected in cookery books',
+        },
+        {
+          type: 'quote-block',
+          quote: 'Here are my own eleven rules, every one of which I regard as golden:',
+          context: 'The essay is built around eleven rules',
+        },
+        {
+          type: 'section-head',
+          text: 'Phase 2 -- The first rules: the right tea and the right pot',
+        },
+        {
+          type: 'teacher-voice',
+          html: `<p>The first rule is that one should use Indian or Ceylonese tea. Orwell accepts that China tea has virtues, but he says it gives little stimulation. He feels that a "nice cup of tea" usually means Indian tea.</p>
+<p>The second rule is that tea should be made in small quantities, in a teapot. He dislikes tea from an urn and army tea in a cauldron. The third rule is that the pot should be warmed beforehand, and the fourth is that the tea should be strong.</p>`,
+        },
+        {
+          type: 'quote-block',
+          quote: 'China tea has virtues which are not to be despised nowadays',
+          context: 'He admits China tea has some value, but he still prefers Indian tea',
+        },
+        {
+          type: 'quote-block',
+          quote: 'Tea should be made in small quantities - that is, in a teapot.',
+          context: 'The tea should not be made in an urn or a large cauldron',
+        },
+        {
+          type: 'quote-block',
+          quote: 'the pot should be warmed beforehand',
+          context: 'Warming the pot is part of making good tea',
+        },
+        {
+          type: 'section-head',
+          text: 'Phase 3 -- Brewing rules: straight into the pot and to the kettle',
+        },
+        {
+          type: 'teacher-voice',
+          html: `<p>Orwell says the tea should be put straight into the pot, without strainers, muslin bags or other devices. The teapot should be taken to the kettle, not the other way round, and the water should be actually boiling.</p>
+<p>After making the tea, one should stir it or shake the pot and let the leaves settle. He prefers the breakfast cup, which is cylindrical, because it holds more and keeps the tea warmer.</p>`,
+        },
+        {
+          type: 'quote-block',
+          quote: 'No strainers, muslin bags or other devices to imprison the tea.',
+          context: 'The tea leaves must move freely in the pot',
+        },
+        {
+          type: 'quote-block',
+          quote: 'one should take the teapot to the kettle and not the other way about',
+          context: 'The water must be boiling when it meets the tea',
+        },
+        {
+          type: 'quote-block',
+          quote: 'one should stir it, or better, give the pot a good shake',
+          context: 'This helps the tea infuse properly',
+        },
+        {
+          type: 'quote-block',
+          quote: 'one should drink out of a good breakfast cup',
+          context: 'Orwell prefers the cylindrical cup to the flat, shallow type',
+        },
+        {
+          type: 'section-head',
+          text: 'Phase 4 -- Milk, sugar and the final rule',
+        },
+        {
+          type: 'teacher-voice',
+          html: `<p>Orwell advises pouring the tea into the cup first so that the amount of milk can be regulated exactly. He also says the cream should be removed from the milk because creamy milk gives tea a sickly taste.</p>
+<p>His last rule is that tea should be drunk without sugar unless one is drinking it in the Russian style. He knows he is in a minority, but he argues that sugar destroys the flavour of tea.</p>`,
+        },
+        {
+          type: 'quote-block',
+          quote: 'one is liable to put in too much milk if one does it the other way round',
+          context: 'Tea first helps control the milk',
+        },
+        {
+          type: 'quote-block',
+          quote: 'tea -- unless one is drinking it in the Russian style -- should be drunk without sugar',
+          context: 'Orwell strongly opposes sugar in tea',
+        },
+        {
+          type: 'quote-block',
+          quote: 'If you sweeten it, you are no longer tasting the tea, you are merely tasting the sugar',
+          context: 'Sugar hides the flavour of tea',
+        },
+        {
+          type: 'think-box',
+          label: 'What the essay really does',
+          text: 'The essay is not only a list of rules. It also shows Orwell\'s personality: practical, opinionated, witty and confident. He turns a household habit into a lively piece of argument.',
+        },
+        { type: 'nav', back: 'intro', next: 'key-lines', nextLabel: 'Next: Key Lines for Exam →' },
+      ],
+    },
+    {
+      id: 'key-lines',
+      label: 'Key Lines for Exam',
+      blocks: [
+        {
+          type: 'teacher-voice',
+          html: '<p>These lines are important because they carry the main ideas, the humour and the final opinion of the essay.</p>',
+        },
+        {
+          type: 'quote-block',
+          quote: 'tea is one of the mainstays of civilization',
+          context: 'Tea is an essential part of life in several countries',
+        },
+        {
+          type: 'quote-block',
+          quote: 'Here are my own eleven rules, every one of which I regard as golden:',
+          context: 'The essay is shaped by eleven clear rules',
+        },
+        {
+          type: 'quote-block',
+          quote: 'China tea has virtues which are not to be despised nowadays',
+          context: 'He gives China tea a limited but real value',
+        },
+        {
+          type: 'quote-block',
+          quote: 'Tea should be made in small quantities - that is, in a teapot.',
+          context: 'The right quantity and the right vessel matter',
+        },
+        {
+          type: 'quote-block',
+          quote: 'the pot should be warmed beforehand',
+          context: 'A warm pot helps make good tea',
+        },
+        {
+          type: 'quote-block',
+          quote: 'the tea should be put straight into the pot',
+          context: 'No strainers or bags should be used',
+        },
+        {
+          type: 'quote-block',
+          quote: 'one should stir it, or better, give the pot a good shake',
+          context: 'A small practical instruction for brewing',
+        },
+        {
+          type: 'quote-block',
+          quote: 'one should drink out of a good breakfast cup',
+          context: 'He prefers the cylindrical cup',
+        },
+        {
+          type: 'quote-block',
+          quote: 'tea -- unless one is drinking it in the Russian style -- should be drunk without sugar',
+          context: 'The final rule shows his strongest opinion',
+        },
+        { type: 'nav', back: 'text-explained', next: 'glossary', nextLabel: 'Next: Glossary →' },
+      ],
+    },
+    {
+      id: 'glossary',
+      label: 'Glossary',
+      blocks: [
+        {
+          type: 'teacher-voice',
+          html: '<p>Learn these meanings exactly as printed in the textbook. They are useful for the comprehension questions and vocabulary work.</p>',
+        },
+        { type: 'gloss-row', word: 'curious', def: 'interesting', eg: 'This is curious.' },
+        { type: 'gloss-row', word: 'controversial', def: 'arguable, disputable', eg: 'The best manner of making tea is controversial.' },
+        { type: 'gloss-row', word: 'virtues', def: 'admirable qualities', eg: 'China tea has virtues.' },
+        { type: 'gloss-row', word: 'despised', def: 'hated', eg: 'China tea is not to be despised.' },
+        { type: 'gloss-row', word: 'stimulation', def: 'excitement', eg: 'Indian tea gives stimulation.' },
+        { type: 'gloss-row', word: 'optimistic', def: 'positive, hopeful', eg: 'One does not feel more optimistic after drinking tea.' },
+        { type: 'gloss-row', word: 'cauldron', def: 'a big pot used for boiling', eg: 'Army tea is made in a cauldron.' },
+        { type: 'gloss-row', word: 'rationing', def: 'restricting the consumption of a scarce commodity during war', eg: 'In a time of rationing, strong tea is not easy to make every day.' },
+        { type: 'gloss-row', word: 'dangling', def: 'hanging freely, suspended', eg: 'There are little dangling baskets under the spout.' },
+        { type: 'gloss-row', word: 'spout', def: 'the pipe-like opening in a teapot through which tea is poured out', eg: 'The stray leaves are caught under the spout.' },
+        { type: 'gloss-row', word: 'liable', def: 'likely', eg: 'One is liable to put in too much milk.' },
+        { type: 'gloss-row', word: 'mysterious', def: 'incomprehensible', eg: 'There is the mysterious social etiquette surrounding the teapot.' },
+        { type: 'gloss-row', word: 'etiquette', def: 'socially acceptable behaviour', eg: 'The etiquette surrounding the teapot is mysterious.' },
+        { type: 'nav', next: 'themes', nextLabel: 'Next: Themes / Style / Humour →' },
+      ],
+    },
+    {
+      id: 'themes',
+      label: 'Themes / Style / Humour',
+      blocks: [
+        {
+          type: 'section-head',
+          text: 'Theme: Tea as a cultural habit',
+        },
+        {
+          type: 'teacher-voice',
+          html: `<p>Orwell shows that tea is not just a drink. It is a social habit, a comfort and a part of daily civilization. He links it to national life in England, Eire, Australia and New Zealand.</p>`,
+        },
+        {
+          type: 'section-head',
+          text: 'Theme: Opinion and argument',
+        },
+        {
+          type: 'teacher-voice',
+          html: `<p>The essay is based on strong personal opinion. Orwell does not pretend that all tea lovers agree with him. Instead, he presents his own rules confidently and explains why he thinks they are best.</p>`,
+        },
+        {
+          type: 'section-head',
+          text: 'Style and humour',
+        },
+        {
+          type: 'teacher-voice',
+          html: `<p>The style is clear, direct and witty. Orwell sounds serious, but his list of "golden rules" and his confident rejection of sugar, milk-first habits and weak tea create gentle humour.</p>
+<p>His humour comes from the contrast between the smallness of the subject and the importance he gives it. He also uses irony when he describes the many debates around tea-making.</p>`,
+        },
+        {
+          type: 'device-block',
+          kind: 'Irony',
+          line: 'A small household drink is treated as a matter of civilisation',
+          exp: 'The essay is funny because Orwell speaks about tea as if it were a serious national issue.',
+        },
+        {
+          type: 'device-block',
+          kind: 'Repetition',
+          line: 'Here are my own eleven rules',
+          exp: 'The repeated rule structure makes the essay memorable and easy to follow.',
+        },
+        {
+          type: 'device-block',
+          kind: 'Contrast',
+          line: 'China tea versus Indian tea, milk-first versus tea-first, sugar versus no sugar',
+          exp: 'Orwell builds his argument by setting alternatives against one another.',
+        },
+        {
+          type: 'device-block',
+          kind: 'Tone',
+          line: 'Confident, conversational and opinionated',
+          exp: 'The essay sounds like a careful conversation with a reader, not a dry textbook note.',
+        },
+        { type: 'nav', back: 'glossary', next: 'qa', nextLabel: 'Next: Textbook Q&A →' },
+      ],
+    },
+    {
+      id: 'qa',
+      label: 'Textbook Q&A',
+      blocks: [
+        {
+          type: 'teacher-voice',
+          html: `<h3 style="font-size:1rem;font-weight:600;margin:0 0 10px">1. Answer in one or two sentences</h3>
+<p><strong>a) What seems curious to the author?</strong><br>The author finds it curious that tea is so important in daily life, yet cookery books say very little about how to make it.</p>
+<p><strong>b) Why does the author say it is important to include a tea recipe in cookery books?</strong><br>Because tea is one of the mainstays of civilization and people care deeply about how it is prepared.</p>
+<p><strong>c) Mention the countries in which tea is a part of civilization.</strong><br>Tea is part of civilization in England, Eire, Australia and New Zealand.</p>
+<p><strong>d) Which tea does the author prefer - China tea or Indian tea?</strong><br>The author prefers Indian or Ceylonese tea.</p>
+<p><strong>e) According to the author, what does the phrase "a nice cup of tea" refer to?</strong><br>It refers to Indian tea.</p>
+<p><strong>f) What is the second golden rule in the preparation of tea?</strong><br>Tea should be made in small quantities, that is, in a teapot.</p>
+<p><strong>g) How does army tea taste?</strong><br>Army tea tastes of grease and whitewash.</p>
+<p><strong>h) Do tea lovers generally like strong tea or weak tea?</strong><br>Tea lovers generally like strong tea.</p>
+<p><strong>i) Why should tea be directly added to the pot?</strong><br>Because strainers, muslin bags and similar devices prevent the tea from infusing properly.</p>
+<p><strong>j) Why does the author prefer the cylindrical cup to a flat cup?</strong><br>The cylindrical breakfast cup holds more and keeps the tea warmer for longer.</p>
+<p><strong>k) What should be poured into the cup first - tea or milk?</strong><br>The tea should be poured first.</p>
+<p><strong>l) Why does the author advise removing cream from the milk?</strong><br>Because creamy milk gives tea a sickly taste.</p>
+<p><strong>m) Does the author like drinking tea with sugar? Give reasons.</strong><br>No. He feels sugar destroys the flavour of tea and makes one taste sugar instead of tea.</p>
+<p><strong>n) Why does the author refer to himself as being in 'a minority'?</strong><br>He says this because most people do not agree with him about tea without sugar.</p>
+<p><strong>o) Whom does the author call 'misguided people'? What is his advice to them?</strong><br>He calls those who add sugar to tea misguided people and advises them to try tea without sugar for a fortnight.</p>
+
+<h3 style="font-size:1rem;font-weight:600;margin:18px 0 10px">2. Answer in four or five sentences</h3>
+<p><strong>a) What are the author\'s views on China tea?</strong><br>Orwell admits that China tea has virtues, such as economy and the fact that it can be drunk without milk. Even so, he says it gives little stimulation and does not make one feel wiser, braver or more optimistic. For him, a "nice cup of tea" usually means Indian tea. So he respects China tea, but he prefers Indian tea.</p>
+<p><strong>b) How does adding sugar affect the taste of tea?</strong><br>According to Orwell, sugar destroys the real flavour of tea. Once sugar is added, one tastes the sugar rather than the tea. He compares it to adding pepper or salt. He strongly advises tea lovers to drink tea without sugar.</p>
+<p><strong>c) Elucidate the author\'s ideas about teapots.</strong><br>Orwell says tea should be made in a teapot, not in an urn or cauldron. The pot should be made of china or earthenware and should be warmed beforehand. He dislikes strainers, muslin bags and similar devices because they prevent proper infusion. He believes the teapot is central to good tea-making.</p>
+<p><strong>d) What are the author\'s views on milk?</strong><br>He thinks the milk should not be too creamy because creamy milk gives tea a sickly taste. He also says tea should be poured into the cup first so that the amount of milk can be controlled exactly. This order helps avoid putting in too much milk. For him, milk is useful only if it does not hide the tea.</p>
+<p><strong>e) Why does the author use the phrase "in a minority"?</strong><br>He uses it because most tea drinkers do not agree with him about sugar. He knows his view is not popular, but he still defends it. This makes the essay lively and personal. His honest disagreement adds to the humour.</p>
+<p><strong>f) What makes the essay humorous?</strong><br>The humour comes from the way Orwell talks about tea as though it were a serious law of life. He lists eleven rules with great confidence and argues about tiny details. The contrast between the ordinary subject and the grand tone creates amusement. His wit is quiet but effective.</p>
+
+<h3 style="font-size:1rem;font-weight:600;margin:18px 0 10px">3. Paragraph answers</h3>
+<p><strong>Summarise George Orwell\'s distinctive ideas in "A Nice Cup of Tea".</strong><br>Orwell presents tea as an important part of civilization and offers eleven rules for making it properly. He prefers Indian or Ceylonese tea, small quantities, a warmed teapot, boiling water, a breakfast cup, and no sugar. His ideas are practical but also personal, so the essay reads like a friendly argument. He mixes common sense, humour and opinion. That combination gives the essay its distinctiveness.</p>
+<p><strong>Discuss how the essay reveals the factual points and the author\'s personal opinions on the preparation of tea.</strong><br>The essay contains factual observations, such as the idea that tea should be made in small quantities, that the pot should be warmed and that water should be boiling. At the same time, Orwell also gives personal opinions, like preferring Indian tea and refusing sugar. He openly admits that some of his rules are controversial. This blend of fact and opinion makes the essay persuasive and lively.</p>
+<p><strong>What are the aspects that contribute to humour in the essay?</strong><br>Humour comes from Orwell\'s serious treatment of a simple domestic habit. He speaks as if tea-making were a matter of great public importance. His list of rules, his disagreement with common tea habits and his strong opinions about sugar and milk all sound lightly comic. The essay is witty because it is both practical and exaggerated in tone.</p>
+<p><strong>How does Orwell present tea as a cultural habit?</strong><br>Orwell shows that tea is woven into everyday life and national habit. He says it is one of the mainstays of civilization in several countries and treats tea-making as a matter people care about deeply. The debates about tea show that custom and taste matter as much as the drink itself. Tea is therefore not just a beverage but a cultural practice.</p>`,
+        },
+        { type: 'nav', back: 'themes', next: 'activities', nextLabel: 'Next: Activities →' },
+      ],
+    },
+    {
+      id: 'activities',
+      label: 'Activities',
+      blocks: [
+        {
+          type: 'section-head',
+          text: 'Vocabulary',
+        },
+        {
+          type: 'teacher-voice',
+          html: `<p>The vocabulary section asks students to work on synonyms, antonyms and word forms. The textbook examples include words such as despised, optimistic, spout, and stimulate. It also asks students to fill in a word-meaning table with parts of speech.</p>`,
+        },
+        {
+          type: 'section-head',
+          text: 'Listening',
+        },
+        {
+          type: 'teacher-voice',
+          html: `<p>The listening task is about the significance of tea. Students answer questions about tea production, antioxidants and the benefits of tea. The passage connects tea with health and daily life.</p>`,
+        },
+        {
+          type: 'section-head',
+          text: 'Speaking',
+        },
+        {
+          type: 'teacher-voice',
+          html: `<p>The speaking activity uses the potato, egg and coffee bean story to talk about positive attitude. The idea is that people react differently to adversity, and the best response is to become strong and useful like the coffee bean.</p>`,
+        },
+        {
+          type: 'section-head',
+          text: 'Reading',
+        },
+        {
+          type: 'teacher-voice',
+          html: `<p>The reading task uses non-verbal representations such as charts and tables. Students are asked to write about career trends in the next decade from the information provided. The purpose is to practise inference and paragraph writing.</p>`,
+        },
+        {
+          type: 'section-head',
+          text: 'Grammar',
+        },
+        {
+          type: 'teacher-voice',
+          html: `<p>The grammar sections cover prepositional phrases, conjunctions, linkers, correlative conjunctions and subordinating conjunctions. Students complete sentences, combine clauses and choose the right connector. The tasks focus on accuracy and sentence flow.</p>`,
+        },
+        {
+          type: 'section-head',
+          text: 'Writing',
+        },
+        {
+          type: 'teacher-voice',
+          html: `<p>The writing section asks students to practise article writing and essay writing. It reminds them to use a clear introduction, detailed body paragraphs and a proper conclusion. The textbook also gives suggested topics for further practice.</p>`,
+        },
+        {
+          type: 'think-box',
+          label: 'Exam tip',
+          text: 'For revision, remember the eleven tea rules, the glossary, and Orwell\'s key opinions about tea, milk and sugar.',
+        },
+        { type: 'nav', back: 'qa', practice: true },
       ],
     },
   ],
