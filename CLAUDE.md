@@ -92,13 +92,32 @@ Examples:
 Health check (no auth): GET /health — checks Ollama, Supabase, ChromaDB
 API docs: GET /api/docs — dev only, disabled in production
 
-## Frontend Architecture
+## Frontend Architecture (Web — React)
 - Router: React Router v6 (BrowserRouter + Routes)
 - State: local useState only — no Redux/Zustand/Context store
 - HTTP: native fetch wrapper at `frontend/web/src/api/client.js`; token in localStorage key `exam_coach_token`
 - UI components: `frontend/web/src/components/ui/` (Card, Button, Input, Badge, Skeleton, ScoreRing, LoopStepper)
 - Layout: PageShell + TopBar/BottomNav wraps all pages
 - Route pattern: `/courses/:classId/:subjectSlug/:chapterSlug`, `/learn/:chapterSlug`, `/practice/:chapterSlug`
+
+### Web Content Registry
+- `frontend/web/src/content/registry.js` → maps chapterSlug → chapter content object (imported by TextSection, SectionPage)
+- `frontend/web/src/content/practiceRegistry.js` → maps chapterSlug → practice question set (imported by PracticeSection, LearnRichPage)
+- Folder convention: `content/<ClassName>/<SubjectName>/chapters/*.js` and `content/<ClassName>/<SubjectName>/practice/*.js`
+- Current data: `content/Class_11/English/chapters/` (18 files) + `content/Class_11/English/practice/` (18 files)
+- Adding new class/subject: create `content/Class_12/Math/`, add imports to registry files only — never import chapter files directly from components
+- Components only ever import `registry.js` or `practiceRegistry.js`, never individual chapter files
+
+## Mobile Architecture (Flutter)
+- Router: go_router — GoRouter with ShellRoute
+- ShellScaffold wraps ALL authenticated content routes — bottom nav (Home / Courses / Progress) visible on every screen
+- Routes inside ShellRoute: `/dashboard`, `/courses/**`, `/progress`, `/learn/:slug`, `/rich-learn/:slug`, `/practice/:slug`, `/exam/:slug`
+- `/login` is OUTSIDE ShellRoute — no bottom nav on login screen
+- Navigation: `context.push()` for drill-down (preserves back stack); `context.go()` for tab switches (replaces stack)
+- Back button: `context.canPop() ? context.pop() : context.go('/dashboard')` — always safe
+- Content data: Flutter reads from `frontend/app/assets/content/chapters/*.json` (separate from web JS files)
+- Tab structure in RichLearnScreen: scrollable content tabs + fixed action row (Practice / Attempt History / Ask AI) — action tabs always visible, never scroll off screen
+- Action tab injection: `_computeAllTabs()` unconditionally appends practice / attempt-history / askai tabs for every chapter
 
 ## Tests
 ```bash

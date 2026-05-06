@@ -68,17 +68,21 @@ class ApiService {
       if (res.body.isEmpty) return null;
       return jsonDecode(res.body);
     }
-    try {
-      final err = jsonDecode(res.body);
-      throw ApiException(
-        err['error'] ?? err['detail'] ?? 'Request failed',
-        statusCode: res.statusCode,
-      );
-    } catch (_) {
-      throw ApiException(
-        'Server error (${res.statusCode})',
-        statusCode: res.statusCode,
-      );
+    if (res.statusCode == 401) {
+      AuthService().logout();
+      throw ApiException('Session expired. Please log in again.', statusCode: 401);
     }
+    if (res.body.isNotEmpty) {
+      try {
+        final err = jsonDecode(res.body) as Map<String, dynamic>;
+        throw ApiException(
+          err['error'] as String? ?? err['detail'] as String? ?? 'Request failed',
+          statusCode: res.statusCode,
+        );
+      } on FormatException {
+        // body is not JSON — fall through to generic error
+      }
+    }
+    throw ApiException('Server error (${res.statusCode})', statusCode: res.statusCode);
   }
 }

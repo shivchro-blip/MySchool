@@ -13,9 +13,10 @@ import DashboardShell from './components/layout/DashboardShell'
 import YearPage         from './pages/syllabus/YearPage'
 import SubjectPage      from './pages/syllabus/SubjectPage'
 import LessonListPage   from './pages/syllabus/LessonListPage'
-import LessonDetailPage from './pages/syllabus/LessonDetailPage'
-import SectionPage      from './pages/syllabus/SectionPage'
-import NotFound         from './pages/syllabus/NotFound'
+import LessonDetailPage         from './pages/syllabus/LessonDetailPage'
+import SectionPage              from './pages/syllabus/SectionPage'
+import NotFound                 from './pages/syllabus/NotFound'
+import ChapterPracticeExamPage  from './pages/ChapterPracticeExamPage'
 
 function Guard({ children }) {
   return isLoggedIn() ? children : <Navigate to="/login" replace />
@@ -67,6 +68,12 @@ export default function App() {
 
         <Route path="/certificate" element={
           <DashShell><CertificatePage /></DashShell>
+        } />
+
+        <Route path="/practice-exam" element={
+          <DashShell>
+            <CourseContent><ChapterPracticeExamPage /></CourseContent>
+          </DashShell>
         } />
 
         {/* ── Syllabus drill-down — stays in DashboardShell ─── */}

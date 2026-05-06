@@ -15,16 +15,18 @@ import AboutAuthorSection   from './sections/AboutAuthorSection'
 import TextSection          from './sections/TextSection'
 import GlossarySection      from './sections/GlossarySection'
 import ComprehensionSection from './sections/ComprehensionSection'
-import PracticeSection      from './sections/PracticeSection'
-import AskAISection         from './sections/AskAISection'
+import PracticeSection        from './sections/PracticeSection'
+import AskAISection           from './sections/AskAISection'
+import AttemptHistorySection  from './sections/AttemptHistorySection'
 
 const SECTION_COMPONENTS = {
-  'about-author':  AboutAuthorSection,
-  'text':          TextSection,
-  'glossary':      GlossarySection,
-  'comprehension': ComprehensionSection,
-  'practice':      PracticeSection,
-  'ask-ai':        AskAISection,
+  'about-author':    AboutAuthorSection,
+  'text':            TextSection,
+  'glossary':        GlossarySection,
+  'comprehension':   ComprehensionSection,
+  'practice':        PracticeSection,
+  'attempt-history': AttemptHistorySection,
+  'ask-ai':          AskAISection,
 }
 
 export default function SectionPage() {

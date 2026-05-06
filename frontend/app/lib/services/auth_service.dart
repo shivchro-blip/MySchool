@@ -2,9 +2,8 @@ import 'dart:convert';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:http/http.dart' as http;
 
-// Replace with your Supabase project values
-const _supabaseUrl  = 'YOUR_SUPABASE_URL';
-const _supabaseAnon = 'YOUR_SUPABASE_ANON_KEY';
+const _supabaseUrl  = 'https://txszimvmoigkvhqermow.supabase.co';
+const _supabaseAnon = 'sb_publishable_RpGIQ7y547VGbYODMPUUpQ_yLA8LaY4';
 
 class AuthService {
   static final AuthService _instance = AuthService._();
@@ -23,10 +22,13 @@ class AuthService {
       },
       body: jsonEncode({'email': email, 'password': password}),
     );
-    final data = jsonDecode(res.body) as Map<String, dynamic>;
     if (res.statusCode != 200) {
+      final data = res.body.isNotEmpty
+          ? jsonDecode(res.body) as Map<String, dynamic>
+          : <String, dynamic>{};
       throw Exception(data['error_description'] ?? 'Login failed');
     }
+    final data = jsonDecode(res.body) as Map<String, dynamic>;
     await _storage.write(key: _tokenKey, value: data['access_token'] as String);
   }
 
@@ -40,7 +42,9 @@ class AuthService {
       body: jsonEncode({'email': email, 'password': password}),
     );
     if (res.statusCode != 200 && res.statusCode != 201) {
-      final data = jsonDecode(res.body) as Map<String, dynamic>;
+      final data = res.body.isNotEmpty
+          ? jsonDecode(res.body) as Map<String, dynamic>
+          : <String, dynamic>{};
       throw Exception(data['error_description'] ?? 'Signup failed');
     }
   }

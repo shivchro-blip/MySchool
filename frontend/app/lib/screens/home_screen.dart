@@ -397,7 +397,7 @@ class _HomeScreenState extends State<HomeScreen> {
           Column(
             children: [
               OutlinedButton(
-                onPressed: () => context.push('/learn/${ch.id}'),
+                onPressed: () => context.push('/rich-learn/${ch.slug}'),
                 style: OutlinedButton.styleFrom(
                   minimumSize: const Size(72, 30),
                   padding: const EdgeInsets.symmetric(horizontal: 8),

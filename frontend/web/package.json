@@ -6,7 +6,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "content": "node scripts/html-to-content.js"
+    "content": "node scripts/html-to-content.js",
+    "export-practice": "node scripts/export-practice-json.mjs"
   },
   "dependencies": {
     "framer-motion": "^12.38.0",

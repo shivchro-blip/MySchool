@@ -1,0 +1,452 @@
+{
+  "eyebrow": "Unit 2 · Poem · Class XI General English",
+  "title": "Confessions of a Born Spectator",
+  "author": "Ogden Nash",
+  "pills": [
+    "Humorous Poem",
+    "Spectator Voice",
+    "Sports & Ego",
+    "Common Sense"
+  ],
+  "tabs": [
+    {
+      "id": "author",
+      "label": "Poet",
+      "blocks": [
+        {
+          "type": "teacher-voice",
+          "html": "<p>Let us meet <strong>Frederic Ogden Nash</strong>, an American poet who lived from <em>August 19, 1902 to May 19, 1971</em>. He is introduced in our textbook as a poet well known for his light verse, and that phrase is very important. Light verse does not mean shallow verse. It means poetry that sounds playful, witty, quick, and funny, but still says something sharp about human behaviour.</p>\n<p>The textbook tells us that Nash wrote over <strong>500 pieces</strong>. That is not the output of someone who occasionally made jokes in rhyme; it is the work of a writer who made humour his serious craft. His rhyming schemes were unconventional, which means he did not always follow the neat, predictable music of traditional poetry. He enjoyed stretching rhyme, sound, and rhythm to surprise the reader.</p>\n<p>Nash was declared the country's best-known producer of humorous poetry. Even more interestingly, his light verse earned him a place on a postage stamp. Think about that for a second: a poet whose style looked casual and comic became so culturally memorable that a country honoured him in public circulation.</p>\n<p><strong>Why this matters for this text:</strong> In \"Confessions of a Born Spectator,\" Nash uses humour to make a serious point. He is not simply saying, \"I am lazy.\" He is laughing at the ego that makes people want heroic glory while ignoring broken knees, cracked wrists, swollen eyes, and gnarled fists. When we know Nash's style, we understand that the comedy is not decoration; it is the poem's way of teaching common sense.</p>"
+        },
+        {
+          "type": "author-stat",
+          "label": "Career",
+          "value": "Frederic Ogden Nash · August 19, 1902 - May 19, 1971 · Over 500 poems · Unconventional rhyme schemes · Best-known producer of American humorous poetry"
+        },
+        {
+          "type": "author-stat",
+          "label": "Recognition",
+          "value": "Declared country's best-known humorous poet · Light verse earned him a place on a postage stamp · Known for wit, playful rhythm, and sharp social observation"
+        },
+        {
+          "type": "think-box",
+          "label": "Why this matters for the poem",
+          "text": "When we know Nash's style, we understand that the comedy in \"Confessions of a Born Spectator\" is not decoration; it is the poem's way of teaching common sense. Every humorous rhyme and exaggerated injury carries a real message about self-knowledge and wisdom."
+        },
+        {
+          "type": "nav",
+          "next": "before-read",
+          "nextLabel": "Next: Before We Read →"
+        }
+      ]
+    },
+    {
+      "id": "before-read",
+      "label": "Before We Read",
+      "blocks": [
+        {
+          "type": "teacher-voice",
+          "html": "<p>Have you ever watched a cricket match, a boxing bout, or a football game and felt completely thrilled from the safety of your seat? You cheer, clap, shout, and feel the excitement -- but you do not have to get hit, fall down, or limp away. That exact feeling is the heart of this poem.</p>\n<p>This is a <strong>humorous poem</strong>. The speaker openly confesses that he was born to be a spectator, not a player. But notice this carefully: he does not hate athletes. In fact, he admires them. What he refuses is the suffering that comes with competition. He would rather buy tickets and watch than exchange places with the players.</p>"
+        },
+        {
+          "type": "quote-block",
+          "quote": "One infant grows up and becomes a jockey,\nAnother plays basketball or hockey,",
+          "context": "Ogden Nash -- Opening lines of the poem"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>The opening is simple and funny. The poet begins with children growing into different sporting roles. Before we know it, he turns this into a confession: some people are built for performance, but he is built for watching.</p>"
+        },
+        {
+          "type": "think-box",
+          "label": "Think about this",
+          "text": "The poem does not insult sports. It gently mocks the poet's own lack of desire to suffer for sporting glory. That is why the title uses the word \"Confessions.\""
+        },
+        {
+          "type": "nav",
+          "next": "text-explained",
+          "nextLabel": "Next: Stanza by Stanza →"
+        }
+      ]
+    },
+    {
+      "id": "text-explained",
+      "label": "Stanza by Stanza",
+      "blocks": [
+        {
+          "type": "section-head",
+          "text": "Stanza 1 -- The Spectator's Confession"
+        },
+        {
+          "type": "quote-block",
+          "quote": "One infant grows up and becomes a jockey,\nAnother plays basketball or hockey,\nThis one the prize ring hates to enter\nThat one becomes a tackle or center,\nI am just glad as glad can be\nThat I am not them, that they are not me.",
+          "context": "Stanza 1"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p><strong>What the poet is saying:</strong> Different children grow up to choose different sports. One becomes a jockey, another plays basketball or hockey, another becomes connected to boxing or football. But the speaker is simply glad that he is not one of them.</p>\n<p><strong>Real-life connection:</strong> Think of a student who enjoys watching school sports day but does not want to run the race. That student is not insulting the runners; he is just honest about himself.</p>\n<p><strong>Figure of speech:</strong> The line \"glad as glad can be\" uses repetition for humorous emphasis. The rhyme pairs jockey/hockey and enter/center give the stanza a lively comic rhythm.</p>"
+        },
+        {
+          "type": "think-box",
+          "label": "The poet is really saying...",
+          "text": "The poet is accepting his spectator nature without shame."
+        },
+        {
+          "type": "section-head",
+          "text": "Stanza 2 -- Admiring from a Distance"
+        },
+        {
+          "type": "quote-block",
+          "quote": "With all my heart I do admire\nAthletes who sweat for fun or hire,\nWho take the field in gaudy pomp,\nAnd maim each other as they romp,\nMy limp and bashful spirit feeds\nOn other people's heroic deeds.",
+          "context": "Stanza 2"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p><strong>What the poet is saying:</strong> The speaker admires athletes. He knows they work hard, whether for pleasure or payment. But when he sees them enter in showy dress and injure each other in rough play, his weak and shy spirit prefers to live through their heroic deeds from a distance.</p>\n<p><strong>Real-life connection:</strong> This is like admiring firefighters for their bravery while knowing you personally do not want to run into a burning building.</p>\n<p><strong>Figure of speech:</strong> \"Gaudy pomp\" gives visual imagery of showy sporting display. \"Maim each other as they romp\" is humorous contrast because \"romp\" sounds playful but \"maim\" is serious injury.</p>"
+        },
+        {
+          "type": "think-box",
+          "label": "The poet is really saying...",
+          "text": "The poet admires courage, but he does not want to pay the physical price of courage."
+        },
+        {
+          "type": "section-head",
+          "text": "Stanza 3 -- Ego Meets Reality"
+        },
+        {
+          "type": "quote-block",
+          "quote": "Now A runs ninety yards to score,\nB knocks the champion to the floor,\nCracking vertebrae and spines,\nLashes his steed across the line,\nYou'd think my ego it would please\nTo swap positions with one of these.",
+          "context": "Stanza 3"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p><strong>What the poet is saying:</strong> The poet now gives examples from sports: running, boxing, and horse racing. These are exciting heroic scenes, and he admits that his ego might enjoy imagining itself in such glorious positions. But the violent details already warn us that glory comes with danger.</p>\n<p><strong>Real-life connection:</strong> When we watch a famous player score, we may dream of being that player. But we forget the training, injuries, pressure, and pain behind the moment.</p>\n<p><strong>Figure of speech:</strong> The letters \"A\" and \"B\" make the athletes feel like examples in a comic demonstration. \"Cracking vertebrae and spines\" creates harsh sound imagery.</p>"
+        },
+        {
+          "type": "think-box",
+          "label": "The poet is really saying...",
+          "text": "Ego loves glory, but common sense notices injury."
+        },
+        {
+          "type": "section-head",
+          "text": "Stanza 4 -- Prudence Wins"
+        },
+        {
+          "type": "quote-block",
+          "quote": "Well, ego it might be pleased enough,\nBut zealous athletes play so rough\nThey do not ever in their dealings\nConsider one another's feelings.\nI'm glad that when my struggle begins\n'Twixt prudence and ego, prudence wins.",
+          "context": "Stanza 4"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p><strong>What the poet is saying:</strong> This is the central argument of the poem. The speaker admits that ego may want fame, but athletes are so enthusiastic and rough that they often ignore one another's feelings. So when ego fights with prudence, or good sense, prudence wins.</p>\n<p><strong>Real-life connection:</strong> You may want to join a risky challenge to impress your friends, but if your common sense tells you it is dangerous, wisdom should win.</p>\n<p><strong>Figure of speech:</strong> The conflict between \"prudence and ego\" is personified like a battle inside the speaker. The shortened word \"'Twixt\" means between and gives the line a playful poetic style.</p>"
+        },
+        {
+          "type": "think-box",
+          "label": "The poet is really saying...",
+          "text": "Self-knowledge is wiser than showing off."
+        },
+        {
+          "type": "section-head",
+          "text": "Stanza 5 -- Grateful for Safety"
+        },
+        {
+          "type": "quote-block",
+          "quote": "When swollen eye meets gnarled fist\nWhen snaps the knee, and cracks the wrist,\nWhen officialdom demands,\nIs there a doctor in the stands?\nMy soul in true thanksgiving speaks\nFor this modest of physiques.",
+          "context": "Stanza 5"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p><strong>What the poet is saying:</strong> Here the poem becomes physically comic. We see swollen eyes, rough fists, snapped knees, and cracked wrists. Officials call for a doctor from the stands. The speaker's soul gives thanks for his modest body because it is not involved in such damage.</p>\n<p><strong>Real-life connection:</strong> A spectator may cheer during a football tackle, but when a player is carried off injured, the spectator feels grateful to be safe in the audience.</p>\n<p><strong>Figure of speech:</strong> \"Snaps\" and \"cracks\" create sound imagery. \"My soul in true thanksgiving speaks\" contains alliteration in the repeated \"s\" sound.</p>"
+        },
+        {
+          "type": "think-box",
+          "label": "The poet is really saying...",
+          "text": "Safety can be more attractive than glory."
+        },
+        {
+          "type": "section-head",
+          "text": "Stanza 6 -- The Final Declaration"
+        },
+        {
+          "type": "quote-block",
+          "quote": "\"Athletes, I'll drink to you\nOr eat with you,\nOr anything except compete with you,\nBuy tickets worth their radium,\nTo watch you gambol in the stadium,\nAnd reassure myself anew\nThat you are not me and I'm not you\".",
+          "context": "Stanza 6 -- Final stanza"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p><strong>What the poet is saying:</strong> In the final stanza, the speaker directly addresses athletes. He is willing to celebrate them, eat with them, drink to their success, and buy expensive tickets to watch them. But he draws one firm line: he will not compete with them.</p>\n<p><strong>Real-life connection:</strong> This is like saying, \"I will cheer for you, support you, and celebrate you, but please do not ask me to enter the ring.\"</p>\n<p><strong>Figure of speech:</strong> The humour comes through exaggeration in \"tickets worth their radium,\" suggesting extremely valuable tickets. The rhyme radium/stadium gives the ending a comic ring.</p>"
+        },
+        {
+          "type": "think-box",
+          "label": "The poet is really saying...",
+          "text": "Spectatorship is his chosen place, and he is happy there."
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<div style=\"margin-top:16px\"><strong>The Poem as a Whole:</strong><p>The poem is about a speaker who sincerely admires athletes but chooses the life of a spectator. At the deepest level, it is about self-knowledge. The speaker refuses to let ego push him into a role that does not suit him. Ogden Nash makes this message funny through exaggerated injuries, playful rhymes, and a cheerful speaking voice.</p></div>"
+        },
+        {
+          "type": "nav",
+          "next": "key-lines",
+          "nextLabel": "Next: Key Lines →"
+        }
+      ]
+    },
+    {
+      "id": "key-lines",
+      "label": "Key Lines",
+      "blocks": [
+        {
+          "type": "teacher-voice",
+          "html": "<p>These seven lines are the most exam-important quotes. Each can appear in reference to context or short essay questions. Know what each line means and why it matters.</p>"
+        },
+        {
+          "type": "quote-block",
+          "quote": "I am just glad as glad can be\nThat I am not them, that they are not me.",
+          "context": "Spectator attitude. Figure of speech: repetition in \"glad as glad.\" The speaker openly declares his relief that he is not an athlete."
+        },
+        {
+          "type": "quote-block",
+          "quote": "With all my heart I do admire\nAthletes who sweat for fun or hire,",
+          "context": "The poet admires athletes sincerely. This line prevents us from thinking he dislikes sports. Key word: \"admire.\""
+        },
+        {
+          "type": "quote-block",
+          "quote": "My limp and bashful spirit feeds\nOn other people's heroic deeds.",
+          "context": "The speaker's weak and shy spirit enjoys heroic actions from a distance. Key word: \"feeds\" -- he gains satisfaction from watching."
+        },
+        {
+          "type": "quote-block",
+          "quote": "You'd think my ego it would please\nTo swap positions with one of these.",
+          "context": "The poet admits that ego may want athletic fame. This introduces the conflict between ego and prudence. Key word: \"ego.\""
+        },
+        {
+          "type": "quote-block",
+          "quote": "'Twixt prudence and ego, prudence wins.",
+          "context": "The core moral line. Common sense defeats the desire for glory. Key word: \"prudence.\""
+        },
+        {
+          "type": "quote-block",
+          "quote": "When snaps the knee, and cracks the wrist,",
+          "context": "Sound imagery; \"snaps\" and \"cracks\" suggest injury. Directly linked to literary-device questions. Key words: \"snaps\" and \"cracks.\""
+        },
+        {
+          "type": "quote-block",
+          "quote": "Or anything except compete with you,",
+          "context": "The speaker draws his boundary -- he will celebrate athletes but not compete. Key word: \"except.\""
+        },
+        {
+          "type": "nav",
+          "next": "glossary",
+          "nextLabel": "Next: Glossary →"
+        }
+      ]
+    },
+    {
+      "id": "glossary",
+      "label": "Glossary",
+      "blocks": [
+        {
+          "type": "teacher-voice",
+          "html": "<p>These 17 words come directly from the poem. Learn the meaning, antonym, and synonym for each -- the glossary is a frequent source of MCQ questions in Tamil Nadu board exams.</p>"
+        },
+        {
+          "type": "gloss-row",
+          "word": "jockey",
+          "def": "A horse rider",
+          "eg": "Synonym: rider · Antonym: pedestrian"
+        },
+        {
+          "type": "gloss-row",
+          "word": "prize ring",
+          "def": "Enclosed area where boxing matches are fought",
+          "eg": "Synonym: boxing ring · Antonym: open field"
+        },
+        {
+          "type": "gloss-row",
+          "word": "tackle, center",
+          "def": "Playing positions in football",
+          "eg": "Synonym: football positions · Antonym: spectator"
+        },
+        {
+          "type": "gloss-row",
+          "word": "gaudy pomp",
+          "def": "Showy display or dress",
+          "eg": "Synonym: showy display · Antonym: plainness"
+        },
+        {
+          "type": "gloss-row",
+          "word": "maim",
+          "def": "To injure seriously",
+          "eg": "Synonym: injure · Antonym: heal"
+        },
+        {
+          "type": "gloss-row",
+          "word": "romp",
+          "def": "To play in a rough and noisy way",
+          "eg": "Synonym: play roughly · Antonym: rest quietly"
+        },
+        {
+          "type": "gloss-row",
+          "word": "limp",
+          "def": "Weak; lacking firmness",
+          "eg": "Synonym: weak · Antonym: strong"
+        },
+        {
+          "type": "gloss-row",
+          "word": "bashful",
+          "def": "Shy and reluctant",
+          "eg": "Synonym: shy · Antonym: bold"
+        },
+        {
+          "type": "gloss-row",
+          "word": "lashes",
+          "def": "Beats with a whip",
+          "eg": "Synonym: whips · Antonym: caresses"
+        },
+        {
+          "type": "gloss-row",
+          "word": "steed",
+          "def": "A large, strong horse",
+          "eg": "Synonym: horse · Antonym: pony"
+        },
+        {
+          "type": "gloss-row",
+          "word": "swap",
+          "def": "To exchange",
+          "eg": "Synonym: exchange · Antonym: keep"
+        },
+        {
+          "type": "gloss-row",
+          "word": "zealous",
+          "def": "Enthusiastic and eager",
+          "eg": "Synonym: eager · Antonym: indifferent"
+        },
+        {
+          "type": "gloss-row",
+          "word": "prudence",
+          "def": "Wisdom; careful good sense",
+          "eg": "Synonym: wisdom · Antonym: foolishness"
+        },
+        {
+          "type": "gloss-row",
+          "word": "gnarled",
+          "def": "Rough and twisted",
+          "eg": "Synonym: twisted · Antonym: smooth"
+        },
+        {
+          "type": "gloss-row",
+          "word": "physique",
+          "def": "The body or bodily structure",
+          "eg": "Synonym: body · Antonym: mind"
+        },
+        {
+          "type": "gloss-row",
+          "word": "drink to you",
+          "def": "To drink in celebration or honour of someone",
+          "eg": "Synonym: toast · Antonym: ignore you"
+        },
+        {
+          "type": "gloss-row",
+          "word": "gambol",
+          "def": "To run or jump happily",
+          "eg": "Synonym: frolic · Antonym: stand still"
+        },
+        {
+          "type": "nav",
+          "next": "themes",
+          "nextLabel": "Next: Themes & Devices →"
+        }
+      ]
+    },
+    {
+      "id": "themes",
+      "label": "Themes & Devices",
+      "blocks": [
+        {
+          "type": "section-head",
+          "text": "Common sense is stronger than ego"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>The poet admits that his ego might like the glory of athletes, but when he thinks of rough play and injuries, prudence wins. In an essay, write that Nash presents wisdom not as cowardice, but as the ability to know what suits one's own nature.</p>"
+        },
+        {
+          "type": "section-head",
+          "text": "Admiration need not mean imitation"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>The speaker says, \"With all my heart I do admire\" athletes, yet he refuses to compete with them. This is a useful exam point: we can respect people's talent without wanting to live their life.</p>"
+        },
+        {
+          "type": "section-head",
+          "text": "Sports -- glorious and dangerous at the same time"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>The poem shows athletes scoring, boxing, riding, and competing, but it also gives images of cracked wrists, snapped knees, swollen eyes, and gnarled fists. Nash balances excitement with caution.</p>"
+        },
+        {
+          "type": "section-head",
+          "text": "Literary devices"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>These devices are directly tested in Tamil Nadu board exams. Know the name, the line, and the effect.</p>"
+        },
+        {
+          "type": "device-block",
+          "kind": "Repetition",
+          "line": "I am just glad as glad can be",
+          "exp": "The repetition of \"glad\" makes the speaker's relief playful and emphatic. It gives the line comic energy and reinforces the central spectator attitude."
+        },
+        {
+          "type": "device-block",
+          "kind": "Alliteration",
+          "line": "My soul in true thanksgiving speaks",
+          "exp": "The repeated \"s\" sound in \"soul\" and \"speaks\" gives the line a smooth musical effect. This is directly tested in the textbook activity."
+        },
+        {
+          "type": "device-block",
+          "kind": "Sound Imagery",
+          "line": "When snaps the knee, and cracks the wrist,",
+          "exp": "\"Snaps\" and \"cracks\" imitate the harsh sound of injury. The words make the physical danger feel immediate and vivid."
+        },
+        {
+          "type": "nav",
+          "next": "textbook-qa",
+          "nextLabel": "Next: Textbook Q&A →"
+        }
+      ]
+    },
+    {
+      "id": "textbook-qa",
+      "label": "Textbook Q&A",
+      "blocks": [
+        {
+          "type": "teacher-voice",
+          "html": "<h3 style=\"font-size:1rem;font-weight:600;margin:0 0 12px\">Answer in a sentence or two</h3>\n<div style=\"margin-bottom:10px\"><p><strong>a) Why does the poet feel glad that he does not play any game?</strong></p><p>The poet feels glad because athletes play rough games and often suffer injuries. He prefers the safety and comfort of being a spectator.</p></div>\n<div style=\"margin-bottom:10px\"><p><strong>b) Do you think the narrator is heroic? Why?</strong></p><p>The narrator is not heroic in the athletic sense because he avoids competition. However, he is honest and wise enough to accept his own nature.</p></div>\n<div style=\"margin-bottom:10px\"><p><strong>c) The poet is satisfied just watching the heroic deeds of others. What could be the reason?</strong></p><p>He admires athletes but does not want to experience their pain, risk, and injuries. Watching gives him enjoyment without danger.</p></div>\n<div style=\"margin-bottom:10px\"><p><strong>d) The poet does not wish to exchange position with the runners. Why?</strong></p><p>He does not want to exchange positions because athletes undergo physical strain and rough competition. His prudence wins over ego.</p></div>\n<div style=\"margin-bottom:10px\"><p><strong>e) Are the athletes conscious of the feelings of others? Why do you say so?</strong></p><p>No. The poet says zealous athletes play so rough that they do not consider one another's feelings.</p></div>\n<div style=\"margin-bottom:10px\"><p><strong>f) Why would the referee ask whether there was a doctor in the stands? What stands is he referring to?</strong></p><p>The referee would ask for a doctor when an athlete is injured during play. The stands refer to the seating area where spectators sit.</p></div>\n<div style=\"margin-bottom:10px\"><p><strong>g) Why does the poet prefer to buy tickets worth their weight in radium? Bring out the significance of the metal referred to here.</strong></p><p>Radium is a rare and valuable metal. The poet humorously says he would pay a very high price to watch athletes, as long as he does not have to compete.</p></div>\n<h3 style=\"font-size:1rem;font-weight:600;margin:18px 0 12px\">Short paragraph answers</h3>\n<div style=\"margin-bottom:10px\"><p><strong>a) How does the poet establish the victory of common sense over ego?</strong></p><p>The poet admits that his ego might feel pleased if he exchanged places with famous athletes. He sees runners scoring, boxers defeating champions, and riders crossing the line. Such heroic deeds can attract anyone's pride. However, the poet also notices rough play, injuries, swollen eyes, gnarled fists, snapped knees, and cracked wrists. He understands that athletic glory comes with pain and danger. Therefore, when a struggle begins between prudence and ego, prudence wins. By choosing safety over fame, the poet establishes the victory of common sense over ego.</p></div>\n<div style=\"margin-bottom:10px\"><p><strong>b) The poet does not wish to exchange places with the athletes. How does he justify his view?</strong></p><p>The poet justifies his view by showing the dangers faced by athletes. He admires them wholeheartedly and enjoys watching their heroic deeds, but he does not want to suffer like them. Athletes sweat, play rough, injure one another, and sometimes need medical help. The poet's spirit is \"limp and bashful,\" so he is satisfied with being a spectator. He is ready to drink with athletes, eat with them, buy tickets, and watch them in the stadium, but he refuses to compete. His view is humorous but sensible.</p></div>\n<div style=\"margin-bottom:10px\"><p><strong>c) According to the poet what contributes most to the injuries sustained by the athletes?</strong></p><p>According to the poet, the roughness and excessive enthusiasm of athletes contribute most to their injuries. He calls them \"zealous athletes\" and says they play so rough that they do not consider one another's feelings. The poem gives images of swollen eyes, gnarled fists, snapped knees, and cracked wrists. These injuries happen because players are driven by competition, ego, and the desire to win. The poet humorously suggests that the physical risks of sports are enough to make him remain a spectator.</p></div>\n<h3 style=\"font-size:1rem;font-weight:600;margin:18px 0 12px\">Reference to Context</h3>\n<div style=\"margin-bottom:10px\"><p><strong>\"With all my heart I do admire / Athletes who sweat for fun or hire\"</strong></p><p>The poet admires athletes. They sweat either for pleasure, that is \"fun,\" or professionally, that is \"hire.\"</p></div>\n<div style=\"margin-bottom:10px\"><p><strong>\"When snaps the knee and cracks the wrist….\"</strong></p><p>The literary device is sound imagery. The words \"snaps\" and \"cracks\" suggest the sound and pain of injuries.</p></div>"
+        },
+        {
+          "type": "nav",
+          "next": "activities",
+          "nextLabel": "Next: Activities →"
+        }
+      ]
+    },
+    {
+      "id": "activities",
+      "label": "Activities",
+      "blocks": [
+        {
+          "type": "teacher-voice",
+          "html": "<h3 style=\"font-size:1rem;font-weight:600;margin:0 0 10px\">Warm Up</h3>\n<p>Not everybody loves to play and participate in games, sports and other extra-curricular activities. Some of us wish to be mere spectators. Students list activities they prefer as performer/player and spectator/audience. Example: performer/player -- cricket; spectator/audience -- magician.</p>\n<h3 style=\"font-size:1rem;font-weight:600;margin:18px 0 10px\">Summary Exercise -- Answers</h3>\n<p>(i) confesses, (ii) aims, (iii) glad, (iv) admires, (v) exchange, (vi) zealous, (vii) thanksgiving, (viii) physiques, (ix) satisfied.</p>\n<h3 style=\"font-size:1rem;font-weight:600;margin:18px 0 10px\">Rhyming Words</h3>\n<p>hockey -- jockey; admire -- hire; romp -- pomp; deeds -- feeds; score -- floor; please -- these; wrist -- fist; demands -- stands; stadium -- radium. Rhyme scheme of the first four lines: aabb.</p>\n<h3 style=\"font-size:1rem;font-weight:600;margin:18px 0 10px\">Alliteration</h3>\n<p>\"My soul in true thanksgiving speaks\" -- soul/speaks. \"They do not ever in their dealings\" -- do/dealings.</p>\n<h3 style=\"font-size:1rem;font-weight:600;margin:18px 0 10px\">Listening Activity</h3>\n<p>Tejaswini Sawant questions: 1) shooter, 2) 2004, 3) Commonwealth Games, 4) Germany, 5) gold.</p>\n<h3 style=\"font-size:1rem;font-weight:600;margin:18px 0 10px\">Speaking Activity</h3>\n<p>Students discuss ambition and how they work towards it. They also discuss how to encourage a friend who succeeds in academics and sports without feeling jealous. Sample start: \"My ambition is to become a doctor. I am working towards it by studying science carefully and building discipline every day.\"</p>\n<h3 style=\"font-size:1rem;font-weight:600;margin:18px 0 10px\">Paragraph Questions</h3>\n<p>Topics include accidents in the playground, everybody being special, whether one would exchange places with someone else, encouragement for Indian athletes, and leadership qualities drawn from sports.</p>\n<h3 style=\"font-size:1rem;font-weight:600;margin:18px 0 10px\">Parallel Reading</h3>\n<p>The poem \"Thinking\" by Walter Wintle says success begins with one's will and state of mind. It connects with the unit's message about confidence and self-belief.</p>"
+        },
+        {
+          "type": "nav",
+          "practice": true
+        }
+      ]
+    }
+  ]
+}

@@ -15,10 +15,14 @@ app = FastAPI(
     redoc_url=None,
 )
 
+_origins = (
+    ["*"] if settings.app_env == "development"
+    else settings.allowed_origins.split(",")
+)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=settings.allowed_origins.split(","),
-    allow_credentials=True,
+    allow_origins=_origins,
+    allow_credentials=_origins != ["*"],
     allow_methods=["*"],
     allow_headers=["*"],
 )

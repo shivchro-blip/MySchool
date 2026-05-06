@@ -73,6 +73,9 @@ export function resolveTabIcon(label, contentType = '') {
     // ── Exam practice ─────────────────────────────────────────────────────
     if (/^practice/.test(text)) return '🔥'
 
+    // ── Attempt history ───────────────────────────────────────────────────
+    if (/^attempt history/.test(text)) return '🕐'
+
     // ── AI assistant ──────────────────────────────────────────────────────
     if (/^ask ai/.test(text) || /^ai\b/.test(text)) return '🤖'
 

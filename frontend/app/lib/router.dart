@@ -10,7 +10,8 @@ import 'screens/subject_list_screen.dart';
 import 'screens/chapter_list_screen.dart';
 import 'screens/chapter_detail_screen.dart';
 import 'screens/learn_screen.dart';
-import 'screens/practice_screen.dart';
+import 'screens/rich_learn_screen.dart';
+import 'screens/exam_practice_screen.dart';
 import 'screens/progress_screen.dart';
 import 'widgets/shell_scaffold.dart';
 
@@ -29,22 +30,7 @@ final router = GoRouter(
 
     GoRoute(path: '/login', builder: (_, __) => const LoginScreen()),
 
-    // ── Full-screen routes (no bottom nav) ────────────────────────
-    GoRoute(
-      path: '/learn/:chapterSlug',
-      builder: (_, state) => LearnScreen(
-        chapterSlug: state.pathParameters['chapterSlug']!,
-        chapter:     state.extra as Chapter?,
-      ),
-    ),
-    GoRoute(
-      path: '/practice/:chapterSlug',
-      builder: (_, state) => PracticeScreen(
-        chapterSlug: state.pathParameters['chapterSlug']!,
-      ),
-    ),
-
-    // ── Shell: bottom navigation tabs ─────────────────────────────
+    // ── Shell: bottom navigation on all screens ────────────────────
     ShellRoute(
       builder: (context, state, child) => ShellScaffold(child: child),
       routes: [
@@ -58,14 +44,12 @@ final router = GoRouter(
           path: '/courses',
           builder: (_, __) => const CoursesScreen(),
           routes: [
-
             GoRoute(
               path: ':classLevel',
               builder: (_, state) => SubjectListScreen(
                 classLevel: state.pathParameters['classLevel']!,
               ),
               routes: [
-
                 GoRoute(
                   path: ':subjectSlug',
                   builder: (_, state) => ChapterListScreen(
@@ -74,7 +58,6 @@ final router = GoRouter(
                     subject:     state.extra as Subject?,
                   ),
                   routes: [
-
                     GoRoute(
                       path: ':chapterSlug',
                       builder: (_, state) => ChapterDetailScreen(
@@ -84,19 +67,52 @@ final router = GoRouter(
                         chapter:     state.extra as Chapter?,
                       ),
                     ),
-
                   ],
                 ),
-
               ],
             ),
-
           ],
         ),
 
         GoRoute(
           path: '/progress',
           builder: (_, __) => const ProgressScreen(),
+        ),
+
+        GoRoute(
+          path: '/learn/:chapterSlug',
+          builder: (_, state) => LearnScreen(
+            chapterSlug: state.pathParameters['chapterSlug']!,
+            chapter:     state.extra as Chapter?,
+          ),
+        ),
+
+        GoRoute(
+          path: '/rich-learn/:chapterSlug',
+          builder: (_, state) {
+            final extra = state.extra as Map<String, dynamic>?;
+            return RichLearnScreen(
+              chapterSlug:  state.pathParameters['chapterSlug']!,
+              chapter:      extra?['chapter'] as Chapter?,
+              initialTabId: extra?['tab']     as String?,
+            );
+          },
+        ),
+
+        GoRoute(
+          path: '/practice/:chapterSlug',
+          builder: (_, state) => ExamPracticeScreen(
+            chapterSlug: state.pathParameters['chapterSlug']!,
+            chapter:     state.extra as Chapter?,
+          ),
+        ),
+
+        GoRoute(
+          path: '/exam/:chapterSlug',
+          builder: (_, state) => ExamPracticeScreen(
+            chapterSlug: state.pathParameters['chapterSlug']!,
+            chapter:     state.extra as Chapter?,
+          ),
         ),
 
       ],

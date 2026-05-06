@@ -3,10 +3,56 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { api } from '../api/client'
 import practiceRegistry from '../content/practiceRegistry'
 import { Breadcrumb } from '../components/nav'
-import PracticeRichPage from './PracticeRichPage'
+import ChapterPracticeExam from './ChapterPracticeExam'
+import AttemptHistorySection from './syllabus/sections/AttemptHistorySection'
 import { resolveTabIcon, stripTabLabel } from '../utils/resolveTabIcon'
 import { buildBreadcrumbs } from '../lib/nav'
 import { SYLLABUS } from '../data/syllabus'
+
+function adaptAllQuestions(practiceData) {
+  if (!practiceData?.parts) return []
+  let idx = 1
+  const out = []
+  for (const part of practiceData.parts) {
+    if (part.type === 'mcq') {
+      for (const sec of (part.sections ?? [])) {
+        for (const q of sec.questions) {
+          out.push({
+            id:      idx++,
+            type:    'mcq',
+            marks:   part.marksPer ?? 1,
+            section: sec.label,
+            html:    q.html,
+            options: q.options.map(o => o.replace(/^[a-d]\)\s*/i, '')),
+            correct: q.answer,
+            hint:    q.hint,
+          })
+        }
+      }
+    } else if (part.type === 'reference') {
+      for (const q of (part.questions ?? [])) {
+        out.push({
+          id:    idx++,
+          type:  'reference',
+          marks: part.marksPer ?? 2,
+          verse: q.verse,
+          subs:  (q.subs ?? []).map(s => ({ q: s.q, modelAnswer: s.a })),
+        })
+      }
+    } else if (part.type === 'short-essay' || part.type === 'long-essay') {
+      for (const q of (part.questions ?? [])) {
+        out.push({
+          id:          idx++,
+          type:        'written',
+          marks:       part.marksPer ?? (part.type === 'short-essay' ? 3 : 5),
+          html:        q.q,
+          modelAnswer: q.ans,
+        })
+      }
+    }
+  }
+  return out
+}
 
 const STAT_COLOR = {
   Education:       '#0ea5e9',
@@ -63,7 +109,7 @@ function Block({ block, switchTab, chapterSlug, navigate, practiceUrl }) {
           >
             {block.quote}
           </p>
-          <p className="text-[13px] text-ink-3 leading-[1.75]">{block.explain}</p>
+          <p className="text-[13px] text-ink-3 leading-[1.75]">{block.context}</p>
         </div>
       )
 
@@ -134,10 +180,10 @@ function Block({ block, switchTab, chapterSlug, navigate, practiceUrl }) {
           {block.practice && (
             <button
               onClick={() => switchTab('practice')}
-              className="px-4 py-2 rounded-pill text-sm font-semibold border border-line
-                         text-ink-2 bg-bg-2 hover:bg-bg-sunk transition-all duration-[var(--duration-fast)]"
+              className="px-4 py-2 rounded-pill text-sm font-semibold text-white
+                         bg-[#1E2A44] hover:bg-[#2E3A59] transition-all duration-[var(--duration-fast)]"
             >
-              Practice questions
+              🔥 Practice
             </button>
           )}
           {block.next && (
@@ -325,6 +371,9 @@ export default function LearnRichPage({ content, chapterSlug }) {
     if (!hasPractice && practiceRegistry[chapterSlug]) {
       extra.push({ id: 'practice', label: 'Practice', type: 'practice', blocks: [] })
     }
+    if (practiceRegistry[chapterSlug] && !tabs.some(t => t.type === 'attempt-history')) {
+      extra.push({ id: 'attempt-history', label: 'Attempt History', type: 'attempt-history', blocks: [] })
+    }
     if (!hasAskAI) {
       extra.push({ id: 'askai', label: 'Ask AI', type: 'askai', blocks: [] })
     }
@@ -435,7 +484,15 @@ export default function LearnRichPage({ content, chapterSlug }) {
 
       {/* Panel content */}
       {panel?.type === 'practice' ? (
-        <PracticeRichPage content={practiceRegistry[chapterSlug]} chapterSlug={chapterSlug} />
+        <ChapterPracticeExam
+          questions={adaptAllQuestions(practiceRegistry[chapterSlug])}
+          chapterMeta={{ title: content.title, meta: content.eyebrow, subject: content.author }}
+          chapterSlug={chapterSlug}
+        />
+      ) : panel?.type === 'attempt-history' ? (
+        <div className="max-w-[660px]">
+          <AttemptHistorySection lessonSlug={lesson || chapterSlug} />
+        </div>
       ) : panel?.type === 'askai' ? (
         <AskAIPanel chapterSlug={chapterSlug} />
       ) : (

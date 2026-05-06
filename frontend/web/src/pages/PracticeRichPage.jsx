@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
+import { useParams } from 'react-router-dom'
 
 /* ─── MCQ Part ─────────────────────────────────────────────────────────── */
 function McqPart({ part, done, score, onAnswer }) {
@@ -278,6 +279,9 @@ function EssayPart({ part, answers, onAnswer, revealed, onToggle }) {
 
 /* ─── PracticeRichPage ──────────────────────────────────────────────────── */
 export default function PracticeRichPage({ content, chapterSlug }) {
+  const { lesson } = useParams()
+  const sessionKey = (lesson || chapterSlug) ? `exam_coach_sessions_${lesson || chapterSlug}` : null
+
   const mcqPart   = content.parts.find(p => p.type === 'mcq')
   const refPart   = content.parts.find(p => p.type === 'reference')
   const shortPart = content.parts.find(p => p.type === 'short-essay')
@@ -297,6 +301,20 @@ export default function PracticeRichPage({ content, chapterSlug }) {
 
   const [longAnswers,  setLongAnswers]  = useState(() => new Array(longPart?.questions.length ?? 0).fill(''))
   const [longRevealed, setLongRevealed] = useState(() => new Array(longPart?.questions.length ?? 0).fill(false))
+
+  const sessionSavedRef = useRef(false)
+  const totalMcqQs = mcqPart
+    ? mcqPart.sections.reduce((sum, sec) => sum + sec.questions.length, 0)
+    : 0
+
+  useEffect(() => {
+    if (!sessionKey || !mcqPart || sessionSavedRef.current) return
+    if (Object.keys(mcqDone).length < totalMcqQs) return
+    sessionSavedRef.current = true
+    const record = { date: new Date().toISOString(), score: mcqScore, total: mcqPart.scoreMax }
+    const prev = JSON.parse(localStorage.getItem(sessionKey) ?? '[]')
+    localStorage.setItem(sessionKey, JSON.stringify([...prev, record]))
+  }, [mcqDone, mcqScore, sessionKey, mcqPart, totalMcqQs])
 
   function switchPart(id) { setActivePartId(id); window.scrollTo({ top: 0, behavior: 'smooth' }) }
 

@@ -8,21 +8,33 @@
 
 ```
 exam-coach/
-├── DESIGN_SYSTEM.md          ← YOU ARE HERE (project root)
-├── app/
-│   ├── globals.css           ← All CSS tokens defined here
-│   └── ...
-├── tailwind.config.js        ← Token aliases for Tailwind classes
-└── components/
-    ├── ui/
-    │   ├── NavBar.tsx
-    │   ├── PageBanner.tsx
-    │   ├── SideNav.tsx
-    │   ├── InfoCard.tsx
-    │   ├── StepIndicator.tsx
-    │   ├── SectionHeading.tsx
-    │   └── ProgressBar.tsx
-    └── ...
+├── DESIGN_SYSTEM.md              ← YOU ARE HERE
+├── CLAUDE.md                     ← project brain / architecture rules
+├── frontend/
+│   ├── web/
+│   │   ├── src/
+│   │   │   ├── index.css         ← ALL CSS tokens defined here (:root vars + oklch overrides)
+│   │   │   ├── content/          ← static JS content modules
+│   │   │   │   ├── registry.js               ← chapterSlug → chapter content object
+│   │   │   │   ├── practiceRegistry.js       ← chapterSlug → practice question set
+│   │   │   │   └── Class_11/
+│   │   │   │       └── English/
+│   │   │   │           ├── chapters/         ← 18 chapter content files (*.js)
+│   │   │   │           └── practice/         ← 18 practice question files (*.js)
+│   │   │   ├── components/
+│   │   │   │   └── ui/           ← shared UI components (Card, Button, Badge, Skeleton…)
+│   │   │   └── pages/            ← screen-level components
+│   │   └── tailwind.config.js    ← token aliases (CSS vars only — no hardcoded hex)
+│   └── app/                      ← Flutter mobile
+│       ├── lib/
+│       │   ├── screens/          ← Flutter screens
+│       │   ├── widgets/          ← shared widgets (ShellScaffold, etc.)
+│       │   ├── models/           ← data models (chapter_content_model.dart, etc.)
+│       │   ├── services/         ← API + content services
+│       │   └── router.dart       ← GoRouter (ShellRoute wraps all content routes)
+│       └── assets/content/
+│           └── chapters/         ← JSON content for Flutter (separate from web JS)
+└── backend/                      ← FastAPI
 ```
 
 ---
@@ -269,7 +281,8 @@ Border:        0.5px solid var(--ec-border)
 Border-radius: 12px
 Padding:       16px 20px
 Quote text:    15px italic, var(--ec-text-primary), border-left 2px solid var(--ec-blue)
-Explain text:  var(--ec-text-base), var(--ec-text-body)
+Context text:  var(--ec-text-base), var(--ec-text-body)
+               ← data field is named "context" in JS and Dart models (not "explain")
 ```
 
 ### DeviceBlock
@@ -299,6 +312,26 @@ Secondary (.ec-btn-secondary):
   Color:         var(--ec-text-body)
   Border-radius: var(--ec-radius-pill)
   Hover:         bg var(--ec-blue-dim), border var(--ec-blue-border), color var(--ec-text-primary)
+```
+
+### Practice Button (🔥 — primary action CTA)
+Used everywhere a student starts or navigates to practice/exam. Label is always **"Practice"** (never "Practice questions", "Start Practice", "Go to Practice").
+
+**Web (Tailwind):**
+```
+bg-[#1E2A44] hover:bg-[#2E3A59] text-white font-semibold rounded-pill px-4 py-2
+Prefix: 🔥 emoji
+```
+
+**Flutter:**
+```dart
+ElevatedButton.styleFrom(
+  backgroundColor: Color(0xFF1E2A44),
+  foregroundColor: Colors.white,
+  overlayColor:    Color(0xFF2E3A59),
+  elevation:       0,
+)
+// label: "🔥 Practice"
 ```
 
 ---

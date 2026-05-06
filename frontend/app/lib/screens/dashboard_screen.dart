@@ -17,7 +17,8 @@ class DashboardScreen extends StatefulWidget {
 class _DashboardScreenState extends State<DashboardScreen> {
   final _evalSvc = EvaluationService();
   Map<String, dynamic>? _progress;
-  bool  _progressLoading = true;
+  bool   _progressLoading = true;
+  String? _progressError;
 
   @override
   void initState() {
@@ -30,11 +31,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
   }
 
   Future<void> _loadProgress() async {
+    if (mounted) setState(() { _progressLoading = true; _progressError = null; });
     try {
       final p = await _evalSvc.getProgress();
       if (mounted) setState(() { _progress = p; _progressLoading = false; });
-    } catch (_) {
-      if (mounted) setState(() => _progressLoading = false);
+    } catch (e) {
+      if (mounted) setState(() { _progressLoading = false; _progressError = e.toString(); });
     }
   }
 
@@ -320,6 +322,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
         ),
         child: const Center(child: CircularProgressIndicator()),
       );
+    }
+    if (_progressError != null) {
+      return ErrorView(message: _progressError!, onRetry: _loadProgress);
     }
 
     final attempts = _progress?['total_attempts'] as int? ?? 0;

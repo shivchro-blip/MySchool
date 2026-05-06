@@ -241,8 +241,9 @@ export const LESSON_SECTIONS = [
   { slug: 'text',          label: 'Text',           icon: '📄', description: 'Read the full lesson'      },
   { slug: 'glossary',      label: 'Glossary',       icon: '🔤', description: 'Key words and meanings'    },
   { slug: 'comprehension', label: 'Comprehension',  icon: '💡', description: 'Check your understanding'  },
-  { slug: 'practice',      label: 'Practice',       icon: '✍️', description: 'Answer exam questions'     },
-  { slug: 'ask-ai',        label: 'Ask AI',         icon: '🤖', description: 'Get instant explanations'  },
+  { slug: 'practice',        label: 'Practice',        icon: '✍️', description: 'Answer exam questions'         },
+  { slug: 'attempt-history', label: 'Attempt History', icon: '🕐', description: 'Your practice session history' },
+  { slug: 'ask-ai',          label: 'Ask AI',          icon: '🤖', description: 'Get instant explanations'      },
 ]
 
 export function getSection(sectionSlug) {
