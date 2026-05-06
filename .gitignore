@@ -36,3 +36,4 @@ Thumbs.db
 .idea/
 
 source/textbooks/*.pdf
+tmp/
