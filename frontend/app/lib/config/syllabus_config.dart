@@ -121,10 +121,23 @@ class SyllabusConfig {
     ),
   ];
 
+  static const _plus2English = [
+    UnitConfig(
+      id: 1, title: 'Unit 1',
+      color: Color(0xFFe8824a), light: Color(0xFFfdf0e8),
+      lessons: [
+        UnitLesson(slug: 'two-gentlemen-of-verona', title: 'Two Gentlemen of Verona', contentType: 'prose'),
+        UnitLesson(slug: 'the-castle', title: 'The Castle', contentType: 'poem'),
+        UnitLesson(slug: 'god-sees-the-truth-but-waits', title: 'God Sees the Truth but Waits', contentType: 'supplementary'),
+      ],
+    ),
+  ];
+
   static List<UnitConfig>? getUnits(String classLevel, String subjectSlug) {
     final key = '${classLevel.toLowerCase()}/${subjectSlug.toLowerCase()}';
     return switch (key) {
       '+1/english' => _plus1English,
+      '+2/english' => _plus2English,
       _            => null,
     };
   }
