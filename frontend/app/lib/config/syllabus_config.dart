@@ -131,6 +131,15 @@ class SyllabusConfig {
         UnitLesson(slug: 'god-sees-the-truth-but-waits', title: 'God Sees the Truth but Waits', contentType: 'supplementary'),
       ],
     ),
+    UnitConfig(
+      id: 2, title: 'Unit 2',
+      color: Color(0xFF5c8fd6), light: Color(0xFFeaf2fd),
+      lessons: [
+        UnitLesson(slug: 'a-nice-cup-of-tea', title: 'A Nice Cup of Tea', contentType: 'prose'),
+        UnitLesson(slug: 'our-casuarina-tree', title: 'Our Casuarina Tree', contentType: 'poem'),
+        UnitLesson(slug: 'life-of-pi', title: 'Life of Pi', contentType: 'supplementary'),
+      ],
+    ),
   ];
 
   static List<UnitConfig>? getUnits(String classLevel, String subjectSlug) {
