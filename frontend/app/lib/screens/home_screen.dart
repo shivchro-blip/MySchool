@@ -397,7 +397,7 @@ class _HomeScreenState extends State<HomeScreen> {
           Column(
             children: [
               OutlinedButton(
-                onPressed: () => context.push('/rich-learn/${ch.slug}'),
+                onPressed: () => context.push('/rich-learn/${_selected!.classLevel}/${_selected!.slug}/${ch.slug}'),
                 style: OutlinedButton.styleFrom(
                   minimumSize: const Size(72, 30),
                   padding: const EdgeInsets.symmetric(horizontal: 8),
@@ -409,7 +409,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               const SizedBox(height: 4),
               ElevatedButton(
-                onPressed: () => context.push('/practice/${ch.id}'),
+                onPressed: () => context.push('/practice/${_selected!.classLevel}/${_selected!.slug}/${ch.slug}'),
                 style: ElevatedButton.styleFrom(
                   minimumSize: const Size(72, 30),
                   padding: const EdgeInsets.symmetric(horizontal: 8),

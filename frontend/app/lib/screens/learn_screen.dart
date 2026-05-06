@@ -18,11 +18,15 @@ class _ChatMsg {
 // ── Screen ─────────────────────────────────────────────────────────────────
 
 class LearnScreen extends StatefulWidget {
+  final String   classLevel;
+  final String   subjectSlug;
   final String   chapterSlug;
   final Chapter? chapter;
 
   const LearnScreen({
     super.key,
+    required this.classLevel,
+    required this.subjectSlug,
     required this.chapterSlug,
     this.chapter,
   });
@@ -291,7 +295,7 @@ class _LearnScreenState extends State<LearnScreen>
           color:   AppTheme.maths,
           title:   'Practice',
           subtitle: 'Write answers + get AI evaluation',
-          onTap:   () => context.push('/practice/${widget.chapterSlug}'),
+          onTap:   () => context.push('/practice/${widget.classLevel}/${widget.subjectSlug}/${widget.chapterSlug}'),
         ),
         const SizedBox(height: 10),
         _QuickNavCard(
@@ -299,7 +303,7 @@ class _LearnScreenState extends State<LearnScreen>
           color:   AppTheme.warning,
           title:   'Exam Practice',
           subtitle: 'MCQ + full paper, exam-style',
-          onTap:   () => context.push('/exam/${widget.chapterSlug}', extra: widget.chapter),
+          onTap:   () => context.push('/exam/${widget.classLevel}/${widget.subjectSlug}/${widget.chapterSlug}', extra: widget.chapter),
         ),
       ],
     );

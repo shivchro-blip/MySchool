@@ -80,18 +80,22 @@ final router = GoRouter(
         ),
 
         GoRoute(
-          path: '/learn/:chapterSlug',
+          path: '/learn/:classLevel/:subjectSlug/:chapterSlug',
           builder: (_, state) => LearnScreen(
+            classLevel:  state.pathParameters['classLevel']!,
+            subjectSlug: state.pathParameters['subjectSlug']!,
             chapterSlug: state.pathParameters['chapterSlug']!,
             chapter:     state.extra as Chapter?,
           ),
         ),
 
         GoRoute(
-          path: '/rich-learn/:chapterSlug',
+          path: '/rich-learn/:classLevel/:subjectSlug/:chapterSlug',
           builder: (_, state) {
             final extra = state.extra as Map<String, dynamic>?;
             return RichLearnScreen(
+              classLevel:   state.pathParameters['classLevel']!,
+              subjectSlug:  state.pathParameters['subjectSlug']!,
               chapterSlug:  state.pathParameters['chapterSlug']!,
               chapter:      extra?['chapter'] as Chapter?,
               initialTabId: extra?['tab']     as String?,
@@ -100,16 +104,20 @@ final router = GoRouter(
         ),
 
         GoRoute(
-          path: '/practice/:chapterSlug',
+          path: '/practice/:classLevel/:subjectSlug/:chapterSlug',
           builder: (_, state) => ExamPracticeScreen(
+            classLevel:  state.pathParameters['classLevel']!,
+            subjectSlug: state.pathParameters['subjectSlug']!,
             chapterSlug: state.pathParameters['chapterSlug']!,
             chapter:     state.extra as Chapter?,
           ),
         ),
 
         GoRoute(
-          path: '/exam/:chapterSlug',
+          path: '/exam/:classLevel/:subjectSlug/:chapterSlug',
           builder: (_, state) => ExamPracticeScreen(
+            classLevel:  state.pathParameters['classLevel']!,
+            subjectSlug: state.pathParameters['subjectSlug']!,
             chapterSlug: state.pathParameters['chapterSlug']!,
             chapter:     state.extra as Chapter?,
           ),

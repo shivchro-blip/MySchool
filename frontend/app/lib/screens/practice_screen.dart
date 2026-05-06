@@ -13,8 +13,15 @@ import '../widgets/error_view.dart';
 
 class PracticeScreen extends StatefulWidget {
   // chapterSlug — matches the backend /chapters/{slug}/questions endpoint
+  final String classLevel;
+  final String subjectSlug;
   final String chapterSlug;
-  const PracticeScreen({super.key, required this.chapterSlug});
+  const PracticeScreen({
+    super.key,
+    required this.classLevel,
+    required this.subjectSlug,
+    required this.chapterSlug,
+  });
 
   @override
   State<PracticeScreen> createState() => _PracticeScreenState();
@@ -67,7 +74,7 @@ class _PracticeScreenState extends State<PracticeScreen> {
 
   Future<void> _loadLocal() async {
     try {
-      final examQs = await ExamPracticeService.getQuestions(widget.chapterSlug);
+      final examQs = await ExamPracticeService.getQuestions(widget.classLevel, widget.subjectSlug, widget.chapterSlug);
       final written = examQs.where((q) => q.type == ExamQuestionType.written).toList();
       int idx = 0;
       final synths = written.map((q) {

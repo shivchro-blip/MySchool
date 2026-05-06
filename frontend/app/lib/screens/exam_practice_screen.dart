@@ -169,10 +169,14 @@ class _QuickNavDots extends StatelessWidget {
 // ── Main screen ───────────────────────────────────────────────────────────
 
 class ExamPracticeScreen extends StatefulWidget {
+  final String   classLevel;
+  final String   subjectSlug;
   final String   chapterSlug;
   final Chapter? chapter;
   const ExamPracticeScreen({
     super.key,
+    required this.classLevel,
+    required this.subjectSlug,
     required this.chapterSlug,
     this.chapter,
   });
@@ -236,7 +240,7 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
   @override
   void initState() {
     super.initState();
-    ExamPracticeService.getQuestions(widget.chapterSlug).then((qs) {
+    ExamPracticeService.getQuestions(widget.classLevel, widget.subjectSlug, widget.chapterSlug).then((qs) {
       if (mounted) setState(() { _questions = qs; _loading = false; });
     }).catchError((e) {
       if (mounted) setState(() { _error = e.toString(); _loading = false; });
@@ -270,18 +274,21 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
   void _openSubmitDialog() {
     showDialog<void>(
       context: context,
-      builder: (_) => AlertDialog(
+      builder: (dialogContext) => AlertDialog(
         title: const Text('Submit Exam?'),
         content: const Text(
             'Once submitted your answers will be locked. '
             'This chapter will be marked as practised.'),
         actions: [
           TextButton(
-            onPressed: () => Navigator.pop(context),
+            onPressed: () => Navigator.pop(dialogContext),
             child: const Text('Cancel'),
           ),
           FilledButton(
-            onPressed: () { Navigator.pop(context); _confirmSubmit(); },
+            onPressed: () {
+              Navigator.pop(dialogContext);
+              _confirmSubmit();
+            },
             child: const Text('Submit'),
           ),
         ],
@@ -931,7 +938,7 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
             Expanded(
               child: OutlinedButton.icon(
                 onPressed: () => context.go(
-                  '/rich-learn/${widget.chapterSlug}',
+                  '/rich-learn/${widget.classLevel}/${widget.subjectSlug}/${widget.chapterSlug}',
                   extra: {'chapter': widget.chapter, 'tab': null},
                 ),
                 icon:  const Icon(Icons.chevron_left, size: 16),
@@ -942,7 +949,7 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
             Expanded(
               child: OutlinedButton.icon(
                 onPressed: () => context.go(
-                  '/rich-learn/${widget.chapterSlug}',
+                  '/rich-learn/${widget.classLevel}/${widget.subjectSlug}/${widget.chapterSlug}',
                   extra: {'chapter': widget.chapter, 'tab': 'attempt-history'},
                 ),
                 icon:  const Icon(Icons.history, size: 16),
@@ -999,7 +1006,7 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
             icon:    const Icon(Icons.history),
             tooltip: 'Attempt History',
             onPressed: () => context.go(
-              '/rich-learn/${widget.chapterSlug}',
+              '/rich-learn/${widget.classLevel}/${widget.subjectSlug}/${widget.chapterSlug}',
               extra: {'chapter': widget.chapter, 'tab': 'attempt-history'},
             ),
           ),

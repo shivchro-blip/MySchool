@@ -380,7 +380,7 @@ class _LessonRow extends StatelessWidget {
               label: 'Learn',
               color: unitColor,
               onTap: () => context.push(
-                '/rich-learn/${ch.slug}',
+                '/rich-learn/$classLevel/$subjectSlug/${ch.slug}',
                 extra: {'chapter': ch, 'tab': null},
               ),
             ),
@@ -389,7 +389,7 @@ class _LessonRow extends StatelessWidget {
               label: 'Practice',
               color: unitColor,
               outline: true,
-              onTap: () => context.push('/practice/${ch.slug}'),
+              onTap: () => context.push('/practice/$classLevel/$subjectSlug/${ch.slug}'),
             ),
           ] else
             Container(
@@ -507,7 +507,7 @@ class _ChapterTile extends StatelessWidget {
       child: InkWell(
         borderRadius: BorderRadius.circular(12),
         onTap: () => context.push(
-          '/rich-learn/${chapter.slug}',
+          '/rich-learn/$classLevel/$subjectSlug/${chapter.slug}',
           extra: {'chapter': chapter, 'tab': null},
         ),
         child: Padding(

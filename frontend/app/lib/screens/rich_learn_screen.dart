@@ -11,12 +11,16 @@ import '../services/learning_service.dart';
 import '../widgets/error_view.dart';
 
 class RichLearnScreen extends StatefulWidget {
+  final String   classLevel;
+  final String   subjectSlug;
   final String   chapterSlug;
   final Chapter? chapter;
   final String?  initialTabId;
 
   const RichLearnScreen({
     super.key,
+    required this.classLevel,
+    required this.subjectSlug,
     required this.chapterSlug,
     this.chapter,
     this.initialTabId,
@@ -45,7 +49,7 @@ class _RichLearnScreenState extends State<RichLearnScreen> {
   }
 
   Future<void> _loadContent() async {
-    final c = await ChapterContentService().loadContent(widget.chapterSlug);
+    final c = await ChapterContentService().loadContent(widget.classLevel, widget.subjectSlug, widget.chapterSlug);
     if (!mounted) return;
     setState(() {
       _content = c;
@@ -162,7 +166,7 @@ class _RichLearnScreenState extends State<RichLearnScreen> {
                 emoji: '🔥', title: 'Practice',
                 sub: 'Answer exam questions and get AI evaluation',
                 color: AppTheme.maths,
-                onTap: () => context.push('/practice/${widget.chapterSlug}'),
+                onTap: () => context.push('/practice/${widget.classLevel}/${widget.subjectSlug}/${widget.chapterSlug}'),
               ),
               const SizedBox(height: 10),
               _QuickLink(
@@ -170,7 +174,7 @@ class _RichLearnScreenState extends State<RichLearnScreen> {
                 sub: 'MCQ + written questions, exam-style',
                 color: AppTheme.warning,
                 onTap: () => context.push(
-                  '/exam/${widget.chapterSlug}',
+                  '/exam/${widget.classLevel}/${widget.subjectSlug}/${widget.chapterSlug}',
                   extra: widget.chapter,
                 ),
               ),
@@ -291,7 +295,7 @@ class _RichLearnScreenState extends State<RichLearnScreen> {
           child: activeTab.type == 'practice'
               ? _buildPracticeTab()
               : activeTab.type == 'attempt-history'
-                  ? _AttemptHistoryTab(chapterSlug: widget.chapterSlug)
+                  ? _AttemptHistoryTab(classLevel: widget.classLevel, subjectSlug: widget.subjectSlug, chapterSlug: widget.chapterSlug)
                   : activeTab.type == 'askai'
                       ? _AskAITab(
                           chapterSlug: widget.chapterSlug,
@@ -320,7 +324,7 @@ class _RichLearnScreenState extends State<RichLearnScreen> {
               textAlign: TextAlign.center),
           const SizedBox(height: 24),
           ElevatedButton(
-            onPressed: () => context.push('/practice/${widget.chapterSlug}'),
+            onPressed: () => context.push('/practice/${widget.classLevel}/${widget.subjectSlug}/${widget.chapterSlug}'),
             style: ElevatedButton.styleFrom(
               backgroundColor: const Color(0xFF1E2A44),
               foregroundColor: Colors.white,
@@ -1348,8 +1352,14 @@ class _MsgBubble extends StatelessWidget {
 // ── Attempt History Tab ────────────────────────────────────────────────────
 
 class _AttemptHistoryTab extends StatefulWidget {
+  final String classLevel;
+  final String subjectSlug;
   final String chapterSlug;
-  const _AttemptHistoryTab({required this.chapterSlug});
+  const _AttemptHistoryTab({
+    required this.classLevel,
+    required this.subjectSlug,
+    required this.chapterSlug,
+  });
 
   @override
   State<_AttemptHistoryTab> createState() => _AttemptHistoryTabState();
@@ -1410,7 +1420,7 @@ class _AttemptHistoryTabState extends State<_AttemptHistoryTab> {
                   textAlign: TextAlign.center),
               const SizedBox(height: 20),
               ElevatedButton(
-                onPressed: () => context.push('/exam/${widget.chapterSlug}'),
+                onPressed: () => context.push('/exam/${widget.classLevel}/${widget.subjectSlug}/${widget.chapterSlug}'),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFF1E2A44),
                   foregroundColor: Colors.white,

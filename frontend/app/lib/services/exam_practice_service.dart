@@ -3,23 +3,33 @@ import 'package:flutter/services.dart';
 import '../models/exam_practice_model.dart';
 
 class ExamPracticeService {
-  static Map<String, dynamic>? _cache;
-
-  static Future<void> _load() async {
-    if (_cache != null) return;
+  static Future<List<ExamQuestion>> getQuestions(
+    String classLevel,
+    String subjectSlug,
+    String chapterSlug,
+  ) async {
     try {
-      final raw = await rootBundle.loadString('assets/practice_data.json');
-      _cache = jsonDecode(raw) as Map<String, dynamic>;
+      final folder = _toAssetFolder(classLevel, subjectSlug);
+      final raw = await rootBundle.loadString(
+        'assets/content/$folder/practice/$chapterSlug.json',
+      );
+      final data = jsonDecode(raw) as Map<String, dynamic>;
+      return _adapt(data);
     } catch (_) {
-      _cache = {};
+      return [];
     }
   }
 
-  static Future<List<ExamQuestion>> getQuestions(String chapterSlug) async {
-    await _load();
-    final chapter = _cache![chapterSlug];
-    if (chapter == null) return [];
-    return _adapt(chapter as Map<String, dynamic>);
+  static String _toAssetFolder(String classLevel, String subjectSlug) {
+    final cl = switch (classLevel.toLowerCase()) {
+      '+1' => 'Class_11',
+      '+2' => 'Class_12',
+      _ => classLevel,
+    };
+    final sub = subjectSlug.isEmpty
+        ? subjectSlug
+        : subjectSlug[0].toUpperCase() + subjectSlug.substring(1);
+    return '$cl/$sub';
   }
 
   static List<ExamQuestion> _adapt(Map<String, dynamic> data) {

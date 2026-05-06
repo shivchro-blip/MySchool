@@ -1,4 +1,27 @@
 import 'package:flutter/material.dart';
+import '../models/syllabus_model.dart';
+
+// ── Static subject list — mirrors frontend/web/src/data/syllabus.js ──────────
+
+class SubjectConfig {
+  final String slug;
+  final String name;
+  final String classLevel;
+  const SubjectConfig({
+    required this.slug,
+    required this.name,
+    required this.classLevel,
+  });
+
+  Subject toSubject() => Subject(
+    id:         '$classLevel/$slug',
+    slug:       slug,
+    code:       slug.toUpperCase(),
+    name:       name,
+    classLevel: classLevel,
+    isActive:   true,
+  );
+}
 
 class UnitLesson {
   final String slug;
@@ -23,6 +46,24 @@ class UnitConfig {
 }
 
 class SyllabusConfig {
+  // Mirrors web/src/data/syllabus.js — single source of truth for subject list
+  static const _subjects = [
+    SubjectConfig(slug: 'english',  name: 'English',     classLevel: '+1'),
+    SubjectConfig(slug: 'maths',    name: 'Mathematics', classLevel: '+1'),
+    SubjectConfig(slug: 'science',  name: 'Science',     classLevel: '+1'),
+    SubjectConfig(slug: 'english',  name: 'English',     classLevel: '+2'),
+    SubjectConfig(slug: 'maths',    name: 'Mathematics', classLevel: '+2'),
+  ];
+
+  static List<Subject> getSubjects() =>
+      _subjects.map((s) => s.toSubject()).toList();
+
+  static List<Subject> getSubjectsForClass(String classLevel) =>
+      _subjects
+          .where((s) => s.classLevel == classLevel)
+          .map((s) => s.toSubject())
+          .toList();
+
   static const _plus1English = [
     UnitConfig(
       id: 1, title: 'Unit 1',

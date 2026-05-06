@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import '../models/syllabus_model.dart';
-import '../services/syllabus_service.dart';
+import '../config/syllabus_config.dart';
 
 class SyllabusProvider extends ChangeNotifier {
-  final SyllabusService _svc;
-  SyllabusProvider([SyllabusService? svc]) : _svc = svc ?? SyllabusService();
-
-  List<Subject> _subjects    = [];
-  bool          _loaded      = false;
+  List<Subject> _subjects = [];
+  bool          _loaded   = false;
   String?       _error;
 
   List<Subject> get subjects => _subjects;
@@ -26,13 +23,9 @@ class SyllabusProvider extends ChangeNotifier {
   }
 
   Future<void> load() async {
-    _error = null;
-    try {
-      _subjects = await _svc.getSubjects();
-      _loaded   = true;
-    } catch (e) {
-      _error = e.toString();
-    }
+    _error    = null;
+    _subjects = SyllabusConfig.getSubjects();
+    _loaded   = true;
     notifyListeners();
   }
 }

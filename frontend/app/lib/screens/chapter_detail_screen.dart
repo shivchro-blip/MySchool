@@ -33,18 +33,18 @@ class _ChapterDetailScreenState extends State<ChapterDetailScreen> {
   }
 
   Future<void> _checkContent() async {
-    final c = await ChapterContentService().loadContent(widget.chapterSlug);
+    final c = await ChapterContentService().loadContent(widget.classLevel, widget.subjectSlug, widget.chapterSlug);
     if (!mounted) return;
     setState(() { _hasContent = c != null; _checked = true; });
   }
 
   void _goRich(String tabId) => context.push(
-    '/rich-learn/${widget.chapterSlug}',
+    '/rich-learn/${widget.classLevel}/${widget.subjectSlug}/${widget.chapterSlug}',
     extra: {'chapter': widget.chapter, 'tab': tabId},
   );
 
   void _goLearn() => context.push(
-    '/rich-learn/${widget.chapterSlug}',
+    '/rich-learn/${widget.classLevel}/${widget.subjectSlug}/${widget.chapterSlug}',
     extra: {'chapter': widget.chapter, 'tab': null},
   );
 
@@ -79,7 +79,7 @@ class _ChapterDetailScreenState extends State<ChapterDetailScreen> {
                     onText:          () => _goRich('intro'),
                     onGlossary:      () => _goRich('glossary'),
                     onComprehension: () => _goRich('meaning'),
-                    onPractice:      () => context.push('/practice/${widget.chapterSlug}'),
+                    onPractice:      () => context.push('/practice/${widget.classLevel}/${widget.subjectSlug}/${widget.chapterSlug}'),
                     onAskAI:         () => _goRich('askai'),
                   ),
                 ] else ...[
@@ -99,7 +99,7 @@ class _ChapterDetailScreenState extends State<ChapterDetailScreen> {
                     emoji:   '🔥',
                     title:   'Practice',
                     subtitle: 'Answer questions and get AI evaluation',
-                    onTap:   () => context.push('/practice/${widget.chapterSlug}'),
+                    onTap:   () => context.push('/practice/${widget.classLevel}/${widget.subjectSlug}/${widget.chapterSlug}'),
                   ),
                   const SizedBox(height: 12),
                   _ActionCard(
@@ -109,7 +109,7 @@ class _ChapterDetailScreenState extends State<ChapterDetailScreen> {
                     title:   'Exam Practice',
                     subtitle: 'MCQ + written questions, exam-style',
                     onTap:   () => context.push(
-                      '/exam/${widget.chapterSlug}',
+                      '/exam/${widget.classLevel}/${widget.subjectSlug}/${widget.chapterSlug}',
                       extra: widget.chapter,
                     ),
                   ),
