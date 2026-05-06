@@ -167,9 +167,14 @@ class _UnitCardState extends State<_UnitCard> {
   Widget build(BuildContext context) {
     final unit    = widget.unit;
     final lessons = unit.lessons
-        .map((l) => (config: l, chapter: widget.bySlug[l.slug]))
+        .asMap()
+        .entries
+        .map((e) => (
+          config: e.value,
+          chapter: widget.bySlug[e.value.slug] ?? _syntheticChapter(unit.id, e.key, e.value),
+        ))
         .toList();
-    final loaded  = lessons.where((l) => l.chapter != null).length;
+    final loaded  = lessons.length;
 
     return Container(
       decoration: BoxDecoration(
@@ -279,6 +284,16 @@ class _UnitCardState extends State<_UnitCard> {
       ),
     );
   }
+
+  Chapter _syntheticChapter(int unitId, int lessonIndex, UnitLesson lesson) => Chapter(
+    id:          'local/${widget.classLevel}/${widget.subjectSlug}/${lesson.slug}',
+    slug:        lesson.slug,
+    subjectId:   '${widget.classLevel}/${widget.subjectSlug}',
+    number:      ((unitId - 1) * 3) + lessonIndex + 1,
+    title:       lesson.title,
+    contentType: lesson.contentType,
+    isActive:    true,
+  );
 
   String _typeLabel(String ct) => switch (ct) {
     'prose'         => 'Prose',
