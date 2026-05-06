@@ -149,17 +149,56 @@ export const SYLLABUS = {
       english: {
         label: 'English',
         slug: 'english',
+        units: [
+          { id: 1, title: 'Unit 1', color: '#e8824a', light: '#fdf0e8', border: '#f0a97a',
+            lessons: [
+              { slug: 'two-gentlemen-of-verona',        title: 'Two Gentlemen of Verona',        type: 'Prose',              tag: 'prose',         category: 'prose'         },
+              { slug: 'the-castle',                     title: 'The Castle',                     type: 'Poem',               tag: 'poem',          category: 'poetry'        },
+              { slug: 'god-sees-the-truth-but-waits',   title: 'God Sees the Truth but Waits',   type: 'Supplementary',      tag: 'supplementary', category: 'supplementary' },
+            ]},
+          { id: 2, title: 'Unit 2', color: '#5c8fd6', light: '#eaf2fd', border: '#8ab4e8',
+            lessons: [
+              { slug: 'a-nice-cup-of-tea',              title: 'A Nice Cup of Tea',              type: 'Prose',              tag: 'prose',         category: 'prose'         },
+              { slug: 'our-casuarina-tree',             title: 'Our Casuarina Tree',             type: 'Poem',               tag: 'poem',          category: 'poetry'        },
+              { slug: 'life-of-pi',                     title: 'Life of Pi',                     type: 'Supplementary',      tag: 'supplementary', category: 'supplementary' },
+            ]},
+          { id: 3, title: 'Unit 3', color: '#59a87a', light: '#e8f5ee', border: '#84c9a0',
+            lessons: [
+              { slug: 'in-celebration-of-being-alive',  title: 'In Celebration of Being Alive',  type: 'Prose',              tag: 'prose',         category: 'prose'         },
+              { slug: 'all-the-worlds-a-stage',         title: "All the World's a Stage",         type: 'Poem',               tag: 'poem',          category: 'poetry'        },
+              { slug: 'the-hour-of-truth',              title: 'The Hour of Truth',              type: 'Supplementary / Play', tag: 'supplementary', category: 'supplementary' },
+            ]},
+          { id: 4, title: 'Unit 4', color: '#a06cd5', light: '#f2ebfc', border: '#c49ee8',
+            lessons: [
+              { slug: 'the-summit',                     title: 'The Summit',                     type: 'Prose',              tag: 'prose',         category: 'prose'         },
+              { slug: 'ulysses',                        title: 'Ulysses',                        type: 'Poem',               tag: 'poem',          category: 'poetry'        },
+              { slug: 'the-midnight-visitor',           title: 'The Midnight Visitor',           type: 'Supplementary',      tag: 'supplementary', category: 'supplementary' },
+            ]},
+          { id: 5, title: 'Unit 5', color: '#d4873a', light: '#fdf3e7', border: '#e8b070',
+            lessons: [
+              { slug: 'the-chair',                      title: 'The Chair',                      type: 'Prose',              tag: 'prose',         category: 'prose'         },
+              { slug: 'a-father-to-his-son',            title: 'A Father to His Son',            type: 'Poem',               tag: 'poem',          category: 'poetry'        },
+              { slug: 'all-summer-in-a-day',            title: 'All Summer in a Day',            type: 'Supplementary',      tag: 'supplementary', category: 'supplementary' },
+            ]},
+          { id: 6, title: 'Unit 6', color: '#d45c6a', light: '#fdeaec', border: '#e88d97',
+            lessons: [
+              { slug: 'on-the-rule-of-the-road',        title: 'On the Rule of the Road',        type: 'Prose',              tag: 'prose',         category: 'prose'         },
+              { slug: 'incident-of-the-french-camp',    title: 'Incident of the French Camp',    type: 'Poem',               tag: 'poem',          category: 'poetry'        },
+              { slug: 'remember-caesar',                title: 'Remember Caesar',                type: 'Supplementary / Play', tag: 'supplementary', category: 'supplementary' },
+            ]},
+        ],
         categories: {
           prose: {
             label: 'Prose',
             slug: 'prose',
             icon: '📖',
             lessons: [
-              { slug: 'the-tiger-king',             title: 'The Tiger King'                  },
-              { slug: 'journey-to-the-end-of-earth',title: 'Journey to the End of the Earth' },
-              { slug: 'the-enemy',                  title: 'The Enemy'                       },
-              { slug: 'on-the-face-of-it',          title: 'On the Face of It'               },
-              { slug: 'evans-tries-an-o-level',     title: "Evans Tries an O-Level"          },
+              { slug: 'two-gentlemen-of-verona',        title: 'Two Gentlemen of Verona'        },
+              { slug: 'a-nice-cup-of-tea',              title: 'A Nice Cup of Tea'              },
+              { slug: 'in-celebration-of-being-alive',  title: 'In Celebration of Being Alive'  },
+              { slug: 'the-summit',                     title: 'The Summit'                     },
+              { slug: 'the-chair',                      title: 'The Chair'                      },
+              { slug: 'on-the-rule-of-the-road',        title: 'On the Rule of the Road'        },
             ],
           },
           poetry: {
@@ -167,9 +206,12 @@ export const SYLLABUS = {
             slug: 'poetry',
             icon: '🎵',
             lessons: [
-              { slug: 'my-mother-at-sixty-six', title: 'My Mother at Sixty-Six' },
-              { slug: 'keeping-quiet',           title: 'Keeping Quiet'          },
-              { slug: 'a-thing-of-beauty',       title: 'A Thing of Beauty'      },
+              { slug: 'the-castle',                     title: 'The Castle'                     },
+              { slug: 'our-casuarina-tree',             title: 'Our Casuarina Tree'             },
+              { slug: 'all-the-worlds-a-stage',         title: "All the World's a Stage"         },
+              { slug: 'ulysses',                        title: 'Ulysses'                        },
+              { slug: 'a-father-to-his-son',            title: 'A Father to His Son'            },
+              { slug: 'incident-of-the-french-camp',    title: 'Incident of the French Camp'    },
             ],
           },
           supplementary: {
@@ -177,8 +219,12 @@ export const SYLLABUS = {
             slug: 'supplementary',
             icon: '📑',
             lessons: [
-              { slug: 'the-third-level',               title: 'The Third Level'                    },
-              { slug: 'the-tiger-king-supplementary',  title: 'The Tiger King (Supplementary)'     },
+              { slug: 'god-sees-the-truth-but-waits',   title: 'God Sees the Truth but Waits'   },
+              { slug: 'life-of-pi',                     title: 'Life of Pi'                     },
+              { slug: 'the-hour-of-truth',              title: 'The Hour of Truth'              },
+              { slug: 'the-midnight-visitor',           title: 'The Midnight Visitor'           },
+              { slug: 'all-summer-in-a-day',            title: 'All Summer in a Day'            },
+              { slug: 'remember-caesar',                title: 'Remember Caesar'                },
             ],
           },
         },
