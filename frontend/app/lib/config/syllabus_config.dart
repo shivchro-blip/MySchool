@@ -264,6 +264,26 @@ class SyllabusConfig {
             contentType: 'supplementary'),
       ],
     ),
+    UnitConfig(
+      id: 5,
+      title: 'Unit 5',
+      color: Color(0xFFd4873a),
+      light: Color(0xFFfdf3e7),
+      lessons: [
+        UnitLesson(
+            slug: 'the-chair',
+            title: 'The Chair',
+            contentType: 'prose'),
+        UnitLesson(
+            slug: 'a-father-to-his-son',
+            title: 'A Father to his Son',
+            contentType: 'poem'),
+        UnitLesson(
+            slug: 'all-summer-in-a-day',
+            title: 'All Summer in a Day',
+            contentType: 'supplementary'),
+      ],
+    ),
   ];
 
   static List<UnitConfig>? getUnits(String classLevel, String subjectSlug) {

@@ -1,4 +1,4 @@
-export default {
+{
   "meta": {
     "subject": "General English -- Class XII",
     "unit": "Unit 5 -- All Summer in a Day",
@@ -284,71 +284,131 @@ export default {
         {
           "verse": "It had been raining for seven years; thousands upon thousands of days compounded and filled from one end to the other with rain.",
           "subs": [
-            { "q": "(a) What does this line tell us about Venus?", "a": "It tells us that rain is almost constant on Venus." },
-            { "q": "(b) Why is this opening important?", "a": "It creates the gloomy setting of the story." }
+            {
+              "q": "(a) What does this line tell us about Venus?",
+              "a": "It tells us that rain is almost constant on Venus."
+            },
+            {
+              "q": "(b) Why is this opening important?",
+              "a": "It creates the gloomy setting of the story."
+            }
           ]
         },
         {
           "verse": "The children pressed to each other like so many roses, so many weeds, intermixed, peering out for a look at the hidden sun.",
           "subs": [
-            { "q": "(a) What does the simile show?", "a": "It shows the children crowded together and waiting eagerly." },
-            { "q": "(b) What are they waiting for?", "a": "They are waiting for the Sun." }
+            {
+              "q": "(a) What does the simile show?",
+              "a": "It shows the children crowded together and waiting eagerly."
+            },
+            {
+              "q": "(b) What are they waiting for?",
+              "a": "They are waiting for the Sun."
+            }
           ]
         },
         {
           "verse": "I think the sun is a flower, / That blooms for just one hour.",
           "subs": [
-            { "q": "(a) Who says this?", "a": "Margot says this in her poem." },
-            { "q": "(b) What does the image suggest?", "a": "It suggests beauty that is brief and precious." }
+            {
+              "q": "(a) Who says this?",
+              "a": "Margot says this in her poem."
+            },
+            {
+              "q": "(b) What does the image suggest?",
+              "a": "It suggests beauty that is brief and precious."
+            }
           ]
         },
         {
           "verse": "What're you waiting for?",
           "subs": [
-            { "q": "(a) Who speaks these words?", "a": "William speaks these words." },
-            { "q": "(b) Why does he say this?", "a": "He mocks Margot and tries to make her seem foolish." }
+            {
+              "q": "(a) Who speaks these words?",
+              "a": "William speaks these words."
+            },
+            {
+              "q": "(b) Why does he say this?",
+              "a": "He mocks Margot and tries to make her seem foolish."
+            }
           ]
         },
         {
           "verse": "All a joke!",
           "subs": [
-            { "q": "(a) What is the boy pretending?", "a": "He pretends that the scientists were wrong." },
-            { "q": "(b) What effect does this have?", "a": "It helps the other children turn against Margot." }
+            {
+              "q": "(a) What is the boy pretending?",
+              "a": "He pretends that the scientists were wrong."
+            },
+            {
+              "q": "(b) What effect does this have?",
+              "a": "It helps the other children turn against Margot."
+            }
           ]
         },
         {
           "verse": "The sun came out.",
           "subs": [
-            { "q": "(a) Why is this line important?", "a": "It marks the great moment everyone has been waiting for." },
-            { "q": "(b) How do the children react?", "a": "They rush out joyfully into the sunlight." }
+            {
+              "q": "(a) Why is this line important?",
+              "a": "It marks the great moment everyone has been waiting for."
+            },
+            {
+              "q": "(b) How do the children react?",
+              "a": "They rush out joyfully into the sunlight."
+            }
           ]
         },
         {
           "verse": "It was the colour of flaming bronze and it was very large.",
           "subs": [
-            { "q": "(a) What is being described?", "a": "The Sun is being described." },
-            { "q": "(b) What does the description create?", "a": "It creates a vivid and glowing image of the Sun." }
+            {
+              "q": "(a) What is being described?",
+              "a": "The Sun is being described."
+            },
+            {
+              "q": "(b) What does the description create?",
+              "a": "It creates a vivid and glowing image of the Sun."
+            }
           ]
         },
         {
           "verse": "They surged about her, caught her up and bore her ... and then slammed and locked the door.",
           "subs": [
-            { "q": "(a) Who is 'her'?", "a": "It is Margot." },
-            { "q": "(b) What action is described?", "a": "The children lock Margot in a closet." }
+            {
+              "q": "(a) Who is 'her'?",
+              "a": "It is Margot."
+            },
+            {
+              "q": "(b) What action is described?",
+              "a": "The children lock Margot in a closet."
+            }
           ]
         },
         {
           "verse": "Behind the closet door was only silence.",
           "subs": [
-            { "q": "(a) What does the silence suggest?", "a": "It suggests guilt and the emptiness of the locked room." },
-            { "q": "(b) Why is this moment powerful?", "a": "The children suddenly realise their cruelty." }
+            {
+              "q": "(a) What does the silence suggest?",
+              "a": "It suggests guilt and the emptiness of the locked room."
+            },
+            {
+              "q": "(b) Why is this moment powerful?",
+              "a": "The children suddenly realise their cruelty."
+            }
           ]
         },
         {
           "verse": "A boom of thunder startled them and like leaves before a new hurricane, they tumbled upon each other and ran.",
           "subs": [
-            { "q": "(a) What happens at the end?", "a": "Thunder and rain force the children to run back." },
-            { "q": "(b) What does the simile add?", "a": "It shows their sudden and helpless movement." }
+            {
+              "q": "(a) What happens at the end?",
+              "a": "Thunder and rain force the children to run back."
+            },
+            {
+              "q": "(b) What does the simile add?",
+              "a": "It shows their sudden and helpless movement."
+            }
           ]
         }
       ]
