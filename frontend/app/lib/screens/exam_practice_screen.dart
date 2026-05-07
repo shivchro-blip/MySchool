@@ -190,7 +190,7 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
   bool               _loading   = true;
   String?            _error;
 
-  List<ExamAttempt>  _attempts           = [ExamAttempt(id: 1)];
+  final List<ExamAttempt> _attempts = [ExamAttempt(id: 1)];
   int                _currentAttemptId   = 1;
   String             _view               = 'exam';  // exam | results | history
   int?               _viewingAttemptId;
@@ -232,7 +232,9 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
   }
 
   void _clearCtrl() {
-    for (final c in _ctrlMap.values) c.dispose();
+    for (final c in _ctrlMap.values) {
+      c.dispose();
+    }
     _ctrlMap.clear();
   }
 
@@ -241,9 +243,19 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
   void initState() {
     super.initState();
     ExamPracticeService.getQuestions(widget.classLevel, widget.subjectSlug, widget.chapterSlug).then((qs) {
-      if (mounted) setState(() { _questions = qs; _loading = false; });
+      if (mounted) {
+        setState(() {
+          _questions = qs;
+          _loading = false;
+        });
+      }
     }).catchError((e) {
-      if (mounted) setState(() { _error = e.toString(); _loading = false; });
+      if (mounted) {
+        setState(() {
+          _error = e.toString();
+          _loading = false;
+        });
+      }
     });
   }
 
@@ -300,7 +312,9 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
     final attempt = _currentAttempt;
     var score = 0;
     for (final q in _mcqQuestions) {
-      if (attempt.answers[q.id] == q.correct) score++;
+      if (attempt.answers[q.id] == q.correct) {
+        score++;
+      }
     }
     final submittedAt = DateTime.now();
     setState(() {
@@ -559,7 +573,7 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
           decoration: BoxDecoration(
             color: AppTheme.brandLight,
             borderRadius: BorderRadius.circular(8),
-            border: Border(left: BorderSide(color: AppTheme.brand, width: 3)),
+            border: const Border(left: BorderSide(color: AppTheme.brand, width: 3)),
           ),
           child: Text(q.verse ?? '',
               style: const TextStyle(
@@ -654,11 +668,11 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Exam Submitted',
-                          style: const TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.w700,
-                            color: AppTheme.textPrimary,
-                          )),
+        const Text('Exam Submitted',
+                           style: TextStyle(
+                             fontSize: 18, fontWeight: FontWeight.w700,
+                             color: AppTheme.textPrimary,
+                           )),
                       Text(widget.chapter?.title ?? widget.chapterSlug,
                           style: const TextStyle(
                             fontSize: 12, color: AppTheme.textMuted,
@@ -764,7 +778,7 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Icon(
+                            Icon(
                           correct ? Icons.check_circle : Icons.cancel,
                           color: correct ? AppTheme.success : AppTheme.error,
                           size: 16,
@@ -816,7 +830,7 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
                                   )),
                             ),
                             if (isAnswer)
-                              Icon(Icons.check_circle, size: 12, color: AppTheme.success),
+                              const Icon(Icons.check_circle, size: 12, color: AppTheme.success),
                           ],
                         ),
                       );

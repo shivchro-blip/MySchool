@@ -46,7 +46,7 @@ class AccordionCard extends StatelessWidget {
         boxShadow: open
             ? [
                 BoxShadow(
-                  color: const Color(0xFF4F46E5).withOpacity(0.08),
+                  color: const Color(0xFF4F46E5).withValues(alpha: 0.08),
                   blurRadius: 24,
                   offset: const Offset(0, 4),
                 ),

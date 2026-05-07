@@ -39,17 +39,29 @@ class AppTheme {
   // Utility: resolve subject name → color
   static Color subjectColor(String name) {
     final n = name.toLowerCase();
-    if (n.contains('english'))   return english;
-    if (n.contains('math'))      return maths;
-    if (n.contains('science'))   return science;
+    if (n.contains('english')) {
+      return english;
+    }
+    if (n.contains('math')) {
+      return maths;
+    }
+    if (n.contains('science')) {
+      return science;
+    }
     return const Color(0xFF6B7280);
   }
 
   static Color subjectBg(String name) {
     final n = name.toLowerCase();
-    if (n.contains('english'))   return englishBg;
-    if (n.contains('math'))      return mathsBg;
-    if (n.contains('science'))   return scienceBg;
+    if (n.contains('english')) {
+      return englishBg;
+    }
+    if (n.contains('math')) {
+      return mathsBg;
+    }
+    if (n.contains('science')) {
+      return scienceBg;
+    }
     return const Color(0xFFF3F4F6);
   }
 

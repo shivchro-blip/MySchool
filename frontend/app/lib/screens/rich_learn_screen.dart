@@ -50,7 +50,9 @@ class _RichLearnScreenState extends State<RichLearnScreen> {
 
   Future<void> _loadContent() async {
     final c = await ChapterContentService().loadContent(widget.classLevel, widget.subjectSlug, widget.chapterSlug);
-    if (!mounted) return;
+    if (!mounted) {
+      return;
+    }
     setState(() {
       _content = c;
       _loading = false;
@@ -71,20 +73,20 @@ class _RichLearnScreenState extends State<RichLearnScreen> {
     final result = List<ContentTab>.from(c.tabs);
 
     if (!result.any((t) => t.type == 'practice')) {
-      result.add(ContentTab(
-        id: 'practice', label: 'Practice', type: 'practice', blocks: const [],
+      result.add(const ContentTab(
+        id: 'practice', label: 'Practice', type: 'practice', blocks: [],
       ));
     }
     if (!result.any((t) => t.type == 'attempt-history')) {
       final practiceIdx = result.indexWhere((t) => t.type == 'practice');
-      result.insert(practiceIdx + 1, ContentTab(
+      result.insert(practiceIdx + 1, const ContentTab(
         id: 'attempt-history', label: '🕐 Attempt History',
-        type: 'attempt-history', blocks: const [],
+        type: 'attempt-history', blocks: [],
       ));
     }
     if (!result.any((t) => t.type == 'askai')) {
-      result.add(ContentTab(
-        id: 'askai', label: '🤖 Ask AI', type: 'askai', blocks: const [],
+      result.add(const ContentTab(
+        id: 'askai', label: '🤖 Ask AI', type: 'askai', blocks: [],
       ));
     }
     return result;
@@ -671,7 +673,7 @@ class _Quote extends StatelessWidget {
           ),
           child: Text(
             quote,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 14, fontStyle: FontStyle.italic,
               height: 1.65, color: AppTheme.textPrimary,
             ),
@@ -982,7 +984,9 @@ class _AskAITabState extends State<_AskAITab> {
 
   Future<void> _ask(String q) async {
     q = q.trim();
-    if (q.isEmpty) return;
+    if (q.isEmpty) {
+      return;
+    }
     _inputCtrl.clear();
     FocusScope.of(context).unfocus();
     setState(() { _loading = true; _error = ''; });
@@ -990,7 +994,9 @@ class _AskAITabState extends State<_AskAITab> {
       final res = await _learnSvc.explain(
         chapterId: _chapterId, question: q, language: _language,
       );
-      if (!mounted) return;
+      if (!mounted) {
+        return;
+      }
       setState(() {
         _messages.add(_Msg(question: q, response: res));
         _loading = false;
@@ -1005,7 +1011,9 @@ class _AskAITabState extends State<_AskAITab> {
         }
       });
     } catch (e) {
-      if (!mounted) return;
+      if (!mounted) {
+        return;
+      }
       setState(() { _error = e.toString(); _loading = false; });
     }
   }
@@ -1048,7 +1056,9 @@ class _AskAITabState extends State<_AskAITab> {
                   padding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
                   itemCount: _messages.length + (_loading ? 1 : 0),
                   itemBuilder: (_, i) {
-                    if (i == _messages.length) return _buildThinking();
+                    if (i == _messages.length) {
+                      return _buildThinking();
+                    }
                     return _MsgBubble(msg: _messages[i]);
                   },
                 ),
@@ -1384,7 +1394,12 @@ class _AttemptHistoryTabState extends State<_AttemptHistoryTab> {
         .toList()
         .reversed
         .toList();
-    if (mounted) setState(() { _sessions = parsed; _loaded = true; });
+    if (mounted) {
+      setState(() {
+        _sessions = parsed;
+        _loaded = true;
+      });
+    }
   }
 
   String _fmtDate(String iso) {

@@ -14,7 +14,7 @@ class FakeSyllabusProvider extends SyllabusProvider {
 
   FakeSyllabusProvider([List<Subject>? data]) : _data = data ?? _defaultSubjects;
 
-  static final _defaultSubjects = [
+  static const _defaultSubjects = [
     Subject(id: '1', slug: 'english', code: 'ENG',
         name: 'English', classLevel: '+1', isActive: true),
     Subject(id: '2', slug: 'maths', code: 'MATH',
@@ -38,7 +38,7 @@ class FakeUserProvider extends UserProvider {
 
   FakeUserProvider([UserProfile? profile])
       : _fakeProfile = profile ??
-            UserProfile(
+            const UserProfile(
               id: 'u1',
               fullName: 'Test Student',
               classLevel: '+1',

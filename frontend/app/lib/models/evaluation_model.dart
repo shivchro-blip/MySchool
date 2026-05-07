@@ -74,8 +74,12 @@ class EvaluationResponse {
           : '💪 Keep practising!';
 
   Color get scoreColor {
-    if (percentage >= 80) return const Color(0xFF16A34A);
-    if (percentage >= 50) return const Color(0xFFD97706);
+    if (percentage >= 80) {
+      return const Color(0xFF16A34A);
+    }
+    if (percentage >= 50) {
+      return const Color(0xFFD97706);
+    }
     return const Color(0xFFDC2626);
   }
 }

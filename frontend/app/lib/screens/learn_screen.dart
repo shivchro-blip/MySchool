@@ -46,7 +46,7 @@ class _LearnScreenState extends State<LearnScreen>
   List<Topic>   _topics   = [];
   bool          _tLoading = true;
 
-  List<_ChatMsg> _messages    = [];
+  final List<_ChatMsg> _messages = [];
   bool           _chatLoading = false;
   String         _chatError   = '';
   String         _language    = 'en';
@@ -85,9 +85,16 @@ class _LearnScreenState extends State<LearnScreen>
     super.initState();
     _tabs = TabController(length: 2, vsync: this);
     _syllSvc.getTopics(widget.chapterSlug).then((t) {
-      if (mounted) setState(() { _topics = t; _tLoading = false; });
+      if (mounted) {
+        setState(() {
+          _topics = t;
+          _tLoading = false;
+        });
+      }
     }).catchError((_) {
-      if (mounted) setState(() => _tLoading = false);
+      if (mounted) {
+        setState(() => _tLoading = false);
+      }
     });
   }
 
@@ -101,7 +108,9 @@ class _LearnScreenState extends State<LearnScreen>
 
   Future<void> _ask(String question) async {
     final q = question.trim();
-    if (q.isEmpty) return;
+    if (q.isEmpty) {
+      return;
+    }
     _inputCtrl.clear();
     FocusScope.of(context).unfocus();
     setState(() { _chatLoading = true; _chatError = ''; });
@@ -127,7 +136,12 @@ class _LearnScreenState extends State<LearnScreen>
         });
       }
     } catch (e) {
-      if (mounted) setState(() { _chatError = e.toString(); _chatLoading = false; });
+      if (mounted) {
+        setState(() {
+          _chatError = e.toString();
+          _chatLoading = false;
+        });
+      }
     }
   }
 
@@ -188,10 +202,10 @@ class _LearnScreenState extends State<LearnScreen>
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               if (ch?.number != null)
-                Text(
-                  'Chapter ${ch!.number}',
-                  style: TextStyle(
-                    color: Colors.white.withOpacity(0.75),
+              Text(
+                'Chapter ${ch!.number}',
+                style: TextStyle(
+                    color: Colors.white.withValues(alpha: 0.75),
                     fontSize: 12,
                     fontWeight: FontWeight.w600,
                     letterSpacing: 0.8,
@@ -228,7 +242,7 @@ class _LearnScreenState extends State<LearnScreen>
             child: CircularProgressIndicator(),
           ))
         else if (_topics.isNotEmpty) ...[
-          _SectionLabel('Topics in this Chapter'),
+          const _SectionLabel('Topics in this Chapter'),
           const SizedBox(height: 10),
           ..._topics.asMap().entries.map((e) => Padding(
             padding: const EdgeInsets.only(bottom: 8),
@@ -248,7 +262,7 @@ class _LearnScreenState extends State<LearnScreen>
         ],
 
         // Study guide
-        _SectionLabel('Study Guide'),
+        const _SectionLabel('Study Guide'),
         const SizedBox(height: 10),
         _StudyGuideCard(contentType: widget.chapter?.contentType ?? 'prose'),
         const SizedBox(height: 20),
@@ -258,16 +272,16 @@ class _LearnScreenState extends State<LearnScreen>
           onTap: () => _tabs.animateTo(1),
           child: Container(
             padding: const EdgeInsets.all(16),
-            decoration: BoxDecoration(
+                    decoration: BoxDecoration(
               color: AppTheme.brand.withAlpha(15),
               borderRadius: BorderRadius.circular(14),
               border: Border.all(color: AppTheme.brand.withAlpha(60)),
             ),
-            child: Row(
+            child: const Row(
               children: [
-                const Text('🤖', style: TextStyle(fontSize: 22)),
-                const SizedBox(width: 12),
-                const Expanded(
+                Text('🤖', style: TextStyle(fontSize: 22)),
+                SizedBox(width: 12),
+                Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -348,9 +362,11 @@ class _LearnScreenState extends State<LearnScreen>
               : ListView.builder(
                   controller: _scrollCtrl,
                   padding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
-                  itemCount: _messages.length + (_chatLoading ? 1 : 0),
-                  itemBuilder: (ctx, i) {
-                    if (i == _messages.length) return _buildThinking();
+                itemCount: _messages.length + (_chatLoading ? 1 : 0),
+                itemBuilder: (ctx, i) {
+                    if (i == _messages.length) {
+                      return _buildThinking();
+                    }
                     return _ChatBubble(msg: _messages[i]);
                   },
                 ),
@@ -527,9 +543,9 @@ class _ChatBubble extends StatelessWidget {
               Flexible(
                 child: Container(
                   padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color:        AppTheme.brand,
-                    borderRadius: const BorderRadius.only(
+                    borderRadius: BorderRadius.only(
                       topLeft:     Radius.circular(14),
                       topRight:    Radius.circular(4),
                       bottomLeft:  Radius.circular(14),
@@ -676,7 +692,7 @@ class _ChatBubble extends StatelessWidget {
                         _Badge(label: r.modelUsed, color: AppTheme.brand),
                         if (r.cached) ...[
                           const SizedBox(width: 6),
-                          _Badge(label: 'cached', color: AppTheme.success),
+                          const _Badge(label: 'cached', color: AppTheme.success),
                         ],
                         if (r.sourceChunks > 0) ...[
                           const SizedBox(width: 6),

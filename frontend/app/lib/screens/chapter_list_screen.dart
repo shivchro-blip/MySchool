@@ -560,7 +560,7 @@ class _ChapterTile extends StatelessWidget {
                   ],
                 ),
               ),
-              Icon(Icons.chevron_right, color: AppTheme.textMuted, size: 18),
+              const Icon(Icons.chevron_right, color: AppTheme.textMuted, size: 18),
             ],
           ),
         ),

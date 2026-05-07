@@ -31,12 +31,27 @@ class _DashboardScreenState extends State<DashboardScreen> {
   }
 
   Future<void> _loadProgress() async {
-    if (mounted) setState(() { _progressLoading = true; _progressError = null; });
+    if (mounted) {
+      setState(() {
+        _progressLoading = true;
+        _progressError = null;
+      });
+    }
     try {
       final p = await _evalSvc.getProgress();
-      if (mounted) setState(() { _progress = p; _progressLoading = false; });
+      if (mounted) {
+        setState(() {
+          _progress = p;
+          _progressLoading = false;
+        });
+      }
     } catch (e) {
-      if (mounted) setState(() { _progressLoading = false; _progressError = e.toString(); });
+      if (mounted) {
+        setState(() {
+          _progressLoading = false;
+          _progressError = e.toString();
+        });
+      }
     }
   }
 
@@ -50,8 +65,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
       body: RefreshIndicator(
         color: AppTheme.brand,
         onRefresh: () async {
-          await context.read<UserProvider>().load();
-          await context.read<SyllabusProvider>().load();
+          final userProvider = context.read<UserProvider>();
+          final syllabusProvider = context.read<SyllabusProvider>();
+          await userProvider.load();
+          await syllabusProvider.load();
           await _loadProgress();
         },
         child: ListView(
@@ -116,7 +133,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 Text(
                   'Welcome back,',
                   style: TextStyle(
-                    color: Colors.white.withOpacity(0.7),
+                    color: Colors.white.withValues(alpha: 0.7),
                     fontSize: 13,
                   ),
                 ),
@@ -135,7 +152,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     padding: const EdgeInsets.symmetric(
                         horizontal: 10, vertical: 3),
                     decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.15),
+                      color: Colors.white.withValues(alpha: 0.15),
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Text(
@@ -154,7 +171,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
           Container(
             width: 48, height: 48,
             decoration: BoxDecoration(
-              color:  Colors.white.withOpacity(0.15),
+              color:  Colors.white.withValues(alpha: 0.15),
               shape:  BoxShape.circle,
             ),
             child: const Icon(Icons.person_outline,

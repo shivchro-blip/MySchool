@@ -244,6 +244,26 @@ class SyllabusConfig {
             contentType: 'supplementary'),
       ],
     ),
+    UnitConfig(
+      id: 4,
+      title: 'Unit 4',
+      color: Color(0xFFa06cd5),
+      light: Color(0xFFf2ebfc),
+      lessons: [
+        UnitLesson(
+            slug: 'the-summit',
+            title: 'The Summit',
+            contentType: 'prose'),
+        UnitLesson(
+            slug: 'ulysses',
+            title: 'Ulysses',
+            contentType: 'poem'),
+        UnitLesson(
+            slug: 'the-midnight-visitor',
+            title: 'The Midnight Visitor',
+            contentType: 'supplementary'),
+      ],
+    ),
   ];
 
   static List<UnitConfig>? getUnits(String classLevel, String subjectSlug) {

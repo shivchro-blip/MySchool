@@ -15,7 +15,9 @@ class UserProvider extends ChangeNotifier {
   String?      get error   => _error;
 
   Future<void> loadIfNeeded() async {
-    if (_profile != null) return;
+    if (_profile != null) {
+      return;
+    }
     await load();
   }
 

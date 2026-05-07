@@ -31,13 +31,19 @@ class _LoginScreenState extends State<LoginScreen> {
     setState(() { _loading = true; _error = ''; });
 
     try {
-      if (!_isLogin) await _auth.signupWithEmail(email, password);
+      if (!_isLogin) {
+        await _auth.signupWithEmail(email, password);
+      }
       await _auth.loginWithEmail(email, password);
-      if (mounted) context.go('/');
+      if (mounted) {
+        context.go('/');
+      }
     } catch (e) {
       setState(() => _error = e.toString().replaceFirst('Exception: ', ''));
     } finally {
-      if (mounted) setState(() => _loading = false);
+      if (mounted) {
+        setState(() => _loading = false);
+      }
     }
   }
 

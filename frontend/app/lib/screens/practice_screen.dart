@@ -64,7 +64,12 @@ class _PracticeScreenState extends State<PracticeScreen> {
     try {
       final qs = await _syllSvc.getQuestions(widget.chapterSlug);
       if (qs.isNotEmpty) {
-        if (mounted) setState(() { _questions = qs; _qLoading = false; });
+        if (mounted) {
+          setState(() {
+            _questions = qs;
+            _qLoading = false;
+          });
+        }
         return;
       }
     } catch (_) {}
@@ -88,9 +93,19 @@ class _PracticeScreenState extends State<PracticeScreen> {
           isValidated:  false,
         );
       }).toList();
-      if (mounted) setState(() { _questions = synths; _qLoading = false; });
+      if (mounted) {
+        setState(() {
+          _questions = synths;
+          _qLoading = false;
+        });
+      }
     } catch (e) {
-      if (mounted) setState(() { _error = e.toString(); _qLoading = false; });
+      if (mounted) {
+        setState(() {
+          _error = e.toString();
+          _qLoading = false;
+        });
+      }
     }
   }
 
@@ -136,7 +151,9 @@ class _PracticeScreenState extends State<PracticeScreen> {
     } catch (e) {
       setState(() => _error = e.toString());
     } finally {
-      if (mounted) setState(() => _loading = false);
+      if (mounted) {
+        setState(() => _loading = false);
+      }
     }
   }
 
@@ -156,7 +173,9 @@ class _PracticeScreenState extends State<PracticeScreen> {
     } catch (e) {
       setState(() => _error = e.toString());
     } finally {
-      if (mounted) setState(() => _loading = false);
+      if (mounted) {
+        setState(() => _loading = false);
+      }
     }
   }
 
@@ -215,7 +234,7 @@ class _PracticeScreenState extends State<PracticeScreen> {
         decoration: BoxDecoration(
           color: AppTheme.brand.withAlpha(15),
           borderRadius: BorderRadius.circular(10),
-          border: Border(
+          border: const Border(
             left: BorderSide(color: AppTheme.brand, width: 3),
           ),
         ),
@@ -409,7 +428,7 @@ class _PracticeScreenState extends State<PracticeScreen> {
           decoration: BoxDecoration(
             color: AppTheme.brand.withAlpha(15),
             borderRadius: BorderRadius.circular(10),
-            border: Border(left: BorderSide(color: AppTheme.brand, width: 3)),
+            border: const Border(left: BorderSide(color: AppTheme.brand, width: 3)),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -520,7 +539,7 @@ class _PartHeader extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppTheme.brand.withAlpha(15),
         borderRadius: BorderRadius.circular(8),
-        border: Border(
+        border: const Border(
           left: BorderSide(color: AppTheme.brand, width: 3),
         ),
       ),

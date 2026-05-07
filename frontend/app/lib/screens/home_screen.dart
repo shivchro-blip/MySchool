@@ -77,7 +77,9 @@ class _HomeScreenState extends State<HomeScreen> {
     try {
       final subjects = await _svc.getSubjects();
       setState(() { _subjects = subjects; _loading = false; });
-      if (subjects.isNotEmpty) _loadChapters(subjects.first);
+      if (subjects.isNotEmpty) {
+        _loadChapters(subjects.first);
+      }
     } catch (e) {
       setState(() { _error = e.toString(); _loading = false; });
     }
@@ -202,7 +204,7 @@ class _HomeScreenState extends State<HomeScreen> {
           Text(
             '${_selected?.classLevel == '+2' ? 'CLASS XII' : 'CLASS XI'} · TAMIL NADU STATE BOARD',
             style: TextStyle(
-              color: Colors.white.withOpacity(0.6),
+              color: Colors.white.withValues(alpha: 0.6),
               fontSize: 10, fontWeight: FontWeight.w600, letterSpacing: 1.2,
             ),
           ),
@@ -216,7 +218,7 @@ class _HomeScreenState extends State<HomeScreen> {
           const SizedBox(height: 4),
           Text(
             '$unitCount Units · Prose, Poetry & Supplementary',
-            style: TextStyle(color: Colors.white.withOpacity(0.65), fontSize: 12),
+            style: TextStyle(color: Colors.white.withValues(alpha: 0.65), fontSize: 12),
           ),
           const SizedBox(height: 14),
           Row(
@@ -236,10 +238,10 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _heroStat(String num, String label) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
-      decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.12),
+        decoration: BoxDecoration(
+        color: Colors.white.withValues(alpha: 0.12),
         borderRadius: BorderRadius.circular(10),
-        border: Border.all(color: Colors.white.withOpacity(0.15)),
+        border: Border.all(color: Colors.white.withValues(alpha: 0.15)),
       ),
       child: Column(
         children: [
@@ -247,7 +249,7 @@ class _HomeScreenState extends State<HomeScreen> {
             color: Colors.white, fontSize: 18, fontWeight: FontWeight.w700,
           )),
           Text(label, style: TextStyle(
-            color: Colors.white.withOpacity(0.6), fontSize: 10, fontWeight: FontWeight.w500,
+            color: Colors.white.withValues(alpha: 0.6), fontSize: 10, fontWeight: FontWeight.w500,
           )),
         ],
       ),
@@ -402,7 +404,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   minimumSize: const Size(72, 30),
                   padding: const EdgeInsets.symmetric(horizontal: 8),
                   textStyle: const TextStyle(fontSize: 11, fontWeight: FontWeight.w600),
-                  side: BorderSide(color: badgeFg.withOpacity(0.5)),
+                  side: BorderSide(color: badgeFg.withValues(alpha: 0.5)),
                   foregroundColor: badgeFg,
                 ),
                 child: const Text('Learn'),

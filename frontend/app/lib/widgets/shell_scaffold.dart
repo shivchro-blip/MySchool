@@ -14,13 +14,19 @@ class ShellScaffold extends StatelessWidget {
 
   int _activeIndex(BuildContext context) {
     final loc = GoRouterState.of(context).uri.toString();
-    if (loc.startsWith('/courses'))    return 1;
-    if (loc.startsWith('/progress'))   return 2;
+    if (loc.startsWith('/courses')) {
+      return 1;
+    }
+    if (loc.startsWith('/progress')) {
+      return 2;
+    }
     // Content pages are reached from Courses — keep that tab highlighted
     if (loc.startsWith('/learn/')      ||
         loc.startsWith('/rich-learn/') ||
         loc.startsWith('/practice/')   ||
-        loc.startsWith('/exam/'))      return 1;
+        loc.startsWith('/exam/')) {
+      return 1;
+    }
     return 0;
   }
 
@@ -36,7 +42,9 @@ class ShellScaffold extends StatelessWidget {
         child: BottomNavigationBar(
           currentIndex: idx,
           onTap: (i) {
-            if (i != idx) context.go(_tabs[i].path);
+            if (i != idx) {
+              context.go(_tabs[i].path);
+            }
           },
           items: _tabs.map((t) => BottomNavigationBarItem(
             icon:       Icon(t.icon),

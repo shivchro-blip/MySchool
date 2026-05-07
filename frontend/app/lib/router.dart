@@ -19,11 +19,17 @@ final router = GoRouter(
   initialLocation: '/dashboard',
   redirect: (context, state) async {
     // Redirect old root path to dashboard
-    if (state.matchedLocation == '/') return '/dashboard';
+    if (state.matchedLocation == '/') {
+      return '/dashboard';
+    }
     final loggedIn  = await AuthService().isLoggedIn();
     final onLogin   = state.matchedLocation == '/login';
-    if (!loggedIn && !onLogin) return '/login';
-    if (loggedIn  && onLogin)  return '/dashboard';
+    if (!loggedIn && !onLogin) {
+      return '/login';
+    }
+    if (loggedIn  && onLogin)  {
+      return '/dashboard';
+    }
     return null;
   },
   routes: [

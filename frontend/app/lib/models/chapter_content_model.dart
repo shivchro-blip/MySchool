@@ -68,7 +68,9 @@ class ContentTab {
   String get emoji {
     final s = label.trim();
     final rune = s.runes.first;
-    if (rune > 127) return String.fromCharCodes([rune]);
+    if (rune > 127) {
+      return String.fromCharCodes([rune]);
+    }
     return '';
   }
 }

@@ -15,7 +15,9 @@ class ChapterContentService {
     String chapterSlug,
   ) async {
     final cacheKey = '$classLevel/$subjectSlug/$chapterSlug';
-    if (_cache.containsKey(cacheKey)) return _cache[cacheKey];
+    if (_cache.containsKey(cacheKey)) {
+      return _cache[cacheKey];
+    }
     try {
       final folder = _toAssetFolder(classLevel, subjectSlug);
       final raw = await rootBundle.loadString(

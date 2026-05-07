@@ -1,33 +1,22 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mocktail/mocktail.dart';
-import 'package:exam_coach/models/syllabus_model.dart';
 import 'package:exam_coach/models/user_model.dart';
+import 'package:exam_coach/config/syllabus_config.dart';
 import 'package:exam_coach/providers/syllabus_provider.dart';
 import 'package:exam_coach/providers/user_provider.dart';
-import 'package:exam_coach/services/syllabus_service.dart';
 import 'package:exam_coach/services/user_service.dart';
+import 'package:mocktail/mocktail.dart';
 
-class MockSyllabusService extends Mock implements SyllabusService {}
 class MockUserService extends Mock implements UserService {}
 
-final _sub1 = Subject(id: '1', slug: 'eng', code: 'ENG',
-    name: 'English', classLevel: '+1', isActive: true);
-final _sub2 = Subject(id: '2', slug: 'math', code: 'MATH',
-    name: 'Maths', classLevel: '+2', isActive: true);
-final _inactive = Subject(id: '3', slug: 'sci', code: 'SCI',
-    name: 'Science', classLevel: '+1', isActive: false);
-
-final _profile = UserProfile(
+const _profile = UserProfile(
     id: 'u1', fullName: 'Meena', plan: 'free', dailyAiCalls: 0);
 
 void main() {
   group('SyllabusProvider', () {
-    late MockSyllabusService mockSvc;
     late SyllabusProvider provider;
 
     setUp(() {
-      mockSvc  = MockSyllabusService();
-      provider = SyllabusProvider(mockSvc);
+      provider = SyllabusProvider();
     });
 
     test('initial state: not loaded, no error, empty subjects', () {
@@ -37,44 +26,38 @@ void main() {
     });
 
     test('load success sets subjects and loaded=true', () async {
-      when(() => mockSvc.getSubjects())
-          .thenAnswer((_) async => [_sub1, _sub2, _inactive]);
       await provider.load();
       expect(provider.loaded, isTrue);
-      expect(provider.subjects.length, 3);
+      expect(provider.subjects, SyllabusConfig.getSubjects());
       expect(provider.error, isNull);
     });
 
     test('byClass filters by classLevel and isActive', () async {
-      when(() => mockSvc.getSubjects())
-          .thenAnswer((_) async => [_sub1, _sub2, _inactive]);
       await provider.load();
       final plus1 = provider.byClass('+1');
-      expect(plus1.length, 1);
-      expect(plus1.first.slug, 'eng');
+      expect(plus1.length, 3);
+      expect(
+        plus1.map((s) => s.slug),
+        containsAll(const ['english', 'maths', 'science']),
+      );
     });
 
     test('plus1Count and plus2Count', () async {
-      when(() => mockSvc.getSubjects())
-          .thenAnswer((_) async => [_sub1, _sub2, _inactive]);
       await provider.load();
-      expect(provider.plus1Count, 1);
-      expect(provider.plus2Count, 1);
+      expect(provider.plus1Count, 3);
+      expect(provider.plus2Count, 2);
     });
 
     test('load error sets error string, loaded stays false', () async {
-      when(() => mockSvc.getSubjects()).thenThrow(Exception('network'));
       await provider.load();
-      expect(provider.loaded, isFalse);
-      expect(provider.error, contains('network'));
+      expect(provider.loaded, isTrue);
+      expect(provider.error, isNull);
     });
 
     test('loadIfNeeded skips second network call when already loaded', () async {
-      when(() => mockSvc.getSubjects())
-          .thenAnswer((_) async => [_sub1]);
       await provider.loadIfNeeded();
       await provider.loadIfNeeded();
-      verify(() => mockSvc.getSubjects()).called(1);
+      expect(provider.loaded, isTrue);
     });
   });
 

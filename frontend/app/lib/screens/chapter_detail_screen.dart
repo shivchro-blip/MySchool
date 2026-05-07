@@ -34,8 +34,13 @@ class _ChapterDetailScreenState extends State<ChapterDetailScreen> {
 
   Future<void> _checkContent() async {
     final c = await ChapterContentService().loadContent(widget.classLevel, widget.subjectSlug, widget.chapterSlug);
-    if (!mounted) return;
-    setState(() { _hasContent = c != null; _checked = true; });
+    if (!mounted) {
+      return;
+    }
+    setState(() {
+      _hasContent = c != null;
+      _checked = true;
+    });
   }
 
   void _goRich(String tabId) => context.push(
@@ -65,8 +70,8 @@ class _ChapterDetailScreenState extends State<ChapterDetailScreen> {
                 _ChapterInfoCard(chapter: ch, slug: widget.chapterSlug),
                 const SizedBox(height: 20),
 
-                Text('Choose a section to begin',
-                    style: const TextStyle(
+                const Text('Choose a section to begin',
+                    style: TextStyle(
                       fontSize: 12, fontWeight: FontWeight.w600,
                       color: AppTheme.textMuted, letterSpacing: 0.3,
                     )),

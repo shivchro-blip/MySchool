@@ -16,13 +16,15 @@ class ApiService {
   factory ApiService() => _instance;
   ApiService._();
 
-  final _timeout = Duration(seconds: AppConfig.requestTimeoutSeconds);
+  final _timeout = const Duration(seconds: AppConfig.requestTimeoutSeconds);
 
   Future<Map<String, String>> _headers({bool auth = true}) async {
     final headers = {'Content-Type': 'application/json'};
     if (auth) {
       final token = await AuthService().getToken();
-      if (token != null) headers['Authorization'] = 'Bearer $token';
+      if (token != null) {
+        headers['Authorization'] = 'Bearer $token';
+      }
     }
     return headers;
   }
@@ -65,7 +67,9 @@ class ApiService {
 
   dynamic _handle(http.Response res) {
     if (res.statusCode >= 200 && res.statusCode < 300) {
-      if (res.body.isEmpty) return null;
+      if (res.body.isEmpty) {
+        return null;
+      }
       return jsonDecode(res.body);
     }
     if (res.statusCode == 401) {

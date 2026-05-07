@@ -18,7 +18,9 @@ class SyllabusProvider extends ChangeNotifier {
   int get plus2Count => byClass('+2').length;
 
   Future<void> loadIfNeeded() async {
-    if (_loaded) return;
+    if (_loaded) {
+      return;
+    }
     await load();
   }
 

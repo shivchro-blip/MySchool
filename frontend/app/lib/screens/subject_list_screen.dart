@@ -95,9 +95,15 @@ class _SubjectCardState extends State<_SubjectCard> {
 
   static IconData _iconFor(String name) {
     final n = name.toLowerCase();
-    if (n.contains('english'))  return Icons.menu_book_outlined;
-    if (n.contains('math'))     return Icons.calculate_outlined;
-    if (n.contains('science'))  return Icons.science_outlined;
+    if (n.contains('english')) {
+      return Icons.menu_book_outlined;
+    }
+    if (n.contains('math')) {
+      return Icons.calculate_outlined;
+    }
+    if (n.contains('science')) {
+      return Icons.science_outlined;
+    }
     return Icons.book_outlined;
   }
 
