@@ -170,16 +170,16 @@ class SyllabusConfig {
       light: Color(0xFFfdeaec),
       lessons: [
         UnitLesson(
-            slug: 'the-accidental-tourist',
-            title: 'The Accidental Tourist',
+            slug: 'on-the-rule-of-the-road',
+            title: 'On the Rule of the Road',
             contentType: 'prose'),
         UnitLesson(
-            slug: 'the-hollow-crown',
-            title: 'The Hollow Crown',
+            slug: 'incident-of-the-french-camp',
+            title: 'Incident of the French Camp',
             contentType: 'poem'),
         UnitLesson(
-            slug: 'the-never-never-nest',
-            title: 'The Never Never Nest',
+            slug: 'remember-caesar',
+            title: 'Remember Caesar',
             contentType: 'supplementary'),
       ],
     ),
