@@ -163,26 +163,6 @@ class SyllabusConfig {
             contentType: 'supplementary'),
       ],
     ),
-    UnitConfig(
-      id: 6,
-      title: 'Unit 6',
-      color: Color(0xFFd45c6a),
-      light: Color(0xFFfdeaec),
-      lessons: [
-        UnitLesson(
-            slug: 'on-the-rule-of-the-road',
-            title: 'On the Rule of the Road',
-            contentType: 'prose'),
-        UnitLesson(
-            slug: 'incident-of-the-french-camp',
-            title: 'Incident of the French Camp',
-            contentType: 'poem'),
-        UnitLesson(
-            slug: 'remember-caesar',
-            title: 'Remember Caesar',
-            contentType: 'supplementary'),
-      ],
-    ),
   ];
 
   static const _plus2English = [
@@ -281,6 +261,26 @@ class SyllabusConfig {
         UnitLesson(
             slug: 'all-summer-in-a-day',
             title: 'All Summer in a Day',
+            contentType: 'supplementary'),
+      ],
+    ),
+    UnitConfig(
+      id: 6,
+      title: 'Unit 6',
+      color: Color(0xFFd45c6a),
+      light: Color(0xFFfdeaec),
+      lessons: [
+        UnitLesson(
+            slug: 'on-the-rule-of-the-road',
+            title: 'On the Rule of the Road',
+            contentType: 'prose'),
+        UnitLesson(
+            slug: 'incident-of-the-french-camp',
+            title: 'Incident of the French Camp',
+            contentType: 'poem'),
+        UnitLesson(
+            slug: 'remember-caesar',
+            title: 'Remember Caesar',
             contentType: 'supplementary'),
       ],
     ),
