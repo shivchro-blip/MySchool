@@ -153,14 +153,13 @@ class _LearnScreenState extends State<LearnScreen>
     final title = ch?.title ?? 'Learn';
 
     return Scaffold(
-      backgroundColor: AppTheme.surface,
       appBar: AppBar(
         title: Text(title, overflow: TextOverflow.ellipsis),
         bottom: TabBar(
           controller: _tabs,
           indicatorColor: AppTheme.brand,
           labelColor:     AppTheme.brand,
-          unselectedLabelColor: AppTheme.textMuted,
+          unselectedLabelColor: AppTheme.textMutedOf(context),
           tabs: const [
             Tab(text: 'Overview'),
             Tab(text: 'Ask AI'),
@@ -272,31 +271,32 @@ class _LearnScreenState extends State<LearnScreen>
           onTap: () => _tabs.animateTo(1),
           child: Container(
             padding: const EdgeInsets.all(16),
-                    decoration: BoxDecoration(
+            decoration: BoxDecoration(
               color: AppTheme.brand.withAlpha(15),
               borderRadius: BorderRadius.circular(14),
               border: Border.all(color: AppTheme.brand.withAlpha(60)),
             ),
-            child: const Row(
+            child: Row(
               children: [
-                Text('🤖', style: TextStyle(fontSize: 22)),
-                SizedBox(width: 12),
+                const Text('🤖', style: TextStyle(fontSize: 22)),
+                const SizedBox(width: 12),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Ask AI about this chapter',
+                      const Text('Ask AI about this chapter',
                           style: TextStyle(
                             fontSize: 14, fontWeight: FontWeight.w700,
                             color: AppTheme.brand,
                           )),
-                      SizedBox(height: 2),
+                      const SizedBox(height: 2),
                       Text('Get explanations, key points, and exam tips',
-                          style: TextStyle(fontSize: 12, color: AppTheme.textMuted)),
+                          style: TextStyle(fontSize: 12,
+                              color: AppTheme.textMutedOf(context))),
                     ],
                   ),
                 ),
-                Icon(Icons.arrow_forward_ios, size: 14, color: AppTheme.brand),
+                const Icon(Icons.arrow_forward_ios, size: 14, color: AppTheme.brand),
               ],
             ),
           ),
@@ -331,12 +331,13 @@ class _LearnScreenState extends State<LearnScreen>
 
         // Language toggle bar
         Container(
-          color:   Colors.white,
+          color:   AppTheme.cardOf(context),
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           child: Row(
             children: [
-              const Text('Explain in:',
-                  style: TextStyle(fontSize: 12, color: AppTheme.textMuted)),
+              Text('Explain in:',
+                  style: TextStyle(fontSize: 12,
+                      color: AppTheme.textMutedOf(context))),
               const SizedBox(width: 10),
               SegmentedButton<String>(
                 segments: const [
@@ -389,19 +390,19 @@ class _LearnScreenState extends State<LearnScreen>
     return ListView(
       padding: const EdgeInsets.fromLTRB(16, 20, 16, 12),
       children: [
-        const Center(
+        Center(
           child: Column(
             children: [
-              Text('🤖', style: TextStyle(fontSize: 40)),
-              SizedBox(height: 8),
-              Text('Ask AI about this chapter',
+              const Text('🤖', style: TextStyle(fontSize: 40)),
+              const SizedBox(height: 8),
+              const Text('Ask AI about this chapter',
                   style: TextStyle(
                     fontSize: 16, fontWeight: FontWeight.w700,
-                    color: AppTheme.textPrimary,
                   )),
-              SizedBox(height: 4),
+              const SizedBox(height: 4),
               Text('Tap a question below or type your own',
-                  style: TextStyle(fontSize: 12, color: AppTheme.textMuted)),
+                  style: TextStyle(fontSize: 12,
+                      color: AppTheme.textMutedOf(context))),
             ],
           ),
         ),
@@ -413,9 +414,9 @@ class _LearnScreenState extends State<LearnScreen>
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
               decoration: BoxDecoration(
-                color:        Colors.white,
+                color:        AppTheme.cardOf(context),
                 borderRadius: BorderRadius.circular(12),
-                border:       Border.all(color: AppTheme.border),
+                border:       Border.all(color: AppTheme.borderOf(context)),
               ),
               child: Row(
                 children: [
@@ -423,12 +424,10 @@ class _LearnScreenState extends State<LearnScreen>
                   const SizedBox(width: 10),
                   Expanded(
                     child: Text(q,
-                        style: const TextStyle(
-                          fontSize: 13, color: AppTheme.textPrimary,
-                        )),
+                        style: const TextStyle(fontSize: 13)),
                   ),
-                  const Icon(Icons.arrow_forward_ios,
-                      size: 12, color: AppTheme.textMuted),
+                  Icon(Icons.arrow_forward_ios,
+                      size: 12, color: AppTheme.textMutedOf(context)),
                 ],
               ),
             ),
@@ -483,7 +482,7 @@ class _LearnScreenState extends State<LearnScreen>
 
   Widget _buildInput() {
     return Container(
-      color: Colors.white,
+      color: AppTheme.cardOf(context),
       padding: EdgeInsets.only(
         left: 16, right: 16, top: 8,
         bottom: MediaQuery.of(context).viewInsets.bottom + 12,
@@ -586,20 +585,18 @@ class _ChatBubble extends StatelessWidget {
                     Container(
                       padding: const EdgeInsets.all(14),
                       decoration: BoxDecoration(
-                        color:        Colors.white,
+                        color:        AppTheme.cardOf(context),
                         borderRadius: const BorderRadius.only(
                           topLeft:     Radius.circular(4),
                           topRight:    Radius.circular(14),
                           bottomLeft:  Radius.circular(14),
                           bottomRight: Radius.circular(14),
                         ),
-                        border: Border.all(color: AppTheme.border),
+                        border: Border.all(color: AppTheme.borderOf(context)),
                       ),
                       child: Text(
                         r.explanation,
-                        style: const TextStyle(
-                          fontSize: 13, height: 1.6, color: AppTheme.textPrimary,
-                        ),
+                        style: const TextStyle(fontSize: 13, height: 1.6),
                       ),
                     ),
 
@@ -609,17 +606,18 @@ class _ChatBubble extends StatelessWidget {
                       Container(
                         padding: const EdgeInsets.all(12),
                         decoration: BoxDecoration(
-                          color:        const Color(0xFFF0FDF4),
+                          color:        AppTheme.successBgOf(context),
                           borderRadius: BorderRadius.circular(10),
-                          border: Border.all(color: const Color(0xFFBBF7D0)),
+                          border: Border.all(color: AppTheme.successBorderOf(context)),
                         ),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text('Key Points',
+                            Text('Key Points',
                                 style: TextStyle(
                                   fontSize: 11, fontWeight: FontWeight.w700,
-                                  color: Color(0xFF15803D), letterSpacing: 0.5,
+                                  color: AppTheme.successFgOf(context),
+                                  letterSpacing: 0.5,
                                 )),
                             const SizedBox(height: 6),
                             ...r.keyPoints.map((pt) => Padding(
@@ -627,16 +625,17 @@ class _ChatBubble extends StatelessWidget {
                               child: Row(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  const Text('✓ ',
+                                  Text('✓ ',
                                       style: TextStyle(
-                                        color: Color(0xFF15803D),
+                                        color: AppTheme.successFgOf(context),
                                         fontWeight: FontWeight.w700,
                                         fontSize: 12,
                                       )),
                                   Expanded(
                                     child: Text(pt,
-                                        style: const TextStyle(
-                                          fontSize: 12, color: Color(0xFF166534),
+                                        style: TextStyle(
+                                          fontSize: 12,
+                                          color: AppTheme.successFgOf(context),
                                         )),
                                   ),
                                 ],
@@ -653,9 +652,9 @@ class _ChatBubble extends StatelessWidget {
                       Container(
                         padding: const EdgeInsets.all(12),
                         decoration: BoxDecoration(
-                          color: const Color(0xFFFFFBEB),
+                          color: AppTheme.warningBgOf(context),
                           borderRadius: BorderRadius.circular(10),
-                          border: Border.all(color: const Color(0xFFFDE68A)),
+                          border: Border.all(color: AppTheme.warningBorderOf(context)),
                         ),
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -666,15 +665,16 @@ class _ChatBubble extends StatelessWidget {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  const Text('Exam Tip',
+                                  Text('Exam Tip',
                                       style: TextStyle(
                                         fontSize: 11, fontWeight: FontWeight.w700,
-                                        color: Color(0xFF92400E),
+                                        color: AppTheme.warningFgOf(context),
                                       )),
                                   const SizedBox(height: 3),
                                   Text(r.examTip,
-                                      style: const TextStyle(
-                                        fontSize: 12, color: Color(0xFF78350F),
+                                      style: TextStyle(
+                                        fontSize: 12,
+                                        color: AppTheme.warningFgOf(context),
                                         fontStyle: FontStyle.italic,
                                       )),
                                 ],
@@ -760,9 +760,9 @@ class _SectionLabel extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Text(
     text,
-    style: const TextStyle(
+    style: TextStyle(
       fontSize: 13, fontWeight: FontWeight.w700,
-      color: AppTheme.textSecondary,
+      color: AppTheme.text2Of(context),
     ),
   );
 }
@@ -784,9 +784,9 @@ class _TopicCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color:        Colors.white,
+        color:        AppTheme.cardOf(context),
         borderRadius: BorderRadius.circular(10),
-        border:       Border.all(color: AppTheme.border),
+        border:       Border.all(color: AppTheme.borderOf(context)),
       ),
       child: Row(
         children: [
@@ -807,7 +807,6 @@ class _TopicCard extends StatelessWidget {
             child: Text(title,
                 style: const TextStyle(
                   fontSize: 13, fontWeight: FontWeight.w500,
-                  color: AppTheme.textPrimary,
                 )),
           ),
           GestureDetector(
@@ -860,9 +859,9 @@ class _StudyGuideCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
-        color:        Colors.white,
+        color:        AppTheme.cardOf(context),
         borderRadius: BorderRadius.circular(12),
-        border:       Border.all(color: AppTheme.border),
+        border:       Border.all(color: AppTheme.borderOf(context)),
       ),
       child: Column(
         children: _tips.map((t) => Padding(
@@ -873,15 +872,17 @@ class _StudyGuideCard extends StatelessWidget {
               SizedBox(
                 width: 100,
                 child: Text(t.$1,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 12, fontWeight: FontWeight.w700,
-                      color: AppTheme.textSecondary,
+                      color: AppTheme.text2Of(context),
                     )),
               ),
               Expanded(
                 child: Text(t.$2,
-                    style: const TextStyle(
-                      fontSize: 12, color: AppTheme.textMuted, height: 1.4,
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: AppTheme.textMutedOf(context),
+                      height: 1.4,
                     )),
               ),
             ],
@@ -912,7 +913,7 @@ class _QuickNavCard extends StatelessWidget {
     child: Container(
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
-        color:        Colors.white,
+        color:        AppTheme.cardOf(context),
         borderRadius: BorderRadius.circular(12),
         border:       Border.all(color: color.withAlpha(60)),
       ),
@@ -937,8 +938,8 @@ class _QuickNavCard extends StatelessWidget {
                       color: color.withAlpha(220),
                     )),
                 Text(subtitle,
-                    style: const TextStyle(
-                      fontSize: 11, color: AppTheme.textMuted,
+                    style: TextStyle(
+                      fontSize: 11, color: AppTheme.textMutedOf(context),
                     )),
               ],
             ),

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import '../config/theme.dart';
 import '../models/syllabus_model.dart';
 import '../services/syllabus_service.dart';
 import '../widgets/accordion_card.dart';
 import '../widgets/error_view.dart';
+import '../widgets/theme_toggle.dart';
 
 // TN Board +1 English: unit colors (index = unitNumber - 1)
 const _kStripeColors = [
@@ -28,7 +30,6 @@ const _kUnitThemes = [
   'Travel · Mortality · Greed',
 ];
 
-// Chapter-level metadata keyed by chapter number (1–18)
 const _kChapterAuthors = <int, String>{
   1: 'Khushwant Singh',    2: 'Gabriel Okara',       3: 'O. Henry',
   4: 'Mary Kom M.C.',      5: 'Ogden Nash',           6: 'Saki',
@@ -38,7 +39,6 @@ const _kChapterAuthors = <int, String>{
   16: 'Bill Bryson',       17: 'William Shakespeare', 18: '—',
 };
 
-// Chapters 3/6/12/15 are Supplementary; 9/18 are Play; rest follow content_type
 const _kDisplayTypes = <int, String>{
   1: 'Prose',  2: 'Poem',  3: 'Supplementary',
   4: 'Prose',  5: 'Poem',  6: 'Supplementary',
@@ -77,9 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
     try {
       final subjects = await _svc.getSubjects();
       setState(() { _subjects = subjects; _loading = false; });
-      if (subjects.isNotEmpty) {
-        _loadChapters(subjects.first);
-      }
+      if (subjects.isNotEmpty) _loadChapters(subjects.first);
     } catch (e) {
       setState(() { _error = e.toString(); _loading = false; });
     }
@@ -95,7 +93,6 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
-  // Group chapters into units of 3 by chapter number
   Map<int, List<Chapter>> get _units {
     final map = <int, List<Chapter>>{};
     for (final ch in _chapters) {
@@ -115,20 +112,15 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final units = _units;
     return Scaffold(
-      backgroundColor: const Color(0xFFF5F6FA),
       appBar: AppBar(
         title: const Text('AI Exam Coach'),
-        backgroundColor: Colors.white,
-        foregroundColor: const Color(0xFF1A1A2E),
-        elevation: 0,
-        surfaceTintColor: Colors.transparent,
+        actions: const [ThemeToggle()],
       ),
       body: RefreshIndicator(
         onRefresh: _loadSubjects,
         child: ListView(
           padding: const EdgeInsets.all(16),
           children: [
-            // Hero banner
             _buildHero(units.length),
             const SizedBox(height: 20),
 
@@ -143,7 +135,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
 
-            // Subject tabs
             if (_subjects.length > 1) ...[
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
@@ -156,7 +147,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       onSelected: (_) => _loadChapters(s),
                       selectedColor: const Color(0xFF4F46E5),
                       labelStyle: TextStyle(
-                        color: _selected?.id == s.id ? Colors.white : const Color(0xFF374151),
+                        color: _selected?.id == s.id ? Colors.white : AppTheme.textOf(context),
                         fontWeight: FontWeight.w500,
                       ),
                     ),
@@ -166,21 +157,17 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(height: 16),
             ],
 
-            // Units label
             if (units.isNotEmpty) ...[
-              const Text(
+              Text(
                 'ALL UNITS',
                 style: TextStyle(
                   fontSize: 11, fontWeight: FontWeight.w700,
-                  color: Color(0xFF9CA3AF), letterSpacing: 1.2,
+                  color: AppTheme.textMutedOf(context), letterSpacing: 1.2,
                 ),
               ),
               const SizedBox(height: 12),
-
-              // Unit cards
               ...units.entries.map((e) => _buildUnitCard(e.key, e.value)),
             ],
-
           ],
         ),
       ),
@@ -238,7 +225,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _heroStat(String num, String label) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
-        decoration: BoxDecoration(
+      decoration: BoxDecoration(
         color: Colors.white.withValues(alpha: 0.12),
         borderRadius: BorderRadius.circular(10),
         border: Border.all(color: Colors.white.withValues(alpha: 0.15)),
@@ -297,16 +284,16 @@ class _HomeScreenState extends State<HomeScreen> {
                   if (theme.isNotEmpty)
                     Text(
                       theme,
-                      style: const TextStyle(
-                        fontSize: 10, color: Color(0xFF9CA3AF),
+                      style: TextStyle(
+                        fontSize: 10, color: AppTheme.textMutedOf(context),
                         fontWeight: FontWeight.w500,
                       ),
                     ),
                   Text(
                     heading,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 14, fontWeight: FontWeight.w600,
-                      color: Color(0xFF111827),
+                      color: AppTheme.textOf(context),
                     ),
                   ),
                 ],
@@ -316,8 +303,8 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         footer: Container(
           padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
-          decoration: const BoxDecoration(
-            border: Border(top: BorderSide(color: Color(0xFFF0F0F8))),
+          decoration: BoxDecoration(
+            border: Border(top: BorderSide(color: AppTheme.borderOf(context))),
           ),
           child: Row(
             children: [
@@ -327,7 +314,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: LinearProgressIndicator(
                     value: 0,
                     minHeight: 5,
-                    backgroundColor: const Color(0xFFE5E7EB),
+                    backgroundColor: AppTheme.borderOf(context),
                     valueColor: AlwaysStoppedAnimation<Color>(stripe),
                   ),
                 ),
@@ -335,7 +322,7 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(width: 10),
               Text(
                 '0 / ${chapters.length} completed',
-                style: const TextStyle(fontSize: 11, color: Color(0xFF9CA3AF)),
+                style: TextStyle(fontSize: 11, color: AppTheme.textMutedOf(context)),
               ),
             ],
           ),
@@ -355,8 +342,8 @@ class _HomeScreenState extends State<HomeScreen> {
     final icon        = _kTypeIcons[displayType] ?? '📄';
 
     return Container(
-      decoration: const BoxDecoration(
-        border: Border(top: BorderSide(color: Color(0xFFF7F7FB))),
+      decoration: BoxDecoration(
+        border: Border(top: BorderSide(color: AppTheme.borderOf(context))),
       ),
       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
       child: Row(
@@ -383,14 +370,15 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 Text(
                   ch.title,
-                  style: const TextStyle(
-                    fontSize: 13, fontWeight: FontWeight.w500, color: Color(0xFF1F2937),
+                  style: TextStyle(
+                    fontSize: 13, fontWeight: FontWeight.w500,
+                    color: AppTheme.textOf(context),
                   ),
                 ),
                 if (author.isNotEmpty && author != '—')
                   Text(
                     author,
-                    style: const TextStyle(fontSize: 11, color: Color(0xFF9CA3AF)),
+                    style: TextStyle(fontSize: 11, color: AppTheme.textMutedOf(context)),
                   ),
               ],
             ),
@@ -427,5 +415,4 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
-
 }

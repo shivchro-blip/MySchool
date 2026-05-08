@@ -38,6 +38,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/
+    - assets/images/
     - assets/content/Class_11/English/chapters/
     - assets/content/Class_11/English/practice/
     - assets/content/Class_12/English/chapters/

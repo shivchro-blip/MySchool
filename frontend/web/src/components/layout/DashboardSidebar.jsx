@@ -4,6 +4,7 @@ import {
   LayoutGrid, BookOpen, ClipboardList, TrendingUp,
   Activity, Award, MessageSquare, Settings, LogOut,
 } from 'lucide-react'
+import BrandLogo from '../ui/BrandLogo'
 import { SYLLABUS } from '../../data/syllabus'
 
 const TOP_NAV = [
@@ -129,17 +130,10 @@ export default function DashboardSidebar({ onClose }) {
       ...BASE,
     }}>
       {/* Logo */}
-      <div style={{ padding: '20px 16px 16px', display: 'flex', alignItems: 'center', gap: 10 }}>
-        <div style={{
-          width: 34, height: 34,
-          background: '#2ec4b6',
-          borderRadius: 9,
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          flexShrink: 0,
-        }}>
-          <BookOpen size={18} color="white" strokeWidth={2} />
+      <div style={{ padding: '16px 16px 12px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <div style={{ background: 'white', borderRadius: 10, padding: '4px 8px', display: 'inline-flex' }}>
+          <BrandLogo height={36} variant="compact" />
         </div>
-        <span style={{ color: 'white', fontWeight: 700, fontSize: 15 }}>EduFlow</span>
       </div>
 
       {/* Main nav */}

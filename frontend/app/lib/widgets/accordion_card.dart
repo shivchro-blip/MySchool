@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../config/theme.dart';
 
 /// AccordionCard — accessible, full-header-clickable accordion.
 ///
@@ -36,17 +37,23 @@ class AccordionCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final dark = AppTheme.isDark(context);
+    final borderColor = open
+        ? (dark ? const Color(0xFF5B56C0) : const Color(0xFFC7C3F5))
+        : (dark ? const Color(0xFF3D3B6E) : const Color(0xFFE8E8F5));
+    final chevronColor = open
+        ? (dark ? const Color(0xFF818CF8) : const Color(0xFF4F46E5))
+        : (dark ? const Color(0xFF4B5563) : const Color(0xFFD1D5DB));
+
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppTheme.cardOf(context),
         borderRadius: BorderRadius.circular(14),
-        border: Border.all(
-          color: open ? const Color(0xFFC7C3F5) : const Color(0xFFE8E8F5),
-        ),
+        border: Border.all(color: borderColor),
         boxShadow: open
             ? [
                 BoxShadow(
-                  color: const Color(0xFF4F46E5).withValues(alpha: 0.08),
+                  color: const Color(0xFF4F46E5).withValues(alpha: dark ? 0.15 : 0.08),
                   blurRadius: 24,
                   offset: const Offset(0, 4),
                 ),
@@ -57,7 +64,6 @@ class AccordionCard extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          // Full-width clickable header — single tap target, no nested gestures
           Semantics(
             button: true,
             label: semanticLabel,
@@ -85,9 +91,7 @@ class AccordionCard extends StatelessWidget {
                                 duration: const Duration(milliseconds: 200),
                                 child: Icon(
                                   Icons.keyboard_arrow_down_rounded,
-                                  color: open
-                                      ? const Color(0xFF4F46E5)
-                                      : const Color(0xFFD1D5DB),
+                                  color: chevronColor,
                                 ),
                               ),
                             ],
@@ -101,10 +105,8 @@ class AccordionCard extends StatelessWidget {
             ),
           ),
 
-          // Always-visible footer slot (e.g. progress bar)
           if (footer != null) footer!,
 
-          // Animated collapsible region
           AnimatedSize(
             duration: const Duration(milliseconds: 200),
             curve: Curves.easeInOut,

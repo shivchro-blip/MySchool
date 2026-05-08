@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../config/theme.dart';
 import '../models/evaluation_model.dart';
 
 class ScoreCard extends StatelessWidget {
@@ -26,14 +27,14 @@ class ScoreCard extends StatelessWidget {
               child: LinearProgressIndicator(
                 value:           result.percentage / 100,
                 minHeight:       10,
-                backgroundColor: const Color(0xFFE5E7EB),
+                backgroundColor: AppTheme.borderOf(context),
                 color:           result.scoreColor,
               ),
             ),
             const SizedBox(height: 8),
             Text(
               result.encouragement,
-              style: const TextStyle(fontSize: 14, color: Color(0xFF6B7280)),
+              style: TextStyle(fontSize: 14, color: AppTheme.text2Of(context)),
             ),
           ],
         ),

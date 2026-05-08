@@ -73,7 +73,6 @@ class _ChapterListScreenState extends State<ChapterListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppTheme.surface,
       appBar: AppBar(title: Text(_subjectName)),
       body: RefreshIndicator(
         color: _color,
@@ -100,7 +99,7 @@ class _ChapterListScreenState extends State<ChapterListScreen> {
       children: [
         Text(
           '${_units!.length} Units · ${_chapters.length} Lessons',
-          style: const TextStyle(fontSize: 12, color: AppTheme.textMuted),
+          style: TextStyle(fontSize: 12, color: AppTheme.textMutedOf(context)),
         ),
         const SizedBox(height: 12),
         ..._units!.map((unit) => Padding(
@@ -178,7 +177,7 @@ class _UnitCardState extends State<_UnitCard> {
 
     return Container(
       decoration: BoxDecoration(
-        color:        Colors.white,
+        color:        AppTheme.cardOf(context),
         borderRadius: BorderRadius.circular(14),
         border:       Border.all(color: unit.color.withAlpha(60)),
         boxShadow: [
@@ -229,7 +228,6 @@ class _UnitCardState extends State<_UnitCard> {
                           style: const TextStyle(
                             fontSize: 15,
                             fontWeight: FontWeight.w700,
-                            color: AppTheme.textPrimary,
                           ),
                         ),
                         const SizedBox(height: 4),
@@ -248,13 +246,14 @@ class _UnitCardState extends State<_UnitCard> {
                     Container(
                       padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 2),
                       decoration: BoxDecoration(
-                        color:        AppTheme.surface,
+                        color:        AppTheme.surfaceOf(context),
                         borderRadius: BorderRadius.circular(10),
-                        border:       Border.all(color: AppTheme.border),
+                        border:       Border.all(color: AppTheme.borderOf(context)),
                       ),
                       child: Text(
                         '$loaded/${unit.lessons.length}',
-                        style: const TextStyle(fontSize: 10, color: AppTheme.textMuted),
+                        style: TextStyle(fontSize: 10,
+                            color: AppTheme.textMutedOf(context)),
                       ),
                     ),
                   const SizedBox(width: 6),
@@ -378,13 +377,13 @@ class _LessonRow extends StatelessWidget {
                   style: const TextStyle(
                     fontSize: 13,
                     fontWeight: FontWeight.w600,
-                    color: AppTheme.textPrimary,
                   ),
                 ),
                 if (ch != null)
                   Text(
                     'Chapter ${ch.number} · ${ch.typeLabel}',
-                    style: const TextStyle(fontSize: 11, color: AppTheme.textMuted),
+                    style: TextStyle(fontSize: 11,
+                        color: AppTheme.textMutedOf(context)),
                   ),
               ],
             ),
@@ -410,12 +409,13 @@ class _LessonRow extends StatelessWidget {
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
               decoration: BoxDecoration(
-                color:        AppTheme.surface,
+                color:        AppTheme.surfaceOf(context),
                 borderRadius: BorderRadius.circular(8),
               ),
-              child: const Text(
+              child: Text(
                 'Coming soon',
-                style: TextStyle(fontSize: 10, color: AppTheme.textMuted),
+                style: TextStyle(fontSize: 10,
+                    color: AppTheme.textMutedOf(context)),
               ),
             ),
         ],
@@ -515,9 +515,9 @@ class _ChapterTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color:        Colors.white,
+        color:        AppTheme.cardOf(context),
         borderRadius: BorderRadius.circular(12),
-        border:       Border.all(color: AppTheme.border),
+        border:       Border.all(color: AppTheme.borderOf(context)),
       ),
       child: InkWell(
         borderRadius: BorderRadius.circular(12),
@@ -549,18 +549,19 @@ class _ChapterTile extends StatelessWidget {
                       style: const TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w600,
-                        color: AppTheme.textPrimary,
                       ),
                     ),
                     const SizedBox(height: 2),
                     Text(
                       'Chapter ${chapter.number} · ${chapter.typeLabel}',
-                      style: const TextStyle(fontSize: 12, color: AppTheme.textMuted),
+                      style: TextStyle(fontSize: 12,
+                          color: AppTheme.textMutedOf(context)),
                     ),
                   ],
                 ),
               ),
-              const Icon(Icons.chevron_right, color: AppTheme.textMuted, size: 18),
+              Icon(Icons.chevron_right,
+                  color: AppTheme.textMutedOf(context), size: 18),
             ],
           ),
         ),

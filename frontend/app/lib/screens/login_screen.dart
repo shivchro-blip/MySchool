@@ -3,6 +3,8 @@ import 'package:go_router/go_router.dart';
 import '../services/auth_service.dart';
 import '../config/theme.dart';
 import '../widgets/app_button.dart';
+import '../widgets/brand_logo.dart';
+import '../widgets/theme_toggle.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -49,6 +51,8 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final cardBg   = AppTheme.cardOf(context);
+    final surfaceBg = AppTheme.surfaceOf(context);
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -56,27 +60,25 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const SizedBox(height: 48),
-              const Text('📚', textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 56)),
-              const SizedBox(height: 12),
-              const Text(
-                'AI Exam Coach',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 26, fontWeight: FontWeight.w800),
+              // Theme toggle (top-right)
+              Align(
+                alignment: Alignment.centerRight,
+                child: const ThemeToggle(),
               ),
-              const SizedBox(height: 4),
-              const Text(
+              const SizedBox(height: 16),
+              const Center(child: BrandLogo(height: 140)),
+              const SizedBox(height: 8),
+              Text(
                 'Tamil Nadu +1 & +2 Board Exam Preparation',
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 13, color: Color(0xFF6B7280)),
+                style: TextStyle(fontSize: 13, color: AppTheme.text2Of(context)),
               ),
               const SizedBox(height: 40),
 
               // Mode toggle
               Container(
                 decoration: BoxDecoration(
-                  color:        const Color(0xFFF3F4F6),
+                  color:        surfaceBg,
                   borderRadius: BorderRadius.circular(10),
                 ),
                 padding: const EdgeInsets.all(4),
@@ -91,7 +93,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             padding: const EdgeInsets.symmetric(vertical: 10),
                             decoration: BoxDecoration(
                               color:        _isLogin == val
-                                                ? Colors.white
+                                                ? cardBg
                                                 : Colors.transparent,
                               borderRadius: BorderRadius.circular(8),
                               boxShadow:    _isLogin == val
@@ -108,8 +110,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                 fontSize:   14,
                                 fontWeight: FontWeight.w600,
                                 color:      _isLogin == val
-                                    ? AppTheme.textPrimary
-                                    : AppTheme.textSecondary,
+                                    ? AppTheme.textOf(context)
+                                    : AppTheme.text2Of(context),
                               ),
                             ),
                           ),
@@ -138,12 +140,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 Container(
                   padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
-                    color:        const Color(0xFFFEF2F2),
+                    color:        AppTheme.errorBgOf(context),
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: Text(
                     _error,
-                    style: const TextStyle(fontSize: 13, color: Color(0xFFB91C1C)),
+                    style: TextStyle(fontSize: 13, color: AppTheme.errorFgOf(context)),
                   ),
                 ),
               ],

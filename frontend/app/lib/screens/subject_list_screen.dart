@@ -33,7 +33,6 @@ class _SubjectListScreenState extends State<SubjectListScreen> {
     final subjects  = syllabus.byClass(widget.classLevel);
 
     return Scaffold(
-      backgroundColor: AppTheme.surface,
       appBar: AppBar(title: Text(_title)),
       body: RefreshIndicator(
         color: AppTheme.brand,
@@ -54,12 +53,12 @@ class _SubjectListScreenState extends State<SubjectListScreen> {
                 ),
               ),
             if (syllabus.loaded && subjects.isEmpty)
-              const Center(
+              Center(
                 child: Padding(
-                  padding: EdgeInsets.all(32),
+                  padding: const EdgeInsets.all(32),
                   child: Text(
                     'No subjects found for this class.',
-                    style: TextStyle(color: AppTheme.textMuted),
+                    style: TextStyle(color: AppTheme.textMutedOf(context)),
                   ),
                 ),
               ),
@@ -124,7 +123,7 @@ class _SubjectCardState extends State<_SubjectCard> {
           decoration: BoxDecoration(
             color: _hovered
                 ? _color.withAlpha(22)
-                : _bg.withAlpha(120),
+                : AppTheme.isDark(context) ? AppTheme.cardOf(context) : _bg.withAlpha(120),
             borderRadius: BorderRadius.circular(14),
             border: Border.all(
               color: _hovered

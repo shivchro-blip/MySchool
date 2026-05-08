@@ -26,7 +26,6 @@ class _CoursesScreenState extends State<CoursesScreen> {
     final syllabus = context.watch<SyllabusProvider>();
 
     return Scaffold(
-      backgroundColor: AppTheme.surface,
       appBar: AppBar(title: const Text('My Courses')),
       body: RefreshIndicator(
         color: AppTheme.brand,
@@ -34,9 +33,9 @@ class _CoursesScreenState extends State<CoursesScreen> {
         child: ListView(
           padding: const EdgeInsets.all(16),
           children: [
-            const Text(
+            Text(
               'Select a year to browse subjects',
-              style: TextStyle(fontSize: 13, color: AppTheme.textMuted),
+              style: TextStyle(fontSize: 13, color: AppTheme.textMutedOf(context)),
             ),
             const SizedBox(height: 20),
             if (syllabus.error != null)
@@ -102,7 +101,7 @@ class _ClassCardState extends State<_ClassCard> {
         transform: Matrix4.translationValues(0, _pressed ? 1 : 0, 0),
         padding: const EdgeInsets.fromLTRB(18, 18, 18, 18),
         decoration: BoxDecoration(
-          color:        Colors.white,
+          color:        AppTheme.cardOf(context),
           borderRadius: BorderRadius.circular(16),
           border: Border.all(
             color: _pressed
@@ -148,7 +147,6 @@ class _ClassCardState extends State<_ClassCard> {
                     style: const TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.w700,
-                      color: AppTheme.textPrimary,
                     ),
                   ),
                   const SizedBox(height: 4),
@@ -181,7 +179,7 @@ class _LoadingPill extends StatelessWidget {
     return Container(
       height: 12, width: 80,
       decoration: BoxDecoration(
-        color:        AppTheme.border,
+        color:        AppTheme.borderOf(context),
         borderRadius: BorderRadius.circular(6),
       ),
     );

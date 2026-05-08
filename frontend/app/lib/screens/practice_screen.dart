@@ -12,7 +12,6 @@ import '../widgets/score_card.dart';
 import '../widgets/error_view.dart';
 
 class PracticeScreen extends StatefulWidget {
-  // chapterSlug — matches the backend /chapters/{slug}/questions endpoint
   final String classLevel;
   final String subjectSlug;
   final String chapterSlug;
@@ -38,12 +37,10 @@ class _PracticeScreenState extends State<PracticeScreen> {
   bool                _loading  = false;
   bool                _qLoading = true;
   String              _error    = '';
-  String              _view     = 'list'; // list | write | result | local_result
+  String              _view     = 'list';
 
-  // Local fallback: synthetic question id → model answer
   final Map<String, String> _localAnswers = {};
 
-  // Group questions by marks: 1 → 2 → 5 → 10
   static const _markOrder = [1, 2, 5, 10];
 
   Map<int, List<Question>> get _byMarks {
@@ -64,16 +61,10 @@ class _PracticeScreenState extends State<PracticeScreen> {
     try {
       final qs = await _syllSvc.getQuestions(widget.chapterSlug);
       if (qs.isNotEmpty) {
-        if (mounted) {
-          setState(() {
-            _questions = qs;
-            _qLoading = false;
-          });
-        }
+        if (mounted) setState(() { _questions = qs; _qLoading = false; });
         return;
       }
     } catch (_) {}
-    // Fallback: load written questions from local practice_data.json
     await _loadLocal();
   }
 
@@ -93,19 +84,9 @@ class _PracticeScreenState extends State<PracticeScreen> {
           isValidated:  false,
         );
       }).toList();
-      if (mounted) {
-        setState(() {
-          _questions = synths;
-          _qLoading = false;
-        });
-      }
+      if (mounted) setState(() { _questions = synths; _qLoading = false; });
     } catch (e) {
-      if (mounted) {
-        setState(() {
-          _error = e.toString();
-          _qLoading = false;
-        });
-      }
+      if (mounted) setState(() { _error = e.toString(); _qLoading = false; });
     }
   }
 
@@ -134,26 +115,18 @@ class _PracticeScreenState extends State<PracticeScreen> {
       setState(() => _error = 'Please write at least 10 characters.');
       return;
     }
-
-    // Local question: show model answer comparison (no backend call)
     if (_current!.id.startsWith('local_')) {
       setState(() { _view = 'local_result'; _error = ''; });
       return;
     }
-
     setState(() { _loading = true; _error = ''; });
     try {
-      final res = await _evalSvc.submit(
-        questionId:    _current!.id,
-        studentAnswer: text,
-      );
+      final res = await _evalSvc.submit(questionId: _current!.id, studentAnswer: text);
       setState(() { _result = res; _view = 'result'; });
     } catch (e) {
       setState(() => _error = e.toString());
     } finally {
-      if (mounted) {
-        setState(() => _loading = false);
-      }
+      if (mounted) setState(() => _loading = false);
     }
   }
 
@@ -165,17 +138,12 @@ class _PracticeScreenState extends State<PracticeScreen> {
     }
     setState(() { _loading = true; _error = ''; });
     try {
-      final res = await _evalSvc.retry(
-        responseId: _result!.responseId,
-        newAnswer:  text,
-      );
+      final res = await _evalSvc.retry(responseId: _result!.responseId, newAnswer: text);
       setState(() => _result = res);
     } catch (e) {
       setState(() => _error = e.toString());
     } finally {
-      if (mounted) {
-        setState(() => _loading = false);
-      }
+      if (mounted) setState(() => _loading = false);
     }
   }
 
@@ -193,11 +161,11 @@ class _PracticeScreenState extends State<PracticeScreen> {
       );
     }
     if (_questions.isEmpty) {
-      return const Center(
+      return Center(
         child: Padding(
-          padding: EdgeInsets.all(32),
+          padding: const EdgeInsets.all(32),
           child: Text('No questions yet for this chapter.',
-              style: TextStyle(color: AppTheme.textMuted)),
+              style: TextStyle(color: AppTheme.textMutedOf(context))),
         ),
       );
     }
@@ -228,7 +196,6 @@ class _PracticeScreenState extends State<PracticeScreen> {
   Widget _buildWrite() => ListView(
     padding: const EdgeInsets.all(16),
     children: [
-      // Section callout — teal left border style matching web
       Container(
         padding: const EdgeInsets.all(14),
         decoration: BoxDecoration(
@@ -245,26 +212,22 @@ class _PracticeScreenState extends State<PracticeScreen> {
             const SizedBox(height: 8),
             Text(
               _current!.questionText,
-              style: const TextStyle(
-                fontSize: 15,
-                fontWeight: FontWeight.w600,
-                color: AppTheme.textPrimary,
-              ),
+              style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
             ),
           ],
         ),
       ),
       const SizedBox(height: 16),
-      const Text('Your Answer',
+      Text('Your Answer',
           style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600,
-              color: AppTheme.textSecondary)),
+              color: AppTheme.text2Of(context))),
       const SizedBox(height: 8),
       TextField(
         controller:  _answerCtrl,
         maxLines:    _current!.marks >= 5 ? 12 : 6,
         decoration:  InputDecoration(
           hintText: _current!.writingHint,
-          hintStyle: const TextStyle(color: AppTheme.textMuted, fontSize: 13),
+          hintStyle: TextStyle(color: AppTheme.textMutedOf(context), fontSize: 13),
         ),
       ),
       const SizedBox(height: 12),
@@ -289,15 +252,15 @@ class _PracticeScreenState extends State<PracticeScreen> {
 
       if (_result!.feedback.strengths.isNotEmpty)
         _feedbackCard('✅ Strengths', _result!.feedback.strengths,
-            const Color(0xFFF0FDF4), const Color(0xFF15803D)),
+            AppTheme.successBgOf(context), AppTheme.successFgOf(context)),
 
       if (_result!.feedback.weaknesses.isNotEmpty)
         _feedbackCard('⚠️ Needs Improvement', _result!.feedback.weaknesses,
-            const Color(0xFFFEF2F2), const Color(0xFFB91C1C)),
+            AppTheme.errorBgOf(context), AppTheme.errorFgOf(context)),
 
       if (_result!.feedback.missingPoints.isNotEmpty)
         _feedbackCard('📌 Missing Points', _result!.feedback.missingPoints,
-            const Color(0xFFFFFBEB), const Color(0xFF92400E)),
+            AppTheme.warningBgOf(context), AppTheme.warningFgOf(context)),
 
       if (_result!.feedback.structureComment.isNotEmpty ||
           _result!.feedback.grammarComment.isNotEmpty)
@@ -325,17 +288,17 @@ class _PracticeScreenState extends State<PracticeScreen> {
         Container(
           padding: const EdgeInsets.all(14),
           decoration: BoxDecoration(
-            color:        const Color(0xFFF0FDF4),
-            border:       Border.all(color: const Color(0xFFBBF7D0)),
+            color:        AppTheme.successBgOf(context),
+            border:       Border.all(color: AppTheme.successBorderOf(context)),
             borderRadius: BorderRadius.circular(12),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text('⭐ Model Answer (Full Marks)',
+              Text('⭐ Model Answer (Full Marks)',
                   style: TextStyle(
                     fontWeight: FontWeight.w700,
-                    color: Color(0xFF15803D),
+                    color: AppTheme.successFgOf(context),
                   )),
               const SizedBox(height: 8),
               Text(_result!.improvedAnswer,
@@ -346,9 +309,9 @@ class _PracticeScreenState extends State<PracticeScreen> {
       ],
 
       const SizedBox(height: 16),
-      const Text('Rewrite your answer:',
+      Text('Rewrite your answer:',
           style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600,
-              color: AppTheme.textSecondary)),
+              color: AppTheme.text2Of(context))),
       const SizedBox(height: 8),
       TextField(
         controller: _answerCtrl,
@@ -401,28 +364,24 @@ class _PracticeScreenState extends State<PracticeScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(title,
-                  style: TextStyle(
-                    fontWeight: FontWeight.w700, color: fg, fontSize: 13,
-                  )),
+                  style: TextStyle(fontWeight: FontWeight.w700, color: fg, fontSize: 13)),
               const SizedBox(height: 6),
               ...items.map((i) => Padding(
                 padding: const EdgeInsets.only(bottom: 3),
-                child: Text('• $i',
-                    style: TextStyle(fontSize: 13, color: fg)),
+                child: Text('• $i', style: TextStyle(fontSize: 13, color: fg)),
               )),
             ],
           ),
         ),
       );
 
-  // ── Local result view (model answer comparison) ────────────────────────
+  // ── Local result view ──────────────────────────────────────────────────
   Widget _buildLocalResult() {
     final modelAnswer = _localAnswers[_current!.id] ?? '';
     final userAnswer  = _answerCtrl.text.trim();
     return ListView(
       padding: const EdgeInsets.all(16),
       children: [
-        // Question recap
         Container(
           padding: const EdgeInsets.all(14),
           decoration: BoxDecoration(
@@ -436,27 +395,25 @@ class _PracticeScreenState extends State<PracticeScreen> {
               MarksChip(marks: _current!.marks),
               const SizedBox(height: 8),
               Text(_current!.questionText,
-                  style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w600,
-                      color: AppTheme.textPrimary)),
+                  style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w600)),
             ],
           ),
         ),
         const SizedBox(height: 16),
 
-        // Your answer
         _answerBlock('YOUR ANSWER', userAnswer.isEmpty ? '—' : userAnswer,
-            AppTheme.surface, AppTheme.border, AppTheme.textSecondary),
+            AppTheme.surfaceOf(context), AppTheme.borderOf(context),
+            AppTheme.text2Of(context)),
         const SizedBox(height: 10),
 
-        // Model answer
         _answerBlock('MODEL ANSWER', modelAnswer,
-            const Color(0xFFF0FDF4), const Color(0xFFBBF7D0), const Color(0xFF15803D)),
+            AppTheme.successBgOf(context), AppTheme.successBorderOf(context),
+            AppTheme.successFgOf(context)),
         const SizedBox(height: 24),
 
-        // Rewrite
-        const Text('Rewrite your answer:',
+        Text('Rewrite your answer:',
             style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600,
-                color: AppTheme.textSecondary)),
+                color: AppTheme.text2Of(context))),
         const SizedBox(height: 8),
         TextField(
           controller: _answerCtrl,
@@ -474,13 +431,13 @@ class _PracticeScreenState extends State<PracticeScreen> {
     );
   }
 
-  Widget _answerBlock(String label, String text, Color bg, Color border, Color labelColor) =>
+  Widget _answerBlock(String label, String text, Color bg, Color borderColor, Color labelColor) =>
       Container(
         width:   double.infinity,
         padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
           color:        bg,
-          border:       Border.all(color: border),
+          border:       Border.all(color: borderColor),
           borderRadius: BorderRadius.circular(10),
         ),
         child: Column(
@@ -490,9 +447,7 @@ class _PracticeScreenState extends State<PracticeScreen> {
                 style: TextStyle(fontSize: 9, fontWeight: FontWeight.w700,
                     color: labelColor, letterSpacing: 0.6)),
             const SizedBox(height: 6),
-            Text(text,
-                style: const TextStyle(fontSize: 13, height: 1.6,
-                    color: AppTheme.textPrimary)),
+            Text(text, style: const TextStyle(fontSize: 13, height: 1.6)),
           ],
         ),
       );
@@ -500,7 +455,6 @@ class _PracticeScreenState extends State<PracticeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppTheme.surface,
       appBar: AppBar(
         title: Text(_view == 'list'
             ? 'Practice'
@@ -585,9 +539,9 @@ class _QuestionCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color:        Colors.white,
+        color:        AppTheme.cardOf(context),
         borderRadius: BorderRadius.circular(12),
-        border:       Border.all(color: AppTheme.border),
+        border:       Border.all(color: AppTheme.borderOf(context)),
       ),
       child: Padding(
         padding: const EdgeInsets.all(14),
@@ -602,11 +556,7 @@ class _QuestionCard extends StatelessWidget {
                   const SizedBox(height: 8),
                   Text(
                     question.questionText,
-                    style: const TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w500,
-                      color: AppTheme.textPrimary,
-                    ),
+                    style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
                   ),
                 ],
               ),

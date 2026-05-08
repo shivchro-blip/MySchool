@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { loginWithEmail, signupWithEmail } from '../api/auth'
 import { Button, Input } from '../components/ui'
+import BrandLogo from '../components/ui/BrandLogo'
 
 export default function LoginPage() {
   const navigate                 = useNavigate()
@@ -36,11 +37,7 @@ export default function LoginPage() {
 
         {/* Brand header */}
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-14 h-14
-                          bg-accent rounded-2xl shadow-card mb-4">
-            <span className="text-2xl">📚</span>
-          </div>
-          <h1 className="text-2xl font-bold text-ink">AI Exam Coach</h1>
+          <BrandLogo height={120} className="mx-auto mb-2" />
           <p className="text-ink-3 text-sm mt-1">
             Tamil Nadu +1 &amp; +2 Board Exam Prep
           </p>

@@ -105,7 +105,6 @@ class _RichLearnScreenState extends State<RichLearnScreen> {
   Widget build(BuildContext context) {
     final title = widget.chapter?.title ?? 'Learn';
     return Scaffold(
-      backgroundColor: AppTheme.surface,
       appBar: AppBar(
         title: Text(title, overflow: TextOverflow.ellipsis),
         leading: IconButton(
@@ -134,7 +133,7 @@ class _RichLearnScreenState extends State<RichLearnScreen> {
       children: [
         // Mini header
         Container(
-          color:   Colors.white,
+          color:   AppTheme.cardOf(context),
           padding: const EdgeInsets.fromLTRB(16, 14, 16, 14),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -143,7 +142,6 @@ class _RichLearnScreenState extends State<RichLearnScreen> {
                 ch?.title ?? widget.chapterSlug,
                 style: const TextStyle(
                   fontSize: 20, fontWeight: FontWeight.w800,
-                  color: AppTheme.textPrimary,
                 ),
               ),
               if (ch != null) ...[
@@ -181,14 +179,15 @@ class _RichLearnScreenState extends State<RichLearnScreen> {
                 ),
               ),
               const SizedBox(height: 20),
-              const Row(children: [
-                Expanded(child: Divider()),
+              Row(children: [
+                const Expanded(child: Divider()),
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 12),
+                  padding: const EdgeInsets.symmetric(horizontal: 12),
                   child: Text('or ask AI',
-                      style: TextStyle(fontSize: 12, color: AppTheme.textMuted)),
+                      style: TextStyle(fontSize: 12,
+                          color: AppTheme.textMutedOf(context))),
                 ),
-                Expanded(child: Divider()),
+                const Expanded(child: Divider()),
               ]),
               const SizedBox(height: 12),
             ],
@@ -217,6 +216,7 @@ class _RichLearnScreenState extends State<RichLearnScreen> {
       (t) => t.id == _activeTabId,
       orElse: () => visibleTabs.isNotEmpty ? visibleTabs.first : allTabs.first,
     );
+    final dark = AppTheme.isDark(context);
 
     return Column(
       children: [
@@ -225,7 +225,7 @@ class _RichLearnScreenState extends State<RichLearnScreen> {
 
         // Content tab strip (scrollable — author, phases, glossary, etc.)
         Container(
-          color:  Colors.white,
+          color:  AppTheme.cardOf(context),
           height: 44,
           child: ListView.builder(
             controller:    _tabScrollCtrl,
@@ -235,6 +235,7 @@ class _RichLearnScreenState extends State<RichLearnScreen> {
             itemBuilder: (_, i) {
               final tab      = contentTabs[i];
               final isActive = tab.id == activeTab.id;
+              final activeBg = dark ? const Color(0xFF374151) : AppTheme.textPrimary;
               return Padding(
                 padding: const EdgeInsets.only(right: 6),
                 child: GestureDetector(
@@ -243,15 +244,15 @@ class _RichLearnScreenState extends State<RichLearnScreen> {
                     duration: const Duration(milliseconds: 120),
                     padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 5),
                     decoration: BoxDecoration(
-                      color: isActive ? AppTheme.textPrimary : Colors.white,
+                      color: isActive ? activeBg : AppTheme.cardOf(context),
                       borderRadius: BorderRadius.circular(20),
                       border: Border.all(
-                        color: isActive ? AppTheme.textPrimary : AppTheme.border,
+                        color: isActive ? activeBg : AppTheme.borderOf(context),
                         width: 1.5,
                       ),
                       boxShadow: isActive ? [
                         BoxShadow(
-                          color: AppTheme.textPrimary.withAlpha(40),
+                          color: activeBg.withAlpha(40),
                           blurRadius: 8, offset: const Offset(0, 2),
                         ),
                       ] : null,
@@ -261,7 +262,7 @@ class _RichLearnScreenState extends State<RichLearnScreen> {
                       style: TextStyle(
                         fontSize:   13,
                         fontWeight: FontWeight.w600,
-                        color: isActive ? Colors.white : AppTheme.textSecondary,
+                        color: isActive ? Colors.white : AppTheme.text2Of(context),
                       ),
                     ),
                   ),
@@ -274,7 +275,7 @@ class _RichLearnScreenState extends State<RichLearnScreen> {
         // Action tab row (fixed — always visible: Practice, Attempt History, Ask AI)
         if (actionTabs.isNotEmpty)
           Container(
-            color: Colors.white,
+            color: AppTheme.cardOf(context),
             padding: const EdgeInsets.fromLTRB(12, 0, 12, 8),
             child: Row(
               children: [
@@ -318,11 +319,11 @@ class _RichLearnScreenState extends State<RichLearnScreen> {
           const Text('🔥', style: TextStyle(fontSize: 48)),
           const SizedBox(height: 12),
           const Text('Practice',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700,
-                  color: AppTheme.textPrimary)),
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700)),
           const SizedBox(height: 8),
-          const Text('Test your understanding with exam-style questions',
-              style: TextStyle(fontSize: 13, color: AppTheme.textMuted),
+          Text('Test your understanding with exam-style questions',
+              style: TextStyle(fontSize: 13,
+                  color: AppTheme.textMutedOf(context)),
               textAlign: TextAlign.center),
           const SizedBox(height: 24),
           ElevatedButton(
@@ -362,7 +363,7 @@ class _ChapterHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
+      color: AppTheme.cardOf(context),
       padding: const EdgeInsets.fromLTRB(16, 14, 16, 14),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -380,7 +381,6 @@ class _ChapterHeader extends StatelessWidget {
             content.title,
             style: const TextStyle(
               fontSize: 22, fontWeight: FontWeight.w800,
-              color: AppTheme.textPrimary,
             ),
           ),
           if (content.author.isNotEmpty) ...[
@@ -411,20 +411,24 @@ class _Pill extends StatelessWidget {
   const _Pill({required this.label});
 
   @override
-  Widget build(BuildContext context) => Container(
-    padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 3),
-    decoration: BoxDecoration(
-      color:        const Color(0xFFEAE5D8),
-      borderRadius: BorderRadius.circular(20),
-    ),
-    child: Text(
-      label,
-      style: const TextStyle(
-        fontSize: 11, fontWeight: FontWeight.w500,
-        color: Color(0xFF5A5244),
+  Widget build(BuildContext context) {
+    final dark  = AppTheme.isDark(context);
+    final bg    = dark ? AppTheme.borderOf(context) : const Color(0xFFEAE5D8);
+    final fg    = dark ? AppTheme.text2Of(context)  : const Color(0xFF5A5244);
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 3),
+      decoration: BoxDecoration(
+        color:        bg,
+        borderRadius: BorderRadius.circular(20),
       ),
-    ),
-  );
+      child: Text(
+        label,
+        style: TextStyle(
+          fontSize: 11, fontWeight: FontWeight.w500, color: fg,
+        ),
+      ),
+    );
+  }
 }
 
 // ── Action tab pill (Practice / Attempt History / Ask AI fixed row) ──────────
@@ -436,32 +440,35 @@ class _ActionTabPill extends StatelessWidget {
   const _ActionTabPill({required this.tab, required this.isActive, required this.onTap});
 
   @override
-  Widget build(BuildContext context) => GestureDetector(
-    onTap: onTap,
-    child: AnimatedContainer(
-      duration: const Duration(milliseconds: 120),
-      padding: const EdgeInsets.symmetric(vertical: 7),
-      decoration: BoxDecoration(
-        color: isActive ? const Color(0xFF1E2A44) : Colors.white,
-        borderRadius: BorderRadius.circular(20),
-        border: Border.all(
-          color: isActive ? const Color(0xFF1E2A44) : AppTheme.border,
-          width: 1.5,
-        ),
-      ),
-      child: Center(
-        child: Text(
-          tab.label,
-          style: TextStyle(
-            fontSize:   12,
-            fontWeight: FontWeight.w600,
-            color: isActive ? Colors.white : AppTheme.textSecondary,
+  Widget build(BuildContext context) {
+    final activeBg = AppTheme.isDark(context) ? AppTheme.brand : const Color(0xFF1E2A44);
+    return GestureDetector(
+      onTap: onTap,
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 120),
+        padding: const EdgeInsets.symmetric(vertical: 7),
+        decoration: BoxDecoration(
+          color: isActive ? activeBg : AppTheme.cardOf(context),
+          borderRadius: BorderRadius.circular(20),
+          border: Border.all(
+            color: isActive ? activeBg : AppTheme.borderOf(context),
+            width: 1.5,
           ),
-          overflow: TextOverflow.ellipsis,
+        ),
+        child: Center(
+          child: Text(
+            tab.label,
+            style: TextStyle(
+              fontSize:   12,
+              fontWeight: FontWeight.w600,
+              color: isActive ? Colors.white : AppTheme.text2Of(context),
+            ),
+            overflow: TextOverflow.ellipsis,
+          ),
         ),
       ),
-    ),
-  );
+    );
+  }
 }
 
 // ── Block renderer ──────────────────────────────────────────────────────────
@@ -509,7 +516,9 @@ class _TeacherVoice extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final paragraphs = _extractParagraphs(html);
+    final baseColor   = AppTheme.text2Of(context);
+    final strongColor = AppTheme.textOf(context);
+    final paragraphs  = _extractParagraphs(html, baseColor, strongColor);
     return Padding(
       padding: const EdgeInsets.only(bottom: 20),
       child: Column(
@@ -524,43 +533,36 @@ class _TeacherVoice extends StatelessWidget {
     );
   }
 
-  // Simple HTML parser: handles <p>, <strong>, <span class="rich-highlight">
-  static List<List<InlineSpan>> _extractParagraphs(String html) {
-    // Strip outer whitespace
-    final cleaned = html.trim();
-    // Split by <p> tags
+  static List<List<InlineSpan>> _extractParagraphs(
+      String html, Color baseColor, Color strongColor) {
+    final cleaned  = html.trim();
     final pPattern = RegExp(r'<p[^>]*>([\s\S]*?)<\/p>', multiLine: true);
     final matches  = pPattern.allMatches(cleaned);
 
     if (matches.isEmpty) {
-      return [_parseInline(cleaned)];
+      return [_parseInline(cleaned, baseColor, strongColor)];
     }
-    return matches.map((m) => _parseInline(m.group(1) ?? '')).toList();
+    return matches
+        .map((m) => _parseInline(m.group(1) ?? '', baseColor, strongColor))
+        .toList();
   }
 
-  static List<InlineSpan> _parseInline(String html) {
-    final spans = <InlineSpan>[];
-    // Regex to split on <strong>, </strong>, <span class="rich-highlight">, </span>
+  static List<InlineSpan> _parseInline(
+      String html, Color baseColor, Color strongColor) {
+    final spans      = <InlineSpan>[];
     final tagPattern = RegExp(
       r'<strong>([\s\S]*?)<\/strong>|<span[^>]*rich-highlight[^>]*>([\s\S]*?)<\/span>|([^<]+)',
     );
-    const base = TextStyle(
-      fontSize: 14, height: 1.85, color: AppTheme.textSecondary,
-    );
+    final base = TextStyle(fontSize: 14, height: 1.85, color: baseColor);
     for (final m in tagPattern.allMatches(html)) {
       if (m.group(1) != null) {
-        // <strong>
         spans.add(TextSpan(
-          text: _decode(m.group(1)!),
-          style: base.copyWith(
-            fontWeight: FontWeight.w700,
-            color: AppTheme.textPrimary,
-          ),
+          text:  _decode(m.group(1)!),
+          style: base.copyWith(fontWeight: FontWeight.w700, color: strongColor),
         ));
       } else if (m.group(2) != null) {
-        // <span rich-highlight>
         spans.add(TextSpan(
-          text: _decode(m.group(2)!),
+          text:  _decode(m.group(2)!),
           style: base.copyWith(color: AppTheme.brand),
         ));
       } else if (m.group(3) != null) {
@@ -593,7 +595,6 @@ class _SectionHead extends StatelessWidget {
           text,
           style: const TextStyle(
             fontSize: 15, fontWeight: FontWeight.w700,
-            color: AppTheme.textPrimary,
           ),
         ),
         const SizedBox(height: 5),
@@ -639,8 +640,9 @@ class _ThinkBox extends StatelessWidget {
         const SizedBox(height: 6),
         Text(
           text,
-          style: const TextStyle(
-            fontSize: 13, height: 1.8, color: AppTheme.textSecondary,
+          style: TextStyle(
+            fontSize: 13, height: 1.8,
+            color: AppTheme.text2Of(context),
           ),
         ),
       ],
@@ -655,13 +657,13 @@ class _Quote extends StatelessWidget {
   const _Quote({required this.quote, required this.context, required this.accent});
 
   @override
-  Widget build(BuildContext _) => Container(
+  Widget build(BuildContext ctx) => Container(
     margin: const EdgeInsets.only(bottom: 16),
     padding: const EdgeInsets.all(16),
     decoration: BoxDecoration(
-      color:        const Color(0xFFF9F9F9),
+      color:        AppTheme.cardOf(ctx),
       borderRadius: BorderRadius.circular(14),
-      border:       Border.all(color: AppTheme.border),
+      border:       Border.all(color: AppTheme.borderOf(ctx)),
     ),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -674,16 +676,15 @@ class _Quote extends StatelessWidget {
           child: Text(
             quote,
             style: const TextStyle(
-              fontSize: 14, fontStyle: FontStyle.italic,
-              height: 1.65, color: AppTheme.textPrimary,
+              fontSize: 14, fontStyle: FontStyle.italic, height: 1.65,
             ),
           ),
         ),
         const SizedBox(height: 10),
         Text(
           context,
-          style: const TextStyle(
-            fontSize: 13, height: 1.7, color: AppTheme.textSecondary,
+          style: TextStyle(
+            fontSize: 13, height: 1.7, color: AppTheme.text2Of(ctx),
           ),
         ),
       ],
@@ -729,8 +730,9 @@ class _AuthorStat extends StatelessWidget {
           const SizedBox(height: 5),
           Text(
             value,
-            style: const TextStyle(
-              fontSize: 13, height: 1.65, color: AppTheme.textSecondary,
+            style: TextStyle(
+              fontSize: 13, height: 1.65,
+              color: AppTheme.text2Of(context),
             ),
           ),
         ],
@@ -754,18 +756,18 @@ class _Device extends StatelessWidget {
     margin: const EdgeInsets.only(bottom: 12),
     padding: const EdgeInsets.all(14),
     decoration: BoxDecoration(
-      color:        const Color(0xFFF9F9F9),
+      color:        AppTheme.cardOf(context),
       borderRadius: BorderRadius.circular(12),
-      border:       Border.all(color: AppTheme.border),
+      border:       Border.all(color: AppTheme.borderOf(context)),
     ),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           kind.toUpperCase(),
-          style: const TextStyle(
+          style: TextStyle(
             fontSize: 10, fontWeight: FontWeight.w800,
-            color: AppTheme.textMuted, letterSpacing: 0.9,
+            color: AppTheme.textMutedOf(context), letterSpacing: 0.9,
           ),
         ),
         const SizedBox(height: 6),
@@ -779,8 +781,9 @@ class _Device extends StatelessWidget {
         const SizedBox(height: 8),
         Text(
           exp,
-          style: const TextStyle(
-            fontSize: 13, height: 1.7, color: AppTheme.textSecondary,
+          style: TextStyle(
+            fontSize: 13, height: 1.7,
+            color: AppTheme.text2Of(context),
           ),
         ),
       ],
@@ -798,8 +801,8 @@ class _GlossRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Container(
     padding: const EdgeInsets.symmetric(vertical: 12),
-    decoration: const BoxDecoration(
-      border: Border(bottom: BorderSide(color: AppTheme.border)),
+    decoration: BoxDecoration(
+      border: Border(bottom: BorderSide(color: AppTheme.borderOf(context))),
     ),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -813,16 +816,17 @@ class _GlossRow extends StatelessWidget {
         const SizedBox(height: 4),
         Text(
           def,
-          style: const TextStyle(
-            fontSize: 13, height: 1.5, color: AppTheme.textSecondary,
+          style: TextStyle(
+            fontSize: 13, height: 1.5, color: AppTheme.text2Of(context),
           ),
         ),
         if (eg != null) ...[
           const SizedBox(height: 3),
           Text(
             eg!,
-            style: const TextStyle(
-              fontSize: 11, height: 1.4, color: AppTheme.textMuted,
+            style: TextStyle(
+              fontSize: 11, height: 1.4,
+              color: AppTheme.textMutedOf(context),
             ),
           ),
         ],
@@ -858,10 +862,10 @@ class _NavButtons extends StatelessWidget {
             style: OutlinedButton.styleFrom(
               minimumSize: const Size(0, 38),
               padding: const EdgeInsets.symmetric(horizontal: 16),
-              side: const BorderSide(color: AppTheme.border),
+              side: BorderSide(color: AppTheme.borderOf(context)),
             ),
-            child: const Text('← Back',
-                style: TextStyle(color: AppTheme.textSecondary)),
+            child: Text('← Back',
+                style: TextStyle(color: AppTheme.text2Of(context))),
           ),
         if (nav.practice)
           ElevatedButton(
@@ -917,7 +921,7 @@ class _QuickLink extends StatelessWidget {
     child: Container(
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
-        color:        Colors.white,
+        color:        AppTheme.cardOf(context),
         borderRadius: BorderRadius.circular(12),
         border:       Border.all(color: color.withAlpha(60)),
       ),
@@ -940,8 +944,8 @@ class _QuickLink extends StatelessWidget {
                   fontSize: 14, fontWeight: FontWeight.w700,
                   color: color.withAlpha(220),
                 )),
-                Text(sub, style: const TextStyle(
-                  fontSize: 11, color: AppTheme.textMuted,
+                Text(sub, style: TextStyle(
+                  fontSize: 11, color: AppTheme.textMutedOf(context),
                 )),
               ],
             ),
@@ -1024,12 +1028,13 @@ class _AskAITabState extends State<_AskAITab> {
       children: [
         // Language toggle
         Container(
-          color: Colors.white,
+          color: AppTheme.cardOf(context),
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           child: Row(
             children: [
-              const Text('Explain in:',
-                  style: TextStyle(fontSize: 12, color: AppTheme.textMuted)),
+              Text('Explain in:',
+                  style: TextStyle(fontSize: 12,
+                      color: AppTheme.textMutedOf(context))),
               const SizedBox(width: 10),
               SegmentedButton<String>(
                 segments: const [
@@ -1086,17 +1091,17 @@ class _AskAITabState extends State<_AskAITab> {
   Widget _buildEmpty() => ListView(
     padding: const EdgeInsets.fromLTRB(16, 20, 16, 12),
     children: [
-      const Center(
+      Center(
         child: Column(
           children: [
-            Text('🤖', style: TextStyle(fontSize: 40)),
-            SizedBox(height: 8),
-            Text('Ask AI about this chapter',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700,
-                    color: AppTheme.textPrimary)),
-            SizedBox(height: 4),
+            const Text('🤖', style: TextStyle(fontSize: 40)),
+            const SizedBox(height: 8),
+            const Text('Ask AI about this chapter',
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700)),
+            const SizedBox(height: 4),
             Text('Tap a question or type your own',
-                style: TextStyle(fontSize: 12, color: AppTheme.textMuted)),
+                style: TextStyle(fontSize: 12,
+                    color: AppTheme.textMutedOf(context))),
           ],
         ),
       ),
@@ -1108,18 +1113,18 @@ class _AskAITabState extends State<_AskAITab> {
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
             decoration: BoxDecoration(
-              color:        Colors.white,
+              color:        AppTheme.cardOf(context),
               borderRadius: BorderRadius.circular(12),
-              border:       Border.all(color: AppTheme.border),
+              border:       Border.all(color: AppTheme.borderOf(context)),
             ),
             child: Row(
               children: [
                 const Text('💬', style: TextStyle(fontSize: 14)),
                 const SizedBox(width: 10),
                 Expanded(child: Text(q,
-                    style: const TextStyle(fontSize: 13, color: AppTheme.textPrimary))),
-                const Icon(Icons.arrow_forward_ios,
-                    size: 12, color: AppTheme.textMuted),
+                    style: const TextStyle(fontSize: 13))),
+                Icon(Icons.arrow_forward_ios,
+                    size: 12, color: AppTheme.textMutedOf(context)),
               ],
             ),
           ),
@@ -1168,7 +1173,7 @@ class _AskAITabState extends State<_AskAITab> {
   );
 
   Widget _buildInput() => Container(
-    color: Colors.white,
+    color: AppTheme.cardOf(context),
     padding: EdgeInsets.only(
       left: 16, right: 16, top: 8,
       bottom: MediaQuery.of(context).viewInsets.bottom + 12,
@@ -1217,7 +1222,8 @@ class _MsgBubble extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final r = msg.response;
+    final r        = msg.response;
+    final userBg   = AppTheme.isDark(context) ? AppTheme.brand : AppTheme.textPrimary;
     return Padding(
       padding: const EdgeInsets.only(bottom: 16),
       child: Column(
@@ -1230,9 +1236,9 @@ class _MsgBubble extends StatelessWidget {
               Flexible(
                 child: Container(
                   padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
-                  decoration: const BoxDecoration(
-                    color: AppTheme.textPrimary,
-                    borderRadius: BorderRadius.only(
+                  decoration: BoxDecoration(
+                    color: userBg,
+                    borderRadius: const BorderRadius.only(
                       topLeft:     Radius.circular(14),
                       topRight:    Radius.circular(4),
                       bottomLeft:  Radius.circular(14),
@@ -1240,7 +1246,8 @@ class _MsgBubble extends StatelessWidget {
                     ),
                   ),
                   child: Text(msg.question,
-                      style: const TextStyle(color: Colors.white, fontSize: 13, height: 1.4)),
+                      style: const TextStyle(color: Colors.white,
+                          fontSize: 13, height: 1.4)),
                 ),
               ),
             ],
@@ -1267,47 +1274,50 @@ class _MsgBubble extends StatelessWidget {
                     Container(
                       padding: const EdgeInsets.all(14),
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: AppTheme.cardOf(context),
                         borderRadius: const BorderRadius.only(
                           topLeft:     Radius.circular(4),
                           topRight:    Radius.circular(14),
                           bottomLeft:  Radius.circular(14),
                           bottomRight: Radius.circular(14),
                         ),
-                        border: Border.all(color: AppTheme.border),
+                        border: Border.all(color: AppTheme.borderOf(context)),
                       ),
                       child: Text(r.explanation,
-                          style: const TextStyle(
-                            fontSize: 13, height: 1.6, color: AppTheme.textPrimary,
-                          )),
+                          style: const TextStyle(fontSize: 13, height: 1.6)),
                     ),
                     if (r.keyPoints.isNotEmpty) ...[
                       const SizedBox(height: 6),
                       Container(
                         padding: const EdgeInsets.all(12),
                         decoration: BoxDecoration(
-                          color: const Color(0xFFF0FDF4),
+                          color: AppTheme.successBgOf(context),
                           borderRadius: BorderRadius.circular(10),
-                          border: Border.all(color: const Color(0xFFBBF7D0)),
+                          border: Border.all(
+                              color: AppTheme.successBorderOf(context)),
                         ),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text('KEY POINTS',
-                                style: TextStyle(fontSize: 10, fontWeight: FontWeight.w800,
-                                    color: Color(0xFF15803D), letterSpacing: 0.5)),
+                            Text('KEY POINTS',
+                                style: TextStyle(
+                                    fontSize: 10, fontWeight: FontWeight.w800,
+                                    color: AppTheme.successFgOf(context),
+                                    letterSpacing: 0.5)),
                             const SizedBox(height: 6),
                             ...r.keyPoints.map((p) => Padding(
                               padding: const EdgeInsets.only(bottom: 4),
                               child: Row(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  const Text('✓ ',
-                                      style: TextStyle(color: Color(0xFF15803D),
-                                          fontWeight: FontWeight.w700, fontSize: 12)),
+                                  Text('✓ ',
+                                      style: TextStyle(
+                                          color: AppTheme.successFgOf(context),
+                                          fontWeight: FontWeight.w700,
+                                          fontSize: 12)),
                                   Expanded(child: Text(p,
-                                      style: const TextStyle(fontSize: 12,
-                                          color: Color(0xFF166534)))),
+                                      style: TextStyle(fontSize: 12,
+                                          color: AppTheme.successFgOf(context)))),
                                 ],
                               ),
                             )),
@@ -1320,9 +1330,10 @@ class _MsgBubble extends StatelessWidget {
                       Container(
                         padding: const EdgeInsets.all(12),
                         decoration: BoxDecoration(
-                          color: const Color(0xFFFFFBEB),
+                          color: AppTheme.warningBgOf(context),
                           borderRadius: BorderRadius.circular(10),
-                          border: Border.all(color: const Color(0xFFFDE68A)),
+                          border: Border.all(
+                              color: AppTheme.warningBorderOf(context)),
                         ),
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -1332,14 +1343,16 @@ class _MsgBubble extends StatelessWidget {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  const Text('EXAM TIP',
-                                      style: TextStyle(fontSize: 10,
+                                  Text('EXAM TIP',
+                                      style: TextStyle(
+                                          fontSize: 10,
                                           fontWeight: FontWeight.w800,
-                                          color: Color(0xFF92400E))),
+                                          color: AppTheme.warningFgOf(context))),
                                   const SizedBox(height: 3),
                                   Text(r.examTip,
-                                      style: const TextStyle(fontSize: 12,
-                                          color: Color(0xFF78350F),
+                                      style: TextStyle(
+                                          fontSize: 12,
+                                          color: AppTheme.warningFgOf(context),
                                           fontStyle: FontStyle.italic)),
                                 ],
                               ),
@@ -1427,11 +1440,11 @@ class _AttemptHistoryTabState extends State<_AttemptHistoryTab> {
               const Text('🕐', style: TextStyle(fontSize: 40)),
               const SizedBox(height: 12),
               const Text('No attempts yet',
-                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.w700,
-                      color: AppTheme.textPrimary)),
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.w700)),
               const SizedBox(height: 6),
-              const Text('Complete a practice exam to see your history here.',
-                  style: TextStyle(fontSize: 13, color: AppTheme.textMuted),
+              Text('Complete a practice exam to see your history here.',
+                  style: TextStyle(fontSize: 13,
+                      color: AppTheme.textMutedOf(context)),
                   textAlign: TextAlign.center),
               const SizedBox(height: 20),
               ElevatedButton(
@@ -1460,8 +1473,8 @@ class _AttemptHistoryTabState extends State<_AttemptHistoryTab> {
             padding: const EdgeInsets.only(bottom: 10),
             child: Text(
               '${_sessions.length} session${_sessions.length != 1 ? 's' : ''} completed',
-              style: const TextStyle(fontSize: 10, fontWeight: FontWeight.w700,
-                  color: AppTheme.textMuted, letterSpacing: 0.6),
+              style: TextStyle(fontSize: 10, fontWeight: FontWeight.w700,
+                  color: AppTheme.textMutedOf(context), letterSpacing: 0.6),
             ),
           );
         }
@@ -1471,12 +1484,14 @@ class _AttemptHistoryTabState extends State<_AttemptHistoryTab> {
         final total      = (s['total'] as num).toInt();
         final pct        = total > 0 ? (score / total * 100).round() : 0;
         final good       = pct >= 70;
+        final badgeBg    = good ? AppTheme.successBgOf(context) : AppTheme.warningBgOf(context);
+        final badgeFg    = good ? AppTheme.successFgOf(context) : AppTheme.warningFgOf(context);
         return Container(
           margin: const EdgeInsets.only(bottom: 8),
           padding: const EdgeInsets.all(14),
           decoration: BoxDecoration(
-            color:        Colors.white,
-            border:       Border.all(color: AppTheme.border),
+            color:        AppTheme.cardOf(context),
+            border:       Border.all(color: AppTheme.borderOf(context)),
             borderRadius: BorderRadius.circular(12),
           ),
           child: Row(
@@ -1484,18 +1499,14 @@ class _AttemptHistoryTabState extends State<_AttemptHistoryTab> {
               Container(
                 width: 38, height: 38,
                 decoration: BoxDecoration(
-                  color: good
-                      ? const Color(0xFFDCFCE7)
-                      : const Color(0xFFFEF9C3),
+                  color: badgeBg,
                   shape: BoxShape.circle,
                 ),
                 alignment: Alignment.center,
                 child: Text('$sessionNum',
                     style: TextStyle(
                       fontSize: 13, fontWeight: FontWeight.w700,
-                      color: good
-                          ? const Color(0xFF15803D)
-                          : const Color(0xFF854D0E),
+                      color: badgeFg,
                     )),
               ),
               const SizedBox(width: 12),
@@ -1508,39 +1519,33 @@ class _AttemptHistoryTabState extends State<_AttemptHistoryTab> {
                         Text('Session $sessionNum',
                             style: const TextStyle(
                               fontSize: 13, fontWeight: FontWeight.w600,
-                              color: AppTheme.textPrimary,
                             )),
                         const SizedBox(width: 8),
                         Container(
                           padding: const EdgeInsets.symmetric(
                               horizontal: 7, vertical: 2),
                           decoration: BoxDecoration(
-                            color: good
-                                ? const Color(0xFFDCFCE7)
-                                : const Color(0xFFFEF9C3),
+                            color: badgeBg,
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: Text('$pct%',
                               style: TextStyle(
                                 fontSize: 10, fontWeight: FontWeight.w700,
-                                color: good
-                                    ? const Color(0xFF15803D)
-                                    : const Color(0xFF854D0E),
+                                color: badgeFg,
                               )),
                         ),
                       ],
                     ),
                     const SizedBox(height: 2),
                     Text(_fmtDate(s['date'] as String),
-                        style: const TextStyle(
-                            fontSize: 11, color: AppTheme.textMuted)),
+                        style: TextStyle(fontSize: 11,
+                            color: AppTheme.textMutedOf(context))),
                   ],
                 ),
               ),
               Text('$score/$total MCQ',
                   style: const TextStyle(
                     fontSize: 15, fontWeight: FontWeight.w700,
-                    color: AppTheme.textPrimary,
                   )),
             ],
           ),

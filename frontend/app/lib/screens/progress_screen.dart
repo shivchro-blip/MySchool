@@ -74,7 +74,7 @@ class _ProgressScreenState extends State<ProgressScreen> {
                               value:           (_data!['average_score'] as num)
                                                    .toDouble() / 100,
                               minHeight:       10,
-                              backgroundColor: const Color(0xFFE5E7EB),
+                              backgroundColor: AppTheme.borderOf(context),
                               color:           AppTheme.brand,
                             ),
                           ),
@@ -84,12 +84,12 @@ class _ProgressScreenState extends State<ProgressScreen> {
 
                     if (_data!['total_attempts'] == 0) ...[
                       const SizedBox(height: 40),
-                      const Center(
+                      Center(
                         child: Column(children: [
-                          Text('📝', style: TextStyle(fontSize: 48)),
-                          SizedBox(height: 8),
+                          const Text('📝', style: TextStyle(fontSize: 48)),
+                          const SizedBox(height: 8),
                           Text('No attempts yet.',
-                              style: TextStyle(color: AppTheme.textSecondary)),
+                              style: TextStyle(color: AppTheme.text2Of(context))),
                         ]),
                       ),
                     ],
@@ -110,9 +110,9 @@ class _ProgressScreenState extends State<ProgressScreen> {
             )),
         const SizedBox(height: 4),
         Text(label,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 12,
-              color:    AppTheme.textSecondary,
+              color:    AppTheme.text2Of(context),
             )),
       ]),
     ),

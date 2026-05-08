@@ -34,9 +34,7 @@ class _ChapterDetailScreenState extends State<ChapterDetailScreen> {
 
   Future<void> _checkContent() async {
     final c = await ChapterContentService().loadContent(widget.classLevel, widget.subjectSlug, widget.chapterSlug);
-    if (!mounted) {
-      return;
-    }
+    if (!mounted) return;
     setState(() {
       _hasContent = c != null;
       _checked = true;
@@ -59,26 +57,23 @@ class _ChapterDetailScreenState extends State<ChapterDetailScreen> {
     final title = ch?.title ?? widget.chapterSlug;
 
     return Scaffold(
-      backgroundColor: AppTheme.surface,
       appBar: AppBar(title: Text(title, overflow: TextOverflow.ellipsis)),
       body: !_checked
           ? const Center(child: CircularProgressIndicator())
           : ListView(
               padding: const EdgeInsets.all(16),
               children: [
-                // Chapter info card
                 _ChapterInfoCard(chapter: ch, slug: widget.chapterSlug),
                 const SizedBox(height: 20),
 
-                const Text('Choose a section to begin',
+                Text('Choose a section to begin',
                     style: TextStyle(
                       fontSize: 12, fontWeight: FontWeight.w600,
-                      color: AppTheme.textMuted, letterSpacing: 0.3,
+                      color: AppTheme.textMutedOf(context), letterSpacing: 0.3,
                     )),
                 const SizedBox(height: 12),
 
                 if (_hasContent) ...[
-                  // 6-card grid matching web
                   _SixCardGrid(
                     onAboutAuthor:   () => _goRich('author'),
                     onText:          () => _goRich('intro'),
@@ -88,7 +83,6 @@ class _ChapterDetailScreenState extends State<ChapterDetailScreen> {
                     onAskAI:         () => _goRich('askai'),
                   ),
                 ] else ...[
-                  // Fallback for chapters without static content
                   _ActionCard(
                     icon:    Icons.auto_stories_outlined,
                     color:   AppTheme.brand,
@@ -138,9 +132,9 @@ class _ChapterInfoCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color:        Colors.white,
+        color:        AppTheme.cardOf(context),
         borderRadius: BorderRadius.circular(16),
-        border:       Border.all(color: AppTheme.border),
+        border:       Border.all(color: AppTheme.borderOf(context)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -170,10 +164,7 @@ class _ChapterInfoCard extends StatelessWidget {
             ),
           Text(
             ch?.title ?? slug,
-            style: const TextStyle(
-              fontSize: 20, fontWeight: FontWeight.w800,
-              color: AppTheme.textPrimary,
-            ),
+            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w800),
           ),
         ],
       ),
@@ -203,48 +194,18 @@ class _SixCardGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cards = [
-      _CardData(
-        emoji:   '👤',
-        title:   'About Author',
-        sub:     'Learn about the writer',
-        color:   const Color(0xFF5C6BC0),
-        onTap:   onAboutAuthor,
-      ),
-      _CardData(
-        emoji:   '📄',
-        title:   'Text',
-        sub:     'Read the full lesson',
-        color:   AppTheme.brand,
-        onTap:   onText,
-      ),
-      _CardData(
-        emoji:   '🔤',
-        title:   'Glossary',
-        sub:     'Key words and meanings',
-        color:   const Color(0xFF0ea5e9),
-        onTap:   onGlossary,
-      ),
-      _CardData(
-        emoji:   '📋',
-        title:   'Comprehension',
-        sub:     'Check your understanding',
-        color:   const Color(0xFF059669),
-        onTap:   onComprehension,
-      ),
-      _CardData(
-        emoji:   '🔥',
-        title:   'Practice',
-        sub:     'Answer exam questions',
-        color:   AppTheme.warning,
-        onTap:   onPractice,
-      ),
-      _CardData(
-        emoji:   '🤖',
-        title:   'Ask AI',
-        sub:     'Get instant explanations',
-        color:   const Color(0xFF7c3aed),
-        onTap:   onAskAI,
-      ),
+      _CardData(emoji: '👤', title: 'About Author', sub: 'Learn about the writer',
+          color: const Color(0xFF5C6BC0), onTap: onAboutAuthor),
+      _CardData(emoji: '📄', title: 'Text', sub: 'Read the full lesson',
+          color: AppTheme.brand, onTap: onText),
+      _CardData(emoji: '🔤', title: 'Glossary', sub: 'Key words and meanings',
+          color: const Color(0xFF0ea5e9), onTap: onGlossary),
+      _CardData(emoji: '📋', title: 'Comprehension', sub: 'Check your understanding',
+          color: const Color(0xFF059669), onTap: onComprehension),
+      _CardData(emoji: '🔥', title: 'Practice', sub: 'Answer exam questions',
+          color: AppTheme.warning, onTap: onPractice),
+      _CardData(emoji: '🤖', title: 'Ask AI', sub: 'Get instant explanations',
+          color: const Color(0xFF7c3aed), onTap: onAskAI),
     ];
 
     return GridView.count(
@@ -295,7 +256,7 @@ class _SectionCardState extends State<_SectionCard> {
         transform: Matrix4.translationValues(0, _pressed ? 1.5 : 0, 0),
         padding: const EdgeInsets.all(14),
         decoration: BoxDecoration(
-          color:        Colors.white,
+          color:        AppTheme.cardOf(context),
           borderRadius: BorderRadius.circular(14),
           border:       Border.all(
             color: _pressed
@@ -336,7 +297,7 @@ class _SectionCardState extends State<_SectionCard> {
             const SizedBox(height: 2),
             Text(
               d.sub,
-              style: const TextStyle(fontSize: 10, color: AppTheme.textMuted),
+              style: TextStyle(fontSize: 10, color: AppTheme.textMutedOf(context)),
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
             ),
@@ -381,7 +342,7 @@ class _ActionCardState extends State<_ActionCard> {
         transform: Matrix4.translationValues(0, _pressed ? 1 : 0, 0),
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: AppTheme.cardOf(context),
           borderRadius: BorderRadius.circular(14),
           border: Border.all(
             color: _pressed
@@ -419,7 +380,7 @@ class _ActionCardState extends State<_ActionCard> {
                           color: widget.color.withAlpha(230))),
                   const SizedBox(height: 2),
                   Text(widget.subtitle,
-                      style: const TextStyle(fontSize: 12, color: AppTheme.textMuted)),
+                      style: TextStyle(fontSize: 12, color: AppTheme.textMutedOf(context))),
                 ],
               ),
             ),

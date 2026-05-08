@@ -61,14 +61,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
     final syllabus = context.watch<SyllabusProvider>();
 
     return Scaffold(
-      backgroundColor: AppTheme.surface,
       body: RefreshIndicator(
         color: AppTheme.brand,
         onRefresh: () async {
-          final userProvider = context.read<UserProvider>();
-          final syllabusProvider = context.read<SyllabusProvider>();
-          await userProvider.load();
-          await syllabusProvider.load();
+          await context.read<UserProvider>().load();
+          await context.read<SyllabusProvider>().load();
           await _loadProgress();
         },
         child: ListView(
@@ -223,9 +220,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 12),
       decoration: BoxDecoration(
-        color:        Colors.white,
+        color:        AppTheme.cardOf(context),
         borderRadius: BorderRadius.circular(12),
-        border:       Border.all(color: AppTheme.border),
+        border:       Border.all(color: AppTheme.borderOf(context)),
       ),
       child: Column(
         children: [
@@ -234,8 +231,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
           Text(value, style: TextStyle(
             fontSize: 18, fontWeight: FontWeight.w700, color: color,
           )),
-          Text(label, style: const TextStyle(
-            fontSize: 11, color: AppTheme.textMuted,
+          Text(label, style: TextStyle(
+            fontSize: 11, color: AppTheme.textMutedOf(context),
           )),
         ],
       ),
@@ -244,11 +241,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
   Widget _buildSectionLabel(String text) => Text(
     text,
-    style: const TextStyle(
-      fontSize: 16,
-      fontWeight: FontWeight.w700,
-      color: AppTheme.textPrimary,
-    ),
+    style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
   );
 
   Widget _buildClassCard({
@@ -264,7 +257,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       child: Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color:        Colors.white,
+          color:        AppTheme.cardOf(context),
           borderRadius: BorderRadius.circular(14),
           border:       Border.all(color: color.withAlpha(60)),
           boxShadow: [
@@ -304,7 +297,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     style: const TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.w700,
-                      color: AppTheme.textPrimary,
                     ),
                   ),
                   const SizedBox(height: 3),
@@ -333,9 +325,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
       return Container(
         height: 80,
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: AppTheme.cardOf(context),
           borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: AppTheme.border),
+          border: Border.all(color: AppTheme.borderOf(context)),
         ),
         child: const Center(child: CircularProgressIndicator()),
       );
@@ -351,14 +343,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
       return Container(
         padding: const EdgeInsets.all(20),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: AppTheme.cardOf(context),
           borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: AppTheme.border),
+          border: Border.all(color: AppTheme.borderOf(context)),
         ),
-        child: const Center(
+        child: Center(
           child: Text(
             'No practice attempts yet. Start practising!',
-            style: TextStyle(color: AppTheme.textMuted, fontSize: 13),
+            style: TextStyle(color: AppTheme.textMutedOf(context), fontSize: 13),
           ),
         ),
       );
@@ -367,9 +359,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppTheme.cardOf(context),
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: AppTheme.border),
+        border: Border.all(color: AppTheme.borderOf(context)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -377,11 +369,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text('Average Score',
+              Text('Average Score',
                   style: TextStyle(
                     fontSize: 13,
                     fontWeight: FontWeight.w600,
-                    color: AppTheme.textSecondary,
+                    color: AppTheme.text2Of(context),
                   )),
               Text(
                 '${avgScore.toStringAsFixed(0)}%',
@@ -403,7 +395,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             child: LinearProgressIndicator(
               value: avgScore / 100,
               minHeight: 6,
-              backgroundColor: AppTheme.border,
+              backgroundColor: AppTheme.borderOf(context),
               valueColor: AlwaysStoppedAnimation<Color>(
                 avgScore >= 80
                     ? AppTheme.success
@@ -416,7 +408,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
           const SizedBox(height: 8),
           Text(
             '$attempts practice attempt${attempts != 1 ? 's' : ''} completed',
-            style: const TextStyle(fontSize: 12, color: AppTheme.textMuted),
+            style: TextStyle(fontSize: 12, color: AppTheme.textMutedOf(context)),
           ),
         ],
       ),

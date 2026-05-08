@@ -3,27 +3,36 @@ import 'package:provider/provider.dart';
 import 'config/config.dart';
 import 'providers/syllabus_provider.dart';
 import 'providers/user_provider.dart';
+import 'providers/theme_provider.dart';
 import 'router.dart';
 
-void main() {
-  runApp(const ExamCoachApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final initialThemeMode = await ThemeProvider.loadInitial();
+  runApp(ExamCoachApp(initialThemeMode: initialThemeMode));
 }
 
 class ExamCoachApp extends StatelessWidget {
-  const ExamCoachApp({super.key});
+  final ThemeMode initialThemeMode;
+  const ExamCoachApp({super.key, required this.initialThemeMode});
 
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
+        ChangeNotifierProvider(create: (_) => ThemeProvider(initialThemeMode)),
         ChangeNotifierProvider(create: (_) => SyllabusProvider()),
         ChangeNotifierProvider(create: (_) => UserProvider()),
       ],
-      child: MaterialApp.router(
-        title:          'AI Exam Coach',
-        theme:          AppTheme.light,
-        routerConfig:   router,
-        debugShowCheckedModeBanner: false,
+      child: Consumer<ThemeProvider>(
+        builder: (_, themeProvider, __) => MaterialApp.router(
+          title:          'AI Exam Coach',
+          theme:          AppTheme.light,
+          darkTheme:      AppTheme.dark,
+          themeMode:      themeProvider.mode,
+          routerConfig:   router,
+          debugShowCheckedModeBanner: false,
+        ),
       ),
     );
   }

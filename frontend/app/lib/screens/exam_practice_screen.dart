@@ -43,16 +43,20 @@ class _AnswerPair extends StatelessWidget {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Expanded(child: _col('YOUR ANSWER', studentText.trim().isEmpty ? '—' : studentText,
-            AppTheme.surface, AppTheme.border, AppTheme.textSecondary)),
+        Expanded(child: _col(context, 'YOUR ANSWER',
+            studentText.trim().isEmpty ? '—' : studentText,
+            AppTheme.surfaceOf(context), AppTheme.borderOf(context),
+            AppTheme.text2Of(context))),
         const SizedBox(width: 8),
-        Expanded(child: _col('EXPECTED ANSWER', modelAnswer,
-            const Color(0xFFF0FDF4), const Color(0xFFBBF7D0), const Color(0xFF15803D))),
+        Expanded(child: _col(context, 'EXPECTED ANSWER', modelAnswer,
+            AppTheme.successBgOf(context), AppTheme.successBorderOf(context),
+            AppTheme.successFgOf(context))),
       ],
     );
   }
 
-  Widget _col(String label, String text, Color bg, Color border, Color labelColor) =>
+  Widget _col(BuildContext ctx, String label, String text,
+      Color bg, Color border, Color labelColor) =>
       Container(
         padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
@@ -70,8 +74,7 @@ class _AnswerPair extends StatelessWidget {
                 )),
             const SizedBox(height: 5),
             Text(text,
-                style: const TextStyle(fontSize: 12, height: 1.5,
-                    color: AppTheme.textPrimary)),
+                style: const TextStyle(fontSize: 12, height: 1.5)),
           ],
         ),
       );
@@ -104,8 +107,8 @@ class _QuickNavDots extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color:        Colors.white,
-        border:       Border.all(color: AppTheme.border),
+        color:        AppTheme.cardOf(context),
+        border:       Border.all(color: AppTheme.borderOf(context)),
         borderRadius: BorderRadius.circular(12),
       ),
       child: Column(
@@ -114,9 +117,9 @@ class _QuickNavDots extends StatelessWidget {
           for (final g in groups) ...[
             if (g != groups.first) const SizedBox(height: 10),
             Text(g.$1,
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 9, fontWeight: FontWeight.w700,
-                  color: AppTheme.textMuted, letterSpacing: 0.6,
+                  color: AppTheme.textMutedOf(context), letterSpacing: 0.6,
                 )),
             const SizedBox(height: 5),
             SingleChildScrollView(
@@ -135,9 +138,18 @@ class _QuickNavDots extends StatelessWidget {
 
                   Color bg; Color fg;
                   if (current) { bg = AppTheme.brand; fg = Colors.white; }
-                  else if (isMcq && done)   { bg = const Color(0xFFDCFCE7); fg = const Color(0xFF15803D); }
-                  else if (!isMcq && done)  { bg = AppTheme.brandLight;     fg = AppTheme.brand; }
-                  else                      { bg = AppTheme.surface;         fg = AppTheme.textMuted; }
+                  else if (isMcq && done)   {
+                    bg = AppTheme.successBgOf(context);
+                    fg = AppTheme.successFgOf(context);
+                  }
+                  else if (!isMcq && done)  {
+                    bg = AppTheme.brandLightOf(context);
+                    fg = AppTheme.brand;
+                  }
+                  else {
+                    bg = AppTheme.surfaceOf(context);
+                    fg = AppTheme.textMutedOf(context);
+                  }
 
                   return GestureDetector(
                     onTap: () => onGoto(gi),
@@ -147,7 +159,7 @@ class _QuickNavDots extends StatelessWidget {
                       decoration: BoxDecoration(
                         color:        bg,
                         borderRadius: BorderRadius.circular(6),
-                        border: current ? null : Border.all(color: AppTheme.border),
+                        border: current ? null : Border.all(color: AppTheme.borderOf(context)),
                       ),
                       alignment: Alignment.center,
                       child: Text('${gi + 1}',
@@ -192,14 +204,12 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
 
   final List<ExamAttempt> _attempts = [ExamAttempt(id: 1)];
   int                _currentAttemptId   = 1;
-  String             _view               = 'exam';  // exam | results | history
+  String             _view               = 'exam';
   int?               _viewingAttemptId;
   int                _questionIdx        = 0;
 
-  // TextEditingControllers for written/reference questions
   final Map<String, TextEditingController> _ctrlMap = {};
 
-  // ── Computed ──────────────────────────────────────────────────────────
   ExamAttempt get _currentAttempt =>
       _attempts.firstWhere((a) => a.id == _currentAttemptId);
 
@@ -216,7 +226,6 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
   int get _mcqDone =>
       _mcqQuestions.where((q) => _currentAttempt.answers[q.id] != null).length;
 
-  // ── Controller helpers ────────────────────────────────────────────────
   TextEditingController _getCtrl(int qId, [int? subIdx]) {
     final key = subIdx != null ? '${qId}_$subIdx' : '$qId';
     return _ctrlMap.putIfAbsent(key, () {
@@ -232,30 +241,17 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
   }
 
   void _clearCtrl() {
-    for (final c in _ctrlMap.values) {
-      c.dispose();
-    }
+    for (final c in _ctrlMap.values) c.dispose();
     _ctrlMap.clear();
   }
 
-  // ── Lifecycle ─────────────────────────────────────────────────────────
   @override
   void initState() {
     super.initState();
     ExamPracticeService.getQuestions(widget.classLevel, widget.subjectSlug, widget.chapterSlug).then((qs) {
-      if (mounted) {
-        setState(() {
-          _questions = qs;
-          _loading = false;
-        });
-      }
+      if (mounted) setState(() { _questions = qs; _loading = false; });
     }).catchError((e) {
-      if (mounted) {
-        setState(() {
-          _error = e.toString();
-          _loading = false;
-        });
-      }
+      if (mounted) setState(() { _error = e.toString(); _loading = false; });
     });
   }
 
@@ -265,7 +261,6 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
     super.dispose();
   }
 
-  // ── Event handlers ────────────────────────────────────────────────────
   void _selectOption(int qId, int optIdx) {
     setState(() => _currentAttempt.answers[qId] = optIdx);
   }
@@ -273,14 +268,12 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
   void _updateText(int qId, int? subIdx, String val) {
     final ans = _currentAttempt.answers;
     if (subIdx != null) {
-      final map = Map<Object, Object>.from(
-          ans[qId] as Map<Object, Object>? ?? {});
+      final map = Map<Object, Object>.from(ans[qId] as Map<Object, Object>? ?? {});
       map[subIdx] = val;
       ans[qId] = map;
     } else {
       ans[qId] = val;
     }
-    // no setState — controller owns text state
   }
 
   void _openSubmitDialog() {
@@ -312,9 +305,7 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
     final attempt = _currentAttempt;
     var score = 0;
     for (final q in _mcqQuestions) {
-      if (attempt.answers[q.id] == q.correct) {
-        score++;
-      }
+      if (attempt.answers[q.id] == q.correct) score++;
     }
     final submittedAt = DateTime.now();
     setState(() {
@@ -329,11 +320,7 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
     SharedPreferences.getInstance().then((prefs) {
       final key     = 'exam_coach_sessions_$slug';
       final stored  = prefs.getStringList(key) ?? [];
-      final session = jsonEncode({
-        'score': score,
-        'total': total,
-        'date':  submittedAt.toIso8601String(),
-      });
+      final session = jsonEncode({'score': score, 'total': total, 'date': submittedAt.toIso8601String()});
       prefs.setStringList(key, [...stored, session]);
     });
   }
@@ -362,13 +349,12 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
       key: ValueKey(_questionIdx),
       children: [
 
-        // ── Progress bar ────────────────────────────────────────────
         if (mcqTotal > 0) ...[
           Container(
             padding: const EdgeInsets.all(14),
             decoration: BoxDecoration(
-              color:        Colors.white,
-              border:       Border.all(color: AppTheme.border),
+              color:        AppTheme.cardOf(context),
+              border:       Border.all(color: AppTheme.borderOf(context)),
               borderRadius: BorderRadius.circular(12),
             ),
             child: Column(
@@ -377,13 +363,13 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text('Q${_questionIdx + 1} of $total',
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontSize: 12, fontWeight: FontWeight.w600,
-                          color: AppTheme.textSecondary,
+                          color: AppTheme.text2Of(context),
                         )),
                     Text('MCQ: $_mcqDone/$mcqTotal',
-                        style: const TextStyle(
-                          fontSize: 11, color: AppTheme.textMuted,
+                        style: TextStyle(
+                          fontSize: 11, color: AppTheme.textMutedOf(context),
                         )),
                   ],
                 ),
@@ -392,7 +378,7 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
                   borderRadius: BorderRadius.circular(4),
                   child: LinearProgressIndicator(
                     value: mcqTotal > 0 ? _mcqDone / mcqTotal : 0,
-                    backgroundColor: AppTheme.surface,
+                    backgroundColor: AppTheme.surfaceOf(context),
                     color: AppTheme.brand,
                     minHeight: 6,
                   ),
@@ -403,12 +389,11 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
           const SizedBox(height: 12),
         ],
 
-        // ── Question card ───────────────────────────────────────────
         Container(
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
-            color:        Colors.white,
-            border:       Border.all(color: AppTheme.border),
+            color:        AppTheme.cardOf(context),
+            border:       Border.all(color: AppTheme.borderOf(context)),
             borderRadius: BorderRadius.circular(14),
           ),
           child: Column(
@@ -418,21 +403,21 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text('Question ${_questionIdx + 1}',
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 10, fontWeight: FontWeight.w700,
-                        color: AppTheme.textMuted, letterSpacing: 0.8,
+                        color: AppTheme.textMutedOf(context), letterSpacing: 0.8,
                       )),
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                     decoration: BoxDecoration(
-                      color:        AppTheme.surface,
+                      color:        AppTheme.surfaceOf(context),
                       borderRadius: BorderRadius.circular(10),
-                      border:       Border.all(color: AppTheme.border),
+                      border:       Border.all(color: AppTheme.borderOf(context)),
                     ),
                     child: Text('${q.marks} mark${q.marks > 1 ? 's' : ''}',
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontSize: 10, fontWeight: FontWeight.w600,
-                          color: AppTheme.textMuted,
+                          color: AppTheme.textMutedOf(context),
                         )),
                   ),
                 ],
@@ -449,7 +434,6 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
         ),
         const SizedBox(height: 12),
 
-        // ── Prev / Next ─────────────────────────────────────────────
         Row(
           children: [
             Expanded(
@@ -476,7 +460,6 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
         ),
         const SizedBox(height: 12),
 
-        // ── Quick-nav ───────────────────────────────────────────────
         _QuickNavDots(
           questions:   _questions,
           questionIdx: _questionIdx,
@@ -485,7 +468,6 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
         ),
         const SizedBox(height: 16),
 
-        // ── Submit ──────────────────────────────────────────────────
         AppButton(
           label:     'Submit Practice Exam',
           onPressed: _openSubmitDialog,
@@ -501,16 +483,16 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
       children: [
         if (q.section != null && q.section!.isNotEmpty) ...[
           Text(q.section!,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 11, fontStyle: FontStyle.italic,
-                color: AppTheme.textMuted,
+                color: AppTheme.textMutedOf(context),
               )),
           const SizedBox(height: 6),
         ],
         _renderHtml(q.html!,
-            const TextStyle(
+            TextStyle(
               fontSize: 15, fontWeight: FontWeight.w600,
-              color: AppTheme.textPrimary, height: 1.5,
+              color: AppTheme.textOf(context), height: 1.5,
             )),
         const SizedBox(height: 14),
         ...List.generate(q.options!.length, (i) {
@@ -521,9 +503,9 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
               margin: const EdgeInsets.only(bottom: 8),
               padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
               decoration: BoxDecoration(
-                color:        isChosen ? AppTheme.brandLight : Colors.white,
+                color:        isChosen ? AppTheme.brandLightOf(context) : AppTheme.cardOf(context),
                 border: Border.all(
-                  color: isChosen ? AppTheme.brand : AppTheme.border,
+                  color: isChosen ? AppTheme.brand : AppTheme.borderOf(context),
                   width: isChosen ? 1.5 : 1,
                 ),
                 borderRadius: BorderRadius.circular(10),
@@ -533,16 +515,16 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
                   Container(
                     width: 22, height: 22,
                     decoration: BoxDecoration(
-                      color:  isChosen ? AppTheme.brand : AppTheme.surface,
+                      color:  isChosen ? AppTheme.brand : AppTheme.surfaceOf(context),
                       shape:  BoxShape.circle,
-                      border: isChosen ? null : Border.all(color: AppTheme.border),
+                      border: isChosen ? null : Border.all(color: AppTheme.borderOf(context)),
                     ),
                     alignment: Alignment.center,
                     child: Text(
                       String.fromCharCode(65 + i),
                       style: TextStyle(
                         fontSize: 10, fontWeight: FontWeight.w700,
-                        color: isChosen ? Colors.white : AppTheme.textMuted,
+                        color: isChosen ? Colors.white : AppTheme.textMutedOf(context),
                       ),
                     ),
                   ),
@@ -552,7 +534,7 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
                         style: TextStyle(
                           fontSize: 13,
                           fontWeight: isChosen ? FontWeight.w600 : FontWeight.normal,
-                          color: isChosen ? AppTheme.brandDark : AppTheme.textPrimary,
+                          color: isChosen ? AppTheme.brandDark : AppTheme.textOf(context),
                         )),
                   ),
                 ],
@@ -571,14 +553,14 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
         Container(
           padding: const EdgeInsets.all(12),
           decoration: BoxDecoration(
-            color: AppTheme.brandLight,
+            color: AppTheme.brandLightOf(context),
             borderRadius: BorderRadius.circular(8),
             border: const Border(left: BorderSide(color: AppTheme.brand, width: 3)),
           ),
           child: Text(q.verse ?? '',
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 13, fontStyle: FontStyle.italic,
-                color: AppTheme.textPrimary, height: 1.6,
+                color: AppTheme.textOf(context), height: 1.6,
               )),
         ),
         const SizedBox(height: 14),
@@ -590,19 +572,14 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(sub.q,
-                    style: const TextStyle(
-                      fontSize: 13, fontWeight: FontWeight.w600,
-                      color: AppTheme.textPrimary,
-                    )),
+                    style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600)),
                 const SizedBox(height: 8),
                 TextField(
-                  controller:  _getCtrl(q.id, i),
-                  minLines:    3,
-                  maxLines:    6,
-                  onChanged:   (v) => _updateText(q.id, i, v),
-                  decoration: const InputDecoration(
-                    hintText: 'Write your answer here…',
-                  ),
+                  controller: _getCtrl(q.id, i),
+                  minLines:   3,
+                  maxLines:   6,
+                  onChanged:  (v) => _updateText(q.id, i, v),
+                  decoration: const InputDecoration(hintText: 'Write your answer here…'),
                 ),
               ],
             ),
@@ -617,19 +594,14 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(q.html ?? '',
-            style: const TextStyle(
-              fontSize: 15, fontWeight: FontWeight.w600,
-              color: AppTheme.textPrimary, height: 1.5,
-            )),
+            style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w600, height: 1.5)),
         const SizedBox(height: 14),
         TextField(
           controller: _getCtrl(q.id),
           minLines:   q.marks >= 5 ? 8 : 5,
           maxLines:   q.marks >= 5 ? 14 : 10,
           onChanged:  (v) => _updateText(q.id, null, v),
-          decoration: const InputDecoration(
-            hintText: 'Write your answer here…',
-          ),
+          decoration: const InputDecoration(hintText: 'Write your answer here…'),
         ),
       ],
     );
@@ -651,12 +623,11 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
       padding: const EdgeInsets.fromLTRB(16, 16, 16, 32),
       children: [
 
-        // ── Score card ──────────────────────────────────────────────
         Container(
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
-            color:        Colors.white,
-            border:       Border.all(color: AppTheme.border),
+            color:        AppTheme.cardOf(context),
+            border:       Border.all(color: AppTheme.borderOf(context)),
             borderRadius: BorderRadius.circular(14),
           ),
           child: Column(
@@ -668,36 +639,31 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-        const Text('Exam Submitted',
-                           style: TextStyle(
-                             fontSize: 18, fontWeight: FontWeight.w700,
-                             color: AppTheme.textPrimary,
-                           )),
+                      const Text('Exam Submitted',
+                          style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
                       Text(widget.chapter?.title ?? widget.chapterSlug,
-                          style: const TextStyle(
-                            fontSize: 12, color: AppTheme.textMuted,
-                          )),
+                          style: TextStyle(fontSize: 12, color: AppTheme.textMutedOf(context))),
                     ],
                   ),
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                     decoration: BoxDecoration(
-                      color: const Color(0xFFDCFCE7),
+                      color: AppTheme.successBgOf(context),
                       borderRadius: BorderRadius.circular(20),
                     ),
-                    child: const Text('Submitted',
+                    child: Text('Submitted',
                         style: TextStyle(
                           fontSize: 12, fontWeight: FontWeight.w600,
-                          color: Color(0xFF15803D),
+                          color: AppTheme.successFgOf(context),
                         )),
                   ),
                 ],
               ),
               const SizedBox(height: 16),
-              const Text('MCQ SCORE',
+              Text('MCQ SCORE',
                   style: TextStyle(
                     fontSize: 9, fontWeight: FontWeight.w700,
-                    color: AppTheme.textMuted, letterSpacing: 0.6,
+                    color: AppTheme.textMutedOf(context), letterSpacing: 0.6,
                   )),
               const SizedBox(height: 4),
               Row(
@@ -705,14 +671,9 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
                 textBaseline: TextBaseline.alphabetic,
                 children: [
                   Text('$score',
-                      style: const TextStyle(
-                        fontSize: 32, fontWeight: FontWeight.w800,
-                        color: AppTheme.textPrimary,
-                      )),
+                      style: const TextStyle(fontSize: 32, fontWeight: FontWeight.w800)),
                   Text(' / $total',
-                      style: const TextStyle(
-                        fontSize: 18, color: AppTheme.textSecondary,
-                      )),
+                      style: TextStyle(fontSize: 18, color: AppTheme.text2Of(context))),
                   const SizedBox(width: 8),
                   Text('· $pct%',
                       style: TextStyle(
@@ -725,14 +686,14 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
               Text(
                 'Attempt $attemptNum'
                 '${attempt.submittedAt != null ? " · ${_fmtDate(attempt.submittedAt!)}" : ""}',
-                style: const TextStyle(fontSize: 11, color: AppTheme.textMuted),
+                style: TextStyle(fontSize: 11, color: AppTheme.textMutedOf(context)),
               ),
               const SizedBox(height: 10),
               ClipRRect(
                 borderRadius: BorderRadius.circular(4),
                 child: LinearProgressIndicator(
                   value: total > 0 ? score / total : 0,
-                  backgroundColor: AppTheme.surface,
+                  backgroundColor: AppTheme.surfaceOf(context),
                   color: scoreColor,
                   minHeight: 8,
                 ),
@@ -740,19 +701,18 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
               if (writtenQs.isNotEmpty) ...[
                 const SizedBox(height: 8),
                 Text('${writtenQs.length} written question${writtenQs.length != 1 ? 's' : ''} · review below',
-                    style: const TextStyle(fontSize: 11, color: AppTheme.textMuted)),
+                    style: TextStyle(fontSize: 11, color: AppTheme.textMutedOf(context))),
               ],
             ],
           ),
         ),
         const SizedBox(height: 16),
 
-        // ── MCQ review ──────────────────────────────────────────────
         if (mcqQs.isNotEmpty) ...[
-          const Text('MCQ REVIEW',
+          Text('MCQ REVIEW',
               style: TextStyle(
                 fontSize: 9, fontWeight: FontWeight.w700,
-                color: AppTheme.textMuted, letterSpacing: 0.6,
+                color: AppTheme.textMutedOf(context), letterSpacing: 0.6,
               )),
           const SizedBox(height: 8),
           ...mcqQs.asMap().entries.map((e) {
@@ -765,11 +725,11 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
               child: Container(
                 padding: const EdgeInsets.all(14),
                 decoration: BoxDecoration(
-                  color:  Colors.white,
+                  color:  AppTheme.cardOf(context),
                   border: Border.all(
                       color: correct
-                          ? const Color(0xFFBBF7D0)
-                          : AppTheme.border),
+                          ? AppTheme.successBorderOf(context)
+                          : AppTheme.borderOf(context)),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Column(
@@ -778,7 +738,7 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                            Icon(
+                        Icon(
                           correct ? Icons.check_circle : Icons.cancel,
                           color: correct ? AppTheme.success : AppTheme.error,
                           size: 16,
@@ -787,9 +747,9 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
                         Expanded(
                           child: _renderHtml(
                             'Q${qi + 1}. ${q.html!}',
-                            const TextStyle(
+                            TextStyle(
                               fontSize: 13, fontWeight: FontWeight.w600,
-                              color: AppTheme.textPrimary, height: 1.4,
+                              color: AppTheme.textOf(context), height: 1.4,
                             ),
                           ),
                         ),
@@ -799,8 +759,8 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
                     ...List.generate(q.options!.length, (i) {
                       final isChosen = chosen == i;
                       final isAnswer = q.correct == i;
-                      Color fg = AppTheme.textMuted;
-                      if (isAnswer)              fg = const Color(0xFF15803D);
+                      Color fg = AppTheme.textMutedOf(context);
+                      if (isAnswer)              fg = AppTheme.successFgOf(context);
                       if (isChosen && !correct)  fg = AppTheme.error;
                       return Padding(
                         padding: const EdgeInsets.only(bottom: 4),
@@ -810,10 +770,10 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
                               width: 16, height: 16,
                               decoration: BoxDecoration(
                                 color: isAnswer
-                                    ? const Color(0xFFDCFCE7)
-                                    : isChosen ? const Color(0xFFFEE2E2) : AppTheme.surface,
+                                    ? AppTheme.successBgOf(context)
+                                    : isChosen ? AppTheme.errorBgOf(context) : AppTheme.surfaceOf(context),
                                 shape:  BoxShape.circle,
-                                border: Border.all(color: AppTheme.border),
+                                border: Border.all(color: AppTheme.borderOf(context)),
                               ),
                               alignment: Alignment.center,
                               child: Text(String.fromCharCode(65 + i),
@@ -830,7 +790,7 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
                                   )),
                             ),
                             if (isAnswer)
-                              const Icon(Icons.check_circle, size: 12, color: AppTheme.success),
+                              Icon(Icons.check_circle, size: 12, color: AppTheme.success),
                           ],
                         ),
                       );
@@ -840,7 +800,7 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
                       Container(
                         padding: const EdgeInsets.all(10),
                         decoration: BoxDecoration(
-                          color:        AppTheme.brandLight,
+                          color:        AppTheme.brandLightOf(context),
                           borderRadius: BorderRadius.circular(8),
                         ),
                         child: Text('Hint: ${q.hint}',
@@ -857,12 +817,11 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
           const SizedBox(height: 8),
         ],
 
-        // ── Written review ──────────────────────────────────────────
         if (writtenQs.isNotEmpty) ...[
-          const Text('WRITTEN ANSWERS',
+          Text('WRITTEN ANSWERS',
               style: TextStyle(
                 fontSize: 9, fontWeight: FontWeight.w700,
-                color: AppTheme.textMuted, letterSpacing: 0.6,
+                color: AppTheme.textMutedOf(context), letterSpacing: 0.6,
               )),
           const SizedBox(height: 8),
           ...writtenQs.asMap().entries.map((e) {
@@ -873,8 +832,8 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
               child: Container(
                 padding: const EdgeInsets.all(14),
                 decoration: BoxDecoration(
-                  color:        Colors.white,
-                  border:       Border.all(color: AppTheme.border),
+                  color:        AppTheme.cardOf(context),
+                  border:       Border.all(color: AppTheme.borderOf(context)),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Column(
@@ -887,26 +846,25 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
                           child: q.type == ExamQuestionType.reference
                               ? Container(
                                   padding: const EdgeInsets.only(left: 8),
-                                  decoration: const BoxDecoration(
+                                  decoration: BoxDecoration(
                                     border: Border(
-                                        left: BorderSide(color: AppTheme.border, width: 2)),
+                                        left: BorderSide(color: AppTheme.borderOf(context), width: 2)),
                                   ),
                                   child: Text(q.verse ?? '',
-                                      style: const TextStyle(
+                                      style: TextStyle(
                                         fontSize: 12, fontStyle: FontStyle.italic,
-                                        color: AppTheme.textSecondary, height: 1.5,
+                                        color: AppTheme.text2Of(context), height: 1.5,
                                       )),
                                 )
                               : Text('Q${qi + 1}. ${q.html ?? ''}',
                                   style: const TextStyle(
-                                    fontSize: 13, fontWeight: FontWeight.w600,
-                                    color: AppTheme.textPrimary, height: 1.4,
+                                    fontSize: 13, fontWeight: FontWeight.w600, height: 1.4,
                                   )),
                         ),
                         const SizedBox(width: 8),
                         Text('${q.marks}m',
-                            style: const TextStyle(
-                              fontSize: 10, color: AppTheme.textMuted,
+                            style: TextStyle(
+                              fontSize: 10, color: AppTheme.textMutedOf(context),
                             )),
                       ],
                     ),
@@ -923,7 +881,6 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
                               Text(sub.q,
                                   style: const TextStyle(
                                     fontSize: 12, fontWeight: FontWeight.w600,
-                                    color: AppTheme.textPrimary,
                                   )),
                               const SizedBox(height: 6),
                               _AnswerPair(
@@ -946,7 +903,6 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
           const SizedBox(height: 8),
         ],
 
-        // ── Actions ─────────────────────────────────────────────────
         Row(
           children: [
             Expanded(
@@ -991,7 +947,6 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
     );
   }
 
-  // ── Helpers ───────────────────────────────────────────────────────────
   String _fmtDate(DateTime dt) {
     final months = ['Jan','Feb','Mar','Apr','May','Jun',
                     'Jul','Aug','Sep','Oct','Nov','Dec'];
@@ -1028,7 +983,6 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
     );
   }
 
-  // ── Build ─────────────────────────────────────────────────────────────
   @override
   Widget build(BuildContext context) {
     if (_loading) {
@@ -1043,8 +997,7 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
         body: Center(
           child: Padding(
             padding: const EdgeInsets.all(24),
-            child: Text(_error!,
-                style: const TextStyle(color: AppTheme.error)),
+            child: Text(_error!, style: const TextStyle(color: AppTheme.error)),
           ),
         ),
       );
@@ -1052,18 +1005,17 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
     if (_questions.isEmpty) {
       return Scaffold(
         appBar: AppBar(title: const Text('Practice Exam')),
-        body: const Center(
+        body: Center(
           child: Padding(
-            padding: EdgeInsets.all(24),
+            padding: const EdgeInsets.all(24),
             child: Text('No practice questions for this chapter yet.',
-                style: TextStyle(color: AppTheme.textMuted)),
+                style: TextStyle(color: AppTheme.textMutedOf(context))),
           ),
         ),
       );
     }
 
     return Scaffold(
-      backgroundColor: AppTheme.surface,
       appBar: _buildAppBar(),
       body: AnimatedSwitcher(
         duration: const Duration(milliseconds: 180),
