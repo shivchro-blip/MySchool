@@ -277,66 +277,97 @@
       "navLabel": "Part II -- Reference",
       "title": "Part II -- Reference and Context",
       "type": "reference",
-      "scoreMax": 10,
-      "marksPer": 1,
-      "sections": [
+      "scoreMax": 14,
+      "marksPer": 2,
+      "instruction": "Answer any 7 of the following 10 questions. Read the extract carefully and answer in one or two sentences.",
+      "questions": [
         {
-          "label": "Reference the line",
-          "questions": [
+          "verse": "Explain the context of: <em>With neck out-thrust, you fancy how,</em>",
+          "subs": [
             {
-              "id": "r1",
-              "html": "Explain the context of: <em>With neck out-thrust, you fancy how,</em>",
-              "answer": "These words describe Napoleon’s tense posture on the mound before the rider arrives."
-            },
-            {
-              "id": "r2",
-              "html": "Explain the context of: <em>We’ve got you Ratisbon!</em>",
-              "answer": "The young rider says this to Napoleon after reaching him to announce that the French have taken the city."
-            },
-            {
-              "id": "r3",
-              "html": "Explain the context of: <em>You’re wounded!</em>",
-              "answer": "Napoleon says this when he notices that the rider is badly hurt even though he is smiling with victory."
-            },
-            {
-              "id": "r4",
-              "html": "Explain the context of: <em>I’m killed, Sire!</em>",
-              "answer": "The soldier says this proudly when Napoleon asks whether he is wounded. It shows his courage and willingness to die for duty."
-            },
-            {
-              "id": "r5",
-              "html": "Explain the context of: <em>Softened itself, as sheathes / A film the mother-eagle’s eye</em>",
-              "answer": "The emperor’s face and eyes soften when he sees the wounded soldier, just as a mother eagle’s eyes soften when she sees her eaglet hurt."
+              "q": "Explain the context of: <em>With neck out-thrust, you fancy how,</em>",
+              "a": "These words describe Napoleon’s tense posture on the mound before the rider arrives."
             }
           ]
         },
         {
-          "label": "Meaning in context",
-          "questions": [
+          "verse": "Explain the context of: <em>We’ve got you Ratisbon!</em>",
+          "subs": [
             {
-              "id": "r6",
-              "html": "What does <em>full-galloping</em> suggest?",
-              "answer": "It suggests speed, urgency and determination."
-            },
+              "q": "Explain the context of: <em>We’ve got you Ratisbon!</em>",
+              "a": "The young rider says this to Napoleon after reaching him to announce that the French have taken the city."
+            }
+          ]
+        },
+        {
+          "verse": "Explain the context of: <em>You’re wounded!</em>",
+          "subs": [
             {
-              "id": "r7",
-              "html": "What does <em>prone brow</em> suggest in the poem?",
-              "answer": "It suggests a forehead bent downward under the weight of anxious thought."
-            },
+              "q": "Explain the context of: <em>You’re wounded!</em>",
+              "a": "Napoleon says this when he notices that the rider is badly hurt even though he is smiling with victory."
+            }
+          ]
+        },
+        {
+          "verse": "Explain the context of: <em>I’m killed, Sire!</em>",
+          "subs": [
             {
-              "id": "r8",
-              "html": "What does <em>pressed together</em> suggest in the line about the rider’s lips?",
-              "answer": "It suggests that he is trying to control his pain and keep his courage."
-            },
+              "q": "Explain the context of: <em>I’m killed, Sire!</em>",
+              "a": "The soldier says this proudly when Napoleon asks whether he is wounded. It shows his courage and willingness to die for duty."
+            }
+          ]
+        },
+        {
+          "verse": "Explain the context of: <em>Softened itself, as sheathes / A film the mother-eagle’s eye</em>",
+          "subs": [
             {
-              "id": "r9",
-              "html": "What does the boy’s smile show?",
-              "answer": "It shows bravery, loyalty and pride even while he is dying."
-            },
+              "q": "Explain the context of: <em>Softened itself, as sheathes / A film the mother-eagle’s eye</em>",
+              "a": "The emperor’s face and eyes soften when he sees the wounded soldier, just as a mother eagle’s eyes soften when she sees her eaglet hurt."
+            }
+          ]
+        },
+        {
+          "verse": "What does <em>full-galloping</em> suggest",
+          "subs": [
             {
-              "id": "r10",
-              "html": "What is the significance of the mound?",
-              "answer": "It is the place where Napoleon waits anxiously for news and where the rider reaches him."
+              "q": "What does <em>full-galloping</em> suggest",
+              "a": "It suggests speed, urgency and determination."
+            }
+          ]
+        },
+        {
+          "verse": "What does <em>prone brow</em> suggest in the poem",
+          "subs": [
+            {
+              "q": "What does <em>prone brow</em> suggest in the poem",
+              "a": "It suggests a forehead bent downward under the weight of anxious thought."
+            }
+          ]
+        },
+        {
+          "verse": "What does <em>pressed together</em> suggest in the line about the rider’s lips",
+          "subs": [
+            {
+              "q": "What does <em>pressed together</em> suggest in the line about the rider’s lips",
+              "a": "It suggests that he is trying to control his pain and keep his courage."
+            }
+          ]
+        },
+        {
+          "verse": "What does the boy’s smile show",
+          "subs": [
+            {
+              "q": "What does the boy’s smile show",
+              "a": "It shows bravery, loyalty and pride even while he is dying."
+            }
+          ]
+        },
+        {
+          "verse": "What is the significance of the mound",
+          "subs": [
+            {
+              "q": "What is the significance of the mound",
+              "a": "It is the place where Napoleon waits anxiously for news and where the rider reaches him."
             }
           ]
         }
@@ -347,63 +378,49 @@
       "navLabel": "Part III -- Short Essay",
       "title": "Part III -- Paragraph Answers",
       "type": "short-essay",
-      "scoreMax": 20,
-      "marksPer": 2,
-      "sections": [
+      "scoreMax": 21,
+      "marksPer": 3,
+      "instruction": "Answer any 7 of the following 10 questions in two or three sentences. (Approx. 30-40 words per answer)",
+      "questions": [
         {
-          "label": "Short answers",
-          "questions": [
-            {
-              "id": "s1",
-              "html": "Describe Napoleon’s posture and mood at the beginning of the poem.",
-              "answer": "He stands on a little mound with his neck out-thrust, legs wide and arms locked behind him. The posture shows tension, power and anxious waiting."
-            },
-            {
-              "id": "s2",
-              "html": "Why is the young soldier important in the poem?",
-              "answer": "He brings the news of victory, but his greater importance lies in the courage with which he carries that message while fatally wounded."
-            },
-            {
-              "id": "s3",
-              "html": "How does Browning contrast victory and death?",
-              "answer": "The boy arrives smiling with victory news, yet the reader soon learns that he is mortally wounded. The poem turns triumph into pathos."
-            },
-            {
-              "id": "s4",
-              "html": "What does Napoleon’s reaction reveal about him?",
-              "answer": "It reveals that he is not only a commander but also a human being capable of tenderness and concern."
-            },
-            {
-              "id": "s5",
-              "html": "What is the role of the rider in the victory of the French at Ratisbon?",
-              "answer": "He is the messenger of victory and a symbol of the soldiers who pay for that victory with their lives."
-            },
-            {
-              "id": "s6",
-              "html": "Why is the poem called an incident?",
-              "answer": "Because it focuses on a single dramatic moment in the battle rather than on the full course of the war."
-            },
-            {
-              "id": "s7",
-              "html": "Explain the significance of the poem’s final line.",
-              "answer": "The final line brings the soldier’s courage to its emotional peak. He dies smiling beside Napoleon, which makes his sacrifice unforgettable."
-            },
-            {
-              "id": "s8",
-              "html": "How does the poem use imagery of battle?",
-              "answer": "It uses smoke, dust, a mound, galloping movement and the flag-bird to make the battlefield scene vivid and fast-moving."
-            },
-            {
-              "id": "s9",
-              "html": "What makes the poem patriotic?",
-              "answer": "It praises the French army’s victory, the soldier’s loyalty and the honour of dying for one’s country."
-            },
-            {
-              "id": "s10",
-              "html": "What does the poem suggest about bravery?",
-              "answer": "Bravery is shown not by loud boasting but by calm endurance, loyalty and devotion even in the face of death."
-            }
-          ]
+          "q": "Describe Napoleon’s posture and mood at the beginning of the poem.",
+          "ans": "He stands on a little mound with his neck out-thrust, legs wide and arms locked behind him. The posture shows tension, power and anxious waiting."
+        },
+        {
+          "q": "Why is the young soldier important in the poem",
+          "ans": "He brings the news of victory, but his greater importance lies in the courage with which he carries that message while fatally wounded."
+        },
+        {
+          "q": "How does Browning contrast victory and death",
+          "ans": "The boy arrives smiling with victory news, yet the reader soon learns that he is mortally wounded. The poem turns triumph into pathos."
+        },
+        {
+          "q": "What does Napoleon’s reaction reveal about him",
+          "ans": "It reveals that he is not only a commander but also a human being capable of tenderness and concern."
+        },
+        {
+          "q": "What is the role of the rider in the victory of the French at Ratisbon",
+          "ans": "He is the messenger of victory and a symbol of the soldiers who pay for that victory with their lives."
+        },
+        {
+          "q": "Why is the poem called an incident",
+          "ans": "Because it focuses on a single dramatic moment in the battle rather than on the full course of the war."
+        },
+        {
+          "q": "Explain the significance of the poem’s final line.",
+          "ans": "The final line brings the soldier’s courage to its emotional peak. He dies smiling beside Napoleon, which makes his sacrifice unforgettable."
+        },
+        {
+          "q": "How does the poem use imagery of battle",
+          "ans": "It uses smoke, dust, a mound, galloping movement and the flag-bird to make the battlefield scene vivid and fast-moving."
+        },
+        {
+          "q": "What makes the poem patriotic",
+          "ans": "It praises the French army’s victory, the soldier’s loyalty and the honour of dying for one’s country."
+        },
+        {
+          "q": "What does the poem suggest about bravery",
+          "ans": "Bravery is shown not by loud boasting but by calm endurance, loyalty and devotion even in the face of death."
         }
       ]
     },
@@ -412,48 +429,37 @@
       "navLabel": "Part IV -- Long Essay",
       "title": "Part IV -- Essay Answers",
       "type": "long-essay",
-      "scoreMax": 40,
+      "scoreMax": 35,
       "marksPer": 5,
-      "sections": [
+      "instruction": "Answer any 5 of the following 7 questions. Each answer should be about 100-150 words.",
+      "questions": [
         {
-          "label": "Long answers",
-          "questions": [
-            {
-              "id": "l1",
-              "html": "The young soldier matched his emperor in courage and patriotism. Elucidate.",
-              "answer": "The rider is as courageous as Napoleon because he brings the news of victory through smoke and danger while badly wounded. His patriotism is clear in the way he speaks proudly of the French victory and the flag. Napoleon leads the army, but the boy’s sacrifice shows the same devotion to France. Together they represent military honour."
-            },
-            {
-              "id": "l2",
-              "html": "What is the role of the young soldier in the victory of the French at Ratisbon?",
-              "answer": "He is the messenger who carries the triumphant news to Napoleon. More than that, he becomes a heroic image of the ordinary soldier who helps achieve victory and then pays for it with his life."
-            },
-            {
-              "id": "l3",
-              "html": "Napoleon was a great source of inspiration to his army. Justify.",
-              "answer": "The poem shows that Napoleon’s presence lifts the army’s spirit. The rider rushes to him with pride because the emperor is the centre of the campaign, and Napoleon’s own reaction turns the news into fresh energy for the troops. He inspires loyalty and confidence."
-            },
-            {
-              "id": "l4",
-              "html": "Discuss the poem as a celebration of patriotism and sacrifice.",
-              "answer": "Browning celebrates the French victory not through battle details alone but through the soldier who gives his life to announce it. The boy’s proud smile, his final words and his death beside Napoleon make the poem a tribute to patriotic sacrifice."
-            },
-            {
-              "id": "l5",
-              "html": "How does Browning create drama in the poem?",
-              "answer": "He creates drama by moving quickly from anxious stillness to sudden arrival, from victory to revelation of the soldier’s wound, and from triumph to death. The short lines, dialogue and vivid images keep the scene tense and emotional."
-            },
-            {
-              "id": "l6",
-              "html": "Explain the title <em>Incident of the French Camp</em>.",
-              "answer": "The title is appropriate because the poem records one specific incident in a French camp during war. That incident is small in time but large in meaning, since it reveals courage, loyalty and sacrifice."
-            },
-            {
-              "id": "l7",
-              "html": "What is the significance of the poem’s ending?",
-              "answer": "The ending is significant because the soldier dies smiling after speaking proudly of his duty. The combination of victory and death makes the poem both heroic and deeply moving."
-            }
-          ]
+          "q": "The young soldier matched his emperor in courage and patriotism. Elucidate.",
+          "ans": "The rider is as courageous as Napoleon because he brings the news of victory through smoke and danger while badly wounded. His patriotism is clear in the way he speaks proudly of the French victory and the flag. Napoleon leads the army, but the boy’s sacrifice shows the same devotion to France. Together they represent military honour."
+        },
+        {
+          "q": "What is the role of the young soldier in the victory of the French at Ratisbon",
+          "ans": "He is the messenger who carries the triumphant news to Napoleon. More than that, he becomes a heroic image of the ordinary soldier who helps achieve victory and then pays for it with his life."
+        },
+        {
+          "q": "Napoleon was a great source of inspiration to his army. Justify.",
+          "ans": "The poem shows that Napoleon’s presence lifts the army’s spirit. The rider rushes to him with pride because the emperor is the centre of the campaign, and Napoleon’s own reaction turns the news into fresh energy for the troops. He inspires loyalty and confidence."
+        },
+        {
+          "q": "Discuss the poem as a celebration of patriotism and sacrifice.",
+          "ans": "Browning celebrates the French victory not through battle details alone but through the soldier who gives his life to announce it. The boy’s proud smile, his final words and his death beside Napoleon make the poem a tribute to patriotic sacrifice."
+        },
+        {
+          "q": "How does Browning create drama in the poem",
+          "ans": "He creates drama by moving quickly from anxious stillness to sudden arrival, from victory to revelation of the soldier’s wound, and from triumph to death. The short lines, dialogue and vivid images keep the scene tense and emotional."
+        },
+        {
+          "q": "Explain the title <em>Incident of the French Camp</em>.",
+          "ans": "The title is appropriate because the poem records one specific incident in a French camp during war. That incident is small in time but large in meaning, since it reveals courage, loyalty and sacrifice."
+        },
+        {
+          "q": "What is the significance of the poem’s ending",
+          "ans": "The ending is significant because the soldier dies smiling after speaking proudly of his duty. The combination of victory and death makes the poem both heroic and deeply moving."
         }
       ]
     }
