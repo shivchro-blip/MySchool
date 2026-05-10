@@ -8,6 +8,18 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 exam-coach/          ← main project (see exam-coach/CLAUDE.md for full architecture)
 graphify-out/        ← graphify analysis output, not source code
 phase-navigation-system.md  ← phase spec for the navigation system feature
+phase0-claude-code.md       ← phase planning docs (read-only reference)
+phase1-database-schema.md
+phase2-content-pipeline.md
+phase3-backend-api.md
+phase4-learning-module.md
+phase5-evaluation-module.md
+phase6-react-frontend.md
+phase7-flutter-app.md
+phase8-admin-panel.md
+phase9-testing-deployment.md
+fix-architecture-refactor.md   ← architecture fix reference docs
+fix-dead-code-validation.md
 ```
 
 All development work happens inside `exam-coach/`. Read `exam-coach/CLAUDE.md` before touching any code.
@@ -31,7 +43,7 @@ npm run dev     # http://localhost:5173
 npm run build
 ```
 
-**Admin Panel**
+**Admin Panel (React + Vite)**
 ```bash
 cd exam-coach/frontend/admin
 npm install
