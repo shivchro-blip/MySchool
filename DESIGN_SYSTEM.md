@@ -13,410 +13,418 @@ exam-coach/
 ├── frontend/
 │   ├── web/
 │   │   ├── src/
-│   │   │   ├── index.css         ← ALL CSS tokens defined here (:root vars + oklch overrides)
+│   │   │   ├── index.css         ← ALL web CSS tokens (:root light + [data-theme="dark"])
 │   │   │   ├── content/          ← static JS content modules
-│   │   │   │   ├── registry.js               ← chapterSlug → chapter content object
-│   │   │   │   ├── practiceRegistry.js       ← chapterSlug → practice question set
-│   │   │   │   └── Class_11/
-│   │   │   │       └── English/
-│   │   │   │           ├── chapters/         ← 18 chapter content files (*.js)
-│   │   │   │           └── practice/         ← 18 practice question files (*.js)
-│   │   │   ├── components/
-│   │   │   │   └── ui/           ← shared UI components (Card, Button, Badge, Skeleton…)
-│   │   │   └── pages/            ← screen-level components
+│   │   │   │   ├── registry.js
+│   │   │   │   ├── practiceRegistry.js
+│   │   │   │   └── Class_11/ + Class_12/
+│   │   │   ├── components/ui/    ← Badge, BrandLogo, Button, Card, Input, Navbar
+│   │   │   └── pages/
 │   │   └── tailwind.config.js    ← token aliases (CSS vars only — no hardcoded hex)
 │   └── app/                      ← Flutter mobile
 │       ├── lib/
-│       │   ├── screens/          ← Flutter screens
-│       │   ├── widgets/          ← shared widgets (ShellScaffold, etc.)
-│       │   ├── models/           ← data models (chapter_content_model.dart, etc.)
-│       │   ├── services/         ← API + content services
-│       │   └── router.dart       ← GoRouter (ShellRoute wraps all content routes)
-│       └── assets/content/
-│           └── chapters/         ← JSON content for Flutter (separate from web JS)
-└── backend/                      ← FastAPI
+│       │   ├── config/theme.dart ← AppTheme (all Flutter color constants + ThemeData)
+│       │   ├── screens/
+│       │   └── widgets/
+│       └── assets/content/       ← JSON chapter/practice files for Flutter
+└── backend/
 ```
+
+**Important:** Web and Flutter use **entirely separate design systems** with different color palettes
+and no shared token layer. The teal brand on Flutter (`#2A7B6F`) is unrelated to the navy accent
+on web (`#1B4B82`). Do not attempt to unify them.
 
 ---
 
-## 2. Color Tokens — PAPER Theme (active)
+## 2. Web Color Tokens
 
-> **Redesign in progress (prompts 01–08).** New tokens use unprefixed names (`--bg`, `--ink`, `--accent`). Legacy `--ec-*` tokens still exist in `index.css` until prompts 02–07 restyle each component. Do not add new `--ec-*` tokens.
+### Active tokens (PAPER system — use these)
 
-Define new tokens in `frontend/web/src/index.css` under `:root` (hex fallback) + `@supports (color: oklch(...))` (oklch override). Mirror in `tailwind.config.js` as CSS var references.
+Defined in `frontend/web/src/index.css` under `:root` (light) and `[data-theme="dark"]`.
+Aliased in `tailwind.config.js` as Tailwind color utilities — no hardcoded hex in config.
+
+**PAPER tokens are active. Legacy `--ec-*` tokens are being retired — do not add new `--ec-*` tokens.**
+
+#### Light theme (`:root`)
 
 ```css
-/* Hex fallbacks first — work everywhere */
-:root {
-  --bg:          #f5f1eb;   /* warm off-white app background */
-  --bg-2:        #faf8f4;   /* card paper */
-  --bg-sunk:     #ede9e2;   /* recessed surface */
-  --line:        #d9d3c8;   /* default border */
-  --line-soft:   #e5e0d8;   /* subtle dividers */
-  --ink:         #2e2a24;   /* primary text */
-  --ink-2:       #5a5349;   /* secondary text */
-  --ink-3:       #6e6760;   /* tertiary — lightest allowed for text (≥4.5:1 on --bg) */
-  --ink-4:       #b0a89f;   /* DECORATION ONLY — never for text */
-  --accent:      #3b5ea6;   /* ink blue — single accent */
-  --accent-soft: #e0e8f7;
-  --accent-ink:  #2c4880;   /* text on --accent-soft */
-  --good:        #4a8c6a;   /* sage */
-  --good-soft:   #e0f0e8;
-  --good-ink:    #2f6850;   /* text on --good-soft, ≥5.5:1 */
-  --warn:        #a07030;   /* caution — time running out, unsaved */
-  --warn-soft:   #f5ede0;
-  --pos:         #b86a2a;   /* achievement / streak / flame (≠ warn) */
-  --pos-soft:    #f4e8d8;
-  --danger:      #b03a30;   /* destructive only */
-  --highlight:   #f5f0c8;   /* gentle yellow text marker */
-}
-/* oklch override for supporting browsers */
-@supports (color: oklch(0 0 0)) {
-  :root {
-    --bg:          oklch(0.965 0.012 80);
-    --bg-2:        oklch(0.985 0.008 85);
-    --bg-sunk:     oklch(0.945 0.014 78);
-    --line:        oklch(0.88 0.014 75);
-    --line-soft:   oklch(0.92 0.012 78);
-    --ink:         oklch(0.25 0.018 60);
-    --ink-2:       oklch(0.42 0.014 55);
-    --ink-3:       oklch(0.48 0.012 55);
-    --ink-4:       oklch(0.72 0.010 55);
-    --accent:      oklch(0.45 0.13 245);
-    --accent-soft: oklch(0.93 0.04 245);
-    --accent-ink:  oklch(0.35 0.14 245);
-    --good:        oklch(0.55 0.09 155);
-    --good-soft:   oklch(0.93 0.04 155);
-    --good-ink:    oklch(0.40 0.10 155);
-    --warn:        oklch(0.62 0.13 60);
-    --warn-soft:   oklch(0.94 0.05 70);
-    --pos:         oklch(0.55 0.13 50);
-    --pos-soft:    oklch(0.94 0.05 60);
-    --danger:      oklch(0.50 0.18 25);
-    --highlight:   oklch(0.93 0.07 95);
-  }
+/* Surfaces */
+--bg:          #F8F9FA;   /* page background */
+--bg-2:        #FFFFFF;   /* card surface */
+--bg-sunk:     #F1F5F9;   /* recessed surface */
+
+/* Borders */
+--line:        #E5E7EB;   /* default border */
+--line-soft:   #F1F5F9;   /* subtle dividers */
+
+/* Text */
+--ink:         #1E293B;   /* primary text */
+--ink-2:       #64748B;   /* secondary text */
+--ink-3:       #64748B;   /* tertiary (≥4.5:1 on --bg) */
+--ink-4:       #94A3B8;   /* DECORATION ONLY — never for text */
+
+/* Accent — UI chrome, active nav, progress */
+--accent:      #1B4B82;
+--accent-soft: #E6F1FB;
+--accent-ink:  #0C447C;   /* text on --accent-soft */
+
+/* Semantic */
+--good:        #1D9E75;
+--good-soft:   #E1F5EE;
+--good-ink:    #085041;
+--warn:        #EF9F27;
+--warn-soft:   #FAEEDA;
+--pos:         #b86a2a;   /* achievement / streak */
+--pos-soft:    #f4e8d8;
+--danger:      #E24B4A;
+--highlight:   #FEF9C3;   /* inline text marker */
+
+/* AI feature surfaces */
+--ai:          #8B5CF6;
+--ai-soft:     #EEEDFE;
+```
+
+#### Dark theme (`[data-theme="dark"]`)
+
+```css
+--bg:          #0F172A;
+--bg-2:        #1E293B;
+--bg-sunk:     #0B1120;
+--line:        #334155;
+--line-soft:   #1E293B;
+--ink:         #F1F5F9;
+--ink-2:       #CBD5E1;
+--ink-3:       #94A3B8;
+--ink-4:       #475569;
+--accent:      #3B82F6;
+--accent-soft: #1E3A5F;
+--accent-ink:  #93C5FD;
+--good:        #34D399;
+--good-soft:   #065F46;
+--good-ink:    #A7F3D0;
+--warn:        #FBB040;
+--warn-soft:   #451A03;
+--pos:         #FCD34D;
+--pos-soft:    #451A03;
+--danger:      #F87171;
+--highlight:   #3D2F00;
+--ai:          #A78BFA;
+--ai-soft:     #2E1065;
+```
+
+### Brand palette (primary CTA buttons)
+
+The `brand.*` scale is **purple** — used for primary action buttons (`.btn-primary`, `bg-brand-600`),
+distinct from `--accent` (navy). Do not conflate them.
+
+```js
+// tailwind.config.js — brand.*
+brand: {
+  50:  '#EEEDFE',
+  100: '#CECBF6',
+  200: '#AFA9EC',
+  300: '#9F99E8',
+  400: '#7F77DD',
+  500: '#6860CC',
+  600: '#534AB7',   ← primary button background
+  700: '#3C3489',   ← primary button hover
+  800: '#26215C',
+  900: '#1A1640',
 }
 ```
 
-**Contrast contract (verify before shipping any screen):**
+**Color axis split:**
+| Axis | Token | Use case |
+|------|-------|----------|
+| Navigation / chrome | `--accent` (#1B4B82 light / #3B82F6 dark) | active nav, progress fill, focus rings |
+| Primary action | `brand-600` (#534AB7) | buttons, CTAs |
+
+### Contrast contract
 - `--ink` on `--bg` ≥ 12:1
 - `--ink-2` on `--bg` ≥ 7:1
 - `--ink-3` on `--bg` ≥ 4.5:1 (lightest allowed for text)
-- `--ink-4` — NO TEXT, decoration only
+- `--ink-4` — no text, decoration only
 - `--accent` on `--bg` ≥ 4.5:1
 - `--accent-ink` on `--accent-soft` ≥ 4.5:1
 - `--good-ink` on `--good-soft` ≥ 4.5:1
-- `--warn` on `--warn-soft` ≥ 4.5:1
-- `--pos` on `--pos-soft` ≥ 4.5:1
 
 ### Legacy tokens (kept until restyle complete)
 
-The original dark-navy tokens (`--ec-bg-page`, `--ec-blue`, etc.) remain in `index.css` and are used by `.ec-*` classes. Prompts 02–07 restyle each component to use the PAPER tokens above. Delete `--ec-*` vars after the restyle is complete.
+Original dark-navy `--ec-*` tokens (`--ec-bg-page`, `--ec-blue`, etc.) remain in `index.css`
+and are used by `.ec-*` classes. Do not add new `--ec-*` tokens. Remove them after each component
+is restyled to use PAPER tokens.
 
 ---
 
-## 3. Typography Scale
+## 3. Web Typography
 
-```css
-/* In globals.css */
-:root {
-  --ec-font:           -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
-
-  --ec-text-xs:        10px;   /* Metadata labels (UPPERCASE + tracked) */
-  --ec-text-sm:        11px;   /* Tags, badges */
-  --ec-text-base:      13px;   /* Body text, sidebar items */
-  --ec-text-md:        14px;   /* Secondary body, card text */
-  --ec-text-lg:        17px;   /* Section headings (sh) */
-  --ec-text-xl:        22px;   /* Sub-page titles */
-  --ec-text-2xl:       26px;   /* Banner / chapter title */
-
-  --ec-leading:        1.85;   /* Body line height — generous for reading */
-  --ec-tracking-wide:  0.1em;  /* Used on ALL CAPS metadata labels */
-}
-```
-
-**Rules:**
-- Metadata labels (UNIT 1 · PROSE, SECTIONS, EDUCATION) → `var(--ec-text-xs)` + `letter-spacing: var(--ec-tracking-wide)` + `text-transform: uppercase`
-- Body paragraphs → `var(--ec-text-base)` + `line-height: var(--ec-leading)`
-- Key terms inside body → wrap in `<strong>` → color: `var(--ec-amber)`
-- Italicised emphasis inside body → wrap in `<em>` → color: `var(--ec-text-primary)`
-
----
-
-## 4. Spacing Scale
-
-```css
-:root {
-  --ec-space-1:   4px;
-  --ec-space-2:   8px;
-  --ec-space-3:  12px;
-  --ec-space-4:  16px;
-  --ec-space-5:  20px;
-  --ec-space-6:  24px;
-  --ec-space-7:  28px;
-  --ec-space-8:  36px;
-}
-```
-
-Page horizontal padding: `var(--ec-space-7)` (28px) on all top-level containers.
-
----
-
-## 5. Border Radius
-
-```css
-:root {
-  --ec-radius-sm:   6px;   /* Sidebar active item right corners */
-  --ec-radius-md:   8px;   /* Info cards, progress bar */
-  --ec-radius-lg:  10px;   /* Banner, large cards */
-  --ec-radius-pill: 100px; /* Step pills, tags */
-}
-```
-
----
-
-## 6. Component Specs
-
-### NavBar
-```
-Height:          52px
-Background:      var(--ec-bg-page)
-Border-bottom:   0.5px solid var(--ec-border-subtle)
-Logo badge:      30×30px, radius 7px, background var(--ec-blue), white bold text
-Nav links:       var(--ec-text-muted), hover → var(--ec-blue-text), transition 180ms
-```
-
-### PageBanner
-```
-Background:      var(--ec-bg-card)
-Border:          0.5px solid var(--ec-border)
-Border-radius:   var(--ec-radius-lg)
-Margin:          0 var(--ec-space-7)
-Padding:         24px 28px 22px
-Decorative ring: position absolute, top-right, border-only circle, blue + teal, opacity 0.06-0.07
-Meta label:      var(--ec-text-xs) + var(--ec-tracking-wide) + var(--ec-blue-meta)
-Title:           var(--ec-text-2xl), weight 700, var(--ec-text-primary)
-Author:          var(--ec-text-base), var(--ec-blue-meta)
-Tags:            background var(--ec-blue-dim), border var(--ec-blue-border),
-                 color var(--ec-blue-text), var(--ec-text-sm), radius var(--ec-radius-pill)
-```
-
-### SideNav
-```
-Width:           185px
-Section label:   var(--ec-text-xs) + uppercase + var(--ec-blue-meta), margin-bottom 12px
-Inactive item:   var(--ec-text-base), color var(--ec-text-dimmed), border-left 2px solid transparent
-Hover item:      color var(--ec-blue-text), bg var(--ec-blue-dim), border-left var(--ec-border)
-Active item:     color var(--ec-blue-text), bg var(--ec-blue-dim),
-                 border-left: 2px solid var(--ec-blue), font-weight 600
-Border-radius:   0 var(--ec-radius-sm) var(--ec-radius-sm) 0  (right side only)
-Transition:      all 150ms ease
-```
-
-### StepIndicator
-```
-Active pill:     background var(--ec-blue), white text, radius var(--ec-radius-pill)
-                 Inner number: 16×16px circle, rgba(255,255,255,0.2)
-Inactive pill:   border 0.5px solid var(--ec-border), color var(--ec-text-dimmed)
-Connector:       20px wide, border-top 1px dashed var(--ec-border-subtle)
-```
-
-### ProgressBar
-```
-Container:       background var(--ec-bg-card), border var(--ec-border), radius var(--ec-radius-md)
-                 margin 0 var(--ec-space-7), padding 12px 16px
-Track:           height 3px, background var(--ec-border-subtle), radius 2px
-Fill:            background var(--ec-blue), radius 2px
-Label text:      var(--ec-text-xs) + var(--ec-blue-meta)
-```
-
-### InfoCard (3 variants)
-All share: `border-radius: 0 var(--ec-radius-md) var(--ec-radius-md) 0`, `border-left: 2px solid`, padding `13px 16px`, margin-bottom `10px`
-
-| Variant  | Left border          | Background            | Card border             | Label color         |
-|----------|----------------------|-----------------------|-------------------------|---------------------|
-| teal     | `var(--ec-teal)`     | `var(--ec-teal-bg)`   | `var(--ec-teal-border)` | `var(--ec-teal)`    |
-| amber    | `var(--ec-amber)`    | `var(--ec-amber-bg)`  | `var(--ec-amber-border)`| `var(--ec-amber)`   |
-| violet   | `var(--ec-violet)`   | `var(--ec-violet-bg)` | `var(--ec-violet-border)`| `var(--ec-violet)` |
-
-Card label: `var(--ec-text-xs)` + uppercase + `letter-spacing: var(--ec-tracking-wide)` + `font-weight 600`
-Card text: `var(--ec-text-base)`, `line-height 1.75`, `var(--ec-text-muted)`
-
-### SectionHeading
-```
-Font-size:     var(--ec-text-lg), weight 700, color var(--ec-text-primary)
-Margin:        22px 0 14px
-Underline:     ::after pseudo, 32px wide, 2px high, background var(--ec-blue),
-               border-radius 2px, position absolute bottom 0 left 0
-CSS class:     .ec-section-head
-```
-
-### Tag / Pill (hero tags)
-```
-CSS class:     .ec-tag
-Background:    var(--ec-blue-dim)
-Border:        0.5px solid var(--ec-blue-border)
-Color:         var(--ec-blue-text)
-Font-size:     var(--ec-text-sm)
-Border-radius: var(--ec-radius-pill)
-Padding:       3px 10px
-```
-
-### ThinkBox
-```
-CSS class:     .ec-think-box
-Background:    var(--ec-bg-card-hover)
-Border-left:   4px solid var(--ec-blue)
-Border-radius: 0 12px 12px 0
-Padding:       16px 18px
-Label color:   var(--ec-blue-text), var(--ec-text-xs), uppercase, tracked, weight 600
-Body color:    var(--ec-text-body)
-```
-
-### QuoteBlock
-```
-CSS class:     .ec-quote-block
-Background:    var(--ec-bg-card)
-Border:        0.5px solid var(--ec-border)
-Border-radius: 12px
-Padding:       16px 20px
-Quote text:    15px italic, var(--ec-text-primary), border-left 2px solid var(--ec-blue)
-Context text:  var(--ec-text-base), var(--ec-text-body)
-               ← data field is named "context" in JS and Dart models (not "explain")
-```
-
-### DeviceBlock
-```
-CSS class:     .ec-device-block
-Background:    var(--ec-bg-card)
-Border:        0.5px solid var(--ec-border)
-Border-radius: 12px
-Padding:       14px 16px
-Kind label:    var(--ec-text-xs), uppercase, tracked, var(--ec-text-muted)
-Line text:     var(--ec-text-base), italic, var(--ec-blue-text)
-Exp text:      var(--ec-text-base), var(--ec-text-body)
-```
-
-### EC Buttons
-```
-Primary (.ec-btn-primary):
-  Background:    var(--ec-blue)
-  Color:         var(--ec-text-primary)
-  Border-radius: var(--ec-radius-pill)
-  Padding:       8px 20px
-  Hover:         opacity 0.85
-
-Secondary (.ec-btn-secondary):
-  Background:    transparent
-  Border:        0.5px solid var(--ec-border)
-  Color:         var(--ec-text-body)
-  Border-radius: var(--ec-radius-pill)
-  Hover:         bg var(--ec-blue-dim), border var(--ec-blue-border), color var(--ec-text-primary)
-```
-
-### Practice Button (🔥 — primary action CTA)
-Used everywhere a student starts or navigates to practice/exam. Label is always **"Practice"** (never "Practice questions", "Start Practice", "Go to Practice").
-
-**Web (Tailwind):**
-```
-bg-[#1E2A44] hover:bg-[#2E3A59] text-white font-semibold rounded-pill px-4 py-2
-Prefix: 🔥 emoji
-```
-
-**Flutter:**
-```dart
-ElevatedButton.styleFrom(
-  backgroundColor: Color(0xFF1E2A44),
-  foregroundColor: Colors.white,
-  overlayColor:    Color(0xFF2E3A59),
-  elevation:       0,
-)
-// label: "🔥 Practice"
-```
-
----
-
-## 7. Tailwind Config Aliases
-
-`tailwind.config.js` at `frontend/web/`. PAPER tokens map to CSS vars — no hardcoded hex in config:
-
+### Fonts (tailwind.config.js)
 ```js
-// theme.extend.colors — PAPER tokens
-{
-  bg:          'var(--bg)',
-  'bg-2':      'var(--bg-2)',
-  'bg-sunk':   'var(--bg-sunk)',
-  ink:         'var(--ink)',
-  'ink-2':     'var(--ink-2)',
-  'ink-3':     'var(--ink-3)',
-  'ink-4':     'var(--ink-4)',
-  accent:      'var(--accent)',
-  'accent-soft': 'var(--accent-soft)',
-  'accent-ink':  'var(--accent-ink)',
-  good:        'var(--good)',
-  'good-soft': 'var(--good-soft)',
-  'good-ink':  'var(--good-ink)',
-  warn:        'var(--warn)',
-  'warn-soft': 'var(--warn-soft)',
-  pos:         'var(--pos)',
-  'pos-soft':  'var(--pos-soft)',
-  danger:      'var(--danger)',
-  line:        'var(--line)',
-  'line-soft': 'var(--line-soft)',
-  highlight:   'var(--highlight)',
-}
-
-// theme.extend.fontFamily
-{
-  sans:  ['Geist', '"Plus Jakarta Sans"', '"Inter"', 'system-ui', 'sans-serif'],
+fontFamily: {
+  sans:  ['Geist', '"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
   serif: ['"Source Serif 4"', 'Georgia', 'serif'],
   mono:  ['"Geist Mono"', 'ui-monospace', 'monospace'],
 }
 ```
+Font files loaded via `@font-face` in `index.css` from `/fonts/` (Geist variable woff2 files).
 
 **Font usage rules:**
 - UI chrome (buttons, nav, labels, card bodies) → `font-sans`
 - Eyebrow labels, mono numbers, codes, captions → `font-mono`
-- Chapter titles, hero headlines, reading view body, hero numbers → `font-serif`
+- Chapter titles, hero headlines, reading body, hero numbers → `font-serif`
+
+### Legacy `--ec-text-*` scale (still in use in `--ec-*` components)
+```
+--ec-text-xs:   10px   /* metadata labels (UPPERCASE + tracked) */
+--ec-text-sm:   11px   /* tags, badges */
+--ec-text-base: 13px   /* body text */
+--ec-text-md:   14px   /* secondary body */
+--ec-text-lg:   17px   /* section headings */
+--ec-text-xl:   22px   /* sub-page titles */
+--ec-text-2xl:  26px   /* banner / chapter title */
+--ec-leading:   1.85   /* body line height */
+--ec-tracking-wide: 0.1em  /* ALL CAPS metadata labels */
+```
 
 ---
 
-## 8. Color Usage Rules — Read Before Every UI Decision
+## 4. Web Border Radius
 
-| Situation | Token to use | Never use |
-|---|---|---|
-| Page background | `--ec-bg-page` | white, gray, custom hex |
-| Card / panel bg | `--ec-bg-card` | same as page bg |
-| Active nav item | `--ec-blue` border + `--ec-blue-dim` bg | green, purple, or any other color |
-| Key term in prose | `--ec-amber` | bold alone, red, blue |
-| Info card — Education | `--ec-teal` | blue, green |
-| Info card — Career | `--ec-amber` | yellow, orange |
-| Info card — Awards | `--ec-violet` | purple, pink |
-| Correct answer | `--ec-success` | teal, blue |
-| Wrong answer | `--ec-danger` | red-500, custom hex |
-| Progress fill | `--ec-blue` | green, teal |
-| New card type needed | Pick teal / amber / violet in rotation | invent a new hex color |
+From `tailwind.config.js`:
+```
+pill: 100px
+xs:    6px
+sm:   10px
+md:   14px
+lg:   20px
+xl:   28px
+```
 
----
-
-## 9. What Claude Code Must Do on Every UI Task
-
-1. **Read this file first.** No exceptions.
-2. **Never hardcode a hex value** in any component or stylesheet.
-3. **Use existing components** from `components/ui/` before creating new ones.
-4. **New component?** Add its spec to Section 6 of this file after building it.
-5. **New color needed?** Add it to Section 2 of this file and `globals.css` simultaneously. Do not use it inline.
-6. **Do not change token values** without updating this file to match.
+Legacy `--ec-radius-*` vars (still in index.css for `--ec-*` components):
+```
+--ec-radius-sm:   6px
+--ec-radius-md:   8px
+--ec-radius-lg:  10px
+--ec-radius-pill: 100px
+```
 
 ---
 
-## 10. The Why (for future sessions)
+## 5. Web Shadows & Motion
 
-This app is a student study platform. The color system is built on cognitive science:
-- **Deep navy base** → reduces eye fatigue during long reading sessions
-- **Blue accents** → calm focus, proven to aid retention of complex content
-- **Amber for key terms only** → memory trigger (warm colors boost detail recall)
-- **Teal / violet for card types** → visual differentiation without distraction
-- **Minimal palette** → fewer colors = less cognitive noise = better focus
+```js
+// tailwind.config.js
+boxShadow: {
+  card:    '0 0 0 1px rgb(0 0 0 / 0.04), 0 1px 3px 0 rgb(0 0 0 / 0.05)',
+  'card-md': '0 4px 6px -1px rgb(0 0 0 / 0.07), 0 2px 4px -2px rgb(0 0 0 / 0.07)',
+}
+transitionDuration: { fast: '120ms', base: '200ms', slow: '300ms', ring: '600ms' }
+transitionTimingFunction: {
+  'soft-out':    'cubic-bezier(0.0, 0.0, 0.2, 1)',
+  'soft-in-out': 'cubic-bezier(0.4, 0.0, 0.2, 1)',
+}
+```
 
-Do not introduce bright, saturated, or warm colors into the base UI. They increase arousal and shorten focus span — the opposite of what students need.
+CSS vars also in `index.css`:
+```
+--duration-fast: 120ms  --duration-base: 200ms
+--duration-slow: 300ms  --duration-ring: 600ms
+--ease-out:    cubic-bezier(0.0, 0.0, 0.2, 1)
+--ease-in-out: cubic-bezier(0.4, 0.0, 0.2, 1)
+```
+
+---
+
+## 6. Web Layout Rail Widths
+
+```css
+--rail-sidebar:            220px
+--rail-sidebar-collapsed:   64px
+--rail-left:               220px
+--rail-right:              280px
+--rail-subject:            320px
+--rail-parts:              240px
+--rail-map:                240px
+```
+
+---
+
+## 7. Web Component Library (`components/ui/`)
+
+| Component | File | Notes |
+|-----------|------|-------|
+| Badge | `Badge.jsx` | status chips |
+| BrandLogo | `BrandLogo.jsx` | app logo mark |
+| Button | `Button.jsx` | uses `brand-*` palette for primary |
+| Card | `Card.jsx` | uses `shadow-card` + `rounded-md` |
+| Input | `Input.jsx` | text inputs |
+| Navbar | `Navbar.tsx` | top navigation bar |
+
+Layout components: `DashboardShell.jsx` + `DashboardSidebar.jsx` (in `components/layout/`).
+
+### Button classes (from `index.css` `@layer components`)
+```css
+.btn-primary   → bg-brand-600, text-white, rounded-xl, hover:bg-brand-700
+.btn-secondary → bg-white, border border-gray-200, text-gray-700, hover:bg-gray-50
+.card          → bg-white, rounded-2xl, shadow-card, border border-gray-100
+.card-hover    → .card + hover:shadow-card-md hover:-translate-y-0.5
+```
+
+### Content block CSS classes (`.ec-*` — legacy, use until restyled)
+
+```
+.ec-section-head   → section heading, 17px, underline accent
+.ec-tag            → pill tag (bg --ec-blue-dim, border --ec-blue-border)
+.ec-think-box      → callout with left border, --ec-blue accent
+.ec-quote-block    → quote with context text (field named "context" in JS + Dart models)
+.ec-device-block   → dialogue/device block
+.ec-btn-primary    → action button (--ec-blue bg)
+.ec-btn-secondary  → ghost button (transparent bg, --ec-border border)
+```
+
+InfoCard variants (3): `teal` (Education), `amber` (Career/Caution), `violet` (Awards).
+All share: `border-radius: 0 var(--ec-radius-md) var(--ec-radius-md) 0`, left border 2px.
+
+---
+
+## 8. Web Color Usage Rules
+
+| Situation | Token | Never use |
+|-----------|-------|-----------|
+| Page background | `--bg` | white, gray, custom hex |
+| Card / panel bg | `--bg-2` | same as page bg |
+| Recessed surface | `--bg-sunk` | — |
+| Active nav, progress | `--accent` | any other color |
+| Primary CTA button | `brand-600` | `--accent`, custom hex |
+| Correct answer | `--good` | teal, blue |
+| Wrong answer | `--danger` | red-500, custom hex |
+| AI feature surface | `--ai`, `--ai-soft` | purple hex directly |
+| Info card — Education | `--ec-teal` (legacy) | blue, green |
+| Info card — Career | `--ec-amber` (legacy) | yellow, orange |
+| Info card — Awards | `--ec-violet` (legacy) | purple, pink |
+| New card type needed | use teal / amber / violet in rotation | invent a new hex |
+
+---
+
+## 9. Flutter Design System
+
+**Flutter uses a completely separate design system** from the web. All Flutter tokens live in
+`frontend/app/lib/config/theme.dart` (the `AppTheme` class). Do not import web CSS vars into Flutter.
+
+### Brand and core colors
+
+```dart
+// AppTheme constants (from theme.dart)
+static const Color brand      = Color(0xFF2A7B6F);  // teal-green — all brand elements
+static const Color brandLight = Color(0xFFE6F4F2);
+static const Color brandDark  = Color(0xFF1d5c53);
+```
+
+### Light theme tokens
+
+```dart
+// Surfaces
+surface    = Color(0xFFF9FAFB)
+card       = Colors.white
+
+// Text
+textPrimary   = Color(0xFF111827)
+textSecondary = Color(0xFF6B7280)
+textMuted     = Color(0xFF9CA3AF)
+
+// UI
+border  = Color(0xFFE5E7EB)
+error   = Color(0xFFDC2626)
+warning = Color(0xFFD97706)
+success = Color(0xFF16A34A)
+```
+
+### Dark theme tokens
+
+```dart
+// Surfaces
+darkSurface = Color(0xFF0F1117)
+darkCard    = Color(0xFF1A1D27)
+darkBorder  = Color(0xFF2D3142)
+
+// Text
+darkText      = Color(0xFFF9FAFB)
+darkText2     = Color(0xFF9CA3AF)
+darkTextMuted = Color(0xFF6B7280)
+```
+
+### Subject / class colors (same in both modes)
+
+```dart
+english  = Color(0xFF2A7B6F)   englishBg  = Color(0xFFE6F4F2)
+maths    = Color(0xFF5C6BC0)   mathsBg    = Color(0xFFEEEFF9)
+science  = Color(0xFFD97020)   scienceBg  = Color(0xFFFBEEE0)
+plus1    = Color(0xFF2EC4B6)   plus1Bg    = Color(0xFFE7FAFA)
+plus2    = Color(0xFF9B72F0)   plus2Bg    = Color(0xFFF0EBFE)
+```
+
+### Typography
+
+Google Fonts **Inter** (`google_fonts: ^6.2.1`). Applied to all `textTheme` and button styles via
+`GoogleFonts.interTextTheme()` and `GoogleFonts.inter(...)`.
+
+### Shape and radius
+
+```dart
+Card:     BorderRadius.circular(12)
+Input:    BorderRadius.circular(10)
+Button:   BorderRadius.circular(10)
+```
+
+### ThemeData
+
+Flutter uses **Material 3** (`useMaterial3: true`). Theme built by `AppTheme.light` and `AppTheme.dark`.
+Light/dark mode toggled by `ThemeToggle` widget — see `widgets/theme_toggle.dart`.
+
+### Context-aware helpers
+
+```dart
+AppTheme.surfaceOf(ctx)     // surface or darkSurface
+AppTheme.cardOf(ctx)        // card or darkCard
+AppTheme.borderOf(ctx)      // border or darkBorder
+AppTheme.textOf(ctx)        // textPrimary or darkText
+AppTheme.text2Of(ctx)       // textSecondary or darkText2
+AppTheme.brandLightOf(ctx)  // brandLight or darkBrandLight
+// Also: errorBgOf, successBgOf, warningBgOf, etc.
+```
+
+### Navigation
+
+Bottom nav: 3 items — Home / Courses / Progress. Managed by `ShellScaffold` widget.
+Selected color: `AppTheme.brand` (#2A7B6F). Unselected: `textMuted` (light) / `darkTextMuted` (dark).
+
+### Shared widgets (`lib/widgets/`)
+
+| Widget | Purpose |
+|--------|---------|
+| `ShellScaffold` | Bottom nav shell for all authenticated routes |
+| `AccordionCard` | Expandable card |
+| `AppButton` | Primary / secondary buttons using `AppTheme.brand` |
+| `BrandLogo` | App logo mark |
+| `ErrorView` | Error state display |
+| `MarksChip` | Marks level indicator chip |
+| `ScoreCard` | Practice score display |
+| `ThemeToggle` | Light/dark mode switch |
+
+---
+
+## 10. What Claude Code Must Do on Every UI Task
+
+### Web
+1. Read this file first. No exceptions.
+2. Never hardcode a hex value — use PAPER tokens (`--bg`, `--ink`, `--accent`) or `brand-*` utilities.
+3. Use existing components from `components/ui/` before creating new ones.
+4. New web component? Add its spec to Section 7 of this file.
+5. New color needed? Add it to Section 2 and `index.css` simultaneously.
+6. Do not add new `--ec-*` tokens.
+
+### Flutter
+1. Read `lib/config/theme.dart` before writing any widget color.
+2. Never hardcode hex in widget files — use `AppTheme.*` constants or `AppTheme.*Of(ctx)` helpers.
+3. Use `AppTheme.isDark(ctx)` for conditional styling; never check brightness directly.
+4. New widget? Add its description to Section 9 of this file.

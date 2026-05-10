@@ -1,4 +1,4 @@
-import { Fragment } from 'react'
+import { Fragment, useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import {
   LayoutGrid, BookOpen, ClipboardList, TrendingUp,
@@ -6,6 +6,7 @@ import {
 } from 'lucide-react'
 import BrandLogo from '../ui/BrandLogo'
 import { SYLLABUS } from '../../data/syllabus'
+import { logout } from '../../api/auth'
 
 const TOP_NAV = [
   { id: 'dashboard',   label: 'Dashboard',   icon: LayoutGrid,    to: '/'            },
@@ -27,33 +28,31 @@ const YEARS = [
   { key: 'plus2', label: '+2' },
 ]
 
-const BASE = {
-  fontFamily: "'DM Sans', sans-serif",
-}
-
-function NavItem({ item, active, dim, onClick }) {
+function NavItem({ item, active, dim, danger, onClick }) {
+  const [hovered, setHovered] = useState(false)
   return (
     <button
       onClick={onClick}
+      onMouseEnter={() => danger && setHovered(true)}
+      onMouseLeave={() => danger && setHovered(false)}
       style={{
-        ...BASE,
         display: 'flex',
         alignItems: 'center',
         gap: 10,
         width: '100%',
-        padding: '9px 14px',
-        borderRadius: 10,
-        border: 'none',
-        cursor: item.to ? 'pointer' : 'default',
+        padding: '8px 14px',
+        borderRadius: 8,
+        border: danger ? `1.5px solid ${hovered ? '#C0392B' : '#E24B4A'}` : 'none',
+        cursor: (item.to || danger) ? 'pointer' : 'default',
         transition: 'all 0.18s ease',
-        background: active ? 'rgba(46,196,182,0.14)' : 'transparent',
-        color: active ? '#2ec4b6' : dim ? 'rgba(255,255,255,0.38)' : 'rgba(255,255,255,0.55)',
+        background: active ? 'var(--accent-soft)' : (danger && hovered ? '#FCEBEB' : 'transparent'),
+        color: active ? 'var(--accent)' : danger ? (hovered ? '#C0392B' : '#E24B4A') : dim ? 'var(--ink-4)' : 'var(--ink-3)',
         fontSize: 13.5,
         fontWeight: active ? 600 : 500,
         textAlign: 'left',
       }}
     >
-      <item.icon size={17} strokeWidth={active ? 2.2 : 1.8} />
+      <item.icon size={danger ? 16 : 17} strokeWidth={active ? 2.2 : 1.8} />
       <span>{item.label}</span>
     </button>
   )
@@ -65,7 +64,6 @@ function SubItem({ label, active, depth, onClick }) {
     <button
       onClick={onClick}
       style={{
-        ...BASE,
         display: 'flex',
         alignItems: 'center',
         gap: 7,
@@ -77,8 +75,8 @@ function SubItem({ label, active, depth, onClick }) {
         borderRadius: 8,
         border: 'none',
         cursor: 'pointer',
-        background: active ? 'rgba(46,196,182,0.12)' : 'transparent',
-        color: active ? '#2ec4b6' : 'rgba(255,255,255,0.40)',
+        background: active ? 'var(--accent-soft)' : 'transparent',
+        color: active ? 'var(--accent)' : 'var(--ink-4)',
         fontSize: depth === 1 ? 12.5 : 12,
         fontWeight: active ? 600 : 400,
         textAlign: 'left',
@@ -87,7 +85,7 @@ function SubItem({ label, active, depth, onClick }) {
     >
       <span style={{
         width: 4, height: 4, borderRadius: '50%', flexShrink: 0,
-        background: active ? '#2ec4b6' : 'rgba(255,255,255,0.22)',
+        background: active ? 'var(--accent)' : 'var(--line)',
         transition: 'background 0.15s ease',
       }} />
       {label}
@@ -118,84 +116,100 @@ export default function DashboardSidebar({ onClose }) {
     onClose?.()
   }
 
+  function handleBottomNavClick(item) {
+    if (item.id === 'logout') {
+      logout()
+      navigate('/login')
+      onClose?.()
+      return
+    }
+    if (item.to) go(item.to)
+  }
+
   return (
     <div style={{
       width: 200,
       minWidth: 200,
       height: '100%',
-      minHeight: '100vh',
-      background: '#1a1d27',
+      background: 'var(--bg-2)',
+      borderRight: '1px solid var(--line-soft)',
       display: 'flex',
       flexDirection: 'column',
-      ...BASE,
     }}>
-      {/* Logo */}
-      <div style={{ padding: '16px 16px 12px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <div style={{ background: 'white', borderRadius: 10, padding: '4px 8px', display: 'inline-flex' }}>
+
+      {/* Scrollable section: logo + main nav.
+          min-height: 0 is required — without it, a flex child cannot shrink below
+          its content size, which would push the bottom nav off screen. */}
+      <div style={{ flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+
+        {/* Logo */}
+        <div style={{ padding: '16px 16px 12px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
           <BrandLogo height={36} variant="compact" />
+        </div>
+
+        {/* Main nav */}
+        <nav style={{ flex: 1, minHeight: 0, padding: '8px 10px', display: 'flex', flexDirection: 'column', gap: 2, overflowY: 'auto' }}>
+          {TOP_NAV.map(item => (
+            <Fragment key={item.id}>
+              <NavItem
+                item={item}
+                active={isActive(item)}
+                onClick={() => item.to && go(item.to)}
+              />
+
+              {/* Course drill-down sub-items */}
+              {item.id === 'courses' && inCourses && (
+                <div style={{ marginBottom: 4 }}>
+                  {YEARS.map(yr => {
+                    const yearActive = currentYear === yr.key
+                    const subjects   = Object.values(SYLLABUS[yr.key]?.subjects ?? {})
+
+                    return (
+                      <Fragment key={yr.key}>
+                        <SubItem
+                          label={yr.label}
+                          active={yearActive && !pathname.startsWith('/courses')}
+                          depth={1}
+                          onClick={() => go(`/${yr.key}`)}
+                        />
+
+                        {yearActive && subjects.map(sub => (
+                          <SubItem
+                            key={sub.slug}
+                            label={sub.label}
+                            active={currentSubj === sub.slug}
+                            depth={2}
+                            onClick={() => go(`/${yr.key}/${sub.slug}`)}
+                          />
+                        ))}
+                      </Fragment>
+                    )
+                  })}
+                </div>
+              )}
+            </Fragment>
+          ))}
+        </nav>
+
+      </div>
+
+      {/* Bottom nav — pinned to the bottom of the sidebar at all viewport heights */}
+      <div style={{ flexShrink: 0 }}>
+        <div style={{ height: 1, background: 'var(--line)', margin: '0 16px' }} />
+        <div style={{ padding: '8px 10px 12px', display: 'flex', flexDirection: 'column', gap: 2 }}>
+          {BOTTOM_NAV.map(item => (
+            <NavItem
+              key={item.id}
+              item={item}
+              active={false}
+              dim={item.id !== 'logout'}
+              danger={item.id === 'logout'}
+              onClick={() => handleBottomNavClick(item)}
+            />
+          ))}
         </div>
       </div>
 
-      {/* Main nav */}
-      <nav style={{ flex: 1, padding: '8px 10px', display: 'flex', flexDirection: 'column', gap: 2 }}>
-        {TOP_NAV.map(item => (
-          <Fragment key={item.id}>
-            <NavItem
-              item={item}
-              active={isActive(item)}
-              onClick={() => item.to && go(item.to)}
-            />
-
-            {/* Course drill-down sub-items */}
-            {item.id === 'courses' && inCourses && (
-              <div style={{ marginBottom: 4 }}>
-                {YEARS.map(yr => {
-                  const yearActive = currentYear === yr.key
-                  const subjects   = Object.values(SYLLABUS[yr.key]?.subjects ?? {})
-
-                  return (
-                    <Fragment key={yr.key}>
-                      <SubItem
-                        label={yr.label}
-                        active={yearActive && !pathname.startsWith('/courses')}
-                        depth={1}
-                        onClick={() => go(`/${yr.key}`)}
-                      />
-
-                      {/* Show subjects only for the active year */}
-                      {yearActive && subjects.map(sub => (
-                        <SubItem
-                          key={sub.slug}
-                          label={sub.label}
-                          active={currentSubj === sub.slug}
-                          depth={2}
-                          onClick={() => go(`/${yr.key}/${sub.slug}`)}
-                        />
-                      ))}
-                    </Fragment>
-                  )
-                })}
-              </div>
-            )}
-          </Fragment>
-        ))}
-      </nav>
-
-      {/* Divider */}
-      <div style={{ height: 1, background: 'rgba(255,255,255,0.08)', margin: '0 16px' }} />
-
-      {/* Bottom nav */}
-      <div style={{ padding: '10px 10px 20px', display: 'flex', flexDirection: 'column', gap: 2 }}>
-        {BOTTOM_NAV.map(item => (
-          <NavItem
-            key={item.id}
-            item={item}
-            active={false}
-            dim
-            onClick={() => item.to && go(item.to)}
-          />
-        ))}
-      </div>
     </div>
   )
 }

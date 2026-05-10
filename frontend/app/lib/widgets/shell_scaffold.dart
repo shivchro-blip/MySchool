@@ -2,16 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import '../config/theme.dart';
-import '../providers/theme_provider.dart';
 
 class ShellScaffold extends StatelessWidget {
   final Widget child;
   const ShellScaffold({super.key, required this.child});
 
   static const _navTabs = [
-    _Tab(path: '/dashboard', icon: Icons.home_outlined,     activeIcon: Icons.home,        label: 'Home'),
-    _Tab(path: '/courses',   icon: Icons.menu_book_outlined, activeIcon: Icons.menu_book,  label: 'Courses'),
-    _Tab(path: '/progress',  icon: Icons.bar_chart_outlined, activeIcon: Icons.bar_chart,  label: 'Progress'),
+    _Tab(path: '/dashboard', icon: Icons.home_outlined,      activeIcon: Icons.home,       label: 'Home'),
+    _Tab(path: '/courses',   icon: Icons.menu_book_outlined,  activeIcon: Icons.menu_book,  label: 'Courses'),
+    _Tab(path: '/progress',  icon: Icons.bar_chart_outlined,  activeIcon: Icons.bar_chart,  label: 'Progress'),
   ];
 
   int _activeIndex(BuildContext context) {
@@ -21,43 +20,58 @@ class ShellScaffold extends StatelessWidget {
     if (loc.startsWith('/learn/')      ||
         loc.startsWith('/rich-learn/') ||
         loc.startsWith('/practice/')   ||
-        loc.startsWith('/exam/')) {
-      return 1;
-    }
+        loc.startsWith('/exam/')) return 1;
     return 0;
   }
 
   @override
   Widget build(BuildContext context) {
-    final idx    = _activeIndex(context);
-    final isDark = AppTheme.isDark(context);
+    final idx = _activeIndex(context);
 
     return Scaffold(
       body: child,
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
-          border: Border(top: BorderSide(color: AppTheme.borderOf(context))),
+          color:  AppTheme.cardOf(context),
+          border: Border(top: BorderSide(color: AppTheme.borderOf(context), width: 0.5)),
         ),
-        child: BottomNavigationBar(
-          currentIndex: idx,
-          onTap: (i) {
-            if (i == 3) {
-              context.read<ThemeProvider>().toggle();
-            } else if (i != idx) {
-              context.go(_navTabs[i].path);
-            }
-          },
-          items: [
-            ..._navTabs.map((t) => BottomNavigationBarItem(
-              icon:       Icon(t.icon),
-              activeIcon: Icon(t.activeIcon),
-              label:      t.label,
-            )),
-            BottomNavigationBarItem(
-              icon:  Icon(isDark ? Icons.wb_sunny_outlined : Icons.nightlight_outlined),
-              label: isDark ? 'Light' : 'Dark',
+        child: SafeArea(
+          top: false,
+          child: SizedBox(
+            height: 60,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: _navTabs.asMap().entries.map((e) {
+                final i      = e.key;
+                final tab    = e.value;
+                final active = i == idx;
+                return Expanded(
+                  child: InkWell(
+                    onTap: () { if (i != idx) context.go(tab.path); },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          active ? tab.activeIcon : tab.icon,
+                          size:  22,
+                          color: active ? AppTheme.brand : AppTheme.textMutedOf(context),
+                        ),
+                        const SizedBox(height: 3),
+                        Text(
+                          tab.label,
+                          style: TextStyle(
+                            fontSize:   10,
+                            fontWeight: active ? FontWeight.w600 : FontWeight.w500,
+                            color: active ? AppTheme.brand : AppTheme.textMutedOf(context),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              }).toList(),
             ),
-          ],
+          ),
         ),
       ),
     );

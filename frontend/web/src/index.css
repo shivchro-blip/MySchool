@@ -20,30 +20,31 @@
 
 :root {
   /* ══════════════════════════════════════════════════════════
-     PAPER THEME — warm study-desk aesthetic
-     Hex fallbacks first; oklch override in @supports block.
+     LIGHT THEME — clean navy design system
      ══════════════════════════════════════════════════════════ */
-  --bg:          #f5f1eb;
-  --bg-2:        #faf8f4;
-  --bg-sunk:     #ede9e2;
-  --line:        #d9d3c8;
-  --line-soft:   #e5e0d8;
-  --ink:         #2e2a24;
-  --ink-2:       #5a5349;
-  --ink-3:       #6e6760;
-  --ink-4:       #b0a89f;
-  --accent:      #3b5ea6;
-  --accent-soft: #e0e8f7;
-  --accent-ink:  #2c4880;
-  --good:        #4a8c6a;
-  --good-soft:   #e0f0e8;
-  --good-ink:    #2f6850;
-  --warn:        #a07030;
-  --warn-soft:   #f5ede0;
+  --bg:          #F5F1EB;
+  --bg-2:        #FFFFFF;
+  --bg-sunk:     #EDE9E2;
+  --line:        #E5E7EB;
+  --line-soft:   #E8E3DB;
+  --ink:         #1E293B;
+  --ink-2:       #64748B;
+  --ink-3:       #64748B;
+  --ink-4:       #94A3B8;
+  --accent:      #1B4B82;
+  --accent-soft: #E6F1FB;
+  --accent-ink:  #0C447C;
+  --good:        #1D9E75;
+  --good-soft:   #E1F5EE;
+  --good-ink:    #085041;
+  --warn:        #EF9F27;
+  --warn-soft:   #FAEEDA;
   --pos:         #b86a2a;
   --pos-soft:    #f4e8d8;
-  --danger:      #b03a30;
-  --highlight:   #f5f0c8;
+  --danger:      #E24B4A;
+  --highlight:   #FEF9C3;
+  --ai:          #8B5CF6;
+  --ai-soft:     #EEEDFE;
 
   /* ── Layout rail widths ──────────────────────────────────── */
   --rail-sidebar:           220px;
@@ -63,30 +64,33 @@
   --ease-in-out: cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
-@supports (color: oklch(0 0 0)) {
-  :root {
-    --bg:          oklch(0.965 0.012 80);
-    --bg-2:        oklch(0.985 0.008 85);
-    --bg-sunk:     oklch(0.945 0.014 78);
-    --line:        oklch(0.88 0.014 75);
-    --line-soft:   oklch(0.92 0.012 78);
-    --ink:         oklch(0.25 0.018 60);
-    --ink-2:       oklch(0.42 0.014 55);
-    --ink-3:       oklch(0.48 0.012 55);
-    --ink-4:       oklch(0.72 0.010 55);
-    --accent:      oklch(0.45 0.13 245);
-    --accent-soft: oklch(0.93 0.04 245);
-    --accent-ink:  oklch(0.35 0.14 245);
-    --good:        oklch(0.55 0.09 155);
-    --good-soft:   oklch(0.93 0.04 155);
-    --good-ink:    oklch(0.40 0.10 155);
-    --warn:        oklch(0.62 0.13 60);
-    --warn-soft:   oklch(0.94 0.05 70);
-    --pos:         oklch(0.55 0.13 50);
-    --pos-soft:    oklch(0.94 0.05 60);
-    --danger:      oklch(0.50 0.18 25);
-    --highlight:   oklch(0.93 0.07 95);
-  }
+[data-theme="dark"] {
+  /* ══════════════════════════════════════════════════════════
+     DARK THEME — navy slate design system
+     ══════════════════════════════════════════════════════════ */
+  --bg:          #0F172A;
+  --bg-2:        #1E293B;
+  --bg-sunk:     #0B1120;
+  --line:        #334155;
+  --line-soft:   #1E293B;
+  --ink:         #F1F5F9;
+  --ink-2:       #CBD5E1;
+  --ink-3:       #94A3B8;
+  --ink-4:       #475569;
+  --accent:      #3B82F6;
+  --accent-soft: #1E3A5F;
+  --accent-ink:  #93C5FD;
+  --good:        #34D399;
+  --good-soft:   #065F46;
+  --good-ink:    #A7F3D0;
+  --warn:        #FBB040;
+  --warn-soft:   #451A03;
+  --pos:         #FCD34D;
+  --pos-soft:    #451A03;
+  --danger:      #F87171;
+  --highlight:   #3D2F00;
+  --ai:          #A78BFA;
+  --ai-soft:     #2E1065;
 }
 
 :root {
@@ -153,8 +157,24 @@
 
 @layer base {
   body {
-    @apply font-sans text-gray-900;
+    @apply font-sans;
     background-color: var(--bg);
+    color: var(--ink);
+    font-size: 14px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    color: var(--ink);
+  }
+
+  /* Impeccable spacing scale: 8 / 16 / 24 / 32 / 48 / 80 / 120 */
+  * {
+    box-sizing: border-box;
   }
 }
 
@@ -297,8 +317,7 @@
 /* ── Think box ───────────────────────────────────────────── */
 .ec-think-box {
   background: var(--ec-bg-card-hover);
-  border-left: 4px solid var(--ec-blue);
-  border-radius: 0 12px 12px 0;
+  border-radius: 12px;
   padding: 16px 18px;
   margin: 16px 0;
   color: var(--ec-text-body);
@@ -415,6 +434,15 @@
   background: var(--ec-blue-dim);
   border-left-color: var(--ec-blue);
   font-weight: 600;
+}
+
+/* ── Loading dot pulse ───────────────────────────────────── */
+@keyframes ec-dot-fade {
+  0%, 80%, 100% { opacity: 0.25; transform: scale(0.75); }
+  40%           { opacity: 1;    transform: scale(1);    }
+}
+.ec-dot-pulse {
+  animation: ec-dot-fade 1.2s ease-in-out infinite;
 }
 
 /* ── EC dark buttons ─────────────────────────────────────── */

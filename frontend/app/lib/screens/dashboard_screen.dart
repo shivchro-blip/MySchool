@@ -2,10 +2,38 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import '../config/theme.dart';
+import '../config/syllabus_config.dart';
 import '../providers/syllabus_provider.dart';
 import '../providers/user_provider.dart';
-import '../services/evaluation_service.dart';
-import '../widgets/error_view.dart';
+import '../providers/theme_provider.dart';
+import '../services/auth_service.dart';
+
+const _kTeal   = Color(0xFF2A7B6F);
+const _kTealBg = Color(0xFFE6F4F2);
+
+class _ClassInfo {
+  final String classLevel;
+  final String title;
+  final int    lessonCount;
+  const _ClassInfo({
+    required this.classLevel,
+    required this.title,
+    required this.lessonCount,
+  });
+}
+
+final _kDashClasses = [
+  _ClassInfo(
+    classLevel:  '+1',
+    title:       'Class XI — First Year',
+    lessonCount: SyllabusConfig.plus1LessonCount,
+  ),
+  _ClassInfo(
+    classLevel:  '+2',
+    title:       'Class XII — Second Year',
+    lessonCount: SyllabusConfig.plus2LessonCount,
+  ),
+];
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -15,274 +43,273 @@ class DashboardScreen extends StatefulWidget {
 }
 
 class _DashboardScreenState extends State<DashboardScreen> {
-  final _evalSvc = EvaluationService();
-  Map<String, dynamic>? _progress;
-  bool   _progressLoading = true;
-  String? _progressError;
-
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       context.read<UserProvider>().loadIfNeeded();
       context.read<SyllabusProvider>().loadIfNeeded();
-      _loadProgress();
     });
-  }
-
-  Future<void> _loadProgress() async {
-    if (mounted) {
-      setState(() {
-        _progressLoading = true;
-        _progressError = null;
-      });
-    }
-    try {
-      final p = await _evalSvc.getProgress();
-      if (mounted) {
-        setState(() {
-          _progress = p;
-          _progressLoading = false;
-        });
-      }
-    } catch (e) {
-      if (mounted) {
-        setState(() {
-          _progressLoading = false;
-          _progressError = e.toString();
-        });
-      }
-    }
   }
 
   @override
   Widget build(BuildContext context) {
     final user     = context.watch<UserProvider>();
     final syllabus = context.watch<SyllabusProvider>();
+    final name     = user.profile?.displayName ?? 'Student';
+    final isDark   = AppTheme.isDark(context);
+
+    final subjectCounts = {
+      '+1': syllabus.plus1Count,
+      '+2': syllabus.plus2Count,
+    };
+
+    // Pill colors — neutral in both modes
+    final pillBg     = isDark ? const Color(0xFF2D3748) : const Color(0xFFEDE9E2);
+    final pillBorder = isDark ? const Color(0xFF4A5568) : const Color(0xFFD1CCC5);
+    const pillText   = Color(0xFF374151);
 
     return Scaffold(
+      backgroundColor: AppTheme.surfaceOf(context),
+
+      // ── App bar ─────────────────────────────────────────────
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        backgroundColor: AppTheme.cardOf(context),
+        surfaceTintColor: Colors.transparent,
+        elevation: 0,
+        scrolledUnderElevation: 1,
+        shadowColor: AppTheme.borderOf(context),
+        titleSpacing: 16,
+        title: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            // Brand icon — teal rounded square
+            Container(
+              width: 34, height: 34,
+              decoration: BoxDecoration(
+                color:        _kTeal,
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: const Icon(Icons.school_rounded, color: Colors.white, size: 19),
+            ),
+            const SizedBox(width: 9),
+            const Text(
+              'Exam Coach',
+              style: TextStyle(
+                fontSize:    15,
+                fontWeight:  FontWeight.w700,
+                letterSpacing: -0.3,
+              ),
+            ),
+          ],
+        ),
+        actions: [
+          // Theme toggle pill
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 13),
+            child: GestureDetector(
+              onTap: () => context.read<ThemeProvider>().toggle(),
+              child: AnimatedContainer(
+                duration: const Duration(milliseconds: 200),
+                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                decoration: BoxDecoration(
+                  color:        pillBg,
+                  border:       Border.all(color: pillBorder),
+                  borderRadius: BorderRadius.circular(100),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(
+                      isDark ? Icons.wb_sunny_outlined : Icons.nightlight_round,
+                      size:  13,
+                      color: pillText,
+                    ),
+                    const SizedBox(width: 5),
+                    Text(
+                      isDark ? 'Light' : 'Dark',
+                      style: const TextStyle(
+                        fontSize:   11,
+                        fontWeight: FontWeight.w600,
+                        color:      pillText,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          // Logout
+          IconButton(
+            icon: Icon(Icons.logout, size: 18, color: AppTheme.text2Of(context)),
+            tooltip: 'Log out',
+            onPressed: () async {
+              await AuthService().logout();
+              if (context.mounted) context.go('/login');
+            },
+          ),
+          // Avatar
+          Padding(
+            padding: const EdgeInsets.only(right: 14),
+            child: CircleAvatar(
+              radius: 15,
+              backgroundColor: _kTeal,
+              child: Text(
+                name.isNotEmpty ? name[0].toUpperCase() : 'S',
+                style: const TextStyle(
+                  color:      Colors.white,
+                  fontWeight: FontWeight.w700,
+                  fontSize:   13,
+                ),
+              ),
+            ),
+          ),
+        ],
+        bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(1),
+          child: Container(height: 1, color: AppTheme.borderOf(context)),
+        ),
+      ),
+
+      // ── Body ────────────────────────────────────────────────
       body: RefreshIndicator(
-        color: AppTheme.brand,
+        color: _kTeal,
         onRefresh: () async {
           await context.read<UserProvider>().load();
           await context.read<SyllabusProvider>().load();
-          await _loadProgress();
         },
         child: ListView(
-          padding: const EdgeInsets.fromLTRB(16, 0, 16, 24),
+          padding: const EdgeInsets.fromLTRB(16, 0, 16, 32),
           children: [
-            _buildHeader(user),
-            const SizedBox(height: 20),
-            if (syllabus.error != null)
-              ErrorView(message: syllabus.error!,
-                  onRetry: () => context.read<SyllabusProvider>().load()),
-            _buildStatsRow(syllabus),
-            const SizedBox(height: 24),
-            _buildSectionLabel('My Courses'),
-            const SizedBox(height: 12),
-            _buildClassCard(
-              classLevel: '+1',
-              fullName:   'Class XI — Higher Secondary First Year',
-              color:      AppTheme.plus1,
-              bg:         AppTheme.plus1Bg,
-              subjectCount: syllabus.plus1Count,
-              loading:    !syllabus.loaded,
+
+            // ── Hero ───────────────────────────────────────────
+            const SizedBox(height: 28),
+            Text(
+              'TAMIL NADU STATE BOARD',
+              style: TextStyle(
+                fontSize:      10,
+                fontWeight:    FontWeight.w700,
+                letterSpacing: 1.2,
+                color: AppTheme.textMutedOf(context),
+              ),
             ),
             const SizedBox(height: 10),
-            _buildClassCard(
-              classLevel: '+2',
-              fullName:   'Class XII — Higher Secondary Second Year',
-              color:      AppTheme.plus2,
-              bg:         AppTheme.plus2Bg,
-              subjectCount: syllabus.plus2Count,
-              loading:    !syllabus.loaded,
+            Text(
+              'Good morning, $name.',
+              style: TextStyle(
+                fontSize:      28,
+                fontWeight:    FontWeight.w700,
+                color:         AppTheme.textOf(context),
+                letterSpacing: -0.5,
+                height:        1.2,
+              ),
             ),
-            const SizedBox(height: 24),
-            _buildSectionLabel('Your Progress'),
-            const SizedBox(height: 12),
-            _buildProgressCard(),
-          ],
-        ),
-      ),
-    );
-  }
+            const SizedBox(height: 6),
+            Text(
+              '${syllabus.subjects.length} subjects and '
+              '${SyllabusConfig.totalLessonCount} lessons. '
+              'Pick up where you left off.',
+              style: TextStyle(
+                fontSize: 14,
+                color:    AppTheme.text2Of(context),
+                height:   1.6,
+              ),
+            ),
+            const SizedBox(height: 28),
+            Divider(height: 1, thickness: 1, color: AppTheme.borderOf(context)),
+            const SizedBox(height: 28),
 
-  Widget _buildHeader(UserProvider user) {
-    final name = user.profile?.displayName ?? 'Student';
-    final cls  = user.profile?.classLevel;
-    return Container(
-      margin: const EdgeInsets.only(top: 16),
-      padding: const EdgeInsets.all(20),
-      decoration: BoxDecoration(
-        gradient: const LinearGradient(
-          begin: Alignment.topLeft,
-          end:   Alignment.bottomRight,
-          colors: [Color(0xFF2A7B6F), Color(0xFF1d5c53)],
-        ),
-        borderRadius: BorderRadius.circular(16),
-      ),
-      child: Row(
-        children: [
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Welcome back,',
-                  style: TextStyle(
-                    color: Colors.white.withValues(alpha: 0.7),
-                    fontSize: 13,
-                  ),
-                ),
-                const SizedBox(height: 2),
-                Text(
-                  name,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 22,
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-                if (cls != null) ...[
-                  const SizedBox(height: 6),
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 10, vertical: 3),
-                    decoration: BoxDecoration(
-                      color: Colors.white.withValues(alpha: 0.15),
-                      borderRadius: BorderRadius.circular(20),
+            // ── My Courses ──────────────────────────────────────
+            Text(
+              'MY COURSES',
+              style: TextStyle(
+                fontSize:      10,
+                fontWeight:    FontWeight.w700,
+                letterSpacing: 1.2,
+                color: AppTheme.textMutedOf(context),
+              ),
+            ),
+            const SizedBox(height: 14),
+            Container(
+              clipBehavior: Clip.antiAlias,
+              decoration: BoxDecoration(
+                border:       Border.all(color: AppTheme.borderOf(context)),
+                borderRadius: BorderRadius.circular(14),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  for (int i = 0; i < _kDashClasses.length; i++) ...[
+                    _ClassRow(
+                      info:         _kDashClasses[i],
+                      subjectCount: subjectCounts[_kDashClasses[i].classLevel] ?? 0,
+                      loading:      !syllabus.loaded,
+                      onTap:        () => context.push('/courses/${_kDashClasses[i].classLevel}'),
                     ),
-                    child: Text(
-                      'Class $cls · Tamil Nadu State Board',
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 11,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ),
+                    if (i < _kDashClasses.length - 1)
+                      Divider(height: 1, thickness: 1, color: AppTheme.borderOf(context)),
+                  ],
                 ],
-              ],
+              ),
             ),
-          ),
-          Container(
-            width: 48, height: 48,
-            decoration: BoxDecoration(
-              color:  Colors.white.withValues(alpha: 0.15),
-              shape:  BoxShape.circle,
-            ),
-            child: const Icon(Icons.person_outline,
-                color: Colors.white, size: 24),
-          ),
-        ],
-      ),
-    );
-  }
 
-  Widget _buildStatsRow(SyllabusProvider syllabus) {
-    final totalSubjects = syllabus.subjects.length;
-    return Row(
-      children: [
-        Expanded(child: _statCard(
-          icon:  Icons.menu_book_outlined,
-          value: syllabus.loaded ? '$totalSubjects' : '—',
-          label: 'Subjects',
-          color: AppTheme.brand,
-        )),
-        const SizedBox(width: 12),
-        Expanded(child: _statCard(
-          icon:  Icons.check_circle_outline,
-          value: _progress != null
-              ? '${_progress!['total_attempts'] ?? 0}'
-              : '—',
-          label: 'Attempts',
-          color: AppTheme.maths,
-        )),
-        const SizedBox(width: 12),
-        Expanded(child: _statCard(
-          icon:  Icons.trending_up,
-          value: _progress != null
-              ? '${(_progress!['average_score'] as num?)?.toStringAsFixed(0) ?? 0}%'
-              : '—',
-          label: 'Avg Score',
-          color: AppTheme.science,
-        )),
-      ],
-    );
-  }
-
-  Widget _statCard({
-    required IconData icon,
-    required String value,
-    required String label,
-    required Color color,
-  }) {
-    return Container(
-      padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 12),
-      decoration: BoxDecoration(
-        color:        AppTheme.cardOf(context),
-        borderRadius: BorderRadius.circular(12),
-        border:       Border.all(color: AppTheme.borderOf(context)),
-      ),
-      child: Column(
-        children: [
-          Icon(icon, color: color, size: 22),
-          const SizedBox(height: 6),
-          Text(value, style: TextStyle(
-            fontSize: 18, fontWeight: FontWeight.w700, color: color,
-          )),
-          Text(label, style: TextStyle(
-            fontSize: 11, color: AppTheme.textMutedOf(context),
-          )),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildSectionLabel(String text) => Text(
-    text,
-    style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
-  );
-
-  Widget _buildClassCard({
-    required String classLevel,
-    required String fullName,
-    required Color  color,
-    required Color  bg,
-    required int    subjectCount,
-    required bool   loading,
-  }) {
-    return GestureDetector(
-      onTap: () => context.push('/courses/$classLevel'),
-      child: Container(
-        padding: const EdgeInsets.all(16),
-        decoration: BoxDecoration(
-          color:        AppTheme.cardOf(context),
-          borderRadius: BorderRadius.circular(14),
-          border:       Border.all(color: color.withAlpha(60)),
-          boxShadow: [
-            BoxShadow(
-              color: color.withAlpha(20),
-              blurRadius: 8,
-              offset: const Offset(0, 2),
-            ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+// ── Course row ────────────────────────────────────────────────────────────────
+
+class _ClassRow extends StatefulWidget {
+  final _ClassInfo   info;
+  final int          subjectCount;
+  final bool         loading;
+  final VoidCallback onTap;
+
+  const _ClassRow({
+    required this.info,
+    required this.subjectCount,
+    required this.loading,
+    required this.onTap,
+  });
+
+  @override
+  State<_ClassRow> createState() => _ClassRowState();
+}
+
+class _ClassRowState extends State<_ClassRow> {
+  bool _pressed = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTapDown:   (_) => setState(() => _pressed = true),
+      onTapUp:     (_) { setState(() => _pressed = false); widget.onTap(); },
+      onTapCancel: ()  => setState(() => _pressed = false),
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 80),
+        color:   _pressed ? AppTheme.borderOf(context) : AppTheme.cardOf(context),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 18),
         child: Row(
           children: [
+            // Year badge — teal for both classes
             Container(
-              width: 52, height: 52,
-              decoration: BoxDecoration(
-                color:        bg,
-                borderRadius: BorderRadius.circular(13),
+              width:  46,
+              height: 46,
+              decoration: const BoxDecoration(
+                color:        _kTealBg,
+                borderRadius: BorderRadius.all(Radius.circular(10)),
               ),
               child: Center(
                 child: Text(
-                  classLevel,
-                  style: TextStyle(
-                    fontSize: 18,
+                  widget.info.classLevel,
+                  style: const TextStyle(
+                    fontSize:   17,
                     fontWeight: FontWeight.w800,
-                    color: color,
+                    color:      _kTeal,
                   ),
                 ),
               ),
@@ -293,124 +320,37 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    fullName,
-                    style: const TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.w700,
+                    widget.info.title,
+                    style: TextStyle(
+                      fontSize:   14,
+                      fontWeight: FontWeight.w600,
+                      color:      AppTheme.textOf(context),
                     ),
                   ),
                   const SizedBox(height: 3),
-                  Text(
-                    loading
-                        ? 'Loading...'
-                        : '$subjectCount subject${subjectCount != 1 ? 's' : ''}',
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: color.withAlpha(180),
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
+                  widget.loading
+                      ? Container(
+                          height: 11, width: 80,
+                          decoration: BoxDecoration(
+                            color:        AppTheme.borderOf(context),
+                            borderRadius: BorderRadius.circular(6),
+                          ),
+                        )
+                      : Text(
+                          '${widget.subjectCount} subject${widget.subjectCount != 1 ? 's' : ''}'
+                          ' · '
+                          '${widget.info.lessonCount} lesson${widget.info.lessonCount != 1 ? 's' : ''}',
+                          style: TextStyle(
+                            fontSize: 12,
+                            color:    AppTheme.textMutedOf(context),
+                          ),
+                        ),
                 ],
               ),
             ),
-            Icon(Icons.chevron_right, color: color, size: 22),
+            Icon(Icons.chevron_right, color: AppTheme.textMutedOf(context), size: 20),
           ],
         ),
-      ),
-    );
-  }
-
-  Widget _buildProgressCard() {
-    if (_progressLoading) {
-      return Container(
-        height: 80,
-        decoration: BoxDecoration(
-          color: AppTheme.cardOf(context),
-          borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: AppTheme.borderOf(context)),
-        ),
-        child: const Center(child: CircularProgressIndicator()),
-      );
-    }
-    if (_progressError != null) {
-      return ErrorView(message: _progressError!, onRetry: _loadProgress);
-    }
-
-    final attempts = _progress?['total_attempts'] as int? ?? 0;
-    final avgScore  = (_progress?['average_score'] as num?)?.toDouble() ?? 0.0;
-
-    if (attempts == 0) {
-      return Container(
-        padding: const EdgeInsets.all(20),
-        decoration: BoxDecoration(
-          color: AppTheme.cardOf(context),
-          borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: AppTheme.borderOf(context)),
-        ),
-        child: Center(
-          child: Text(
-            'No practice attempts yet. Start practising!',
-            style: TextStyle(color: AppTheme.textMutedOf(context), fontSize: 13),
-          ),
-        ),
-      );
-    }
-
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: AppTheme.cardOf(context),
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: AppTheme.borderOf(context)),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text('Average Score',
-                  style: TextStyle(
-                    fontSize: 13,
-                    fontWeight: FontWeight.w600,
-                    color: AppTheme.text2Of(context),
-                  )),
-              Text(
-                '${avgScore.toStringAsFixed(0)}%',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w700,
-                  color: avgScore >= 80
-                      ? AppTheme.success
-                      : avgScore >= 50
-                          ? AppTheme.warning
-                          : AppTheme.error,
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 10),
-          ClipRRect(
-            borderRadius: BorderRadius.circular(4),
-            child: LinearProgressIndicator(
-              value: avgScore / 100,
-              minHeight: 6,
-              backgroundColor: AppTheme.borderOf(context),
-              valueColor: AlwaysStoppedAnimation<Color>(
-                avgScore >= 80
-                    ? AppTheme.success
-                    : avgScore >= 50
-                        ? AppTheme.warning
-                        : AppTheme.error,
-              ),
-            ),
-          ),
-          const SizedBox(height: 8),
-          Text(
-            '$attempts practice attempt${attempts != 1 ? 's' : ''} completed',
-            style: TextStyle(fontSize: 12, color: AppTheme.textMutedOf(context)),
-          ),
-        ],
       ),
     );
   }

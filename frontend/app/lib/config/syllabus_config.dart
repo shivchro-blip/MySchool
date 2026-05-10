@@ -294,4 +294,24 @@ class SyllabusConfig {
       _ => null,
     };
   }
+
+  // Counts only subjects with full chapter content (English +1 and +2).
+  static int get totalLessonCount {
+    int n = 0;
+    for (final u in _plus1English) { n += u.lessons.length; }
+    for (final u in _plus2English) { n += u.lessons.length; }
+    return n;
+  }
+
+  static int get plus1LessonCount {
+    int n = 0;
+    for (final u in _plus1English) { n += u.lessons.length; }
+    return n;
+  }
+
+  static int get plus2LessonCount {
+    int n = 0;
+    for (final u in _plus2English) { n += u.lessons.length; }
+    return n;
+  }
 }
