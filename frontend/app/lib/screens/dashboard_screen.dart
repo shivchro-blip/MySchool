@@ -67,7 +67,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
     // Pill colors — neutral in both modes
     final pillBg     = isDark ? const Color(0xFF2D3748) : const Color(0xFFEDE9E2);
     final pillBorder = isDark ? const Color(0xFF4A5568) : const Color(0xFFD1CCC5);
-    const pillText   = Color(0xFF374151);
+    final pillText   = isDark ? Colors.white : const Color(0xFF374151);
 
     return Scaffold(
       backgroundColor: AppTheme.surfaceOf(context),
@@ -129,7 +129,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     const SizedBox(width: 5),
                     Text(
                       isDark ? 'Light' : 'Dark',
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize:   11,
                         fontWeight: FontWeight.w600,
                         color:      pillText,
