@@ -1,0 +1,166 @@
+/* ── Theme tokens ───────────────────────────────────────────── */
+.light {
+  --nav-bg:          #ffffff;
+  --nav-border:      #e2e2e2;
+  --search-bg:       #f5f5f5;
+  --search-text:     #aaaaaa;
+  --toggle-bg:       #ffffff;
+  --toggle-border:   #d0d0d0;
+  --toggle-text:     #333333;
+  --icon-color:      #555555;
+  --divider:         #e0e0e0;
+}
+
+.dark {
+  --nav-bg:          #1e1e2e;
+  --nav-border:      transparent;
+  --search-bg:       rgba(255, 255, 255, 0.07);
+  --search-text:     rgba(255, 255, 255, 0.35);
+  --toggle-bg:       rgba(255, 255, 255, 0.12);
+  --toggle-border:   rgba(255, 255, 255, 0.15);
+  --toggle-text:     rgba(255, 255, 255, 0.85);
+  --icon-color:      rgba(255, 255, 255, 0.70);
+  --divider:         rgba(255, 255, 255, 0.10);
+}
+
+/* ── Nav shell ─────────────────────────────────────────────── */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 56px;
+  padding: 0 20px;
+  background: var(--nav-bg);
+  border-bottom: 0.5px solid var(--nav-border);
+  transition: background 200ms ease, border-color 200ms ease;
+}
+
+/* ── Search ────────────────────────────────────────────────── */
+.search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--search-bg);
+  border-radius: 10px;
+  padding: 7px 12px;
+  flex: 1;
+  max-width: 320px;
+  transition: background 200ms ease;
+}
+
+.searchIcon {
+  display: flex;
+  color: var(--search-text);
+  flex-shrink: 0;
+  transition: color 200ms ease;
+}
+
+.searchInput {
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 13px;
+  color: var(--search-text);
+  width: 100%;
+  transition: color 200ms ease;
+}
+
+.searchInput::placeholder {
+  color: var(--search-text);
+}
+
+/* ── Divider ───────────────────────────────────────────────── */
+.divider {
+  width: 1px;
+  height: 24px;
+  background: var(--divider);
+  flex-shrink: 0;
+  transition: background 200ms ease;
+}
+
+/* ── Theme toggle ──────────────────────────────────────────── */
+.toggleBtn {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--toggle-bg);
+  color: var(--toggle-text);
+  border: 1px solid var(--toggle-border);
+  border-radius: 100px;
+  padding: 7px 14px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background 200ms ease, color 200ms ease, border-color 200ms ease;
+}
+
+.light .toggleBtn:hover,
+.toggleBtn:hover {
+  background: #f5f5f5;
+}
+
+.dark .toggleBtn:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.toggleIcon {
+  display: flex;
+  align-items: center;
+}
+
+.toggleLabel {
+  line-height: 1;
+}
+
+/* ── Icon button (bell) ────────────────────────────────────── */
+.iconBtn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--icon-color);
+  padding: 6px;
+  border-radius: 8px;
+  flex-shrink: 0;
+  transition: color 200ms ease;
+}
+
+.iconBtn:hover {
+  opacity: 0.75;
+}
+
+/* ── Badge (unread dot) ────────────────────────────────────── */
+.badge {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #E24B4A;
+  border: 1.5px solid;
+  /* borderColor is set inline to match nav bg for cutout effect */
+  transition: border-color 200ms ease;
+}
+
+/* ── Avatar ────────────────────────────────────────────────── */
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  background: linear-gradient(135deg, #1D9E75, #185FA5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  flex-shrink: 0;
+  cursor: pointer;
+  user-select: none;
+}

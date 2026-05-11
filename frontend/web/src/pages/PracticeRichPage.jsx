@@ -23,14 +23,8 @@ function McqPart({ part, done, score, onAnswer }) {
         <div key={si}>
           <p
             className={`text-[10px] font-bold tracking-[0.1em] uppercase mb-3
+                        bg-accent-soft/30 text-accent-ink rounded-lg px-4 py-2.5
                         ${si === 0 ? '' : 'mt-7'}`}
-            style={{
-              background: 'rgba(46,196,182,0.10)',
-              borderLeft: '3px solid #2ec4b6',
-              color: '#0b6b65',
-              padding: '10px 14px',
-              borderRadius: '0 8px 8px 0',
-            }}
           >
             {sec.label}
           </p>
@@ -110,16 +104,9 @@ function ReferencePart({ part, cur, onNav, revealed, onToggle, answers, onAnswer
 
   return (
     <div>
-      <p
-        className="text-[12px] italic mb-4 leading-relaxed"
-        style={{
-          background: 'rgba(46,196,182,0.08)',
-          borderLeft: '3px solid #2ec4b6',
-          color: '#0b6b65',
-          padding: '10px 14px',
-          borderRadius: '0 8px 8px 0',
-        }}
-      >{part.instruction}</p>
+      <p className="text-[12px] italic mb-4 leading-relaxed bg-accent-soft/30 text-accent-ink rounded-lg px-4 py-2.5">
+        {part.instruction}
+      </p>
 
       <div
         className="bg-bg-2 rounded-xl px-5 py-5 border"
@@ -131,8 +118,8 @@ function ReferencePart({ part, cur, onNav, revealed, onToggle, answers, onAnswer
 
         {/* Verse */}
         <div
-          className="px-4 py-3 rounded-r-xl text-[14px] italic text-ink leading-[1.8] mb-4 border-l-2"
-          style={{ background: 'var(--bg-sunk)', borderLeftColor: 'var(--accent)' }}
+          className="px-4 py-3 rounded-xl text-[14px] italic text-ink leading-[1.8] mb-4"
+          style={{ background: 'var(--bg-sunk)' }}
         >
           {q.verse}
         </div>
@@ -217,16 +204,9 @@ function EssayPart({ part, answers, onAnswer, revealed, onToggle }) {
 
   return (
     <div>
-      <p
-        className="text-[12px] italic mb-4 leading-relaxed"
-        style={{
-          background: 'rgba(46,196,182,0.08)',
-          borderLeft: '3px solid #2ec4b6',
-          color: '#0b6b65',
-          padding: '10px 14px',
-          borderRadius: '0 8px 8px 0',
-        }}
-      >{part.instruction}</p>
+      <p className="text-[12px] italic mb-4 leading-relaxed bg-accent-soft/30 text-accent-ink rounded-lg px-4 py-2.5">
+        {part.instruction}
+      </p>
 
       {part.questions.map((q, i) => (
         <div

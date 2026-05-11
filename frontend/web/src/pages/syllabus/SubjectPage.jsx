@@ -8,6 +8,8 @@ import { Card } from '../../components/ui'
 import { Breadcrumb } from '../../components/nav'
 import NotFound from './NotFound'
 
+const UNIT_STYLE = { color: '#1B4B82', light: 'var(--accent-soft)' }
+
 const TYPE_ICON = {
   prose:         (color) => <BookOpen    size={16} strokeWidth={1.8} style={{ color }} />,
   poem:          (color) => <MessageCircle size={16} strokeWidth={1.8} style={{ color }} />,
@@ -25,24 +27,23 @@ function LessonRow({ lesson, unit, year, subject }) {
       onMouseLeave={() => setHov(false)}
       className="flex items-center gap-3.5 px-[18px] py-[13px]"
       style={{
-        borderTop: `1px solid ${unit.color}33`,
-        background: hov ? unit.light : 'transparent',
+        borderTop: `1px solid ${UNIT_STYLE.color}33`,
+        background: hov ? UNIT_STYLE.light : 'transparent',
         transition: 'background 0.15s',
       }}
     >
       {/* Icon */}
       <div
         className="w-[34px] h-[34px] rounded-[9px] flex items-center justify-center shrink-0"
-        style={{ background: unit.light, border: `1px solid ${unit.color}55` }}
+        style={{ background: UNIT_STYLE.light, border: `1px solid ${UNIT_STYLE.color}55` }}
       >
-        {TYPE_ICON[lesson.tag]?.(unit.color)}
+        {TYPE_ICON[lesson.tag]?.(UNIT_STYLE.color)}
       </div>
 
       {/* Type + title */}
       <div className="flex-1 min-w-0">
         <p
-          className="text-[10px] font-bold tracking-[0.08em] uppercase mb-0.5"
-          style={{ color: unit.color }}
+          className="text-[10px] font-bold tracking-[0.08em] uppercase mb-0.5 syllabus-lesson-type"
         >
           {lesson.type}
         </p>
@@ -56,7 +57,7 @@ function LessonRow({ lesson, unit, year, subject }) {
         <button
           onClick={() => navigate(`/${year}/${subject}/${lesson.category}/${lesson.slug}`)}
           className="px-3.5 py-1.5 rounded-[14px] text-white text-xs font-semibold transition-opacity"
-          style={{ background: unit.color, opacity: hov ? 1 : 0.88 }}
+          style={{ background: UNIT_STYLE.color, opacity: hov ? 1 : 0.88 }}
         >
           Learn
         </button>
@@ -64,8 +65,8 @@ function LessonRow({ lesson, unit, year, subject }) {
           onClick={() => navigate(`/${year}/${subject}/${lesson.category}/${lesson.slug}/practice`)}
           className="px-3.5 py-1.5 rounded-[14px] text-xs font-semibold"
           style={{
-            border: `1.5px solid ${unit.color}`,
-            color: unit.color,
+            border: `1.5px solid ${UNIT_STYLE.color}`,
+            color: UNIT_STYLE.color,
             background: 'var(--bg-2)',
           }}
         >
@@ -86,10 +87,10 @@ function UnitCard({ unit, isOpen, onToggle, year, subject }) {
         borderRadius: 18,
         overflow: 'hidden',
         background: 'var(--bg-2)',
-        border: `1.5px solid ${isOpen ? unit.color : hov ? unit.color + '77' : 'var(--line)'}`,
+        border: `1.5px solid ${isOpen ? UNIT_STYLE.color : hov ? UNIT_STYLE.color + '77' : 'var(--line)'}`,
         boxShadow: isOpen
-          ? `0 8px 32px ${unit.color}18`
-          : hov ? `0 4px 16px ${unit.color}12` : '0 1px 4px rgba(0,0,0,0.04)',
+          ? `0 8px 32px ${UNIT_STYLE.color}18`
+          : hov ? `0 4px 16px ${UNIT_STYLE.color}12` : '0 1px 4px rgba(0,0,0,0.04)',
         transition: 'border-color 0.2s, box-shadow 0.2s',
       }}
     >
@@ -100,14 +101,14 @@ function UnitCard({ unit, isOpen, onToggle, year, subject }) {
         onMouseLeave={() => setHov(false)}
         className="flex items-center gap-4 px-[22px] py-[18px] cursor-pointer"
         style={{
-          background: isOpen ? unit.light : 'var(--bg-2)',
+          background: isOpen ? UNIT_STYLE.light : 'var(--bg-2)',
           transition: 'background 0.2s',
         }}
       >
         {/* Number badge */}
         <div
           className="w-[46px] h-[46px] rounded-[13px] flex items-center justify-center shrink-0"
-          style={{ background: unit.color, boxShadow: `0 3px 10px ${unit.color}44` }}
+          style={{ background: UNIT_STYLE.color, boxShadow: `0 3px 10px ${UNIT_STYLE.color}44` }}
         >
           <span className="text-white font-extrabold text-[15px] tracking-tight">
             {unit.id}
@@ -121,8 +122,7 @@ function UnitCard({ unit, isOpen, onToggle, year, subject }) {
             {unit.lessons.map(l => (
               <span
                 key={l.tag}
-                className="text-[11px] font-medium px-2 py-0.5 rounded-[10px]"
-                style={{ color: unit.color, background: unit.light, border: `1px solid ${unit.color}55` }}
+                className="text-[11px] font-medium px-2 py-0.5 rounded-[10px] syllabus-unit-pill"
               >
                 {l.type}
               </span>
@@ -134,7 +134,7 @@ function UnitCard({ unit, isOpen, onToggle, year, subject }) {
         <ChevronRight
           size={18}
           style={{
-            color: unit.color,
+            color: UNIT_STYLE.color,
             flexShrink: 0,
             transform: isOpen ? 'rotate(90deg)' : 'rotate(0deg)',
             transition: 'transform 0.25s ease',

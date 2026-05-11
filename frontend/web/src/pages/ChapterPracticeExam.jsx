@@ -78,7 +78,7 @@ function McqQuestion({ q, chosenIdx, onAnswer }) {
 function ReferenceQuestion({ q, subAnswers, onWritten }) {
   return (
     <>
-      <blockquote className="border-l-4 border-accent/40 pl-4 py-1 mb-5 bg-accent-soft/10 rounded-r-lg">
+      <blockquote className="px-5 py-4 mb-5 bg-bg-sunk rounded-xl">
         <p className="text-[14px] font-serif italic text-ink leading-relaxed">{q.verse}</p>
       </blockquote>
       <div className="space-y-4">

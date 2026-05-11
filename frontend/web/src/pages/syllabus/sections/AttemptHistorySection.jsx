@@ -31,7 +31,8 @@ export default function AttemptHistorySection({ lessonSlug: propLessonSlug } = {
         <button
           onClick={() => navigate(`/${year}/${subject}/${category}/${lesson}/practice`)}
           className="px-4 py-2 rounded-xl text-[13px] font-semibold text-white
-                     bg-[#1E2A44] hover:bg-[#2E3A59] transition-colors"
+                     transition-colors"
+          style={{ background: 'var(--accent)' }}
         >
           🔥 Practice
         </button>

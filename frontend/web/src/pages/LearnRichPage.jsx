@@ -55,10 +55,10 @@ function adaptAllQuestions(practiceData) {
 }
 
 const STAT_COLOR = {
-  Education:       '#0ea5e9',
-  Career:          '#d97706',
-  Awards:          '#7c3aed',
-  'Notable works': '#059669',
+  Education:       '#1D9E75',
+  Career:          '#EF9F27',
+  Awards:          '#8B5CF6',
+  'Notable works': '#085041',
 }
 
 function Block({ block, switchTab, chapterSlug, navigate, practiceUrl }) {
@@ -87,11 +87,11 @@ function Block({ block, switchTab, chapterSlug, navigate, practiceUrl }) {
     case 'think-box':
       return (
         <div
-          className="px-4 py-3.5 my-4 rounded-r-xl border-l-[3px]"
-          style={{ background: 'var(--accent-soft)', borderLeftColor: 'var(--accent)' }}
+          className="px-4 py-3.5 my-4 rounded-xl"
+          style={{ background: 'var(--accent-soft)' }}
         >
           <p
-            className="text-[10px] font-bold tracking-[0.12em] uppercase mb-2"
+            className="text-[11px] font-bold tracking-[0.12em] uppercase mb-2"
             style={{ color: 'var(--accent)' }}
           >
             {block.label}
@@ -117,11 +117,11 @@ function Block({ block, switchTab, chapterSlug, navigate, practiceUrl }) {
       const color = STAT_COLOR[block.label] || 'var(--accent)'
       return (
         <div
-          className="px-4 py-3 mb-2.5 rounded-r-xl"
-          style={{ background: color + '12', borderLeft: `3px solid ${color}` }}
+          className="px-4 py-3 mb-2.5 rounded-xl"
+          style={{ background: color + '1e' }}
         >
           <p
-            className="text-[10px] font-bold tracking-[0.1em] uppercase mb-1.5"
+            className="text-[11px] font-bold tracking-[0.1em] uppercase mb-1.5"
             style={{ color }}
           >
             {block.label}
@@ -134,7 +134,7 @@ function Block({ block, switchTab, chapterSlug, navigate, practiceUrl }) {
     case 'device-block':
       return (
         <div className="bg-bg-2 border border-line rounded-xl px-4 py-3.5 mb-3">
-          <p className="text-[10px] font-bold tracking-widest uppercase text-ink-4 mb-1.5">
+          <p className="text-[11px] font-bold tracking-widest uppercase text-ink-4 mb-1.5">
             {block.kind}
           </p>
           <p
@@ -181,7 +181,10 @@ function Block({ block, switchTab, chapterSlug, navigate, practiceUrl }) {
             <button
               onClick={() => switchTab('practice')}
               className="px-4 py-2 rounded-pill text-sm font-semibold text-white
-                         bg-[#1E2A44] hover:bg-[#2E3A59] transition-all duration-[var(--duration-fast)]"
+                         transition-all duration-[var(--duration-fast)]"
+              style={{ background: 'var(--accent)' }}
+              onMouseEnter={e => { e.currentTarget.style.background = 'var(--accent-ink)' }}
+              onMouseLeave={e => { e.currentTarget.style.background = 'var(--accent)' }}
             >
               🔥 Practice
             </button>
@@ -263,14 +266,14 @@ function AskAIPanel({ chapterSlug }) {
           {messages.map((msg, i) => (
             <div key={i} className={`flex flex-col ${msg.role === 'user' ? 'items-end' : 'items-start'}`}>
               {msg.role === 'ai' && (
-                <p className="text-[10px] font-bold uppercase tracking-[0.1em] mb-1" style={{ color: '#2A7B6F' }}>
+                <p className="text-[11px] font-bold uppercase tracking-[0.1em] mb-1" style={{ color: 'var(--accent)' }}>
                   AI TUTOR
                 </p>
               )}
               <div
                 className="max-w-[82%] text-[13px] leading-relaxed px-3.5 py-2.5"
                 style={{
-                  background: msg.role === 'user' ? '#1C2B4A' : 'var(--bg)',
+                  background: msg.role === 'user' ? 'var(--accent)' : 'var(--bg)',
                   color: msg.role === 'user' ? '#fff' : 'var(--ink)',
                   borderRadius: msg.role === 'user' ? '14px 14px 4px 14px' : '14px 14px 14px 4px',
                   border: msg.role === 'ai' ? '1px solid var(--line)' : 'none',
@@ -286,7 +289,7 @@ function AskAIPanel({ chapterSlug }) {
                     {msg.keyPoints?.length > 0 && (
                       <ul
                         className="mt-2 pt-2 text-[12px] space-y-0.5"
-                        style={{ borderTop: '1px solid rgba(0,0,0,.08)' }}
+                        style={{ borderTop: '1px solid var(--line-soft)' }}
                       >
                         {msg.keyPoints.map((p, j) => (
                           <li key={j} className="ml-3 list-disc">{p}</li>
@@ -294,7 +297,7 @@ function AskAIPanel({ chapterSlug }) {
                       </ul>
                     )}
                     {msg.examTip && (
-                      <p className="mt-2 text-[12px] italic" style={{ color: '#2A7B6F' }}>
+                      <p className="mt-2 text-[12px] italic" style={{ color: 'var(--accent)' }}>
                         💡 {msg.examTip}
                       </p>
                     )}
@@ -317,7 +320,7 @@ function AskAIPanel({ chapterSlug }) {
                 {[0, 1, 2].map(i => (
                   <span
                     key={i}
-                    className="block w-1.5 h-1.5 rounded-full animate-bounce"
+                    className="block w-1.5 h-1.5 rounded-full ec-dot-pulse"
                     style={{ background: 'var(--ink-4)', animationDelay: `${i * 0.2}s` }}
                   />
                 ))}
@@ -334,13 +337,13 @@ function AskAIPanel({ chapterSlug }) {
             onKeyDown={e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send() } }}
             placeholder="Ask about the story…"
             disabled={busy}
-            className="flex-1 border border-line rounded-pill px-4 py-2 text-[13px] text-ink bg-white focus:outline-none focus:border-[#1C2B4A] transition-colors"
+            className="flex-1 border border-line rounded-pill px-4 py-2 text-[13px] text-ink bg-bg-2 focus:outline-none focus:border-accent transition-colors"
           />
           <button
             onClick={send}
             disabled={busy || !input.trim()}
             className="px-4 py-2 rounded-pill text-[13px] font-semibold text-white transition-all disabled:opacity-40 disabled:cursor-not-allowed whitespace-nowrap"
-            style={{ background: '#1C2B4A' }}
+            style={{ background: 'var(--accent)' }}
           >
             Ask
           </button>
@@ -423,7 +426,7 @@ export default function LearnRichPage({ content, chapterSlug }) {
   return (
     <div>
       {/* Chapter header — white card */}
-      <div className="bg-white border border-line rounded-2xl px-6 pt-5 pb-5 mb-5">
+      <div className="bg-bg-2 border border-line rounded-2xl px-6 pt-5 pb-5 mb-5">
         <Breadcrumb crumbs={crumbs} />
         <h1
           className="font-serif text-[26px] font-bold leading-tight mb-1.5"
@@ -431,7 +434,7 @@ export default function LearnRichPage({ content, chapterSlug }) {
         >
           {content.title}
         </h1>
-        <p className="text-sm font-semibold mb-4" style={{ color: '#2A7B6F' }}>
+        <p className="text-sm font-semibold mb-4" style={{ color: 'var(--ink-2)' }}>
           {content.author}
         </p>
         <div className="flex gap-1.5 flex-wrap">
@@ -439,7 +442,7 @@ export default function LearnRichPage({ content, chapterSlug }) {
             <span
               key={p}
               className="text-[11px] font-medium px-2.5 py-0.5 rounded-full"
-              style={{ background: '#EAE5D8', color: '#5A5244' }}
+              style={{ background: 'var(--bg-sunk)', color: 'var(--ink-2)' }}
             >
               {p}
             </span>
@@ -463,10 +466,10 @@ export default function LearnRichPage({ content, chapterSlug }) {
                 isActive
                   ? {
                       padding: '7px 16px',
-                      background: '#1C2B4A',
+                      background: 'var(--accent)',
                       color: '#fff',
                       border: 'none',
-                      boxShadow: '0 2px 8px rgba(28,43,74,.22)',
+                      boxShadow: '0 2px 8px rgba(27,75,130,.22)',
                     }
                   : {
                       padding: '7px 16px',

@@ -5,6 +5,34 @@ import '../config/theme.dart';
 import '../providers/syllabus_provider.dart';
 import '../widgets/error_view.dart';
 
+class _ClassInfo {
+  final String classLevel;
+  final String fullName;
+  final Color  color;
+  final Color  bg;
+  const _ClassInfo({
+    required this.classLevel,
+    required this.fullName,
+    required this.color,
+    required this.bg,
+  });
+}
+
+const _kCourseClasses = [
+  _ClassInfo(
+    classLevel: '+1',
+    fullName:   'Class XI — Higher Secondary First Year',
+    color:      AppTheme.plus1,
+    bg:         AppTheme.plus1Bg,
+  ),
+  _ClassInfo(
+    classLevel: '+2',
+    fullName:   'Class XII — Higher Secondary Second Year',
+    color:      AppTheme.plus2,
+    bg:         AppTheme.plus2Bg,
+  ),
+];
+
 class CoursesScreen extends StatefulWidget {
   const CoursesScreen({super.key});
 
@@ -31,33 +59,76 @@ class _CoursesScreenState extends State<CoursesScreen> {
         color: AppTheme.brand,
         onRefresh: () => context.read<SyllabusProvider>().load(),
         child: ListView(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.fromLTRB(16, 24, 16, 32),
           children: [
+            // ── Editorial header ──────────────────────────────────
             Text(
-              'Select a year to browse subjects',
-              style: TextStyle(fontSize: 13, color: AppTheme.textMutedOf(context)),
+              'TAMIL NADU STATE BOARD',
+              style: TextStyle(
+                fontSize:   10,
+                fontWeight: FontWeight.w700,
+                letterSpacing: 1.2,
+                color: AppTheme.textMutedOf(context),
+              ),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 8),
+            Text(
+              'My Courses',
+              style: TextStyle(
+                fontSize:   26,
+                fontWeight: FontWeight.w700,
+                color:      AppTheme.textOf(context),
+                letterSpacing: -0.5,
+                height: 1.2,
+              ),
+            ),
+            const SizedBox(height: 6),
+            Text(
+              'Select a year group to browse subjects and lessons.',
+              style: TextStyle(
+                fontSize: 14,
+                color:    AppTheme.text2Of(context),
+                height:   1.6,
+              ),
+            ),
+            const SizedBox(height: 32),
+
+            // ── Error ─────────────────────────────────────────────
             if (syllabus.error != null)
-              ErrorView(
+              Padding(
+                padding: const EdgeInsets.only(bottom: 16),
+                child: ErrorView(
                   message: syllabus.error!,
-                  onRetry: () => context.read<SyllabusProvider>().load()),
-            _ClassCard(
-              classLevel:  '+1',
-              fullName:    'Class XI — Higher Secondary First Year',
-              color:       AppTheme.plus1,
-              bg:          AppTheme.plus1Bg,
-              subjectCount: syllabus.plus1Count,
-              loading:     !syllabus.loaded,
-            ),
-            const SizedBox(height: 14),
-            _ClassCard(
-              classLevel:  '+2',
-              fullName:    'Class XII — Higher Secondary Second Year',
-              color:       AppTheme.plus2,
-              bg:          AppTheme.plus2Bg,
-              subjectCount: syllabus.plus2Count,
-              loading:     !syllabus.loaded,
+                  onRetry: () => context.read<SyllabusProvider>().load(),
+                ),
+              ),
+
+            // ── Grouped course list ───────────────────────────────
+            Container(
+              clipBehavior: Clip.antiAlias,
+              decoration: BoxDecoration(
+                border:       Border.all(color: AppTheme.borderOf(context)),
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  for (int i = 0; i < _kCourseClasses.length; i++) ...[
+                    _ClassRow(
+                      info:         _kCourseClasses[i],
+                      subjectCount: i == 0 ? syllabus.plus1Count : syllabus.plus2Count,
+                      loading:      !syllabus.loaded,
+                      onTap:        () => context.push('/courses/${_kCourseClasses[i].classLevel}'),
+                    ),
+                    if (i < _kCourseClasses.length - 1)
+                      Divider(
+                        height:    1,
+                        thickness: 1,
+                        color:     AppTheme.borderOf(context),
+                      ),
+                  ],
+                ],
+              ),
             ),
           ],
         ),
@@ -66,121 +137,98 @@ class _CoursesScreenState extends State<CoursesScreen> {
   }
 }
 
-class _ClassCard extends StatefulWidget {
-  final String classLevel;
-  final String fullName;
-  final Color  color;
-  final Color  bg;
-  final int    subjectCount;
-  final bool   loading;
+// ── Row widget for the grouped course list ────────────────────────────────────
 
-  const _ClassCard({
-    required this.classLevel,
-    required this.fullName,
-    required this.color,
-    required this.bg,
+class _ClassRow extends StatefulWidget {
+  final _ClassInfo   info;
+  final int          subjectCount;
+  final bool         loading;
+  final VoidCallback onTap;
+
+  const _ClassRow({
+    required this.info,
     required this.subjectCount,
     required this.loading,
+    required this.onTap,
   });
 
   @override
-  State<_ClassCard> createState() => _ClassCardState();
+  State<_ClassRow> createState() => _ClassRowState();
 }
 
-class _ClassCardState extends State<_ClassCard> {
+class _ClassRowState extends State<_ClassRow> {
   bool _pressed = false;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTapDown:  (_) => setState(() => _pressed = true),
-      onTapUp:    (_) { setState(() => _pressed = false); context.push('/courses/${widget.classLevel}'); },
-      onTapCancel: () => setState(() => _pressed = false),
+      onTapDown:   (_) => setState(() => _pressed = true),
+      onTapUp:     (_) { setState(() => _pressed = false); widget.onTap(); },
+      onTapCancel: ()  => setState(() => _pressed = false),
       child: AnimatedContainer(
-        duration: const Duration(milliseconds: 100),
-        transform: Matrix4.translationValues(0, _pressed ? 1 : 0, 0),
-        padding: const EdgeInsets.fromLTRB(18, 18, 18, 18),
-        decoration: BoxDecoration(
-          color:        AppTheme.cardOf(context),
-          borderRadius: BorderRadius.circular(16),
-          border: Border.all(
-            color: _pressed
-                ? widget.color
-                : widget.color.withAlpha(60),
-          ),
-          boxShadow: [
-            BoxShadow(
-              color: _pressed
-                  ? widget.color.withAlpha(40)
-                  : widget.color.withAlpha(15),
-              blurRadius: _pressed ? 16 : 6,
-              offset: const Offset(0, 3),
-            ),
-          ],
-        ),
+        duration: const Duration(milliseconds: 80),
+        color:   _pressed ? AppTheme.borderOf(context) : AppTheme.cardOf(context),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
         child: Row(
           children: [
             Container(
-              width: 58, height: 58,
+              width:  48,
+              height: 48,
               decoration: BoxDecoration(
-                color:        widget.bg,
-                borderRadius: BorderRadius.circular(14),
+                color:        widget.info.bg,
+                borderRadius: BorderRadius.circular(10),
               ),
               child: Center(
                 child: Text(
-                  widget.classLevel,
+                  widget.info.classLevel,
                   style: TextStyle(
-                    fontSize: 20,
+                    fontSize:   18,
                     fontWeight: FontWeight.w800,
-                    color: widget.color,
+                    color:      widget.info.color,
                   ),
                 ),
               ),
             ),
-            const SizedBox(width: 16),
+            const SizedBox(width: 14),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    widget.fullName,
-                    style: const TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.w700,
+                    widget.info.fullName,
+                    style: TextStyle(
+                      fontSize:   14,
+                      fontWeight: FontWeight.w600,
+                      color:      AppTheme.textOf(context),
                     ),
                   ),
-                  const SizedBox(height: 4),
+                  const SizedBox(height: 3),
                   widget.loading
-                      ? const _LoadingPill()
+                      ? Container(
+                          height: 11,
+                          width:  72,
+                          decoration: BoxDecoration(
+                            color:        AppTheme.borderOf(context),
+                            borderRadius: BorderRadius.circular(6),
+                          ),
+                        )
                       : Text(
                           '${widget.subjectCount} subject${widget.subjectCount != 1 ? 's' : ''}',
                           style: TextStyle(
                             fontSize: 12,
-                            color: widget.color.withAlpha(180),
-                            fontWeight: FontWeight.w500,
+                            color:    AppTheme.textMutedOf(context),
                           ),
                         ),
                 ],
               ),
             ),
-            Icon(Icons.chevron_right, color: widget.color, size: 22),
+            Icon(
+              Icons.chevron_right,
+              color: AppTheme.textMutedOf(context),
+              size:  20,
+            ),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class _LoadingPill extends StatelessWidget {
-  const _LoadingPill();
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 12, width: 80,
-      decoration: BoxDecoration(
-        color:        AppTheme.borderOf(context),
-        borderRadius: BorderRadius.circular(6),
       ),
     );
   }

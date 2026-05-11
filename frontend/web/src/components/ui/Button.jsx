@@ -11,9 +11,9 @@ export default function Button({
     lg: 'h-11 px-5 text-sm min-h-[44px]',
   }
   const variants = {
-    primary:   'bg-ink text-bg-2 hover:bg-ink-2',
-    secondary: 'bg-bg border border-line text-ink hover:bg-bg-sunk',
-    accent:    'bg-accent text-white hover:bg-accent-ink',
+    primary:   'bg-accent text-white hover:bg-accent-ink',
+    secondary: 'bg-bg-2 border border-line text-ink hover:bg-bg-sunk',
+    accent:    'bg-good text-white hover:bg-good-ink',
     ghost:     'text-ink-2 hover:bg-bg-sunk',
     soft:      'bg-accent-soft text-accent-ink hover:bg-accent-soft/80',
   }

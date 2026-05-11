@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans:  ['Geist', '"Plus Jakarta Sans"', '"Inter"', 'system-ui', 'sans-serif'],
+        sans:  ['Geist', '"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
         serif: ['"Source Serif 4"', 'Georgia', 'serif'],
         mono:  ['"Geist Mono"', 'ui-monospace', 'monospace'],
       },
@@ -41,6 +41,8 @@ export default {
         line:        'var(--line)',
         'line-soft': 'var(--line-soft)',
         highlight:   'var(--highlight)',
+        ai:          'var(--ai)',
+        'ai-soft':   'var(--ai-soft)',
         brand: {
           50:  '#EEEDFE',
           100: '#CECBF6',

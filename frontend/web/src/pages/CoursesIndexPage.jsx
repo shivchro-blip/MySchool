@@ -3,8 +3,8 @@ import { ChevronRight } from 'lucide-react'
 import { SYLLABUS } from '../data/syllabus'
 
 const YEAR_CONFIG = {
-  plus1: { label: '+1', subtitle: 'Class XI — Higher Secondary First Year',  color: '#2ec4b6' },
-  plus2: { label: '+2', subtitle: 'Class XII — Higher Secondary Second Year', color: '#9b72f0' },
+  plus1: { label: '+1', subtitle: 'Class XI — Higher Secondary First Year',  color: '#1B4B82' },
+  plus2: { label: '+2', subtitle: 'Class XII — Higher Secondary Second Year', color: '#1D9E75' },
 }
 
 function countLessons(yearData) {
@@ -19,76 +19,83 @@ export default function CoursesIndexPage() {
   const navigate = useNavigate()
 
   return (
-    <div style={{ fontFamily: "'DM Sans', sans-serif" }}>
-      <h1 style={{ fontSize: 20, fontWeight: 700, color: '#1a1d27', marginBottom: 4 }}>My Courses</h1>
-      <p style={{ fontSize: 13, color: '#9ca3af', marginBottom: 24 }}>Select a year to browse subjects</p>
+    <div style={{ maxWidth: 680, margin: '0 auto', padding: 'clamp(24px, 4vw, 48px) clamp(16px, 4vw, 32px) 96px' }}>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-        {Object.entries(SYLLABUS).map(([yearKey, yearData]) => {
+      {/* Header */}
+      <p style={{
+        fontSize: 10, fontWeight: 700, letterSpacing: '0.12em',
+        textTransform: 'uppercase', color: 'var(--ink-4)', marginBottom: 12,
+      }}>
+        Tamil Nadu State Board
+      </p>
+      <h1 style={{
+        fontSize: 'clamp(1.5rem, 3.5vw, 2rem)',
+        fontWeight: 700, color: 'var(--ink)', lineHeight: 1.2,
+        letterSpacing: '-0.02em', margin: '0 0 8px',
+      }}>
+        My Courses
+      </h1>
+      <p style={{ fontSize: 14, color: 'var(--ink-3)', margin: '0 0 32px', lineHeight: 1.6 }}>
+        Select a year group to browse subjects and lessons.
+      </p>
+
+      {/* Course list — flat grouped */}
+      <div style={{ border: '1px solid var(--line)', borderRadius: 12, overflow: 'hidden' }}>
+        {Object.entries(SYLLABUS).map(([yearKey, yearData], idx, arr) => {
           const cfg      = YEAR_CONFIG[yearKey]
           if (!cfg) return null
           const subjects = Object.keys(yearData.subjects || {}).length
           const lessons  = countLessons(yearData)
 
           return (
-            <button
-              key={yearKey}
-              onClick={() => navigate(`/${yearKey}`)}
-              style={{
-                background: 'white',
-                border: `1.5px solid ${cfg.color}33`,
-                borderRadius: 14,
-                padding: '18px 20px',
-                display: 'flex', alignItems: 'center', gap: 16,
-                cursor: 'pointer',
-                transition: 'all 0.18s ease',
-                textAlign: 'left',
-                width: '100%',
-                boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
-              }}
-              onMouseEnter={e => {
-                e.currentTarget.style.borderColor = cfg.color
-                e.currentTarget.style.background   = `${cfg.color}08`
-                e.currentTarget.style.transform    = 'translateY(-1px)'
-                e.currentTarget.style.boxShadow    = `0 6px 20px ${cfg.color}22`
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.borderColor = `${cfg.color}33`
-                e.currentTarget.style.background   = 'white'
-                e.currentTarget.style.transform    = 'translateY(0)'
-                e.currentTarget.style.boxShadow    = '0 2px 8px rgba(0,0,0,0.04)'
-              }}
-            >
-              {/* Year badge */}
-              <div style={{
-                width: 56, height: 56, borderRadius: 14, flexShrink: 0,
-                background: `${cfg.color}18`,
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-              }}>
-                <span style={{ fontSize: 20, fontWeight: 800, color: cfg.color }}>{cfg.label}</span>
-              </div>
-
-              {/* Info */}
-              <div style={{ flex: 1, minWidth: 0 }}>
-                <div style={{ fontSize: 15, fontWeight: 700, color: '#1a1d27', marginBottom: 4 }}>
-                  {cfg.subtitle}
+            <div key={yearKey}>
+              <button
+                onClick={() => navigate(`/${yearKey}`)}
+                style={{
+                  width: '100%',
+                  display: 'flex', alignItems: 'center', gap: 16,
+                  padding: '20px 24px',
+                  background: 'var(--bg-2)',
+                  border: 'none', cursor: 'pointer', textAlign: 'left',
+                  transition: 'background 150ms ease',
+                }}
+                onMouseEnter={e => e.currentTarget.style.background = 'var(--bg-sunk)'}
+                onMouseLeave={e => e.currentTarget.style.background = 'var(--bg-2)'}
+              >
+                {/* Year badge */}
+                <div style={{
+                  width: 48, height: 48, borderRadius: 10, flexShrink: 0,
+                  background: `${cfg.color}14`,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                }}>
+                  <span style={{ fontSize: 18, fontWeight: 800, color: cfg.color }}>
+                    {cfg.label}
+                  </span>
                 </div>
-                <div style={{ display: 'flex', gap: 12, marginTop: 6 }}>
-                  <span style={{ fontSize: 11, fontWeight: 600, color: cfg.color }}>
+
+                {/* Info */}
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <div style={{ fontSize: 14, fontWeight: 600, color: 'var(--ink)', marginBottom: 3 }}>
+                    {cfg.subtitle}
+                  </div>
+                  <div style={{ fontSize: 12, color: 'var(--ink-4)' }}>
                     {subjects} subject{subjects !== 1 ? 's' : ''}
-                  </span>
-                  <span style={{ fontSize: 11, color: '#9ca3af' }}>·</span>
-                  <span style={{ fontSize: 11, color: '#9ca3af' }}>
+                    &nbsp;·&nbsp;
                     {lessons} lesson{lessons !== 1 ? 's' : ''}
-                  </span>
+                  </div>
                 </div>
-              </div>
 
-              <ChevronRight size={18} color="#9ca3af" style={{ flexShrink: 0 }} />
-            </button>
+                <ChevronRight size={16} style={{ flexShrink: 0, color: 'var(--ink-4)' }} />
+              </button>
+
+              {idx < arr.length - 1 && (
+                <div style={{ height: 1, background: 'var(--line)' }} />
+              )}
+            </div>
           )
         })}
       </div>
+
     </div>
   )
 }
