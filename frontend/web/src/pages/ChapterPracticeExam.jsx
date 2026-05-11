@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
+import { validateStudentAnswer } from '../utils/answerValidation'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   ChevronLeft, ChevronRight, CheckCircle2, XCircle,
@@ -75,31 +76,44 @@ function McqQuestion({ q, chosenIdx, onAnswer }) {
   )
 }
 
-function ReferenceQuestion({ q, subAnswers, onWritten }) {
+function ReferenceQuestion({ q, subAnswers, onWritten, onBlur, validationErrors }) {
   return (
     <>
       <blockquote className="px-5 py-4 mb-5 bg-bg-sunk rounded-xl">
         <p className="text-[14px] font-serif italic text-ink leading-relaxed">{q.verse}</p>
       </blockquote>
       <div className="space-y-4">
-        {q.subs.map((sub, i) => (
-          <div key={i}>
-            <p className="text-[13px] font-semibold text-ink mb-2">{sub.q}</p>
-            <textarea
-              className="w-full min-h-[72px] px-3 py-2.5 rounded-xl border border-line bg-bg
-                text-[13px] text-ink resize-y outline-none focus:border-accent transition-colors"
-              placeholder="Write your answer here…"
-              value={subAnswers?.[i] ?? ''}
-              onChange={e => onWritten(q.id, i, e.target.value)}
-            />
-          </div>
-        ))}
+        {q.subs.map((sub, i) => {
+          const errKey = `${q.id}_${i}`
+          const error  = validationErrors?.[errKey]
+          return (
+            <div key={i}>
+              <p className="text-[13px] font-semibold text-ink mb-2">{sub.q}</p>
+              <textarea
+                className="w-full min-h-[72px] px-3 py-2.5 rounded-xl border border-line bg-bg
+                  text-[13px] text-ink resize-y outline-none focus:border-accent transition-colors"
+                style={{ borderColor: error ? 'var(--danger)' : undefined }}
+                placeholder="Write your answer here…"
+                value={subAnswers?.[i] ?? ''}
+                onChange={e => onWritten(q.id, i, e.target.value)}
+                onBlur={e => onBlur?.(q.id, i, e.target.value)}
+              />
+              {error && (
+                <p className="flex items-center gap-1.5 mt-1 text-[11px] text-danger">
+                  <AlertCircle size={11} className="shrink-0" />
+                  {error}
+                </p>
+              )}
+            </div>
+          )
+        })}
       </div>
     </>
   )
 }
 
-function WrittenQuestion({ q, value, onWritten }) {
+function WrittenQuestion({ q, value, onWritten, onBlur, validationErrors }) {
+  const error = validationErrors?.[q.id]
   return (
     <>
       <p
@@ -109,11 +123,18 @@ function WrittenQuestion({ q, value, onWritten }) {
       <textarea
         className="w-full px-3 py-2.5 rounded-xl border border-line bg-bg
           text-[13px] text-ink resize-y outline-none focus:border-accent transition-colors"
-        style={{ minHeight: q.marks >= 5 ? '192px' : '120px' }}
+        style={{ minHeight: q.marks >= 5 ? '192px' : '120px', borderColor: error ? 'var(--danger)' : undefined }}
         placeholder="Write your answer here…"
         value={value ?? ''}
         onChange={e => onWritten(q.id, null, e.target.value)}
+        onBlur={e => onBlur?.(q.id, null, e.target.value)}
       />
+      {error && (
+        <p className="flex items-center gap-1.5 mt-1 text-[11px] text-danger">
+          <AlertCircle size={11} className="shrink-0" />
+          {error}
+        </p>
+      )}
     </>
   )
 }
@@ -168,7 +189,7 @@ function QuickNavDots({ questions, questionIdx, answered, onGoto }) {
 
 // ── ExamView ───────────────────────────────────────────────────────────────
 
-function ExamView({ questions, chapterMeta, attempt, questionIdx, setQuestionIdx, onAnswer, onWritten, onOpenModal, onHistory }) {
+function ExamView({ questions, chapterMeta, attempt, questionIdx, setQuestionIdx, onAnswer, onWritten, onBlur, onOpenModal, onHistory, validationErrors }) {
   const q        = questions[questionIdx]
   const total    = questions.length
   const answers  = attempt.answers
@@ -238,10 +259,10 @@ function ExamView({ questions, chapterMeta, attempt, questionIdx, setQuestionIdx
             <McqQuestion q={q} chosenIdx={answers[q.id]} onAnswer={onAnswer} />
           )}
           {q.type === 'reference' && (
-            <ReferenceQuestion q={q} subAnswers={answers[q.id]} onWritten={onWritten} />
+            <ReferenceQuestion q={q} subAnswers={answers[q.id]} onWritten={onWritten} onBlur={onBlur} validationErrors={validationErrors} />
           )}
           {q.type === 'written' && (
-            <WrittenQuestion q={q} value={answers[q.id]} onWritten={onWritten} />
+            <WrittenQuestion q={q} value={answers[q.id]} onWritten={onWritten} onBlur={onBlur} validationErrors={validationErrors} />
           )}
         </motion.div>
       </AnimatePresence>
@@ -538,12 +559,13 @@ export default function ChapterPracticeExam({ questions, chapterMeta, chapterSlu
 
   const INITIAL = { id: 1, status: 'in_progress', answers: {}, score: null, submittedAt: null }
 
-  const [attempts,         setAttempts]         = useState([INITIAL])
-  const [currentAttemptId, setCurrentAttemptId] = useState(1)
-  const [view,             setView]             = useState('exam')
-  const [viewingAttemptId, setViewingAttemptId] = useState(null)
-  const [showModal,        setShowModal]        = useState(false)
-  const [questionIdx,      setQuestionIdx]      = useState(0)
+  const [attempts,          setAttempts]          = useState([INITIAL])
+  const [currentAttemptId,  setCurrentAttemptId]  = useState(1)
+  const [view,              setView]              = useState('exam')
+  const [viewingAttemptId,  setViewingAttemptId]  = useState(null)
+  const [showModal,         setShowModal]         = useState(false)
+  const [questionIdx,       setQuestionIdx]       = useState(0)
+  const [validationErrors,  setValidationErrors]  = useState({})
 
   const currentAttempt = attempts.find(a => a.id === currentAttemptId)
   const viewingAttempt = viewingAttemptId ? attempts.find(a => a.id === viewingAttemptId) : null
@@ -594,12 +616,57 @@ export default function ChapterPracticeExam({ questions, chapterMeta, chapterSlu
     setView('results')
   }
 
+  function handleBlurValidation(qId, subIdx, text) {
+    const key = subIdx !== null ? `${qId}_${subIdx}` : qId
+    const result = validateStudentAnswer(text ?? '')
+    setValidationErrors(prev => {
+      const next = { ...prev }
+      if (result.message) next[key] = result.message
+      else delete next[key]
+      return next
+    })
+  }
+
+  function handleOpenModal() {
+    const errors = {}
+    let firstInvalidIdx = -1
+    for (const q of questions) {
+      if (q.type === 'mcq') continue
+      const qi = questions.indexOf(q)
+      if (q.type === 'reference') {
+        for (let i = 0; i < (q.subs?.length ?? 0); i++) {
+          const val = currentAttempt.answers[q.id]?.[i] ?? ''
+          const result = validateStudentAnswer(val)
+          if (result.message) {
+            errors[`${q.id}_${i}`] = result.message
+            if (firstInvalidIdx === -1) firstInvalidIdx = qi
+          }
+        }
+      } else {
+        const val = currentAttempt.answers[q.id] ?? ''
+        const result = validateStudentAnswer(val)
+        if (result.message) {
+          errors[q.id] = result.message
+          if (firstInvalidIdx === -1) firstInvalidIdx = qi
+        }
+      }
+    }
+    if (Object.keys(errors).length > 0) {
+      setValidationErrors(errors)
+      setQuestionIdx(firstInvalidIdx)
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+      return
+    }
+    setShowModal(true)
+  }
+
   function handleRetake() {
     const newId = Math.max(...attempts.map(a => a.id)) + 1
     setAttempts(prev => [...prev, { id: newId, status: 'in_progress', answers: {}, score: null, submittedAt: null }])
     setCurrentAttemptId(newId)
     setViewingAttemptId(null)
     setQuestionIdx(0)
+    setValidationErrors({})
     setView('exam')
   }
 
@@ -618,8 +685,10 @@ export default function ChapterPracticeExam({ questions, chapterMeta, chapterSlu
               setQuestionIdx={setQuestionIdx}
               onAnswer={handleAnswer}
               onWritten={handleWrittenAnswer}
-              onOpenModal={() => setShowModal(true)}
+              onBlur={handleBlurValidation}
+              onOpenModal={handleOpenModal}
               onHistory={() => navigate(`${parentPath}/attempt-history`)}
+              validationErrors={validationErrors}
             />
           </motion.div>
         )}

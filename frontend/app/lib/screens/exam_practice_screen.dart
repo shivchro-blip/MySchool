@@ -7,6 +7,7 @@ import '../config/theme.dart';
 import '../models/exam_practice_model.dart';
 import '../models/syllabus_model.dart';
 import '../services/exam_practice_service.dart';
+import '../utils/answer_validation.dart';
 import '../widgets/app_button.dart';
 
 // ── HTML inline renderer (handles <u> tags) ───────────────────────────────
@@ -208,7 +209,9 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
   int?               _viewingAttemptId;
   int                _questionIdx        = 0;
 
-  final Map<String, TextEditingController> _ctrlMap = {};
+  final Map<String, TextEditingController> _ctrlMap          = {};
+  final Map<String, FocusNode>             _focusMap         = {};
+  final Map<String, String>                _validationErrors = {};
 
   ExamAttempt get _currentAttempt =>
       _attempts.firstWhere((a) => a.id == _currentAttemptId);
@@ -240,9 +243,79 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
     });
   }
 
+  FocusNode _getFocusNode(int qId, [int? subIdx]) {
+    final key = subIdx != null ? '${qId}_$subIdx' : '$qId';
+    return _focusMap.putIfAbsent(key, () {
+      final node = FocusNode();
+      node.addListener(() {
+        if (!node.hasFocus) _validateField(qId, subIdx);
+      });
+      return node;
+    });
+  }
+
+  void _validateField(int qId, [int? subIdx]) {
+    final key  = subIdx != null ? '${qId}_$subIdx' : '$qId';
+    final ctrl = _ctrlMap[key];
+    if (ctrl == null) return;
+    final result = validateStudentAnswer(ctrl.text);
+    if (!mounted) return;
+    setState(() {
+      if (result.message != null) {
+        _validationErrors[key] = result.message!;
+      } else {
+        _validationErrors.remove(key);
+      }
+    });
+  }
+
+  // Validate only the current question's written fields. Returns error map.
+  Map<String, String> _validateCurrentQuestion(ExamQuestion q) {
+    final errors = <String, String>{};
+    if (q.type == ExamQuestionType.reference) {
+      for (int j = 0; j < (q.subs?.length ?? 0); j++) {
+        final key  = '${q.id}_$j';
+        final ctrl = _ctrlMap[key];
+        final text = ctrl?.text ??
+            (_currentAttempt.answers[q.id] as Map<Object, Object>?)?[j] as String? ?? '';
+        if (text.trim().isEmpty) continue;
+        final res = validateStudentAnswer(text);
+        if (res.message != null) errors[key] = res.message!;
+      }
+    } else if (q.type == ExamQuestionType.written) {
+      final key  = '${q.id}';
+      final ctrl = _ctrlMap[key];
+      final text = ctrl?.text ?? _currentAttempt.answers[q.id] as String? ?? '';
+      if (text.trim().isNotEmpty) {
+        final res = validateStudentAnswer(text);
+        if (res.message != null) errors[key] = res.message!;
+      }
+    }
+    return errors;
+  }
+
+  void _handleNext() {
+    final q      = _questions[_questionIdx];
+    final errors = _validateCurrentQuestion(q);
+    if (errors.isNotEmpty) {
+      setState(() => _validationErrors.addAll(errors));
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Please correct the highlighted answers before continuing.'),
+          duration: Duration(seconds: 3),
+        ),
+      );
+      return;
+    }
+    setState(() => _questionIdx++);
+  }
+
   void _clearCtrl() {
-    for (final c in _ctrlMap.values) c.dispose();
+    for (final c in _ctrlMap.values) { c.dispose(); }
     _ctrlMap.clear();
+    for (final n in _focusMap.values) { n.dispose(); }
+    _focusMap.clear();
   }
 
   @override
@@ -274,9 +347,60 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
     } else {
       ans[qId] = val;
     }
+    // Clear validation error when the field becomes valid or empty
+    final key = subIdx != null ? '${qId}_$subIdx' : '$qId';
+    if (_validationErrors.containsKey(key)) {
+      final result = validateStudentAnswer(val);
+      if (result.valid || val.trim().isEmpty) {
+        setState(() => _validationErrors.remove(key));
+      }
+    }
   }
 
   void _openSubmitDialog() {
+    final errors = <String, String>{};
+    int firstInvalidIdx = -1;
+    for (int i = 0; i < _questions.length; i++) {
+      final q = _questions[i];
+      if (q.type == ExamQuestionType.mcq) continue;
+      if (q.type == ExamQuestionType.reference) {
+        for (int j = 0; j < (q.subs?.length ?? 0); j++) {
+          final key  = '${q.id}_$j';
+          final ctrl = _ctrlMap[key];
+          final text = ctrl?.text ??
+              (_currentAttempt.answers[q.id] as Map<Object, Object>?)?[j] as String? ?? '';
+          final res = validateStudentAnswer(text);
+          if (res.message != null) {
+            errors[key] = res.message!;
+            if (firstInvalidIdx == -1) firstInvalidIdx = i;
+          }
+        }
+      } else {
+        final key  = '${q.id}';
+        final ctrl = _ctrlMap[key];
+        final text = ctrl?.text ?? _currentAttempt.answers[q.id] as String? ?? '';
+        final res  = validateStudentAnswer(text);
+        if (res.message != null) {
+          errors[key] = res.message!;
+          if (firstInvalidIdx == -1) firstInvalidIdx = i;
+        }
+      }
+    }
+
+    if (errors.isNotEmpty) {
+      setState(() {
+        _validationErrors.addAll(errors);
+        _questionIdx = firstInvalidIdx;
+      });
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Some answers need correction before submitting.'),
+          duration: Duration(seconds: 3),
+        ),
+      );
+      return;
+    }
+
     showDialog<void>(
       context: context,
       builder: (dialogContext) => AlertDialog(
@@ -329,6 +453,7 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
     final newId = _attempts.map((a) => a.id).reduce(max) + 1;
     _clearCtrl();
     setState(() {
+      _validationErrors.clear();
       _attempts.add(ExamAttempt(id: newId));
       _currentAttemptId = newId;
       _viewingAttemptId = null;
@@ -448,9 +573,7 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
             const SizedBox(width: 10),
             Expanded(
               child: OutlinedButton.icon(
-                onPressed: _questionIdx < total - 1
-                    ? () => setState(() => _questionIdx++)
-                    : null,
+                onPressed: _questionIdx < total - 1 ? _handleNext : null,
                 icon:  const Icon(Icons.chevron_right, size: 18),
                 label: const Text('Next'),
                 iconAlignment: IconAlignment.end,
@@ -565,7 +688,9 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
         ),
         const SizedBox(height: 14),
         ...List.generate(q.subs!.length, (i) {
-          final sub = q.subs![i];
+          final sub   = q.subs![i];
+          final key   = '${q.id}_$i';
+          final error = _validationErrors[key];
           return Padding(
             padding: const EdgeInsets.only(bottom: 14),
             child: Column(
@@ -576,10 +701,14 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
                 const SizedBox(height: 8),
                 TextField(
                   controller: _getCtrl(q.id, i),
+                  focusNode:  _getFocusNode(q.id, i),
                   minLines:   3,
                   maxLines:   6,
                   onChanged:  (v) => _updateText(q.id, i, v),
-                  decoration: const InputDecoration(hintText: 'Write your answer here…'),
+                  decoration: InputDecoration(
+                    hintText:  'Write your answer here…',
+                    errorText: error,
+                  ),
                 ),
               ],
             ),
@@ -590,6 +719,7 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
   }
 
   Widget _buildWrittenQuestion(ExamQuestion q) {
+    final error = _validationErrors['${q.id}'];
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -598,10 +728,14 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
         const SizedBox(height: 14),
         TextField(
           controller: _getCtrl(q.id),
+          focusNode:  _getFocusNode(q.id),
           minLines:   q.marks >= 5 ? 8 : 5,
           maxLines:   q.marks >= 5 ? 14 : 10,
           onChanged:  (v) => _updateText(q.id, null, v),
-          decoration: const InputDecoration(hintText: 'Write your answer here…'),
+          decoration: InputDecoration(
+            hintText:  'Write your answer here…',
+            errorText: error,
+          ),
         ),
       ],
     );
@@ -790,7 +924,7 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
                                   )),
                             ),
                             if (isAnswer)
-                              Icon(Icons.check_circle, size: 12, color: AppTheme.success),
+                              const Icon(Icons.check_circle, size: 12, color: AppTheme.success),
                           ],
                         ),
                       );

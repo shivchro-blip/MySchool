@@ -6,6 +6,7 @@ import '../models/exam_practice_model.dart';
 import '../services/syllabus_service.dart';
 import '../services/evaluation_service.dart';
 import '../services/exam_practice_service.dart';
+import '../utils/answer_validation.dart';
 import '../widgets/app_button.dart';
 import '../widgets/marks_chip.dart';
 import '../widgets/score_card.dart';
@@ -110,9 +111,10 @@ class _PracticeScreenState extends State<PracticeScreen> {
   }
 
   Future<void> _submit() async {
-    final text = _answerCtrl.text.trim();
-    if (text.length < 10) {
-      setState(() => _error = 'Please write at least 10 characters.');
+    final text   = _answerCtrl.text.trim();
+    final result = validateStudentAnswer(text);
+    if (!result.valid && result.message != null) {
+      setState(() => _error = result.message!);
       return;
     }
     if (_current!.id.startsWith('local_')) {
@@ -131,9 +133,10 @@ class _PracticeScreenState extends State<PracticeScreen> {
   }
 
   Future<void> _retry() async {
-    final text = _answerCtrl.text.trim();
-    if (text.length < 10) {
-      setState(() => _error = 'Please write at least 10 characters.');
+    final text   = _answerCtrl.text.trim();
+    final result = validateStudentAnswer(text);
+    if (!result.valid && result.message != null) {
+      setState(() => _error = result.message!);
       return;
     }
     setState(() { _loading = true; _error = ''; });
