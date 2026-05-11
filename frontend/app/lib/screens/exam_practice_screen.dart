@@ -107,16 +107,18 @@ class _AnswerPair extends StatelessWidget {
 // ── Quick-nav dot groups ──────────────────────────────────────────────────
 
 class _QuickNavDots extends StatelessWidget {
-  final List<ExamQuestion> questions;
-  final int                questionIdx;
-  final Map<int, Object>   answers;
-  final ValueChanged<int>  onGoto;
+  final List<ExamQuestion>   questions;
+  final int                  questionIdx;
+  final Map<int, Object>     answers;
+  final ValueChanged<int>    onGoto;
+  final Map<String, String>  validationErrors;
 
   const _QuickNavDots({
     required this.questions,
     required this.questionIdx,
     required this.answers,
     required this.onGoto,
+    this.validationErrors = const {},
   });
 
   @override
@@ -153,6 +155,12 @@ class _QuickNavDots extends StatelessWidget {
                   final gi      = questions.indexOf(q);
                   final current = gi == questionIdx;
                   final isMcq   = q.type == ExamQuestionType.mcq;
+                  final isInvalid = !isMcq && (
+                    q.type == ExamQuestionType.reference
+                        ? List.generate(q.subs?.length ?? 0, (i) => '${q.id}_$i')
+                            .any((k) => validationErrors.containsKey(k))
+                        : validationErrors.containsKey('${q.id}')
+                  );
                   final done    = isMcq
                       ? answers[q.id] != null
                       : q.type == ExamQuestionType.reference
@@ -162,6 +170,10 @@ class _QuickNavDots extends StatelessWidget {
 
                   Color bg; Color fg;
                   if (current) { bg = AppTheme.brand; fg = Colors.white; }
+                  else if (isInvalid) {
+                    bg = AppTheme.errorBgOf(context);
+                    fg = AppTheme.error;
+                  }
                   else if (isMcq && done)   {
                     bg = AppTheme.successBgOf(context);
                     fg = AppTheme.successFgOf(context);
@@ -602,7 +614,32 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> with WidgetsBin
     _saveDraft();
   }
 
-  void _openSubmitDialog() {
+  void _showReviewSheet() {
+    if (!mounted) return;
+    showModalBottomSheet<void>(
+      context: context,
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+      ),
+      builder: (ctx) => _ReviewSheet(
+        questions:        _questions,
+        questionIdx:      _questionIdx,
+        answers:          Map.of(_currentAttempt.answers),
+        validationErrors: Map.of(_validationErrors),
+        mode:             'review',
+        firstInvalidIdx:  -1,
+        onGoto: (idx) {
+          Navigator.pop(ctx);
+          _gotoQuestion(idx);
+        },
+        onCancel:  () => Navigator.pop(ctx),
+        onConfirm: null,
+      ),
+    );
+  }
+
+  void _openReviewSubmitSheet() {
     final errors = <String, String>{};
     int firstInvalidIdx = -1;
     for (int i = 0; i < _questions.length; i++) {
@@ -614,6 +651,7 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> with WidgetsBin
           final ctrl = _ctrlMap[key];
           final text = ctrl?.text ??
               _asAnswerString(_asAnswerMap(_currentAttempt.answers[q.id])?[j]) ?? '';
+          if (text.trim().isEmpty) continue;
           final res = validateStudentAnswer(text);
           if (res.message != null) {
             errors[key] = res.message!;
@@ -624,6 +662,7 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> with WidgetsBin
         final key  = '${q.id}';
         final ctrl = _ctrlMap[key];
         final text = ctrl?.text ?? _asAnswerString(_currentAttempt.answers[q.id]) ?? '';
+        if (text.trim().isEmpty) continue;
         final res  = validateStudentAnswer(text);
         if (res.message != null) {
           errors[key] = res.message!;
@@ -633,39 +672,33 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> with WidgetsBin
     }
 
     if (errors.isNotEmpty) {
-      setState(() {
-        _validationErrors.addAll(errors);
-        _questionIdx = firstInvalidIdx;
-      });
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Some answers need correction before submitting.'),
-          duration: Duration(seconds: 3),
-        ),
-      );
-      return;
+      setState(() => _validationErrors.addAll(errors));
     }
 
-    showDialog<void>(
+    if (!mounted) return;
+    final mergedErrors = {..._validationErrors, ...errors};
+    showModalBottomSheet<void>(
       context: context,
-      builder: (dialogContext) => AlertDialog(
-        title: const Text('Submit Exam?'),
-        content: const Text(
-            'Once submitted your answers will be locked. '
-            'This chapter will be marked as practised.'),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(dialogContext),
-            child: const Text('Cancel'),
-          ),
-          FilledButton(
-            onPressed: () {
-              Navigator.pop(dialogContext);
-              _confirmSubmit();
-            },
-            child: const Text('Submit'),
-          ),
-        ],
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+      ),
+      builder: (ctx) => _ReviewSheet(
+        questions:        _questions,
+        questionIdx:      _questionIdx,
+        answers:          Map.of(_currentAttempt.answers),
+        validationErrors: mergedErrors,
+        mode:             'submit',
+        firstInvalidIdx:  firstInvalidIdx,
+        onGoto: (idx) {
+          Navigator.pop(ctx);
+          _gotoQuestion(idx);
+        },
+        onCancel:  () => Navigator.pop(ctx),
+        onConfirm: () {
+          Navigator.pop(ctx);
+          _confirmSubmit();
+        },
       ),
     );
   }
@@ -826,7 +859,18 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> with WidgetsBin
                 label: const Text('Previous'),
               ),
             ),
-            const SizedBox(width: 10),
+            const SizedBox(width: 6),
+            TextButton(
+              onPressed: _showReviewSheet,
+              style: TextButton.styleFrom(
+                foregroundColor: AppTheme.textMutedOf(context),
+                padding: const EdgeInsets.symmetric(horizontal: 8),
+                minimumSize: Size.zero,
+                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+              ),
+              child: const Text('Review', style: TextStyle(fontSize: 12)),
+            ),
+            const SizedBox(width: 6),
             Expanded(
               child: OutlinedButton.icon(
                 onPressed: _questionIdx < total - 1 ? _handleNext : null,
@@ -837,19 +881,11 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> with WidgetsBin
             ),
           ],
         ),
-        const SizedBox(height: 12),
-
-        _QuickNavDots(
-          questions:   _questions,
-          questionIdx: _questionIdx,
-          answers:     _currentAttempt.answers,
-          onGoto:      _gotoQuestion,
-        ),
         const SizedBox(height: 16),
 
         AppButton(
           label:     'Submit Practice Exam',
-          onPressed: _openSubmitDialog,
+          onPressed: _openReviewSubmitSheet,
         ),
       ],
     );
@@ -1421,6 +1457,226 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> with WidgetsBin
             ),
         },
       ),
+    );
+  }
+}
+
+// ── Review bottom sheet ───────────────────────────────────────────────────
+
+class _ReviewSheet extends StatelessWidget {
+  final List<ExamQuestion>  questions;
+  final int                 questionIdx;
+  final Map<int, Object>    answers;
+  final Map<String, String> validationErrors;
+  final String              mode; // 'review' | 'submit'
+  final int                 firstInvalidIdx;
+  final void Function(int)  onGoto;
+  final VoidCallback        onCancel;
+  final VoidCallback?       onConfirm;
+
+  const _ReviewSheet({
+    required this.questions,
+    required this.questionIdx,
+    required this.answers,
+    required this.validationErrors,
+    required this.mode,
+    required this.firstInvalidIdx,
+    required this.onGoto,
+    required this.onCancel,
+    this.onConfirm,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    int answered = 0, unanswered = 0, invalid = 0;
+    for (final q in questions) {
+      if (q.type == ExamQuestionType.mcq) {
+        if (answers[q.id] != null) { answered++; } else { unanswered++; }
+      } else if (q.type == ExamQuestionType.reference) {
+        final hasInvalid = List.generate(q.subs?.length ?? 0, (i) => '${q.id}_$i')
+            .any((k) => validationErrors.containsKey(k));
+        final hasAny = _asAnswerMap(answers[q.id])
+            ?.values.any((v) => v.toString().trim().isNotEmpty) ?? false;
+        if (hasInvalid) { invalid++; }
+        else if (hasAny) { answered++; }
+        else { unanswered++; }
+      } else {
+        final val = _asAnswerString(answers[q.id]) ?? '';
+        if (validationErrors.containsKey('${q.id}')) { invalid++; }
+        else if (val.trim().isNotEmpty) { answered++; }
+        else { unanswered++; }
+      }
+    }
+    final total = questions.length;
+
+    return DraggableScrollableSheet(
+      initialChildSize: 0.85,
+      minChildSize:     0.5,
+      maxChildSize:     0.95,
+      expand:           false,
+      builder: (ctx, scrollCtrl) => Column(
+        children: [
+          Container(
+            width: 36, height: 4,
+            margin: const EdgeInsets.only(top: 10, bottom: 4),
+            decoration: BoxDecoration(
+              color:        AppTheme.borderOf(context),
+              borderRadius: BorderRadius.circular(2),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            child: Row(
+              children: [
+                const Text('Review Your Answers',
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700)),
+                const Spacer(),
+                IconButton(
+                  icon: const Icon(Icons.close, size: 18),
+                  onPressed: onCancel,
+                  padding: EdgeInsets.zero,
+                  constraints: const BoxConstraints(),
+                ),
+              ],
+            ),
+          ),
+          const Divider(height: 1),
+          Flexible(
+            child: ListView(
+              controller: scrollCtrl,
+              padding: const EdgeInsets.all(16),
+              children: [
+                if (mode == 'submit') ...[
+                  Row(
+                    children: [
+                      _StatChip(label: 'Total',     value: '$total',     bg: AppTheme.surfaceOf(context),     fg: AppTheme.textOf(context)),
+                      const SizedBox(width: 6),
+                      _StatChip(label: 'Answered',  value: '$answered',  bg: AppTheme.successBgOf(context),   fg: AppTheme.successFgOf(context)),
+                      const SizedBox(width: 6),
+                      _StatChip(label: 'Unanswered',value: '$unanswered',bg: AppTheme.surfaceOf(context),     fg: AppTheme.textMutedOf(context)),
+                      const SizedBox(width: 6),
+                      _StatChip(
+                        label: 'Needs Fix',
+                        value: '$invalid',
+                        bg: invalid > 0 ? AppTheme.errorBgOf(context) : AppTheme.surfaceOf(context),
+                        fg: invalid > 0 ? AppTheme.error : AppTheme.textMutedOf(context),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 16),
+                ],
+                _QuickNavDots(
+                  questions:        questions,
+                  questionIdx:      questionIdx,
+                  answers:          answers,
+                  onGoto:           onGoto,
+                  validationErrors: validationErrors,
+                ),
+                const SizedBox(height: 14),
+                Wrap(
+                  spacing: 12,
+                  runSpacing: 6,
+                  children: [
+                    const _LegendChip(color: AppTheme.brand,    label: 'Current'),
+                    const _LegendChip(color: AppTheme.success,  label: 'Answered'),
+                    _LegendChip(color: AppTheme.borderOf(context), label: 'Unanswered'),
+                    if (mode == 'submit')
+                      const _LegendChip(color: AppTheme.error, label: 'Needs correction'),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          const Divider(height: 1),
+          Padding(
+            padding: EdgeInsets.fromLTRB(
+                16, 12, 16, 16 + MediaQuery.of(context).viewPadding.bottom),
+            child: Row(
+              children: [
+                Expanded(
+                  child: OutlinedButton(
+                    onPressed: onCancel,
+                    child: const Text('Cancel'),
+                  ),
+                ),
+                if (mode == 'submit' && invalid > 0) ...[
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: OutlinedButton(
+                      onPressed: () => onGoto(firstInvalidIdx),
+                      style: OutlinedButton.styleFrom(foregroundColor: AppTheme.error),
+                      child: const Text('Review Corrections'),
+                    ),
+                  ),
+                ],
+                if (mode == 'submit' && invalid == 0 && onConfirm != null) ...[
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: FilledButton(
+                      onPressed: onConfirm,
+                      child: const Text('Submit'),
+                    ),
+                  ),
+                ],
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _StatChip extends StatelessWidget {
+  final String label, value;
+  final Color  bg, fg;
+  const _StatChip({required this.label, required this.value, required this.bg, required this.fg});
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Container(
+        padding: const EdgeInsets.symmetric(vertical: 10),
+        decoration: BoxDecoration(
+          color:        bg,
+          borderRadius: BorderRadius.circular(10),
+          border:       Border.all(color: AppTheme.borderOf(context)),
+        ),
+        child: Column(
+          children: [
+            Text(value,
+                style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700, color: fg)),
+            const SizedBox(height: 2),
+            Text(label,
+                style: TextStyle(
+                  fontSize: 8, fontWeight: FontWeight.w600,
+                  color: fg.withValues(alpha: 0.7), letterSpacing: 0.4,
+                )),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _LegendChip extends StatelessWidget {
+  final Color  color;
+  final String label;
+  const _LegendChip({required this.color, required this.label});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Container(
+          width: 10, height: 10,
+          decoration: BoxDecoration(color: color, borderRadius: BorderRadius.circular(2)),
+        ),
+        const SizedBox(width: 4),
+        Text(label,
+            style: TextStyle(fontSize: 10, color: AppTheme.text2Of(context))),
+      ],
     );
   }
 }

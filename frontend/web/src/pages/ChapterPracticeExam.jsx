@@ -199,7 +199,7 @@ function WrittenQuestion({ q, value, onWritten, onBlur, validationErrors }) {
 
 // ── QuickNavDots ───────────────────────────────────────────────────────────
 
-function QuickNavDots({ questions, questionIdx, answered, onGoto }) {
+function QuickNavDots({ questions, questionIdx, answered, onGoto, validationErrors = {} }) {
   const groups = [
     { label: 'MCQ · 1 mark',         qs: questions.filter(q => q.type === 'mcq')                          },
     { label: 'Reference · 2 marks',  qs: questions.filter(q => q.type === 'reference')                    },
@@ -214,9 +214,14 @@ function QuickNavDots({ questions, questionIdx, answered, onGoto }) {
           <p className="text-[9px] font-bold uppercase tracking-wider text-ink-4 mb-1">{label}</p>
           <div className="flex gap-1 overflow-x-auto pb-0.5">
             {qs.map(q => {
-              const gi      = questions.indexOf(q)
-              const current = gi === questionIdx
-              const isMcq   = q.type === 'mcq'
+              const gi       = questions.indexOf(q)
+              const current  = gi === questionIdx
+              const isMcq    = q.type === 'mcq'
+              const isInvalid = !isMcq && (
+                q.type === 'reference'
+                  ? q.subs.some((_, i) => validationErrors[`${q.id}_${i}`])
+                  : !!validationErrors[q.id]
+              )
               const done    = isMcq
                 ? answered[q.id] !== undefined
                 : q.type === 'reference'
@@ -229,9 +234,11 @@ function QuickNavDots({ questions, questionIdx, answered, onGoto }) {
                   className={`w-6 h-6 rounded-md text-[9px] font-semibold transition-all shrink-0
                     ${current
                       ? 'bg-accent text-white'
-                      : isMcq
-                        ? (done ? 'bg-good-soft text-good-ink' : 'bg-bg-sunk text-ink-3 hover:bg-bg-2')
-                        : (done ? 'bg-accent-soft text-accent-ink' : 'bg-bg-2 text-ink-3 border border-line hover:border-accent-soft')
+                      : isInvalid
+                        ? 'bg-danger/10 text-danger border border-danger/30'
+                        : isMcq
+                          ? (done ? 'bg-good-soft text-good-ink' : 'bg-bg-sunk text-ink-3 hover:bg-bg-2')
+                          : (done ? 'bg-accent-soft text-accent-ink' : 'bg-bg-2 text-ink-3 border border-line hover:border-accent-soft')
                     }`}
                 >
                   {gi + 1}
@@ -247,7 +254,7 @@ function QuickNavDots({ questions, questionIdx, answered, onGoto }) {
 
 // ── ExamView ───────────────────────────────────────────────────────────────
 
-function ExamView({ questions, chapterMeta, attempt, questionIdx, onPrevious, onNext, onGoto, onAnswer, onWritten, onBlur, onOpenModal, onHistory, validationErrors }) {
+function ExamView({ questions, chapterMeta, attempt, questionIdx, onPrevious, onNext, onGoto, onAnswer, onWritten, onBlur, onOpenModal, onOpenReview, onHistory, validationErrors }) {
   const q        = questions[questionIdx]
   const total    = questions.length
   const answers  = attempt.answers
@@ -334,6 +341,12 @@ function ExamView({ questions, chapterMeta, attempt, questionIdx, onPrevious, on
         >
           <ChevronLeft size={15} /> Previous
         </Button>
+        <button
+          onClick={onOpenReview}
+          className="text-[11px] font-medium text-ink-3 hover:text-ink-2 transition-colors px-2 py-1"
+        >
+          Review
+        </button>
         <Button
           variant="secondary"
           onClick={onNext}
@@ -343,14 +356,6 @@ function ExamView({ questions, chapterMeta, attempt, questionIdx, onPrevious, on
         </Button>
       </div>
 
-      {/* Quick-nav */}
-      <QuickNavDots
-        questions={questions}
-        questionIdx={questionIdx}
-        answered={answers}
-        onGoto={onGoto}
-      />
-
       <Button variant="accent" size="lg" className="w-full" onClick={onOpenModal}>
         Submit Practice Exam
       </Button>
@@ -359,40 +364,134 @@ function ExamView({ questions, chapterMeta, attempt, questionIdx, onPrevious, on
   )
 }
 
-// ── SubmitModal ────────────────────────────────────────────────────────────
+// ── ReviewModal ────────────────────────────────────────────────────────────
 
-function SubmitModal({ onCancel, onConfirm }) {
+function LegendDot({ bg, label }) {
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div className="flex items-center gap-1.5">
+      <span className={`w-3 h-3 rounded-sm shrink-0 ${bg}`} />
+      <span className="text-[10px] text-ink-3">{label}</span>
+    </div>
+  )
+}
+
+function ReviewModal({ questions, questionIdx, answers, validationErrors, mode, onGoto, onCancel, onConfirm }) {
+  let answered = 0, unanswered = 0, invalid = 0
+  let firstInvalidIdx = -1
+
+  for (const q of questions) {
+    const qi = questions.indexOf(q)
+    if (q.type === 'mcq') {
+      if (answers[q.id] !== undefined) answered++
+      else unanswered++
+    } else if (q.type === 'reference') {
+      const hasInvalid = q.subs.some((_, i) => validationErrors[`${q.id}_${i}`])
+      const hasAny     = q.subs.some((_, i) => answers[q.id]?.[i]?.trim())
+      if (hasInvalid) { invalid++; if (firstInvalidIdx === -1) firstInvalidIdx = qi }
+      else if (hasAny) answered++
+      else unanswered++
+    } else {
+      const val = answers[q.id] ?? ''
+      if (validationErrors[q.id]) { invalid++; if (firstInvalidIdx === -1) firstInvalidIdx = qi }
+      else if (typeof val === 'string' && val.trim()) answered++
+      else unanswered++
+    }
+  }
+
+  const total = questions.length
+
+  function handleGoto(idx) {
+    onCancel()
+    onGoto(idx)
+  }
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-4 sm:p-6">
       <motion.div
         initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
         className="absolute inset-0 bg-ink/20 backdrop-blur-sm"
         onClick={onCancel}
       />
       <motion.div
-        initial={{ opacity: 0, scale: 0.96, y: 10 }}
-        animate={{ opacity: 1, scale: 1,    y: 0  }}
-        exit=   {{ opacity: 0, scale: 0.96, y: 10 }}
-        transition={{ duration: 0.18, ease: 'easeOut' }}
-        className="relative bg-bg-2 rounded-xl border border-line p-6 max-w-sm w-full shadow-card-md"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0  }}
+        exit=   {{ opacity: 0, y: 20 }}
+        transition={{ duration: 0.2, ease: 'easeOut' }}
+        className="relative bg-bg-2 rounded-xl border border-line w-full max-w-lg shadow-card-md flex flex-col"
+        style={{ maxHeight: '85vh' }}
       >
-        <div className="flex items-start justify-between mb-4">
-          <div className="flex items-center gap-2.5">
-            <div className="w-9 h-9 rounded-full bg-warn-soft flex items-center justify-center shrink-0">
-              <AlertCircle size={18} className="text-warn" />
-            </div>
-            <h2 className="text-[16px] font-bold text-ink">Submit Exam?</h2>
-          </div>
+        {/* Header */}
+        <div className="flex items-center justify-between px-5 pt-5 pb-3 border-b border-line shrink-0">
+          <h2 className="text-[15px] font-bold text-ink">Review Your Answers</h2>
           <button onClick={onCancel} className="p-1 text-ink-3 hover:text-ink-2 transition-colors">
-            <X size={16} />
+            <X size={15} />
           </button>
         </div>
-        <p className="text-[13px] text-ink-2 leading-relaxed mb-6">
-          Once submitted, your answers will be locked. This chapter will be marked as practiced.
-        </p>
-        <div className="flex gap-3">
+
+        {/* Scrollable content */}
+        <div className="overflow-y-auto flex-1 px-5 py-4 space-y-4">
+
+          {/* Summary — submit mode only */}
+          {mode === 'submit' && (
+            <div className="grid grid-cols-4 gap-2">
+              <div className="bg-bg-sunk rounded-lg px-2 py-2.5 text-center">
+                <p className="text-[17px] font-bold text-ink leading-none">{total}</p>
+                <p className="text-[8px] font-bold uppercase tracking-wider text-ink-4 mt-1">Total</p>
+              </div>
+              <div className="bg-good-soft rounded-lg px-2 py-2.5 text-center">
+                <p className="text-[17px] font-bold text-good-ink leading-none">{answered}</p>
+                <p className="text-[8px] font-bold uppercase tracking-wider text-good-ink mt-1">Answered</p>
+              </div>
+              <div className="bg-bg-sunk rounded-lg px-2 py-2.5 text-center">
+                <p className="text-[17px] font-bold text-ink-3 leading-none">{unanswered}</p>
+                <p className="text-[8px] font-bold uppercase tracking-wider text-ink-4 mt-1">Unanswered</p>
+              </div>
+              <div className={`rounded-lg px-2 py-2.5 text-center ${invalid > 0 ? 'bg-danger/10' : 'bg-bg-sunk'}`}>
+                <p className={`text-[17px] font-bold leading-none ${invalid > 0 ? 'text-danger' : 'text-ink-3'}`}>{invalid}</p>
+                <p className={`text-[8px] font-bold uppercase tracking-wider mt-1 ${invalid > 0 ? 'text-danger' : 'text-ink-4'}`}>
+                  Needs Fix
+                </p>
+              </div>
+            </div>
+          )}
+
+          {/* Navigator grid */}
+          <QuickNavDots
+            questions={questions}
+            questionIdx={questionIdx}
+            answered={answers}
+            onGoto={handleGoto}
+            validationErrors={validationErrors}
+          />
+
+          {/* Legend */}
+          <div className="flex flex-wrap gap-x-3 gap-y-1.5">
+            <LegendDot bg="bg-accent" label="Current" />
+            <LegendDot bg="bg-good-soft" label="Answered" />
+            <LegendDot bg="bg-bg-sunk border border-line" label="Unanswered" />
+            {mode === 'submit' && <LegendDot bg="bg-danger/10 border border-danger/30" label="Needs correction" />}
+          </div>
+
+        </div>
+
+        {/* Footer */}
+        <div className="px-5 pb-5 pt-3 border-t border-line flex gap-3 shrink-0">
           <Button variant="secondary" className="flex-1" onClick={onCancel}>Cancel</Button>
-          <Button variant="accent"    className="flex-1" onClick={onConfirm}>Submit Exam</Button>
+          {mode === 'submit' && invalid > 0 && (
+            <Button
+              variant="secondary"
+              className="flex-1"
+              style={{ borderColor: 'var(--danger)', color: 'var(--danger)' }}
+              onClick={() => { onCancel(); onGoto(firstInvalidIdx) }}
+            >
+              Review Corrections
+            </Button>
+          )}
+          {mode === 'submit' && invalid === 0 && (
+            <Button variant="accent" className="flex-1" onClick={onConfirm}>
+              Submit
+            </Button>
+          )}
         </div>
       </motion.div>
     </div>
@@ -623,7 +722,7 @@ export default function ChapterPracticeExam({ questions, chapterMeta, chapterSlu
   const [currentAttemptId,  setCurrentAttemptId]  = useState(1)
   const [view,              setView]              = useState('exam')
   const [viewingAttemptId,  setViewingAttemptId]  = useState(null)
-  const [showModal,         setShowModal]         = useState(false)
+  const [modalMode,         setModalMode]         = useState(null) // null | 'review' | 'submit'
   const [questionIdx,       setQuestionIdx]       = useState(0)
   const [validationErrors,  setValidationErrors]  = useState({})
   const [resumeNotice,      setResumeNotice]      = useState(false)
@@ -682,7 +781,7 @@ export default function ChapterPracticeExam({ questions, chapterMeta, chapterSlu
     setCurrentAttemptId(1)
     setView('exam')
     setViewingAttemptId(null)
-    setShowModal(false)
+    setModalMode(null)
     setQuestionIdx(restoredIdx)
     setValidationErrors({})
     if (!resumeShownRef.current && (Object.keys(restoredAnswers).length > 0 || restoredIdx > 0)) {
@@ -791,7 +890,7 @@ export default function ChapterPracticeExam({ questions, chapterMeta, chapterSlu
       const prev = JSON.parse(localStorage.getItem(key) || '[]')
       localStorage.setItem(key, JSON.stringify([...prev, { score, total, date: submittedAt }]))
     }
-    setShowModal(false)
+    setModalMode(null)
     setViewingAttemptId(currentAttemptId)
     setView('results')
   }
@@ -809,35 +908,24 @@ export default function ChapterPracticeExam({ questions, chapterMeta, chapterSlu
 
   function handleOpenModal() {
     const errors = {}
-    let firstInvalidIdx = -1
     for (const q of questions) {
       if (q.type === 'mcq') continue
-      const qi = questions.indexOf(q)
       if (q.type === 'reference') {
         for (let i = 0; i < (q.subs?.length ?? 0); i++) {
           const val = currentAttempt.answers[q.id]?.[i] ?? ''
+          if (!val.trim()) continue
           const result = validateStudentAnswer(val)
-          if (result.message) {
-            errors[`${q.id}_${i}`] = result.message
-            if (firstInvalidIdx === -1) firstInvalidIdx = qi
-          }
+          if (result.message) errors[`${q.id}_${i}`] = result.message
         }
       } else {
         const val = currentAttempt.answers[q.id] ?? ''
+        if (!val.trim()) continue
         const result = validateStudentAnswer(val)
-        if (result.message) {
-          errors[q.id] = result.message
-          if (firstInvalidIdx === -1) firstInvalidIdx = qi
-        }
+        if (result.message) errors[q.id] = result.message
       }
     }
-    if (Object.keys(errors).length > 0) {
-      setValidationErrors(errors)
-      setQuestionIdx(firstInvalidIdx)
-      window.scrollTo({ top: 0, behavior: 'smooth' })
-      return
-    }
-    setShowModal(true)
+    setValidationErrors(errors)
+    setModalMode('submit')
   }
 
   function handleRetake() {
@@ -845,6 +933,7 @@ export default function ChapterPracticeExam({ questions, chapterMeta, chapterSlu
     setAttempts(prev => [...prev, { id: newId, status: 'in_progress', answers: {}, score: null, submittedAt: null }])
     setCurrentAttemptId(newId)
     setViewingAttemptId(null)
+    setModalMode(null)
     setQuestionIdx(0)
     setValidationErrors({})
     setView('exam')
@@ -872,6 +961,7 @@ export default function ChapterPracticeExam({ questions, chapterMeta, chapterSlu
               onWritten={handleWrittenAnswer}
               onBlur={handleBlurValidation}
               onOpenModal={handleOpenModal}
+              onOpenReview={() => setModalMode('review')}
               onHistory={() => navigate(`${parentPath}/attempt-history`)}
               validationErrors={validationErrors}
             />
@@ -894,9 +984,15 @@ export default function ChapterPracticeExam({ questions, chapterMeta, chapterSlu
       </AnimatePresence>
 
       <AnimatePresence>
-        {showModal && (
-          <SubmitModal
-            onCancel={() => setShowModal(false)}
+        {modalMode && (
+          <ReviewModal
+            mode={modalMode}
+            questions={questions}
+            questionIdx={questionIdx}
+            answers={currentAttempt.answers}
+            validationErrors={validationErrors}
+            onGoto={handleGotoQuestion}
+            onCancel={() => setModalMode(null)}
             onConfirm={handleSubmit}
           />
         )}
