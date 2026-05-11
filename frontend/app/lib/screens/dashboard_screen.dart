@@ -176,8 +176,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
       body: RefreshIndicator(
         color: _kTeal,
         onRefresh: () async {
-          await context.read<UserProvider>().load();
-          await context.read<SyllabusProvider>().load();
+          final userProvider = context.read<UserProvider>();
+          final syllabusProvider = context.read<SyllabusProvider>();
+          await Future.wait([
+            userProvider.load(),
+            syllabusProvider.load(),
+          ]);
         },
         child: ListView(
           padding: const EdgeInsets.fromLTRB(16, 0, 16, 32),

@@ -1,6 +1,13 @@
 import { useState, useEffect, useRef } from 'react'
 import { useParams } from 'react-router-dom'
 import { validateStudentAnswer } from '../utils/answerValidation'
+import {
+  buildPracticeDraftKey,
+  clearPracticeDraft,
+  clampIndex,
+  readPracticeDraft,
+  writePracticeDraft,
+} from '../utils/practiceDraftStorage'
 import { AlertCircle, CheckCircle } from 'lucide-react'
 
 /* ─── MCQ Part ─────────────────────────────────────────────────────────── */
@@ -289,17 +296,145 @@ function EssayPart({ part, answers, onAnswer, revealed, onToggle, onBlur, valida
   )
 }
 
-/* ─── PracticeRichPage ──────────────────────────────────────────────────── */
-export default function PracticeRichPage({ content, chapterSlug }) {
-  const { lesson } = useParams()
-  const sessionKey = (lesson || chapterSlug) ? `exam_coach_sessions_${lesson || chapterSlug}` : null
-
+function createBlankPracticeState(content) {
   const mcqPart   = content.parts.find(p => p.type === 'mcq')
   const refPart   = content.parts.find(p => p.type === 'reference')
   const shortPart = content.parts.find(p => p.type === 'short-essay')
   const longPart  = content.parts.find(p => p.type === 'long-essay')
 
-  const [activePartId, setActivePartId] = useState(content.parts[0].id)
+  return {
+    activePartId: content.parts[0]?.id ?? null,
+    submitted: false,
+    mcqDone: {},
+    mcqScore: 0,
+    refCur: 0,
+    refRevealed: new Array(refPart?.questions.length ?? 0).fill(false),
+    refAnswers: refPart?.questions.map(q => q.subs.map(() => '')) ?? [],
+    shortAnswers: new Array(shortPart?.questions.length ?? 0).fill(''),
+    shortRevealed: new Array(shortPart?.questions.length ?? 0).fill(false),
+    longAnswers: new Array(longPart?.questions.length ?? 0).fill(''),
+    longRevealed: new Array(longPart?.questions.length ?? 0).fill(false),
+    refValidationErrors: {},
+    shortValidationErrors: {},
+    longValidationErrors: {},
+    refNavBlockMsg: null,
+    submitBlockMsg: null,
+  }
+}
+
+function toStringArray(value, length) {
+  const source = Array.isArray(value) ? value : []
+  return Array.from({ length }, (_, i) => (typeof source[i] === 'string' ? source[i] : ''))
+}
+
+function toReferenceAnswers(value, questions) {
+  const source = Array.isArray(value) ? value : []
+  return questions.map((q, qi) => {
+    const row = Array.isArray(source[qi]) ? source[qi] : []
+    return q.subs.map((_, si) => (typeof row[si] === 'string' ? row[si] : ''))
+  })
+}
+
+function recomputeMcqScore(mcqPart, mcqDone) {
+  if (!mcqPart) return 0
+  const questions = mcqPart.sections.flatMap(sec => sec.questions)
+  return questions.reduce((score, q) => {
+    const chosen = mcqDone[q.id]
+    return chosen === q.answer ? score + 1 : score
+  }, 0)
+}
+
+function hasMeaningfulDraft(state, firstPartId) {
+  if (state.submitted) return false
+  const hasMcq = Object.keys(state.mcqDone).length > 0
+  const hasRef = state.refAnswers.some(row => row.some(v => v.trim()))
+  const hasShort = state.shortAnswers.some(v => v.trim())
+  const hasLong = state.longAnswers.some(v => v.trim())
+  return hasMcq || hasRef || hasShort || hasLong || state.activePartId !== firstPartId || state.refCur > 0
+}
+
+function buildDraftPayload({
+  lessonSlug,
+  totalQuestions,
+  activePartId,
+  refCur,
+  mcqDone,
+  refAnswers,
+  shortAnswers,
+  longAnswers,
+}) {
+  return {
+    lessonSlug,
+    currentQuestionIndex: refCur,
+    activePartId,
+    selectedAnswers: mcqDone,
+    writtenAnswers: {
+      reference: refAnswers,
+      short: shortAnswers,
+      long: longAnswers,
+    },
+    updatedAt: new Date().toISOString(),
+    totalQuestions,
+    version: 1,
+  }
+}
+
+function restorePracticeState(content, draft, lessonSlug) {
+  const blank = createBlankPracticeState(content)
+  if (!draft || draft.version !== 1 || draft.lessonSlug !== lessonSlug) {
+    return blank
+  }
+
+  const mcqPart = content.parts.find(p => p.type === 'mcq')
+  const refPart = content.parts.find(p => p.type === 'reference')
+  const shortPart = content.parts.find(p => p.type === 'short-essay')
+  const longPart = content.parts.find(p => p.type === 'long-essay')
+
+  const refQuestions = refPart?.questions ?? []
+  const shortQuestions = shortPart?.questions ?? []
+  const longQuestions = longPart?.questions ?? []
+
+  const restored = {
+    ...blank,
+    activePartId: content.parts.some(part => part.id === draft.activePartId)
+      ? draft.activePartId
+      : blank.activePartId,
+    refCur: refQuestions.length > 0 ? clampIndex(draft.currentQuestionIndex, refQuestions.length) : 0,
+    mcqDone: typeof draft.selectedAnswers === 'object' && draft.selectedAnswers
+      ? Object.fromEntries(
+          Object.entries(draft.selectedAnswers)
+            .map(([key, value]) => [key, Number.isInteger(value) ? value : Number(value)])
+            .filter(([, value]) => Number.isInteger(value))
+        )
+      : {},
+    refAnswers: toReferenceAnswers(draft.writtenAnswers?.reference, refQuestions),
+    shortAnswers: toStringArray(draft.writtenAnswers?.short, shortQuestions.length),
+    longAnswers: toStringArray(draft.writtenAnswers?.long, longQuestions.length),
+    refRevealed: new Array(refQuestions.length).fill(false),
+    shortRevealed: new Array(shortQuestions.length).fill(false),
+    longRevealed: new Array(longQuestions.length).fill(false),
+  }
+
+  restored.mcqScore = recomputeMcqScore(mcqPart, restored.mcqDone)
+  return restored
+}
+
+/* ─── PracticeRichPage ──────────────────────────────────────────────────── */
+export default function PracticeRichPage({ content, chapterSlug }) {
+  const { year, subject, lesson } = useParams()
+  const lessonSlug = lesson || chapterSlug
+  const sessionKey = lessonSlug ? `exam_coach_sessions_${lessonSlug}` : null
+  const draftKey = lessonSlug
+    ? buildPracticeDraftKey({ classLevel: year, subjectSlug: subject, lessonSlug })
+    : null
+
+  const mcqPart   = content.parts.find(p => p.type === 'mcq')
+  const refPart   = content.parts.find(p => p.type === 'reference')
+  const shortPart = content.parts.find(p => p.type === 'short-essay')
+  const longPart  = content.parts.find(p => p.type === 'long-essay')
+  const firstPartId = content.parts[0]?.id ?? null
+
+  const [activePartId, setActivePartId] = useState(firstPartId)
   const [submitted, setSubmitted] = useState(false)
 
   const [mcqDone,  setMcqDone]  = useState({})
@@ -321,13 +456,79 @@ export default function PracticeRichPage({ content, chapterSlug }) {
 
   const [refNavBlockMsg,   setRefNavBlockMsg]   = useState(null)
   const [submitBlockMsg,   setSubmitBlockMsg]   = useState(null)
+  const [resumeNotice, setResumeNotice] = useState(false)
 
-  const firstInvalidRefRef = useRef(null)
-
+  const saveTimerRef = useRef(null)
+  const hydratingRef = useRef(false)
+  const resumeNoticeShownRef = useRef(false)
+  const latestDraftRef = useRef(null)
   const sessionSavedRef = useRef(false)
+
   const totalMcqQs = mcqPart
     ? mcqPart.sections.reduce((sum, sec) => sum + sec.questions.length, 0)
     : 0
+  const totalQuestions = content.parts.reduce((sum, part) => {
+    if (part.type === 'mcq') {
+      return sum + part.sections.reduce((acc, sec) => acc + sec.questions.length, 0)
+    }
+    return sum + (part.questions?.length ?? 0)
+  }, 0)
+
+  function saveDraftNow(nextState = {}) {
+    if (!draftKey || submitted || hydratingRef.current) return
+    const draft = buildDraftPayload({
+      lessonSlug,
+      totalQuestions,
+      activePartId: nextState.activePartId ?? activePartId,
+      refCur: nextState.refCur ?? refCur,
+      mcqDone: nextState.mcqDone ?? mcqDone,
+      refAnswers: nextState.refAnswers ?? refAnswers,
+      shortAnswers: nextState.shortAnswers ?? shortAnswers,
+      longAnswers: nextState.longAnswers ?? longAnswers,
+    })
+    writePracticeDraft(draftKey, draft)
+    latestDraftRef.current = draft
+  }
+
+  useEffect(() => {
+    if (!lessonSlug) return
+    hydratingRef.current = true
+
+    const draft = readPracticeDraft(draftKey)
+    const restored = draft ? restorePracticeState(content, draft, lessonSlug) : createBlankPracticeState(content)
+
+    setActivePartId(restored.activePartId)
+    setSubmitted(false)
+    setMcqDone(restored.mcqDone)
+    setMcqScore(restored.mcqScore)
+    setRefCur(restored.refCur)
+    setRefRevealed(restored.refRevealed)
+    setRefAnswers(restored.refAnswers)
+    setShortAnswers(restored.shortAnswers)
+    setShortRevealed(restored.shortRevealed)
+    setLongAnswers(restored.longAnswers)
+    setLongRevealed(restored.longRevealed)
+    setRefValidationErrors({})
+    setShortValidationErrors({})
+    setLongValidationErrors({})
+    setRefNavBlockMsg(null)
+    setSubmitBlockMsg(null)
+    sessionSavedRef.current = Boolean(draft && Object.keys(restored.mcqDone).length === totalMcqQs)
+    latestDraftRef.current = null
+
+    if (draft && hasMeaningfulDraft(restored, firstPartId) && !resumeNoticeShownRef.current) {
+      resumeNoticeShownRef.current = true
+      setResumeNotice(true)
+    } else {
+      setResumeNotice(false)
+    }
+
+    const timer = window.setTimeout(() => {
+      hydratingRef.current = false
+    }, 0)
+
+    return () => window.clearTimeout(timer)
+  }, [content, draftKey, firstPartId, lessonSlug, totalMcqQs])
 
   useEffect(() => {
     if (!sessionKey || !mcqPart || sessionSavedRef.current) return
@@ -338,33 +539,140 @@ export default function PracticeRichPage({ content, chapterSlug }) {
     localStorage.setItem(sessionKey, JSON.stringify([...prev, record]))
   }, [mcqDone, mcqScore, sessionKey, mcqPart, totalMcqQs])
 
-  function switchPart(id) { setActivePartId(id); window.scrollTo({ top: 0, behavior: 'smooth' }) }
+  useEffect(() => {
+    if (!resumeNotice) return undefined
+    const timer = window.setTimeout(() => setResumeNotice(false), 2500)
+    return () => window.clearTimeout(timer)
+  }, [resumeNotice])
+
+  useEffect(() => {
+    if (hydratingRef.current || !draftKey || submitted) return undefined
+
+    const nextDraft = buildDraftPayload({
+      lessonSlug,
+      totalQuestions,
+      activePartId,
+      refCur,
+      mcqDone,
+      refAnswers,
+      shortAnswers,
+      longAnswers,
+    })
+
+    latestDraftRef.current = nextDraft
+
+    if (!hasMeaningfulDraft({
+      submitted,
+      activePartId,
+      refCur,
+      mcqDone,
+      refAnswers,
+      shortAnswers,
+      longAnswers,
+    }, firstPartId)) {
+      if (saveTimerRef.current) window.clearTimeout(saveTimerRef.current)
+      clearPracticeDraft(draftKey)
+      return undefined
+    }
+
+    if (saveTimerRef.current) window.clearTimeout(saveTimerRef.current)
+    saveTimerRef.current = window.setTimeout(() => {
+      if (latestDraftRef.current) writePracticeDraft(draftKey, latestDraftRef.current)
+    }, 300)
+
+    return () => {
+      if (saveTimerRef.current) window.clearTimeout(saveTimerRef.current)
+    }
+  }, [
+    activePartId,
+    draftKey,
+    firstPartId,
+    lessonSlug,
+    longAnswers,
+    mcqDone,
+    refAnswers,
+    refCur,
+    shortAnswers,
+    submitted,
+    totalQuestions,
+  ])
+
+  useEffect(() => {
+    const flushDraft = () => {
+      if (hydratingRef.current || !draftKey || submitted) return
+      if (latestDraftRef.current && hasMeaningfulDraft({
+        submitted,
+        activePartId,
+        refCur,
+        mcqDone,
+        refAnswers,
+        shortAnswers,
+        longAnswers,
+      }, firstPartId)) {
+        writePracticeDraft(draftKey, latestDraftRef.current)
+      }
+    }
+
+    window.addEventListener('beforeunload', flushDraft)
+    window.addEventListener('pagehide', flushDraft)
+    return () => {
+      flushDraft()
+      window.removeEventListener('beforeunload', flushDraft)
+      window.removeEventListener('pagehide', flushDraft)
+    }
+  }, [
+    activePartId,
+    draftKey,
+    firstPartId,
+    longAnswers,
+    mcqDone,
+    refAnswers,
+    refCur,
+    shortAnswers,
+    submitted,
+  ])
+
+  function switchPart(id) {
+    setActivePartId(id)
+    saveDraftNow({ activePartId: id })
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
 
   function handleMcqAnswer(qId, chosen, correct) {
     if (mcqDone[qId] !== undefined) return
-    setMcqDone(prev => ({ ...prev, [qId]: chosen }))
+    const next = { ...mcqDone, [qId]: chosen }
+    setMcqDone(next)
+    saveDraftNow({ mcqDone: next })
     if (chosen === correct) setMcqScore(s => s + 1)
   }
 
   function handleRefAnswer(qIdx, subIdx, val) {
-    setRefAnswers(prev => prev.map((row, ri) =>
+    const next = refAnswers.map((row, ri) =>
       ri === qIdx ? row.map((v, si) => si === subIdx ? val : v) : row
-    ))
+    )
+    setRefAnswers(next)
+    saveDraftNow({ refAnswers: next })
     const key = `${qIdx}_${subIdx}`
     const result = validateStudentAnswer(val)
     if (result.valid || !val.trim()) {
       setRefValidationErrors(prev => { const n = { ...prev }; delete n[key]; return n })
     }
   }
+
   function handleShortAnswer(idx, val) {
-    setShortAnswers(prev => prev.map((v, i) => i === idx ? val : v))
+    const next = shortAnswers.map((v, i) => i === idx ? val : v)
+    setShortAnswers(next)
+    saveDraftNow({ shortAnswers: next })
     const result = validateStudentAnswer(val)
     if (result.valid || !val.trim()) {
       setShortValidationErrors(prev => { const n = { ...prev }; delete n[idx]; return n })
     }
   }
+
   function handleLongAnswer(idx, val) {
-    setLongAnswers(prev => prev.map((v, i) => i === idx ? val : v))
+    const next = longAnswers.map((v, i) => i === idx ? val : v)
+    setLongAnswers(next)
+    saveDraftNow({ longAnswers: next })
     const result = validateStudentAnswer(val)
     if (result.valid || !val.trim()) {
       setLongValidationErrors(prev => { const n = { ...prev }; delete n[idx]; return n })
@@ -385,6 +693,7 @@ export default function PracticeRichPage({ content, chapterSlug }) {
       return next
     })
   }
+
   function handleShortBlur(idx, val) {
     const result = validateStudentAnswer(val)
     setShortValidationErrors(prev => {
@@ -394,6 +703,7 @@ export default function PracticeRichPage({ content, chapterSlug }) {
       return next
     })
   }
+
   function handleLongBlur(idx, val) {
     const result = validateStudentAnswer(val)
     setLongValidationErrors(prev => {
@@ -427,6 +737,7 @@ export default function PracticeRichPage({ content, chapterSlug }) {
     }
     setRefNavBlockMsg(null)
     setRefCur(c => Math.max(0, Math.min(refPart.questions.length - 1, c + d)))
+    saveDraftNow({ refCur: Math.max(0, Math.min(refPart.questions.length - 1, refCur + d)) })
   }
 
   // ── Submit Practice: validate all written answers ──────────────────────
@@ -491,30 +802,41 @@ export default function PracticeRichPage({ content, chapterSlug }) {
       return
     }
 
+    clearPracticeDraft(draftKey)
     setSubmitBlockMsg(null)
     setSubmitted(true)
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   function handleRetake() {
-    setRefAnswers(refPart?.questions.map(q => q.subs.map(() => '')) ?? [])
-    setShortAnswers(new Array(shortPart?.questions.length ?? 0).fill(''))
-    setLongAnswers(new Array(longPart?.questions.length ?? 0).fill(''))
+    hydratingRef.current = true
+    if (saveTimerRef.current) window.clearTimeout(saveTimerRef.current)
+    clearPracticeDraft(draftKey)
+    const restored = createBlankPracticeState(content)
+    setRefAnswers(restored.refAnswers)
+    setShortAnswers(restored.shortAnswers)
+    setLongAnswers(restored.longAnswers)
     setRefValidationErrors({})
     setShortValidationErrors({})
     setLongValidationErrors({})
     setRefNavBlockMsg(null)
     setSubmitBlockMsg(null)
     setRefCur(0)
-    setRefRevealed(new Array(refPart?.questions.length ?? 0).fill(false))
-    setShortRevealed(new Array(shortPart?.questions.length ?? 0).fill(false))
-    setLongRevealed(new Array(longPart?.questions.length ?? 0).fill(false))
+    setRefRevealed(restored.refRevealed)
+    setShortRevealed(restored.shortRevealed)
+    setLongRevealed(restored.longRevealed)
     setMcqDone({})
     setMcqScore(0)
     sessionSavedRef.current = false
+    resumeNoticeShownRef.current = false
     setSubmitted(false)
-    setActivePartId(content.parts[0].id)
+    setActivePartId(restored.activePartId)
+    setResumeNotice(false)
+    latestDraftRef.current = null
     window.scrollTo({ top: 0, behavior: 'smooth' })
+    window.setTimeout(() => {
+      hydratingRef.current = false
+    }, 0)
   }
 
   function renderActivePart() {
@@ -575,6 +897,16 @@ export default function PracticeRichPage({ content, chapterSlug }) {
 
   return (
     <div>
+      {resumeNotice && (
+        <div
+          className="mb-4 rounded-xl border border-accent-soft bg-accent-soft/30 px-4 py-3 text-[12px] text-accent-ink"
+          role="status"
+          aria-live="polite"
+        >
+          Resumed your previous practice attempt.
+        </div>
+      )}
+
       {/* Part tabs */}
       <div
         className="scroll-strip -mx-1 px-1 mb-6"

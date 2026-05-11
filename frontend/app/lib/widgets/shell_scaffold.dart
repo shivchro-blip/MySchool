@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:provider/provider.dart';
 import '../config/theme.dart';
 
 class ShellScaffold extends StatelessWidget {
@@ -17,10 +16,12 @@ class ShellScaffold extends StatelessWidget {
     final loc = GoRouterState.of(context).uri.toString();
     if (loc.startsWith('/courses')) return 1;
     if (loc.startsWith('/progress')) return 2;
-    if (loc.startsWith('/learn/')      ||
+    if (loc.startsWith('/learn/') ||
         loc.startsWith('/rich-learn/') ||
-        loc.startsWith('/practice/')   ||
-        loc.startsWith('/exam/')) return 1;
+        loc.startsWith('/practice/') ||
+        loc.startsWith('/exam/')) {
+      return 1;
+    }
     return 0;
   }
 
@@ -47,7 +48,7 @@ class ShellScaffold extends StatelessWidget {
                 final active = i == idx;
                 return Expanded(
                   child: InkWell(
-                    onTap: () { if (i != idx) context.go(tab.path); },
+                    onTap: i != idx ? () => context.go(tab.path) : null,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [

@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:math';
 import 'package:flutter/material.dart';
@@ -7,6 +8,7 @@ import '../config/theme.dart';
 import '../models/exam_practice_model.dart';
 import '../models/syllabus_model.dart';
 import '../services/exam_practice_service.dart';
+import '../utils/practice_draft_storage.dart';
 import '../utils/answer_validation.dart';
 import '../widgets/app_button.dart';
 
@@ -30,6 +32,27 @@ Widget _renderHtml(String html, TextStyle style) {
     spans.add(TextSpan(text: html.substring(last)));
   }
   return RichText(text: TextSpan(style: style, children: spans));
+}
+
+Map<Object, Object>? _asAnswerMap(Object? value) {
+  if (value is! Map) return null;
+  final out = <Object, Object>{};
+  for (final entry in value.entries) {
+    final key = entry.key is int ? entry.key : int.tryParse('${entry.key}') ?? entry.key;
+    final item = entry.value;
+    if (item is String) {
+      out[key] = item;
+    }
+  }
+  return out;
+}
+
+String? _asAnswerString(Object? value) => value is String ? value : null;
+
+int? _asAnswerInt(Object? value) {
+  if (value is int) return value;
+  if (value is num) return value.toInt();
+  return null;
 }
 
 // ── AnswerPair (results view) ─────────────────────────────────────────────
@@ -133,9 +156,9 @@ class _QuickNavDots extends StatelessWidget {
                   final done    = isMcq
                       ? answers[q.id] != null
                       : q.type == ExamQuestionType.reference
-                          ? (answers[q.id] as Map<Object, Object>?)
+                          ? _asAnswerMap(answers[q.id])
                               ?.values.any((v) => v.toString().trim().isNotEmpty) ?? false
-                          : (answers[q.id] as String?)?.trim().isNotEmpty ?? false;
+                          : _asAnswerString(answers[q.id])?.trim().isNotEmpty ?? false;
 
                   Color bg; Color fg;
                   if (current) { bg = AppTheme.brand; fg = Colors.white; }
@@ -198,7 +221,7 @@ class ExamPracticeScreen extends StatefulWidget {
   State<ExamPracticeScreen> createState() => _ExamPracticeScreenState();
 }
 
-class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
+class _ExamPracticeScreenState extends State<ExamPracticeScreen> with WidgetsBindingObserver {
   List<ExamQuestion> _questions = [];
   bool               _loading   = true;
   String?            _error;
@@ -212,6 +235,11 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
   final Map<String, TextEditingController> _ctrlMap          = {};
   final Map<String, FocusNode>             _focusMap         = {};
   final Map<String, String>                _validationErrors = {};
+  Timer?              _draftSaveTimer;
+  bool                _isHydratingDraft   = false;
+  bool                _resumeNoticeQueued = false;
+  bool                _resumeNoticeShown  = false;
+  PracticeDraft?      _pendingDraft;
 
   ExamAttempt get _currentAttempt =>
       _attempts.firstWhere((a) => a.id == _currentAttemptId);
@@ -229,15 +257,23 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
   int get _mcqDone =>
       _mcqQuestions.where((q) => _currentAttempt.answers[q.id] != null).length;
 
+  String get _lessonSlug => widget.chapterSlug;
+
+  String get _draftKey => PracticeDraftStorage.buildKey(
+    classLevel:  widget.classLevel,
+    subjectSlug: widget.subjectSlug,
+    lessonSlug:  _lessonSlug,
+  );
+
   TextEditingController _getCtrl(int qId, [int? subIdx]) {
     final key = subIdx != null ? '${qId}_$subIdx' : '$qId';
     return _ctrlMap.putIfAbsent(key, () {
       final ans = _currentAttempt.answers[qId];
       String init = '';
       if (subIdx != null) {
-        init = (ans as Map<Object, Object>?)?[subIdx] as String? ?? '';
+        init = _asAnswerString(_asAnswerMap(ans)?[subIdx]) ?? '';
       } else {
-        init = ans as String? ?? '';
+        init = _asAnswerString(ans) ?? '';
       }
       return TextEditingController(text: init);
     });
@@ -277,7 +313,7 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
         final key  = '${q.id}_$j';
         final ctrl = _ctrlMap[key];
         final text = ctrl?.text ??
-            (_currentAttempt.answers[q.id] as Map<Object, Object>?)?[j] as String? ?? '';
+            _asAnswerString(_asAnswerMap(_currentAttempt.answers[q.id])?[j]) ?? '';
         if (text.trim().isEmpty) continue;
         final res = validateStudentAnswer(text);
         if (res.message != null) errors[key] = res.message!;
@@ -285,7 +321,7 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
     } else if (q.type == ExamQuestionType.written) {
       final key  = '${q.id}';
       final ctrl = _ctrlMap[key];
-      final text = ctrl?.text ?? _currentAttempt.answers[q.id] as String? ?? '';
+      final text = ctrl?.text ?? _asAnswerString(_currentAttempt.answers[q.id]) ?? '';
       if (text.trim().isNotEmpty) {
         final res = validateStudentAnswer(text);
         if (res.message != null) errors[key] = res.message!;
@@ -309,6 +345,17 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
       return;
     }
     setState(() => _questionIdx++);
+    _saveDraft();
+  }
+
+  void _handlePrevious() {
+    setState(() => _questionIdx = (_questionIdx - 1).clamp(0, _questions.length - 1).toInt());
+    _saveDraft();
+  }
+
+  void _gotoQuestion(int index) {
+    setState(() => _questionIdx = index.clamp(0, _questions.length - 1).toInt());
+    _saveDraft();
   }
 
   void _clearCtrl() {
@@ -318,30 +365,227 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
     _focusMap.clear();
   }
 
+  Map<int, Object> _answersFromDraft(PracticeDraft draft) {
+    final answers = <int, Object>{};
+
+    draft.selectedAnswers.forEach((key, value) {
+      final qId = int.tryParse(key);
+      if (qId == null) return;
+      if (value is int) {
+        answers[qId] = value;
+      } else if (value is num) {
+        answers[qId] = value.toInt();
+      }
+    });
+
+    draft.writtenAnswers.forEach((key, value) {
+      final qId = int.tryParse(key);
+      if (qId == null) return;
+      if (value is String) {
+        answers[qId] = value;
+      } else if (value is Map) {
+        final row = <Object, Object>{};
+        for (final entry in value.entries) {
+          final subKey = entry.key;
+          final subIdx = subKey is int ? subKey : int.tryParse('$subKey');
+          if (subIdx == null) continue;
+          if (entry.value is String) {
+            row[subIdx] = entry.value as String;
+          }
+        }
+        answers[qId] = row;
+      }
+    });
+
+    return answers;
+  }
+
+  PracticeDraft _buildDraft() {
+    final selectedAnswers = <String, dynamic>{};
+    final writtenAnswers = <String, dynamic>{};
+
+    for (final entry in _currentAttempt.answers.entries) {
+      final key = entry.key.toString();
+      final value = entry.value;
+      if (value is int) {
+        selectedAnswers[key] = value;
+      } else if (value is String) {
+        writtenAnswers[key] = value;
+      } else if (value is Map) {
+        final row = <String, dynamic>{};
+        for (final subEntry in value.entries) {
+          row[subEntry.key.toString()] = subEntry.value.toString();
+        }
+        writtenAnswers[key] = row;
+      }
+    }
+
+    return PracticeDraft(
+      lessonSlug: _lessonSlug,
+      currentQuestionIndex: _questionIdx,
+      selectedAnswers: selectedAnswers,
+      writtenAnswers: writtenAnswers,
+      updatedAt: DateTime.now(),
+      totalQuestions: _questions.length,
+    );
+  }
+
+  bool _hasMeaningfulDraft(PracticeDraft draft) {
+    return draft.currentQuestionIndex > 0 ||
+        draft.selectedAnswers.isNotEmpty ||
+        draft.writtenAnswers.isNotEmpty;
+  }
+
+  Future<void> _restoreDraftIfAny() async {
+    try {
+      final draft = await PracticeDraftStorage.load(_draftKey);
+      if (!mounted || draft == null || draft.lessonSlug != _lessonSlug) return;
+
+      final restoredAnswers = _answersFromDraft(draft);
+      final maxIdx = _questions.isEmpty ? 0 : _questions.length - 1;
+      final restoredIdx = draft.currentQuestionIndex.clamp(0, maxIdx).toInt();
+      final hadMeaningfulDraft = _hasMeaningfulDraft(draft);
+
+      _isHydratingDraft = true;
+      setState(() {
+        _currentAttempt.answers = restoredAnswers;
+        _questionIdx = restoredIdx;
+        _view = 'exam';
+        _viewingAttemptId = null;
+        _validationErrors.clear();
+        _error = null;
+      });
+
+      if (hadMeaningfulDraft && !_resumeNoticeShown) {
+        _resumeNoticeShown = true;
+        _resumeNoticeQueued = true;
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          if (!mounted || !_resumeNoticeQueued) return;
+          _resumeNoticeQueued = false;
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('Resumed your previous practice attempt.'),
+              duration: Duration(seconds: 2),
+            ),
+          );
+        });
+      }
+    } catch (_) {
+      if (mounted) {
+        await PracticeDraftStorage.clear(_draftKey);
+        setState(() {
+          _currentAttempt.answers = {};
+          _questionIdx = 0;
+          _view = 'exam';
+          _viewingAttemptId = null;
+          _validationErrors.clear();
+          _error = null;
+          _loading = false;
+        });
+      }
+    } finally {
+      if (mounted) {
+        Future.delayed(Duration.zero, () {
+          if (mounted) {
+            _isHydratingDraft = false;
+          }
+        });
+      }
+    }
+  }
+
+  Future<void> _saveDraft({bool force = false}) async {
+    if (_isHydratingDraft) return;
+
+    final draft = _buildDraft();
+    _pendingDraft = draft;
+
+    if (!force && !_hasMeaningfulDraft(draft)) {
+      await PracticeDraftStorage.clear(_draftKey);
+      return;
+    }
+
+    if (force) {
+      if (!_hasMeaningfulDraft(draft)) {
+        await PracticeDraftStorage.clear(_draftKey);
+        return;
+      }
+      await PracticeDraftStorage.save(_draftKey, draft);
+      return;
+    }
+
+    if (_draftSaveTimer?.isActive ?? false) {
+      _draftSaveTimer!.cancel();
+    }
+    _draftSaveTimer = Timer(const Duration(milliseconds: 250), () async {
+      final snapshot = _pendingDraft;
+      if (snapshot == null) return;
+      if (!_hasMeaningfulDraft(snapshot)) {
+        await PracticeDraftStorage.clear(_draftKey);
+        return;
+      }
+      await PracticeDraftStorage.save(_draftKey, snapshot);
+    });
+  }
+
+  Future<void> _clearDraft() async {
+    if (_draftSaveTimer?.isActive ?? false) {
+      _draftSaveTimer!.cancel();
+    }
+    _pendingDraft = null;
+    await PracticeDraftStorage.clear(_draftKey);
+  }
+
+  Future<void> _loadQuestions() async {
+    try {
+      final qs = await ExamPracticeService.getQuestions(widget.classLevel, widget.subjectSlug, widget.chapterSlug);
+      if (!mounted) return;
+      setState(() {
+        _questions = qs;
+        _loading = false;
+      });
+      if (_questions.isNotEmpty) {
+        await _restoreDraftIfAny();
+      }
+    } catch (e) {
+      if (mounted) setState(() { _error = e.toString(); _loading = false; });
+    }
+  }
+
   @override
   void initState() {
     super.initState();
-    ExamPracticeService.getQuestions(widget.classLevel, widget.subjectSlug, widget.chapterSlug).then((qs) {
-      if (mounted) setState(() { _questions = qs; _loading = false; });
-    }).catchError((e) {
-      if (mounted) setState(() { _error = e.toString(); _loading = false; });
-    });
+    WidgetsBinding.instance.addObserver(this);
+    _loadQuestions();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.inactive || state == AppLifecycleState.paused) {
+      _saveDraft(force: true);
+    }
   }
 
   @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    if (_draftSaveTimer?.isActive ?? false) {
+      _draftSaveTimer!.cancel();
+    }
+    _saveDraft(force: true);
     _clearCtrl();
     super.dispose();
   }
 
   void _selectOption(int qId, int optIdx) {
     setState(() => _currentAttempt.answers[qId] = optIdx);
+    _saveDraft();
   }
 
   void _updateText(int qId, int? subIdx, String val) {
     final ans = _currentAttempt.answers;
     if (subIdx != null) {
-      final map = Map<Object, Object>.from(ans[qId] as Map<Object, Object>? ?? {});
+      final map = Map<Object, Object>.from(_asAnswerMap(ans[qId]) ?? {});
       map[subIdx] = val;
       ans[qId] = map;
     } else {
@@ -355,6 +599,7 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
         setState(() => _validationErrors.remove(key));
       }
     }
+    _saveDraft();
   }
 
   void _openSubmitDialog() {
@@ -368,7 +613,7 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
           final key  = '${q.id}_$j';
           final ctrl = _ctrlMap[key];
           final text = ctrl?.text ??
-              (_currentAttempt.answers[q.id] as Map<Object, Object>?)?[j] as String? ?? '';
+              _asAnswerString(_asAnswerMap(_currentAttempt.answers[q.id])?[j]) ?? '';
           final res = validateStudentAnswer(text);
           if (res.message != null) {
             errors[key] = res.message!;
@@ -378,7 +623,7 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
       } else {
         final key  = '${q.id}';
         final ctrl = _ctrlMap[key];
-        final text = ctrl?.text ?? _currentAttempt.answers[q.id] as String? ?? '';
+        final text = ctrl?.text ?? _asAnswerString(_currentAttempt.answers[q.id]) ?? '';
         final res  = validateStudentAnswer(text);
         if (res.message != null) {
           errors[key] = res.message!;
@@ -439,6 +684,7 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
       _viewingAttemptId   = _currentAttemptId;
       _view               = 'results';
     });
+    _clearDraft();
     final slug  = widget.chapterSlug;
     final total = _mcqQuestions.length;
     SharedPreferences.getInstance().then((prefs) {
@@ -452,6 +698,7 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
   void _handleRetake() {
     final newId = _attempts.map((a) => a.id).reduce(max) + 1;
     _clearCtrl();
+    _clearDraft();
     setState(() {
       _validationErrors.clear();
       _attempts.add(ExamAttempt(id: newId));
@@ -460,18 +707,29 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
       _questionIdx      = 0;
       _view             = 'exam';
     });
+    _resumeNoticeShown  = false;
+    _resumeNoticeQueued = false;
   }
 
   // ── Exam view ─────────────────────────────────────────────────────────
   Widget _buildExamView() {
-    final q       = _questions[_questionIdx];
+    if (_questions.isEmpty) {
+      return const SizedBox.shrink();
+    }
+    final safeIdx = _questionIdx.clamp(0, _questions.length - 1).toInt();
+    if (safeIdx != _questionIdx) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted) setState(() => _questionIdx = safeIdx);
+      });
+    }
+    final q       = _questions[safeIdx];
     final total   = _questions.length;
     final answers = _currentAttempt.answers;
     final mcqTotal = _mcqQuestions.length;
 
     return ListView(
       padding: const EdgeInsets.fromLTRB(16, 16, 16, 32),
-      key: ValueKey(_questionIdx),
+      key: ValueKey(safeIdx),
       children: [
 
         if (mcqTotal > 0) ...[
@@ -487,7 +745,7 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('Q${_questionIdx + 1} of $total',
+                    Text('Q${safeIdx + 1} of $total',
                         style: TextStyle(
                           fontSize: 12, fontWeight: FontWeight.w600,
                           color: AppTheme.text2Of(context),
@@ -527,7 +785,7 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('Question ${_questionIdx + 1}',
+              Text('Question ${safeIdx + 1}',
                       style: TextStyle(
                         fontSize: 10, fontWeight: FontWeight.w700,
                         color: AppTheme.textMutedOf(context), letterSpacing: 0.8,
@@ -563,9 +821,7 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
           children: [
             Expanded(
               child: OutlinedButton.icon(
-                onPressed: _questionIdx > 0
-                    ? () => setState(() => _questionIdx--)
-                    : null,
+                onPressed: _questionIdx > 0 ? _handlePrevious : null,
                 icon:  const Icon(Icons.chevron_left, size: 18),
                 label: const Text('Previous'),
               ),
@@ -587,7 +843,7 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
           questions:   _questions,
           questionIdx: _questionIdx,
           answers:     _currentAttempt.answers,
-          onGoto:      (i) => setState(() => _questionIdx = i),
+          onGoto:      _gotoQuestion,
         ),
         const SizedBox(height: 16),
 
@@ -600,7 +856,7 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
   }
 
   Widget _buildMcqQuestion(ExamQuestion q, Map<int, Object> answers) {
-    final chosen = answers[q.id] as int?;
+    final chosen = _asAnswerInt(answers[q.id]);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -612,13 +868,13 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
               )),
           const SizedBox(height: 6),
         ],
-        _renderHtml(q.html!,
+        _renderHtml(q.html ?? '',
             TextStyle(
               fontSize: 15, fontWeight: FontWeight.w600,
               color: AppTheme.textOf(context), height: 1.5,
             )),
         const SizedBox(height: 14),
-        ...List.generate(q.options!.length, (i) {
+        ...List.generate(q.options?.length ?? 0, (i) {
           final isChosen = chosen == i;
           return GestureDetector(
             onTap: () => _selectOption(q.id, i),
@@ -687,8 +943,9 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
               )),
         ),
         const SizedBox(height: 14),
-        ...List.generate(q.subs!.length, (i) {
-          final sub   = q.subs![i];
+        ...List.generate(q.subs?.length ?? 0, (i) {
+          final subs = q.subs ?? const <SubQuestion>[];
+          final sub   = subs[i];
           final key   = '${q.id}_$i';
           final error = _validationErrors[key];
           return Padding(
@@ -852,7 +1109,7 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
           ...mcqQs.asMap().entries.map((e) {
             final qi      = e.key;
             final q       = e.value;
-            final chosen  = attempt.answers[q.id] as int?;
+            final chosen  = _asAnswerInt(attempt.answers[q.id]);
             final correct = chosen == q.correct;
             return Padding(
               padding: const EdgeInsets.only(bottom: 8),
@@ -880,7 +1137,7 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
                         const SizedBox(width: 8),
                         Expanded(
                           child: _renderHtml(
-                            'Q${qi + 1}. ${q.html!}',
+                            'Q${qi + 1}. ${q.html ?? ''}',
                             TextStyle(
                               fontSize: 13, fontWeight: FontWeight.w600,
                               color: AppTheme.textOf(context), height: 1.4,
@@ -890,7 +1147,7 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
                       ],
                     ),
                     const SizedBox(height: 10),
-                    ...List.generate(q.options!.length, (i) {
+                    ...List.generate(q.options?.length ?? 0, (i) {
                       final isChosen = chosen == i;
                       final isAnswer = q.correct == i;
                       Color fg = AppTheme.textMutedOf(context);
@@ -1004,9 +1261,9 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
                     ),
                     const SizedBox(height: 12),
                     if (q.type == ExamQuestionType.reference)
-                      ...q.subs!.asMap().entries.map((se) {
+                      ...(q.subs ?? const <SubQuestion>[]).asMap().entries.map((se) {
                         final sub    = se.value;
-                        final subAns = (attempt.answers[q.id] as Map<Object, Object>?)?[se.key] as String? ?? '';
+                        final subAns = _asAnswerString(_asAnswerMap(attempt.answers[q.id])?[se.key]) ?? '';
                         return Padding(
                           padding: const EdgeInsets.only(bottom: 12),
                           child: Column(
@@ -1026,7 +1283,7 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> {
                       })
                     else
                       _AnswerPair(
-                        studentText: attempt.answers[q.id] as String? ?? '',
+                        studentText: _asAnswerString(attempt.answers[q.id]) ?? '',
                         modelAnswer: q.modelAnswer ?? '',
                       ),
                   ],

@@ -61,9 +61,9 @@ class _LoginScreenState extends State<LoginScreen> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               // Theme toggle (top-right)
-              Align(
+              const Align(
                 alignment: Alignment.centerRight,
-                child: const ThemeToggle(),
+                child: ThemeToggle(),
               ),
               const SizedBox(height: 16),
               const Center(child: BrandLogo(height: 140)),

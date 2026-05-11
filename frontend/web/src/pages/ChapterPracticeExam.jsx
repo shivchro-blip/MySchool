@@ -1,6 +1,13 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { validateStudentAnswer } from '../utils/answerValidation'
+import {
+  buildPracticeDraftKey,
+  clearPracticeDraft,
+  clampIndex,
+  readPracticeDraft,
+  writePracticeDraft,
+} from '../utils/practiceDraftStorage'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   ChevronLeft, ChevronRight, CheckCircle2, XCircle,
@@ -27,6 +34,57 @@ function fmtDate(iso) {
     day: 'numeric', month: 'short', year: 'numeric',
     hour: '2-digit', minute: '2-digit',
   })
+}
+
+function createBlankAttempt() {
+  return { id: 1, status: 'in_progress', answers: {}, score: null, submittedAt: null }
+}
+
+function buildDraftPayload({ chapterSlug, questionIdx, answers, questionCount }) {
+  return {
+    lessonSlug: chapterSlug,
+    currentQuestionIndex: questionIdx,
+    selectedAnswers: answers,
+    writtenAnswers: {},
+    updatedAt: new Date().toISOString(),
+    totalQuestions: questionCount,
+    version: 1,
+  }
+}
+
+function restoreAnswersFromDraft(draft) {
+  const answers = {}
+  if (!draft) return answers
+
+  if (draft.selectedAnswers && typeof draft.selectedAnswers === 'object') {
+    for (const [key, value] of Object.entries(draft.selectedAnswers)) {
+      const qId = Number(key)
+      if (Number.isInteger(qId) && Number.isInteger(value)) {
+        answers[qId] = value
+      }
+    }
+  }
+
+  if (draft.writtenAnswers && typeof draft.writtenAnswers === 'object') {
+    for (const [key, value] of Object.entries(draft.writtenAnswers)) {
+      const qId = Number(key)
+      if (!Number.isInteger(qId)) continue
+      if (typeof value === 'string') {
+        answers[qId] = value
+      } else if (value && typeof value === 'object') {
+        const row = {}
+        for (const [subKey, subValue] of Object.entries(value)) {
+          const subIdx = Number(subKey)
+          if (Number.isInteger(subIdx) && typeof subValue === 'string') {
+            row[subIdx] = subValue
+          }
+        }
+        answers[qId] = row
+      }
+    }
+  }
+
+  return answers
 }
 
 const fade = {
@@ -189,7 +247,7 @@ function QuickNavDots({ questions, questionIdx, answered, onGoto }) {
 
 // ── ExamView ───────────────────────────────────────────────────────────────
 
-function ExamView({ questions, chapterMeta, attempt, questionIdx, setQuestionIdx, onAnswer, onWritten, onBlur, onOpenModal, onHistory, validationErrors }) {
+function ExamView({ questions, chapterMeta, attempt, questionIdx, onPrevious, onNext, onGoto, onAnswer, onWritten, onBlur, onOpenModal, onHistory, validationErrors }) {
   const q        = questions[questionIdx]
   const total    = questions.length
   const answers  = attempt.answers
@@ -271,14 +329,14 @@ function ExamView({ questions, chapterMeta, attempt, questionIdx, setQuestionIdx
       <div className="flex items-center justify-between">
         <Button
           variant="secondary"
-          onClick={() => setQuestionIdx(i => Math.max(0, i - 1))}
+          onClick={onPrevious}
           disabled={questionIdx === 0}
         >
           <ChevronLeft size={15} /> Previous
         </Button>
         <Button
           variant="secondary"
-          onClick={() => setQuestionIdx(i => Math.min(total - 1, i + 1))}
+          onClick={onNext}
           disabled={questionIdx === total - 1}
         >
           Next <ChevronRight size={15} />
@@ -290,7 +348,7 @@ function ExamView({ questions, chapterMeta, attempt, questionIdx, setQuestionIdx
         questions={questions}
         questionIdx={questionIdx}
         answered={answers}
-        onGoto={setQuestionIdx}
+        onGoto={onGoto}
       />
 
       <Button variant="accent" size="lg" className="w-full" onClick={onOpenModal}>
@@ -557,19 +615,113 @@ export default function ChapterPracticeExam({ questions, chapterMeta, chapterSlu
   const { pathname } = useLocation()
   const parentPath = pathname.replace(/\/[^/]+$/, '')
 
-  const INITIAL = { id: 1, status: 'in_progress', answers: {}, score: null, submittedAt: null }
+  const draftKey = chapterSlug
+    ? buildPracticeDraftKey({ classLevel: 'Class_11', subjectSlug: 'English', lessonSlug: chapterSlug })
+    : null
 
-  const [attempts,          setAttempts]          = useState([INITIAL])
+  const [attempts,          setAttempts]          = useState([createBlankAttempt()])
   const [currentAttemptId,  setCurrentAttemptId]  = useState(1)
   const [view,              setView]              = useState('exam')
   const [viewingAttemptId,  setViewingAttemptId]  = useState(null)
   const [showModal,         setShowModal]         = useState(false)
   const [questionIdx,       setQuestionIdx]       = useState(0)
   const [validationErrors,  setValidationErrors]  = useState({})
+  const [resumeNotice,      setResumeNotice]      = useState(false)
+  const resumeShownRef = useRef(false)
 
   const currentAttempt = attempts.find(a => a.id === currentAttemptId)
   const viewingAttempt = viewingAttemptId ? attempts.find(a => a.id === viewingAttemptId) : null
   const resultsAttempt = viewingAttempt ?? (view === 'results' ? currentAttempt : null)
+
+  function saveCurrentDraft(nextIdx = questionIdx, nextAnswers = currentAttempt?.answers ?? {}) {
+    if (!draftKey) return
+    if (view === 'results') return
+    writePracticeDraft(
+      draftKey,
+      buildDraftPayload({
+        chapterSlug,
+        questionIdx: nextIdx,
+        answers: nextAnswers,
+        questionCount: questions.length,
+      }),
+    )
+  }
+
+  function handleGotoQuestion(index) {
+    const nextIdx = clampIndex(index, questions.length)
+    setQuestionIdx(nextIdx)
+    saveCurrentDraft(nextIdx)
+  }
+
+  function handlePreviousQuestion() {
+    const nextIdx = Math.max(0, questionIdx - 1)
+    setQuestionIdx(nextIdx)
+    saveCurrentDraft(nextIdx)
+  }
+
+  function handleNextQuestion() {
+    const nextIdx = Math.min(questions.length - 1, questionIdx + 1)
+    setQuestionIdx(nextIdx)
+    saveCurrentDraft(nextIdx)
+  }
+
+  useEffect(() => {
+    if (!draftKey) return
+    const draft = readPracticeDraft(draftKey)
+    if (!draft || draft.lessonSlug !== chapterSlug) return
+
+    const restoredAnswers = restoreAnswersFromDraft(draft)
+    const restoredIdx = clampIndex(draft.currentQuestionIndex, questions.length)
+    setAttempts([{
+      id: 1,
+      status: 'in_progress',
+      answers: restoredAnswers,
+      score: null,
+      submittedAt: null,
+    }])
+    setCurrentAttemptId(1)
+    setView('exam')
+    setViewingAttemptId(null)
+    setShowModal(false)
+    setQuestionIdx(restoredIdx)
+    setValidationErrors({})
+    if (!resumeShownRef.current && (Object.keys(restoredAnswers).length > 0 || restoredIdx > 0)) {
+      resumeShownRef.current = true
+      setResumeNotice(true)
+    }
+  }, [chapterSlug, draftKey, questions.length])
+
+  useEffect(() => {
+    if (!resumeNotice) return undefined
+    const timer = window.setTimeout(() => setResumeNotice(false), 2200)
+    return () => window.clearTimeout(timer)
+  }, [resumeNotice])
+
+  useEffect(() => {
+    const flush = () => {
+      if (!draftKey || view === 'results') return
+      const answers = currentAttempt?.answers ?? {}
+      const draft = buildDraftPayload({
+        chapterSlug,
+        questionIdx,
+        answers,
+        questionCount: questions.length,
+      })
+      if (Object.keys(answers).length === 0 && questionIdx === 0) {
+        clearPracticeDraft(draftKey)
+        return
+      }
+      writePracticeDraft(draftKey, draft)
+    }
+
+    window.addEventListener('beforeunload', flush)
+    window.addEventListener('pagehide', flush)
+    return () => {
+      flush()
+      window.removeEventListener('beforeunload', flush)
+      window.removeEventListener('pagehide', flush)
+    }
+  }, [chapterSlug, currentAttempt?.answers, draftKey, questionIdx, questions.length, view])
 
   if (!questions?.length) {
     return (
@@ -585,6 +737,18 @@ export default function ChapterPracticeExam({ questions, chapterMeta, chapterSlu
         ? { ...a, answers: { ...a.answers, [qId]: optIdx } }
         : a
     ))
+    if (draftKey) {
+      const nextAnswers = { ...currentAttempt.answers, [qId]: optIdx }
+      writePracticeDraft(
+        draftKey,
+        buildDraftPayload({
+          chapterSlug,
+          questionIdx,
+          answers: nextAnswers,
+          questionCount: questions.length,
+        }),
+      )
+    }
   }
 
   function handleWrittenAnswer(qId, subIdx, text) {
@@ -595,6 +759,21 @@ export default function ChapterPracticeExam({ questions, chapterMeta, chapterSlu
       }
       return { ...a, answers: { ...a.answers, [qId]: text } }
     }))
+    if (draftKey) {
+      const currentAnswers = currentAttempt.answers
+      const nextAnswers = subIdx !== null
+        ? { ...currentAnswers, [qId]: { ...(currentAnswers[qId] ?? {}), [subIdx]: text } }
+        : { ...currentAnswers, [qId]: text }
+      writePracticeDraft(
+        draftKey,
+        buildDraftPayload({
+          chapterSlug,
+          questionIdx,
+          answers: nextAnswers,
+          questionCount: questions.length,
+        }),
+      )
+    }
   }
 
   function handleSubmit() {
@@ -605,6 +784,7 @@ export default function ChapterPracticeExam({ questions, chapterMeta, chapterSlu
         ? { ...a, status: 'submitted', score, submittedAt }
         : a
     ))
+    if (draftKey) clearPracticeDraft(draftKey)
     if (chapterSlug) {
       const total = questions.filter(q => q.type === 'mcq').length
       const key = `exam_coach_sessions_${chapterSlug}`
@@ -668,6 +848,9 @@ export default function ChapterPracticeExam({ questions, chapterMeta, chapterSlu
     setQuestionIdx(0)
     setValidationErrors({})
     setView('exam')
+    if (draftKey) clearPracticeDraft(draftKey)
+    resumeShownRef.current = false
+    setResumeNotice(false)
   }
 
   const sharedProps = { questions, chapterMeta }
@@ -682,7 +865,9 @@ export default function ChapterPracticeExam({ questions, chapterMeta, chapterSlu
               {...sharedProps}
               attempt={currentAttempt}
               questionIdx={questionIdx}
-              setQuestionIdx={setQuestionIdx}
+              onPrevious={handlePreviousQuestion}
+              onNext={handleNextQuestion}
+              onGoto={handleGotoQuestion}
               onAnswer={handleAnswer}
               onWritten={handleWrittenAnswer}
               onBlur={handleBlurValidation}
