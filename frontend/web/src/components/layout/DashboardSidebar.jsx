@@ -7,6 +7,7 @@ import {
 import BrandLogo from '../ui/BrandLogo'
 import { SYLLABUS } from '../../data/syllabus'
 import { logout } from '../../api/auth'
+import { Link } from 'react-router-dom'
 
 const TOP_NAV = [
   { id: 'dashboard',   label: 'Dashboard',   icon: LayoutGrid,    to: '/'            },
@@ -21,6 +22,12 @@ const TOP_NAV = [
 const BOTTOM_NAV = [
   { id: 'settings', label: 'Settings', icon: Settings, to: null     },
   { id: 'logout',   label: 'Log out',  icon: LogOut,   to: '/login' },
+]
+
+const SIDEBAR_LEGAL_LINKS = [
+  { label: 'Privacy Policy', to: '/privacy' },
+  { label: 'Terms', to: '/terms' },
+  { label: 'Contact', to: '/contact' },
 ]
 
 const YEARS = [
@@ -206,6 +213,34 @@ export default function DashboardSidebar({ onClose }) {
               danger={item.id === 'logout'}
               onClick={() => handleBottomNavClick(item)}
             />
+          ))}
+        </div>
+        <div style={{
+          padding: '0 14px 12px',
+          display: 'flex',
+          flexWrap: 'wrap',
+          gap: '4px 8px',
+          alignItems: 'center',
+          fontSize: 10,
+          lineHeight: 1.3,
+          color: 'var(--ink-4)',
+        }}>
+          {SIDEBAR_LEGAL_LINKS.map((item, index) => (
+            <Fragment key={item.to}>
+              <Link
+                to={item.to}
+                style={{
+                  color: 'var(--ink-4)',
+                  textDecoration: 'none',
+                  fontWeight: 500,
+                }}
+              >
+                {item.label}
+              </Link>
+              {index < SIDEBAR_LEGAL_LINKS.length - 1 && (
+                <span aria-hidden="true" style={{ color: 'var(--line)' }}>&middot;</span>
+              )}
+            </Fragment>
           ))}
         </div>
       </div>

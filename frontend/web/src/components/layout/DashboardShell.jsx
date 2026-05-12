@@ -145,8 +145,16 @@ export default function DashboardShell({ children }) {
         </header>
 
         {/* Page content */}
-        <main style={{ flex: 1, overflowY: 'auto', paddingBottom: 80 }}>
-          {children}
+        <main style={{
+          flex: 1,
+          minHeight: 0,
+          display: 'flex',
+          flexDirection: 'column',
+          overflowY: 'auto',
+        }}>
+          <div style={{ flex: 1, minHeight: 0 }}>
+            {children}
+          </div>
         </main>
 
         {/* Mobile bottom tab bar — hidden on desktop (≥900px).
