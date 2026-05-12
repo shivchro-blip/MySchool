@@ -10,7 +10,7 @@ import '../models/syllabus_model.dart';
 import '../services/exam_practice_service.dart';
 import '../utils/practice_draft_storage.dart';
 import '../utils/answer_validation.dart';
-import '../widgets/app_button.dart';
+import '../widgets/mcq_option.dart';
 
 // ── HTML inline renderer (handles <u> tags) ───────────────────────────────
 
@@ -614,31 +614,6 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> with WidgetsBin
     _saveDraft();
   }
 
-  void _showReviewSheet() {
-    if (!mounted) return;
-    showModalBottomSheet<void>(
-      context: context,
-      isScrollControlled: true,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
-      ),
-      builder: (ctx) => _ReviewSheet(
-        questions:        _questions,
-        questionIdx:      _questionIdx,
-        answers:          Map.of(_currentAttempt.answers),
-        validationErrors: Map.of(_validationErrors),
-        mode:             'review',
-        firstInvalidIdx:  -1,
-        onGoto: (idx) {
-          Navigator.pop(ctx);
-          _gotoQuestion(idx);
-        },
-        onCancel:  () => Navigator.pop(ctx),
-        onConfirm: null,
-      ),
-    );
-  }
-
   void _openReviewSubmitSheet() {
     final errors = <String, String>{};
     int firstInvalidIdx = -1;
@@ -860,15 +835,27 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> with WidgetsBin
               ),
             ),
             const SizedBox(width: 6),
-            TextButton(
-              onPressed: _showReviewSheet,
-              style: TextButton.styleFrom(
-                foregroundColor: AppTheme.textMutedOf(context),
-                padding: const EdgeInsets.symmetric(horizontal: 8),
+            OutlinedButton(
+              onPressed: _openReviewSubmitSheet,
+              style: OutlinedButton.styleFrom(
+                backgroundColor: AppTheme.brandLightOf(context),
+                foregroundColor: AppTheme.brand,
+                side: BorderSide(
+                  color: AppTheme.brand.withValues(alpha: 0.4),
+                  width: 1.5,
+                ),
+                overlayColor: AppTheme.brandLightHoverOf(context),
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
                 minimumSize: Size.zero,
                 tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(AppTheme.radiusButton),
+                ),
+                textStyle: const TextStyle(
+                  fontSize: 14, fontWeight: FontWeight.w600,
+                ),
               ),
-              child: const Text('Review', style: TextStyle(fontSize: 12)),
+              child: const Text('Review & Submit'),
             ),
             const SizedBox(width: 6),
             Expanded(
@@ -880,12 +867,6 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> with WidgetsBin
               ),
             ),
           ],
-        ),
-        const SizedBox(height: 16),
-
-        AppButton(
-          label:     'Submit Practice Exam',
-          onPressed: _openReviewSubmitSheet,
         ),
       ],
     );
@@ -910,53 +891,12 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> with WidgetsBin
               color: AppTheme.textOf(context), height: 1.5,
             )),
         const SizedBox(height: 14),
-        ...List.generate(q.options?.length ?? 0, (i) {
-          final isChosen = chosen == i;
-          return GestureDetector(
-            onTap: () => _selectOption(q.id, i),
-            child: Container(
-              margin: const EdgeInsets.only(bottom: 8),
-              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
-              decoration: BoxDecoration(
-                color:        isChosen ? AppTheme.brandLightOf(context) : AppTheme.cardOf(context),
-                border: Border.all(
-                  color: isChosen ? AppTheme.brand : AppTheme.borderOf(context),
-                  width: isChosen ? 1.5 : 1,
-                ),
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Row(
-                children: [
-                  Container(
-                    width: 22, height: 22,
-                    decoration: BoxDecoration(
-                      color:  isChosen ? AppTheme.brand : AppTheme.surfaceOf(context),
-                      shape:  BoxShape.circle,
-                      border: isChosen ? null : Border.all(color: AppTheme.borderOf(context)),
-                    ),
-                    alignment: Alignment.center,
-                    child: Text(
-                      String.fromCharCode(65 + i),
-                      style: TextStyle(
-                        fontSize: 10, fontWeight: FontWeight.w700,
-                        color: isChosen ? Colors.white : AppTheme.textMutedOf(context),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(width: 10),
-                  Expanded(
-                    child: Text(q.options![i],
-                        style: TextStyle(
-                          fontSize: 13,
-                          fontWeight: isChosen ? FontWeight.w600 : FontWeight.normal,
-                          color: isChosen ? AppTheme.brandDark : AppTheme.textOf(context),
-                        )),
-                  ),
-                ],
-              ),
-            ),
-          );
-        }),
+        ...List.generate(q.options?.length ?? 0, (i) => McqOption(
+          letter: String.fromCharCode(65 + i),
+          text:   q.options![i],
+          state:  chosen == i ? OptionState.selected : OptionState.resting,
+          onTap:  () => _selectOption(q.id, i),
+        )),
       ],
     );
   }
@@ -1184,42 +1124,21 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> with WidgetsBin
                     ),
                     const SizedBox(height: 10),
                     ...List.generate(q.options?.length ?? 0, (i) {
-                      final isChosen = chosen == i;
                       final isAnswer = q.correct == i;
-                      Color fg = AppTheme.textMutedOf(context);
-                      if (isAnswer)              fg = AppTheme.successFgOf(context);
-                      if (isChosen && !correct)  fg = AppTheme.error;
-                      return Padding(
-                        padding: const EdgeInsets.only(bottom: 4),
-                        child: Row(
-                          children: [
-                            Container(
-                              width: 16, height: 16,
-                              decoration: BoxDecoration(
-                                color: isAnswer
-                                    ? AppTheme.successBgOf(context)
-                                    : isChosen ? AppTheme.errorBgOf(context) : AppTheme.surfaceOf(context),
-                                shape:  BoxShape.circle,
-                                border: Border.all(color: AppTheme.borderOf(context)),
-                              ),
-                              alignment: Alignment.center,
-                              child: Text(String.fromCharCode(65 + i),
-                                  style: TextStyle(fontSize: 8, color: fg, fontWeight: FontWeight.w700)),
-                            ),
-                            const SizedBox(width: 8),
-                            Expanded(
-                              child: Text(q.options![i],
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                    color: fg,
-                                    fontWeight: isAnswer ? FontWeight.w600 : FontWeight.normal,
-                                    decoration: isChosen && !correct ? TextDecoration.lineThrough : null,
-                                  )),
-                            ),
-                            if (isAnswer)
-                              const Icon(Icons.check_circle, size: 12, color: AppTheme.success),
-                          ],
-                        ),
+                      final isWrongPick = chosen == i && !correct;
+                      final OptionState state;
+                      if (isAnswer) {
+                        state = OptionState.correct;
+                      } else if (isWrongPick) {
+                        state = OptionState.incorrect;
+                      } else {
+                        state = OptionState.resting;
+                      }
+                      return McqOption(
+                        letter: String.fromCharCode(65 + i),
+                        text:   q.options![i],
+                        state:  state,
+                        onTap:  null,
                       );
                     }),
                     if (!correct && q.hint != null) ...[
@@ -1358,9 +1277,9 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> with WidgetsBin
               child: ElevatedButton.icon(
                 onPressed: _handleRetake,
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFF1E2A44),
+                  backgroundColor: AppTheme.brand,
                   foregroundColor: Colors.white,
-                  overlayColor:    const Color(0xFF2E3A59),
+                  overlayColor:    AppTheme.brandDark,
                   elevation:       0,
                 ),
                 icon:  const Icon(Icons.replay, size: 16),

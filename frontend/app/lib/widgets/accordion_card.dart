@@ -38,22 +38,18 @@ class AccordionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final dark = AppTheme.isDark(context);
-    final borderColor = open
-        ? (dark ? const Color(0xFF5B56C0) : const Color(0xFFC7C3F5))
-        : (dark ? const Color(0xFF3D3B6E) : const Color(0xFFE8E8F5));
-    final chevronColor = open
-        ? (dark ? const Color(0xFF818CF8) : const Color(0xFF4F46E5))
-        : (dark ? const Color(0xFF4B5563) : const Color(0xFFD1D5DB));
+    final borderColor  = open ? AppTheme.brand             : AppTheme.borderOf(context);
+    final chevronColor = open ? AppTheme.brand             : AppTheme.textMutedOf(context);
 
     return Container(
       decoration: BoxDecoration(
         color: AppTheme.cardOf(context),
-        borderRadius: BorderRadius.circular(14),
-        border: Border.all(color: borderColor),
+        borderRadius: BorderRadius.circular(AppTheme.radiusCard),
+        border: Border.all(color: borderColor, width: open ? 1.5 : 1.0),
         boxShadow: open
             ? [
                 BoxShadow(
-                  color: const Color(0xFF4F46E5).withValues(alpha: dark ? 0.15 : 0.08),
+                  color: AppTheme.brand.withValues(alpha: dark ? 0.15 : 0.08),
                   blurRadius: 24,
                   offset: const Offset(0, 4),
                 ),

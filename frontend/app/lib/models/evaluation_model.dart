@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../config/theme.dart';
 
 class FeedbackDetail {
   final List<String> strengths;
@@ -73,13 +74,12 @@ class EvaluationResponse {
           ? '👍 Good effort — keep going!'
           : '💪 Keep practising!';
 
+  // Pragmatic coupling: model exposes Color directly for
+  // ScoreCard. Future refactor could expose an enum + map at
+  // widget level. Until then, single source of truth = theme.
   Color get scoreColor {
-    if (percentage >= 80) {
-      return const Color(0xFF16A34A);
-    }
-    if (percentage >= 50) {
-      return const Color(0xFFD97706);
-    }
-    return const Color(0xFFDC2626);
+    if (percentage >= 80) return AppTheme.success;
+    if (percentage >= 50) return AppTheme.warning;
+    return AppTheme.error;
   }
 }
