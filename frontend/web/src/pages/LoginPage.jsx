@@ -1,29 +1,55 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { loginWithEmail, signupWithEmail } from '../api/auth'
+import { loginWithEmail, signupWithEmail, createUserProfile, resendConfirmationEmail } from '../api/auth'
 import { Button, Input } from '../components/ui'
 import BrandLogo from '../components/ui/BrandLogo'
 
 export default function LoginPage() {
   const navigate                 = useNavigate()
-  const [mode,     setMode]      = useState('login')
-  const [email,    setEmail]     = useState('')
-  const [password, setPass]      = useState('')
-  const [loading,  setLoading]   = useState(false)
-  const [error,    setError]     = useState('')
+  const [mode,            setMode]      = useState('login')
+  const [email,           setEmail]     = useState('')
+  const [password,        setPass]      = useState('')
+  const [loading,         setLoading]   = useState(false)
+  const [error,           setError]     = useState('')
+  const [resendStatus,    setResendStatus] = useState('')
+  const [ageConfirmation, setAge]       = useState('')
+  const [consentChecked,  setConsent]   = useState(false)
 
   async function handleSubmit(e) {
     e.preventDefault()
     setError('')
+    setResendStatus('')
     setLoading(true)
     try {
       if (mode === 'login') {
         await loginWithEmail(email, password)
       } else {
-        await signupWithEmail(email, password)
-        await loginWithEmail(email, password)
+        const signupData = await signupWithEmail(email, password)
+        const sessionToken = signupData?.session?.access_token || signupData?.access_token
+        if (!sessionToken) {
+          setError('Account created. Check your email to confirm your account, then sign in.')
+          return
+        }
+        await createUserProfile(signupData.user?.id, ageConfirmation)
       }
       navigate('/', { replace: true })
+    } catch (err) {
+      setError(err.message)
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  async function handleResend() {
+    if (!email) {
+      setError('Enter your email first.')
+      return
+    }
+    setLoading(true)
+    setResendStatus('')
+    try {
+      await resendConfirmationEmail(email)
+      setResendStatus('Confirmation email sent again. Check your inbox.')
     } catch (err) {
       setError(err.message)
     } finally {
@@ -51,7 +77,7 @@ export default function LoginPage() {
             {['login', 'signup'].map(m => (
               <button
                 key={m}
-                onClick={() => { setMode(m); setError('') }}
+                onClick={() => { setMode(m); setError(''); setAge(''); setConsent(false) }}
                 className={`flex-1 py-1.5 rounded-lg text-sm font-medium
                             transition-all ${
                   mode === m
@@ -91,16 +117,71 @@ export default function LoginPage() {
               />
             </div>
 
+            {mode === 'signup' && (
+              <>
+                <div>
+                  <p className="text-sm font-medium text-ink-2 mb-2">Age confirmation</p>
+                  {[
+                    { value: 'adult',              label: 'I am 18 years or older' },
+                    { value: 'minor_with_consent', label: 'I am under 18, and my parent or guardian has agreed to my use of TN Exam Coach' },
+                  ].map(opt => (
+                    <label key={opt.value} className="flex items-start gap-2 mb-2 cursor-pointer">
+                      <input
+                        type="radio"
+                        name="ageConfirmation"
+                        value={opt.value}
+                        checked={ageConfirmation === opt.value}
+                        onChange={() => setAge(opt.value)}
+                        className="mt-0.5 flex-shrink-0"
+                      />
+                      <span className="text-sm text-ink-2">{opt.label}</span>
+                    </label>
+                  ))}
+                </div>
+                <label className="flex items-start gap-2 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={consentChecked}
+                    onChange={e => setConsent(e.target.checked)}
+                    className="mt-0.5 flex-shrink-0"
+                  />
+                  <span className="text-sm text-ink-2">
+                    I agree to the{' '}
+                    <a href="/privacy" target="_blank" rel="noopener noreferrer"
+                       className="text-brand underline">Privacy Policy</a>
+                    {' '}and{' '}
+                    <a href="/terms" target="_blank" rel="noopener noreferrer"
+                       className="text-brand underline">Terms of Service</a>
+                  </span>
+                </label>
+              </>
+            )}
+
             {error && (
               <div className="text-sm text-danger bg-pos-soft border border-line-soft
                               rounded-xl px-3 py-2">
                 {error}
               </div>
             )}
+            {mode === 'login' && /not confirmed/i.test(error) && (
+              <button
+                type="button"
+                onClick={handleResend}
+                className="text-sm font-medium text-brand underline"
+              >
+                Resend confirmation email
+              </button>
+            )}
+            {resendStatus && (
+              <div className="text-sm text-good-ink bg-good-soft border border-good-soft
+                              rounded-xl px-3 py-2">
+                {resendStatus}
+              </div>
+            )}
 
             <Button
               type="submit"
-              disabled={loading}
+              disabled={loading || (mode === 'signup' && (!ageConfirmation || !consentChecked))}
               className="w-full py-2.5"
             >
               {loading ? '…' : mode === 'login' ? 'Login' : 'Create Account'}

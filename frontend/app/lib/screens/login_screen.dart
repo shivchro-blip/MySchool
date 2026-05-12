@@ -17,9 +17,12 @@ class _LoginScreenState extends State<LoginScreen> {
   final _passwordCtrl = TextEditingController();
   final _auth         = AuthService();
 
-  bool   _loading = false;
-  bool   _isLogin = true;
-  String _error   = '';
+  bool    _loading          = false;
+  bool    _isLogin          = true;
+  String  _error            = '';
+  String  _notice           = '';
+  String? _ageConfirmation;  // 'adult' or 'minor_with_consent'
+  bool    _consentChecked   = false;
 
   Future<void> _submit() async {
     final email    = _emailCtrl.text.trim();
@@ -30,15 +33,52 @@ class _LoginScreenState extends State<LoginScreen> {
       return;
     }
 
-    setState(() { _loading = true; _error = ''; });
+    setState(() { _loading = true; _error = ''; _notice = ''; });
 
     try {
       if (!_isLogin) {
-        await _auth.signupWithEmail(email, password);
+        final signupData = await _auth.signupWithEmail(email, password);
+        final session = signupData['session'];
+        final sessionToken = signupData['access_token'] as String? ??
+            (session is Map ? session['access_token'] as String? : null);
+        if (sessionToken == null || sessionToken.isEmpty) {
+          setState(() {
+            _error = 'Account created. Check your email to confirm your account, then sign in.';
+            _loading = false;
+          });
+          return;
+        }
+        final user = signupData['user'];
+        final userId = user is Map ? user['id'] as String? : null;
+        await _auth.createUserProfile(userId, _ageConfirmation ?? 'adult');
+      } else {
+        await _auth.loginWithEmail(email, password);
       }
-      await _auth.loginWithEmail(email, password);
       if (mounted) {
         context.go('/');
+      }
+    } catch (e) {
+      setState(() => _error = e.toString().replaceFirst('Exception: ', ''));
+    } finally {
+      if (mounted) {
+        setState(() => _loading = false);
+      }
+    }
+  }
+
+  Future<void> _resendConfirmation() async {
+    final email = _emailCtrl.text.trim();
+    if (email.isEmpty) {
+      setState(() => _error = 'Enter your email first.');
+      return;
+    }
+    setState(() { _loading = true; _error = ''; _notice = ''; });
+    try {
+      await _auth.resendConfirmationEmail(email);
+      if (mounted) {
+        setState(() {
+          _notice = 'Confirmation email sent again. Check your inbox.';
+        });
       }
     } catch (e) {
       setState(() => _error = e.toString().replaceFirst('Exception: ', ''));
@@ -87,7 +127,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     for (final (label, val) in [('Login', true), ('Sign Up', false)])
                       Expanded(
                         child: GestureDetector(
-                          onTap: () => setState(() { _isLogin = val; _error = ''; }),
+                          onTap: () => setState(() { _isLogin = val; _error = ''; _ageConfirmation = null; _consentChecked = false; }),
                           child: AnimatedContainer(
                             duration: const Duration(milliseconds: 150),
                             padding: const EdgeInsets.symmetric(vertical: 10),
@@ -135,6 +175,68 @@ class _LoginScreenState extends State<LoginScreen> {
                 onSubmitted: (_) => _submit(),
               ),
 
+              if (!_isLogin) ...[
+                const SizedBox(height: 20),
+                Text(
+                  'Age confirmation',
+                  style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600, color: AppTheme.text2Of(context)),
+                ),
+                const SizedBox(height: 8),
+                for (final (value, label) in [
+                  ('adult', 'I am 18 years or older'),
+                  ('minor_with_consent', 'I am under 18, and my parent or guardian has agreed to my use of TN Exam Coach'),
+                ])
+                  InkWell(
+                    onTap: () => setState(() => _ageConfirmation = value),
+                    borderRadius: BorderRadius.circular(8),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 6),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Icon(
+                            _ageConfirmation == value
+                                ? Icons.radio_button_checked
+                                : Icons.radio_button_unchecked,
+                            size:  20,
+                            color: _ageConfirmation == value ? AppTheme.brand : AppTheme.text2Of(context),
+                          ),
+                          const SizedBox(width: 8),
+                          Expanded(
+                            child: Text(label, style: TextStyle(fontSize: 13, color: AppTheme.text2Of(context))),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                const SizedBox(height: 8),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Checkbox(
+                      value: _consentChecked,
+                      onChanged: (v) => setState(() => _consentChecked = v ?? false),
+                    ),
+                    Expanded(
+                      child: Wrap(
+                        children: [
+                          Text('I agree to the ', style: TextStyle(fontSize: 13, color: AppTheme.text2Of(context))),
+                          GestureDetector(
+                            onTap: () => context.push('/privacy'),
+                            child: const Text('Privacy Policy', style: TextStyle(fontSize: 13, color: AppTheme.brand, decoration: TextDecoration.underline)),
+                          ),
+                          Text(' and ', style: TextStyle(fontSize: 13, color: AppTheme.text2Of(context))),
+                          GestureDetector(
+                            onTap: () => context.push('/terms'),
+                            child: const Text('Terms of Service', style: TextStyle(fontSize: 13, color: AppTheme.brand, decoration: TextDecoration.underline)),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+
               if (_error.isNotEmpty) ...[
                 const SizedBox(height: 12),
                 Container(
@@ -150,10 +252,33 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ],
 
+              if (_isLogin && _error.toLowerCase().contains('not confirmed')) ...[
+                const SizedBox(height: 8),
+                TextButton(
+                  onPressed: _loading ? null : _resendConfirmation,
+                  child: const Text('Resend confirmation email'),
+                ),
+              ],
+
+              if (_notice.isNotEmpty) ...[
+                const SizedBox(height: 8),
+                Container(
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    color: AppTheme.successBgOf(context),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Text(
+                    _notice,
+                    style: TextStyle(fontSize: 13, color: AppTheme.successFgOf(context)),
+                  ),
+                ),
+              ],
+
               const SizedBox(height: 24),
               AppButton(
                 label:     _isLogin ? 'Login' : 'Create Account',
-                onPressed: _submit,
+                onPressed: (!_isLogin && (_ageConfirmation == null || !_consentChecked)) ? null : _submit,
                 loading:   _loading,
               ),
             ],
