@@ -1,6 +1,6 @@
 const toneMap = {
   neutral: 'bg-bg-sunk text-ink-2',
-  accent:  'bg-accent-soft text-accent-ink',
+  accent:  'bg-brand-teal-soft text-brand-teal',
   good:    'bg-good-soft text-good-ink',
   warn:    'bg-warn-soft text-warn',
   pos:     'bg-pos-soft text-pos',

@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import '../config/theme.dart';
 import '../models/syllabus_model.dart';
 import '../providers/syllabus_provider.dart';
+import '../providers/user_provider.dart';
 import '../widgets/error_view.dart';
 
 class SubjectListScreen extends StatefulWidget {
@@ -27,51 +28,114 @@ class _SubjectListScreenState extends State<SubjectListScreen> {
       ? '+1 Courses'
       : '+2 Courses';
 
+  // Returns true when the subject's slug or name matches an allowed slug.
+  // Handles 'maths' ↔ 'mathematics' equivalence gracefully.
+  bool _isAllowed(Subject subject, List<String> allowed) {
+    if (allowed.isEmpty) return true;
+    final slug = subject.slug.toLowerCase();
+    final name = subject.name.toLowerCase();
+    for (final a in allowed) {
+      final al = a.toLowerCase();
+      if (slug == al) return true;
+      if (slug.contains(al) || al.contains(slug)) return true;
+      // Normalise 'maths' → 'math' for name comparison.
+      final norm = al == 'maths' ? 'math' : al;
+      if (name.contains(norm)) return true;
+    }
+    return false;
+  }
+
   @override
   Widget build(BuildContext context) {
-    final syllabus  = context.watch<SyllabusProvider>();
-    final subjects  = syllabus.byClass(widget.classLevel);
+    final syllabus       = context.watch<SyllabusProvider>();
+    final user           = context.watch<UserProvider>();
+    final allowedClass   = user.allowedClass;
+    final allowedSubjects = user.allowedSubjects;
+
+    // Route guard: this class isn't in the user's selection.
+    final classBlocked = allowedClass != null && allowedClass != widget.classLevel;
+
+    final allSubjects    = syllabus.byClass(widget.classLevel);
+    final subjects       = classBlocked
+        ? const <Subject>[]
+        : (allowedSubjects.isEmpty
+            ? allSubjects
+            : allSubjects.where((s) => _isAllowed(s, allowedSubjects)).toList());
 
     return Scaffold(
       appBar: AppBar(title: Text(_title)),
-      body: RefreshIndicator(
-        color: AppTheme.brand,
-        onRefresh: () => context.read<SyllabusProvider>().load(),
-        child: ListView(
-          padding: const EdgeInsets.all(16),
-          children: [
-            if (syllabus.error != null)
-              ErrorView(
-                message: syllabus.error!,
-                onRetry: () => context.read<SyllabusProvider>().load(),
-              ),
-            if (!syllabus.loaded)
-              const Center(
-                child: Padding(
-                  padding: EdgeInsets.all(32),
-                  child: CircularProgressIndicator(),
+      body: classBlocked
+          ? Center(
+              child: Padding(
+                padding: const EdgeInsets.all(32),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(Icons.lock_outline_rounded,
+                         size: 40, color: AppTheme.textMutedOf(context)),
+                    const SizedBox(height: 16),
+                    Text(
+                      'This course is not enabled for your account.',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize:   15,
+                        fontWeight: FontWeight.w600,
+                        color:      AppTheme.textOf(context),
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      'Your account is set up for ${allowedClass == '+1' ? 'Class 11' : 'Class 12'}.',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 13, color: AppTheme.text2Of(context)),
+                    ),
+                    const SizedBox(height: 24),
+                    TextButton(
+                      onPressed: () => context.go('/courses'),
+                      child: const Text('Go to my courses'),
+                    ),
+                  ],
                 ),
               ),
-            if (syllabus.loaded && subjects.isEmpty)
-              Center(
-                child: Padding(
-                  padding: const EdgeInsets.all(32),
-                  child: Text(
-                    'No subjects found for this class.',
-                    style: TextStyle(color: AppTheme.textMutedOf(context)),
-                  ),
-                ),
+            )
+          : RefreshIndicator(
+              color: AppTheme.brand,
+              onRefresh: () => context.read<SyllabusProvider>().load(),
+              child: ListView(
+                padding: const EdgeInsets.all(16),
+                children: [
+                  if (syllabus.error != null)
+                    ErrorView(
+                      message: syllabus.error!,
+                      onRetry: () => context.read<SyllabusProvider>().load(),
+                    ),
+                  if (!syllabus.loaded)
+                    const Center(
+                      child: Padding(
+                        padding: EdgeInsets.all(32),
+                        child: CircularProgressIndicator(),
+                      ),
+                    ),
+                  if (syllabus.loaded && subjects.isEmpty)
+                    Center(
+                      child: Padding(
+                        padding: const EdgeInsets.all(32),
+                        child: Text(
+                          'No subjects found for this class.',
+                          style: TextStyle(color: AppTheme.textMutedOf(context)),
+                        ),
+                      ),
+                    ),
+                  ...subjects.map((s) => Padding(
+                    padding: const EdgeInsets.only(bottom: 12),
+                    child: _SubjectCard(
+                      subject:    s,
+                      classLevel: widget.classLevel,
+                    ),
+                  )),
+                ],
               ),
-            ...subjects.map((s) => Padding(
-              padding: const EdgeInsets.only(bottom: 12),
-              child: _SubjectCard(
-                subject: s,
-                classLevel: widget.classLevel,
-              ),
-            )),
-          ],
-        ),
-      ),
+            ),
     );
   }
 }

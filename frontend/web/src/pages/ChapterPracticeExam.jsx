@@ -13,8 +13,9 @@ import {
   ChevronLeft, ChevronRight, CheckCircle2, XCircle,
   History, RotateCcw, X, AlertCircle,
 } from 'lucide-react'
-import Badge  from '../components/ui/Badge'
-import Button from '../components/ui/Button'
+import Badge   from '../components/ui/Badge'
+import Button  from '../components/ui/Button'
+import Eyebrow from '../components/ui/Eyebrow'
 
 // ── Helpers ────────────────────────────────────────────────────────────────
 
@@ -113,19 +114,19 @@ function McqQuestion({ q, chosenIdx, onAnswer }) {
             <button
               key={i}
               onClick={() => onAnswer(q.id, i)}
-              className={`w-full text-left px-4 py-3 rounded-xl border text-[13px] transition-all duration-150
+              className={`w-full text-left flex items-center gap-3 px-4 py-[14px] min-h-[56px] rounded-button border-[1.5px] text-[13px] text-text-primary transition-colors duration-150 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgba(42,123,111,0.30)] focus-visible:ring-offset-2
                 ${chosen
-                  ? 'border-accent bg-accent-soft text-accent-ink font-semibold'
-                  : 'border-line bg-bg hover:bg-bg-sunk text-ink'
+                  ? 'border-brand-teal bg-brand-teal-soft'
+                  : 'border-border-soft bg-bg-surface hover:border-[rgba(42,123,111,0.50)]'
                 }`}
             >
-              <span className={`inline-flex items-center justify-center w-5 h-5 rounded-full
-                text-[10px] font-bold mr-2.5 shrink-0
-                ${chosen ? 'bg-accent text-white' : 'bg-bg-sunk text-ink-3'}`}
+              <span className={`inline-flex items-center justify-center w-7 h-7 rounded-full
+                text-[13px] font-semibold shrink-0
+                ${chosen ? 'bg-brand-teal text-white' : 'bg-bg-canvas text-text-muted'}`}
               >
                 {String.fromCharCode(65 + i)}
               </span>
-              {opt}
+              <span className="flex-1">{opt}</span>
             </button>
           )
         })}
@@ -238,7 +239,7 @@ function QuickNavDots({ questions, questionIdx, answered, onGoto, validationErro
                         ? 'bg-danger/10 text-danger border border-danger/30'
                         : isMcq
                           ? (done ? 'bg-good-soft text-good-ink' : 'bg-bg-sunk text-ink-3 hover:bg-bg-2')
-                          : (done ? 'bg-accent-soft text-accent-ink' : 'bg-bg-2 text-ink-3 border border-line hover:border-accent-soft')
+                          : (done ? 'bg-brand-teal-soft text-brand-teal' : 'bg-bg-2 text-ink-3 border border-line hover:border-brand-teal')
                     }`}
                 >
                   {gi + 1}
@@ -267,9 +268,7 @@ function ExamView({ questions, chapterMeta, attempt, questionIdx, onPrevious, on
       {/* Header */}
       <div className="flex items-start justify-between gap-3">
         <div>
-          <p className="text-[10px] font-bold tracking-[0.1em] uppercase text-ink-3 mb-1">
-            {chapterMeta.meta}
-          </p>
+          <Eyebrow style={{ marginBottom: 4 }}>{chapterMeta.meta}</Eyebrow>
           <h1 className="text-[20px] font-bold text-ink leading-tight">{chapterMeta.title}</h1>
           <p className="text-[12px] text-ink-3 mt-0.5">{chapterMeta.subject}</p>
         </div>
@@ -312,9 +311,7 @@ function ExamView({ questions, chapterMeta, attempt, questionIdx, onPrevious, on
           className="bg-bg-2 border border-line rounded-xl p-5"
         >
           <div className="flex items-center justify-between mb-3">
-            <p className="text-[10px] font-bold tracking-[0.1em] uppercase text-ink-3">
-              Question {questionIdx + 1}
-            </p>
+            <Eyebrow>Question {questionIdx + 1}</Eyebrow>
             <span className="text-[10px] font-semibold text-ink-3 bg-bg-sunk px-2 py-0.5 rounded-full">
               {q.marks} mark{q.marks > 1 ? 's' : ''}
             </span>
@@ -342,10 +339,13 @@ function ExamView({ questions, chapterMeta, attempt, questionIdx, onPrevious, on
           <ChevronLeft size={15} /> Previous
         </Button>
         <button
-          onClick={onOpenReview}
-          className="text-[11px] font-medium text-ink-3 hover:text-ink-2 transition-colors px-2 py-1"
+          onClick={onOpenModal}
+          className="px-4 py-2.5 rounded-xl text-[12px] font-semibold transition-all
+                     bg-brand-teal-soft text-brand-teal
+                     border border-[rgba(42,123,111,0.40)]
+                     hover:border-brand-teal hover:bg-[rgba(42,123,111,0.18)]"
         >
-          Review
+          Review & Submit
         </button>
         <Button
           variant="secondary"
@@ -355,10 +355,6 @@ function ExamView({ questions, chapterMeta, attempt, questionIdx, onPrevious, on
           Next <ChevronRight size={15} />
         </Button>
       </div>
-
-      <Button variant="accent" size="lg" className="w-full" onClick={onOpenModal}>
-        Submit Practice Exam
-      </Button>
 
     </div>
   )
@@ -632,16 +628,14 @@ function ResultsView({ questions, chapterMeta, attempt, attemptNumber, onRetake,
       <div className="bg-bg-2 border border-line rounded-xl p-5">
         <div className="flex items-start justify-between gap-3 mb-4">
           <div>
-            <p className="text-[10px] font-bold tracking-[0.1em] uppercase text-ink-3 mb-1">
-              {chapterMeta.meta}
-            </p>
+            <Eyebrow style={{ marginBottom: 4 }}>{chapterMeta.meta}</Eyebrow>
             <h1 className="text-[18px] font-bold text-ink leading-tight">Exam Submitted</h1>
             <p className="text-[12px] text-ink-3 mt-0.5">{chapterMeta.title}</p>
           </div>
           <Badge tone="good">Submitted</Badge>
         </div>
 
-        <p className="text-[10px] font-bold uppercase tracking-wide text-ink-3 mb-1">MCQ Score</p>
+        <Eyebrow style={{ marginBottom: 4 }}>MCQ Score</Eyebrow>
         <div className="flex items-baseline gap-2 flex-wrap mb-2">
           <span className="text-[32px] font-bold text-ink leading-none">{score}</span>
           <span className="text-[18px] text-ink-3">/ {total}</span>
@@ -669,7 +663,7 @@ function ResultsView({ questions, chapterMeta, attempt, attemptNumber, onRetake,
       {/* MCQ review */}
       {mcqQs.length > 0 && (
         <>
-          <p className="text-[10px] font-bold uppercase tracking-wide text-ink-3">MCQ Review</p>
+          <Eyebrow>MCQ Review</Eyebrow>
           <div className="space-y-3">
             {mcqQs.map((q, i) => (
               <McqReviewItem key={q.id} q={q} qi={i} answered={attempt.answers} />
@@ -681,7 +675,7 @@ function ResultsView({ questions, chapterMeta, attempt, attemptNumber, onRetake,
       {/* Written review */}
       {writtenQs.length > 0 && (
         <>
-          <p className="text-[10px] font-bold uppercase tracking-wide text-ink-3 mt-2">Written Answers</p>
+          <Eyebrow style={{ marginTop: 8 }}>Written Answers</Eyebrow>
           <div className="space-y-3">
             {writtenQs.map((q, i) => (
               <WrittenReviewItem key={q.id} q={q} qi={i} answered={attempt.answers} />

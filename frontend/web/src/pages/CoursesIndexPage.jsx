@@ -1,10 +1,14 @@
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ChevronRight } from 'lucide-react'
 import { SYLLABUS } from '../data/syllabus'
+import { getCachedProfile } from '../api/users'
+import { getAllowedYearKey } from '../lib/userAccess'
+import PageHeader from '../components/ui/PageHeader'
 
 const YEAR_CONFIG = {
   plus1: { label: '+1', subtitle: 'Class XI — Higher Secondary First Year',  color: '#1B4B82' },
-  plus2: { label: '+2', subtitle: 'Class XII — Higher Secondary Second Year', color: '#1D9E75' },
+  plus2: { label: '+2', subtitle: 'Class XII — Higher Secondary Second Year', color: '#2A7B6F' },
 }
 
 function countLessons(yearData) {
@@ -17,31 +21,30 @@ function countLessons(yearData) {
 
 export default function CoursesIndexPage() {
   const navigate = useNavigate()
+  const [profile, setProfile] = useState(null)
+  const [profileLoaded, setProfileLoaded] = useState(false)
+
+  useEffect(() => {
+    getCachedProfile().then(p => { setProfile(p); setProfileLoaded(true) })
+  }, [])
+
+  const allowedKey = profileLoaded ? getAllowedYearKey(profile) : null
+  const visibleEntries = Object.entries(SYLLABUS).filter(
+    ([k]) => !allowedKey || k === allowedKey
+  )
 
   return (
     <div style={{ maxWidth: 680, margin: '0 auto', padding: 'clamp(24px, 4vw, 48px) clamp(16px, 4vw, 32px) 96px' }}>
 
-      {/* Header */}
-      <p style={{
-        fontSize: 10, fontWeight: 700, letterSpacing: '0.12em',
-        textTransform: 'uppercase', color: 'var(--ink-4)', marginBottom: 12,
-      }}>
-        Tamil Nadu State Board
-      </p>
-      <h1 style={{
-        fontSize: 'clamp(1.5rem, 3.5vw, 2rem)',
-        fontWeight: 700, color: 'var(--ink)', lineHeight: 1.2,
-        letterSpacing: '-0.02em', margin: '0 0 8px',
-      }}>
-        My Courses
-      </h1>
-      <p style={{ fontSize: 14, color: 'var(--ink-3)', margin: '0 0 32px', lineHeight: 1.6 }}>
-        Select a year group to browse subjects and lessons.
-      </p>
+      <PageHeader
+        eyebrow="Tamil Nadu State Board"
+        title="My Courses"
+        subtitle="Select a year group to browse subjects and lessons."
+      />
 
       {/* Course list — flat grouped */}
       <div style={{ border: '1px solid var(--line)', borderRadius: 12, overflow: 'hidden' }}>
-        {Object.entries(SYLLABUS).map(([yearKey, yearData], idx, arr) => {
+        {visibleEntries.map(([yearKey, yearData], idx, arr) => {
           const cfg      = YEAR_CONFIG[yearKey]
           if (!cfg) return null
           const subjects = Object.keys(yearData.subjects || {}).length

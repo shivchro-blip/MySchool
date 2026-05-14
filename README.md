@@ -41,3 +41,21 @@ See [CLAUDE.md](./CLAUDE.md) for architecture decisions, rules, and phase log.
 - [ ] Phase 7: Flutter app
 - [ ] Phase 8: Admin panel
 - [ ] Phase 9: Testing and deployment
+
+## Legal & compliance — pre-launch checklist
+
+Before going public, confirm:
+
+- [ ] Privacy Policy page live at `/privacy`
+- [ ] Terms of Service page live at `/terms`
+- [ ] Contact page live at `/contact`
+- [ ] Footer links visible on every page (web + mobile Settings)
+- [ ] Cookie banner appears on first web visit
+- [ ] Analytics consent modal appears on first mobile launch
+- [ ] Sign-up form requires age confirmation + agreement checkbox (web + mobile)
+- [ ] `CONTACT_EMAIL` constant points to a real, monitored inbox
+- [ ] `LEGAL_LAST_UPDATED` constant set to current date
+- [ ] HTTPS enabled on the deployed web URL
+- [ ] Passwords stored hashed (bcrypt or argon2), never plain text
+- [ ] `/docs/legal/admin/deletion-request-log.md` kept up to date
+- [ ] `/docs/legal/admin/data-map.md` reflects all third-party services in use

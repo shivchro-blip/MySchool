@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'services/auth_service.dart';
+import 'services/user_preferences_service.dart';
 import 'models/syllabus_model.dart';
 
 import 'screens/login_screen.dart';
+import 'screens/auth_callback_screen.dart';
+import 'screens/onboarding_screen.dart';
 import 'screens/dashboard_screen.dart';
 import 'screens/courses_screen.dart';
 import 'screens/subject_list_screen.dart';
@@ -13,28 +16,43 @@ import 'screens/learn_screen.dart';
 import 'screens/rich_learn_screen.dart';
 import 'screens/exam_practice_screen.dart';
 import 'screens/progress_screen.dart';
+import 'screens/settings_screen.dart';
+import 'screens/privacy_screen.dart';
+import 'screens/terms_screen.dart';
+import 'screens/contact_screen.dart';
 import 'widgets/shell_scaffold.dart';
 
 final router = GoRouter(
   initialLocation: '/dashboard',
   redirect: (context, state) async {
-    // Redirect old root path to dashboard
-    if (state.matchedLocation == '/') {
-      return '/dashboard';
+    if (state.matchedLocation == '/') return '/dashboard';
+
+    final loggedIn   = await AuthService().isLoggedIn();
+    final onLogin    = state.matchedLocation == '/login';
+    // OAuth callback processes tokens before storing them — exempt from auth gate.
+    final onCallback = state.matchedLocation == '/auth/callback';
+
+    if (!loggedIn && !onLogin && !onCallback) return '/login';
+    if (loggedIn  && onLogin)                 return '/dashboard';
+
+    // Onboarding gate — uses SharedPreferences as a fast cache.
+    // null means unknown (first install / fresh login); dashboard initState
+    // will do the definitive check after loading the user profile from API.
+    if (loggedIn) {
+      final onboarded    = await UserPreferencesService.getOnboardingCompleted();
+      final onOnboarding = state.matchedLocation == '/onboarding';
+
+      if (onboarded == false && !onOnboarding) return '/onboarding';
+      if (onboarded == true  && onOnboarding)  return '/dashboard';
     }
-    final loggedIn  = await AuthService().isLoggedIn();
-    final onLogin   = state.matchedLocation == '/login';
-    if (!loggedIn && !onLogin) {
-      return '/login';
-    }
-    if (loggedIn  && onLogin)  {
-      return '/dashboard';
-    }
+
     return null;
   },
   routes: [
 
-    GoRoute(path: '/login', builder: (_, __) => const LoginScreen()),
+    GoRoute(path: '/login',         builder: (_, __) => const LoginScreen()),
+    GoRoute(path: '/auth/callback', builder: (_, __) => const AuthCallbackScreen()),
+    GoRoute(path: '/onboarding',    builder: (_, __) => const OnboardingScreen()),
 
     // ── Shell: bottom navigation on all screens ────────────────────
     ShellRoute(
@@ -83,6 +101,26 @@ final router = GoRouter(
         GoRoute(
           path: '/progress',
           builder: (_, __) => const ProgressScreen(),
+        ),
+
+        GoRoute(
+          path: '/settings',
+          builder: (_, __) => const SettingsScreen(),
+        ),
+
+        GoRoute(
+          path: '/privacy',
+          builder: (_, __) => const PrivacyScreen(),
+        ),
+
+        GoRoute(
+          path: '/terms',
+          builder: (_, __) => const TermsScreen(),
+        ),
+
+        GoRoute(
+          path: '/contact',
+          builder: (_, __) => const ContactScreen(),
         ),
 
         GoRoute(

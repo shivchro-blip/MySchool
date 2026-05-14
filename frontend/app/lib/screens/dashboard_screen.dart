@@ -5,11 +5,11 @@ import '../config/theme.dart';
 import '../config/syllabus_config.dart';
 import '../providers/syllabus_provider.dart';
 import '../providers/user_provider.dart';
-import '../providers/theme_provider.dart';
 import '../services/auth_service.dart';
-
-const _kTeal   = Color(0xFF2A7B6F);
-const _kTealBg = Color(0xFFE6F4F2);
+import '../services/user_preferences_service.dart';
+import '../widgets/eyebrow.dart';
+import '../widgets/page_header.dart';
+import '../widgets/theme_toggle.dart';
 
 class _ClassInfo {
   final String classLevel;
@@ -46,8 +46,17 @@ class _DashboardScreenState extends State<DashboardScreen> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      context.read<UserProvider>().loadIfNeeded();
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      if (!mounted) return;
+      await context.read<UserProvider>().loadIfNeeded();
+      if (!mounted) return;
+      // Belt-and-suspenders: redirect if profile says onboarding not done
+      // (catches cases where SharedPreferences was null/stale at router time).
+      final user = context.read<UserProvider>();
+      if (user.profile != null && !user.onboardingCompleted) {
+        context.go('/onboarding');
+        return;
+      }
       context.read<SyllabusProvider>().loadIfNeeded();
     });
   }
@@ -57,17 +66,17 @@ class _DashboardScreenState extends State<DashboardScreen> {
     final user     = context.watch<UserProvider>();
     final syllabus = context.watch<SyllabusProvider>();
     final name     = user.profile?.displayName ?? 'Student';
-    final isDark   = AppTheme.isDark(context);
 
     final subjectCounts = {
       '+1': syllabus.plus1Count,
       '+2': syllabus.plus2Count,
     };
 
-    // Pill colors — neutral in both modes
-    final pillBg     = isDark ? const Color(0xFF2D3748) : const Color(0xFFEDE9E2);
-    final pillBorder = isDark ? const Color(0xFF4A5568) : const Color(0xFFD1CCC5);
-    final pillText   = isDark ? Colors.white : const Color(0xFF374151);
+    // Show only the class the user selected during onboarding (if set).
+    final allowedClass    = user.allowedClass;
+    final visibleClasses  = allowedClass != null
+        ? _kDashClasses.where((c) => c.classLevel == allowedClass).toList()
+        : _kDashClasses;
 
     return Scaffold(
       backgroundColor: AppTheme.surfaceOf(context),
@@ -88,7 +97,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             Container(
               width: 34, height: 34,
               decoration: BoxDecoration(
-                color:        _kTeal,
+                color:        AppTheme.brand,
                 borderRadius: BorderRadius.circular(8),
               ),
               child: const Icon(Icons.school_rounded, color: Colors.white, size: 19),
@@ -106,45 +115,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
         ),
         actions: [
           // Theme toggle pill
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 13),
-            child: GestureDetector(
-              onTap: () => context.read<ThemeProvider>().toggle(),
-              child: AnimatedContainer(
-                duration: const Duration(milliseconds: 200),
-                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                decoration: BoxDecoration(
-                  color:        pillBg,
-                  border:       Border.all(color: pillBorder),
-                  borderRadius: BorderRadius.circular(100),
-                ),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Icon(
-                      isDark ? Icons.wb_sunny_outlined : Icons.nightlight_round,
-                      size:  13,
-                      color: pillText,
-                    ),
-                    const SizedBox(width: 5),
-                    Text(
-                      isDark ? 'Light' : 'Dark',
-                      style: TextStyle(
-                        fontSize:   11,
-                        fontWeight: FontWeight.w600,
-                        color:      pillText,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
+          const ThemeToggle.pill(),
           // Logout
           IconButton(
             icon: Icon(Icons.logout, size: 18, color: AppTheme.text2Of(context)),
             tooltip: 'Log out',
             onPressed: () async {
+              context.read<UserProvider>().clear();
+              await UserPreferencesService.clearAll();
               await AuthService().logout();
               if (context.mounted) context.go('/login');
             },
@@ -154,7 +132,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             padding: const EdgeInsets.only(right: 14),
             child: CircleAvatar(
               radius: 15,
-              backgroundColor: _kTeal,
+              backgroundColor: AppTheme.brand,
               child: Text(
                 name.isNotEmpty ? name[0].toUpperCase() : 'S',
                 style: const TextStyle(
@@ -174,7 +152,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
       // ── Body ────────────────────────────────────────────────
       body: RefreshIndicator(
-        color: _kTeal,
+        color: AppTheme.brand,
+        backgroundColor: AppTheme.cardOf(context),
         onRefresh: () async {
           final userProvider = context.read<UserProvider>();
           final syllabusProvider = context.read<SyllabusProvider>();
@@ -189,69 +168,38 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
             // ── Hero ───────────────────────────────────────────
             const SizedBox(height: 28),
-            Text(
-              'TAMIL NADU STATE BOARD',
-              style: TextStyle(
-                fontSize:      10,
-                fontWeight:    FontWeight.w700,
-                letterSpacing: 1.2,
-                color: AppTheme.textMutedOf(context),
-              ),
-            ),
-            const SizedBox(height: 10),
-            Text(
-              'Good morning, $name.',
-              style: TextStyle(
-                fontSize:      28,
-                fontWeight:    FontWeight.w700,
-                color:         AppTheme.textOf(context),
-                letterSpacing: -0.5,
-                height:        1.2,
-              ),
-            ),
-            const SizedBox(height: 6),
-            Text(
-              '${syllabus.subjects.length} subjects and '
-              '${SyllabusConfig.totalLessonCount} lessons. '
-              'Pick up where you left off.',
-              style: TextStyle(
-                fontSize: 14,
-                color:    AppTheme.text2Of(context),
-                height:   1.6,
-              ),
+            PageHeader(
+              eyebrow:  'Tamil Nadu State Board',
+              title:    'Good morning, $name.',
+              subtitle: '${syllabus.subjects.length} subjects and '
+                  '${SyllabusConfig.totalLessonCount} lessons. '
+                  'Pick up where you left off.',
+              padding:  EdgeInsets.zero,
             ),
             const SizedBox(height: 28),
             Divider(height: 1, thickness: 1, color: AppTheme.borderOf(context)),
             const SizedBox(height: 28),
 
             // ── My Courses ──────────────────────────────────────
-            Text(
-              'MY COURSES',
-              style: TextStyle(
-                fontSize:      10,
-                fontWeight:    FontWeight.w700,
-                letterSpacing: 1.2,
-                color: AppTheme.textMutedOf(context),
-              ),
-            ),
+            const Eyebrow('My Courses'),
             const SizedBox(height: 14),
             Container(
               clipBehavior: Clip.antiAlias,
               decoration: BoxDecoration(
                 border:       Border.all(color: AppTheme.borderOf(context)),
-                borderRadius: BorderRadius.circular(14),
+                borderRadius: BorderRadius.circular(AppTheme.radiusCard),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  for (int i = 0; i < _kDashClasses.length; i++) ...[
+                  for (int i = 0; i < visibleClasses.length; i++) ...[
                     _ClassRow(
-                      info:         _kDashClasses[i],
-                      subjectCount: subjectCounts[_kDashClasses[i].classLevel] ?? 0,
+                      info:         visibleClasses[i],
+                      subjectCount: subjectCounts[visibleClasses[i].classLevel] ?? 0,
                       loading:      !syllabus.loaded,
-                      onTap:        () => context.push('/courses/${_kDashClasses[i].classLevel}'),
+                      onTap:        () => context.push('/courses/${visibleClasses[i].classLevel}'),
                     ),
-                    if (i < _kDashClasses.length - 1)
+                    if (i < visibleClasses.length - 1)
                       Divider(height: 1, thickness: 1, color: AppTheme.borderOf(context)),
                   ],
                 ],
@@ -267,7 +215,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
 // ── Course row ────────────────────────────────────────────────────────────────
 
-class _ClassRow extends StatefulWidget {
+class _ClassRow extends StatelessWidget {
   final _ClassInfo   info;
   final int          subjectCount;
   final bool         loading;
@@ -281,79 +229,75 @@ class _ClassRow extends StatefulWidget {
   });
 
   @override
-  State<_ClassRow> createState() => _ClassRowState();
-}
-
-class _ClassRowState extends State<_ClassRow> {
-  bool _pressed = false;
-
-  @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTapDown:   (_) => setState(() => _pressed = true),
-      onTapUp:     (_) { setState(() => _pressed = false); widget.onTap(); },
-      onTapCancel: ()  => setState(() => _pressed = false),
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 80),
-        color:   _pressed ? AppTheme.borderOf(context) : AppTheme.cardOf(context),
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 18),
-        child: Row(
-          children: [
-            // Year badge — teal for both classes
-            Container(
-              width:  46,
-              height: 46,
-              decoration: const BoxDecoration(
-                color:        _kTealBg,
-                borderRadius: BorderRadius.all(Radius.circular(10)),
-              ),
-              child: Center(
-                child: Text(
-                  widget.info.classLevel,
-                  style: const TextStyle(
-                    fontSize:   17,
-                    fontWeight: FontWeight.w800,
-                    color:      _kTeal,
+    final isPlus1   = info.classLevel == '+1';
+    final badgeBg   = isPlus1 ? AppTheme.plus1Bg : AppTheme.plus2Bg;
+    final badgeText = isPlus1 ? AppTheme.plus1   : AppTheme.plus2;
+
+    return Material(
+      color: AppTheme.cardOf(context),
+      child: InkWell(
+        onTap: onTap,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 18),
+          child: Row(
+            children: [
+              // Year badge — +1 teal, +2 purple
+              Container(
+                width:  46,
+                height: 46,
+                decoration: BoxDecoration(
+                  color:        badgeBg,
+                  borderRadius: const BorderRadius.all(Radius.circular(10)),
+                ),
+                child: Center(
+                  child: Text(
+                    info.classLevel,
+                    style: TextStyle(
+                      fontSize:   17,
+                      fontWeight: FontWeight.w800,
+                      color:      badgeText,
+                    ),
                   ),
                 ),
               ),
-            ),
-            const SizedBox(width: 14),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    widget.info.title,
-                    style: TextStyle(
-                      fontSize:   14,
-                      fontWeight: FontWeight.w600,
-                      color:      AppTheme.textOf(context),
+              const SizedBox(width: 14),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      info.title,
+                      style: TextStyle(
+                        fontSize:   14,
+                        fontWeight: FontWeight.w600,
+                        color:      AppTheme.textOf(context),
+                      ),
                     ),
-                  ),
-                  const SizedBox(height: 3),
-                  widget.loading
-                      ? Container(
-                          height: 11, width: 80,
-                          decoration: BoxDecoration(
-                            color:        AppTheme.borderOf(context),
-                            borderRadius: BorderRadius.circular(6),
+                    const SizedBox(height: 3),
+                    loading
+                        ? Container(
+                            height: 11, width: 80,
+                            decoration: BoxDecoration(
+                              color:        AppTheme.borderOf(context),
+                              borderRadius: BorderRadius.circular(6),
+                            ),
+                          )
+                        : Text(
+                            '$subjectCount subject${subjectCount != 1 ? 's' : ''}'
+                            ' · '
+                            '${info.lessonCount} lesson${info.lessonCount != 1 ? 's' : ''}',
+                            style: TextStyle(
+                              fontSize: 12,
+                              color:    AppTheme.textMutedOf(context),
+                            ),
                           ),
-                        )
-                      : Text(
-                          '${widget.subjectCount} subject${widget.subjectCount != 1 ? 's' : ''}'
-                          ' · '
-                          '${widget.info.lessonCount} lesson${widget.info.lessonCount != 1 ? 's' : ''}',
-                          style: TextStyle(
-                            fontSize: 12,
-                            color:    AppTheme.textMutedOf(context),
-                          ),
-                        ),
-                ],
+                  ],
+                ),
               ),
-            ),
-            Icon(Icons.chevron_right, color: AppTheme.textMutedOf(context), size: 20),
-          ],
+              Icon(Icons.chevron_right, color: AppTheme.textMutedOf(context), size: 20),
+            ],
+          ),
         ),
       ),
     );

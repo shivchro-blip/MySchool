@@ -20,10 +20,10 @@ function McqPart({ part, done, score, onAnswer }) {
       <div className="bg-bg-2 border border-line rounded-xl px-4 py-3 mb-5 flex justify-between items-center flex-wrap gap-2">
         <span className="text-[13px] text-ink-2">
           Score:{' '}
-          <span className="font-bold text-accent">{score}</span>
+          <span className="font-bold text-brand-teal">{score}</span>
           {' '}/ {part.scoreMax}
         </span>
-        <span className="text-[11px] font-medium px-3 py-0.5 rounded-full bg-accent-soft text-accent-ink">
+        <span className="text-[11px] font-medium px-3 py-0.5 rounded-full bg-brand-teal-soft text-brand-teal">
           {totalDone} answered
         </span>
       </div>
@@ -73,7 +73,7 @@ function McqPart({ part, done, score, onAnswer }) {
                         key={i}
                         disabled={answered}
                         onClick={() => onAnswer(q.id, i, q.answer)}
-                        className="text-left text-[13px] rounded-lg px-3 py-2 border transition-all duration-[var(--duration-fast)] hover:opacity-90"
+                        className="text-left text-[13px] rounded-button px-3 py-2 border-[1.5px] transition-all duration-[var(--duration-fast)] hover:opacity-90"
                         style={{
                           background: bg,
                           borderColor,
@@ -920,7 +920,7 @@ export default function PracticeRichPage({ content, chapterSlug }) {
               px-3.5 py-2.5 text-[13px] font-medium whitespace-nowrap shrink-0
               border-b-2 -mb-px transition-all duration-[var(--duration-fast)]
               ${activePartId === part.id
-                ? 'border-accent text-accent font-semibold'
+                ? 'border-brand-teal text-brand-teal font-semibold'
                 : 'border-transparent text-ink-3 hover:text-ink'}
             `}
           >
@@ -944,7 +944,7 @@ export default function PracticeRichPage({ content, chapterSlug }) {
           <button
             onClick={handleSubmit}
             className="w-full py-2.5 rounded-xl text-[14px] font-semibold
-                       bg-accent text-white hover:opacity-90 transition-all"
+                       bg-brand-teal text-white hover:opacity-90 transition-all"
           >
             Submit Answers
           </button>

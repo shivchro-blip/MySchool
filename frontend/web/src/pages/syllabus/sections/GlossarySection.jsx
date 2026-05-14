@@ -14,8 +14,8 @@ export default function GlossarySection() {
       {SAMPLE_WORDS.map((item, i) => (
         <Card key={i} padding="md">
           <div className="flex items-start gap-3">
-            <div className="w-8 h-8 rounded-lg bg-accent-soft flex items-center
-                            justify-center text-xs font-bold text-accent-ink shrink-0">
+            <div className="w-8 h-8 rounded-lg bg-brand-teal-soft flex items-center
+                            justify-center text-xs font-bold text-brand-teal shrink-0">
               {item.word[0]}
             </div>
             <div>

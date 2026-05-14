@@ -14,9 +14,17 @@ async function request(method, path, body = null) {
 
   const res = await fetch(`${BASE_URL}${path}`, config)
 
+  if (res.status === 401) {
+    localStorage.removeItem('exam_coach_token')
+    window.location.replace('/login')
+    throw new Error('Session expired. Please log in again.')
+  }
+
   if (!res.ok) {
     const err = await res.json().catch(() => ({ error: 'Request failed' }))
-    throw new Error(err.error || err.detail || 'Request failed')
+    const error = new Error(err.error || err.detail || 'Request failed')
+    error.status = res.status
+    throw error
   }
 
   return res.json()

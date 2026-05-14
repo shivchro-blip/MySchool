@@ -39,13 +39,8 @@ class UsersRepository:
         return new_count
 
     def update_profile(self, user_id: str, fields: dict) -> dict | None:
-        result = (
-            self._db.table("users")
-            .update(fields)
-            .eq("id", user_id)
-            .execute()
-        )
-        return result.data[0] if result.data else None
+        self._db.table("users").update(fields).eq("id", user_id).execute()
+        return self.get_by_id(user_id)
 
     def is_over_limit(self, user_id: str) -> bool:
         user = self.get_plan_and_calls(user_id)

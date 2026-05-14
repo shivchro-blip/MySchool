@@ -13,9 +13,9 @@ export default function Button({
   const variants = {
     primary:   'bg-accent text-white hover:bg-accent-ink',
     secondary: 'bg-bg-2 border border-line text-ink hover:bg-bg-sunk',
-    accent:    'bg-good text-white hover:bg-good-ink',
+    accent:    'bg-brand-teal text-white hover:bg-brand-teal-hover',
     ghost:     'text-ink-2 hover:bg-bg-sunk',
-    soft:      'bg-accent-soft text-accent-ink hover:bg-accent-soft/80',
+    soft:      'bg-brand-teal-soft text-brand-teal hover:bg-brand-teal-soft-hover',
   }
   return (
     <button

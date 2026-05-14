@@ -3,7 +3,9 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import '../config/theme.dart';
 import '../providers/syllabus_provider.dart';
+import '../providers/user_provider.dart';
 import '../widgets/error_view.dart';
+import '../widgets/page_header.dart';
 
 class _ClassInfo {
   final String classLevel;
@@ -51,7 +53,18 @@ class _CoursesScreenState extends State<CoursesScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final syllabus = context.watch<SyllabusProvider>();
+    final syllabus     = context.watch<SyllabusProvider>();
+    final allowedClass = context.watch<UserProvider>().allowedClass;
+
+    final subjectCounts = {
+      '+1': syllabus.plus1Count,
+      '+2': syllabus.plus2Count,
+    };
+
+    // Show only the class the user selected during onboarding (if set).
+    final visibleClasses = allowedClass != null
+        ? _kCourseClasses.where((c) => c.classLevel == allowedClass).toList()
+        : _kCourseClasses;
 
     return Scaffold(
       appBar: AppBar(title: const Text('My Courses')),
@@ -62,34 +75,11 @@ class _CoursesScreenState extends State<CoursesScreen> {
           padding: const EdgeInsets.fromLTRB(16, 24, 16, 32),
           children: [
             // ── Editorial header ──────────────────────────────────
-            Text(
-              'TAMIL NADU STATE BOARD',
-              style: TextStyle(
-                fontSize:   10,
-                fontWeight: FontWeight.w700,
-                letterSpacing: 1.2,
-                color: AppTheme.textMutedOf(context),
-              ),
-            ),
-            const SizedBox(height: 8),
-            Text(
-              'My Courses',
-              style: TextStyle(
-                fontSize:   26,
-                fontWeight: FontWeight.w700,
-                color:      AppTheme.textOf(context),
-                letterSpacing: -0.5,
-                height: 1.2,
-              ),
-            ),
-            const SizedBox(height: 6),
-            Text(
-              'Select a year group to browse subjects and lessons.',
-              style: TextStyle(
-                fontSize: 14,
-                color:    AppTheme.text2Of(context),
-                height:   1.6,
-              ),
+            const PageHeader(
+              eyebrow:  'Tamil Nadu State Board',
+              title:    'My Courses',
+              subtitle: 'Select a year group to browse subjects and lessons.',
+              padding:  EdgeInsets.zero,
             ),
             const SizedBox(height: 32),
 
@@ -113,14 +103,14 @@ class _CoursesScreenState extends State<CoursesScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  for (int i = 0; i < _kCourseClasses.length; i++) ...[
+                  for (int i = 0; i < visibleClasses.length; i++) ...[
                     _ClassRow(
-                      info:         _kCourseClasses[i],
-                      subjectCount: i == 0 ? syllabus.plus1Count : syllabus.plus2Count,
+                      info:         visibleClasses[i],
+                      subjectCount: subjectCounts[visibleClasses[i].classLevel] ?? 0,
                       loading:      !syllabus.loaded,
-                      onTap:        () => context.push('/courses/${_kCourseClasses[i].classLevel}'),
+                      onTap:        () => context.push('/courses/${visibleClasses[i].classLevel}'),
                     ),
-                    if (i < _kCourseClasses.length - 1)
+                    if (i < visibleClasses.length - 1)
                       Divider(
                         height:    1,
                         thickness: 1,

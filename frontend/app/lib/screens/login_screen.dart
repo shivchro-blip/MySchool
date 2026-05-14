@@ -4,6 +4,7 @@ import '../services/auth_service.dart';
 import '../config/theme.dart';
 import '../widgets/app_button.dart';
 import '../widgets/brand_logo.dart';
+import '../widgets/google_sign_in_button.dart';
 import '../widgets/theme_toggle.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -51,11 +52,10 @@ class _LoginScreenState extends State<LoginScreen> {
         final user = signupData['user'];
         final userId = user is Map ? user['id'] as String? : null;
         await _auth.createUserProfile(userId, _ageConfirmation ?? 'adult');
+        if (mounted) context.go('/onboarding');
       } else {
         await _auth.loginWithEmail(email, password);
-      }
-      if (mounted) {
-        context.go('/');
+        if (mounted) context.go('/');
       }
     } catch (e) {
       setState(() => _error = e.toString().replaceFirst('Exception: ', ''));
@@ -113,7 +113,47 @@ class _LoginScreenState extends State<LoginScreen> {
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 13, color: AppTheme.text2Of(context)),
               ),
-              const SizedBox(height: 40),
+              const SizedBox(height: 32),
+
+              // Mode-specific heading
+              Text(
+                _isLogin ? 'Welcome back' : 'Create your account',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize:   20,
+                  fontWeight: FontWeight.w700,
+                  color:      AppTheme.textOf(context),
+                ),
+              ),
+              const SizedBox(height: 4),
+              Text(
+                _isLogin
+                    ? 'Continue where you left off.'
+                    : 'Set up your TN Exam Coach learning space.',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 13, color: AppTheme.text2Of(context)),
+              ),
+              const SizedBox(height: 24),
+
+              // Google sign-in
+              GoogleSignInButton(
+                onPressed: _loading ? null : () => AuthService().signInWithGoogle(),
+              ),
+              const SizedBox(height: 16),
+              Row(
+                children: [
+                  Expanded(child: Divider(color: AppTheme.text2Of(context).withValues(alpha: 0.2))),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 12),
+                    child: Text(
+                      'or',
+                      style: TextStyle(fontSize: 12, color: AppTheme.text2Of(context)),
+                    ),
+                  ),
+                  Expanded(child: Divider(color: AppTheme.text2Of(context).withValues(alpha: 0.2))),
+                ],
+              ),
+              const SizedBox(height: 16),
 
               // Mode toggle
               Container(
@@ -137,8 +177,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                                 : Colors.transparent,
                               borderRadius: BorderRadius.circular(8),
                               boxShadow:    _isLogin == val
-                                  ? [const BoxShadow(
-                                      color: Color(0x15000000),
+                                  ? [BoxShadow(
+                                      color: Colors.black.withValues(alpha: 0.08),
                                       blurRadius: 4,
                                     )]
                                   : null,
@@ -276,8 +316,23 @@ class _LoginScreenState extends State<LoginScreen> {
               ],
 
               const SizedBox(height: 24),
+              if (!_isLogin) ...[
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+                  decoration: BoxDecoration(
+                    color:        AppTheme.brandLightOf(context),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Text(
+                    "After signup, you'll choose your class and subjects.",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 12, color: AppTheme.brand),
+                  ),
+                ),
+                const SizedBox(height: 12),
+              ],
               AppButton(
-                label:     _isLogin ? 'Login' : 'Create Account',
+                label:     _isLogin ? 'Log in' : 'Create account',
                 onPressed: (!_isLogin && (_ageConfirmation == null || !_consentChecked)) ? null : _submit,
                 loading:   _loading,
               ),

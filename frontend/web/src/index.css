@@ -46,6 +46,25 @@
   --ai:          #8B5CF6;
   --ai-soft:     #EEEDFE;
 
+  /* ── Design token foundation (pass 1) ──────────────────── */
+  --bg-canvas:          #F5F1EB;
+  --bg-surface:         #FFFFFF;
+  --border-soft:        rgba(15, 23, 42, 0.06);
+  --border-strong:      rgba(15, 23, 42, 0.10);
+  --text-primary:       #0F172A;
+  --text-muted:         #5E6B7A;
+  --text-faint:         #7B8794;
+  --brand-teal:         #2A7B6F;
+  --brand-teal-soft:    rgba(42, 123, 111, 0.10);
+  --brand-teal-soft-hover: rgba(42, 123, 111, 0.18);
+  --brand-teal-hover:   #226860;
+  --accent-navy:        #1E3A5F;
+  --radius-card:        16px;
+  --radius-button:      12px;
+  --radius-pill:        9999px;
+  --shadow-card:        0 1px 2px rgba(15,23,42,0.04), 0 1px 1px rgba(15,23,42,0.03);
+  --shadow-card-hover:  0 4px 12px rgba(15,23,42,0.06), 0 2px 4px rgba(15,23,42,0.04);
+
   /* ── Layout rail widths ──────────────────────────────────── */
   --rail-sidebar:           220px;
   --rail-sidebar-collapsed:  64px;
@@ -179,13 +198,6 @@
 }
 
 @layer components {
-  .btn-primary {
-    @apply inline-flex items-center justify-center gap-1.5
-           bg-brand-600 text-white px-4 py-2 rounded-xl font-medium text-sm
-           hover:bg-brand-700 active:bg-brand-800
-           disabled:opacity-40 disabled:cursor-not-allowed
-           transition-all duration-150 shadow-sm;
-  }
   .btn-secondary {
     @apply inline-flex items-center justify-center gap-1.5
            bg-bg-2 text-ink px-4 py-2 rounded-xl font-medium text-sm
@@ -199,20 +211,11 @@
   .card-hover {
     @apply card hover:shadow-card-md hover:-translate-y-0.5 transition-all duration-150;
   }
-  .input {
-    @apply w-full border border-line rounded-xl px-3.5 py-2.5
-           focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent
-           text-sm bg-bg-2 text-ink placeholder:text-ink-4 transition-shadow;
-  }
   .badge {
     @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
   }
   .section-label {
     @apply text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3;
-  }
-  .badge-brand {
-    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold
-           bg-brand-100 text-brand-700;
   }
   .safe-bottom {
     padding-bottom: env(safe-area-inset-bottom, 0px);
@@ -231,13 +234,13 @@
 
   .syllabus-unit-pill {
     @apply text-[11px] font-medium px-2 py-0.5 rounded-[10px];
-    color: #1B4B82;
-    background: var(--accent-soft);
-    border: 1px solid rgba(27, 75, 130, 0.35);
+    color: var(--brand-teal);
+    background: var(--brand-teal-soft);
+    border: 1px solid rgba(42, 123, 111, 0.35);
   }
 
   .syllabus-lesson-type {
-    color: #1B4B82;
+    color: var(--brand-teal);
   }
 }
 
@@ -552,12 +555,10 @@
   display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
-  gap: 0.5rem;
-  padding-bottom: 0.25rem;
+  gap: 0.25rem;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
-  scrollbar-width: thin;
-  scrollbar-color: var(--ink-3) transparent;
+  scrollbar-width: none;
 }
 
 .scroll-strip > * {
@@ -565,17 +566,7 @@
   scroll-snap-align: start;
 }
 
-@supports (selector(::-webkit-scrollbar)) {
-  .scroll-strip::-webkit-scrollbar       { height: 3px; }
-  .scroll-strip::-webkit-scrollbar-track { background: transparent; }
-  .scroll-strip::-webkit-scrollbar-thumb {
-    background: var(--ink-3);
-    border-radius: 99px;
-  }
-  .scroll-strip::-webkit-scrollbar-thumb:hover {
-    background: var(--ink-2);
-  }
-}
+.scroll-strip::-webkit-scrollbar { display: none; }
 
 /* ── Ask AI message list — hide scrollbar ───────────────── */
 .chat-msg-list::-webkit-scrollbar { display: none; }

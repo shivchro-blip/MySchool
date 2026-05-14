@@ -140,9 +140,9 @@ export default function AskAISection({ lessonTitle, chapterId }) {
                 <div className="space-y-2">
                   {result.key_points.map((pt, i) => (
                     <div key={i} className="flex gap-2.5 items-start">
-                      <div className="w-5 h-5 rounded-full bg-accent-soft flex
+                      <div className="w-5 h-5 rounded-full bg-brand-teal-soft flex
                                       items-center justify-center text-[10px]
-                                      font-bold text-accent-ink shrink-0 mt-0.5">
+                                      font-bold text-brand-teal shrink-0 mt-0.5">
                         {i + 1}
                       </div>
                       <p className="text-sm text-ink-2">{pt}</p>

@@ -56,12 +56,12 @@ export default function SectionPage() {
 
       {/* Section header */}
       <div className="flex items-center gap-3 mb-6">
-        <div className="w-10 h-10 bg-accent-soft rounded-xl flex items-center
+        <div className="w-10 h-10 bg-brand-teal-soft rounded-xl flex items-center
                         justify-center text-xl">
           {sectionData.icon}
         </div>
         <div>
-          <p className="text-xs font-semibold text-accent uppercase tracking-wide">
+          <p className="text-xs font-semibold text-brand-teal uppercase tracking-wide">
             {lessonData.title}
           </p>
           <h1 className="text-xl font-bold text-ink">
@@ -108,8 +108,8 @@ function SectionTabs({ year, subject, category, lesson, activeSection }) {
             text-sm font-semibold whitespace-nowrap
             border transition-all duration-[var(--duration-fast)] shrink-0
             ${activeSection === s.slug
-              ? 'bg-accent text-white border-accent'
-              : 'bg-bg-2 text-ink-2 border-line hover:border-accent'}
+              ? 'bg-brand-teal text-white border-brand-teal'
+              : 'bg-bg-2 text-ink-2 border-line hover:border-brand-teal'}
           `}
         >
           <span>{s.icon}</span>

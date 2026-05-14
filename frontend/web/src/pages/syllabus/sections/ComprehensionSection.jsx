@@ -16,7 +16,7 @@ export default function ComprehensionSection() {
       {SAMPLE_QUESTIONS.map((q, i) => (
         <Card key={i} padding="md">
           <div className="flex gap-3">
-            <span className="text-sm font-bold text-accent shrink-0">
+            <span className="text-sm font-bold text-brand-teal shrink-0">
               Q{i + 1}.
             </span>
             <p className="text-sm text-ink-2">{q}</p>

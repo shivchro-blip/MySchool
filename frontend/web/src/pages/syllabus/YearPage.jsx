@@ -1,10 +1,13 @@
-import { useState } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { useParams, useNavigate, Navigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { ChevronRight, BookOpen, Calculator, FlaskConical } from 'lucide-react'
 import { getYear, getSubjectList, SYLLABUS } from '../../data/syllabus'
+import { getCachedProfile } from '../../api/users'
+import { getAllowedYearKey } from '../../lib/userAccess'
 import { buildBreadcrumbs } from '../../lib/nav'
 import { Breadcrumb } from '../../components/nav'
+import { PageHeader } from '../../components/ui'
 import NotFound from './NotFound'
 
 // Per-subject color identity — used here and must match SubjectPage unit tones
@@ -113,36 +116,59 @@ export default function YearPage() {
   const { year = 'plus1' } = useParams()
   const navigate  = useNavigate()
   const yearData  = getYear(year)
-  const subjects  = getSubjectList(year)
+  const allSubjects = getSubjectList(year)
   const crumbs    = buildBreadcrumbs(year, null, null, null, null, SYLLABUS)
+
+  const [profile, setProfile] = useState(null)
+  const [profileLoaded, setProfileLoaded] = useState(false)
+
+  useEffect(() => {
+    getCachedProfile().then(p => { setProfile(p); setProfileLoaded(true) })
+  }, [])
 
   if (!yearData) return <NotFound message={`Year "${year}" not found`} />
 
+  // Redirect if user navigates to a class they didn't select
+  const allowedYearKey = getAllowedYearKey(profile)
+  if (profileLoaded && allowedYearKey && year !== allowedYearKey) {
+    return <Navigate to={`/${allowedYearKey}`} replace />
+  }
+
+  // Filter subjects; fall back to all if profile.subjects empty/null
+  const pickedSlugs = profile?.subjects
+  const filteredSubjects = profileLoaded && pickedSlugs?.length
+    ? allSubjects.filter(s => pickedSlugs.includes(s.slug))
+    : allSubjects
+
+  const subjectNotFound =
+    profileLoaded && pickedSlugs?.length && filteredSubjects.length === 0
+
   return (
     <div>
-      <Breadcrumb crumbs={crumbs} />
+      <PageHeader
+        breadcrumb={<Breadcrumb crumbs={crumbs} />}
+        title={yearData.fullLabel}
+        subtitle="Select a subject to begin"
+      />
 
-      <div className="mb-6">
-        <h1 className="text-2xl font-bold text-ink">
-          {yearData.fullLabel}
-        </h1>
-        <p className="text-sm text-ink-3 mt-1">
-          Select a subject to begin
+      {subjectNotFound ? (
+        <p className="text-sm text-text-muted">
+          We couldn't find your subjects. Please update your settings.
         </p>
-      </div>
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        {subjects.map((s, i) => (
-          <motion.div
-            key={s.slug}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: i * 0.06 }}
-          >
-            <SubjectCard s={s} year={year} navigate={navigate} />
-          </motion.div>
-        ))}
-      </div>
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {filteredSubjects.map((s, i) => (
+            <motion.div
+              key={s.slug}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.06 }}
+            >
+              <SubjectCard s={s} year={year} navigate={navigate} />
+            </motion.div>
+          ))}
+        </div>
+      )}
     </div>
   )
 }

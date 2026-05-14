@@ -1,10 +1,12 @@
-import { useState } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { useParams, useNavigate, Navigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronRight, BookOpen, MessageCircle, LayoutGrid } from 'lucide-react'
 import { getSubject, getCategoryList, SYLLABUS } from '../../data/syllabus'
+import { getCachedProfile } from '../../api/users'
+import { getAllowedYearKey, isSubjectAllowed } from '../../lib/userAccess'
 import { buildBreadcrumbs } from '../../lib/nav'
-import { Card } from '../../components/ui'
+import { Card, PageHeader } from '../../components/ui'
 import { Breadcrumb } from '../../components/nav'
 import NotFound from './NotFound'
 
@@ -43,7 +45,7 @@ function LessonRow({ lesson, unit, year, subject }) {
       {/* Type + title */}
       <div className="flex-1 min-w-0">
         <p
-          className="text-[10px] font-bold tracking-[0.08em] uppercase mb-0.5 syllabus-lesson-type"
+          className="text-[12px] font-semibold tracking-[0.08em] uppercase mb-0.5 syllabus-lesson-type"
         >
           {lesson.type}
         </p>
@@ -108,7 +110,7 @@ function UnitCard({ unit, isOpen, onToggle, year, subject }) {
         {/* Number badge */}
         <div
           className="w-[46px] h-[46px] rounded-[13px] flex items-center justify-center shrink-0"
-          style={{ background: UNIT_STYLE.color, boxShadow: `0 3px 10px ${UNIT_STYLE.color}44` }}
+          style={{ background: 'var(--brand-teal)', boxShadow: '0 3px 10px #2A7B6F44' }}
         >
           <span className="text-white font-extrabold text-[15px] tracking-tight">
             {unit.id}
@@ -176,24 +178,39 @@ export default function SubjectPage() {
   const categories        = getCategoryList(year, subject)
   const crumbs            = buildBreadcrumbs(year, subject, null, null, null, SYLLABUS)
 
+  const [profile, setProfile]           = useState(null)
+  const [profileLoaded, setProfileLoaded] = useState(false)
+
+  useEffect(() => {
+    getCachedProfile().then(p => { setProfile(p); setProfileLoaded(true) })
+  }, [])
+
   const [openUnit, setOpenUnit] = useState(
     subjectData?.units ? subjectData.units[0].id : null
   )
 
   if (!subjectData) return <NotFound message={`Subject "${subject}" not found`} />
 
+  // Redirect if the year or subject is not in the user's selections
+  const allowedYearKey = getAllowedYearKey(profile)
+  if (profileLoaded) {
+    if (allowedYearKey && year !== allowedYearKey) {
+      return <Navigate to={`/${allowedYearKey}`} replace />
+    }
+    if (!isSubjectAllowed(profile, subject)) {
+      return <Navigate to={`/${year}`} replace />
+    }
+  }
+
   // ── Unit accordion layout (English) ──
   if (subjectData.units) {
     return (
       <div>
-        <Breadcrumb crumbs={crumbs} />
-
-        <div className="mb-8">
-          <h1 className="font-serif text-[28px] font-normal text-ink mb-1">
-            {subjectData.label}
-          </h1>
-          <p className="text-sm text-ink-3">Select a unit to explore its lessons</p>
-        </div>
+        <PageHeader
+          breadcrumb={<Breadcrumb crumbs={crumbs} />}
+          title={subjectData.label}
+          subtitle="Select a unit to explore its lessons"
+        />
 
         <div className="flex flex-col gap-3 max-w-[680px]">
           {subjectData.units.map(unit => (
@@ -214,12 +231,11 @@ export default function SubjectPage() {
   // ── Category cards layout (Maths, Science, etc.) ──
   return (
     <div>
-      <Breadcrumb crumbs={crumbs} />
-
-      <div className="mb-6">
-        <h1 className="text-2xl font-bold text-ink">{subjectData.label}</h1>
-        <p className="text-sm text-ink-3 mt-1">Choose a category</p>
-      </div>
+      <PageHeader
+        breadcrumb={<Breadcrumb crumbs={crumbs} />}
+        title={subjectData.label}
+        subtitle="Choose a category"
+      />
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
         {categories.map((c, i) => (

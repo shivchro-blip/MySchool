@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react'
+import { Fragment, useState, useEffect } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import {
   LayoutGrid, BookOpen, ClipboardList, TrendingUp,
@@ -7,6 +7,8 @@ import {
 import BrandLogo from '../ui/BrandLogo'
 import { SYLLABUS } from '../../data/syllabus'
 import { logout } from '../../api/auth'
+import { getCachedProfile } from '../../api/users'
+import { getAllowedYearKey, isSubjectAllowed } from '../../lib/userAccess'
 import { Link } from 'react-router-dom'
 
 const TOP_NAV = [
@@ -40,9 +42,11 @@ function NavItem({ item, active, dim, danger, onClick }) {
   return (
     <button
       onClick={onClick}
-      onMouseEnter={() => danger && setHovered(true)}
-      onMouseLeave={() => danger && setHovered(false)}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
       style={{
+        position: 'relative',
+        overflow: 'hidden',
         display: 'flex',
         alignItems: 'center',
         gap: 10,
@@ -52,13 +56,34 @@ function NavItem({ item, active, dim, danger, onClick }) {
         border: danger ? `1.5px solid ${hovered ? '#C0392B' : '#E24B4A'}` : 'none',
         cursor: (item.to || danger) ? 'pointer' : 'default',
         transition: 'all 0.18s ease',
-        background: active ? 'var(--accent-soft)' : (danger && hovered ? '#FCEBEB' : 'transparent'),
-        color: active ? 'var(--accent)' : danger ? (hovered ? '#C0392B' : '#E24B4A') : dim ? 'var(--ink-4)' : 'var(--ink-3)',
+        background: active
+          ? 'var(--brand-teal-soft)'
+          : (danger && hovered)
+          ? '#FCEBEB'
+          : (!danger && hovered)
+          ? 'rgba(42,123,111,0.05)'
+          : 'transparent',
+        color: active
+          ? 'var(--brand-teal)'
+          : danger
+          ? (hovered ? '#C0392B' : '#E24B4A')
+          : dim ? 'var(--ink-4)' : 'var(--ink-3)',
         fontSize: 13.5,
         fontWeight: active ? 600 : 500,
         textAlign: 'left',
       }}
     >
+      {!danger && (
+        <span style={{
+          position: 'absolute',
+          left: 0,
+          top: 0,
+          bottom: 0,
+          width: 3,
+          background: active ? 'var(--brand-teal)' : 'transparent',
+          transition: 'background 0.18s ease',
+        }} />
+      )}
       <item.icon size={danger ? 16 : 17} strokeWidth={active ? 2.2 : 1.8} />
       <span>{item.label}</span>
     </button>
@@ -82,8 +107,8 @@ function SubItem({ label, active, depth, onClick }) {
         borderRadius: 8,
         border: 'none',
         cursor: 'pointer',
-        background: active ? 'var(--accent-soft)' : 'transparent',
-        color: active ? 'var(--accent)' : 'var(--ink-4)',
+        background: active ? 'var(--brand-teal-soft)' : 'transparent',
+        color: active ? 'var(--brand-teal)' : 'var(--ink-4)',
         fontSize: depth === 1 ? 12.5 : 12,
         fontWeight: active ? 600 : 400,
         textAlign: 'left',
@@ -92,7 +117,7 @@ function SubItem({ label, active, depth, onClick }) {
     >
       <span style={{
         width: 4, height: 4, borderRadius: '50%', flexShrink: 0,
-        background: active ? 'var(--accent)' : 'var(--line)',
+        background: active ? 'var(--brand-teal)' : 'var(--line)',
         transition: 'background 0.15s ease',
       }} />
       {label}
@@ -103,6 +128,11 @@ function SubItem({ label, active, depth, onClick }) {
 export default function DashboardSidebar({ onClose }) {
   const navigate    = useNavigate()
   const { pathname } = useLocation()
+  const [profile, setProfile] = useState(null)
+
+  useEffect(() => {
+    getCachedProfile().then(setProfile)
+  }, [])
 
   // Derive course drill-down state purely from pathname
   // Matches /plus1, /plus1/english, /plus1/english/prose, etc.
@@ -167,9 +197,13 @@ export default function DashboardSidebar({ onClose }) {
               {/* Course drill-down sub-items */}
               {item.id === 'courses' && inCourses && (
                 <div style={{ marginBottom: 4 }}>
-                  {YEARS.map(yr => {
+                  {YEARS.filter(yr => {
+                    const allowed = getAllowedYearKey(profile)
+                    return !allowed || yr.key === allowed
+                  }).map(yr => {
                     const yearActive = currentYear === yr.key
                     const subjects   = Object.values(SYLLABUS[yr.key]?.subjects ?? {})
+                      .filter(sub => isSubjectAllowed(profile, sub.slug))
 
                     return (
                       <Fragment key={yr.key}>

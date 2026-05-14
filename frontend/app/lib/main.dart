@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_web_plugins/url_strategy.dart';
 import 'package:provider/provider.dart';
 import 'config/config.dart';
 import 'providers/syllabus_provider.dart';
@@ -8,6 +9,9 @@ import 'router.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  // Use path-based URLs (/dashboard instead of /#/dashboard) so the
+  // /auth/callback route can coexist with the Supabase OAuth hash fragment.
+  usePathUrlStrategy();
   final initialThemeMode = await ThemeProvider.loadInitial();
   runApp(ExamCoachApp(initialThemeMode: initialThemeMode));
 }

@@ -227,48 +227,73 @@ class _RichLearnScreenState extends State<RichLearnScreen> {
         Container(
           color:  AppTheme.cardOf(context),
           height: 44,
-          child: ListView.builder(
-            controller:    _tabScrollCtrl,
-            scrollDirection: Axis.horizontal,
-            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 7),
-            itemCount: contentTabs.length,
-            itemBuilder: (_, i) {
-              final tab      = contentTabs[i];
-              final isActive = tab.id == activeTab.id;
-              final activeBg = dark ? const Color(0xFF374151) : AppTheme.textPrimary;
-              return Padding(
-                padding: const EdgeInsets.only(right: 6),
-                child: GestureDetector(
-                  onTap: () => _switchTab(tab.id),
-                  child: AnimatedContainer(
-                    duration: const Duration(milliseconds: 120),
-                    padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 5),
-                    decoration: BoxDecoration(
-                      color: isActive ? activeBg : AppTheme.cardOf(context),
-                      borderRadius: BorderRadius.circular(20),
-                      border: Border.all(
-                        color: isActive ? activeBg : AppTheme.borderOf(context),
-                        width: 1.5,
-                      ),
-                      boxShadow: isActive ? [
-                        BoxShadow(
-                          color: activeBg.withAlpha(40),
-                          blurRadius: 8, offset: const Offset(0, 2),
+          child: Stack(
+            children: [
+              ListView.builder(
+                controller:    _tabScrollCtrl,
+                scrollDirection: Axis.horizontal,
+                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 7),
+                itemCount: contentTabs.length,
+                itemBuilder: (_, i) {
+                  final tab      = contentTabs[i];
+                  final isActive = tab.id == activeTab.id;
+                  // intentional neutral pill — content tabs use textPrimary in light, this dimmer
+                  // gray-blue in dark; distinct from action tabs which use brand teal
+                  final activeBg = dark ? const Color(0xFF374151) : AppTheme.textPrimary;
+                  return Padding(
+                    padding: const EdgeInsets.only(right: 6),
+                    child: GestureDetector(
+                      onTap: () => _switchTab(tab.id),
+                      child: AnimatedContainer(
+                        duration: const Duration(milliseconds: 120),
+                        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 5),
+                        decoration: BoxDecoration(
+                          color: isActive ? activeBg : AppTheme.cardOf(context),
+                          borderRadius: BorderRadius.circular(20),
+                          border: Border.all(
+                            color: isActive ? activeBg : AppTheme.borderOf(context),
+                            width: 1.5,
+                          ),
+                          boxShadow: isActive ? [
+                            BoxShadow(
+                              color: activeBg.withAlpha(40),
+                              blurRadius: 8, offset: const Offset(0, 2),
+                            ),
+                          ] : null,
                         ),
-                      ] : null,
+                        child: Text(
+                          tab.label,
+                          style: TextStyle(
+                            fontSize:   13,
+                            fontWeight: isActive ? FontWeight.w600 : FontWeight.w500,
+                            color: isActive ? Colors.white : AppTheme.text2Of(context),
+                          ),
+                        ),
+                      ),
                     ),
-                    child: Text(
-                      tab.label,
-                      style: TextStyle(
-                        fontSize:   13,
-                        fontWeight: FontWeight.w600,
-                        color: isActive ? Colors.white : AppTheme.text2Of(context),
+                  );
+                },
+              ),
+              // Right-edge fade: cues horizontal scrollability
+              Positioned(
+                right: 0, top: 0, bottom: 0,
+                child: IgnorePointer(
+                  child: Container(
+                    width: 28,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.centerLeft,
+                        end:   Alignment.centerRight,
+                        colors: [
+                          AppTheme.cardOf(context).withValues(alpha: 0),
+                          AppTheme.cardOf(context),
+                        ],
                       ),
                     ),
                   ),
                 ),
-              );
-            },
+              ),
+            ],
           ),
         ),
 
@@ -329,9 +354,9 @@ class _RichLearnScreenState extends State<RichLearnScreen> {
           ElevatedButton(
             onPressed: () => context.push('/practice/${widget.classLevel}/${widget.subjectSlug}/${widget.chapterSlug}'),
             style: ElevatedButton.styleFrom(
-              backgroundColor: const Color(0xFF1E2A44),
+              backgroundColor: AppTheme.brand,
               foregroundColor: Colors.white,
-              overlayColor:    const Color(0xFF2E3A59),
+              overlayColor:    AppTheme.brandDark,
               elevation:       0,
             ),
             child: const Text('🔥 Practice',
@@ -379,9 +404,7 @@ class _ChapterHeader extends StatelessWidget {
           const SizedBox(height: 4),
           Text(
             content.title,
-            style: const TextStyle(
-              fontSize: 22, fontWeight: FontWeight.w800,
-            ),
+            style: AppTheme.pageTitleStyle(context),
           ),
           if (content.author.isNotEmpty) ...[
             const SizedBox(height: 2),
@@ -441,7 +464,7 @@ class _ActionTabPill extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final activeBg = AppTheme.isDark(context) ? AppTheme.brand : const Color(0xFF1E2A44);
+    const activeBg = AppTheme.brand;
     return GestureDetector(
       onTap: onTap,
       child: AnimatedContainer(
@@ -460,7 +483,7 @@ class _ActionTabPill extends StatelessWidget {
             tab.label,
             style: TextStyle(
               fontSize:   12,
-              fontWeight: FontWeight.w600,
+              fontWeight: isActive ? FontWeight.w600 : FontWeight.w500,
               color: isActive ? Colors.white : AppTheme.text2Of(context),
             ),
             overflow: TextOverflow.ellipsis,
@@ -524,7 +547,7 @@ class _TeacherVoice extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: paragraphs.map((spans) => Padding(
-          padding: const EdgeInsets.only(bottom: 12),
+          padding: const EdgeInsets.only(bottom: 16),
           child: RichText(
             text: TextSpan(children: spans),
           ),
@@ -553,7 +576,7 @@ class _TeacherVoice extends StatelessWidget {
     final tagPattern = RegExp(
       r'<strong>([\s\S]*?)<\/strong>|<span[^>]*rich-highlight[^>]*>([\s\S]*?)<\/span>|([^<]+)',
     );
-    final base = TextStyle(fontSize: 14, height: 1.85, color: baseColor);
+    final base = TextStyle(fontSize: 15, height: 1.6, color: baseColor);
     for (final m in tagPattern.allMatches(html)) {
       if (m.group(1) != null) {
         spans.add(TextSpan(
@@ -587,7 +610,7 @@ class _SectionHead extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Padding(
-    padding: const EdgeInsets.fromLTRB(0, 20, 0, 12),
+    padding: const EdgeInsets.fromLTRB(0, 24, 0, 12),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -619,7 +642,7 @@ class _ThinkBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Container(
     margin: const EdgeInsets.only(bottom: 16),
-    padding: const EdgeInsets.fromLTRB(14, 12, 14, 12),
+    padding: const EdgeInsets.fromLTRB(16, 14, 16, 14),
     decoration: BoxDecoration(
       color:        accent.withAlpha(18),
       borderRadius: const BorderRadius.only(
@@ -871,9 +894,9 @@ class _NavButtons extends StatelessWidget {
           ElevatedButton(
             onPressed: () => onSwitchTab('practice'),
             style: ElevatedButton.styleFrom(
-              backgroundColor: const Color(0xFF1E2A44),
+              backgroundColor: AppTheme.brand,
               foregroundColor: Colors.white,
-              overlayColor:    const Color(0xFF2E3A59),
+              overlayColor:    AppTheme.brandDark,
               minimumSize:     const Size(0, 38),
               padding:         const EdgeInsets.symmetric(horizontal: 16),
               elevation:       0,
@@ -1450,9 +1473,9 @@ class _AttemptHistoryTabState extends State<_AttemptHistoryTab> {
               ElevatedButton(
                 onPressed: () => context.push('/exam/${widget.classLevel}/${widget.subjectSlug}/${widget.chapterSlug}'),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFF1E2A44),
+                  backgroundColor: AppTheme.brand,
                   foregroundColor: Colors.white,
-                  overlayColor:    const Color(0xFF2E3A59),
+                  overlayColor:    AppTheme.brandDark,
                   elevation:       0,
                 ),
                 child: const Text('🔥 Practice',

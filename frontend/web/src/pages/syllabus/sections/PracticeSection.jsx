@@ -13,7 +13,7 @@ const SAMPLE_QUESTIONS = [
 ]
 
 const MARK_COLORS = {
-  2:  'bg-accent-soft text-accent-ink',
+  2:  'bg-brand-teal-soft text-brand-teal',
   5:  'bg-warn-soft text-warn',
   10: 'bg-pos-soft text-pos',
 }

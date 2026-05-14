@@ -195,7 +195,7 @@ class _SixCardGrid extends StatelessWidget {
   Widget build(BuildContext context) {
     final cards = [
       _CardData(emoji: '👤', title: 'About Author', sub: 'Learn about the writer',
-          color: const Color(0xFF5C6BC0), onTap: onAboutAuthor),
+          color: AppTheme.maths, onTap: onAboutAuthor),
       _CardData(emoji: '📄', title: 'Text', sub: 'Read the full lesson',
           color: AppTheme.brand, onTap: onText),
       _CardData(emoji: '🔤', title: 'Glossary', sub: 'Key words and meanings',

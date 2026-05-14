@@ -65,6 +65,27 @@ class ApiService {
     }
   }
 
+  Future<dynamic> put(
+    String path,
+    Map<String, dynamic> body, {
+    bool auth = true,
+  }) async {
+    try {
+      final res = await http
+          .put(
+            _url(path),
+            headers: await _headers(auth: auth),
+            body: jsonEncode(body),
+          )
+          .timeout(_timeout);
+      return _handle(res);
+    } on ApiException {
+      rethrow;
+    } catch (e) {
+      throw ApiException('Network error. Check your connection.');
+    }
+  }
+
   dynamic _handle(http.Response res) {
     if (res.statusCode >= 200 && res.statusCode < 300) {
       if (res.body.isEmpty) {

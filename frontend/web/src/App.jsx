@@ -1,14 +1,22 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import { isLoggedIn } from './api/auth'
+import { getCachedProfile } from './api/users'
 
 import LoginPage        from './pages/LoginPage'
+import AuthCallbackPage from './pages/AuthCallbackPage'
+import OnboardingPage   from './pages/OnboardingPage'
 import ProgressPage     from './pages/ProgressPage'
 import DashboardPage    from './pages/DashboardPage'
 import CoursesIndexPage from './pages/CoursesIndexPage'
 import ActivityPage     from './pages/ActivityPage'
 import CertificatePage  from './pages/CertificatePage'
+import PrivacyPage      from './pages/PrivacyPage'
+import TermsPage        from './pages/TermsPage'
+import ContactPage      from './pages/ContactPage'
 
 import DashboardShell from './components/layout/DashboardShell'
+import CookieBanner   from './components/CookieBanner'
 
 import YearPage         from './pages/syllabus/YearPage'
 import SubjectPage      from './pages/syllabus/SubjectPage'
@@ -19,7 +27,40 @@ import NotFound                 from './pages/syllabus/NotFound'
 import ChapterPracticeExamPage  from './pages/ChapterPracticeExamPage'
 
 function Guard({ children }) {
-  return isLoggedIn() ? children : <Navigate to="/login" replace />
+  const location = useLocation()
+  const [state, setState] = useState({ loading: true, profile: null })
+  const loggedIn = isLoggedIn()
+
+  useEffect(() => {
+    if (!loggedIn) return
+    getCachedProfile()
+      .then(profile => setState({ loading: false, profile }))
+  }, [loggedIn])
+
+  if (!loggedIn) {
+    return <Navigate to="/login" replace />
+  }
+
+  if (state.loading) {
+    return (
+      <div className="min-h-screen bg-bg-canvas flex items-center justify-center">
+        <div className="text-text-muted text-sm">Loading…</div>
+      </div>
+    )
+  }
+
+  const onboarded = state.profile?.onboarding_completed === true
+
+  if (location.pathname === '/onboarding') {
+    if (onboarded) return <Navigate to="/" replace />
+    return children
+  }
+
+  if (!onboarded) {
+    return <Navigate to="/onboarding" replace />
+  }
+
+  return children
 }
 
 function DashShell({ children }) {
@@ -39,11 +80,30 @@ function CourseContent({ children }) {
 }
 
 export default function App() {
+  const [authKey, setAuthKey] = useState(0)
+
+  useEffect(() => {
+    function onStorage(e) {
+      if (e.key === 'exam_coach_token') setAuthKey(k => k + 1)
+    }
+    window.addEventListener('storage', onStorage)
+    return () => window.removeEventListener('storage', onStorage)
+  }, [])
+
   return (
     <BrowserRouter>
-      <Routes>
+      <CookieBanner />
+      <Routes key={authKey}>
 
-        <Route path="/login" element={<LoginPage />} />
+        <Route path="/login"          element={<LoginPage />} />
+        <Route path="/auth/callback"  element={<AuthCallbackPage />} />
+        <Route path="/privacy" element={<PrivacyPage />} />
+        <Route path="/terms"   element={<TermsPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+
+        <Route path="/onboarding" element={
+          <Guard><OnboardingPage /></Guard>
+        } />
 
         {/* ── Dashboard shell routes ─────────────────────────── */}
         <Route path="/" element={

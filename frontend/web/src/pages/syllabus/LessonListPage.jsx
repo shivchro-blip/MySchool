@@ -5,7 +5,7 @@ import {
   getCategory, getLessonList, getSubject, SYLLABUS,
 } from '../../data/syllabus'
 import { buildBreadcrumbs } from '../../lib/nav'
-import { Card } from '../../components/ui'
+import { Card, PageHeader } from '../../components/ui'
 import { Breadcrumb } from '../../components/nav'
 import NotFound from './NotFound'
 
@@ -21,22 +21,11 @@ export default function LessonListPage() {
 
   return (
     <div>
-      <Breadcrumb crumbs={crumbs} />
-
-      <div className="flex items-center gap-3 mb-6">
-        <div className="w-10 h-10 bg-accent-soft rounded-xl flex items-center
-                        justify-center text-xl">
-          {categoryData.icon}
-        </div>
-        <div>
-          <h1 className="text-xl font-bold text-ink">
-            {categoryData.label}
-          </h1>
-          <p className="text-sm text-ink-3">
-            {subjectData?.label} · {lessons.length} lessons
-          </p>
-        </div>
-      </div>
+      <PageHeader
+        breadcrumb={<Breadcrumb crumbs={crumbs} />}
+        title={categoryData.label}
+        subtitle={`${subjectData?.label} · ${lessons.length} lesson${lessons.length !== 1 ? 's' : ''}`}
+      />
 
       <div className="space-y-2">
         {lessons.map((lesson, i) => (

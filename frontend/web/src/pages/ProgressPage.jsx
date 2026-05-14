@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { TrendingUp, ArrowLeft } from 'lucide-react'
+import { ArrowLeft } from 'lucide-react'
 import { getProgress } from '../api/evaluation'
-import { Card, Button } from '../components/ui'
+import { Card, Button, PageHeader } from '../components/ui'
 
 function scoreColor(pct) {
   if (pct >= 80) return { bar: 'bg-good',    text: 'text-good'    }
@@ -26,8 +26,8 @@ export default function ProgressPage() {
 
   return (
     <div>
-      {/* Page header */}
-      <div className="flex items-center gap-3 mb-6">
+      {/* Back button */}
+      <div className="mb-4">
         <button
           onClick={() => navigate(-1)}
           className="w-9 h-9 rounded-full flex items-center justify-center
@@ -35,11 +35,8 @@ export default function ProgressPage() {
         >
           <ArrowLeft size={18} />
         </button>
-        <div className="flex items-center gap-2.5">
-          <TrendingUp size={20} className="text-accent" />
-          <h1 className="text-xl font-bold text-ink">My Progress</h1>
-        </div>
       </div>
+      <PageHeader title="My Progress" />
 
       {/* Loading */}
       {loading && (
@@ -66,7 +63,7 @@ export default function ProgressPage() {
           {/* Stats row */}
           <div className="grid grid-cols-2 gap-3">
             <Card padding="md" className="text-center py-5">
-              <p className="text-3xl font-bold text-accent">{data.total_attempts}</p>
+              <p className="text-3xl font-bold text-brand-teal">{data.total_attempts}</p>
               <p className="text-xs text-ink-3 mt-1.5 font-medium">Total Attempts</p>
             </Card>
             <Card padding="md" className="text-center py-5">

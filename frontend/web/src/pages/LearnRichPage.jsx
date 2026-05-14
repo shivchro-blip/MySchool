@@ -3,9 +3,11 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { api } from '../api/client'
 import practiceRegistry from '../content/practiceRegistry'
 import { Breadcrumb } from '../components/nav'
+import PageTitle from '../components/ui/PageTitle'
+import Eyebrow from '../components/ui/Eyebrow'
 import ChapterPracticeExam from './ChapterPracticeExam'
 import AttemptHistorySection from './syllabus/sections/AttemptHistorySection'
-import { resolveTabIcon, stripTabLabel } from '../utils/resolveTabIcon'
+import { stripTabLabel } from '../utils/resolveTabIcon'
 import { buildBreadcrumbs } from '../lib/nav'
 import { SYLLABUS } from '../data/syllabus'
 
@@ -55,7 +57,7 @@ function adaptAllQuestions(practiceData) {
 }
 
 const STAT_COLOR = {
-  Education:       '#1D9E75',
+  Education:       'var(--brand-teal)',
   Career:          '#EF9F27',
   Awards:          '#8B5CF6',
   'Notable works': '#085041',
@@ -90,12 +92,7 @@ function Block({ block, switchTab, chapterSlug, navigate, practiceUrl }) {
           className="px-4 py-3.5 my-4 rounded-xl"
           style={{ background: 'var(--accent-soft)' }}
         >
-          <p
-            className="text-[11px] font-bold tracking-[0.12em] uppercase mb-2"
-            style={{ color: 'var(--accent)' }}
-          >
-            {block.label}
-          </p>
+          <Eyebrow style={{ color: 'var(--accent)', marginBottom: 8 }}>{block.label}</Eyebrow>
           <p className="text-[13px] text-ink-2 leading-[1.85]">{block.text}</p>
         </div>
       )
@@ -120,12 +117,7 @@ function Block({ block, switchTab, chapterSlug, navigate, practiceUrl }) {
           className="px-4 py-3 mb-2.5 rounded-xl"
           style={{ background: color + '1e' }}
         >
-          <p
-            className="text-[11px] font-bold tracking-[0.1em] uppercase mb-1.5"
-            style={{ color }}
-          >
-            {block.label}
-          </p>
+          <Eyebrow style={{ color, marginBottom: 6 }}>{block.label}</Eyebrow>
           <p className="text-[13px] text-ink-2 leading-[1.7]">{block.value}</p>
         </div>
       )
@@ -134,9 +126,7 @@ function Block({ block, switchTab, chapterSlug, navigate, practiceUrl }) {
     case 'device-block':
       return (
         <div className="bg-bg-2 border border-line rounded-xl px-4 py-3.5 mb-3">
-          <p className="text-[11px] font-bold tracking-widest uppercase text-ink-4 mb-1.5">
-            {block.kind}
-          </p>
+          <Eyebrow style={{ color: 'var(--ink-4)', marginBottom: 6 }}>{block.kind}</Eyebrow>
           <p
             className="text-[13px] italic mb-2 leading-relaxed"
             style={{ color: 'var(--accent)' }}
@@ -256,7 +246,7 @@ function AskAIPanel({ chapterSlug }) {
   }
 
   return (
-    <div className="max-w-[660px]">
+    <div className="max-w-[680px] mx-auto">
       <div className="bg-bg-2 border border-line rounded-2xl p-4">
         <div
           ref={listRef}
@@ -266,9 +256,7 @@ function AskAIPanel({ chapterSlug }) {
           {messages.map((msg, i) => (
             <div key={i} className={`flex flex-col ${msg.role === 'user' ? 'items-end' : 'items-start'}`}>
               {msg.role === 'ai' && (
-                <p className="text-[11px] font-bold uppercase tracking-[0.1em] mb-1" style={{ color: 'var(--accent)' }}>
-                  AI TUTOR
-                </p>
+                <Eyebrow style={{ color: 'var(--accent)', marginBottom: 4 }}>AI TUTOR</Eyebrow>
               )}
               <div
                 className="max-w-[82%] text-[13px] leading-relaxed px-3.5 py-2.5"
@@ -428,12 +416,7 @@ export default function LearnRichPage({ content, chapterSlug }) {
       {/* Chapter header — white card */}
       <div className="bg-bg-2 border border-line rounded-2xl px-6 pt-5 pb-5 mb-5">
         <Breadcrumb crumbs={crumbs} />
-        <h1
-          className="font-serif text-[26px] font-bold leading-tight mb-1.5"
-          style={{ color: 'var(--ink)' }}
-        >
-          {content.title}
-        </h1>
+        <PageTitle className="mb-1.5">{content.title}</PageTitle>
         <p className="text-sm font-semibold mb-4" style={{ color: 'var(--ink-2)' }}>
           {content.author}
         </p>
@@ -450,36 +433,23 @@ export default function LearnRichPage({ content, chapterSlug }) {
         </div>
       </div>
 
-      {/* Tab row — pill style, scrollable */}
+      {/* Tab row — scrollable */}
       <div className="scroll-strip mb-1">
         {visibleTabs.map(tab => {
           const isActive = activeTab === tab.id
           const cleanLabel = stripTabLabel(tab.label)
-          const icon = resolveTabIcon(tab.label, contentType)
           return (
             <button
               key={tab.id}
               ref={isActive ? activeTabRef : null}
               onClick={() => switchTab(tab.id)}
-              className="shrink-0 whitespace-nowrap text-[13px] font-medium rounded-pill transition-all duration-[120ms] outline-none"
-              style={
-                isActive
-                  ? {
-                      padding: '7px 16px',
-                      background: 'var(--accent)',
-                      color: '#fff',
-                      border: 'none',
-                      boxShadow: '0 2px 8px rgba(27,75,130,.22)',
-                    }
-                  : {
-                      padding: '7px 16px',
-                      background: 'var(--bg)',
-                      color: 'var(--ink)',
-                      border: '1.5px solid var(--line)',
-                    }
-              }
+              className={`shrink-0 whitespace-nowrap px-3 py-2 rounded-[8px] text-[14px] transition-colors duration-[120ms] outline-none focus-visible:ring-2 focus-visible:ring-[rgba(42,123,111,0.30)] focus-visible:ring-offset-1
+                ${isActive
+                  ? 'bg-brand-teal text-white font-semibold shadow-[0_2px_8px_rgba(42,123,111,0.22)]'
+                  : 'bg-transparent text-text-muted font-medium hover:bg-brand-teal-soft hover:text-brand-teal'
+                }`}
             >
-              {icon && <span className="mr-1">{icon}</span>}{cleanLabel}
+              {cleanLabel}
             </button>
           )
         })}
@@ -493,13 +463,13 @@ export default function LearnRichPage({ content, chapterSlug }) {
           chapterSlug={chapterSlug}
         />
       ) : panel?.type === 'attempt-history' ? (
-        <div className="max-w-[660px]">
+        <div className="max-w-[680px] mx-auto">
           <AttemptHistorySection lessonSlug={lesson || chapterSlug} />
         </div>
       ) : panel?.type === 'askai' ? (
         <AskAIPanel chapterSlug={chapterSlug} />
       ) : (
-        <div className="max-w-[660px]">
+        <div className="max-w-[680px] mx-auto">
           {panel?.blocks?.map((block, i) => (
             <Block
               key={i}

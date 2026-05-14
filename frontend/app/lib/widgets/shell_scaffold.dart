@@ -67,18 +67,31 @@ class _ShellScaffoldState extends State<ShellScaffold> {
                 final i      = e.key;
                 final tab    = e.value;
                 final active = i == idx;
+                final pillColor = AppTheme.brandLightOf(context);
                 return Expanded(
                   child: InkWell(
-                    onTap: i != idx ? () => context.go(tab.path) : null,
+                    onTap:          i != idx ? () => context.go(tab.path) : null,
+                    splashColor:    pillColor,
+                    highlightColor: pillColor.withValues(alpha: 0.5),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(
-                          active ? tab.activeIcon : tab.icon,
-                          size:  22,
-                          color: active ? AppTheme.brand : AppTheme.textMutedOf(context),
+                        Container(
+                          width:  40,
+                          height: 28,
+                          decoration: active ? BoxDecoration(
+                            color:        pillColor,
+                            borderRadius: BorderRadius.circular(14),
+                          ) : null,
+                          child: Center(
+                            child: Icon(
+                              active ? tab.activeIcon : tab.icon,
+                              size:  22,
+                              color: active ? AppTheme.brand : AppTheme.textMutedOf(context),
+                            ),
+                          ),
                         ),
-                        const SizedBox(height: 3),
+                        const SizedBox(height: 4),
                         Text(
                           tab.label,
                           style: TextStyle(

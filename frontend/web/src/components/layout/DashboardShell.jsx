@@ -10,7 +10,7 @@ const TEAL = '#2A7B6F'
 
 const BOTTOM_TABS = [
   { id: 'dashboard',   label: 'Home',     icon: LayoutGrid, to: '/'            },
-  { id: 'courses',     label: 'Courses',  icon: BookOpen,   to: '/plus1'       },
+  { id: 'courses',     label: 'Courses',  icon: BookOpen,   to: '/courses'     },
   { id: 'progress',    label: 'Progress', icon: TrendingUp, to: '/progress'    },
   { id: 'certificate', label: 'Certs',    icon: Award,      to: '/certificate' },
 ]
