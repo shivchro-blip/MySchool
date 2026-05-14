@@ -41,23 +41,3 @@ async def call_llm_direct(
         )
 
 
-async def call_llm(
-    messages: list[dict],
-    prompt_type: str,
-    cache_key_content: str,
-    user_id: str | None = None,
-    force_openrouter: bool = False,
-    temperature: float = 0.3,
-    max_tokens: int = 1024,
-) -> tuple[str, str, bool]:
-    """Compatibility shim. Use AIGate instead."""
-    from core.ai_gate import AIGate
-    gate = AIGate()
-    return await gate.call(
-        messages=messages,
-        prompt_type=prompt_type,
-        cache_key_content=cache_key_content,
-        user_id=user_id,
-        temperature=temperature,
-        max_tokens=max_tokens,
-    )

@@ -1,8 +1,7 @@
-import json
-import re
 from uuid import UUID
 
 from core.ai_gate import AIGate
+from core.llm_response import parse_llm_json
 from db.repositories import SyllabusRepository
 from modules.content_pipeline.embedder import search_similar
 from models.learning import ExplainRequest, ExplainResponse
@@ -114,12 +113,11 @@ async def explain_topic(
 
 
 def _parse_explain_response(raw: str) -> dict:
-    cleaned = re.sub(r"```(?:json)?\s*", "", raw).strip().rstrip("```").strip()
-    try:
-        return json.loads(cleaned)
-    except json.JSONDecodeError:
+    parsed, _ = parse_llm_json(raw)
+    if parsed is None:
         console.print("[yellow]JSON parse failed — using raw response[/yellow]")
         return {"explanation": raw, "key_points": [], "exam_tip": ""}
+    return parsed
 
 
 async def _translate_to_tamil(

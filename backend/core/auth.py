@@ -4,9 +4,10 @@ from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 bearer_scheme = HTTPBearer(auto_error=False)
 
 
-async def get_current_user(
-    credentials: HTTPAuthorizationCredentials | None = Depends(bearer_scheme),
-) -> dict:
+async def _resolve_user(
+    credentials: HTTPAuthorizationCredentials | None,
+):
+    """Validate bearer token against Supabase. Returns user object or raises 401."""
     if not credentials:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
@@ -15,13 +16,13 @@ async def get_current_user(
     from db.client import get_db
     db = get_db()
     try:
-        user = db.auth.get_user(credentials.credentials)
-        if not user or not user.user:
+        result = db.auth.get_user(credentials.credentials)
+        if not result or not result.user:
             raise HTTPException(
                 status_code=status.HTTP_401_UNAUTHORIZED,
                 detail="Invalid or expired token",
             )
-        return {"id": str(user.user.id), "email": user.user.email}
+        return result.user
     except HTTPException:
         raise
     except Exception:
@@ -29,6 +30,13 @@ async def get_current_user(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Invalid or expired token",
         )
+
+
+async def get_current_user(
+    credentials: HTTPAuthorizationCredentials | None = Depends(bearer_scheme),
+) -> dict:
+    user = await _resolve_user(credentials)
+    return {"id": str(user.id), "email": user.email}
 
 
 async def get_optional_user(

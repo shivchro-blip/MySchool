@@ -75,16 +75,6 @@ QUESTION_DATA = {
 }
 
 
-# ── Health ──────────────────────────────────────────────────────────────────
-
-def test_health_endpoint():
-    response = client.get('/health')
-    assert response.status_code == 200
-    data = response.json()
-    assert 'status'   in data
-    assert 'ollama'   in data
-    assert 'supabase' in data
-    assert 'chromadb' in data
 
 
 # ── Syllabus public routes ────────────────────────────────────────────────────

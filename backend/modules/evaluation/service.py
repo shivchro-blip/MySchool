@@ -29,8 +29,7 @@ from .prompts import (
     IMPROVE_USER_PROMPT,
 )
 from .rubric import format_answer_key, format_rubric, validate_awarded_marks
-import json
-import re
+from core.llm_response import parse_llm_json
 from rich.console import Console
 
 console = Console()
@@ -356,15 +355,8 @@ async def retry_evaluation(
 # ── Parser ────────────────────────────────────────────────────────────────────
 
 def _parse_evaluation_response(raw: str, max_marks: int) -> dict:
-    """
-    Parse JSON from AI evaluation response.
-    Handles markdown fences. Validates and clamps marks.
-    Internal — not exported.
-    """
-    cleaned = re.sub(r"```(?:json)?\s*", "", raw).strip().rstrip("```").strip()
-    try:
-        parsed = json.loads(cleaned)
-    except json.JSONDecodeError:
+    parsed, _ = parse_llm_json(raw)
+    if parsed is None:
         console.print("[yellow]Evaluation JSON parse failed[/yellow]")
         return {
             "marks_awarded":     0.0,
