@@ -46,6 +46,7 @@ class McqOption extends StatelessWidget {
   };
 
   Color _textColor(BuildContext ctx) => switch (state) {
+    OptionState.selected  => Colors.white,
     OptionState.correct   => AppTheme.successFgOf(ctx),
     OptionState.incorrect => AppTheme.errorFgOf(ctx),
     _                     => AppTheme.textOf(ctx),

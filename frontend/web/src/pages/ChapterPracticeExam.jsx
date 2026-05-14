@@ -114,10 +114,10 @@ function McqQuestion({ q, chosenIdx, onAnswer }) {
             <button
               key={i}
               onClick={() => onAnswer(q.id, i)}
-              className={`w-full text-left flex items-center gap-3 px-4 py-[14px] min-h-[56px] rounded-button border-[1.5px] text-[13px] text-text-primary transition-colors duration-150 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgba(42,123,111,0.30)] focus-visible:ring-offset-2
+              className={`w-full text-left flex items-center gap-3 px-4 py-[14px] min-h-[56px] rounded-button border-[1.5px] text-[13px] transition-colors duration-150 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgba(42,123,111,0.30)] focus-visible:ring-offset-2
                 ${chosen
-                  ? 'border-brand-teal bg-brand-teal-soft'
-                  : 'border-border-soft bg-bg-surface hover:border-[rgba(42,123,111,0.50)]'
+                  ? 'border-brand-teal bg-brand-teal-soft text-white'
+                  : 'border-border-soft bg-bg-surface text-text-primary hover:border-[rgba(42,123,111,0.50)]'
                 }`}
             >
               <span className={`inline-flex items-center justify-center w-7 h-7 rounded-full
