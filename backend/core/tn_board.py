@@ -65,7 +65,7 @@ MARK_LEVEL_GUIDANCE: dict[int, dict[str, str]] = {
     },
     5: {
         "label":           "Short Essay",
-        "description":     "3–4 developed points with elaboration.",
+        "description":     "3-4 developed points with elaboration.",
         "expected_length": "One paragraph (80–120 words)",
         "structure":       "Point 1 + Point 2 + Point 3 (+ optional Point 4)",
         "board_rule":      "Award marks per complete point. Partial points get half mark.",

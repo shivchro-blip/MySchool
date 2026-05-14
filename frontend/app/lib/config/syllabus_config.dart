@@ -163,6 +163,26 @@ class SyllabusConfig {
             contentType: 'supplementary'),
       ],
     ),
+    UnitConfig(
+      id: 6,
+      title: 'Unit 6',
+      color: Color(0xFFd45c6a),
+      light: Color(0xFFfdeaec),
+      lessons: [
+        UnitLesson(
+            slug: 'the-accidental-tourist',
+            title: 'The Accidental Tourist',
+            contentType: 'prose'),
+        UnitLesson(
+            slug: 'the-hollow-crown',
+            title: 'The Hollow Crown',
+            contentType: 'poem'),
+        UnitLesson(
+            slug: 'the-never-never-nest',
+            title: 'The Never Never Nest',
+            contentType: 'supplementary'),
+      ],
+    ),
   ];
 
   static const _plus2English = [

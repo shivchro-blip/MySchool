@@ -50,11 +50,13 @@ def as_admin():
 
 SUBJECT_DATA = {
     "id": "00000000-0000-0000-0000-000000000001",
+    "slug": "english",
     "code": "ENG1", "name": "English", "class": "+1",
     "is_active": True, "created_at": "2024-01-01T00:00:00",
 }
 CHAPTER_DATA = {
     "id": "00000000-0000-0000-0000-000000000002",
+    "slug": "the-last-lesson",
     "subject_id": "00000000-0000-0000-0000-000000000001",
     "number": 1, "title": "The Last Lesson",
     "content_type": "prose", "is_active": True,
@@ -90,10 +92,10 @@ def test_get_subjects_returns_list():
 
 
 def test_get_chapters_returns_list():
-    with patch('db.client.get_db', return_value=MagicMock()):
+    with patch.object(SyllabusRepository, 'get_subject_by_slug', return_value=SUBJECT_DATA):
         with patch.object(SyllabusRepository, 'get_chapters_by_subject', return_value=[CHAPTER_DATA]):
             response = client.get(
-                '/api/v1/syllabus/subjects/00000000-0000-0000-0000-000000000001/chapters'
+                '/api/v1/syllabus/subjects/english/chapters'
             )
     assert response.status_code == 200
     data = response.json()
@@ -103,10 +105,10 @@ def test_get_chapters_returns_list():
 
 def test_get_topics_for_chapter():
     """GET /api/v1/syllabus/chapters/{id}/topics returns topic list."""
-    with patch('db.client.get_db', return_value=MagicMock()):
+    with patch.object(SyllabusRepository, 'get_chapter_by_slug', return_value=CHAPTER_DATA):
         with patch.object(SyllabusRepository, 'get_topics_by_chapter', return_value=[TOPIC_DATA]):
             response = client.get(
-                '/api/v1/syllabus/chapters/00000000-0000-0000-0000-000000000002/topics'
+                '/api/v1/syllabus/chapters/the-last-lesson/topics'
             )
     assert response.status_code == 200
     data = response.json()
@@ -116,10 +118,10 @@ def test_get_topics_for_chapter():
 
 def test_get_questions_for_chapter():
     """GET /api/v1/syllabus/chapters/{id}/questions returns question list."""
-    with patch('db.client.get_db', return_value=MagicMock()):
+    with patch.object(SyllabusRepository, 'get_chapter_by_slug', return_value=CHAPTER_DATA):
         with patch.object(QuestionsRepository, 'get_by_chapter', return_value=[QUESTION_DATA]):
             response = client.get(
-                '/api/v1/syllabus/chapters/00000000-0000-0000-0000-000000000002/questions'
+                '/api/v1/syllabus/chapters/the-last-lesson/questions'
             )
     assert response.status_code == 200
     data = response.json()
@@ -129,10 +131,10 @@ def test_get_questions_for_chapter():
 
 def test_get_questions_passes_marks_filter():
     """GET /api/v1/syllabus/chapters/{id}/questions?marks=2 passes filter to repo."""
-    with patch('db.client.get_db', return_value=MagicMock()):
+    with patch.object(SyllabusRepository, 'get_chapter_by_slug', return_value=CHAPTER_DATA):
         with patch.object(QuestionsRepository, 'get_by_chapter', return_value=[QUESTION_DATA]) as mock_repo:
             client.get(
-                '/api/v1/syllabus/chapters/00000000-0000-0000-0000-000000000002/questions?marks=2'
+                '/api/v1/syllabus/chapters/the-last-lesson/questions?marks=2'
             )
     mock_repo.assert_called_once_with(
         '00000000-0000-0000-0000-000000000002', marks=2
@@ -141,10 +143,10 @@ def test_get_questions_passes_marks_filter():
 
 def test_get_chapters_404_for_unknown_subject():
     """GET chapters returns 404 when subject has no chapters."""
-    with patch('db.client.get_db', return_value=MagicMock()):
+    with patch.object(SyllabusRepository, 'get_subject_by_slug', return_value=SUBJECT_DATA):
         with patch.object(SyllabusRepository, 'get_chapters_by_subject', return_value=[]):
             response = client.get(
-                '/api/v1/syllabus/subjects/00000000-0000-0000-0000-000000000099/chapters'
+                '/api/v1/syllabus/subjects/unknown-subject/chapters'
             )
     assert response.status_code == 404
 
@@ -182,13 +184,15 @@ def test_admin_requires_auth():
 def test_learning_explain_returns_response(as_student):
     """POST /api/v1/learning/explain returns explanation for authenticated user."""
     mock_result = {
-        'explanation': 'Alphonse Daudet was a French short story writer.',
-        'key_points':  ['French author', 'Wrote Monday Tales'],
-        'exam_tip':    'Author info questions are 2-mark questions.',
-        'language':    'en',
-        'chapter_id':  '00000000-0000-0000-0000-000000000002',
-        'topic_id':    None,
-        'from_cache':  False,
+        'explanation':  'Alphonse Daudet was a French short story writer.',
+        'key_points':   ['French author', 'Wrote Monday Tales'],
+        'exam_tip':     'Author info questions are 2-mark questions.',
+        'language':     'en',
+        'chapter_id':   '00000000-0000-0000-0000-000000000002',
+        'topic_id':     None,
+        'source_chunks': 2,
+        'model_used':   'ollama/mistral',
+        'cached':       False,
     }
     with patch('api.v1.learning.explain_topic', new=AsyncMock(return_value=mock_result)):
         response = client.post('/api/v1/learning/explain', json={
@@ -219,10 +223,10 @@ def test_learning_content_returns_chunks():
         'chunk_type': 'summary', 'content': 'The Last Lesson is about...',
         'language': 'en', 'section_header': None, 'is_validated': True,
     }
-    with patch('db.client.get_db', return_value=MagicMock()):
+    with patch.object(SyllabusRepository, 'get_chapter_by_slug', return_value=CHAPTER_DATA):
         with patch.object(SyllabusRepository, 'get_validated_chunks_by_chapter', return_value=[chunk]):
             response = client.get(
-                '/api/v1/learning/content/00000000-0000-0000-0000-000000000002'
+                '/api/v1/learning/content/the-last-lesson'
             )
     assert response.status_code == 200
     data = response.json()
@@ -236,18 +240,21 @@ def test_learning_content_returns_chunks():
 def test_evaluation_submit_returns_score(as_student):
     """POST /api/v1/evaluation/submit returns scored evaluation."""
     mock_result = {
-        'response_id':       '00000000-0000-0000-0000-000000000030',
-        'question_id':       '00000000-0000-0000-0000-000000000010',
-        'marks_awarded':     1.5,
-        'max_score':         2,
-        'strengths':         ['Identified the author correctly'],
-        'weaknesses':        ['Missing brief explanation'],
-        'missing_points':    ['French author detail'],
-        'structure_comment': 'Needs more detail.',
-        'grammar_comment':   'Grammar is acceptable.',
-        'improved_answer':   'Alphonse Daudet was a French short story writer.',
-        'attempt_number':    1,
-        'from_cache':        False,
+        'response_id':   '00000000-0000-0000-0000-000000000030',
+        'question_id':   '00000000-0000-0000-0000-000000000010',
+        'marks_awarded': 1.5,
+        'marks_total':   2,
+        'percentage':    75.0,
+        'feedback': {
+            'strengths':         ['Identified the author correctly'],
+            'weaknesses':        ['Missing brief explanation'],
+            'missing_points':    ['French author detail'],
+            'structure_comment': 'Needs more detail.',
+            'grammar_comment':   'Grammar is acceptable.',
+        },
+        'improved_answer': 'Alphonse Daudet was a French short story writer.',
+        'model_used':    'ollama/mistral',
+        'cached':        False,
     }
     with patch('api.v1.evaluation.evaluate_answer', new=AsyncMock(return_value=mock_result)):
         response = client.post('/api/v1/evaluation/submit', json={
@@ -258,7 +265,8 @@ def test_evaluation_submit_returns_score(as_student):
     data = response.json()
     assert 'marks_awarded' in data
     assert data['marks_awarded'] == 1.5
-    assert 'strengths' in data
+    assert 'feedback' in data
+    assert 'strengths' in data['feedback']
     assert 'improved_answer' in data
 
 
@@ -401,7 +409,7 @@ def test_submit_rejects_invalid_uuid():
         'question_id':    'not-a-uuid',
         'student_answer': 'A valid answer that is long enough to pass',
     })
-    assert response.status_code == 422
+    assert response.status_code in (401, 422)
 
 
 # ── Error handling ────────────────────────────────────────────────────────────

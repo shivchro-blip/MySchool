@@ -37,3 +37,6 @@ Thumbs.db
 
 source/textbooks/*.pdf
 tmp/
+
+# Graphify analysis output (never commit)
+graphify-out/

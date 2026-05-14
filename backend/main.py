@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Response
 from fastapi.middleware.cors import CORSMiddleware
 
 from config import settings
@@ -32,7 +32,7 @@ app.include_router(api_router)
 
 
 @app.get("/health", response_model=HealthResponse, tags=["Health"])
-async def health_check():
+async def health_check(response: Response):
     ollama_status = "unknown"
     supabase_status = "unknown"
     chroma_status = "unknown"
@@ -60,8 +60,14 @@ async def health_check():
     except Exception:
         chroma_status = "unavailable"
 
+    any_down = any(
+        s in ("unavailable", "error")
+        for s in [ollama_status, supabase_status, chroma_status]
+    )
+    if any_down:
+        response.status_code = 503
     return HealthResponse(
-        status="ok",
+        status="degraded" if any_down else "ok",
         env=settings.app_env,
         ollama=ollama_status,
         supabase=supabase_status,
