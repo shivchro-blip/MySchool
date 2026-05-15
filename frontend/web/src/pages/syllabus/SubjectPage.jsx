@@ -9,6 +9,7 @@ import { buildBreadcrumbs } from '../../lib/nav'
 import { Card, PageHeader } from '../../components/ui'
 import { Breadcrumb } from '../../components/nav'
 import NotFound from './NotFound'
+import FinalExamPrepEntryCard from './FinalExamPrepEntryCard'
 
 const UNIT_STYLE = { color: '#1B4B82', light: 'var(--accent-soft)' }
 
@@ -211,6 +212,12 @@ export default function SubjectPage() {
           title={subjectData.label}
           subtitle="Select a unit to explore its lessons"
         />
+
+        {year === 'plus1' && subject === 'english' && (
+          <div className="max-w-[680px]">
+            <FinalExamPrepEntryCard />
+          </div>
+        )}
 
         <div className="flex flex-col gap-3 max-w-[680px]">
           {subjectData.units.map(unit => (

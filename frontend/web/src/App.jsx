@@ -25,6 +25,7 @@ import LessonDetailPage         from './pages/syllabus/LessonDetailPage'
 import SectionPage              from './pages/syllabus/SectionPage'
 import NotFound                 from './pages/syllabus/NotFound'
 import ChapterPracticeExamPage  from './pages/ChapterPracticeExamPage'
+import FinalExamPrepPage        from './pages/syllabus/FinalExamPrepPage'
 
 function Guard({ children }) {
   const location = useLocation()
@@ -147,6 +148,11 @@ export default function App() {
         <Route path="/:year/:subject" element={
           <DashShell>
             <CourseContent><SubjectPage /></CourseContent>
+          </DashShell>
+        } />
+        <Route path="/plus1/english/final-exam-prep" element={
+          <DashShell>
+            <CourseContent><FinalExamPrepPage /></CourseContent>
           </DashShell>
         } />
         <Route path="/:year/:subject/:category" element={
