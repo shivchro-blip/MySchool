@@ -26,6 +26,7 @@ import SectionPage              from './pages/syllabus/SectionPage'
 import NotFound                 from './pages/syllabus/NotFound'
 import ChapterPracticeExamPage  from './pages/ChapterPracticeExamPage'
 import FinalExamPrepPage        from './pages/syllabus/FinalExamPrepPage'
+import ExamPaperViewerPage      from './pages/ExamPaperViewerPage'
 
 function Guard({ children }) {
   const location = useLocation()
@@ -154,6 +155,9 @@ export default function App() {
           <DashShell>
             <CourseContent><FinalExamPrepPage /></CourseContent>
           </DashShell>
+        } />
+        <Route path="/plus1/english/final-exam-prep/paper/:paperId" element={
+          <DashShell><ExamPaperViewerPage /></DashShell>
         } />
         <Route path="/:year/:subject/:category" element={
           <DashShell>

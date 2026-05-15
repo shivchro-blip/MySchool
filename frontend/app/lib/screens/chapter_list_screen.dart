@@ -5,6 +5,7 @@ import '../config/syllabus_config.dart';
 import '../models/syllabus_model.dart';
 import '../services/syllabus_service.dart';
 import '../widgets/error_view.dart';
+import '../widgets/final_exam_prep_entry_card.dart';
 
 class ChapterListScreen extends StatefulWidget {
   final String   classLevel;
@@ -97,6 +98,13 @@ class _ChapterListScreenState extends State<ChapterListScreen> {
     return ListView(
       padding: const EdgeInsets.fromLTRB(16, 16, 16, 32),
       children: [
+        if (widget.classLevel == '+1' && widget.subjectSlug == 'english') ...[
+          FinalExamPrepEntryCard(
+            classLevel:  widget.classLevel,
+            subjectSlug: widget.subjectSlug,
+          ),
+          const SizedBox(height: 16),
+        ],
         Text(
           '${_units!.length} Units · ${_chapters.length} Lessons',
           style: TextStyle(fontSize: 12, color: AppTheme.textMutedOf(context)),

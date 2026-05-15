@@ -1,8 +1,10 @@
 import { FileText, Pencil, ChevronRight } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
 import { Card } from '../../components/ui'
 import { finalExamPrepPapers } from '../../data/finalExamPrepData'
 
 export default function ExamPaperListCard() {
+  const navigate = useNavigate()
   return (
     <Card padding="none" className="overflow-hidden shadow-card">
       <div className="flex items-center gap-3 px-5 py-4 border-b border-line-soft">
@@ -27,7 +29,7 @@ export default function ExamPaperListCard() {
 
           <div className="flex gap-1.5 shrink-0">
             <button
-              onClick={() => console.log('TODO: view paper', paper.id)}
+              onClick={() => navigate(`/plus1/english/final-exam-prep/paper/${paper.id}`)}
               className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-button text-[11px] font-semibold text-brand-teal border border-brand-teal bg-bg-2 hover:bg-brand-teal-soft transition-colors duration-fast"
             >
               <FileText size={12} strokeWidth={1.8} />

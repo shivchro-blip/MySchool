@@ -15,6 +15,8 @@ import 'screens/chapter_detail_screen.dart';
 import 'screens/learn_screen.dart';
 import 'screens/rich_learn_screen.dart';
 import 'screens/exam_practice_screen.dart';
+import 'screens/final_exam_prep_screen.dart';
+import 'screens/exam_paper_viewer_screen.dart';
 import 'screens/progress_screen.dart';
 import 'screens/settings_screen.dart';
 import 'screens/privacy_screen.dart';
@@ -82,6 +84,23 @@ final router = GoRouter(
                     subject:     state.extra as Subject?,
                   ),
                   routes: [
+                    GoRoute(
+                      path: 'final-exam-prep',
+                      builder: (_, state) => FinalExamPrepScreen(
+                        classLevel:  state.pathParameters['classLevel']!,
+                        subjectSlug: state.pathParameters['subjectSlug']!,
+                      ),
+                      routes: [
+                        GoRoute(
+                          path: 'paper/:paperId',
+                          builder: (_, state) => ExamPaperViewerScreen(
+                            paperId:     state.pathParameters['paperId']!,
+                            classLevel:  state.pathParameters['classLevel']!,
+                            subjectSlug: state.pathParameters['subjectSlug']!,
+                          ),
+                        ),
+                      ],
+                    ),
                     GoRoute(
                       path: ':chapterSlug',
                       builder: (_, state) => ChapterDetailScreen(
