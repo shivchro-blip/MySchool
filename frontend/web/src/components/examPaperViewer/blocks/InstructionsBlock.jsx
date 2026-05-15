@@ -1,6 +1,6 @@
 export default function InstructionsBlock({ block }) {
   return (
-    <p className="text-xs italic text-ink-2 pl-3 border-l-2 border-ink-4/30 my-3 whitespace-pre-line">
+    <p className="text-[14px] italic text-ink-2 pl-[14px] border-l-[3px] border-[#e0e0e0] my-3 leading-[1.8] whitespace-pre-line">
       {block.content}
     </p>
   )

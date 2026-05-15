@@ -1,23 +1,22 @@
 export default function MultiSubquestionBlock({ block }) {
   return (
-    <div className="my-3">
-      <div className="flex justify-between items-start gap-2">
-        <p className="text-[11px] font-semibold text-ink-2 uppercase tracking-wide shrink-0">
+    <div className="my-4">
+      <div className="flex justify-between items-start gap-3">
+        <span className="text-[13px] font-bold text-brand-teal shrink-0">
           {block.questionId?.toUpperCase()}
-        </p>
-        <span className="text-[10px] text-ink-4 font-medium shrink-0 mt-0.5">
-          [{block.marks} marks]
+        </span>
+        <span className="text-[11px] bg-[#F1F5F9] text-ink-2 px-2 py-0.5 rounded-full shrink-0 mt-0.5 whitespace-nowrap">
+          {block.marks} {block.marks === 1 ? 'mark' : 'marks'}
         </span>
       </div>
       {block.content && (
-        <p className="text-[11px] text-ink leading-relaxed mt-1">{block.content}</p>
+        <p className="text-[16px] text-ink leading-[1.85] mt-2 whitespace-pre-line">{block.content}</p>
       )}
-      <div className="mt-2 pl-4 space-y-2">
+      <div className="mt-3 pl-4 space-y-3">
         {(block.subQuestions ?? []).map((sq) => (
-          <div key={sq.id} className="flex justify-between items-start gap-2">
-            <p className="text-[11px] text-ink leading-relaxed">
-              <span className="font-semibold">{sq.label}</span> {sq.content}
-            </p>
+          <div key={sq.id} className="flex items-start gap-2">
+            <span className="text-[13px] font-bold text-brand-teal shrink-0">{sq.label}</span>
+            <p className="text-[16px] text-ink leading-[1.85] whitespace-pre-line">{sq.content}</p>
           </div>
         ))}
       </div>

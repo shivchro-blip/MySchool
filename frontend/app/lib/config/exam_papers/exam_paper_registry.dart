@@ -1,8 +1,8 @@
 import '../../models/exam_paper_model.dart';
-import 'eng11_english_2025_annual.dart';
+import 'class11_english_2025_annual.dart';
 
 const _papers = <ExamPaperData>[
-  eng11English2025Annual,
+  class11English2025Annual,
 ];
 
 ExamPaperData? getExamPaperById(String paperId) {

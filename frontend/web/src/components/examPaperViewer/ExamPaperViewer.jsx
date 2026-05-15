@@ -34,28 +34,46 @@ export default function ExamPaperViewer({ paperId, backPath }) {
 
   if (!paper) return <PaperNotFound />
 
-  const spreads = buildSpreads(paper.totalPages)
+  const spreads       = buildSpreads(paper.totalPages)
   const currentSpread = spreads[spreadIndex]
+  const isTwoPage     = currentSpread.length === 2
 
   return (
-    <div>
+    <div className="px-4 sm:px-10 max-w-[1200px] mx-auto">
       <ViewerHeader paper={paper} backPath={backPath} />
 
-      {/* Booklet spread */}
-      <div className="flex justify-center gap-6 overflow-x-auto pb-2">
-        {currentSpread.map((pageNum) => {
-          const page = paper.pages[pageNum - 1]
-          const isLast = pageNum === paper.totalPages
-          return (
-            <PageSurface
-              key={pageNum}
-              page={page}
-              isLast={isLast}
-              onStartPractice={() => console.log('TODO: Start Practice')}
-            />
-          )
-        })}
-      </div>
+      {isTwoPage ? (
+        <div className="flex flex-col xl:flex-row gap-6 w-full">
+          {currentSpread.map((pageNum) => {
+            const page   = paper.pages[pageNum - 1]
+            const isLast = pageNum === paper.totalPages
+            return (
+              <PageSurface
+                key={pageNum}
+                page={page}
+                isLast={isLast}
+                inSpread
+                onStartPractice={() => console.log('TODO: Start Practice')}
+              />
+            )
+          })}
+        </div>
+      ) : (
+        <div className="max-w-[860px] mx-auto w-full">
+          {currentSpread.map((pageNum) => {
+            const page   = paper.pages[pageNum - 1]
+            const isLast = pageNum === paper.totalPages
+            return (
+              <PageSurface
+                key={pageNum}
+                page={page}
+                isLast={isLast}
+                onStartPractice={() => console.log('TODO: Start Practice')}
+              />
+            )
+          })}
+        </div>
+      )}
 
       <ViewerNavControls
         spreads={spreads}

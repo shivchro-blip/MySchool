@@ -4,7 +4,7 @@ import ExamPaperViewer from '../components/examPaperViewer/ExamPaperViewer'
 export default function ExamPaperViewerPage() {
   const { paperId } = useParams()
   return (
-    <div className="px-4 py-6 lg:py-8">
+    <div className="py-8">
       <ExamPaperViewer
         paperId={paperId}
         backPath="/plus1/english/final-exam-prep"

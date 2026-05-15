@@ -1,7 +1,7 @@
-import { eng11English2025Annual } from './eng11English2025Annual'
+import { class11English2025Annual } from './class11English2025Annual'
 
 const registry = [
-  eng11English2025Annual,
+  class11English2025Annual,
 ]
 
 export function getPaperById(paperId) {

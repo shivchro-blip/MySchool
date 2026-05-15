@@ -1,6 +1,6 @@
 export default function FooterNoteBlock({ block }) {
   return (
-    <p className="text-[10px] text-ink-4 italic text-center mt-4 pt-2 border-t border-ink-4/20">
+    <p className="text-[13px] text-ink-4 italic text-center mt-10 pt-4 border-t border-[#E8E4DC]">
       {block.content}
     </p>
   )
