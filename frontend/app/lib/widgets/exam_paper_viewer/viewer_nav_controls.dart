@@ -1,83 +1,143 @@
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import '../../config/theme.dart';
 
 class ViewerNavControls extends StatelessWidget {
-  final int currentPage;
-  final int totalPages;
-  final VoidCallback? onPrev;
-  final VoidCallback? onNext;
+  final String pageLabel;
+  final bool isFirst;
+  final bool isLast;
+  final VoidCallback onFirst;
+  final VoidCallback onPrev;
+  final VoidCallback onNext;
+  final VoidCallback onLast;
+  final double zoomLevel;
+  final VoidCallback onZoomIn;
+  final VoidCallback onZoomOut;
+  final VoidCallback onOpenThumbnails;
 
   const ViewerNavControls({
     super.key,
-    required this.currentPage,
-    required this.totalPages,
-    this.onPrev,
-    this.onNext,
+    required this.pageLabel,
+    required this.isFirst,
+    required this.isLast,
+    required this.onFirst,
+    required this.onPrev,
+    required this.onNext,
+    required this.onLast,
+    required this.zoomLevel,
+    required this.onZoomIn,
+    required this.onZoomOut,
+    required this.onOpenThumbnails,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-      decoration: BoxDecoration(
-        color: AppTheme.cardOf(context),
-        border: Border(top: BorderSide(color: AppTheme.borderOf(context))),
-      ),
-      child: Row(
-        children: [
-          _NavButton(
-            label: '← Previous',
-            enabled: currentPage > 1,
-            onTap: onPrev,
-          ),
-          Expanded(
-            child: Text(
-              'Page $currentPage of $totalPages',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.w500,
-                color: AppTheme.text2Of(context),
+    final zoomPct = '${(zoomLevel * 100).round()}%';
+
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(AppTheme.radiusPill),
+      child: BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: 16, sigmaY: 16),
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+          decoration: BoxDecoration(
+            color: const Color(0xFF1C1C1C).withValues(alpha: 0.72),
+            borderRadius: BorderRadius.circular(AppTheme.radiusPill),
+            border: Border.all(color: Colors.white.withValues(alpha: 0.12)),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withValues(alpha: 0.5),
+                blurRadius: 24,
+                offset: const Offset(0, 4),
               ),
-            ),
+            ],
           ),
-          _NavButton(
-            label: 'Next →',
-            enabled: currentPage < totalPages,
-            onTap: onNext,
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              _PillBtn(icon: Icons.grid_view_rounded, onTap: onOpenThumbnails),
+              _Divider(),
+
+              _PillBtn(icon: Icons.first_page_rounded,    onTap: onFirst, disabled: isFirst),
+              _PillBtn(icon: Icons.chevron_left_rounded,  onTap: onPrev,  disabled: isFirst),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 6),
+                child: Text(
+                  pageLabel,
+                  style: const TextStyle(
+                    fontSize: 11,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white70,
+                  ),
+                ),
+              ),
+              _PillBtn(icon: Icons.chevron_right_rounded, onTap: onNext, disabled: isLast),
+              _PillBtn(icon: Icons.last_page_rounded,     onTap: onLast, disabled: isLast),
+              _Divider(),
+
+              _PillBtn(
+                icon: Icons.remove_rounded,
+                onTap: onZoomOut,
+                disabled: zoomLevel <= 0.5,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 4),
+                child: Text(
+                  zoomPct,
+                  style: const TextStyle(
+                    fontSize: 10,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white54,
+                  ),
+                ),
+              ),
+              _PillBtn(
+                icon: Icons.add_rounded,
+                onTap: onZoomIn,
+                disabled: zoomLevel >= 2.0,
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
 }
 
-class _NavButton extends StatelessWidget {
-  final String label;
-  final bool enabled;
-  final VoidCallback? onTap;
+class _PillBtn extends StatelessWidget {
+  final IconData icon;
+  final VoidCallback onTap;
+  final bool disabled;
 
-  const _NavButton({required this.label, required this.enabled, this.onTap});
+  const _PillBtn({required this.icon, required this.onTap, this.disabled = false});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 7),
-        decoration: BoxDecoration(
-          border: Border.all(color: AppTheme.borderOf(context)),
-          borderRadius: BorderRadius.circular(AppTheme.radiusButton),
-        ),
-        child: Text(
-          label,
-          style: TextStyle(
-            fontSize: 12,
-            fontWeight: FontWeight.w500,
-            color: enabled ? AppTheme.text2Of(context) : AppTheme.textMutedOf(context),
-          ),
+      onTap: disabled ? null : onTap,
+      child: SizedBox(
+        width: 32,
+        height: 32,
+        child: Icon(
+          icon,
+          size: 18,
+          color: disabled
+              ? Colors.white.withValues(alpha: 0.25)
+              : Colors.white.withValues(alpha: 0.80),
         ),
       ),
+    );
+  }
+}
+
+class _Divider extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 1,
+      height: 16,
+      margin: const EdgeInsets.symmetric(horizontal: 4),
+      color: Colors.white.withValues(alpha: 0.20),
     );
   }
 }

@@ -64,33 +64,40 @@ class ViewerHeader extends StatelessWidget {
         ),
         const SizedBox(height: 12),
         Row(
+          mainAxisSize: MainAxisSize.min,
           children: [
-            OutlinedButton(
-              onPressed: () => context.go(backPath),
-              style: OutlinedButton.styleFrom(
-                side: BorderSide(color: AppTheme.borderOf(context)),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(AppTheme.radiusButton),
+            SizedBox(
+              width: 120,
+              child: OutlinedButton(
+                onPressed: () => context.go(backPath),
+                style: OutlinedButton.styleFrom(
+                  side: BorderSide(color: AppTheme.borderOf(context)),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(AppTheme.radiusButton),
+                  ),
+                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                 ),
-                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-              ),
-              child: Text(
-                '← Back',
-                style: TextStyle(fontSize: 12, color: AppTheme.text2Of(context)),
+                child: Text(
+                  '← Back',
+                  style: TextStyle(fontSize: 12, color: AppTheme.text2Of(context)),
+                ),
               ),
             ),
             const SizedBox(width: 8),
-            ElevatedButton(
-              onPressed: () => debugPrint('TODO: Start Practice'),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: AppTheme.brand,
-                foregroundColor: Colors.white,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(AppTheme.radiusButton),
+            SizedBox(
+              width: 140,
+              child: ElevatedButton(
+                onPressed: () => debugPrint('TODO: Start Practice'),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: AppTheme.brand,
+                  foregroundColor: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(AppTheme.radiusButton),
+                  ),
+                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                 ),
-                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                child: const Text('Start Practice', style: TextStyle(fontSize: 12)),
               ),
-              child: const Text('Start Practice', style: TextStyle(fontSize: 12)),
             ),
           ],
         ),

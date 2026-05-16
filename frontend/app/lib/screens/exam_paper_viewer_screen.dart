@@ -16,6 +16,7 @@ class ExamPaperViewerScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFF1C1C1C),
       body: ExamPaperViewer(
         paperId: paperId,
         classLevel: classLevel,
