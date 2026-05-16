@@ -13,6 +13,12 @@ class FinalExamPrepScreen extends StatelessWidget {
     required this.subjectSlug,
   });
 
+  List<ExamPaper> get _papers =>
+      classLevel == 'plus2' ? kPlus2EnglishExamPapers : kPlus1EnglishExamPapers;
+
+  List<PriorityLesson> get _lessons =>
+      classLevel == 'plus2' ? kPlus2EnglishPriorityLessons : kPlus1EnglishPriorityLessons;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,12 +49,12 @@ class FinalExamPrepScreen extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             _ExamPapersCard(
-              papers: kPlus1EnglishExamPapers,
+              papers: _papers,
               classLevel: classLevel,
               subjectSlug: subjectSlug,
             ),
             const SizedBox(height: 16),
-            const _PriorityLessonsCard(lessons: kPlus1EnglishPriorityLessons),
+            _PriorityLessonsCard(lessons: _lessons),
           ],
         ),
       ),

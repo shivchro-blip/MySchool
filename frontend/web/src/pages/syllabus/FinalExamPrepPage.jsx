@@ -4,10 +4,21 @@ import { PageHeader } from '../../components/ui'
 import { Breadcrumb } from '../../components/nav'
 import ExamPaperListCard from './ExamPaperListCard'
 import PriorityLessonsCard from './PriorityLessonsCard'
+import {
+  finalExamPrepPapers,
+  finalExamPrepPapersPlus2,
+  finalExamPrepPriorityLessons,
+  finalExamPrepPriorityLessonsPlus2,
+} from '../../data/finalExamPrepData'
 
-export default function FinalExamPrepPage() {
-  const subjectCrumbs = buildBreadcrumbs('plus1', 'english', null, null, null, SYLLABUS)
+const PAPERS_BY_CLASS  = { plus1: finalExamPrepPapers, plus2: finalExamPrepPapersPlus2 }
+const LESSONS_BY_CLASS = { plus1: finalExamPrepPriorityLessons, plus2: finalExamPrepPriorityLessonsPlus2 }
+
+export default function FinalExamPrepPage({ classLevel = 'plus1', subjectSlug = 'english' }) {
+  const subjectCrumbs = buildBreadcrumbs(classLevel, subjectSlug, null, null, null, SYLLABUS)
   const crumbs = [...subjectCrumbs, { label: 'Final Exam Prep', to: null }]
+  const papers  = PAPERS_BY_CLASS[classLevel]  ?? finalExamPrepPapers
+  const lessons = LESSONS_BY_CLASS[classLevel] ?? finalExamPrepPriorityLessons
 
   return (
     <div>
@@ -17,8 +28,8 @@ export default function FinalExamPrepPage() {
         subtitle="Prepare for the year-end English exam with past annual exam papers and high-priority lesson guidance."
       />
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 items-start">
-        <ExamPaperListCard />
-        <PriorityLessonsCard />
+        <ExamPaperListCard papers={papers} basePath={`/${classLevel}/${subjectSlug}`} />
+        <PriorityLessonsCard lessons={lessons} />
       </div>
     </div>
   )

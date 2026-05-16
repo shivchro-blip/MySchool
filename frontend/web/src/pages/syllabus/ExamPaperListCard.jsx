@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom'
 import { Card } from '../../components/ui'
 import { finalExamPrepPapers } from '../../data/finalExamPrepData'
 
-export default function ExamPaperListCard() {
+export default function ExamPaperListCard({ papers: papersProp, basePath = '/plus1/english' }) {
+  const papers = papersProp ?? finalExamPrepPapers
   const navigate = useNavigate()
   return (
     <Card padding="none" className="overflow-hidden shadow-card">
@@ -14,7 +15,7 @@ export default function ExamPaperListCard() {
         <p className="text-sm font-bold text-ink">Past Annual Exam Papers</p>
       </div>
 
-      {finalExamPrepPapers.map((paper, i) => (
+      {papers.map((paper, i) => (
         <div
           key={paper.id}
           className={`flex items-center gap-2 sm:gap-3 px-4 sm:px-5 py-3.5${i > 0 ? ' border-t border-line-soft' : ''}`}
@@ -29,7 +30,7 @@ export default function ExamPaperListCard() {
 
           <div className="flex gap-1.5 shrink-0">
             <button
-              onClick={() => navigate(`/plus1/english/final-exam-prep/paper/${paper.id}`)}
+              onClick={() => navigate(`${basePath}/final-exam-prep/paper/${paper.id}`)}
               className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-button text-[11px] font-semibold text-brand-teal border border-brand-teal bg-bg-2 hover:bg-brand-teal-soft transition-colors duration-fast"
             >
               <FileText size={12} strokeWidth={1.8} />

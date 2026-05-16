@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Award } from 'lucide-react'
 
-const DEST = '/plus1/english/final-exam-prep'
 const TEAL = '#2A7B6F'
 
 function ClipboardSVG() {
@@ -38,7 +37,10 @@ function ClipboardSVG() {
   )
 }
 
-export default function FinalExamPrepEntryCard() {
+export default function FinalExamPrepEntryCard({
+  dest = '/plus1/english/final-exam-prep',
+  classLabel = 'Class 11',
+}) {
   const navigate = useNavigate()
   const [hov, setHov] = useState(false)
 
@@ -46,8 +48,8 @@ export default function FinalExamPrepEntryCard() {
     <div
       role="button"
       tabIndex={0}
-      onClick={() => navigate(DEST)}
-      onKeyDown={e => e.key === 'Enter' && navigate(DEST)}
+      onClick={() => navigate(dest)}
+      onKeyDown={e => e.key === 'Enter' && navigate(dest)}
       onMouseEnter={() => setHov(true)}
       onMouseLeave={() => setHov(false)}
       className="flex items-center gap-4 sm:gap-6 px-5 py-4 sm:px-6 sm:py-5 mb-3 cursor-pointer"
@@ -81,11 +83,11 @@ export default function FinalExamPrepEntryCard() {
         </p>
 
         <p className="text-xs leading-relaxed mb-3 max-w-[440px]" style={{ color: 'var(--ink-2)' }}>
-          Access past annual exam papers, important question patterns, high-priority topics and smart revision plans for Class 11 English.
+          Access past annual exam papers, important question patterns, high-priority topics and smart revision plans for {classLabel} English.
         </p>
 
         <button
-          onClick={e => { e.stopPropagation(); navigate(DEST) }}
+          onClick={e => { e.stopPropagation(); navigate(dest) }}
           className="px-4 py-1.5 rounded-[14px] text-white text-sm font-semibold"
           style={{ background: 'var(--brand-teal)', opacity: hov ? 1 : 0.9, transition: 'opacity 0.15s' }}
         >

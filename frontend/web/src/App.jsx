@@ -159,6 +159,14 @@ export default function App() {
         <Route path="/plus1/english/final-exam-prep/paper/:paperId" element={
           <DashShell><ExamPaperViewerPage /></DashShell>
         } />
+        <Route path="/plus2/english/final-exam-prep" element={
+          <DashShell>
+            <CourseContent><FinalExamPrepPage classLevel="plus2" subjectSlug="english" /></CourseContent>
+          </DashShell>
+        } />
+        <Route path="/plus2/english/final-exam-prep/paper/:paperId" element={
+          <DashShell><ExamPaperViewerPage backPath="/plus2/english/final-exam-prep" /></DashShell>
+        } />
         <Route path="/:year/:subject/:category" element={
           <DashShell>
             <CourseContent><LessonListPage /></CourseContent>

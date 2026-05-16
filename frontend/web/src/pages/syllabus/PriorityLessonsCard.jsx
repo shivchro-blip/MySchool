@@ -7,7 +7,8 @@ const PRIORITY_BADGE = {
   medium: { bg: 'bg-warn',   label: 'Medium' },
 }
 
-export default function PriorityLessonsCard() {
+export default function PriorityLessonsCard({ lessons: lessonsProp }) {
+  const lessons = lessonsProp ?? finalExamPrepPriorityLessons
   return (
     <Card padding="none" className="overflow-hidden shadow-card">
       <div className="flex items-center gap-3 px-5 py-4 border-b border-line-soft">
@@ -17,7 +18,7 @@ export default function PriorityLessonsCard() {
         <p className="text-sm font-bold text-ink">High-Priority Lessons</p>
       </div>
 
-      {finalExamPrepPriorityLessons.map((lesson, i) => {
+      {lessons.map((lesson, i) => {
         const badge = PRIORITY_BADGE[lesson.priority]
         return (
           <div

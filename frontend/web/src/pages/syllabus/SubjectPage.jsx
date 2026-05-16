@@ -213,9 +213,12 @@ export default function SubjectPage() {
           subtitle="Select a unit to explore its lessons"
         />
 
-        {year === 'plus1' && subject === 'english' && (
+        {subject === 'english' && (year === 'plus1' || year === 'plus2') && (
           <div className="max-w-[680px]">
-            <FinalExamPrepEntryCard />
+            <FinalExamPrepEntryCard
+              dest={`/${year}/english/final-exam-prep`}
+              classLabel={year === 'plus2' ? 'Class 12' : 'Class 11'}
+            />
           </div>
         )}
 
