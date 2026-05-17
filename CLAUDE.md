@@ -2,40 +2,59 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## Repository Layout
+## Repository Structure
+
+`TNSchool` is the outer git repo. The entire application lives in the `exam-coach/` git submodule, which has its own detailed `CLAUDE.md`. **Always read `exam-coach/CLAUDE.md` before working on any code.**
 
 ```
-exam-coach/          ← main project (see exam-coach/CLAUDE.md for full architecture)
-graphify-out/        ← graphify analysis output, not source code
-phase-navigation-system.md  ← phase spec for the navigation system feature
-phase0-claude-code.md       ← phase planning docs (read-only reference)
-phase1-database-schema.md
-phase2-content-pipeline.md
-phase3-backend-api.md
-phase4-learning-module.md
-phase5-evaluation-module.md
-phase6-react-frontend.md
-phase7-flutter-app.md
-phase8-admin-panel.md
-phase9-testing-deployment.md
-fix-architecture-refactor.md   ← architecture fix reference docs
-fix-dead-code-validation.md
+TNSchool/                   ← outer repo (you are here)
+├── exam-coach/             ← git submodule — all application code
+│   ├── backend/            ← FastAPI (Python 3.11+)
+│   ├── frontend/
+│   │   ├── web/            ← React + Vite (http://localhost:5173)
+│   │   ├── app/            ← Flutter mobile
+│   │   └── admin/          ← React + Vite admin (http://localhost:5174)
+│   ├── content/            ← PDFs, structured JSON, ChromaDB embeddings
+│   ├── scripts/            ← offline/one-time scripts
+│   ├── deploy/             ← nginx, systemd, deploy.sh
+│   ├── CLAUDE.md           ← primary architecture reference
+│   ├── BACKEND.md
+│   ├── FRONTEND.md
+│   ├── ADMIN.md
+│   └── DESIGN_SYSTEM.md
+└── Dummy_files/            ← HTML source files for chapter content authoring
+    └── WORKFLOW.md         ← how to convert HTML → web content
 ```
 
-All development work happens inside `exam-coach/`. Read `exam-coach/CLAUDE.md` before touching any code.
+## Submodule Setup
 
-## Commands
+```bash
+git submodule update --init --recursive   # after first clone
+git submodule update --remote             # pull latest submodule commit
+```
 
-**Backend (FastAPI, Python 3.11+)**
+When committing submodule pointer changes, commit in `exam-coach/` first, then commit the updated pointer in `TNSchool/`.
+
+## Key Commands
+
+All commands run from inside `exam-coach/` unless noted.
+
+### Backend
 ```bash
 cd exam-coach/backend
 pip install -e .
-uvicorn main:app --reload          # dev server at http://localhost:8000
-pytest tests/ -v                   # all tests
-pytest tests/test_evaluation.py -v # single test file
+cp .env.example .env          # fill in Supabase + Ollama values
+uvicorn main:app --reload     # http://localhost:8000
 ```
 
-**Frontend Web (React + Vite)**
+### Tests
+```bash
+cd exam-coach/backend
+pytest tests/test_health.py tests/test_learning.py tests/test_evaluation.py tests/test_content_pipeline.py -v
+pytest tests/test_health.py::test_name -v   # single test
+```
+
+### Web frontend
 ```bash
 cd exam-coach/frontend/web
 npm install
@@ -43,36 +62,41 @@ npm run dev     # http://localhost:5173
 npm run build
 ```
 
-**Admin Panel (React + Vite)**
+### Admin panel
 ```bash
 cd exam-coach/frontend/admin
 npm install
-npm run dev
+npm run dev     # http://localhost:5174
 ```
 
-**Mobile (Flutter)**
+### Flutter mobile
 ```bash
 cd exam-coach/frontend/app
 flutter run
 ```
 
-## Architecture in One Paragraph
+### E2E tests (Playwright)
+```bash
+cd exam-coach/frontend/web
+npx playwright test --project=chromium
+```
 
-FastAPI backend with four strict layers: routes (`api/v1/`) → modules (`modules/`) → repositories (`db/repositories/`) → Supabase. All LLM calls flow through `core/ai_gate.py` only (Ollama first, OpenRouter fallback). ChromaDB stores vectors locally at `content/embeddings/`. `core/tn_board.py` is the single source of truth for all Tamil Nadu board constraints (class levels, mark levels, content types) — imported by models, prompts, and the rubric engine.
+## Content Authoring Workflow (Dummy_files)
 
-## Key Invariants
+`Dummy_files/` holds teacher-style HTML files used to author chapter learn pages.
 
-- `get_db()` called only inside `db/repositories/*.py`
-- LLM calls only through `core/ai_gate.py`, never from routes or modules directly
-- Evaluation uses ChromaDB chunks only when `is_validated=True` in Supabase
-- All config via `config.py` + `.env` — no hardcoded values
-- FastAPI handlers must be `async`
+```bash
+cd exam-coach/frontend/web
+npm run content -- ../../Dummy_files/<lesson-name>.html <chapter-slug>
+npm run build   # verify
+```
 
-## Env Setup
+The script writes to `src/content/chapters/<slug>.js` and updates `src/content/registry.js`. See `Dummy_files/WORKFLOW.md` for the full HTML class contract and the complete slug table.
 
-Copy `exam-coach/backend/.env.example` → `exam-coach/backend/.env` and fill:
-- `SUPABASE_URL`, `SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_KEY`
-- `OLLAMA_BASE_URL` (default: `http://localhost:11434`)
-- `OPENROUTER_API_KEY` (paid fallback, optional for dev)
+## Pre-Launch Checklist
 
-Frontend: create `exam-coach/frontend/web/.env.local` with `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY`.
+Before going public (from `Dummy_files/Pending_Tasks.txt`):
+1. Run `backend/db/migrations/005_consent_fields.sql` in Supabase SQL Editor
+2. Replace placeholder email in `legal_constants.js` / `legal_constants.dart`
+3. Copy final legal content into `frontend/web/src/legal/` and `frontend/app/assets/content/legal/`
+4. Set `LEGAL_LAST_UPDATED` to the finalized date
