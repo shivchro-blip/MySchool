@@ -2,7 +2,7 @@
 // Status: extracted from PDF — verify marks and question numbers manually
 
 export const class11English2023Annual = {
-  paperId: "eng11-annual-2023",
+  paperId: "class11-english-2023-annual",
   title: "2023 Annual Exam Paper",
   classLabel: "Class 11",
   subject: "English",

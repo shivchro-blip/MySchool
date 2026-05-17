@@ -171,6 +171,60 @@ function UnitCard({ unit, isOpen, onToggle, year, subject }) {
   )
 }
 
+// ── Previous Year Exam Papers card ───────────────────────────────────────────
+const EXAM_YEARS = ['2025', '2024', '2023', '2022']
+
+function ExamPapersCard({ year }) {
+  const navigate = useNavigate()
+  const [hov, setHov] = useState(false)
+
+  return (
+    <div
+      className="px-5 py-4 sm:px-6 sm:py-5 mb-3"
+      style={{
+        borderRadius: 18,
+        background: 'color-mix(in srgb, var(--brand-blue) 6%, var(--bg-2))',
+        border: `1.5px solid ${UNIT_STYLE.color}${hov ? '55' : '22'}`,
+        boxShadow: hov ? `0 6px 24px ${UNIT_STYLE.color}18` : `0 2px 8px ${UNIT_STYLE.color}0a`,
+        transition: 'border-color 0.2s, box-shadow 0.2s',
+      }}
+      onMouseEnter={() => setHov(true)}
+      onMouseLeave={() => setHov(false)}
+    >
+      <span
+        className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-semibold mb-2"
+        style={{
+          border: `1.5px solid ${UNIT_STYLE.color}66`,
+          color: UNIT_STYLE.color,
+          background: 'color-mix(in srgb, var(--brand-blue) 8%, var(--bg-2))',
+        }}
+      >
+        Previous Year Papers
+      </span>
+
+      <p className="text-base font-bold leading-snug mb-1" style={{ color: UNIT_STYLE.color }}>
+        Practice with Real Exam Papers
+      </p>
+      <p className="text-xs leading-relaxed mb-3 max-w-[440px]" style={{ color: 'var(--ink-2)' }}>
+        Attempt full annual exam papers and get instant feedback on your answers.
+      </p>
+
+      <div className="flex gap-2 flex-wrap">
+        {EXAM_YEARS.map(ey => (
+          <button
+            key={ey}
+            onClick={() => navigate(`/${year}/english/exam/${ey}`)}
+            className="px-4 py-1.5 rounded-[14px] text-sm font-semibold transition-opacity"
+            style={{ background: UNIT_STYLE.color, color: '#fff', opacity: hov ? 1 : 0.88 }}
+          >
+            {ey}
+          </button>
+        ))}
+      </div>
+    </div>
+  )
+}
+
 // ── SubjectPage ───────────────────────────────────────────────────────────────
 export default function SubjectPage() {
   const { year, subject } = useParams()
@@ -219,6 +273,7 @@ export default function SubjectPage() {
               dest={`/${year}/english/final-exam-prep`}
               classLabel={year === 'plus2' ? 'Class 12' : 'Class 11'}
             />
+            <ExamPapersCard year={year} />
           </div>
         )}
 

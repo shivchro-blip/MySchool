@@ -37,7 +37,7 @@ export default function ExamPaperListCard({ papers: papersProp, basePath = '/plu
               <span className="hidden sm:inline">View Paper</span>
             </button>
             <button
-              onClick={() => console.log('TODO: practice', paper.id)}
+              onClick={() => navigate(`${basePath}/exam/${paper.year}`)}
               className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-button text-[11px] font-semibold text-brand-teal border border-brand-teal bg-bg-2 hover:bg-brand-teal-soft transition-colors duration-fast"
             >
               <Pencil size={12} strokeWidth={1.8} />

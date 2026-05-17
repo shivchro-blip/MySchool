@@ -1,8 +1,8 @@
 export const finalExamPrepPapers = [
   { id: 'class11-english-2025-annual', year: '2025', title: 'Annual Exam Paper', viewStatus: 'placeholder', practiceStatus: 'placeholder' },
   { id: 'class11-english-2024-annual', year: '2024', title: 'Annual Exam Paper', viewStatus: 'placeholder', practiceStatus: 'placeholder' },
-  { id: 'eng11-annual-2023', year: '2023', title: 'Annual Exam Paper', viewStatus: 'placeholder', practiceStatus: 'placeholder' },
-  { id: 'eng11-annual-2022', year: '2022', title: 'Annual Exam Paper', viewStatus: 'placeholder', practiceStatus: 'placeholder' },
+  { id: 'class11-english-2023-annual', year: '2023', title: 'Annual Exam Paper', viewStatus: 'placeholder', practiceStatus: 'placeholder' },
+  { id: 'class11-english-2022-annual', year: '2022', title: 'Annual Exam Paper', viewStatus: 'placeholder', practiceStatus: 'placeholder' },
 ]
 
 export const finalExamPrepPapersPlus2 = [
