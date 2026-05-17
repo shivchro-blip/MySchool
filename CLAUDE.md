@@ -1,5 +1,18 @@
 # AI Exam Coach — Project Brain
 
+## Which File to Read
+
+| Task type | Read first |
+|-----------|------------|
+| Any UI / component / stylesheet | DESIGN_SYSTEM.md → FRONTEND.md |
+| Backend route / service / AI / DB | BACKEND.md |
+| Admin panel / content validation | ADMIN.md |
+| Architecture rules / naming / sync points | CLAUDE.md (this file) |
+| Codebase structure / impact of a change | graphify-out/GRAPH_REPORT.md |
+| New feature spanning multiple layers | CLAUDE.md → relevant sub-file |
+
+---
+
 ## What This System Does
 Syllabus-aware AI platform for Tamil Nadu State Board +1 and +2 students.
 Core loop: Learn → Ask → Practice → Write → Evaluate → Improve
@@ -23,7 +36,7 @@ exam-coach/
 ├── frontend/
 │   ├── web/              ← React + Vite web app
 │   ├── app/              ← Flutter mobile app
-│   └── admin/            ← React + Vite admin panel
+│   └── admin/            ← React + Vite admin panel (dev: http://localhost:5174)
 ├── content/
 │   ├── raw/              ← Drop PDFs here (gitignored)
 │   ├── structured/       ← JSON output from content pipeline
@@ -32,13 +45,35 @@ exam-coach/
 │   └── textbooks/        ← Source PDF textbooks (e.g. Class_12_English.pdf)
 ├── scripts/              ← One-time or offline scripts only
 ├── deploy/               ← nginx config, systemd services, deploy.sh
+├── admin/                ← Admin README and operational docs
 ├── Dummy_files/          ← HTML source files for chapter content authoring
-└── graphify-out/         ← Graphify analysis output, not source code
+└── graphify-out/         ← Graphify analysis output (gitignored — do not edit manually)
 ```
 
 ---
 
+## graphify-out/
+
+`graphify-out/` lives at `exam-coach/graphify-out/` (inside the monorepo root).
+
+Contains:
+- `graph.html` — visual interactive graph
+- `GRAPH_REPORT.md` — god nodes, community clusters, cross-module dependency summary
+- `graph.json` — raw graph data
+
+**Before planning any large feature or refactor, read `graphify-out/GRAPH_REPORT.md`.**
+It shows which files are most-connected (god nodes), how modules cluster, and the
+impact radius of touching any given file.
+
+- Do NOT edit `graphify-out/` manually
+- Regenerate by running `graphify .` from `exam-coach/`
+- Regenerate after: adding new modules, major refactors, new service files
+- `graphify-out/` is gitignored — never commit it
+
+---
+
 ## Backend (FastAPI)
+See BACKEND.md for: all routes, folder roles, AIGate interface, validation contract, env vars, test files.
 
 ### Run locally
 ```bash
@@ -47,83 +82,12 @@ pip install -e .
 uvicorn main:app --reload          # dev server at http://localhost:8000
 ```
 
-### Tests
-```bash
-pytest tests/ -v
-pytest tests/test_evaluation.py -v  # single file
-```
-Test files: `test_api_integration`, `test_evaluation`, `test_tn_board`, `test_health`,
-`test_validation_guard`, `test_content_pipeline`, `test_learning`, `test_syllabus`
-
-### Routes
-```
-POST /api/v1/learning/explain
-POST /api/v1/evaluation/submit
-GET  /api/v1/syllabus/chapters
-     /api/v1/users/…
-     /api/v1/admin/…
-GET  /health       ← no auth; checks Ollama + Supabase + ChromaDB
-GET  /api/docs     ← dev only, disabled in production
-```
-
-### Env — copy `backend/.env.example` → `backend/.env`
-```
-SUPABASE_URL=
-SUPABASE_ANON_KEY=
-SUPABASE_SERVICE_KEY=
-OLLAMA_BASE_URL=http://localhost:11434
-OLLAMA_MODEL=mistral:7b-instruct
-OPENROUTER_API_KEY=
-OPENROUTER_MODEL=anthropic/claude-3-haiku
-APP_ENV=development
-SECRET_KEY=
-ALLOWED_ORIGINS=http://localhost:5173
-REDIS_URL=
-CACHE_TTL_SECONDS=604800
-```
-
-### Folder Roles (Never Mix These)
-| Path | Purpose |
-|------|---------|
-| `db/client.py` | Supabase client — used ONLY by repositories |
-| `db/repositories/syllabus_repo.py` | all syllabus DB queries |
-| `db/repositories/questions_repo.py` | all question DB queries |
-| `db/repositories/responses_repo.py` | all response DB queries |
-| `db/repositories/cache_repo.py` | all cache DB queries |
-| `db/repositories/users_repo.py` | all user DB queries |
-| `core/ai_gate.py` | single entry point for ALL AI calls |
-| `ai/router.py` | pure LLM dispatch (Ollama → OpenRouter) — called ONLY by AIGate |
-| `modules/learning/` | explain topic logic only |
-| `modules/evaluation/` | score + feedback logic only |
-| `modules/content_pipeline/` | PDF extraction + embedding only |
-
 ### Architecture Rules
 - `get_db()` called only inside `db/repositories/*.py` — nowhere else
 - `get_public_db()` for RLS queries (anon key); `get_db()` for service-key operations
 - AIGate is the ONLY class that checks rate limits, reads cache, and logs usage
 - `ai/router.py` is called ONLY by AIGate — never from modules or routes
 - Modules instantiate repositories and AIGate — they never touch `get_db()`
-
-### AIGate Interface
-```python
-gate = AIGate()
-response, model_used, was_cached = await gate.call(
-    messages=[{"role": "user", "content": "..."}],
-    prompt_type="explain",       # used for logging/cache namespace
-    cache_key_content="...",     # deterministic string for cache lookup
-    user_id="uuid-or-None",
-    temperature=0.3,
-    max_tokens=1024,
-)
-# Raises: RateLimitError | AIUnavailableError
-```
-
-### Validation Contract
-- ChromaDB chunks used for evaluation only if `is_validated=True` in Supabase
-- `is_validated` set True ONLY by admin in admin panel
-- If no validated chunks exist for a chapter, evaluation uses answer key only
-- Feedback contains ⚠️ warning when unvalidated content is used
-- Cache keys include `:validated=True/False` so results are cached separately
 
 ### TN Board Context (`core/tn_board.py`)
 Single source of truth for all Tamil Nadu State Board constraints.
@@ -138,6 +102,7 @@ When adding a new class level, mark level, or content type:
 ---
 
 ## Web App (React + Vite)
+See FRONTEND.md for: all pages, routes, components, hooks, content registry, state management rules.
 
 ### Run locally
 ```bash
@@ -147,203 +112,28 @@ npm run dev     # http://localhost:5173
 npm run build
 ```
 
-### Utility scripts
-```bash
-npm run content          # html-to-content.js: Dummy_files HTML → JS content modules
-npm run export-practice  # export-practice-json.mjs: practice JS → JSON (for Flutter)
-```
-
-### Env — create `frontend/web/.env.local`
-```
-VITE_SUPABASE_URL=
-VITE_SUPABASE_ANON_KEY=
-```
-
-### Folder structure
-```
-frontend/web/src/
-├── api/             ← fetch wrapper (client.js), auth helpers
-├── assets/          ← static assets
-├── components/
-│   ├── layout/      ← DashboardShell, DashboardSidebar
-│   ├── nav/         ← nav components
-│   └── ui/          ← Badge, BrandLogo, Button, Card, Input, Navbar
-├── content/
-│   ├── registry.js            ← chapterSlug → chapter content object
-│   ├── practiceRegistry.js    ← chapterSlug → practice question set
-│   ├── Class_11/English/
-│   │   ├── chapters/          ← 18 chapter JS modules
-│   │   └── practice/          ← 18 practice JS modules
-│   └── Class_12/English/
-│       ├── chapters/          ← 17 chapter JS modules
-│       └── practice/          ← 17 practice JS modules
-├── data/
-│   └── syllabus.js            ← subject/class definitions (mirrored in Flutter SyllabusConfig)
-├── hooks/           ← custom React hooks
-├── lib/             ← utilities
-├── pages/
-│   ├── DashboardPage.jsx
-│   ├── CoursesIndexPage.jsx
-│   ├── ProgressPage.jsx
-│   ├── ActivityPage.jsx
-│   ├── CertificatePage.jsx
-│   ├── ChapterPracticeExamPage.jsx
-│   ├── LearnRichPage.jsx      ← embedded component (used by SectionPage/TextSection)
-│   ├── PracticeRichPage.jsx   ← embedded component (used by PracticeSection)
-│   └── syllabus/
-│       ├── YearPage.jsx
-│       ├── SubjectPage.jsx
-│       ├── LessonListPage.jsx
-│       ├── LessonDetailPage.jsx
-│       ├── SectionPage.jsx
-│       └── sections/          ← AboutAuthorSection, AskAISection, AttemptHistorySection,
-│                                 ComprehensionSection, GlossarySection, PracticeSection, TextSection
-└── utils/
-```
-
-### Routes (from `App.jsx`)
-```
-/login
-/                               ← DashboardPage
-/courses                        ← CoursesIndexPage
-/progress                       ← ProgressPage
-/activity                       ← ActivityPage
-/certificate                    ← CertificatePage
-/practice-exam                  ← ChapterPracticeExamPage
-/:year                          ← YearPage
-/:year/:subject                 ← SubjectPage
-/:year/:subject/:category       ← LessonListPage
-/:year/:subject/:category/:lesson            ← LessonDetailPage
-/:year/:subject/:category/:lesson/:section   ← SectionPage (renders LearnRichPage or PracticeRichPage)
-```
-
-### State and HTTP
-- Router: React Router v6 (BrowserRouter + Routes)
-- State: local `useState` only — no Redux/Zustand/Context store
-- HTTP: native fetch wrapper at `src/api/client.js`; auth token in `localStorage` key `exam_coach_token`
-
-### Content registry pattern
-- Components import ONLY `registry.js` or `practiceRegistry.js`, never individual chapter files
-- Adding new class/subject: create `content/Class_12/Math/`, add imports to registry files only
-
 ---
 
 ## Mobile App (Flutter)
+See FRONTEND.md for: all screens, routes, providers, services, widgets, config files, dart-define vars.
 
 ### Run locally
 ```bash
 cd exam-coach/frontend/app
-flutter run                       # default connected device
-flutter run -d android            # Android emulator
-flutter run -d ios                # iOS simulator
+flutter run
 ```
-
-### Build
-```bash
-flutter build apk                 # Android release APK
-flutter build appbundle           # Android App Bundle (Play Store)
-flutter build ios --release       # iOS release (requires Xcode on Mac)
-```
-
-### Key dependencies
-| Package | Version | Purpose |
-|---------|---------|---------|
-| `go_router` | ^13.2.0 | navigation |
-| `provider` | ^6.1.2 | state management |
-| `google_fonts` | ^6.2.1 | Inter font |
-| `flutter_secure_storage` | ^9.0.0 | token storage |
-| `http` | ^1.2.0 | API calls |
-
-### Config (no .env file — use --dart-define)
-```bash
-flutter run --dart-define=API_BASE_URL=http://10.0.2.2:8000/api/v1   # Android emulator
-flutter run --dart-define=API_BASE_URL=http://192.168.x.x:8000/api/v1 # physical device
-```
-Default is `http://localhost:8000/api/v1`. See `lib/config/app_config.dart`.
-
-### Folder structure
-```
-frontend/app/
-├── lib/
-│   ├── config/
-│   │   ├── app_config.dart       ← AppConfig constants (API_BASE_URL, freeAiCallsPerDay, etc.)
-│   │   ├── theme.dart            ← AppTheme (light + dark ThemeData, all color constants)
-│   │   ├── syllabus_config.dart  ← SyllabusConfig (unit/lesson list — mirrors web's syllabus.js)
-│   │   └── config.dart           ← barrel export for config/
-│   ├── models/                   ← data models
-│   ├── providers/                ← Provider state classes
-│   ├── screens/                  ← one file per screen
-│   ├── services/                 ← API + content services
-│   ├── widgets/                  ← shared widgets
-│   └── router.dart               ← GoRouter definition (all routes)
-└── assets/content/
-    ├── Class_11/English/
-    │   ├── chapters/             ← 18 JSON chapter files
-    │   └── practice/             ← 18 JSON practice files
-    └── Class_12/English/
-        ├── chapters/             ← JSON chapter files
-        └── practice/             ← JSON practice files
-```
-
-### Screens
-| Screen | File |
-|--------|------|
-| Login | `login_screen.dart` |
-| Dashboard | `dashboard_screen.dart` |
-| Courses list | `courses_screen.dart` |
-| Subject list | `subject_list_screen.dart` |
-| Chapter list | `chapter_list_screen.dart` |
-| Chapter detail | `chapter_detail_screen.dart` |
-| Learn (simple) | `learn_screen.dart` |
-| Learn (rich tabs) | `rich_learn_screen.dart` |
-| Practice / Exam | `exam_practice_screen.dart` |
-| Progress | `progress_screen.dart` |
-
-### Routes (from `router.dart`)
-```
-/login                                         ← outside ShellRoute, no bottom nav
-/dashboard
-/courses
-/courses/:classLevel
-/courses/:classLevel/:subjectSlug
-/courses/:classLevel/:subjectSlug/:chapterSlug
-/progress
-/learn/:classLevel/:subjectSlug/:chapterSlug
-/rich-learn/:classLevel/:subjectSlug/:chapterSlug
-/practice/:classLevel/:subjectSlug/:chapterSlug
-/exam/:classLevel/:subjectSlug/:chapterSlug
-```
-All routes except `/login` are inside `ShellRoute` → `ShellScaffold` → bottom nav (Home / Courses / Progress).
-
-### Navigation rules
-- `context.push()` for drill-down (preserves back stack)
-- `context.go()` for tab switches (replaces stack)
-- Back button: `context.canPop() ? context.pop() : context.go('/dashboard')`
-
-### RichLearnScreen tab structure
-Fixed action row (Practice / Attempt History / Ask AI) always visible — never scrolls off screen.
-`_computeAllTabs()` unconditionally appends action tabs for every chapter.
 
 ---
 
 ## Admin Panel
+See ADMIN.md for: all pages, routes, validation workflow, pipeline, auth, hard rules.
 
 ### Run locally
 ```bash
 cd exam-coach/frontend/admin
 npm install
-npm run dev
+npm run dev     # http://localhost:5174
 ```
-
-### Pages
-| Page | Purpose |
-|------|---------|
-| LoginPage | Admin authentication |
-| DashboardPage | Overview stats |
-| ContentPage | Manage chapters, validate content |
-| EvaluationsPage | Review student evaluations |
-| PipelinePage | Run PDF ingestion pipeline |
-| QuestionsPage | Manage question bank |
 
 ---
 
@@ -397,5 +187,9 @@ The Flutter file notes this explicitly: `// Mirrors frontend/web/src/data/syllab
 - Never store raw PDF text in the database
 - Never skip Pydantic validation on any API input or output
 - Never install a package without adding it to `pyproject.toml`
+- Never hardcode hex in web components — use PAPER tokens or `brand-*` utilities
+- Never hardcode hex in Flutter widgets — use `AppTheme.*` constants
+- Never use Redux/Zustand/Context store on web — local `useState` only
+- Never touch DB directly from frontend — all DB calls go through the backend API
 
 Always read DESIGN_SYSTEM.md before touching any UI, component, or stylesheet.

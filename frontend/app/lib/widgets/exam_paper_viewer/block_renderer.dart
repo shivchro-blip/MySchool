@@ -13,6 +13,7 @@ import 'block_widgets/or_question_block.dart';
 import 'block_widgets/table_block.dart';
 import 'block_widgets/image_block.dart';
 import 'block_widgets/footer_note_block.dart';
+import 'block_widgets/notice_box_block.dart';
 
 class BlockRenderer extends StatelessWidget {
   final ExamBlock block;
@@ -34,6 +35,7 @@ class BlockRenderer extends StatelessWidget {
       case 'table':             return TableBlock(block: block);
       case 'image':
       case 'chart_image':       return ImageBlock(block: block);
+      case 'notice_box':        return NoticeBoxBlock(block: block);
       case 'footer_note':       return FooterNoteBlock(block: block);
       default:
         return Padding(

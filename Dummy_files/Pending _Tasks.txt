@@ -1,5 +1,0 @@
-  Remaining user actions before launch:
-  1. Run backend/db/migrations/005_consent_fields.sql in Supabase SQL Editor
-  2. Replace placeholder email in legal_constants.js / legal_constants.dart with a real monitored inbox
-  3. Copy final content from docs/legal/ into frontend/web/src/legal/ and frontend/app/assets/content/legal/
-  4. Set LEGAL_LAST_UPDATED to the date content is finalized

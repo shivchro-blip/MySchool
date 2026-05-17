@@ -49,13 +49,13 @@ Aliased in `tailwind.config.js` as Tailwind color utilities — no hardcoded hex
 
 ```css
 /* Surfaces */
---bg:          #F8F9FA;   /* page background */
+--bg:          #F5F1EB;   /* page background (warm paper) */
 --bg-2:        #FFFFFF;   /* card surface */
---bg-sunk:     #F1F5F9;   /* recessed surface */
+--bg-sunk:     #EDE9E2;   /* recessed surface */
 
 /* Borders */
 --line:        #E5E7EB;   /* default border */
---line-soft:   #F1F5F9;   /* subtle dividers */
+--line-soft:   #E8E3DB;   /* subtle dividers */
 
 /* Text */
 --ink:         #1E293B;   /* primary text */
@@ -147,6 +147,37 @@ brand: {
 - `--accent` on `--bg` ≥ 4.5:1
 - `--accent-ink` on `--accent-soft` ≥ 4.5:1
 - `--good-ink` on `--good-soft` ≥ 4.5:1
+
+### Extended tokens (also in `:root`)
+
+These tokens exist in `index.css` alongside the PAPER tokens. Use them where appropriate:
+
+```css
+/* Canvas / surface aliases (supplement PAPER tokens) */
+--bg-canvas:             #F5F1EB;   /* alias of --bg */
+--bg-surface:            #FFFFFF;   /* alias of --bg-2 */
+--border-soft:           rgba(15, 23, 42, 0.06);
+--border-strong:         rgba(15, 23, 42, 0.10);
+--text-primary:          #0F172A;
+--text-muted:            #5E6B7A;
+--text-faint:            #7B8794;
+
+/* Brand teal (used in some card/button surfaces) */
+--brand-teal:            #2A7B6F;
+--brand-teal-soft:       rgba(42, 123, 111, 0.10);
+--brand-teal-soft-hover: rgba(42, 123, 111, 0.18);
+--brand-teal-hover:      #226860;
+--accent-navy:           #1E3A5F;
+
+/* Radius shortcuts */
+--radius-card:    16px;
+--radius-button:  12px;
+--radius-pill:    9999px;
+
+/* Shadow shortcuts */
+--shadow-card:       0 1px 2px rgba(15,23,42,0.04), 0 1px 1px rgba(15,23,42,0.03);
+--shadow-card-hover: 0 4px 12px rgba(15,23,42,0.06), 0 2px 4px rgba(15,23,42,0.04);
+```
 
 ### Legacy tokens (kept until restyle complete)
 
@@ -257,10 +288,15 @@ CSS vars also in `index.css`:
 | BrandLogo | `BrandLogo.jsx` | app logo mark |
 | Button | `Button.jsx` | uses `brand-*` palette for primary |
 | Card | `Card.jsx` | uses `shadow-card` + `rounded-md` |
+| Eyebrow | `Eyebrow.jsx` | small uppercase label / section eyebrow |
 | Input | `Input.jsx` | text inputs |
-| Navbar | `Navbar.tsx` | top navigation bar |
+| Navbar | `Navbar.tsx` + `Navbar.module.css` | top navigation bar |
+| PageHeader | `PageHeader.jsx` | page-level header block |
+| PageTitle | `PageTitle.jsx` | page title typography |
 
-Layout components: `DashboardShell.jsx` + `DashboardSidebar.jsx` (in `components/layout/`).
+Layout components (`components/layout/`): `AppFooter.jsx`, `DashboardShell.jsx`, `DashboardSidebar.jsx`, `PublicLayout.jsx`.
+
+Nav components (`components/nav/`): `Breadcrumb.jsx`.
 
 ### Button classes (from `index.css` `@layer components`)
 ```css
@@ -400,16 +436,22 @@ Selected color: `AppTheme.brand` (#2A7B6F). Unselected: `textMuted` (light) / `d
 
 ### Shared widgets (`lib/widgets/`)
 
-| Widget | Purpose |
-|--------|---------|
-| `ShellScaffold` | Bottom nav shell for all authenticated routes |
-| `AccordionCard` | Expandable card |
-| `AppButton` | Primary / secondary buttons using `AppTheme.brand` |
-| `BrandLogo` | App logo mark |
-| `ErrorView` | Error state display |
-| `MarksChip` | Marks level indicator chip |
-| `ScoreCard` | Practice score display |
-| `ThemeToggle` | Light/dark mode switch |
+| Widget | File | Purpose |
+|--------|------|---------|
+| `ShellScaffold` | `shell_scaffold.dart` | Bottom nav shell for all authenticated routes |
+| `AccordionCard` | `accordion_card.dart` | Expandable card |
+| `AnalyticsConsentModal` | `analytics_consent_modal.dart` | Analytics consent dialog (first launch) |
+| `AppButton` | `app_button.dart` | Primary / secondary buttons using `AppTheme.brand` |
+| `BrandLogo` | `brand_logo.dart` | App logo mark |
+| `ErrorView` | `error_view.dart` | Error state display |
+| `Eyebrow` | `eyebrow.dart` | Small uppercase label / section eyebrow |
+| `GoogleSignInButton` | `google_sign_in_button.dart` | Google OAuth sign-in button |
+| `MarksChip` | `marks_chip.dart` | Marks level indicator chip |
+| `McqOption` | `mcq_option.dart` | MCQ answer option widget |
+| `PageHeader` | `page_header.dart` | Page-level header block |
+| `PageTitle` | `page_title.dart` | Page title typography |
+| `ScoreCard` | `score_card.dart` | Practice score display |
+| `ThemeToggle` | `theme_toggle.dart` | Light/dark mode switch |
 
 ---
 

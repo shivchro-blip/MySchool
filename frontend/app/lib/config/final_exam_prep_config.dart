@@ -26,9 +26,9 @@ const kPlus1EnglishExamPapers = <ExamPaper>[
 ];
 
 const kPlus2EnglishExamPapers = <ExamPaper>[
-  ExamPaper(id: 'class12-english-2025-annual', year: '2025', title: 'Annual Exam Paper'),
-  ExamPaper(id: 'class12-english-2024-annual', year: '2024', title: 'Annual Exam Paper'),
-  ExamPaper(id: 'class12-english-2023-annual', year: '2023', title: 'Annual Exam Paper'),
+  ExamPaper(id: 'class12-english-2025-annual', year: '2025', title: '2025 Annual Exam Paper'),
+  ExamPaper(id: 'class12-english-2024-annual', year: '2024', title: '2024 Annual Exam Paper'),
+  ExamPaper(id: 'class12-english-2023-annual', year: '2023', title: '2023 Annual Exam Paper'),
   ExamPaper(id: 'class12-english-2022-annual', year: '2022', title: 'Annual Exam Paper'),
 ];
 

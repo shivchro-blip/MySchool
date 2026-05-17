@@ -60,6 +60,12 @@ class ExamBlock {
   final String? caption;
   final String? renderHint;
 
+  // notice_box
+  final String? heading;
+  final String? subheading;
+  final String? body;
+  final String? address;
+
   const ExamBlock({
     required this.type,
     this.content,
@@ -77,6 +83,10 @@ class ExamBlock {
     this.altText,
     this.caption,
     this.renderHint,
+    this.heading,
+    this.subheading,
+    this.body,
+    this.address,
   });
 }
 

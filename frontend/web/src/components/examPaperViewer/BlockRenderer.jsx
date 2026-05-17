@@ -11,6 +11,7 @@ import OrQuestionBlock       from './blocks/OrQuestionBlock'
 import TableBlock            from './blocks/TableBlock'
 import ImageBlock            from './blocks/ImageBlock'
 import FooterNoteBlock       from './blocks/FooterNoteBlock'
+import NoticeBoxBlock        from './blocks/NoticeBoxBlock'
 
 export default function BlockRenderer({ block }) {
   switch (block.type) {
@@ -27,6 +28,7 @@ export default function BlockRenderer({ block }) {
     case 'table':              return <TableBlock            block={block} />
     case 'image':
     case 'chart_image':        return <ImageBlock            block={block} />
+    case 'notice_box':         return <NoticeBoxBlock        block={block} />
     case 'footer_note':        return <FooterNoteBlock       block={block} />
     default:
       return (
