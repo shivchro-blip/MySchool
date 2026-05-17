@@ -700,5 +700,624 @@ export const class11English2025Annual = {
         }
       ]
     }
+  ],
+  "practice": {
+  "meta": {
+    "subject": "General English -- Class XI",
+    "unit": "2025 Annual Exam Paper",
+    "time": "3.00 hrs",
+    "totalMarks": 90,
+    "instructions": "Tamil Nadu State Board · HSE First Year Examinations - March 2025 · Practice data aligned to the official answer key.",
+    "answerSource": "Directorate of Government Examinations - Chennai - 6, English Answer Key, March 2025"
+  },
+  "parts": [
+    {
+      "id": "p1",
+      "navLabel": "Part I -- MCQ (20×1)",
+      "title": "Part I -- Objective Type",
+      "type": "mcq",
+      "scoreMax": 20,
+      "marksPer": 1,
+      "instruction": "Answer all questions. Choose the answer accepted by the official answer key.",
+      "sections": [
+        {
+          "label": "Choose the appropriate synonyms of the underlined words",
+          "questions": [
+            {
+              "id": "q1",
+              "html": "The common link of friendship was snapped.",
+              "options": [
+                "a) attached",
+                "b) cut",
+                "c) clicked",
+                "d) joined"
+              ],
+              "answer": 1,
+              "officialKey": "b) cut"
+            },
+            {
+              "id": "q2",
+              "html": "With this princely sum, I left for the US.",
+              "options": [
+                "a) very large",
+                "b) royal",
+                "c) heavy",
+                "d) meagre"
+              ],
+              "answer": 0,
+              "officialKey": "a) very large"
+            },
+            {
+              "id": "q3",
+              "html": "There was no sound but a curious smothered noise from my friend.",
+              "options": [
+                "a) unwanted",
+                "b) thickened",
+                "c) unexpected",
+                "d) suppressed"
+              ],
+              "answer": 3,
+              "officialKey": "d) suppressed"
+            }
+          ]
+        },
+        {
+          "label": "Choose the appropriate antonyms for the underlined words",
+          "questions": [
+            {
+              "id": "q4",
+              "html": "I am always reluctant to trust a departing visitor.",
+              "options": [
+                "a) disinterested",
+                "b) keen",
+                "c) rebellious",
+                "d) unwilling"
+              ],
+              "answer": 1,
+              "officialKey": "b) keen"
+            },
+            {
+              "id": "q5",
+              "html": "Robust optimism will be discouraged.",
+              "options": [
+                "a) encouraged",
+                "b) compelled",
+                "c) pressurised",
+                "d) suppressed"
+              ],
+              "answer": 0,
+              "officialKey": "a) encouraged"
+            },
+            {
+              "id": "q6",
+              "html": "I never did my frequent flyer miles, by the way.",
+              "options": [
+                "a) often",
+                "b) rare",
+                "c) customary",
+                "d) always"
+              ],
+              "answer": 1,
+              "officialKey": "b) rare"
+            }
+          ]
+        },
+        {
+          "label": "Vocabulary and grammar",
+          "questions": [
+            {
+              "id": "q7",
+              "html": "Choose the expanded form of GST.",
+              "options": [
+                "a) Gross Sales Tax",
+                "b) Goods and Sales Tax",
+                "c) Goods and Service Tax",
+                "d) Grocery Service Tax"
+              ],
+              "answer": 2,
+              "officialKey": "c) Goods and Service Tax"
+            },
+            {
+              "id": "q8",
+              "html": "Choose the word that can be placed after the word water to form a compound word.",
+              "options": [
+                "a) lead",
+                "b) sea",
+                "c) wet",
+                "d) proof"
+              ],
+              "answer": 3,
+              "officialKey": "d) proof"
+            },
+            {
+              "id": "q9",
+              "html": "Form a derivative by adding a suitable suffix to the root word peace.",
+              "options": [
+                "a) -ness",
+                "b) -ful",
+                "c) -ly",
+                "d) -able"
+              ],
+              "answer": 1,
+              "officialKey": "b) -ful"
+            },
+            {
+              "id": "q10",
+              "html": "Add a suitable prefix to form the opposite of the word breakable.",
+              "options": [
+                "a) mis",
+                "b) in",
+                "c) en",
+                "d) un"
+              ],
+              "answer": 3,
+              "officialKey": "d) un"
+            },
+            {
+              "id": "q11",
+              "html": "I gave __________ one rupee coin to my brother.",
+              "options": [
+                "a) a",
+                "b) an",
+                "c) some",
+                "d) the"
+              ],
+              "answer": 0,
+              "officialKey": "a) a"
+            },
+            {
+              "id": "q12",
+              "html": "When Koushik was a child, he __________ play in the street.",
+              "options": [
+                "a) must",
+                "b) would",
+                "c) may",
+                "d) will"
+              ],
+              "answer": 1,
+              "officialKey": "b) would"
+            },
+            {
+              "id": "q13",
+              "html": "The dog jumped __________ the river.",
+              "options": [
+                "a) into",
+                "b) above",
+                "c) in",
+                "d) under"
+              ],
+              "answer": 0,
+              "officialKey": "a) into"
+            },
+            {
+              "id": "q14",
+              "html": "Choose the correct clipped form for the word perambulator.",
+              "options": [
+                "a) bulator",
+                "b) peram",
+                "c) pramb",
+                "d) pram"
+              ],
+              "answer": 3,
+              "officialKey": "d) pram"
+            },
+            {
+              "id": "q15",
+              "html": "Choose the correct meaning of the idiom “alarm bells ringing”.",
+              "options": [
+                "a) try any method",
+                "b) sign of something going wrong",
+                "c) abandoning in difficulty",
+                "d) in serious difficulty"
+              ],
+              "answer": 1,
+              "officialKey": "b) sign of something going wrong"
+            },
+            {
+              "id": "q16",
+              "html": "A person who treats the problems of the heart is a __________.",
+              "options": [
+                "a) pulmonologist",
+                "b) neurologist",
+                "c) cardiologist",
+                "d) nephrologist"
+              ],
+              "answer": 2,
+              "officialKey": "c) cardiologist"
+            },
+            {
+              "id": "q17",
+              "html": "Madhav doesn't speak Telugu, __________",
+              "options": [
+                "a) has he ?",
+                "b) did he ?",
+                "c) is he ?",
+                "d) does he ?"
+              ],
+              "answer": 3,
+              "officialKey": "d) does he ?"
+            },
+            {
+              "id": "q18",
+              "html": "Choose the meaning of the foreign word - in toto.",
+              "options": [
+                "a) completely",
+                "b) half",
+                "c) partially",
+                "d) null"
+              ],
+              "answer": 0,
+              "officialKey": "a) completely"
+            },
+            {
+              "id": "q19",
+              "html": "Choose the word that has been wrongly spelt.",
+              "options": [
+                "a) revolution",
+                "b) reverance",
+                "c) reference",
+                "d) relevant"
+              ],
+              "answer": 1,
+              "officialKey": "b) reverance"
+            },
+            {
+              "id": "q20",
+              "html": "Anand invited ___________ friends for his birthday party.",
+              "options": [
+                "a) few",
+                "b) a little",
+                "c) a few",
+                "d) little"
+              ],
+              "answer": 2,
+              "officialKey": "c) a few"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "navLabel": "Part II -- Poetry (Any 4 sets)",
+      "title": "Part II · Section 1 -- Poetic Lines",
+      "type": "reference",
+      "scoreMax": 8,
+      "marksPer": 2,
+      "instruction": "Choose any four sets of poetic lines and answer the questions that follow. Official answer-key expectations are preserved.",
+      "questions": [
+        {
+          "verse": "Cocktail face, with all their conforming smiles like a fixed portrait smile.",
+          "subs": [
+            {
+              "q": "(a) What is meant by 'cocktail face'?",
+              "a": "“Cocktail face” means a face showing mixed, artificial or socially adjusted emotions instead of sincere feeling.",
+              "officialKey": "Mixed / different emotions or feelings."
+            },
+            {
+              "q": "(b) Mention the figure of speech.",
+              "a": "The figure of speech is Simile.",
+              "officialKey": "Simile."
+            }
+          ]
+        },
+        {
+          "verse": "When snaps the knee, and cracks the wrist, when officialdom demands,",
+          "subs": [
+            {
+              "q": "(a) Identify the literary device in these lines.",
+              "a": "The literary device is Onomatopoeia, shown by words such as “snaps” and “cracks”.",
+              "officialKey": "Onomatopoeia."
+            },
+            {
+              "q": "(b) Whom does the officialdom demand?",
+              "a": "Officialdom demands a doctor or medical help when athletes are injured.",
+              "officialKey": "Doctors / a doctor."
+            }
+          ]
+        },
+        {
+          "verse": "I heard a thousand blended notes\nWhile in a grove I sate reclined,",
+          "subs": [
+            {
+              "q": "(a) What did the poet hear?",
+              "a": "The poet heard a thousand blended notes, the mixed sounds of nature such as birds and other living things.",
+              "officialKey": "A thousand blended notes / mixed sounds of nature / birds / flora and fauna."
+            },
+            {
+              "q": "(b) Where did he sit?",
+              "a": "He sat reclining in a grove.",
+              "officialKey": "In a grove / garden / park."
+            }
+          ]
+        },
+        {
+          "verse": "His coat is dusty from neglect, his whiskers are uncombed.\nHe sways his head from side to side, with movements like a snake;",
+          "subs": [
+            {
+              "q": "(a) How does the cat look?",
+              "a": "Macavity looks neglected: his coat is dusty and his whiskers are uncombed.",
+              "officialKey": "Macavity’s coat is dusty and his whiskers are uncombed."
+            },
+            {
+              "q": "(b) What is the figure of speech used in the second line?",
+              "a": "The figure of speech is Simile.",
+              "officialKey": "Simile."
+            }
+          ]
+        },
+        {
+          "verse": "Defeat we repel, courage our fort;\nCringing from others we haven't done,",
+          "subs": [
+            {
+              "q": "(a) What do they repel?",
+              "a": "They repel defeat or failure.",
+              "officialKey": "Defeat / failure."
+            },
+            {
+              "q": "(b) What is their fort?",
+              "a": "Courage, bravery or boldness is their fort.",
+              "officialKey": "Courage / bravery / boldness."
+            }
+          ]
+        },
+        {
+          "verse": "And that small model of the barren earth\nWhich serves as paste and cover to our bones.",
+          "subs": [
+            {
+              "q": "(a) What does “small model” mean?",
+              "a": "The “small model” means the human body, the mortal physical frame that will return to earth.",
+              "officialKey": "Human body / body’s flesh / perishable things."
+            },
+            {
+              "q": "(b) Who speaks these words?",
+              "a": "King Richard II speaks these words.",
+              "officialKey": "King Richard II / Richard II / King."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "navLabel": "Part II -- Grammar (Any 3)",
+      "title": "Part II · Section 2 -- Do as Directed",
+      "type": "short-essay",
+      "scoreMax": 6,
+      "marksPer": 2,
+      "instruction": "Answer any three questions. Answers are aligned to the official answer key.",
+      "questions": [
+        {
+          "q": "Q27. Sharmila said, “I haven’t seen her”. [Change into indirect speech]",
+          "ans": "Sharmila said that she hadn’t seen her.",
+          "officialKey": "Sharmila said that she hadn’t seen her."
+        },
+        {
+          "q": "Q28. The teacher distributed the text books. [Change the voice]",
+          "ans": "The text books were distributed by the teacher.",
+          "officialKey": "The text books were distributed by the teacher."
+        },
+        {
+          "q": "Q29. In spite of her weakness, Radha attended the class. [Rewrite as a compound sentence]",
+          "ans": "Radha was weak, but she attended the class.",
+          "officialKey": "Radha was weak but / yet / still she attended the class."
+        },
+        {
+          "q": "Q30. You did not run fast. You did not catch the train. [Combine using “If”]",
+          "ans": "If you had run fast, you would have caught the train.",
+          "officialKey": "If you had run fast, you would / could have caught the train."
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "navLabel": "Part III -- RTC (Any 2)",
+      "title": "Part III · Section 1 -- Reference to Context",
+      "type": "short-essay",
+      "scoreMax": 6,
+      "marksPer": 3,
+      "instruction": "Explain any two. The official key expects poem name, poet name and any relevant explanation.",
+      "questions": [
+        {
+          "q": "Q31. “With all my heart I do admire / Athletes who sweat for fun or hire,”",
+          "officialKey": "Poem: Confessions of a Born Spectator. Poet: Ogden Nash. Any relevant explanation.",
+          "ans": "These lines are from “Confessions of a Born Spectator” by Ogden Nash. The speaker says he sincerely admires athletes who labour, sweat and compete either for enjoyment or reward. At the same time, his admiration does not make him wish to become one of them."
+        },
+        {
+          "q": "Q32. “The birds around me hopped and played / Their thoughts I cannot measure,”",
+          "officialKey": "Poem: Lines Written in the Early Spring. Poet: William Wordsworth. Any relevant explanation.",
+          "ans": "These lines are from “Lines Written in the Early Spring” by William Wordsworth. The poet observes birds moving freely in nature and imagines that they share in the joy of creation. Their happiness deepens his reflection on the natural harmony around him."
+        },
+        {
+          "q": "Q33. “Ours is a path of dignity and honour,”",
+          "officialKey": "Poem: Everest is not the only Peak. Poet: Kulothungan / V. C. Kulandaiswamy. Any relevant explanation.",
+          "ans": "This line is from “Everest is not the only Peak” by Kulothungan, also known as V. C. Kulandaiswamy. The speaker declares that human beings must live with dignity, self-respect and honour. True greatness lies in upright conduct, not merely in outward achievement."
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "navLabel": "Part III -- Short Answers",
+      "title": "Part III · Sections 2 and 3 -- Short Answers",
+      "type": "short-essay",
+      "scoreMax": 18,
+      "marksPer": 3,
+      "instruction": "Answer as directed in the paper. Generated review answers follow the official answer-key expectations.",
+      "questions": [
+        {
+          "q": "Q34. What made the dogs follow the grandmother after school hours?",
+          "officialKey": "The dogs followed her for the stale chapattis she threw to them after school.",
+          "ans": "The dogs followed the grandmother because she carried stale chapattis and threw them to the village dogs on the way back after school."
+        },
+        {
+          "q": "Q35. How do the chemists make fortunes out of the medicines people forget to take?",
+          "officialKey": "People forget their medicines, their sickness is prolonged, and they buy more medicines; chemists profit.",
+          "ans": "Chemists make fortunes because people often forget to take medicines on time. Their illness then lasts longer, so they purchase more medicine than necessary."
+        },
+        {
+          "q": "Q36. Describe the fluttery cascade of things tumbling from the bag.",
+          "officialKey": "Documents fall in a fluttery cascade, coins bounce noisily, and a tobacco tin rolls across the airport floor.",
+          "ans": "When the bag burst open, documents fell in a fluttery cascade, coins bounced noisily in different directions, and a tobacco tin rolled across the airport floor."
+        },
+        {
+          "q": "Q37. Write three sentences based on the table of natural disasters and affected areas.",
+          "officialKey": "Three meaningful sentences about the data; full marks for three correct sentences without mistakes.",
+          "ans": "An earthquake affected Bhuj in Gujarat in 2001. The 2004 tsunami affected the Tamil Nadu coast, Kerala, Andaman and Nicobar Islands and Puducherry. Tamil Nadu was affected by a cyclone in 2008 and by floods in 2015."
+        },
+        {
+          "q": "Q38. Answer the pie-chart questions about Arjun’s family spending.",
+          "officialKey": "(i) (b) Rent and food. (ii) (c) Clothes. (iii) (b) 3200.",
+          "ans": "(i) Rent and food.\n(ii) Clothes.\n(iii) Rs. 3200."
+        },
+        {
+          "q": "Q39. Describe the process of making a cup of coffee.",
+          "officialKey": "Process-writing rubric: complete meaningful description with clear points.",
+          "ans": "First, boil milk or water in a vessel. Add coffee powder to a tumbler or prepare a decoction separately. Mix the decoction with hot milk, add sugar according to taste and stir well. Pour the coffee into a cup and serve it hot."
+        },
+        {
+          "q": "Q40. Expand the following news headlines.",
+          "officialKey": "Three meaningful sentences without mistakes; sentences with a few mistakes receive partial credit.",
+          "ans": "(i) The inflow of water into Mettur Dam has reduced.\n(ii) Big cash prizes have been announced for Indian Olympic participants.\n(iii) The Chennai Collector will inaugurate the Naan Mudhalvan Scheme."
+        }
+      ]
+    },
+    {
+      "id": "p6",
+      "navLabel": "Part IV -- Long Answers (7×5)",
+      "title": "Part IV -- Long Answer Questions",
+      "type": "long-essay",
+      "scoreMax": 35,
+      "marksPer": 5,
+      "instruction": "Answer one option where the paper provides a choice. Official key rubrics are preserved; model answers are written to satisfy those expectations.",
+      "questions": [
+        {
+          "id": "q41",
+          "q": "Q41. Answer either (a) The grandmother was strong-minded. Justify. OR (b) How do universities mould students apart from imparting academic education?",
+          "officialKey": "Content - 60%, Language, style and organization - 40%. Exceptionally good paragraph - 5; correct answer with all points and no mistakes - 4; correct answer with a few mistakes - 3; answer with a few points - 2; relevant attempt / answer with many mistakes - 1.",
+          "choices": [
+            {
+              "label": "a",
+              "prompt": "The grandmother was strong-minded. Justify.",
+              "ans": "The grandmother in “The Portrait of a Lady” is strong-minded, calm and spiritually disciplined. When the author leaves for the city and later for abroad, she does not complain or become sentimental. She accepts change with quiet dignity. After his return from overseas, she celebrates joyfully, but when she falls ill the next day, she clearly says that her end is near. She refuses to waste time in idle conversation and chooses to spend her final moments in prayer. Her ability to face separation, loneliness and death without fear proves that she is a woman of remarkable inner strength."
+            },
+            {
+              "label": "b",
+              "prompt": "How do universities mould students apart from imparting academic education?",
+              "ans": "Universities do more than teach subjects and award degrees. They shape students into responsible citizens by developing discipline, character, social awareness and democratic values. Through debates, cultural activities, service opportunities and interaction with diverse people, students learn cooperation, leadership and respect for others. Universities encourage independent thinking and help young people understand their duties toward society. Thus, higher education moulds the whole personality and prepares students to contribute meaningfully to the nation."
+            }
+          ],
+          "ans": "Option (a): Justify the grandmother’s firmness and spiritual courage. Option (b): Explain the wider character-building role of universities."
+        },
+        {
+          "id": "q42",
+          "q": "Q42. Answer either (a) Ogden Nash does not wish to exchange places with athletes. Justify. OR (b) Describe the appearance and qualities of Macavity.",
+          "officialKey": "Content - 60%, Language, style and organization - 40%. Exceptionally good paragraph - 5; correct answer with all points and no mistakes - 4; correct answer with a few mistakes - 3; answer with a few points - 2; relevant attempt / answer with many mistakes - 1.",
+          "choices": [
+            {
+              "label": "a",
+              "prompt": "The poet Ogden Nash does not wish to exchange places with the athletes. Justify his views.",
+              "ans": "In “Confessions of a Born Spectator”, Ogden Nash admires athletes for their strength and skill but has no desire to exchange places with them. He imagines the injuries, roughness and physical risks of competitive games. Although the ego might enjoy victory and applause, common sense makes him prefer the safety of the stands. He feels perfectly content to watch others play while he remains free from bruises and broken bones. His view is humorous but honest: admiration need not become imitation."
+            },
+            {
+              "label": "b",
+              "prompt": "Describe the appearance and qualities of Macavity.",
+              "ans": "Macavity is a mysterious criminal cat with a neglected and sinister appearance. His coat is dusty, his whiskers are uncombed and his head sways like a snake. He is called the “Hidden Paw” because he commits crimes without being caught. Whenever the police arrive, Macavity is never present. He breaks every law, seems to defy gravity and is clever enough to leave no proof behind. His cunning, secrecy and audacity make him a comic symbol of perfect criminal cleverness."
+            }
+          ],
+          "ans": "Option (a): Explain why the speaker prefers to remain a spectator. Option (b): Describe Macavity’s appearance and criminal cleverness."
+        },
+        {
+          "id": "q43",
+          "q": "Q43. Answer either (a) Develop the dentist-clinic hints OR (b) Develop the hints about Aunt Jane visiting Jack and Jill.",
+          "officialKey": "Content - 60%, Language, style and organization - 40%. Exceptionally good paragraph - 5; correct answer with all points and no mistakes - 4; correct answer with a few mistakes - 3; answer with a few points - 2; relevant attempt / answer with many mistakes - 1.",
+          "choices": [
+            {
+              "label": "a",
+              "prompt": "Develop the dentist-clinic hints.",
+              "ans": "A number of patients sat nervously in a dentist’s clinic. Everybody feared painful treatment, and one woman kept looking at photographs on the wall to distract herself. Soon the dentist arrived and called Joe inside. A nurse followed carrying a hammer, pliers and a hacksaw. The patients outside became terrified. A small boy confessed that he had only come with his mother, while a girl began to weep. One by one, everyone left the waiting room in fear. At last Joe came out calmly, and the woman discovered that he had been the first patient. The frightening tools had been used only to open a box, not to treat him."
+            },
+            {
+              "label": "b",
+              "prompt": "Develop the hints about Aunt Jane visiting Jack and Jill.",
+              "ans": "Aunt Jane visited Jack and Jill and was amazed by their comfortable house. She saw a radiogram, piano, car and attractive furniture, and wondered how the young couple could afford so much. Jack admitted that almost everything had been bought through monthly instalments. Aunt Jane was shocked and reminded them of her motto: one should buy only what one can truly pay for. Before leaving, she gave them a cheque for ten pounds, hoping they would clear some debt. Jack and Jill looked around for something they could fully own and decided, humorously, to put the money toward the baby. The scene satirizes reckless buying on credit."
+            }
+          ],
+          "ans": "Option (a): Expand the comic misunderstanding in the dentist’s clinic. Option (b): Expand the satire on instalment buying."
+        },
+        {
+          "id": "q44",
+          "q": "Q44. Answer either (a) Summarize or make notes of the passage on Kabaddi OR (b) Write a paragraph on “Truth alone Triumphs”.",
+          "officialKey": "Option (a): Summary / note-making rubric. Option (b): Paragraph-writing rubric.",
+          "choices": [
+            {
+              "label": "a",
+              "prompt": "Summarize the passage on Kabaddi.",
+              "ans": "Title: Kabaddi\n\nKabaddi is a contact team sport that originated in Tamil Nadu and is popular across South Asia. It is played between two teams of seven players. A raider enters the opponent’s half, tags defenders and returns safely without being tackled. The defending team scores if it stops the raider. Players may be revived when their team earns points. The raider continuously chants words such as “Kabaddi” while holding breath; if the chant stops, the raider is out. The International Kabaddi Federation governs the sport."
+            },
+            {
+              "label": "b",
+              "prompt": "Write a paragraph on “Truth alone Triumphs”.",
+              "ans": "Truth alone triumphs because it is the foundation of trust, justice and peace. Falsehood may bring temporary advantage, but it finally creates fear and disgrace. A truthful person earns respect and inner confidence. History honours those who stood by truth even in difficult circumstances. In daily life too, honesty strengthens relationships and helps society function fairly. Students should learn to speak the truth, accept mistakes and act with integrity. When truth guides thought and action, victory becomes lasting and meaningful."
+            }
+          ],
+          "ans": "Option (a): A concise summary with suitable title. Option (b): A relevant paragraph on the value of truth."
+        },
+        {
+          "id": "q45",
+          "q": "Q45. Answer either (a) Respond to the Accountant advertisement and prepare a bio-data OR (b) Write a letter to a friend about a trip to Kodaikanal.",
+          "officialKey": "Option (a): Application letter with bio-data. Option (b): Personal letter format and relevant description.",
+          "choices": [
+            {
+              "label": "a",
+              "prompt": "Respond to the Accountant advertisement and prepare a bio-data.",
+              "ans": "YYYY,\nChennai.\n17 May 2026.\n\nThe Manager,\nAlpha Enterprises,\nNo. 15, State Bank Colony,\nChennai - 600091.\n\nSir/Madam,\n\nSub: Application for the post of Accountant\n\nWith reference to your advertisement, I wish to apply for the post of Accountant. I am a graduate, fluent in English and have five years of accounting experience. I am familiar with bookkeeping, billing, basic taxation and office software. I enclose my bio-data for your consideration.\n\nYours faithfully,\nXXXX\n\nBio-data\nName: XXXX\nAddress: YYYY\nQualification: Graduate\nExperience: Five years in accounts work\nSkills: Bookkeeping, computer accounting, English communication\nLanguages Known: Tamil and English"
+            },
+            {
+              "label": "b",
+              "prompt": "Write a letter to your friend about your trip to Kodaikanal.",
+              "ans": "12, Gandhi Street,\nMadurai - 625001.\n17 May 2026.\n\nDear Arun,\n\nI recently visited Kodaikanal with my family and enjoyed the trip greatly. The cool weather, misty hills and beautiful lake made the place memorable. We went boating, visited Bryant Park, Coaker’s Walk and several viewpoints. The waterfalls and green valleys were especially attractive. I took many photographs and returned refreshed. I hope we can visit together someday.\n\nYours lovingly,\nRavi"
+            }
+          ],
+          "ans": "Option (a): A job application with bio-data for Accountant. Option (b): A personal letter describing the Kodaikanal trip."
+        },
+        {
+          "id": "q46",
+          "q": "Q46. Answer either (a) Spot the errors and rewrite correctly OR (b) Fill in the blanks appropriately.",
+          "officialKey": "Option (a): We bought some furniture; I met a European at the University; Though he ran fast, he did not win / He ran fast but he did not win; The Cauvery flows through Trichy; I sat beside my sister. Option (b): loose / lose; didn’t she?; When / Whenever / If; has been raining.",
+          "choices": [
+            {
+              "label": "a",
+              "prompt": "Spot the errors and rewrite the sentences correctly.",
+              "ans": "(i) We bought some furniture.\n(ii) I met a European at the University.\n(iii) Though he ran fast, he did not win.\n(iv) The Cauvery flows through Trichy.\n(v) I sat beside my sister."
+            },
+            {
+              "label": "b",
+              "prompt": "Fill in the blanks appropriately.",
+              "ans": "(i) Your ring is loose. Do not lose it.\n(ii) Sheela went to the library, didn’t she?\n(iii) When you go to a library, you will see different genres of books.\n(iv) It has been raining since last night."
+            }
+          ],
+          "ans": "Option (a): Correct the five sentences as shown. Option (b): loose / lose; didn’t she?; when; has been raining."
+        },
+        {
+          "id": "q47",
+          "q": "Q47. Answer either (a) Read the passage on Preethi Srinivasan and answer the questions OR (b) Write a conversation between two friends on reading an interesting novel.",
+          "officialKey": "Option (a): Domestic cricket; the Soulfree foundation was created because Preethi Srinivasan’s own trauma inspired her to help Indian youth cope with spinal cord injury disabilities; in 2018; Yes; domestic. Option (b): Dialogue-writing rubric.",
+          "choices": [
+            {
+              "label": "a",
+              "prompt": "Answer the passage questions on Preethi Srinivasan.",
+              "ans": "(i) Preethi Srinivasan played domestic cricket during the 1990s.\n(ii) The Soulfree Foundation was created because her own spinal cord injury inspired her to help Indian youth cope with related disabilities.\n(iii) She received the Kalpana Chawla Award in 2018.\n(iv) Yes, she captained Tamil Nadu’s women’s under-19 cricket team in a national tournament.\n(v) The word is “domestic”."
+            },
+            {
+              "label": "b",
+              "prompt": "Write a conversation between two friends on reading an interesting novel.",
+              "ans": "Ravi: I finished reading a very interesting novel yesterday.\nMeena: Really? What made it so special?\nRavi: The story was exciting, and the characters felt real.\nMeena: Did it also have a good message?\nRavi: Yes. It showed the value of courage and friendship.\nMeena: I would like to read it too. Can you lend it to me?\nRavi: Certainly. I will bring it tomorrow."
+            }
+          ],
+          "ans": "Option (a): Answer the five passage questions accurately. Option (b): A meaningful dialogue with at least five exchanges."
+        }
+      ]
+    }
   ]
+}
 };

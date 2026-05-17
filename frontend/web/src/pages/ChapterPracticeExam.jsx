@@ -19,10 +19,17 @@ import Eyebrow from '../components/ui/Eyebrow'
 
 // ── Helpers ────────────────────────────────────────────────────────────────
 
+function isMcqCorrect(q, answers) {
+  const chosen = answers[q.id]
+  if (chosen === undefined) return false
+  if (q.acceptedAnswers) return q.acceptedAnswers.includes(chosen)
+  return chosen === q.correct
+}
+
 function calcMcqScore(questions, answers) {
   return questions
     .filter(q => q.type === 'mcq')
-    .filter(q => answers[q.id] === q.correct)
+    .filter(q => isMcqCorrect(q, answers))
     .length
 }
 
@@ -498,7 +505,7 @@ function ReviewModal({ questions, questionIdx, answers, validationErrors, mode, 
 
 function McqReviewItem({ q, qi, answered }) {
   const chosen    = answered[q.id]
-  const isCorrect = chosen === q.correct
+  const isCorrect = isMcqCorrect(q, answered)
   return (
     <div className={`bg-bg-2 rounded-xl p-4 border ${isCorrect ? 'border-good-soft' : 'border-line'}`}>
       <div className="flex items-start gap-2 mb-3">
@@ -514,7 +521,7 @@ function McqReviewItem({ q, qi, answered }) {
       <div className="space-y-1.5 ml-6">
         {q.options.map((opt, i) => {
           const isChosen = chosen === i
-          const isAnswer = q.correct === i
+          const isAnswer = q.acceptedAnswers ? q.acceptedAnswers.includes(i) : q.correct === i
           return (
             <div key={i} className={`text-[12px] flex items-center gap-2 ${
               isAnswer              ? 'text-good-ink font-semibold'

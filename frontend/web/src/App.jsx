@@ -170,12 +170,12 @@ export default function App() {
         } />
         <Route path="/plus1/english/exam/:examYear" element={
           <DashShell>
-            <CourseContent><ExamPaperPracticePage /></CourseContent>
+            <CourseContent><ExamPaperPracticePage classLevel="plus1" /></CourseContent>
           </DashShell>
         } />
         <Route path="/plus2/english/exam/:examYear" element={
           <DashShell>
-            <CourseContent><ExamPaperPracticePage /></CourseContent>
+            <CourseContent><ExamPaperPracticePage classLevel="plus2" /></CourseContent>
           </DashShell>
         } />
         <Route path="/:year/:subject/:category" element={

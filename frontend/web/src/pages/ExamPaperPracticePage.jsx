@@ -12,14 +12,15 @@ function adaptAllQuestions(practiceData) {
       for (const sec of (part.sections ?? [])) {
         for (const q of sec.questions) {
           out.push({
-            id:      idx++,
-            type:    'mcq',
-            marks:   part.marksPer ?? 1,
-            section: sec.label,
-            html:    q.html,
-            options: q.options.map(o => o.replace(/^[a-d]\)\s*/i, '')),
-            correct: q.answer,
-            hint:    q.hint,
+            id:              idx++,
+            type:            'mcq',
+            marks:           part.marksPer ?? 1,
+            section:         sec.label,
+            html:            q.html,
+            options:         q.options.map(o => o.replace(/^[a-d]\)\s*/i, '')),
+            correct:         q.answer,
+            acceptedAnswers: q.acceptedAnswers,
+            hint:            q.hint,
           })
         }
       }
@@ -48,16 +49,16 @@ function adaptAllQuestions(practiceData) {
   return out
 }
 
-export default function ExamPaperPracticePage() {
-  const { year, examYear } = useParams()
+export default function ExamPaperPracticePage({ classLevel = 'plus1' }) {
+  const { examYear } = useParams()
 
-  const classNum = year === 'plus2' ? '12' : '11'
+  const classNum = classLevel === 'plus2' ? '12' : '11'
   const paperId  = `class${classNum}-english-${examYear}-annual`
   const paper    = getPaperById(paperId)
 
-  if (!paper) return <Navigate to={`/${year}/english`} replace />
+  if (!paper) return <Navigate to={`/${classLevel}/english`} replace />
 
-  const practiceData = adaptExamPaper(paper)
+  const practiceData = paper.practice ?? adaptExamPaper(paper)
   const questions    = adaptAllQuestions(practiceData)
 
   const chapterMeta = {
