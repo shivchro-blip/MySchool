@@ -110,7 +110,28 @@
       "Bash(dart fix *)",
       "Bash(grep -v \"//.*Color\")",
       "Bash(ConvertTo-Csv -NoTypeInformation)",
-      "Bash(Write-Output)"
+      "Bash(Write-Output)",
+      "PowerShell(for \\($i=0; $i -lt 6; $i++\\) { python -c \"from pathlib import Path; print\\(Path\\('.graphify_chunk_files_' + str\\($i\\) + '.txt'\\).read_text\\(\\)\\)\" })",
+      "Bash(python -m pytest tests/test_learning.py tests/test_evaluation.py tests/test_validation_guard.py tests/test_health.py -v --tb=short)",
+      "Bash(python -c \"import sys; sys.path.insert\\(0,''\\); from modules.learning.service import _parse_explain_response; r=_parse_explain_response\\('{\\\\\"explanation\\\\\":\\\\\"test\\\\\",\\\\\"key_points\\\\\":[],\\\\\"exam_tip\\\\\":\\\\\"\\\\\"}'\\); print\\('parse OK:', r['explanation']\\)\")",
+      "Bash(.venv/Scripts/python.exe -m ensurepip --upgrade)",
+      "Bash(.venv/Scripts/python.exe -m pip install pytest pytest-asyncio httpx)",
+      "Bash(.venv/Scripts/python.exe -m pytest tests/ -v --tb=short)",
+      "Bash(.venv/Scripts/python.exe -m pytest tests/ -v --tb=line)",
+      "Bash(.venv/Scripts/python.exe -m pytest tests/test_api_integration.py::test_get_subjects_returns_list tests/test_api_integration.py::test_get_chapters_returns_list tests/test_api_integration.py::test_learning_explain_returns_response tests/test_api_integration.py::test_learning_content_returns_chunks tests/test_api_integration.py::test_evaluation_submit_returns_score tests/test_api_integration.py::test_submit_rejects_invalid_uuid tests/test_api_integration.py::test_get_chapters_404_for_unknown_subject tests/test_evaluation.py::test_format_rubric_adds_guidance -v --tb=short)",
+      "Bash(cargo --version)",
+      "Bash(rustc --version)",
+      "Bash(gh api *)",
+      "WebFetch(domain:api.github.com)",
+      "PowerShell(rtk *)",
+      "Skill(ecc:feature-dev)",
+      "Bash(flutter build *)",
+      "Bash(Select-String -Pattern \"\\(ExamPaper|page\\)\")",
+      "Bash(python -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(d.get\\('dependencies',{}\\).get\\('lucide-react','not found'\\)\\)\")",
+      "Bash(Start-Sleep -Seconds 5)",
+      "Bash(Get-Content \"C:\\\\Users\\\\shiva\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Projects-TNSchool\\\\b3928a5b-6d57-4ef0-a0a7-2e196e72ef90\\\\tasks\\\\b3lexjs4o.output\" -Tail 15)",
+      "Bash(dart analyze *)",
+      "Skill(ecc:resume-session)"
     ]
   }
 }
