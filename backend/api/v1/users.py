@@ -23,7 +23,7 @@ async def update_profile(
 ):
     updated = UsersRepository().update_profile(
         user["id"],
-        body.model_dump(exclude_none=True),
+        body.model_dump(by_alias=True, exclude_none=True),
     )
     if not updated:
         raise HTTPException(status_code=404, detail="User not found")

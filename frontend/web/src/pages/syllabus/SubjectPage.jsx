@@ -7,6 +7,15 @@ import { buildBreadcrumbs } from '../../lib/nav'
 import { Card } from '../../components/ui'
 import { Breadcrumb } from '../../components/nav'
 import NotFound from './NotFound'
+import ExamPaperListCard from './ExamPaperListCard'
+import ModelPaperListCard from './ModelPaperListCard'
+import {
+  finalExamPrepPapers, finalExamPrepPapersPlus2,
+  finalExamPrepModelPapers, finalExamPrepModelPapersPlus2,
+} from '../../data/finalExamPrepData'
+
+const EXAM_PAPERS_BY_YEAR  = { plus1: finalExamPrepPapers,      plus2: finalExamPrepPapersPlus2 }
+const MODEL_PAPERS_BY_YEAR = { plus1: finalExamPrepModelPapers, plus2: finalExamPrepModelPapersPlus2 }
 
 const TYPE_ICON = {
   prose:         (color) => <BookOpen    size={16} strokeWidth={1.8} style={{ color }} />,
@@ -207,6 +216,20 @@ export default function SubjectPage() {
             />
           ))}
         </div>
+
+        {subject === 'english' && (
+          <div className="mt-8 flex flex-col gap-4 max-w-[680px]">
+            <h2 className="text-lg font-bold text-ink">Final Exam Prep</h2>
+            <ExamPaperListCard
+              papers={EXAM_PAPERS_BY_YEAR[year] ?? finalExamPrepPapers}
+              basePath={`/${year}/${subject}`}
+            />
+            <ModelPaperListCard
+              papers={MODEL_PAPERS_BY_YEAR[year] ?? finalExamPrepModelPapers}
+              basePath={`/${year}/${subject}`}
+            />
+          </div>
+        )}
       </div>
     )
   }

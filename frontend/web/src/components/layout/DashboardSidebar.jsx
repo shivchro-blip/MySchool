@@ -99,7 +99,14 @@ function SubItem({ label, active, depth, onClick }) {
 export default function DashboardSidebar({ onClose }) {
   const navigate    = useNavigate()
   const { pathname } = useLocation()
-  const [allowedYear, setAllowedYear] = useState(null)
+  const [allowedYear, setAllowedYear] = useState(() => {
+    try {
+      const d = JSON.parse(localStorage.getItem('exam_coach_onboarded') || '{}')
+      if (d?.classYear === 'plus1' || d?.class === '+1') return 'plus1'
+      if (d?.classYear === 'plus2' || d?.class === '+2') return 'plus2'
+    } catch {}
+    return null
+  })
 
   useEffect(() => {
     getProfile().then(p => {
