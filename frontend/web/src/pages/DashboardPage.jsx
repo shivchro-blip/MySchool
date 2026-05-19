@@ -3,11 +3,9 @@ import { BookOpen, FileText, ChevronRight, ClipboardList } from 'lucide-react'
 import { SYLLABUS } from '../data/syllabus'
 
 function getAllowedYear() {
-  try {
-    const d = JSON.parse(localStorage.getItem('exam_coach_onboarded') || '{}')
-    if (d?.classYear === 'plus1' || d?.class === '+1') return 'plus1'
-    if (d?.classYear === 'plus2' || d?.class === '+2') return 'plus2'
-  } catch {}
+  const c = localStorage.getItem('exam_coach_class')
+  if (c === '+1') return 'plus1'
+  if (c === '+2') return 'plus2'
   return null
 }
 

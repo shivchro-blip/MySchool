@@ -100,18 +100,21 @@ export default function DashboardSidebar({ onClose }) {
   const navigate    = useNavigate()
   const { pathname } = useLocation()
   const [allowedYear, setAllowedYear] = useState(() => {
-    try {
-      const d = JSON.parse(localStorage.getItem('exam_coach_onboarded') || '{}')
-      if (d?.classYear === 'plus1' || d?.class === '+1') return 'plus1'
-      if (d?.classYear === 'plus2' || d?.class === '+2') return 'plus2'
-    } catch {}
+    const cached = localStorage.getItem('exam_coach_class')
+    if (cached === '+1') return 'plus1'
+    if (cached === '+2') return 'plus2'
     return null
   })
 
   useEffect(() => {
     getProfile().then(p => {
-      if (p?.class === '+1') setAllowedYear('plus1')
-      else if (p?.class === '+2') setAllowedYear('plus2')
+      if (p?.class === '+1') {
+        localStorage.setItem('exam_coach_class', '+1')
+        setAllowedYear('plus1')
+      } else if (p?.class === '+2') {
+        localStorage.setItem('exam_coach_class', '+2')
+        setAllowedYear('plus2')
+      }
     }).catch(() => {})
   }, [])
 
@@ -160,7 +163,7 @@ export default function DashboardSidebar({ onClose }) {
       </div>
 
       {/* Main nav */}
-      <nav style={{ flex: 1, padding: '8px 10px', display: 'flex', flexDirection: 'column', gap: 2 }}>
+      <nav style={{ flex: 1, minHeight: 0, overflowY: 'auto', padding: '8px 10px', display: 'flex', flexDirection: 'column', gap: 2 }}>
         {TOP_NAV.map(item => (
           <Fragment key={item.id}>
             <NavItem

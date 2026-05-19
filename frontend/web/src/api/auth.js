@@ -27,6 +27,7 @@ export async function signupWithEmail(email, password) {
 export function logout() {
   localStorage.removeItem('exam_coach_token')
   localStorage.removeItem('exam_coach_onboarded')
+  localStorage.removeItem('exam_coach_class')
 }
 
 export function getToken() {
