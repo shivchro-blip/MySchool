@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { isLoggedIn } from './api/auth'
 
 import LoginPage        from './pages/LoginPage'
+import OnboardingPage   from './pages/OnboardingPage'
 import ProgressPage     from './pages/ProgressPage'
 import DashboardPage    from './pages/DashboardPage'
 import CoursesIndexPage from './pages/CoursesIndexPage'
@@ -17,9 +18,19 @@ import LessonDetailPage         from './pages/syllabus/LessonDetailPage'
 import SectionPage              from './pages/syllabus/SectionPage'
 import NotFound                 from './pages/syllabus/NotFound'
 import ChapterPracticeExamPage  from './pages/ChapterPracticeExamPage'
+import FinalExamPrepPage        from './pages/syllabus/FinalExamPrepPage'
+import ExamPaperViewerPage      from './pages/ExamPaperViewerPage'
+import ExamPaperPracticePage    from './pages/ExamPaperPracticePage'
+import ModelExamPracticePage    from './pages/ModelExamPracticePage'
+
+function isOnboarded() {
+  return !!localStorage.getItem('exam_coach_onboarded')
+}
 
 function Guard({ children }) {
-  return isLoggedIn() ? children : <Navigate to="/login" replace />
+  if (!isLoggedIn()) return <Navigate to="/login" replace />
+  if (!isOnboarded()) return <Navigate to="/onboarding" replace />
+  return children
 }
 
 function DashShell({ children }) {
@@ -44,6 +55,7 @@ export default function App() {
       <Routes>
 
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/onboarding" element={<OnboardingPage />} />
 
         {/* ── Dashboard shell routes ─────────────────────────── */}
         <Route path="/" element={
@@ -87,6 +99,42 @@ export default function App() {
         <Route path="/:year/:subject" element={
           <DashShell>
             <CourseContent><SubjectPage /></CourseContent>
+          </DashShell>
+        } />
+        <Route path="/plus1/english/final-exam-prep" element={
+          <DashShell>
+            <CourseContent><FinalExamPrepPage /></CourseContent>
+          </DashShell>
+        } />
+        <Route path="/plus1/english/final-exam-prep/paper/:paperId" element={
+          <DashShell><ExamPaperViewerPage /></DashShell>
+        } />
+        <Route path="/plus2/english/final-exam-prep" element={
+          <DashShell>
+            <CourseContent><FinalExamPrepPage classLevel="plus2" subjectSlug="english" /></CourseContent>
+          </DashShell>
+        } />
+        <Route path="/plus2/english/final-exam-prep/paper/:paperId" element={
+          <DashShell><ExamPaperViewerPage backPath="/plus2/english/final-exam-prep" /></DashShell>
+        } />
+        <Route path="/plus1/english/exam/:examYear" element={
+          <DashShell>
+            <CourseContent><ExamPaperPracticePage classLevel="plus1" /></CourseContent>
+          </DashShell>
+        } />
+        <Route path="/plus2/english/exam/:examYear" element={
+          <DashShell>
+            <CourseContent><ExamPaperPracticePage classLevel="plus2" /></CourseContent>
+          </DashShell>
+        } />
+        <Route path="/plus1/english/model-exam/:modelId" element={
+          <DashShell>
+            <CourseContent><ModelExamPracticePage classLevel="plus1" /></CourseContent>
+          </DashShell>
+        } />
+        <Route path="/plus2/english/model-exam/:modelId" element={
+          <DashShell>
+            <CourseContent><ModelExamPracticePage classLevel="plus2" /></CourseContent>
           </DashShell>
         } />
         <Route path="/:year/:subject/:category" element={

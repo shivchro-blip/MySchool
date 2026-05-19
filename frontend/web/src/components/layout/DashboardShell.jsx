@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
-import { Menu, Search, Bell, LayoutGrid, BookOpen, TrendingUp, Activity, Award } from 'lucide-react'
+import { Menu, Search, Bell, LayoutGrid, BookOpen, TrendingUp, Activity, Award, LogOut } from 'lucide-react'
 import DashboardSidebar from './DashboardSidebar'
+import { logout } from '../../api/auth'
 
 const BOTTOM_TABS = [
   { id: 'dashboard',   label: 'Home',     icon: LayoutGrid, to: '/'            },
@@ -15,6 +16,11 @@ export default function DashboardShell({ children }) {
   const [drawerOpen, setDrawerOpen] = useState(false)
   const navigate = useNavigate()
   const { pathname } = useLocation()
+
+  function handleLogout() {
+    logout()
+    navigate('/login')
+  }
 
   function isTabActive(to) {
     if (to === '/') return pathname === '/'
@@ -91,6 +97,20 @@ export default function DashboardShell({ children }) {
               width: 7, height: 7, borderRadius: '50%',
               background: '#ff6b6b', border: '1.5px solid white',
             }} />
+          </button>
+
+          {/* Logout — mobile only; desktop uses sidebar */}
+          <button
+            onClick={handleLogout}
+            className="flex min-[900px]:hidden"
+            title="Log out"
+            style={{
+              background: 'none', border: 'none', cursor: 'pointer',
+              padding: 6, borderRadius: 8, alignItems: 'center',
+              justifyContent: 'center', minWidth: 36, minHeight: 36,
+            }}
+          >
+            <LogOut size={18} color="#374151" />
           </button>
 
           {/* Avatar */}

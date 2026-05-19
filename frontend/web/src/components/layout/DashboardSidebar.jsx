@@ -1,10 +1,12 @@
-import { Fragment } from 'react'
+import { Fragment, useState, useEffect } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import {
   LayoutGrid, BookOpen, ClipboardList, TrendingUp,
   Activity, Award, MessageSquare, Settings, LogOut,
 } from 'lucide-react'
 import { SYLLABUS } from '../../data/syllabus'
+import { getProfile } from '../../api/users'
+import { logout } from '../../api/auth'
 
 const TOP_NAV = [
   { id: 'dashboard',   label: 'Dashboard',   icon: LayoutGrid,    to: '/'            },
@@ -97,6 +99,14 @@ function SubItem({ label, active, depth, onClick }) {
 export default function DashboardSidebar({ onClose }) {
   const navigate    = useNavigate()
   const { pathname } = useLocation()
+  const [allowedYear, setAllowedYear] = useState(null)
+
+  useEffect(() => {
+    getProfile().then(p => {
+      if (p?.class === '+1') setAllowedYear('plus1')
+      else if (p?.class === '+2') setAllowedYear('plus2')
+    }).catch(() => {})
+  }, [])
 
   // Derive course drill-down state purely from pathname
   // Matches /plus1, /plus1/english, /plus1/english/prose, etc.
@@ -155,7 +165,7 @@ export default function DashboardSidebar({ onClose }) {
             {/* Course drill-down sub-items */}
             {item.id === 'courses' && inCourses && (
               <div style={{ marginBottom: 4 }}>
-                {YEARS.map(yr => {
+                {YEARS.filter(yr => !allowedYear || yr.key === allowedYear).map(yr => {
                   const yearActive = currentYear === yr.key
                   const subjects   = Object.values(SYLLABUS[yr.key]?.subjects ?? {})
 
@@ -198,7 +208,15 @@ export default function DashboardSidebar({ onClose }) {
             item={item}
             active={false}
             dim
-            onClick={() => item.to && go(item.to)}
+            onClick={() => {
+              if (item.id === 'logout') {
+                logout()
+                navigate('/login')
+                onClose?.()
+              } else if (item.to) {
+                go(item.to)
+              }
+            }}
           />
         ))}
       </div>
