@@ -3,6 +3,7 @@ from .syllabus import (
     ChapterResponse,
     TopicResponse,
     SyllabusTreeResponse,
+    PublicQuestionResponse,
 )
 from .learning import ExplainRequest, ExplainResponse
 from .evaluation import (
@@ -20,6 +21,7 @@ __all__ = [
     "ChapterResponse",
     "TopicResponse",
     "SyllabusTreeResponse",
+    "PublicQuestionResponse",
     "ExplainRequest",
     "ExplainResponse",
     "SubmitAnswerRequest",

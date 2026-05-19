@@ -1,5 +1,21 @@
 import re
+from pathlib import Path as _Path
 from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, Form
+
+_CONTENT_STRUCTURED_DIR = (_Path(__file__).resolve().parents[3] / "content" / "structured")
+
+
+def _resolve_content_path(raw: str) -> _Path:
+    """Resolve json_path to an absolute path inside content/structured/. Rejects traversal."""
+    candidate = _Path(raw)
+    if not candidate.is_absolute():
+        candidate = (_CONTENT_STRUCTURED_DIR / raw).resolve()
+    else:
+        candidate = candidate.resolve()
+    base = _CONTENT_STRUCTURED_DIR.resolve()
+    if candidate != base and not str(candidate).startswith(str(base) + "/"):
+        raise HTTPException(status_code=400, detail="json_path must be within content/structured/")
+    return candidate
 from pydantic import BaseModel, Field
 from uuid import UUID
 from api.v1.deps import get_admin_user
@@ -490,14 +506,13 @@ async def trigger_pipeline(
     body: TriggerPipelineRequest,
     admin: dict = Depends(get_admin_user),
 ):
-    from pathlib import Path
     from modules.content_pipeline import (
         load_structured_json,
         embed_chunks,
         load_chunks_to_db,
     )
 
-    json_path = Path(body.json_path)
+    json_path = _resolve_content_path(body.json_path)
     if not json_path.exists():
         raise HTTPException(
             status_code=400,

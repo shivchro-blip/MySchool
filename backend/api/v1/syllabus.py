@@ -1,5 +1,5 @@
 from fastapi import APIRouter, HTTPException
-from models import ChapterResponse, TopicResponse, SubjectResponse
+from models import ChapterResponse, TopicResponse, SubjectResponse, PublicQuestionResponse
 from db.repositories import SyllabusRepository, QuestionsRepository
 
 router = APIRouter()
@@ -31,7 +31,7 @@ async def get_topics(chapter_slug: str):
     return repo.get_topics_by_chapter(ch["id"])
 
 
-@router.get("/chapters/{chapter_slug}/questions")
+@router.get("/chapters/{chapter_slug}/questions", response_model=list[PublicQuestionResponse])
 async def get_questions(chapter_slug: str, marks: int | None = None):
     repo = SyllabusRepository()
     ch = repo.get_chapter_by_slug(chapter_slug)

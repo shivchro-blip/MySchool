@@ -99,3 +99,18 @@ class QuestionResponse(BaseModel):
     @classmethod
     def marks_must_be_valid(cls, v: int) -> int:
         return validate_marks(v)
+
+
+class PublicQuestionResponse(BaseModel):
+    """Public-safe subset — answer_key and rubric excluded."""
+    id:            UUID
+    chapter_id:    UUID
+    topic_id:      UUID | None
+    question_text: str
+    marks:         int
+    question_type: QuestionTypeType
+
+    @field_validator("marks")
+    @classmethod
+    def marks_must_be_valid(cls, v: int) -> int:
+        return validate_marks(v)

@@ -1,2 +1,10 @@
 graphify-out/
 Dummy_files/
+
+# Environment files — never commit secrets
+backend/.env
+backend/.env.local
+backend/.env.production
+**/.env
+**/.env.*
+!**/.env.example

@@ -14,7 +14,7 @@ class Settings(BaseSettings):
     openrouter_api_key: str = ""
     openrouter_model: str = "anthropic/claude-3-haiku"
 
-    app_env: str = "development"
+    app_env: str = "production"
     secret_key: str = ""
     allowed_origins: str = "http://localhost:5173"
 
