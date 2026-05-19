@@ -2,6 +2,15 @@ import { useNavigate } from 'react-router-dom'
 import { BookOpen, FileText, ChevronRight, ClipboardList } from 'lucide-react'
 import { SYLLABUS } from '../data/syllabus'
 
+function getAllowedYear() {
+  try {
+    const d = JSON.parse(localStorage.getItem('exam_coach_onboarded') || '{}')
+    if (d?.classYear === 'plus1' || d?.class === '+1') return 'plus1'
+    if (d?.classYear === 'plus2' || d?.class === '+2') return 'plus2'
+  } catch {}
+  return null
+}
+
 // ── Computed counts ──────────────────────────────────────────
 function computeCounts() {
   let lessons = 0
@@ -286,8 +295,17 @@ function ActivityCard() {
 }
 
 // ── Main page ────────────────────────────────────────────────
+const ALL_YEAR_CARDS = [
+  { year: 'plus1', label: '+1', subtitle: 'Class XI',  color: '#2ec4b6' },
+  { year: 'plus2', label: '+2', subtitle: 'Class XII', color: '#9b72f0' },
+]
+
 export default function DashboardPage() {
   const navigate = useNavigate()
+  const allowedYear = getAllowedYear()
+  const yearCards = allowedYear
+    ? ALL_YEAR_CARDS.filter(c => c.year === allowedYear)
+    : ALL_YEAR_CARDS
 
   return (
     <div style={{ padding: 20, fontFamily: "'DM Sans', sans-serif" }}>
@@ -324,20 +342,16 @@ export default function DashboardPage() {
               </button>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-              <YearCard
-                year="plus1"
-                label="+1"
-                subtitle="Class XI"
-                color="#2ec4b6"
-                onClick={() => navigate('/plus1')}
-              />
-              <YearCard
-                year="plus2"
-                label="+2"
-                subtitle="Class XII"
-                color="#9b72f0"
-                onClick={() => navigate('/plus2')}
-              />
+              {yearCards.map(c => (
+                <YearCard
+                  key={c.year}
+                  year={c.year}
+                  label={c.label}
+                  subtitle={c.subtitle}
+                  color={c.color}
+                  onClick={() => navigate(`/${c.year}`)}
+                />
+              ))}
             </div>
           </div>
 

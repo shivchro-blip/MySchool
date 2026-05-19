@@ -266,6 +266,20 @@ export default function SubjectPage() {
           </motion.div>
         ))}
       </div>
+
+      {subject === 'english' && (
+        <div className="mt-8 flex flex-col gap-4 max-w-[680px]">
+          <h2 className="text-lg font-bold text-ink">Final Exam Prep</h2>
+          <ExamPaperListCard
+            papers={EXAM_PAPERS_BY_YEAR[year] ?? finalExamPrepPapers}
+            basePath={`/${year}/${subject}`}
+          />
+          <ModelPaperListCard
+            papers={MODEL_PAPERS_BY_YEAR[year] ?? finalExamPrepModelPapers}
+            basePath={`/${year}/${subject}`}
+          />
+        </div>
+      )}
     </div>
   )
 }
