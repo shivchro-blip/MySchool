@@ -1,0 +1,226 @@
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--font-sans); }
+  .app { display: flex; height: 520px; border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); overflow: hidden; background: var(--color-background-tertiary); }
+  .sidebar { width: 200px; background: var(--color-background-primary); border-right: 0.5px solid var(--color-border-tertiary); padding: 16px 12px; flex-shrink: 0; }
+  .logo { display: flex; align-items: center; gap: 8px; padding: 4px 8px; margin-bottom: 24px; }
+  .logo-icon { width: 28px; height: 28px; border-radius: 8px; background: #534AB7; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 500; color: #fff; }
+  .logo-text { font-size: 14px; font-weight: 500; color: var(--color-text-primary); }
+  .nav-item { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: var(--border-radius-md); cursor: pointer; font-size: 14px; color: var(--color-text-secondary); margin-bottom: 2px; transition: background 0.15s; }
+  .nav-item:hover { background: var(--color-background-secondary); color: var(--color-text-primary); }
+  .nav-item.active { background: #EEEDFE; color: #534AB7; font-weight: 500; }
+  .nav-icon { font-size: 15px; width: 18px; text-align: center; }
+  .main { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+  .topbar { padding: 20px 24px 0; }
+  .breadcrumb { font-size: 12px; color: var(--color-text-tertiary); margin-bottom: 4px; display: flex; align-items: center; gap: 4px; }
+  .breadcrumb span { cursor: pointer; }
+  .breadcrumb span:hover { color: #534AB7; }
+  .breadcrumb .sep { color: var(--color-border-secondary); }
+  .page-title { font-size: 20px; font-weight: 500; color: var(--color-text-primary); }
+  .content { flex: 1; padding: 20px 24px; overflow-y: auto; }
+  .card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 14px 18px; display: flex; align-items: center; gap: 14px; cursor: pointer; margin-bottom: 10px; transition: border-color 0.15s, box-shadow 0.15s; }
+  .card:hover { border-color: var(--color-border-secondary); }
+  .card-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+  .card-body { flex: 1; }
+  .card-title { font-size: 15px; font-weight: 500; color: var(--color-text-primary); }
+  .card-sub { font-size: 12px; color: var(--color-text-secondary); margin-top: 2px; }
+  .card-arrow { color: var(--color-text-tertiary); font-size: 16px; }
+  .badge { display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 20px; margin-right: 6px; }
+  .tab-row { display: flex; gap: 8px; margin-bottom: 16px; }
+  .tab { padding: 5px 14px; border-radius: 20px; font-size: 13px; cursor: pointer; border: 0.5px solid var(--color-border-tertiary); color: var(--color-text-secondary); background: var(--color-background-primary); }
+  .tab.active { background: #534AB7; color: #fff; border-color: #534AB7; }
+  .screen { display: none; }
+  .screen.visible { display: block; }
+</style>
+
+<div class="app">
+  <div class="sidebar">
+    <div class="logo">
+      <div class="logo-icon">EC</div>
+      <div class="logo-text">Exam Coach</div>
+    </div>
+    <div class="nav-item" onclick="goHome()">
+      <span class="nav-icon">⌂</span> Home
+    </div>
+    <div class="nav-item active" id="nav-courses" onclick="showScreen('courses')">
+      <span class="nav-icon">&#9776;</span> Courses
+    </div>
+    <div class="nav-item" onclick="void(0)">
+      <span class="nav-icon">&#9998;</span> Practice
+    </div>
+    <div class="nav-item" onclick="void(0)">
+      <span class="nav-icon">&#8599;</span> Progress
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="topbar">
+      <div class="breadcrumb" id="breadcrumb"></div>
+      <div class="page-title" id="page-title">Courses</div>
+    </div>
+    <div class="content">
+
+      <div class="screen visible" id="screen-courses">
+        <div style="font-size:13px;color:var(--color-text-secondary);margin-bottom:14px;">Your enrolled classes</div>
+        <div class="card" onclick="showScreen('subjects-plus1')">
+          <div class="card-icon" style="background:#EEEDFE;">📗</div>
+          <div class="card-body">
+            <div class="card-title">Class +1</div>
+            <div class="card-sub">Tamil Nadu State Board · 6 subjects</div>
+          </div>
+          <div class="card-arrow">›</div>
+        </div>
+        <div class="card" onclick="showScreen('subjects-plus2')">
+          <div class="card-icon" style="background:#E1F5EE;">📘</div>
+          <div class="card-body">
+            <div class="card-title">Class +2</div>
+            <div class="card-sub">Tamil Nadu State Board · 6 subjects</div>
+          </div>
+          <div class="card-arrow">›</div>
+        </div>
+        <div class="card" onclick="showScreen('subjects-neet')">
+          <div class="card-icon" style="background:#FAECE7;">🧬</div>
+          <div class="card-body">
+            <div class="card-title">NEET</div>
+            <div class="card-sub">Physics · Chemistry · Biology</div>
+          </div>
+          <div class="card-arrow">›</div>
+        </div>
+      </div>
+
+      <div class="screen" id="screen-subjects-plus1">
+        <div class="tab-row">
+          <div class="tab active">All</div>
+          <div class="tab">Science</div>
+          <div class="tab">Arts</div>
+        </div>
+        <div class="card" onclick="showScreen('chapters-english')">
+          <div class="card-icon" style="background:#EEEDFE;">📝</div>
+          <div class="card-body">
+            <div class="card-title">English</div>
+            <div class="card-sub">8 chapters · 3 completed</div>
+          </div>
+          <div class="card-arrow">›</div>
+        </div>
+        <div class="card" onclick="showScreen('chapters-english')">
+          <div class="card-icon" style="background:#E6F1FB;">🔢</div>
+          <div class="card-body">
+            <div class="card-title">Mathematics</div>
+            <div class="card-sub">12 chapters · 1 completed</div>
+          </div>
+          <div class="card-arrow">›</div>
+        </div>
+        <div class="card" onclick="showScreen('chapters-english')">
+          <div class="card-icon" style="background:#EAF3DE;">⚗️</div>
+          <div class="card-body">
+            <div class="card-title">Chemistry</div>
+            <div class="card-sub">10 chapters · 0 completed</div>
+          </div>
+          <div class="card-arrow">›</div>
+        </div>
+      </div>
+
+      <div class="screen" id="screen-subjects-plus2">
+        <div class="card" onclick="showScreen('chapters-english')">
+          <div class="card-icon" style="background:#EEEDFE;">📝</div>
+          <div class="card-body"><div class="card-title">English</div><div class="card-sub">8 chapters</div></div>
+          <div class="card-arrow">›</div>
+        </div>
+        <div class="card" onclick="showScreen('chapters-english')">
+          <div class="card-icon" style="background:#E6F1FB;">🔢</div>
+          <div class="card-body"><div class="card-title">Mathematics</div><div class="card-sub">15 chapters</div></div>
+          <div class="card-arrow">›</div>
+        </div>
+      </div>
+
+      <div class="screen" id="screen-subjects-neet">
+        <div class="card" onclick="showScreen('chapters-english')">
+          <div class="card-icon" style="background:#FAECE7;">⚛️</div>
+          <div class="card-body"><div class="card-title">Physics</div><div class="card-sub">18 chapters</div></div>
+          <div class="card-arrow">›</div>
+        </div>
+        <div class="card" onclick="showScreen('chapters-english')">
+          <div class="card-icon" style="background:#E1F5EE;">⚗️</div>
+          <div class="card-body"><div class="card-title">Chemistry</div><div class="card-sub">16 chapters</div></div>
+          <div class="card-arrow">›</div>
+        </div>
+        <div class="card" onclick="showScreen('chapters-english')">
+          <div class="card-icon" style="background:#EAF3DE;">🧬</div>
+          <div class="card-body"><div class="card-title">Biology</div><div class="card-sub">20 chapters</div></div>
+          <div class="card-arrow">›</div>
+        </div>
+      </div>
+
+      <div class="screen" id="screen-chapters-english">
+        <div style="font-size:13px;color:var(--color-text-secondary);margin-bottom:14px;">8 chapters</div>
+        <div class="card">
+          <div class="card-icon" style="background:#EEEDFE; font-size:13px; font-weight:500; color:#534AB7;">01</div>
+          <div class="card-body">
+            <div class="card-title">Prose — A Happy Prince</div>
+            <div class="card-sub"><span class="badge" style="background:#EAF3DE;color:#3B6D11;">Done</span>5 topics</div>
+          </div>
+          <div class="card-arrow">›</div>
+        </div>
+        <div class="card">
+          <div class="card-icon" style="background:#EEEDFE; font-size:13px; font-weight:500; color:#534AB7;">02</div>
+          <div class="card-body">
+            <div class="card-title">Poem — The Road Not Taken</div>
+            <div class="card-sub"><span class="badge" style="background:#EAF3DE;color:#3B6D11;">Done</span>3 topics</div>
+          </div>
+          <div class="card-arrow">›</div>
+        </div>
+        <div class="card">
+          <div class="card-icon" style="background:#F1EFE8; font-size:13px; font-weight:500; color:#5F5E5A;">03</div>
+          <div class="card-body">
+            <div class="card-title">Grammar — Tenses</div>
+            <div class="card-sub"><span class="badge" style="background:#FAEEDA;color:#854F0B;">In progress</span>6 topics</div>
+          </div>
+          <div class="card-arrow">›</div>
+        </div>
+        <div class="card">
+          <div class="card-icon" style="background:#F1EFE8; font-size:13px; font-weight:500; color:#888780;">04</div>
+          <div class="card-body">
+            <div class="card-title">Writing — Letter Writing</div>
+            <div class="card-sub">4 topics</div>
+          </div>
+          <div class="card-arrow">›</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  const screens = {
+    'courses': { title: 'Courses', breadcrumb: [] },
+    'subjects-plus1': { title: 'Class +1', breadcrumb: [{ label: 'Courses', screen: 'courses' }] },
+    'subjects-plus2': { title: 'Class +2', breadcrumb: [{ label: 'Courses', screen: 'courses' }] },
+    'subjects-neet': { title: 'NEET', breadcrumb: [{ label: 'Courses', screen: 'courses' }] },
+    'chapters-english': { title: 'English', breadcrumb: [
+      { label: 'Courses', screen: 'courses' },
+      { label: 'Class +1', screen: 'subjects-plus1' }
+    ]}
+  };
+
+  let current = 'courses';
+
+  function showScreen(id) {
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('visible'));
+    document.getElementById('screen-' + id).classList.add('visible');
+    const cfg = screens[id];
+    document.getElementById('page-title').textContent = cfg.title;
+    const bc = document.getElementById('breadcrumb');
+    if (cfg.breadcrumb.length === 0) {
+      bc.innerHTML = '<span style="color:var(--color-text-tertiary)">Browse</span>';
+    } else {
+      bc.innerHTML = cfg.breadcrumb.map(b =>
+        `<span onclick="showScreen('${b.screen}')" style="color:#534AB7;cursor:pointer">${b.label}</span><span class="sep"> › </span>`
+      ).join('') + `<span style="color:var(--color-text-secondary)">${cfg.title}</span>`;
+    }
+    current = id;
+  }
+
+  showScreen('courses');
+</script>

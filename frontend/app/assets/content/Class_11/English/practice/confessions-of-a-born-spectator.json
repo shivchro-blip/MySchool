@@ -1,0 +1,507 @@
+﻿{
+    "meta":  {
+                 "subject":  "General English -- Class XI",
+                 "unit":  "Unit 2 · Poem · Confessions of a Born Spectator",
+                 "time":  "3.00 hrs",
+                 "totalMarks":  90,
+                 "instructions":  "Tamil Nadu State Board · Answer all questions"
+             },
+    "parts":  [
+                  {
+                      "id":  "p1",
+                      "navLabel":  "Part I -- MCQ (20×1)",
+                      "title":  "Part I -- Objective Type",
+                      "type":  "mcq",
+                      "scoreMax":  20,
+                      "marksPer":  1,
+                      "sections":  [
+                                       {
+                                           "label":  "Vocabulary -- synonyms, antonyms, meanings, and rhyming pairs",
+                                           "questions":  [
+                                                             {
+                                                                 "id":  "q1",
+                                                                 "html":  "Choose the synonym of \"jockey\".",
+                                                                 "options":  [
+                                                                                 "a) horse rider",
+                                                                                 "b) boxer",
+                                                                                 "c) runner",
+                                                                                 "d) spectator"
+                                                                             ],
+                                                                 "answer":  0,
+                                                                 "hint":  "The glossary gives jockey as horse rider."
+                                                             },
+                                                             {
+                                                                 "id":  "q2",
+                                                                 "html":  "Choose the synonym of \"maim\".",
+                                                                 "options":  [
+                                                                                 "a) heal",
+                                                                                 "b) injure",
+                                                                                 "c) admire",
+                                                                                 "d) exchange"
+                                                                             ],
+                                                                 "answer":  1,
+                                                                 "hint":  "Maim means injure."
+                                                             },
+                                                             {
+                                                                 "id":  "q3",
+                                                                 "html":  "Choose the antonym of \"bashful\".",
+                                                                 "options":  [
+                                                                                 "a) shy",
+                                                                                 "b) reluctant",
+                                                                                 "c) bold",
+                                                                                 "d) weak"
+                                                                             ],
+                                                                 "answer":  2,
+                                                                 "hint":  "Bashful means shy and reluctant; bold is the opposite."
+                                                             },
+                                                             {
+                                                                 "id":  "q4",
+                                                                 "html":  "Choose the antonym of \"prudence\".",
+                                                                 "options":  [
+                                                                                 "a) wisdom",
+                                                                                 "b) caution",
+                                                                                 "c) foolishness",
+                                                                                 "d) care"
+                                                                             ],
+                                                                 "answer":  2,
+                                                                 "hint":  "Prudence means wisdom; foolishness is the antonym."
+                                                             },
+                                                             {
+                                                                 "id":  "q5",
+                                                                 "html":  "\"One infant grows up and becomes a jockey\" -- the rhyming word for jockey is",
+                                                                 "options":  [
+                                                                                 "a) hockey",
+                                                                                 "b) center",
+                                                                                 "c) hire",
+                                                                                 "d) romp"
+                                                                             ],
+                                                                 "answer":  0,
+                                                                 "hint":  "Jockey rhymes with hockey."
+                                                             },
+                                                             {
+                                                                 "id":  "q6",
+                                                                 "html":  "\"This one the prize ring hates to enter\" -- the rhyming word for enter is",
+                                                                 "options":  [
+                                                                                 "a) jockey",
+                                                                                 "b) center",
+                                                                                 "c) hire",
+                                                                                 "d) deeds"
+                                                                             ],
+                                                                 "answer":  1,
+                                                                 "hint":  "Enter rhymes with center."
+                                                             },
+                                                             {
+                                                                 "id":  "q7",
+                                                                 "html":  "The phrase \"prize ring\" refers to",
+                                                                 "options":  [
+                                                                                 "a) football ground",
+                                                                                 "b) boxing area",
+                                                                                 "c) horse track",
+                                                                                 "d) stadium seat"
+                                                                             ],
+                                                                 "answer":  1,
+                                                                 "hint":  "Prize ring is the enclosed area where boxing matches are fought."
+                                                             },
+                                                             {
+                                                                 "id":  "q8",
+                                                                 "html":  "\"Who take the field in gaudy pomp\" -- gaudy pomp means",
+                                                                 "options":  [
+                                                                                 "a) plain dress",
+                                                                                 "b) showy dress",
+                                                                                 "c) sports injury",
+                                                                                 "d) silent walk"
+                                                                             ],
+                                                                 "answer":  1,
+                                                                 "hint":  "The glossary gives gaudy pomp as showy dress."
+                                                             }
+                                                         ]
+                                       },
+                                       {
+                                           "label":  "Poem comprehension",
+                                           "questions":  [
+                                                             {
+                                                                 "id":  "q9",
+                                                                 "html":  "The poet\u0027s spirit is described as",
+                                                                 "options":  [
+                                                                                 "a) limp and bashful",
+                                                                                 "b) strong and proud",
+                                                                                 "c) angry and violent",
+                                                                                 "d) swift and heroic"
+                                                                             ],
+                                                                 "answer":  0,
+                                                                 "hint":  "The line says \"My limp and bashful spirit feeds.\""
+                                                             },
+                                                             {
+                                                                 "id":  "q10",
+                                                                 "html":  "What does the poet feed on?",
+                                                                 "options":  [
+                                                                                 "a) his own medals",
+                                                                                 "b) other people\u0027s heroic deeds",
+                                                                                 "c) doctor\u0027s advice",
+                                                                                 "d) rough games"
+                                                                             ],
+                                                                 "answer":  1,
+                                                                 "hint":  "He says his spirit feeds on other people\u0027s heroic deeds."
+                                                             },
+                                                             {
+                                                                 "id":  "q11",
+                                                                 "html":  "What pleases the ego?",
+                                                                 "options":  [
+                                                                                 "a) watching from stands",
+                                                                                 "b) swapping positions with athletes",
+                                                                                 "c) avoiding stadiums",
+                                                                                 "d) calling a doctor"
+                                                                             ],
+                                                                 "answer":  1,
+                                                                 "hint":  "The poet says ego might be pleased to swap positions with athletes."
+                                                             },
+                                                             {
+                                                                 "id":  "q12",
+                                                                 "html":  "Who wins between prudence and ego?",
+                                                                 "options":  [
+                                                                                 "a) ego",
+                                                                                 "b) prudence",
+                                                                                 "c) officialdom",
+                                                                                 "d) athlete"
+                                                                             ],
+                                                                 "answer":  1,
+                                                                 "hint":  "The line says prudence wins."
+                                                             },
+                                                             {
+                                                                 "id":  "q13",
+                                                                 "html":  "\"When snaps the knee, and cracks the wrist\" mainly suggests",
+                                                                 "options":  [
+                                                                                 "a) injury",
+                                                                                 "b) victory",
+                                                                                 "c) music",
+                                                                                 "d) celebration"
+                                                                             ],
+                                                                 "answer":  0,
+                                                                 "hint":  "The words describe physical injuries."
+                                                             },
+                                                             {
+                                                                 "id":  "q14",
+                                                                 "html":  "Why is a doctor called from the stands?",
+                                                                 "options":  [
+                                                                                 "a) to buy tickets",
+                                                                                 "b) because athletes are injured",
+                                                                                 "c) to play hockey",
+                                                                                 "d) to ride a horse"
+                                                                             ],
+                                                                 "answer":  1,
+                                                                 "hint":  "The question arises when athletes suffer injuries."
+                                                             },
+                                                             {
+                                                                 "id":  "q15",
+                                                                 "html":  "The speaker is willing to do everything with athletes except",
+                                                                 "options":  [
+                                                                                 "a) eat",
+                                                                                 "b) drink",
+                                                                                 "c) compete",
+                                                                                 "d) watch"
+                                                                             ],
+                                                                 "answer":  2,
+                                                                 "hint":  "He says \"anything except compete with you.\""
+                                                             },
+                                                             {
+                                                                 "id":  "q16",
+                                                                 "html":  "\"Tickets worth their radium\" suggests tickets are",
+                                                                 "options":  [
+                                                                                 "a) cheap",
+                                                                                 "b) ordinary",
+                                                                                 "c) very valuable",
+                                                                                 "d) free"
+                                                                             ],
+                                                                 "answer":  2,
+                                                                 "hint":  "Radium is valuable; the poet exaggerates the ticket\u0027s worth."
+                                                             }
+                                                         ]
+                                       },
+                                       {
+                                           "label":  "Literary devices and overall meaning",
+                                           "questions":  [
+                                                             {
+                                                                 "id":  "q17",
+                                                                 "html":  "The poem\u0027s tone is mainly",
+                                                                 "options":  [
+                                                                                 "a) tragic",
+                                                                                 "b) humorous",
+                                                                                 "c) angry",
+                                                                                 "d) devotional"
+                                                                             ],
+                                                                 "answer":  1,
+                                                                 "hint":  "Nash\u0027s poem is humorous and witty."
+                                                             },
+                                                             {
+                                                                 "id":  "q18",
+                                                                 "html":  "The title word \"Confessions\" suggests the speaker is",
+                                                                 "options":  [
+                                                                                 "a) admitting something honestly",
+                                                                                 "b) hiding a crime",
+                                                                                 "c) writing a report",
+                                                                                 "d) commanding athletes"
+                                                                             ],
+                                                                 "answer":  0,
+                                                                 "hint":  "The speaker honestly admits he is a born spectator."
+                                                             },
+                                                             {
+                                                                 "id":  "q19",
+                                                                 "html":  "The alliteration in \"My soul in true thanksgiving speaks\" is mainly in",
+                                                                 "options":  [
+                                                                                 "a) m sound",
+                                                                                 "b) s sound",
+                                                                                 "c) t sound only",
+                                                                                 "d) r sound"
+                                                                             ],
+                                                                 "answer":  1,
+                                                                 "hint":  "Soul and speaks repeat the s sound."
+                                                             },
+                                                             {
+                                                                 "id":  "q20",
+                                                                 "html":  "The poem finally reassures the speaker that",
+                                                                 "options":  [
+                                                                                 "a) he is an athlete",
+                                                                                 "b) athletes are not him and he is not them",
+                                                                                 "c) he should enter the ring",
+                                                                                 "d) ego always wins"
+                                                                             ],
+                                                                 "answer":  1,
+                                                                 "hint":  "The final line says \"That you are not me and I\u0027m not you.\""
+                                                             }
+                                                         ]
+                                       }
+                                   ]
+                  },
+                  {
+                      "id":  "p2",
+                      "navLabel":  "Part II -- Reference (2×7)",
+                      "title":  "Part II -- Short Answer / Reference to Context",
+                      "type":  "reference",
+                      "scoreMax":  14,
+                      "marksPer":  2,
+                      "instruction":  "Answer any 7 of the following 10 questions. Read the passage carefully and answer in one or two sentences.",
+                      "questions":  [
+                                        {
+                                            "verse":  "With all my heart I do admire\nAthletes who sweat for fun or hire",
+                                            "subs":  [
+                                                         {
+                                                             "q":  "(a) Whom does the poet admire?",
+                                                             "a":  "The poet admires athletes."
+                                                         },
+                                                         {
+                                                             "q":  "(b) For what reasons do the athletes sweat?",
+                                                             "a":  "They sweat either for fun or for hire, meaning pleasure or professional payment."
+                                                         }
+                                                     ]
+                                        },
+                                        {
+                                            "verse":  "My limp and bashful spirit feeds\nOn other people\u0027s heroic deeds.",
+                                            "subs":  [
+                                                         {
+                                                             "q":  "(a) How does the poet describe his spirit?",
+                                                             "a":  "He describes his spirit as limp and bashful."
+                                                         },
+                                                         {
+                                                             "q":  "(b) What does this reveal about him?",
+                                                             "a":  "It shows that he prefers to enjoy heroism from a safe distance rather than perform heroic actions himself."
+                                                         }
+                                                     ]
+                                        },
+                                        {
+                                            "verse":  "You\u0027d think my ego it would please\nTo swap positions with one of these.",
+                                            "subs":  [
+                                                         {
+                                                             "q":  "(a) What would please the poet\u0027s ego?",
+                                                             "a":  "Swapping positions with a successful athlete would please his ego."
+                                                         },
+                                                         {
+                                                             "q":  "(b) Why does he not finally do so?",
+                                                             "a":  "He knows the risks of athletic competition, so prudence defeats ego."
+                                                         }
+                                                     ]
+                                        },
+                                        {
+                                            "verse":  "Well, ego it might be pleased enough\nBut zealous athletes play so rough…",
+                                            "subs":  [
+                                                         {
+                                                             "q":  "(a) What pleases the ego?",
+                                                             "a":  "The idea of exchanging places with athletes pleases the ego."
+                                                         },
+                                                         {
+                                                             "q":  "(b) Why are athletes rough?",
+                                                             "a":  "They are zealous and eager to win, so they often play without considering others\u0027 feelings."
+                                                         }
+                                                     ]
+                                        },
+                                        {
+                                            "verse":  "They do not ever in their dealings\nConsider one another\u0027s feelings.",
+                                            "subs":  [
+                                                         {
+                                                             "q":  "(a) Who are \"they\"?",
+                                                             "a":  "They are the zealous athletes."
+                                                         },
+                                                         {
+                                                             "q":  "(b) What criticism is made here?",
+                                                             "a":  "The poet criticises athletes for playing roughly and ignoring their rivals\u0027 feelings during competition."
+                                                         }
+                                                     ]
+                                        },
+                                        {
+                                            "verse":  "I\u0027m glad that when my struggle begins\n\u0027Twixt prudence and ego, prudence wins.",
+                                            "subs":  [
+                                                         {
+                                                             "q":  "(a) What is the struggle between?",
+                                                             "a":  "The struggle is between prudence and ego."
+                                                         },
+                                                         {
+                                                             "q":  "(b) What is the significance of this line?",
+                                                             "a":  "It states the poem\u0027s main idea: common sense is stronger than the desire for glory."
+                                                         }
+                                                     ]
+                                        },
+                                        {
+                                            "verse":  "When swollen eye meets gnarled fist\nWhen snaps the knee, and cracks the wrist,",
+                                            "subs":  [
+                                                         {
+                                                             "q":  "(a) What images are shown here?",
+                                                             "a":  "The lines show images of sports injuries such as swollen eyes, rough fists, snapped knees, and cracked wrists."
+                                                         },
+                                                         {
+                                                             "q":  "(b) Identify the sound effect.",
+                                                             "a":  "The words \"snaps\" and \"cracks\" create sound imagery that suggests painful injury."
+                                                         }
+                                                     ]
+                                        },
+                                        {
+                                            "verse":  "When officialdom demands,\nIs there a doctor in the stands?",
+                                            "subs":  [
+                                                         {
+                                                             "q":  "(a) Why is a doctor needed?",
+                                                             "a":  "A doctor is needed because an athlete may be injured during rough play."
+                                                         },
+                                                         {
+                                                             "q":  "(b) What are the stands?",
+                                                             "a":  "The stands are the seating area where spectators watch the game."
+                                                         }
+                                                     ]
+                                        },
+                                        {
+                                            "verse":  "My soul in true thanksgiving speaks\nFor this modest of physiques.",
+                                            "subs":  [
+                                                         {
+                                                             "q":  "(a) Why does the speaker give thanks?",
+                                                             "a":  "He gives thanks for his modest body because it is not exposed to sporting injuries."
+                                                         },
+                                                         {
+                                                             "q":  "(b) Name the alliterated words.",
+                                                             "a":  "The alliterated words include \"soul\" and \"speaks.\""
+                                                         }
+                                                     ]
+                                        },
+                                        {
+                                            "verse":  "Or anything except compete with you,\nBuy tickets worth their radium,",
+                                            "subs":  [
+                                                         {
+                                                             "q":  "(a) What does the poet refuse to do?",
+                                                             "a":  "He refuses to compete with athletes."
+                                                         },
+                                                         {
+                                                             "q":  "(b) Why is radium mentioned?",
+                                                             "a":  "Radium suggests great value; the poet exaggerates how much he would pay to watch safely."
+                                                         }
+                                                     ]
+                                        }
+                                    ]
+                  },
+                  {
+                      "id":  "p3",
+                      "navLabel":  "Part III -- Short Essay (3×7)",
+                      "title":  "Part III -- Short Essay / Paragraph Questions",
+                      "type":  "short-essay",
+                      "scoreMax":  21,
+                      "marksPer":  3,
+                      "instruction":  "Answer any 7 of the following 10 questions in two or three sentences. (Approx. 30-40 words per answer)",
+                      "questions":  [
+                                        {
+                                            "q":  "Describe the speaker\u0027s physical and emotional self-image.",
+                                            "ans":  "The speaker describes his spirit as \"limp and bashful\" and his body as modest. He sees himself as unsuited for rough athletic competition, but he is honest and cheerful about it."
+                                        },
+                                        {
+                                            "q":  "What kind of life does the speaker prefer?",
+                                            "ans":  "The speaker prefers the life of a spectator. He enjoys watching heroic deeds, buying tickets, and celebrating athletes, but he does not want to compete or suffer injuries."
+                                        },
+                                        {
+                                            "q":  "Compare athletes and the speaker.",
+                                            "ans":  "Athletes are active, zealous, rough, and heroic. The speaker is cautious, shy, and humorous. He admires athletes deeply, but his common sense keeps him safely in the audience."
+                                        },
+                                        {
+                                            "q":  "What character trait does \"prudence wins\" reveal?",
+                                            "ans":  "The phrase reveals the speaker\u0027s wisdom and self-control. He may feel tempted by athletic glory, but he lets caution and common sense decide his actions."
+                                        },
+                                        {
+                                            "q":  "What is the significance of calling for a doctor?",
+                                            "ans":  "The call for a doctor shows the dangerous side of sports. It humorously reminds us that athletic competition can lead to serious injuries needing medical help."
+                                        },
+                                        {
+                                            "q":  "How is the theme of admiration shown?",
+                                            "ans":  "The poet says he admires athletes \"with all my heart.\" He respects their effort and heroism, but admiration does not make him want to imitate their risky life."
+                                        },
+                                        {
+                                            "q":  "What happens when ego struggles with prudence?",
+                                            "ans":  "When ego struggles with prudence, prudence wins. The speaker chooses wisdom over the desire to exchange places with athletes and gain heroic glory."
+                                        },
+                                        {
+                                            "q":  "Explain \"My limp and bashful spirit feeds / On other people\u0027s heroic deeds.\"",
+                                            "ans":  "The speaker means that his weak and shy nature gains satisfaction by watching brave actions performed by others. He enjoys heroism safely as a spectator."
+                                        },
+                                        {
+                                            "q":  "What is the moral of the poem?",
+                                            "ans":  "The poem teaches that one should understand oneself. We may admire others, but we need not imitate them if their path does not suit our nature."
+                                        },
+                                        {
+                                            "q":  "How is this poem relevant to students?",
+                                            "ans":  "Students often compare themselves with others. This poem teaches them to appreciate others\u0027 talents without jealousy and to choose activities that match their strengths and comfort."
+                                        }
+                                    ]
+                  },
+                  {
+                      "id":  "p4",
+                      "navLabel":  "Part IV -- Long Essay (5×7)",
+                      "title":  "Part IV -- Long Essay Questions",
+                      "type":  "long-essay",
+                      "scoreMax":  35,
+                      "marksPer":  5,
+                      "instruction":  "Answer any 5 of the following 7 questions. Each answer should be about 100-150 words.",
+                      "questions":  [
+                                        {
+                                            "q":  "Write a character essay on the speaker of the poem.",
+                                            "ans":  "The speaker of \"Confessions of a Born Spectator\" is humorous, honest, cautious, and self-aware. He admires athletes \"with all my heart\" and enjoys watching their heroic deeds. However, he knows that he is not suited for rough competition. He calls his spirit \"limp and bashful\" and gives thanks for his modest physique. His ego may be pleased by the thought of exchanging places with athletes, but prudence wins. He is willing to drink with athletes, eat with them, and buy expensive tickets to watch them, but he refuses to compete. His character teaches that self-knowledge is better than false heroism."
+                                        },
+                                        {
+                                            "q":  "Explain the theme of common sense versus ego.",
+                                            "ans":  "The central theme of the poem is the victory of common sense over ego. The speaker sees athletes scoring, boxing, riding, and performing heroic deeds. Naturally, his ego might enjoy the thought of becoming one of them. Yet he also sees the other side of sports: swollen eyes, gnarled fists, snapped knees, cracked wrists, and doctors being called from the stands. He understands that glory often brings pain. Therefore, when a struggle begins between prudence and ego, prudence wins. Ogden Nash humorously shows that wisdom lies in knowing one\u0027s own limits."
+                                        },
+                                        {
+                                            "q":  "Explain the significance of sports injuries in the poem.",
+                                            "ans":  "Sports injuries are an important image in the poem because they help the speaker justify his choice to remain a spectator. Nash mentions rough athletes who do not consider one another\u0027s feelings. He then gives vivid images such as swollen eyes, gnarled fists, snapped knees, and cracked wrists. These images are comic, but they are also meaningful. They remind us that games may look glorious from the outside, but players often face real pain. The injuries become a symbol of the physical cost of athletic fame. They make the speaker\u0027s cautious choice appear sensible, not cowardly."
+                                        },
+                                        {
+                                            "q":  "Compare the athlete and the spectator in the poem.",
+                                            "ans":  "In the poem, athletes and the spectator are sharply contrasted. Athletes are energetic, zealous, brave, and physically active. They sweat for fun or hire, take the field in gaudy pomp, and perform heroic deeds. However, they also play roughly and suffer injuries. The spectator, on the other hand, is limp, bashful, cautious, and humorous. He admires athletes but does not want to become one of them. He enjoys their heroism from the safety of the stands. While athletes represent action and risk, the spectator represents observation and prudence. Nash makes both sides memorable through humour."
+                                        },
+                                        {
+                                            "q":  "Do you agree that the speaker is not a coward but a sensible person?",
+                                            "ans":  "Yes, the speaker is not a coward but a sensible person. He never says that athletes are foolish or unworthy. In fact, he says, \"With all my heart I do admire\" them. This proves that he respects courage. However, he also understands that sports involve rough play and injuries. He does not pretend to be what he is not. His ego may want glory, but prudence wins. A coward hides fear; the speaker openly admits his preference with humour. His honesty and self-knowledge make him sensible. The poem encourages readers to respect their own nature."
+                                        },
+                                        {
+                                            "q":  "How does Ogden Nash use humour and sound in the poem?",
+                                            "ans":  "Ogden Nash uses humour through exaggeration, playful rhyme, and comic contrast. The speaker admires athletes but describes their world through images of maiming, cracking vertebrae, snapped knees, and doctors in the stands. These details are serious in meaning but funny in presentation. Nash\u0027s rhymes such as jockey/hockey, enter/center, radium/stadium create a light musical effect. He also uses sound words like \"snaps\" and \"cracks\" to make injuries vivid. The speaker\u0027s offer to drink or eat with athletes, but never compete, creates a witty ending. Humour helps Nash teach wisdom without sounding serious or moralising."
+                                        },
+                                        {
+                                            "q":  "How is the poem relevant to modern life?",
+                                            "ans":  "The poem is relevant to modern life because people often compare themselves with others and feel pressured to imitate them. Students may admire toppers, athletes, artists, or public speakers and feel that they must become the same. Ogden Nash reminds us that admiration does not require imitation. The speaker respects athletes but knows that he is happier as a spectator. This message is healthy and practical. Everyone has different strengths, interests, and limits. The poem teaches us to celebrate others without jealousy and to choose our own path with honesty, humour, and common sense."
+                                        }
+                                    ]
+                  }
+              ]
+}

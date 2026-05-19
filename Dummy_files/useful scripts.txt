@@ -1,0 +1,85 @@
+Claude Code
+
+First every loging do  /Init
+
+Read DESIGN_SYSTEM.md at the project root before doing anything. 
+All colors, spacing, and components are defined there. 
+Do not use any hex values not listed in that file. 
+
+
+Use subagents to do 3 things in parallel:
+
+(1) find all API routes and endpoints in this project
+(2) find all TODO comments across the codebase
+(3) check package.json for any unused dependencies
+
+"C:\Projects\TNSchool\exam-coach\Dummy_files\exam_coach_navigation_preview.html"
+
+
+ ---
+  Prompt template:
+
+  Add this chapter to the project:
+  File: C:\Projects\TNSchool\exam-coach\Dummy_files\<FILENAME>.html
+  Slug: <chapter-slug>
+
+  Read the HTML, extract all learn and practice data, then:
+  1. Create src/content/chapters/<slug>.js (learn content, all tabs)
+  2. Create src/content/practice/<slug>.js (practice content, all parts)
+  3. Update src/content/registry.js to add the slug entry
+  4. Update src/content/practiceRegistry.js to add the slug entry
+  Follow the exact same structure as after-twenty-years.js in both directories.
+
+  ---
+  Example:
+  File: C:\Projects\TNSchool\exam-coach\Dummy_files\the_cop_and_the_anthem.html
+  Slug: the-cop-and-the-anthem
+
+
+
+ File: C:\Projects\TNSchool\exam-coach\Dummy_files\the_never_never_nest_learn_practice_exam_coach.html
+  Slug: the-never-never-nest
+  Read the HTML, extract all learn and practice data, then:
+  1. Create src/content/chapters/<slug>.js (learn content, all tabs)
+  2. Create src/content/practice/<slug>.js (practice content, all parts)
+  3. Update src/content/registry.js to add the slug entry
+  4. Update src/content/practiceRegistry.js to add the slug entry
+  Follow the exact same structure as after-twenty-years.js in both directories.
+  
+  
+  
+   File: C:\Projects\TNSchool\exam-coach\Dummy_files\the_never_never_nest_learn_practice_js_data.js
+  Slug: the-never-never-nest
+  Read the JS file, extract all learn and practice data from the exported arrays, then:
+  1. Create src/content/chapters/<slug>.js (learn content, all tabs)
+  2. Create src/content/practice/<slug>.js (practice content, all parts)
+  3. Update src/content/registry.js to add the slug entry
+  4. Update src/content/practiceRegistry.js to add the slug entry
+  Follow the exact same structure as after-twenty-years.js in both directories.
+  
+  
+  
+   Flutter not in shell PATH. Run in your terminal:
+
+  ! flutter analyze
+   ! flutter test
+
+  Or if using VS Code terminal where Flutter is set up, run it there directly. The ! prefix routes it through your
+  configured shell session where Flutter PATH is available.
+  
+  
+   ---
+  Dual-Platform Change Prompt
+
+  Apply this change to BOTH platforms:
+
+  Web: exam-coach/frontend/web/src/  (React + Vite + Tailwind)
+  Mobile: exam-coach/frontend/app/lib/  (Flutter)
+
+  Rules:
+  - Web components in src/components/, screens in src/pages/
+  - Flutter widgets in lib/widgets/, screens in lib/screens/
+  - Match behavior exactly — same logic, same UX, same error states
+  - Web: follow DESIGN_SYSTEM.md for tokens/styles
+  - Flutter: use existing widget patterns from lib/widgets/
+  - Do not change backend or shared API contracts

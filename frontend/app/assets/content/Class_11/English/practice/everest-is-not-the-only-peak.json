@@ -1,0 +1,507 @@
+﻿{
+    "meta":  {
+                 "subject":  "General English -- Class XI",
+                 "unit":  "Unit 5 · Poem · Everest is not the Only Peak",
+                 "time":  "3.00 hrs",
+                 "totalMarks":  90,
+                 "instructions":  "Tamil Nadu State Board · Answer all questions"
+             },
+    "parts":  [
+                  {
+                      "id":  "p1",
+                      "navLabel":  "Part I -- MCQ (20×1)",
+                      "title":  "Part I -- Objective Type",
+                      "type":  "mcq",
+                      "scoreMax":  20,
+                      "marksPer":  1,
+                      "sections":  [
+                                       {
+                                           "label":  "Poet and poem form",
+                                           "questions":  [
+                                                             {
+                                                                 "id":  "q1",
+                                                                 "html":  "The poet of \"Everest is not the Only Peak\" is",
+                                                                 "options":  [
+                                                                                 "a) Kulothungan",
+                                                                                 "b) T.S. Eliot",
+                                                                                 "c) Stephen Leacock",
+                                                                                 "d) Arignar Anna"
+                                                                             ],
+                                                                 "answer":  0,
+                                                                 "hint":  "Kulothungan is the pen name of Prof. V. C. Kulandaiswamy."
+                                                             },
+                                                             {
+                                                                 "id":  "q2",
+                                                                 "html":  "Kulothungan is also known as",
+                                                                 "options":  [
+                                                                                 "a) Prof. V.C. Kulandaiswamy",
+                                                                                 "b) Douglas Malloch",
+                                                                                 "c) Robert Lynd",
+                                                                                 "d) Ogden Nash"
+                                                                             ],
+                                                                 "answer":  0,
+                                                                 "hint":  "Kulothungan is the pen name; the real name is Prof. V. C. Kulandaiswamy."
+                                                             },
+                                                             {
+                                                                 "id":  "q3",
+                                                                 "html":  "The poem is written in",
+                                                                 "options":  [
+                                                                                 "a) blank verse",
+                                                                                 "b) sonnet form",
+                                                                                 "c) limerick form",
+                                                                                 "d) haiku form"
+                                                                             ],
+                                                                 "answer":  0,
+                                                                 "hint":  "The textbook and HTML both state the poem is in blank verse."
+                                                             }
+                                                         ]
+                                       },
+                                       {
+                                           "label":  "Poem comprehension",
+                                           "questions":  [
+                                                             {
+                                                                 "id":  "q4",
+                                                                 "html":  "The repeated line in the poem is",
+                                                                 "options":  [
+                                                                                 "a) We are proud and feel so tall",
+                                                                                 "b) Defeat we repel",
+                                                                                 "c) Every hillock has a summit",
+                                                                                 "d) We bow before competence"
+                                                                             ],
+                                                                 "answer":  0,
+                                                                 "hint":  "\"We are proud and feel so tall\" is repeated at the end of each stanza."
+                                                             },
+                                                             {
+                                                                 "id":  "q5",
+                                                                 "html":  "The speaker says we do everything with",
+                                                                 "options":  [
+                                                                                 "a) devotion deep and true",
+                                                                                 "b) fear and doubt",
+                                                                                 "c) anger and pride",
+                                                                                 "d) silence and shame"
+                                                                             ],
+                                                                 "answer":  0,
+                                                                 "hint":  "\"Our nature it is that whatever we try / We do with devotion deep and true.\""
+                                                             },
+                                                             {
+                                                                 "id":  "q6",
+                                                                 "html":  "What is described as our fort?",
+                                                                 "options":  [
+                                                                                 "a) courage",
+                                                                                 "b) wealth",
+                                                                                 "c) fame",
+                                                                                 "d) Everest"
+                                                                             ],
+                                                                 "answer":  0,
+                                                                 "hint":  "\"Defeat we repel, courage our fort\" -- courage is the fort."
+                                                             },
+                                                             {
+                                                                 "id":  "q7",
+                                                                 "html":  "We should praise the",
+                                                                 "options":  [
+                                                                                 "a) deserving ones",
+                                                                                 "b) flattering ones",
+                                                                                 "c) cruel ones",
+                                                                                 "d) lazy ones"
+                                                                             ],
+                                                                 "answer":  0,
+                                                                 "hint":  "\"We deem it our duty and mission in life, / To bless and praise the deserving ones.\""
+                                                             },
+                                                             {
+                                                                 "id":  "q8",
+                                                                 "html":  "Our path should be one of",
+                                                                 "options":  [
+                                                                                 "a) dignity and honour",
+                                                                                 "b) fear and bending",
+                                                                                 "c) gain and cringing",
+                                                                                 "d) wealth and pride only"
+                                                                             ],
+                                                                 "answer":  0,
+                                                                 "hint":  "\"Ours is a path of dignity and honour.\""
+                                                             },
+                                                             {
+                                                                 "id":  "q9",
+                                                                 "html":  "Everest stands for",
+                                                                 "options":  [
+                                                                                 "a) great achievement",
+                                                                                 "b) failure",
+                                                                                 "c) poverty",
+                                                                                 "d) fear"
+                                                                             ],
+                                                                 "answer":  0,
+                                                                 "hint":  "Everest symbolises the highest peak and great, famous achievement."
+                                                             },
+                                                             {
+                                                                 "id":  "q10",
+                                                                 "html":  "Hillock refers to",
+                                                                 "options":  [
+                                                                                 "a) small but worthy achievements",
+                                                                                 "b) a palace",
+                                                                                 "c) defeat",
+                                                                                 "d) a ladder"
+                                                                             ],
+                                                                 "answer":  0,
+                                                                 "hint":  "Hillock refers to smaller personal achievements, each with its own summit."
+                                                             },
+                                                             {
+                                                                 "id":  "q11",
+                                                                 "html":  "Who is adored as a king?",
+                                                                 "options":  [
+                                                                                 "a) one who does not stoop",
+                                                                                 "b) one who seeks gain",
+                                                                                 "c) one who cringes",
+                                                                                 "d) one who fails duty"
+                                                                             ],
+                                                                 "answer":  0,
+                                                                 "hint":  "\"He, who does not stoop, is a king we adore.\""
+                                                             },
+                                                             {
+                                                                 "id":  "q12",
+                                                                 "html":  "We bow before",
+                                                                 "options":  [
+                                                                                 "a) competence and merit",
+                                                                                 "b) wealth and power",
+                                                                                 "c) fear and defeat",
+                                                                                 "d) height alone"
+                                                                             ],
+                                                                 "answer":  0,
+                                                                 "hint":  "\"We bow before competence and merit.\""
+                                                             },
+                                                             {
+                                                                 "id":  "q13",
+                                                                 "html":  "The ladder symbolizes",
+                                                                 "options":  [
+                                                                                 "a) true people who help mankind rise",
+                                                                                 "b) a mountain path",
+                                                                                 "c) a king",
+                                                                                 "d) a failure"
+                                                                             ],
+                                                                 "answer":  0,
+                                                                 "hint":  "\"The ones that are true and stand on their own / Are really the ladder for the rise of Man.\""
+                                                             },
+                                                             {
+                                                                 "id":  "q14",
+                                                                 "html":  "Honour is a property",
+                                                                 "options":  [
+                                                                                 "a) common to all",
+                                                                                 "b) for kings only",
+                                                                                 "c) for Everest only",
+                                                                                 "d) for the rich only"
+                                                                             ],
+                                                                 "answer":  0,
+                                                                 "hint":  "\"Honour is a property, common to all.\""
+                                                             },
+                                                             {
+                                                                 "id":  "q15",
+                                                                 "html":  "The poem mainly teaches",
+                                                                 "options":  [
+                                                                                 "a) dignity in every honest effort",
+                                                                                 "b) only mountain climbing",
+                                                                                 "c) fear of defeat",
+                                                                                 "d) love of wealth"
+                                                                             ],
+                                                                 "answer":  0,
+                                                                 "hint":  "The central message is that every honest effort has dignity."
+                                                             },
+                                                             {
+                                                                 "id":  "q16",
+                                                                 "html":  "\"Defeat we repel\" means",
+                                                                 "options":  [
+                                                                                 "a) we reject defeat",
+                                                                                 "b) we invite defeat",
+                                                                                 "c) we fear effort",
+                                                                                 "d) we bend down"
+                                                                             ],
+                                                                 "answer":  0,
+                                                                 "hint":  "Repel means to push away; we reject and resist defeat."
+                                                             },
+                                                             {
+                                                                 "id":  "q17",
+                                                                 "html":  "\"No kneeling and bending\" suggests",
+                                                                 "options":  [
+                                                                                 "a) self-respect",
+                                                                                 "b) cowardice",
+                                                                                 "c) flattery",
+                                                                                 "d) laziness"
+                                                                             ],
+                                                                 "answer":  0,
+                                                                 "hint":  "\"A life that knows no kneeling and bending\" describes living with self-respect."
+                                                             },
+                                                             {
+                                                                 "id":  "q18",
+                                                                 "html":  "\"Every hillock has a summit\" is an example of",
+                                                                 "options":  [
+                                                                                 "a) metaphorical image",
+                                                                                 "b) pun",
+                                                                                 "c) irony only",
+                                                                                 "d) dialogue"
+                                                                             ],
+                                                                 "answer":  0,
+                                                                 "hint":  "Hillock standing for personal achievement makes this a metaphorical image."
+                                                             }
+                                                         ]
+                                       },
+                                       {
+                                           "label":  "Parallel reading",
+                                           "questions":  [
+                                                             {
+                                                                 "id":  "q19",
+                                                                 "html":  "The parallel reading poem is",
+                                                                 "options":  [
+                                                                                 "a) Be the Best",
+                                                                                 "b) To Autumn",
+                                                                                 "c) The Hollow Crown",
+                                                                                 "d) Macavity"
+                                                                             ],
+                                                                 "answer":  0,
+                                                                 "hint":  "The parallel reading poem is \"Be the Best\" by Douglas Malloch."
+                                                             },
+                                                             {
+                                                                 "id":  "q20",
+                                                                 "html":  "\"Be the Best\" is by",
+                                                                 "options":  [
+                                                                                 "a) Douglas Malloch",
+                                                                                 "b) Kulothungan",
+                                                                                 "c) Saki",
+                                                                                 "d) Katherine Mansfield"
+                                                                             ],
+                                                                 "answer":  0,
+                                                                 "hint":  "\"Be the Best\" was written by Douglas Malloch."
+                                                             }
+                                                         ]
+                                       }
+                                   ]
+                  },
+                  {
+                      "id":  "p2",
+                      "navLabel":  "Part II -- Reference (2×7)",
+                      "title":  "Part II -- Short Answer / Reference to Context",
+                      "type":  "reference",
+                      "scoreMax":  14,
+                      "marksPer":  2,
+                      "instruction":  "Answer any 7 of the following 10 questions. Read the passage carefully and answer in one or two sentences.",
+                      "questions":  [
+                                        {
+                                            "verse":  "Our nature it is that whatever we try\nWe do with devotion deep and true.",
+                                            "subs":  [
+                                                         {
+                                                             "q":  "(a) Who does \"we\" refer to?",
+                                                             "a":  "\"We\" refers to people who live with pride, dignity, courage and honest devotion."
+                                                         },
+                                                         {
+                                                             "q":  "(b) How should we carry out our duties?",
+                                                             "a":  "We should carry out our duties with deep and true devotion."
+                                                         }
+                                                     ]
+                                        },
+                                        {
+                                            "verse":  "Defeat we repel, courage our fort;",
+                                            "subs":  [
+                                                         {
+                                                             "q":  "(a) How do we react to defeat?",
+                                                             "a":  "We repel defeat and do not surrender to it."
+                                                         },
+                                                         {
+                                                             "q":  "(b) Which is considered as our stronghold?",
+                                                             "a":  "Courage is considered our stronghold or fort."
+                                                         }
+                                                     ]
+                                        },
+                                        {
+                                            "verse":  "We are proud of the position we\nHold; humble as we are,",
+                                            "subs":  [
+                                                         {
+                                                             "q":  "(a) What is the speaker proud of?",
+                                                             "a":  "The speaker is proud of the position they hold and the honourable way they live."
+                                                         },
+                                                         {
+                                                             "q":  "(b) How is the speaker both humble and proud?",
+                                                             "a":  "The speaker is humble in attitude but proud because their pride springs from dignity and honour."
+                                                         }
+                                                     ]
+                                        },
+                                        {
+                                            "verse":  "He, who does not stoop, is a king we adore.\nWe bow before competence and merit;",
+                                            "subs":  [
+                                                         {
+                                                             "q":  "(a) Who is adored as a king?",
+                                                             "a":  "The person who does not stoop or bend before dishonour is adored as a king."
+                                                         },
+                                                         {
+                                                             "q":  "(b) What is the figure of speech used in the first line?",
+                                                             "a":  "The figure of speech is metaphor because an honourable person is called a king."
+                                                         }
+                                                     ]
+                                        },
+                                        {
+                                            "verse":  "Honour is a property, common to all:\nIn dignity and pride no one need to be poor.",
+                                            "subs":  [
+                                                         {
+                                                             "q":  "(a) Who are considered rich?",
+                                                             "a":  "People who possess honour, dignity and pride are considered rich."
+                                                         },
+                                                         {
+                                                             "q":  "(b) What is their asset?",
+                                                             "a":  "Their asset is honour, which is common to all."
+                                                         }
+                                                     ]
+                                        },
+                                        {
+                                            "verse":  "We are proud and feel so tall.",
+                                            "subs":  [
+                                                         {
+                                                             "q":  "(a) Which line is repeated in the poem?",
+                                                             "a":  "\"We are proud and feel so tall\" is repeated in the poem."
+                                                         },
+                                                         {
+                                                             "q":  "(b) What effect does the repetition create?",
+                                                             "a":  "It creates confidence, emphasis and a collective voice of dignity and self-respect."
+                                                         }
+                                                     ]
+                                        },
+                                        {
+                                            "verse":  "Everest is not the only peak,\nEvery hillock has a summit to boast!",
+                                            "subs":  [
+                                                         {
+                                                             "q":  "(a) What does Everest stand for?",
+                                                             "a":  "Everest stands for great and famous achievement."
+                                                         },
+                                                         {
+                                                             "q":  "(b) What does hillock stand for?",
+                                                             "a":  "Hillock stands for smaller but meaningful personal achievements."
+                                                         }
+                                                     ]
+                                        },
+                                        {
+                                            "verse":  "Honour is a property, common to all:\nIn dignity and pride no one need to be poor.",
+                                            "subs":  [
+                                                         {
+                                                             "q":  "(a) What is common to all?",
+                                                             "a":  "Honour is common to all."
+                                                         },
+                                                         {
+                                                             "q":  "(b) What is the message of the line?",
+                                                             "a":  "Everyone can be rich in dignity and pride, even without wealth or fame."
+                                                         }
+                                                     ]
+                                        },
+                                        {
+                                            "verse":  "The ones that are true and stand on their own\nAre really the ladder for the rise of Man.",
+                                            "subs":  [
+                                                         {
+                                                             "q":  "(a) What does the ladder symbolize?",
+                                                             "a":  "The ladder symbolizes people who help human progress."
+                                                         },
+                                                         {
+                                                             "q":  "(b) Who help the rise of Man?",
+                                                             "a":  "True and self-reliant people help the rise of Man."
+                                                         }
+                                                     ]
+                                        },
+                                        {
+                                            "verse":  "Never shall we fail in what we commit,\nShall nourish the ones that nourish the world.",
+                                            "subs":  [
+                                                         {
+                                                             "q":  "(a) What should we never fail in?",
+                                                             "a":  "We should never fail in what we commit."
+                                                         },
+                                                         {
+                                                             "q":  "(b) Whom should we nourish?",
+                                                             "a":  "We should nourish those who nourish the world."
+                                                         }
+                                                     ]
+                                        }
+                                    ]
+                  },
+                  {
+                      "id":  "p3",
+                      "navLabel":  "Part III -- Short Essay (3×7)",
+                      "title":  "Part III -- Short Essay / Paragraph Questions",
+                      "type":  "short-essay",
+                      "scoreMax":  21,
+                      "marksPer":  3,
+                      "instruction":  "Answer any 7 of the following 10 questions in two or three sentences. (Approx. 30-40 words per answer)",
+                      "questions":  [
+                                        {
+                                            "q":  "Describe the speaker\u0027s attitude to life.",
+                                            "ans":  "The speaker is confident, dignified and courageous. He believes in devotion, duty, merit and honour, and refuses to cringe or bend for selfish gain."
+                                        },
+                                        {
+                                            "q":  "What qualities does the poem celebrate?",
+                                            "ans":  "The poem celebrates devotion, courage, dignity, humility, pride, competence, merit, self-reliance and honour. These qualities make every person\u0027s effort valuable."
+                                        },
+                                        {
+                                            "q":  "Compare Everest and hillock in the poem.",
+                                            "ans":  "Everest represents great and famous achievement, while hillock represents smaller personal achievements. The poet says both have summits and both deserve respect."
+                                        },
+                                        {
+                                            "q":  "What character trait is shown by \"He, who does not stoop\"?",
+                                            "ans":  "The line shows self-respect and moral courage. A person who refuses to bend before dishonour is treated like a king by the poet."
+                                        },
+                                        {
+                                            "q":  "Why is the title significant?",
+                                            "ans":  "The title is significant because it tells us that Everest is not the only symbol of success. Every honest field and effort has its own peak."
+                                        },
+                                        {
+                                            "q":  "How is the theme of dignity shown?",
+                                            "ans":  "Dignity is shown through lines about not cringing, not kneeling, honouring merit and living with pride. The poem values self-respect above status."
+                                        },
+                                        {
+                                            "q":  "What is the importance of the repeated line?",
+                                            "ans":  "The repeated line \"We are proud and feel so tall\" creates confidence and emphasis. It shows the speaker\u0027s repeated assertion of dignity and self-respect."
+                                        },
+                                        {
+                                            "q":  "Explain \"Honour is a property, common to all.\"",
+                                            "ans":  "The line means every human being can possess honour. One need not be rich or famous to live with dignity and pride."
+                                        },
+                                        {
+                                            "q":  "What is the message of the poem?",
+                                            "ans":  "The poem teaches that every person can reach a personal summit through devotion, courage, merit and honour. Success is not limited to famous achievements."
+                                        },
+                                        {
+                                            "q":  "How is the poem relevant today?",
+                                            "ans":  "The poem is relevant because people often compare themselves with famous achievers. It reminds us to value our own honest effort and personal excellence."
+                                        }
+                                    ]
+                  },
+                  {
+                      "id":  "p4",
+                      "navLabel":  "Part IV -- Long Essay (5×7)",
+                      "title":  "Part IV -- Long Essay Questions",
+                      "type":  "long-essay",
+                      "scoreMax":  35,
+                      "marksPer":  5,
+                      "instruction":  "Answer any 5 of the following 7 questions. Each answer should be about 100-150 words.",
+                      "questions":  [
+                                        {
+                                            "q":  "Explain the central idea of \"Everest is not the Only Peak.\"",
+                                            "ans":  "The central idea of the poem is that greatness is not limited to the highest or most famous achievement. Everest stands for a great peak, but the poet says every hillock also has a summit. This means every field of life has its own dignity and every person can reach a personal peak through devotion and courage. The poem values the way we live more than the height we reach. It praises people who do not cringe, do not bend for gain, honour competence and merit, and live with dignity. Thus, the poem is a song of self-respect and optimism."
+                                        },
+                                        {
+                                            "q":  "How does the poem celebrate dignity and honour?",
+                                            "ans":  "The poem celebrates dignity and honour by showing that true pride comes from the way one lives. The speaker says that whatever we try, we must do with deep and true devotion. We should repel defeat with courage, avoid cringing before others and refuse to seek gain by dishonourable means. The poet praises those who do not stoop and calls them kings. He says honour is common to all and that no one needs to be poor in dignity and pride. The poem therefore teaches that honourable living is greater than outward success."
+                                        },
+                                        {
+                                            "q":  "In what way is every hillock similar to Everest?",
+                                            "ans":  "Every hillock is similar to Everest because both have a summit. Everest is famous and high, but even a small hillock has its own top. The poet uses this comparison to explain that every person and every activity can have its own form of excellence. It is not necessary to become the greatest in the world to live meaningfully. A person who works with devotion, courage and self-respect reaches a summit in his or her own field. Thus the poem democratises success and honours every sincere achievement."
+                                        },
+                                        {
+                                            "q":  "The poem does not focus on the destination but the journey towards it. Discuss.",
+                                            "ans":  "The poem focuses more on the journey than the destination. The poet says, \"The height you reach is not that we care.\" What matters is how one reaches one\u0027s goal. The journey must be filled with devotion, courage, duty, dignity and honour. The speaker values people who do not stoop, who stand on their own and who respect competence and merit. Everest may be the highest peak, but every hillock has a summit. This means success is not only the final position; it is the honourable effort made on the way."
+                                        },
+                                        {
+                                            "q":  "Write an essay on optimism in the poem.",
+                                            "ans":  "The poem is full of optimism because it tells every person that life has a peak worth reaching. It does not limit achievement to Everest or to famous people. Instead, it says every hillock has a summit. The speaker is proud, but not arrogant; humble, but not weak. He believes defeat can be repelled and courage can become a fort. He says honour is common to all, and no one need be poor in dignity and pride. This positive message encourages students to work sincerely and value their own path."
+                                        },
+                                        {
+                                            "q":  "How does the poet describe true success?",
+                                            "ans":  "The poet describes true success as honourable living. Success is not merely reaching a great height or gaining fame. It lies in doing every task with deep devotion, refusing defeat, keeping courage as one\u0027s fort, praising the deserving and nourishing those who nourish the world. A successful person does not stoop or cringe for gain. The poet bows before competence and merit, not mere status. He says true people who stand on their own become the ladder for the rise of Man. True success is therefore linked with dignity, merit and service."
+                                        },
+                                        {
+                                            "q":  "How is the poem relevant to modern life?",
+                                            "ans":  "The poem is highly relevant to modern life because people often compare themselves with famous achievers and feel small. The poet reminds us that Everest is not the only peak. Every field and every person has a summit. A student, worker, artist, farmer or professional can succeed by doing their duty with devotion, courage and self-respect. The poem also warns against cringing for gain and losing dignity. In a competitive world, it teaches that honour, competence and merit are more important than fame or height. It encourages personal excellence and ethical living."
+                                        }
+                                    ]
+                  }
+              ]
+}

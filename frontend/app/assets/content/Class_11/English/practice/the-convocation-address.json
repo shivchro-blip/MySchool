@@ -1,0 +1,507 @@
+﻿{
+    "meta":  {
+                 "subject":  "General English -- Class XI",
+                 "unit":  "Unit 5 · Prose · The Convocation Address",
+                 "time":  "3.00 hrs",
+                 "totalMarks":  90,
+                 "instructions":  "Tamil Nadu State Board · Answer all questions"
+             },
+    "parts":  [
+                  {
+                      "id":  "p1",
+                      "navLabel":  "Part I -- MCQ (20×1)",
+                      "title":  "Part I -- Objective Type",
+                      "type":  "mcq",
+                      "scoreMax":  20,
+                      "marksPer":  1,
+                      "sections":  [
+                                       {
+                                           "label":  "Vocabulary -- glossary meanings and antonyms",
+                                           "questions":  [
+                                                             {
+                                                                 "id":  "q1",
+                                                                 "html":  "Choose the meaning of \u003cu\u003econferred\u003c/u\u003e.",
+                                                                 "options":  [
+                                                                                 "a) granted",
+                                                                                 "b) removed",
+                                                                                 "c) refused",
+                                                                                 "d) forgot"
+                                                                             ],
+                                                                 "answer":  0,
+                                                                 "hint":  "Conferred means granted a title, degree, benefit or right."
+                                                             },
+                                                             {
+                                                                 "id":  "q2",
+                                                                 "html":  "Choose the meaning of \u003cu\u003ereiterate\u003c/u\u003e.",
+                                                                 "options":  [
+                                                                                 "a) say or do again",
+                                                                                 "b) hide",
+                                                                                 "c) attack",
+                                                                                 "d) borrow"
+                                                                             ],
+                                                                 "answer":  0,
+                                                                 "hint":  "Reiterate means to say or do again."
+                                                             },
+                                                             {
+                                                                 "id":  "q3",
+                                                                 "html":  "Choose the \u003cu\u003eantonym\u003c/u\u003e of \"autocracy\".",
+                                                                 "options":  [
+                                                                                 "a) democracy",
+                                                                                 "b) monarchy",
+                                                                                 "c) dictatorship",
+                                                                                 "d) rule"
+                                                                             ],
+                                                                 "answer":  0,
+                                                                 "hint":  "Autocracy means one-person rule; its antonym is democracy."
+                                                             },
+                                                             {
+                                                                 "id":  "q4",
+                                                                 "html":  "Choose the \u003cu\u003esynonym\u003c/u\u003e of \"repositories\".",
+                                                                 "options":  [
+                                                                                 "a) storehouses",
+                                                                                 "b) roads",
+                                                                                 "c) guards",
+                                                                                 "d) markets"
+                                                                             ],
+                                                                 "answer":  0,
+                                                                 "hint":  "Repositories means storehouses."
+                                                             },
+                                                             {
+                                                                 "id":  "q5",
+                                                                 "html":  "Choose the meaning of \u003cu\u003eemissaries\u003c/u\u003e.",
+                                                                 "options":  [
+                                                                                 "a) ambassadors",
+                                                                                 "b) farmers",
+                                                                                 "c) judges",
+                                                                                 "d) critics"
+                                                                             ],
+                                                                 "answer":  0,
+                                                                 "hint":  "Emissaries means ambassadors."
+                                                             },
+                                                             {
+                                                                 "id":  "q6",
+                                                                 "html":  "Choose the meaning of \u003cu\u003eperseverance\u003c/u\u003e.",
+                                                                 "options":  [
+                                                                                 "a) continued effort",
+                                                                                 "b) sudden fear",
+                                                                                 "c) easy success",
+                                                                                 "d) simple joy"
+                                                                             ],
+                                                                 "answer":  0,
+                                                                 "hint":  "Perseverance means continued effort or steadfastness."
+                                                             },
+                                                             {
+                                                                 "id":  "q7",
+                                                                 "html":  "Choose the \u003cu\u003eantonym\u003c/u\u003e of \"despondent\".",
+                                                                 "options":  [
+                                                                                 "a) hopeful",
+                                                                                 "b) depressed",
+                                                                                 "c) frustrated",
+                                                                                 "d) sad"
+                                                                             ],
+                                                                 "answer":  0,
+                                                                 "hint":  "Despondent means hopeless; its antonym is hopeful."
+                                                             },
+                                                             {
+                                                                 "id":  "q8",
+                                                                 "html":  "Choose the meaning of \u003cu\u003etillers\u003c/u\u003e.",
+                                                                 "options":  [
+                                                                                 "a) cultivators",
+                                                                                 "b) speakers",
+                                                                                 "c) graduates",
+                                                                                 "d) rulers"
+                                                                             ],
+                                                                 "answer":  0,
+                                                                 "hint":  "Tillers means persons who produce crops; cultivators."
+                                                             },
+                                                             {
+                                                                 "id":  "q9",
+                                                                 "html":  "Choose the meaning of \u003cu\u003etoilers\u003c/u\u003e.",
+                                                                 "options":  [
+                                                                                 "a) hard workers",
+                                                                                 "b) poets",
+                                                                                 "c) kings",
+                                                                                 "d) students"
+                                                                             ],
+                                                                 "answer":  0,
+                                                                 "hint":  "Toilers means people who perform hard physical labour."
+                                                             },
+                                                             {
+                                                                 "id":  "q10",
+                                                                 "html":  "Choose the meaning of \u003cu\u003ereplenish\u003c/u\u003e.",
+                                                                 "options":  [
+                                                                                 "a) refill",
+                                                                                 "b) empty",
+                                                                                 "c) hide",
+                                                                                 "d) damage"
+                                                                             ],
+                                                                 "answer":  0,
+                                                                 "hint":  "Replenish means to refill."
+                                                             }
+                                                         ]
+                                       },
+                                       {
+                                           "label":  "Content comprehension",
+                                           "questions":  [
+                                                             {
+                                                                 "id":  "q11",
+                                                                 "html":  "The speaker claims to represent the",
+                                                                 "options":  [
+                                                                                 "a) common man",
+                                                                                 "b) royalty",
+                                                                                 "c) foreign rulers",
+                                                                                 "d) only scholars"
+                                                                             ],
+                                                                 "answer":  0,
+                                                                 "hint":  "Anna says he represents the common man in all his ruggedness."
+                                                             },
+                                                             {
+                                                                 "id":  "q12",
+                                                                 "html":  "The address was delivered at",
+                                                                 "options":  [
+                                                                                 "a) Annamalai University",
+                                                                                 "b) Yale University",
+                                                                                 "c) University of Brussels",
+                                                                                 "d) Harvard University"
+                                                                             ],
+                                                                 "answer":  0,
+                                                                 "hint":  "The convocation address was delivered at Annamalai University."
+                                                             },
+                                                             {
+                                                                 "id":  "q13",
+                                                                 "html":  "The convocation address was delivered on",
+                                                                 "options":  [
+                                                                                 "a) November 18, 1967",
+                                                                                 "b) September 15, 1909",
+                                                                                 "c) February 3, 1969",
+                                                                                 "d) January 1, 1947"
+                                                                             ],
+                                                                 "answer":  0,
+                                                                 "hint":  "The address was delivered on 18 November 1967."
+                                                             },
+                                                             {
+                                                                 "id":  "q14",
+                                                                 "html":  "\"Wisdom was meant for the mansion\" refers to education serving",
+                                                                 "options":  [
+                                                                                 "a) lords and nobles",
+                                                                                 "b) market vendors",
+                                                                                 "c) common children",
+                                                                                 "d) farmers only"
+                                                                             ],
+                                                                 "answer":  0,
+                                                                 "hint":  "In feudal days wisdom served lords, nobles and royalty."
+                                                             },
+                                                             {
+                                                                 "id":  "q15",
+                                                                 "html":  "Dr. S. Radhakrishnan said democracy requires",
+                                                                 "options":  [
+                                                                                 "a) more qualities than other forms of government",
+                                                                                 "b) less education",
+                                                                                 "c) autocracy",
+                                                                                 "d) only wealth"
+                                                                             ],
+                                                                 "answer":  0,
+                                                                 "hint":  "Radhakrishnan said democracy requires more qualities than other forms of government."
+                                                             },
+                                                             {
+                                                                 "id":  "q16",
+                                                                 "html":  "University education is described as a",
+                                                                 "options":  [
+                                                                                 "a) privilege",
+                                                                                 "b) punishment",
+                                                                                 "c) burden only",
+                                                                                 "d) private toy"
+                                                                             ],
+                                                                 "answer":  0,
+                                                                 "hint":  "\"University education is a privilege that you enjoy.\""
+                                                             },
+                                                             {
+                                                                 "id":  "q17",
+                                                                 "html":  "Graduates are deeply indebted to the",
+                                                                 "options":  [
+                                                                                 "a) community",
+                                                                                 "b) marketplace",
+                                                                                 "c) foreign office",
+                                                                                 "d) royalty alone"
+                                                                             ],
+                                                                 "answer":  0,
+                                                                 "hint":  "\"You are deeply indebted to the community.\""
+                                                             },
+                                                             {
+                                                                 "id":  "q18",
+                                                                 "html":  "Anna expects graduates to repay society mainly through",
+                                                                 "options":  [
+                                                                                 "a) service",
+                                                                                 "b) luxury",
+                                                                                 "c) silence",
+                                                                                 "d) isolation"
+                                                                             ],
+                                                                 "answer":  0,
+                                                                 "hint":  "Anna says society expects return not in money but in service."
+                                                             }
+                                                         ]
+                                       },
+                                       {
+                                           "label":  "Grammar and writing activities",
+                                           "questions":  [
+                                                             {
+                                                                 "id":  "q19",
+                                                                 "html":  "The grammar activity of the unit includes",
+                                                                 "options":  [
+                                                                                 "a) Reported Speech",
+                                                                                 "b) Active and passive only",
+                                                                                 "c) Question tags only",
+                                                                                 "d) Degrees of comparison only"
+                                                                             ],
+                                                                 "answer":  0,
+                                                                 "hint":  "The grammar section covers direct and reported speech."
+                                                             },
+                                                             {
+                                                                 "id":  "q20",
+                                                                 "html":  "The writing activity focuses on",
+                                                                 "options":  [
+                                                                                 "a) letter of application",
+                                                                                 "b) poetry writing",
+                                                                                 "c) diary entry only",
+                                                                                 "d) advertisement only"
+                                                                             ],
+                                                                 "answer":  0,
+                                                                 "hint":  "Writing tasks include letters of application responding to job advertisements."
+                                                             }
+                                                         ]
+                                       }
+                                   ]
+                  },
+                  {
+                      "id":  "p2",
+                      "navLabel":  "Part II -- Reference (2×7)",
+                      "title":  "Part II -- Short Answer / Reference to Context",
+                      "type":  "reference",
+                      "scoreMax":  14,
+                      "marksPer":  2,
+                      "instruction":  "Answer any 7 of the following 10 questions. Read the passage carefully and answer in one or two sentences.",
+                      "questions":  [
+                                        {
+                                            "verse":  "Thankful as I am for the unique honour conferred on me by this institution.",
+                                            "subs":  [
+                                                         {
+                                                             "q":  "(a) Who is speaking?",
+                                                             "a":  "Dr. Arignar Annadurai is speaking at the convocation ceremony."
+                                                         },
+                                                         {
+                                                             "q":  "(b) What does this line reveal about the speaker?",
+                                                             "a":  "It reveals his humility. Despite being Chief Minister, he begins with gratitude and acknowledges that the honour comes from the institution."
+                                                         }
+                                                     ]
+                                        },
+                                        {
+                                            "verse":  "This is the age of the common man – whatever the regrets some might have – and it is his point of view that matters most.",
+                                            "subs":  [
+                                                         {
+                                                             "q":  "(a) Whose point of view matters most?",
+                                                             "a":  "The common man\u0027s point of view matters most in the democratic age."
+                                                         },
+                                                         {
+                                                             "q":  "(b) Why is this statement important?",
+                                                             "a":  "It shifts the purpose of education from serving the privileged to serving ordinary people and democracy."
+                                                         }
+                                                     ]
+                                        },
+                                        {
+                                            "verse":  "Universities, as the repositories of knowledge and the nursing ground for the emissaries of thought, wisdom and service, have got a prominent role to play.",
+                                            "subs":  [
+                                                         {
+                                                             "q":  "(a) What are universities called here?",
+                                                             "a":  "They are called repositories of knowledge and nursing grounds for emissaries of thought, wisdom and service."
+                                                         },
+                                                         {
+                                                             "q":  "(b) What does this reveal about their purpose?",
+                                                             "a":  "It shows that universities must not only store knowledge but train people who will carry wisdom and service into society."
+                                                         }
+                                                     ]
+                                        },
+                                        {
+                                            "verse":  "Wisdom was meant for the mansion, not for the market place.",
+                                            "subs":  [
+                                                         {
+                                                             "q":  "(a) What does this statement refer to?",
+                                                             "a":  "It refers to the old days when education and wisdom served royalty and nobles instead of ordinary people."
+                                                         },
+                                                         {
+                                                             "q":  "(b) What contrast does Anna draw here?",
+                                                             "a":  "Anna contrasts the mansion (the privileged few) with the market place (ordinary people), showing how education must now serve everyone."
+                                                         }
+                                                     ]
+                                        },
+                                        {
+                                            "verse":  "The role of the University today is not cloistered and confined as in the past.",
+                                            "subs":  [
+                                                         {
+                                                             "q":  "(a) What does \"cloistered\" mean?",
+                                                             "a":  "Cloistered means restricted or confined."
+                                                         },
+                                                         {
+                                                             "q":  "(b) What is Anna saying about modern universities?",
+                                                             "a":  "He is saying that universities can no longer be isolated institutions; they must reach out to serve the common man and democracy."
+                                                         }
+                                                     ]
+                                        },
+                                        {
+                                            "verse":  "For its proper functioning democracy requires more qualities than other forms of government.",
+                                            "subs":  [
+                                                         {
+                                                             "q":  "(a) Who made this statement?",
+                                                             "a":  "Dr. S. Radhakrishnan made this statement while addressing the University of Brussels."
+                                                         },
+                                                         {
+                                                             "q":  "(b) Why is this statement important here?",
+                                                             "a":  "Anna uses it to show that universities must build broad-minded, responsible citizens for democracy to work effectively."
+                                                         }
+                                                     ]
+                                        },
+                                        {
+                                            "verse":  "University education is a privilege that you enjoy, for which you are deeply indebted to the community.",
+                                            "subs":  [
+                                                         {
+                                                             "q":  "(a) Why are graduates indebted to the community?",
+                                                             "a":  "Their education is supported by society, including taxes and contributions from common people."
+                                                         },
+                                                         {
+                                                             "q":  "(b) What duty does this create?",
+                                                             "a":  "It creates the duty to repay the community through service, not merely to use education for personal gain."
+                                                         }
+                                                     ]
+                                        },
+                                        {
+                                            "verse":  "Most of the money needed for maintaining institutions of higher education come from the revenues collected from the community through the State.",
+                                            "subs":  [
+                                                         {
+                                                             "q":  "(a) Where does money for higher education come from?",
+                                                             "a":  "It comes from revenues collected from the community through the State."
+                                                         },
+                                                         {
+                                                             "q":  "(b) Who among the community does Anna especially mention?",
+                                                             "a":  "Anna especially mentions tillers and toilers who may never enjoy university education but contribute through their labour and taxes."
+                                                         }
+                                                     ]
+                                        },
+                                        {
+                                            "verse":  "Unless you replenish it richly, coming generations will find only an empty coffer.",
+                                            "subs":  [
+                                                         {
+                                                             "q":  "(a) What should graduates replenish?",
+                                                             "a":  "They should replenish the social chest through service and contribution."
+                                                         },
+                                                         {
+                                                             "q":  "(b) What does the image of an \"empty coffer\" suggest?",
+                                                             "a":  "It suggests that if graduates only take from society and give nothing back, future generations will find a society emptied of resources and strength."
+                                                         }
+                                                     ]
+                                        },
+                                        {
+                                            "verse":  "May your life be a bright one, and may its lustre brighten the entire land!",
+                                            "subs":  [
+                                                         {
+                                                             "q":  "(a) How does Anna end the speech?",
+                                                             "a":  "He ends with a blessing that graduates\u0027 lives should shine and brighten the whole land."
+                                                         },
+                                                         {
+                                                             "q":  "(b) What does this ending reveal about Anna?",
+                                                             "a":  "It shows that despite his realistic warnings, Anna is optimistic about youth and trusts that educated graduates can bring light and progress to society."
+                                                         }
+                                                     ]
+                                        }
+                                    ]
+                  },
+                  {
+                      "id":  "p3",
+                      "navLabel":  "Part III -- Short Essay (3×7)",
+                      "title":  "Part III -- Short Essay / Paragraph Questions",
+                      "type":  "short-essay",
+                      "scoreMax":  21,
+                      "marksPer":  3,
+                      "instruction":  "Answer any 7 of the following 10 questions in two or three sentences. (Approx. 30-40 words per answer)",
+                      "questions":  [
+                                        {
+                                            "q":  "Describe Arignar Anna as a speaker.",
+                                            "ans":  "Arignar Anna is humble, clear and socially committed. He begins with gratitude, admits his limitations and speaks from the common man\u0027s point of view while guiding graduates toward service."
+                                        },
+                                        {
+                                            "q":  "What is the role of universities in a democracy?",
+                                            "ans":  "Universities train citizens for democracy. They develop responsibility, judgement, patience, perseverance and respect for others\u0027 views, making the common man fit to serve society."
+                                        },
+                                        {
+                                            "q":  "Compare old and modern universities.",
+                                            "ans":  "Old universities served royalty, nobles and secluded scholars. Modern universities must serve the common man, democracy and society by preparing responsible citizens."
+                                        },
+                                        {
+                                            "q":  "What character trait does Anna show in the opening?",
+                                            "ans":  "Anna shows humility. Though honoured, he says he will not offer original theories but only reiterate important principles with the layman\u0027s point of view."
+                                        },
+                                        {
+                                            "q":  "Why is the idea of social debt important?",
+                                            "ans":  "Social debt is important because university education is funded by the community. Graduates must remember tillers and toilers and repay society through meaningful service."
+                                        },
+                                        {
+                                            "q":  "How is the theme of service shown?",
+                                            "ans":  "Service is shown as the true repayment for education. Anna asks graduates to bring light, hope, solace and new life to society."
+                                        },
+                                        {
+                                            "q":  "What warning does Anna give about the future?",
+                                            "ans":  "Anna warns that graduates will face discouraging environments, selfish people, tyranny and conflict between principles and practice. Yet they must continue serving society."
+                                        },
+                                        {
+                                            "q":  "Explain \"empty coffer.\"",
+                                            "ans":  "The empty coffer means a society with no resources left for future generations. If graduates fail to give back, those after them will suffer."
+                                        },
+                                        {
+                                            "q":  "What is the message of the speech?",
+                                            "ans":  "The message is that education is not for personal gain alone. Graduates must use their knowledge, values and skills to serve society and strengthen democracy."
+                                        },
+                                        {
+                                            "q":  "How is the speech relevant today?",
+                                            "ans":  "The speech is relevant because educated youth still benefit from public resources. They must use their learning for social good, not merely private success."
+                                        }
+                                    ]
+                  },
+                  {
+                      "id":  "p4",
+                      "navLabel":  "Part IV -- Long Essay (5×7)",
+                      "title":  "Part IV -- Long Essay Questions",
+                      "type":  "long-essay",
+                      "scoreMax":  35,
+                      "marksPer":  5,
+                      "instruction":  "Answer any 5 of the following 7 questions. Each answer should be about 100-150 words.",
+                      "questions":  [
+                                        {
+                                            "q":  "Write an essay on the duties of graduates according to Arignar Anna.",
+                                            "ans":  "According to Arignar Anna, graduates have duties beyond earning a decent living. He accepts that personal advancement is necessary, but says it should not be the sole objective. University education is a privilege supported by society, including tillers and toilers who may never enjoy higher education themselves. Therefore graduates are indebted to the community. They must repay this debt through service rather than merely through money. Anna expects them to tone up society, bring light into dark alleys, sunshine into dingy places, solace to the afflicted, hope to the despondent and new life to everyone. Thus, graduates must become responsible citizens who make democracy fruitful and effective."
+                                        },
+                                        {
+                                            "q":  "Explain Anna\u0027s view of universities in a democracy.",
+                                            "ans":  "Anna sees universities as essential institutions in a democracy. He calls them repositories of knowledge and nursing grounds for emissaries of thought, wisdom and service. In the past, universities served royalty and the privileged, but in the democratic age their role has widened. They must trim, train, guide and lead the common man to become a responsible citizen. Anna also quotes Dr. S. Radhakrishnan, who says universities develop the true spirit of democracy, appreciation of others\u0027 points of view and adjustment of differences through discussion. For Anna, universities must produce broad-minded citizens who can shoulder responsibility."
+                                        },
+                                        {
+                                            "q":  "Compare education in feudal days and in the democratic age.",
+                                            "ans":  "In feudal and monarchical days, universities trained scholars and poets to serve royal courts, lords and nobles. Anna says wisdom was meant for the mansion, not for the marketplace. This means knowledge was kept away from ordinary people. Scholars worked in secluded spheres, far from the problems of the masses. In the democratic age, the role of universities is no longer cloistered or confined. They must serve the common man and prepare him for democratic responsibility. Education must reach society, shape citizens and help make democracy fruitful and effective."
+                                        },
+                                        {
+                                            "q":  "How does Anna highlight the contribution of common people to higher education?",
+                                            "ans":  "Anna reminds graduates that most of the money needed to maintain institutions of higher education comes from revenues collected from the community through the State. He especially mentions tillers and toilers, people who work hard with their bodies and may never enjoy the privilege of university education. They submit to discomfort so that the next generation can live better. This makes the graduate\u0027s education a social gift, not merely a personal achievement. Anna uses this argument to awaken gratitude and responsibility. Graduates must replenish the social chest through service."
+                                        },
+                                        {
+                                            "q":  "Discuss the obstacles graduates may face while serving society.",
+                                            "ans":  "Anna does not pretend that service is easy. He tells graduates that the world may dim their hope and disturb their determination. They may see practices that differ from the principles taught to them. Self-seekers may be enthroned, patient workers may be decried and tyranny may stare at them. Every step may become a struggle. Even people with robust optimism may feel discouraged and choose the path of ease and comfort. However, Anna reminds them that many men and women have carried on the crusade of service successfully, and graduates too must continue that legacy."
+                                        },
+                                        {
+                                            "q":  "Why is \"The Convocation Address\" an inspiring speech for students?",
+                                            "ans":  "\"The Convocation Address\" is inspiring because it speaks directly to young graduates at the moment they enter adult life. Anna congratulates them but also gives them a larger purpose. He tells them that education is not only for jobs or individual material advancement. It is a privilege made possible by society, and therefore it must be returned through service. He connects university learning with democracy, broad-mindedness, responsibility and social justice. His final blessing asks graduates to make their lives bright and to brighten the entire land. This gives students hope, duty and direction."
+                                        },
+                                        {
+                                            "q":  "How is the speech relevant to modern society?",
+                                            "ans":  "The speech is highly relevant to modern society because education still depends on collective resources. Public institutions, scholarships, libraries, roads, teachers and social systems are built by the labour and taxes of many people. Anna\u0027s idea that graduates are indebted to society is still true. In a world focused on personal success, his speech reminds educated youth to serve others. They can contribute through honest work, social service, civic responsibility, environmental care, teaching, innovation and compassion. The speech encourages students to become citizens who strengthen democracy and reduce suffering."
+                                        }
+                                    ]
+                  }
+              ]
+}

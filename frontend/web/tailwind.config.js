@@ -1,0 +1,83 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ['./index.html', './src/**/*.{js,jsx}'],
+  theme: {
+    extend: {
+      fontFamily: {
+        sans:  ['Geist', '"Plus Jakarta Sans"', '"Inter"', 'system-ui', 'sans-serif'],
+        serif: ['"Source Serif 4"', 'Georgia', 'serif'],
+        mono:  ['"Geist Mono"', 'ui-monospace', 'monospace'],
+      },
+      transitionDuration: {
+        fast: '120ms',
+        base: '200ms',
+        slow: '300ms',
+        ring: '600ms',
+      },
+      transitionTimingFunction: {
+        'soft-out':    'cubic-bezier(0.0, 0.0, 0.2, 1)',
+        'soft-in-out': 'cubic-bezier(0.4, 0.0, 0.2, 1)',
+      },
+      colors: {
+        /* ── PAPER theme tokens ─────────────────────────────── */
+        bg:          'var(--bg)',
+        'bg-2':      'var(--bg-2)',
+        'bg-sunk':   'var(--bg-sunk)',
+        ink:         'var(--ink)',
+        'ink-2':     'var(--ink-2)',
+        'ink-3':     'var(--ink-3)',
+        'ink-4':     'var(--ink-4)',
+        accent:      'var(--accent)',
+        'accent-soft': 'var(--accent-soft)',
+        'accent-ink':  'var(--accent-ink)',
+        good:        'var(--good)',
+        'good-soft': 'var(--good-soft)',
+        'good-ink':  'var(--good-ink)',
+        warn:        'var(--warn)',
+        'warn-soft': 'var(--warn-soft)',
+        pos:         'var(--pos)',
+        'pos-soft':  'var(--pos-soft)',
+        danger:      'var(--danger)',
+        line:        'var(--line)',
+        'line-soft': 'var(--line-soft)',
+        highlight:   'var(--highlight)',
+        brand: {
+          50:  '#EEEDFE',
+          100: '#CECBF6',
+          200: '#AFA9EC',
+          300: '#9F99E8',
+          400: '#7F77DD',
+          500: '#6860CC',
+          600: '#534AB7',
+          700: '#3C3489',
+          800: '#26215C',
+          900: '#1A1640',
+        },
+      },
+      borderRadius: {
+        'pill': '100px',
+        xs:    '6px',
+        sm:    '10px',
+        md:    '14px',
+        lg:    '20px',
+        xl:    '28px',
+      },
+      boxShadow: {
+        card:    '0 0 0 1px rgb(0 0 0 / 0.04), 0 1px 3px 0 rgb(0 0 0 / 0.05)',
+        'card-md': '0 4px 6px -1px rgb(0 0 0 / 0.07), 0 2px 4px -2px rgb(0 0 0 / 0.07)',
+      },
+      animation: {
+        'fade-in':  'fadeIn 0.2s ease',
+        'slide-up': 'slideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1)',
+      },
+      keyframes: {
+        fadeIn:  { from: { opacity: '0' }, to: { opacity: '1' } },
+        slideUp: {
+          from: { opacity: '0', transform: 'translateY(12px)' },
+          to:   { opacity: '1', transform: 'translateY(0)' },
+        },
+      },
+    },
+  },
+  plugins: [],
+}

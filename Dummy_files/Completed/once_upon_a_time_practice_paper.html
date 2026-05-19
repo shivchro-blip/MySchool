@@ -1,0 +1,625 @@
+
+<style>
+:root{--accent:#4f46e5;--accent-light:rgba(79,70,229,0.09);}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:var(--font-sans);font-size:14px;line-height:1.8;color:var(--color-text-primary);}
+.paper-header{background:#1a1a2e;border-radius:var(--border-radius-lg);padding:20px 24px;margin-bottom:0;}
+.paper-header .row{display:flex;justify-content:space-between;font-size:13px;color:#a0aec0;margin-bottom:4px;}
+.paper-header h2{color:#fff;font-size:17px;font-weight:500;text-align:center;margin:8px 0 4px;}
+.paper-header .sub{color:#a0aec0;font-size:12px;text-align:center;}
+.format-note{background:var(--accent-light);border-left:3px solid var(--accent);padding:8px 12px;font-size:12px;color:var(--color-text-secondary);border-radius:0 var(--border-radius-md) var(--border-radius-md) 0;margin:12px 0;}
+.tabs-wrap{display:flex;overflow-x:auto;gap:0;border-bottom:0.5px solid var(--color-border-tertiary);scrollbar-width:none;}
+.tabs-wrap::-webkit-scrollbar{display:none;}
+.tab-btn{flex-shrink:0;padding:12px 18px;font-size:13px;background:none;border:none;cursor:pointer;color:var(--color-text-secondary);border-bottom:2px solid transparent;white-space:nowrap;min-height:48px;}
+.tab-btn.active{color:var(--accent);border-bottom-color:var(--accent);font-weight:500;}
+.tab-btn:hover:not(.active){color:var(--color-text-primary);}
+.tab-content{display:none;padding:20px 0;}
+.tab-content.active{display:block;}
+.score-bar{display:flex;align-items:center;gap:12px;background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px 16px;margin-bottom:20px;font-size:14px;}
+.score-num{font-size:20px;font-weight:500;color:var(--accent);}
+.q-card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:16px;margin-bottom:14px;}
+.q-meta{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.q-num{background:var(--accent);color:#fff;font-size:11px;font-weight:500;padding:3px 9px;border-radius:20px;}
+.q-type{font-size:11px;color:var(--color-text-secondary);text-transform:uppercase;letter-spacing:.08em;}
+.q-text{font-size:14px;margin-bottom:12px;line-height:1.7;}
+.q-sentence{font-style:italic;color:var(--color-text-secondary);margin-bottom:10px;font-size:13px;}
+.options{display:flex;flex-direction:column;gap:6px;}
+.opt{display:flex;align-items:center;gap:10px;padding:10px 14px;border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);cursor:pointer;font-size:13px;min-height:48px;background:var(--color-background-primary);transition:background .15s;}
+.opt:hover:not(.answered){background:var(--color-background-secondary);}
+.opt.correct{background:rgba(16,185,129,0.1);border-color:rgba(16,185,129,0.5);color:var(--color-text-success);}
+.opt.wrong{background:rgba(239,68,68,0.08);border-color:rgba(239,68,68,0.4);color:var(--color-text-danger);}
+.opt-label{font-weight:500;min-width:18px;}
+.explanation{background:var(--color-background-secondary);border-left:3px solid var(--accent);padding:10px 14px;border-radius:0 var(--border-radius-md) var(--border-radius-md) 0;font-size:13px;margin-top:10px;display:none;line-height:1.6;}
+.extract-block{border-left:3px solid var(--accent);background:var(--accent-light);padding:12px 16px;font-style:italic;font-size:14px;line-height:1.9;border-radius:0 var(--border-radius-md) var(--border-radius-md) 0;margin-bottom:14px;white-space:pre-line;}
+.sub-q{margin-bottom:12px;}
+.sub-label{font-size:12px;font-weight:500;color:var(--accent);margin-bottom:6px;}
+textarea{width:100%;border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:10px 12px;font-size:13px;font-family:var(--font-sans);background:var(--color-background-primary);color:var(--color-text-primary);resize:vertical;line-height:1.6;}
+textarea:focus{outline:none;border-color:var(--accent);}
+.model-box{background:var(--color-background-secondary);border-left:3px solid var(--accent);padding:12px 14px;font-size:13px;line-height:1.7;border-radius:0 var(--border-radius-md) var(--border-radius-md) 0;margin-top:8px;display:none;}
+.model-box.show{display:block;}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:9px 16px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);background:none;color:var(--color-text-primary);cursor:pointer;font-size:13px;min-height:44px;font-family:var(--font-sans);}
+.btn:hover{background:var(--color-background-secondary);}
+.btn-primary{background:var(--accent);color:#fff;border-color:var(--accent);min-height:48px;padding:10px 20px;}
+.btn-primary:hover{background:#4338ca;}
+.nav-row{display:flex;gap:10px;justify-content:space-between;align-items:center;margin-top:14px;flex-wrap:wrap;}
+.counter{font-size:13px;color:var(--color-text-secondary);}
+.part-header{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px 16px;margin-bottom:16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
+.part-title{font-size:15px;font-weight:500;}
+.part-marks{font-size:13px;color:var(--color-text-secondary);}
+.reveal-count{font-size:12px;color:var(--color-text-secondary);}
+</style>
+
+<h2 class="sr-only">Once Upon a Time — Practice Paper, Tamil Nadu State Board Class XI English</h2>
+
+<div class="paper-header">
+  <div class="row"><span>Time: 3.00 hrs</span><span>Marks: 90</span></div>
+  <div class="row" style="justify-content:center;font-size:12px;">Answer all the questions.</div>
+  <h2>General English — Class XI</h2>
+  <div class="sub">Once Upon a Time · Gabriel Okara · Practice Paper · Tamil Nadu State Board</div>
+</div>
+
+<div class="format-note">Format based on: TN Board Class XI English general conventions (web search 2023–24) — synonym → antonym → compound word → suffix → abbreviation → syllabification → phobia/mania → preposition → question tag → phrasal verb → idiom → content questions. Upload a past paper image next time for higher accuracy.</div>
+
+<div class="tabs-wrap" id="tabs">
+  <button class="tab-btn active" onclick="showTab(0)">Part I · Objective (20×1)</button>
+  <button class="tab-btn" onclick="showTab(1)">Part II · Ref. to Context (7 of 10)</button>
+  <button class="tab-btn" onclick="showTab(2)">Part III · Short Essay (7 of 10)</button>
+  <button class="tab-btn" onclick="showTab(3)">Part IV · Long Essay (5 of 7)</button>
+</div>
+
+<!-- PART I -->
+<div id="tc0" class="tab-content active">
+  <div class="score-bar">
+    <span>Score:</span>
+    <span class="score-num" id="scoreDisplay">0 / 20</span>
+    <span style="font-size:12px;color:var(--color-text-secondary);">· Answered: <span id="answeredCount">0</span> / 20</span>
+  </div>
+
+  <div class="part-header">
+    <span class="part-title">Part I — Objective Type</span>
+    <span class="part-marks">20 × 1 = 20 Marks · Answer all questions</span>
+  </div>
+
+  <!-- Q1 SYNONYM -->
+  <div class="q-card" id="q1">
+    <div class="q-meta"><span class="q-num">Q1</span><span class="q-type">Synonym</span></div>
+    <div class="q-text">Choose the correct synonym for the underlined word.</div>
+    <div class="q-sentence">"They used to shake hands without <u>hearts</u> while their left hands search my empty pockets."</div>
+    <div class="options">
+      <div class="opt" onclick="answer(this,'q1',false)"><span class="opt-label">a)</span>minds</div>
+      <div class="opt" onclick="answer(this,'q1',false)"><span class="opt-label">b)</span>souls</div>
+      <div class="opt" onclick="answer(this,'q1',true)"><span class="opt-label">c)</span>sincerity</div>
+      <div class="opt" onclick="answer(this,'q1',false)"><span class="opt-label">d)</span>warmth</div>
+    </div>
+    <div class="explanation">"Hearts" in this context means genuine feeling or sincerity. "Sincerity" is the closest synonym — both refer to the quality of being genuinely felt rather than performed.</div>
+  </div>
+
+  <!-- Q2 SYNONYM -->
+  <div class="q-card" id="q2">
+    <div class="q-meta"><span class="q-num">Q2</span><span class="q-type">Synonym</span></div>
+    <div class="q-text">Choose the correct synonym for the underlined word.</div>
+    <div class="q-sentence">"I have learned to wear many faces like dresses with all their <u>conforming</u> smiles."</div>
+    <div class="options">
+      <div class="opt" onclick="answer(this,'q2',false)"><span class="opt-label">a)</span>charming</div>
+      <div class="opt" onclick="answer(this,'q2',true)"><span class="opt-label">b)</span>complying</div>
+      <div class="opt" onclick="answer(this,'q2',false)"><span class="opt-label">c)</span>comforting</div>
+      <div class="opt" onclick="answer(this,'q2',false)"><span class="opt-label">d)</span>confusing</div>
+    </div>
+    <div class="explanation">"Conforming" means adjusting to meet expected standards or social norms. "Complying" is the closest synonym — both mean adapting to what is required or expected rather than acting from genuine feeling.</div>
+  </div>
+
+  <!-- Q3 SYNONYM -->
+  <div class="q-card" id="q3">
+    <div class="q-meta"><span class="q-num">Q3</span><span class="q-type">Synonym</span></div>
+    <div class="q-text">Choose the correct synonym for the underlined word.</div>
+    <div class="q-sentence">"I want to <u>unlearn</u> all these muting things."</div>
+    <div class="options">
+      <div class="opt" onclick="answer(this,'q3',false)"><span class="opt-label">a)</span>remember</div>
+      <div class="opt" onclick="answer(this,'q3',false)"><span class="opt-label">b)</span>practise</div>
+      <div class="opt" onclick="answer(this,'q3',true)"><span class="opt-label">c)</span>discard</div>
+      <div class="opt" onclick="answer(this,'q3',false)"><span class="opt-label">d)</span>ignore</div>
+    </div>
+    <div class="explanation">"Unlearn" means to deliberately shed or get rid of something previously learned. "Discard" — to throw away or abandon — is the closest synonym in this context.</div>
+  </div>
+
+  <!-- Q4 ANTONYM -->
+  <div class="q-card" id="q4">
+    <div class="q-meta"><span class="q-num">Q4</span><span class="q-type">Antonym</span></div>
+    <div class="q-text">Choose the correct antonym for the underlined word.</div>
+    <div class="q-sentence">"But now they only laugh with their teeth while their <u>ice-block-cold</u> eyes search behind my shadow."</div>
+    <div class="options">
+      <div class="opt" onclick="answer(this,'q4',false)"><span class="opt-label">a)</span>frozen</div>
+      <div class="opt" onclick="answer(this,'q4',true)"><span class="opt-label">b)</span>warm</div>
+      <div class="opt" onclick="answer(this,'q4',false)"><span class="opt-label">c)</span>distant</div>
+      <div class="opt" onclick="answer(this,'q4',false)"><span class="opt-label">d)</span>hollow</div>
+    </div>
+    <div class="explanation">"Ice-block-cold" describes eyes that are utterly without warmth or feeling. Its antonym is "warm" — expressing genuine kindness and sincere emotional engagement.</div>
+  </div>
+
+  <!-- Q5 ANTONYM -->
+  <div class="q-card" id="q5">
+    <div class="q-meta"><span class="q-num">Q5</span><span class="q-type">Antonym</span></div>
+    <div class="q-text">Choose the correct antonym for the underlined word.</div>
+    <div class="q-sentence">"To say 'Glad to meet you' without being <u>glad</u>."</div>
+    <div class="options">
+      <div class="opt" onclick="answer(this,'q5',false)"><span class="opt-label">a)</span>happy</div>
+      <div class="opt" onclick="answer(this,'q5',false)"><span class="opt-label">b)</span>joyful</div>
+      <div class="opt" onclick="answer(this,'q5',true)"><span class="opt-label">c)</span>sorrowful</div>
+      <div class="opt" onclick="answer(this,'q5',false)"><span class="opt-label">d)</span>sincere</div>
+    </div>
+    <div class="explanation">"Glad" means happy or pleased. Its antonym is "sorrowful" — meaning sad or full of grief, the opposite emotional state.</div>
+  </div>
+
+  <!-- Q6 ANTONYM -->
+  <div class="q-card" id="q6">
+    <div class="q-meta"><span class="q-num">Q6</span><span class="q-type">Antonym</span></div>
+    <div class="q-text">Choose the correct antonym for the underlined word.</div>
+    <div class="q-sentence">"They used to laugh with their hearts and laugh with their eyes: but now they only laugh with their <u>teeth</u>."</div>
+    <div class="options">
+      <div class="opt" onclick="answer(this,'q6',false)"><span class="opt-label">a)</span>mouth</div>
+      <div class="opt" onclick="answer(this,'q6',true)"><span class="opt-label">b)</span>heart</div>
+      <div class="opt" onclick="answer(this,'q6',false)"><span class="opt-label">c)</span>soul</div>
+      <div class="opt" onclick="answer(this,'q6',false)"><span class="opt-label">d)</span>mind</div>
+    </div>
+    <div class="explanation">In the poem, "teeth" represents superficial, fake laughter. Its antonym in context is "heart" — representing genuine, sincere emotion. The poem itself establishes this contrast: "laugh with their teeth" vs "laugh with their hearts."</div>
+  </div>
+
+  <!-- Q7 COMPOUND WORD -->
+  <div class="q-card" id="q7">
+    <div class="q-meta"><span class="q-num">Q7</span><span class="q-type">Compound Word</span></div>
+    <div class="q-text">Choose the word from the options given to form a compound word with "hand".</div>
+    <div class="options">
+      <div class="opt" onclick="answer(this,'q7',false)"><span class="opt-label">a)</span>work</div>
+      <div class="opt" onclick="answer(this,'q7',true)"><span class="opt-label">b)</span>shake</div>
+      <div class="opt" onclick="answer(this,'q7',false)"><span class="opt-label">c)</span>glove</div>
+      <div class="opt" onclick="answer(this,'q7',false)"><span class="opt-label">d)</span>wave</div>
+    </div>
+    <div class="explanation">"Hand" + "shake" = "handshake" — a compound noun meaning the act of grasping and shaking hands, which is a central image in the poem representing social interaction.</div>
+  </div>
+
+  <!-- Q8 COMPOUND WORD -->
+  <div class="q-card" id="q8">
+    <div class="q-meta"><span class="q-num">Q8</span><span class="q-type">Compound Word</span></div>
+    <div class="q-text">Choose the word from the options given to form a compound word with "port".</div>
+    <div class="options">
+      <div class="opt" onclick="answer(this,'q8',false)"><span class="opt-label">a)</span>paint</div>
+      <div class="opt" onclick="answer(this,'q8',true)"><span class="opt-label">b)</span>rait</div>
+      <div class="opt" onclick="answer(this,'q8',false)"><span class="opt-label">c)</span>frame</div>
+      <div class="opt" onclick="answer(this,'q8',false)"><span class="opt-label">d)</span>draw</div>
+    </div>
+    <div class="explanation">"Port" + "rait" = "portrait" — as in "fixed portrait smile," the frozen, painted smile that appears in the poem as a symbol of artificial social expression.</div>
+  </div>
+
+  <!-- Q9 SUFFIX -->
+  <div class="q-card" id="q9">
+    <div class="q-meta"><span class="q-num">Q9</span><span class="q-type">Prefix / Suffix</span></div>
+    <div class="q-text">Form a new word by adding a suitable suffix to the root word "sincere".</div>
+    <div class="options">
+      <div class="opt" onclick="answer(this,'q9',false)"><span class="opt-label">a)</span>-ness</div>
+      <div class="opt" onclick="answer(this,'q9',true)"><span class="opt-label">b)</span>-ly</div>
+      <div class="opt" onclick="answer(this,'q9',false)"><span class="opt-label">c)</span>-ment</div>
+      <div class="opt" onclick="answer(this,'q9',false)"><span class="opt-label">d)</span>-tion</div>
+    </div>
+    <div class="explanation">"Sincere" + "-ly" = "sincerely" — an adverb meaning in a genuine or honest manner. This is the most common and correct suffix for this adjective to form an adverb.</div>
+  </div>
+
+  <!-- Q10 PREFIX -->
+  <div class="q-card" id="q10">
+    <div class="q-meta"><span class="q-num">Q10</span><span class="q-type">Prefix / Suffix</span></div>
+    <div class="q-text">Choose the correct prefix to form the antonym of "learn".</div>
+    <div class="options">
+      <div class="opt" onclick="answer(this,'q10',false)"><span class="opt-label">a)</span>dis-</div>
+      <div class="opt" onclick="answer(this,'q10',true)"><span class="opt-label">b)</span>un-</div>
+      <div class="opt" onclick="answer(this,'q10',false)"><span class="opt-label">c)</span>mis-</div>
+      <div class="opt" onclick="answer(this,'q10',false)"><span class="opt-label">d)</span>re-</div>
+    </div>
+    <div class="explanation">"Un-" + "learn" = "unlearn" — a key word directly used in the poem meaning to deliberately shed something previously learned. "Re-" would give "relearn," which is also in the poem but is not the antonym of "learn."</div>
+  </div>
+
+  <!-- Q11 ABBREVIATION -->
+  <div class="q-card" id="q11">
+    <div class="q-meta"><span class="q-num">Q11</span><span class="q-type">Abbreviation</span></div>
+    <div class="q-text">Choose the expanded form of "UNESCO".</div>
+    <div class="options">
+      <div class="opt" onclick="answer(this,'q11',false)"><span class="opt-label">a)</span>United Nations Educational, Scientific and Cultural Office</div>
+      <div class="opt" onclick="answer(this,'q11',true)"><span class="opt-label">b)</span>United Nations Educational, Scientific and Cultural Organization</div>
+      <div class="opt" onclick="answer(this,'q11',false)"><span class="opt-label">c)</span>Universal Nations Educational, Social and Cultural Organization</div>
+      <div class="opt" onclick="answer(this,'q11',false)"><span class="opt-label">d)</span>United Nations Environmental, Scientific and Cultural Organization</div>
+    </div>
+    <div class="explanation">UNESCO stands for United Nations Educational, Scientific and Cultural Organization — the UN agency that promotes education, science, culture and communication worldwide.</div>
+  </div>
+
+  <!-- Q12 SYLLABIFICATION -->
+  <div class="q-card" id="q12">
+    <div class="q-meta"><span class="q-num">Q12</span><span class="q-type">Syllabification</span></div>
+    <div class="q-text">The correct syllabification of the word "hypocrisy" is:</div>
+    <div class="options">
+      <div class="opt" onclick="answer(this,'q12',false)"><span class="opt-label">a)</span>hy-poc-ri-si</div>
+      <div class="opt" onclick="answer(this,'q12',true)"><span class="opt-label">b)</span>hy-poc-ri-sy</div>
+      <div class="opt" onclick="answer(this,'q12',false)"><span class="opt-label">c)</span>hyp-oc-ri-sy</div>
+      <div class="opt" onclick="answer(this,'q12',false)"><span class="opt-label">d)</span>hy-po-cri-sy</div>
+    </div>
+    <div class="explanation">"Hypocrisy" is divided as hy-poc-ri-sy — four syllables. The stress falls on the second syllable: hy-POC-ri-sy. This word is the central concept of the poem.</div>
+  </div>
+
+  <!-- Q13 PHOBIA/MANIA -->
+  <div class="q-card" id="q13">
+    <div class="q-meta"><span class="q-num">Q13</span><span class="q-type">Phobia / Mania</span></div>
+    <div class="q-text">An excessive obsession with one's own reflection or appearance is known as:</div>
+    <div class="options">
+      <div class="opt" onclick="answer(this,'q13',false)"><span class="opt-label">a)</span>Dromomania</div>
+      <div class="opt" onclick="answer(this,'q13',true)"><span class="opt-label">b)</span>Katoptronophilia</div>
+      <div class="opt" onclick="answer(this,'q13',false)"><span class="opt-label">c)</span>Balloonomania</div>
+      <div class="opt" onclick="answer(this,'q13',false)"><span class="opt-label">d)</span>Eulogomania</div>
+    </div>
+    <div class="explanation">Katoptronophilia refers to an obsession with mirrors and one's own reflection — fittingly relevant to this poem in which the narrator confronts his own reflection in the mirror and sees his hollow smile.</div>
+  </div>
+
+  <!-- Q14 PREPOSITION -->
+  <div class="q-card" id="q14">
+    <div class="q-meta"><span class="q-num">Q14</span><span class="q-type">Preposition</span></div>
+    <div class="q-text">Fill in the blank with the suitable preposition: "They search _____ my shadow."</div>
+    <div class="options">
+      <div class="opt" onclick="answer(this,'q14',false)"><span class="opt-label">a)</span>in front of</div>
+      <div class="opt" onclick="answer(this,'q14',true)"><span class="opt-label">b)</span>behind</div>
+      <div class="opt" onclick="answer(this,'q14',false)"><span class="opt-label">c)</span>beside</div>
+      <div class="opt" onclick="answer(this,'q14',false)"><span class="opt-label">d)</span>within</div>
+    </div>
+    <div class="explanation">The correct preposition from the poem is "behind" — "search behind my shadow." The hypocrites look behind the narrator, scanning for wealth or power, not at the person himself.</div>
+  </div>
+
+  <!-- Q15 QUESTION TAG -->
+  <div class="q-card" id="q15">
+    <div class="q-meta"><span class="q-num">Q15</span><span class="q-type">Question Tag</span></div>
+    <div class="q-text">Add a suitable question tag: "They used to laugh with their hearts, _____ ?"</div>
+    <div class="options">
+      <div class="opt" onclick="answer(this,'q15',false)"><span class="opt-label">a)</span>do they</div>
+      <div class="opt" onclick="answer(this,'q15',true)"><span class="opt-label">b)</span>didn't they</div>
+      <div class="opt" onclick="answer(this,'q15',false)"><span class="opt-label">c)</span>don't they</div>
+      <div class="opt" onclick="answer(this,'q15',false)"><span class="opt-label">d)</span>did they</div>
+    </div>
+    <div class="explanation">The main clause "They used to laugh" uses simple past tense with "used to" (past). The negative question tag for past tense is "didn't they?" — positive statement takes a negative tag.</div>
+  </div>
+
+  <!-- Q16 IDIOM -->
+  <div class="q-card" id="q16">
+    <div class="q-meta"><span class="q-num">Q16</span><span class="q-type">Idiom / Phrase</span></div>
+    <div class="q-text">The idiom "two-faced" means:</div>
+    <div class="options">
+      <div class="opt" onclick="answer(this,'q16',false)"><span class="opt-label">a)</span>having two different opinions on minor matters</div>
+      <div class="opt" onclick="answer(this,'q16',true)"><span class="opt-label">b)</span>saying one thing while meaning another; being deceitful</div>
+      <div class="opt" onclick="answer(this,'q16',false)"><span class="opt-label">c)</span>being extremely good-looking from every angle</div>
+      <div class="opt" onclick="answer(this,'q16',false)"><span class="opt-label">d)</span>having the ability to perform two tasks at once</div>
+    </div>
+    <div class="explanation">"Two-faced" means being deceitful — presenting a friendly face publicly while harbouring different feelings privately. This is precisely what the poem describes in every stanza: smiling faces that conceal cold calculation.</div>
+  </div>
+
+  <!-- Q17 FIGURE OF SPEECH CONTENT -->
+  <div class="q-card" id="q17">
+    <div class="q-meta"><span class="q-num">Q17</span><span class="q-type">Figure of Speech</span></div>
+    <div class="q-text">Identify the figure of speech in the line: "My laugh in the mirror shows only my teeth like a snake's bare fangs."</div>
+    <div class="options">
+      <div class="opt" onclick="answer(this,'q17',false)"><span class="opt-label">a)</span>Metaphor</div>
+      <div class="opt" onclick="answer(this,'q17',true)"><span class="opt-label">b)</span>Simile</div>
+      <div class="opt" onclick="answer(this,'q17',false)"><span class="opt-label">c)</span>Personification</div>
+      <div class="opt" onclick="answer(this,'q17',false)"><span class="opt-label">d)</span>Alliteration</div>
+    </div>
+    <div class="explanation">This is a simile — the narrator's bared-teeth smile is compared to a snake's fangs using the word "like." A metaphor would say "my teeth ARE fangs"; a simile says "my teeth are LIKE fangs."</div>
+  </div>
+
+  <!-- Q18 CONTENT -->
+  <div class="q-card" id="q18">
+    <div class="q-meta"><span class="q-num">Q18</span><span class="q-type">Content</span></div>
+    <div class="q-text">In the poem "Once Upon a Time," the narrator asks his son to teach him how to:</div>
+    <div class="options">
+      <div class="opt" onclick="answer(this,'q18',false)"><span class="opt-label">a)</span>shake hands properly</div>
+      <div class="opt" onclick="answer(this,'q18',false)"><span class="opt-label">b)</span>wear the right face</div>
+      <div class="opt" onclick="answer(this,'q18',true)"><span class="opt-label">c)</span>laugh genuinely</div>
+      <div class="opt" onclick="answer(this,'q18',false)"><span class="opt-label">d)</span>say goodbye</div>
+    </div>
+    <div class="explanation">The final plea of the poem is "show me, son, how to laugh" — the narrator wants to relearn how to laugh genuinely with his heart and eyes, the way he did "once upon a time" when he was a child like his son.</div>
+  </div>
+
+  <!-- Q19 CONTENT -->
+  <div class="q-card" id="q19">
+    <div class="q-meta"><span class="q-num">Q19</span><span class="q-type">Content</span></div>
+    <div class="q-text">The poet Gabriel Okara was awarded the Commonwealth Poetry Award for his outstanding contribution to:</div>
+    <div class="options">
+      <div class="opt" onclick="answer(this,'q19',false)"><span class="opt-label">a)</span>Drama</div>
+      <div class="opt" onclick="answer(this,'q19',true)"><span class="opt-label">b)</span>Poetry</div>
+      <div class="opt" onclick="answer(this,'q19',false)"><span class="opt-label">c)</span>Fiction</div>
+      <div class="opt" onclick="answer(this,'q19',false)"><span class="opt-label">d)</span>Journalism</div>
+    </div>
+    <div class="explanation">Gabriel Okara was honoured with the Commonwealth Poetry Award — recognising his distinguished contribution to the world of poetry. His poem "The Call of the River Nun" also won the best award for Literature at the Nigerian Festival of Arts in 1953.</div>
+  </div>
+
+  <!-- Q20 CONTENT -->
+  <div class="q-card" id="q20">
+    <div class="q-meta"><span class="q-num">Q20</span><span class="q-type">Content</span></div>
+    <div class="q-text">The phrase "once upon a time" in the poem refers to:</div>
+    <div class="options">
+      <div class="opt" onclick="answer(this,'q20',false)"><span class="opt-label">a)</span>a specific historical event in Nigeria</div>
+      <div class="opt" onclick="answer(this,'q20',false)"><span class="opt-label">b)</span>the narrator's future aspirations</div>
+      <div class="opt" onclick="answer(this,'q20',true)"><span class="opt-label">c)</span>a past time when people were genuine and warm</div>
+      <div class="opt" onclick="answer(this,'q20',false)"><span class="opt-label">d)</span>the narrator's childhood stories</div>
+    </div>
+    <div class="explanation">"Once upon a time" refers to a past era — when people laughed with their hearts, shook hands with sincerity, and expressed genuine warmth. The narrator uses this fairy-tale opening to signal that such authentic human connection is now lost, belonging only to memory.</div>
+  </div>
+
+  <div class="nav-row">
+    <div></div>
+    <button class="btn" onclick="showTab(1)">Next → Part II</button>
+  </div>
+</div>
+
+<!-- PART II -->
+<div id="tc1" class="tab-content">
+  <div class="part-header">
+    <span class="part-title">Part II — Reference to Context</span>
+    <span class="part-marks">Answer any 7 of 10 · 2 × 7 = 14 Marks</span>
+  </div>
+  <div style="display:flex;justify-content:space-between;margin-bottom:14px;">
+    <span class="counter" id="p2counter">Question 1 of 10</span>
+    <span class="reveal-count" id="p2reveal">Revealed: 0 / 10</span>
+  </div>
+
+  <div id="p2cards"></div>
+
+  <div class="nav-row">
+    <button class="btn" onclick="p2Nav(-1)" id="p2prev" disabled>← Previous</button>
+    <button class="btn" onclick="p2Nav(1)" id="p2next">Next →</button>
+  </div>
+  <div class="nav-row" style="margin-top:8px;">
+    <button class="btn" onclick="showTab(2)">Go to Part III →</button>
+  </div>
+</div>
+
+<!-- PART III -->
+<div id="tc2" class="tab-content">
+  <div class="part-header">
+    <span class="part-title">Part III — Short Essay Questions</span>
+    <span class="part-marks">Answer any 7 of 10 · 3 × 7 = 21 Marks · ~30–40 words each</span>
+  </div>
+
+  <div id="p3cards"></div>
+
+  <div class="nav-row">
+    <button class="btn" onclick="showTab(3)">Go to Part IV →</button>
+  </div>
+</div>
+
+<!-- PART IV -->
+<div id="tc3" class="tab-content">
+  <div class="part-header">
+    <span class="part-title">Part IV — Long Essay Questions</span>
+    <span class="part-marks">Answer any 5 of 7 · 5 × 5 = 25 Marks · 100–150 words each</span>
+  </div>
+
+  <div id="p4cards"></div>
+
+  <div id="lastcard" style="margin-top:16px;text-align:center;">
+    <button class="btn-primary btn" onclick="sendPrompt('Show me the Learn page for Once Upon a Time by Gabriel Okara')">← Back to Learn Page ↗</button>
+  </div>
+</div>
+
+<script>
+var score=0,answered=0;
+var p2reveals=0;
+var p2current=0;
+
+function showTab(n){
+  document.querySelectorAll('.tab-content').forEach((t,i)=>t.classList.toggle('active',i===n));
+  document.querySelectorAll('.tab-btn').forEach((b,i)=>b.classList.toggle('active',i===n));
+  document.querySelectorAll('.tab-btn')[n].scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+}
+
+function answer(el,qid,correct){
+  var card=document.getElementById(qid);
+  if(card.classList.contains('done'))return;
+  card.classList.add('done');
+  var opts=card.querySelectorAll('.opt');
+  opts.forEach(o=>o.classList.add('answered'));
+  if(correct){
+    el.classList.add('correct');
+    el.insertAdjacentHTML('beforeend',' ✓');
+    score++;
+  } else {
+    el.classList.add('wrong');
+    el.insertAdjacentHTML('beforeend',' ✗');
+    opts.forEach(o=>{if(o.onclick&&o.onclick.toString().includes('true'))o.classList.add('correct');});
+  }
+  answered++;
+  document.getElementById('scoreDisplay').textContent=score+' / 20';
+  document.getElementById('answeredCount').textContent=answered;
+  card.querySelector('.explanation').style.display='block';
+}
+
+var p2data=[
+  {
+    extract:`Once upon a time, son
+They used to laugh with their hearts
+And laugh with their eyes:
+But now they only laugh with their teeth
+While their ice-block-cold eyes
+Search behind my shadow.`,
+    a:{q:"Who is the narrator speaking to, and what does 'laugh with their hearts' mean?",m:"The narrator is speaking to his young son. 'Laugh with their hearts' means to laugh genuinely, with true joy and sincere emotion, as opposed to merely performing a smile for social appearance."},
+    b:{q:"What does the image 'ice-block-cold eyes' reveal about the people described?",m:"'Ice-block-cold eyes' reveals that the people's emotions are frozen and absent — their eyes betray no warmth or genuine feeling. While their faces perform friendliness, their eyes expose the cold calculation and self-interest that motivates their behaviour."}
+  },
+  {
+    extract:`There was a time indeed
+They used to shake hands with their hearts
+But that's gone, son
+Now they shake hands without hearts
+While their left hands search
+My empty pockets.`,
+    a:{q:"Identify the contrast the narrator draws between past and present handshakes.",m:"In the past, handshakes were warm and sincere — 'with their hearts.' In the present, the right hand goes through the motion of greeting while the left hand secretly reaches into pockets, assessing the narrator's wealth. The contrast is between genuine warmth and hypocritical calculation."},
+    b:{q:"What is the significance of 'my empty pockets'?",m:"'My empty pockets' shows that the narrator has nothing material to offer. The people who search his pockets find nothing — yet they still go through the performance of friendship. This suggests that hypocrisy has become so habitual that people practise it even when there is no gain to be had."}
+  },
+  {
+    extract:`"Feel at home!", "Come again":
+They say, and when I come
+Again and feel
+At home, once, twice
+There will be no thrice —
+For then I find doors shut on me.`,
+    a:{q:"What happens when the narrator visits someone for the third time?",m:"When the narrator visits for the third time, he finds the door shut on him. Despite the warm invitations — 'Feel at home!' and 'Come again!' — the welcome was never genuine. By the third visit, the pretended hospitality has expired, revealing that the words were empty social formulas."},
+    b:{q:"Explain the irony in the expressions 'Feel at home!' and 'doors shut on me.'",m:"The irony is devastating: the very words that promise belonging and warmth ('Feel at home!') are followed by the action of exclusion ('doors shut on me'). The exclamatory warmth of the invitation is directly contradicted by the reality of the shut door, exposing the complete insincerity of modern social pleasantries."}
+  },
+  {
+    extract:`And I have learned too
+To laugh with only my teeth
+And shake hands without my heart
+I have also learned to say "Goodbye"
+When I mean "Good-riddance":
+To say "Glad to meet you"
+Without being glad; and to say "It's been
+Nice talking to you", after being bored.`,
+    a:{q:"What does the narrator confess in these lines?",m:"The narrator confesses that he himself has adopted the very hypocrisy he had been describing. He too laughs without feeling, shakes hands without warmth, and uses social pleasantries that are the opposite of his private feelings — saying 'Goodbye' when he means 'Good-riddance,' and 'Glad to meet you' when he felt no gladness at all."},
+    b:{q:"What is the effect of listing 'Goodbye / Good-riddance,' 'Glad to meet you / without being glad'?",m:"The paired contrasts — social phrase versus private feeling — create a powerful accumulating effect. Each pair exposes one more layer of the narrator's own hypocrisy, building into an overwhelming catalogue of dishonesty. The effect is confessional and self-indicting, making the narrator's moral complexity the emotional centrepiece of the poem."}
+  },
+  {
+    extract:`So I have learnt many things, son
+I have learned to wear many faces
+Like dresses – home face,
+Office face, street face, host face,
+Cocktail face, with all their conforming smiles
+Like a fixed portrait smile.`,
+    a:{q:"What does the simile 'wear many faces like dresses' mean?",m:"The simile compares the narrator's social personas to clothing. Just as one changes clothes to suit different occasions, the narrator changes his facial expression and manner to suit different social contexts — a home face for family, an office face for colleagues, and so on. The comparison implies that identity has become as changeable and superficial as what one wears."},
+    b:{q:"Explain 'conforming smiles like a fixed portrait smile.'",m:"A portrait smile is frozen and painted — it never changes, never responds to anything real. 'Conforming smiles' are smiles that conform to social expectations rather than genuine feeling. Comparing them to a portrait smile means these expressions are lifeless performances, as fixed and artificial as paint on a canvas."}
+  },
+  {
+    extract:`But believe me, son
+I want to be what I used to be
+When I was like you. I want
+To unlearn all these muting things.`,
+    a:{q:"What does the narrator mean by 'I want to be what I used to be / When I was like you'?",m:"The narrator wants to return to the state of innocent authenticity he had when he was a child like his son — before society taught him to perform and pretend. He sees his child as a mirror of his former self, before the world's hypocrisy reshaped him."},
+    b:{q:"What are 'these muting things' and why does the narrator want to unlearn them?",m:"'Muting things' are the social performances — fake smiles, insincere handshakes, hollow pleasantries — that the narrator has learned as an adult. They 'mute' him by silencing his genuine emotions and authentic voice. He wants to unlearn them because they have separated him from his true self and replaced genuine feeling with social calculation."}
+  },
+  {
+    extract:`Most of all, I want to relearn
+How to laugh, for my laugh in the mirror
+Shows only my teeth like a snake's bare fangs!`,
+    a:{q:"Why does the narrator want to 'relearn' how to laugh?",m:"The narrator wants to relearn genuine laughter because when he laughs before the mirror, he sees only bared teeth — like a snake's fangs — with no warmth or joy behind them. His laughter has become the same hollow performance he once criticised in others, and he is horrified by the emptiness he sees in his own reflection."},
+    b:{q:"Name and explain the figure of speech in 'like a snake's bare fangs.'",m:"The figure of speech is a simile — the narrator's hollow smile is directly compared to a snake's bare fangs using the word 'like.' The comparison is effective because snake fangs, though shaped like teeth, are weapons associated with threat and poison, not warmth. The narrator's smile similarly looks like a smile but carries none of its genuine human warmth."}
+  },
+  {
+    extract:`So show me, son,
+How to laugh; show me how
+I used to laugh and smile
+Once upon a time when I was like you.`,
+    a:{q:"What is unusual about the narrator asking his son for guidance?",m:"It is unusual because adults are expected to teach children, not the other way round. Here, the father reverses the traditional roles by asking his young son to show him how to laugh. This reversal suggests that the child possesses a wisdom — the wisdom of innocence and authenticity — that the adult has lost through his experience in the social world."},
+    b:{q:"How does the phrase 'once upon a time' at the end echo the opening of the poem?",m:"'Once upon a time' appears in the title and first line, and again in the last stanza, creating a circular structure. The phrase, borrowed from fairy tales, signals that the innocence the narrator seeks belongs to a lost world of the past — a world now accessible only through his child. The repetition reinforces the theme of irreversible loss and the desperate longing to recapture what adulthood has taken away."}
+  },
+  {
+    extract:`I have also learned to say "Goodbye"
+When I mean "Good-riddance":
+To say "Glad to meet you"
+Without being glad.`,
+    a:{q:"Name the figure of speech used when 'Goodbye' is contrasted with 'Good-riddance.'",m:"The figure of speech is antithesis — two opposing ideas ('Goodbye,' a polite farewell, versus 'Good-riddance,' relief at being rid of someone) are placed in direct contrast to expose the gap between social performance and private truth."},
+    b:{q:"What does this passage reveal about the nature of social language?",m:"This passage reveals that social language has been severed from genuine meaning. Words like 'Goodbye' and 'Glad to meet you' are spoken automatically, as social formulas, regardless of what the speaker actually feels. Language, which should express truth, has become a tool of concealment — used to perform the opposite of what is felt."}
+  },
+  {
+    extract:`They used to shake hands with their hearts
+But that's gone, son
+Now they shake hands without hearts
+While their left hands search
+My empty pockets.`,
+    a:{q:"To whom is the narrator speaking, and what is the tone of these lines?",m:"The narrator is speaking to his young son. The tone of these lines is mournful and disillusioned — the narrator laments that the genuine warmth of human greeting ('shake hands with their hearts') is 'gone,' replaced by the calculating performance of friendship that conceals self-interest."},
+    b:{q:"What does 'left hands search my empty pockets' suggest about modern relationships?",m:"The image suggests that modern relationships are fundamentally transactional. While the right hand performs the social ritual of friendship, the left hand simultaneously probes for material benefit. The 'empty pockets' add pathos — the narrator has nothing to offer, yet the performance continues regardless, suggesting that hypocrisy has become purely habitual, even when there is nothing to be gained."}
+  }
+];
+
+var p3data=[
+  {q:"Describe what the narrator means when he says people used to 'laugh with their hearts' and 'laugh with their eyes.'",m:"The narrator means that in the past, laughter was completely genuine — it arose from real joy felt in the heart, and was visible even in the eyes, which would light up with authentic warmth. Both the inner feeling and its outward expression were fully sincere, with nothing hidden or performed."},
+  {q:"What daily social rituals does the narrator accuse people of performing insincerely?",m:"The narrator accuses people of performing laughter, handshakes, and hospitality insincerely. They smile without feeling, shake hands while mentally assessing what they can gain, and invite guests warmly only to shut the door on them by the third visit — all routine social rituals emptied of genuine feeling."},
+  {q:"Compare the narrator's description of genuine laughter in the past with his hollow laughter in the present.",m:"In the past, people laughed with their hearts and eyes — the whole being participated in real joy. In the present, the narrator himself laughs with only his teeth, baring them like a snake's fangs before a mirror that reflects no warmth — a performance that mimics laughter without any of its life."},
+  {q:"What specific character trait does the narrator reveal about himself in stanza 4?",m:"In stanza 4, the narrator reveals that he has become a hypocrite — the very thing he was criticising. He confesses with painful honesty that he says 'Goodbye' when he means 'Good-riddance,' claims gladness he does not feel, and performs pleasantries he does not mean, exposing his own moral corruption."},
+  {q:"Explain the significance of the narrator visiting someone 'once, twice' and then finding 'doors shut' on the third visit.",m:"The significance is that the warm invitations — 'Feel at home!' and 'Come again!' — were never genuine. They had an invisible social expiry date. The shut door on the third visit exposes the hollowness of modern hospitality, where words of welcome are automatic formulas with no real intention of lasting friendship behind them."},
+  {q:"How does the theme of hypocrisy run through the entire poem?",m:"Hypocrisy runs through every stanza as the poem moves systematically through social rituals — laughter, handshakes, hospitality, farewells — showing each one hollowed out by pretence. The theme climaxes when the narrator admits he has himself become hypocritical, and ends with his desperate plea to his son to help him recover genuine feeling."},
+  {q:"What does the narrator mean by learning to wear 'many faces like dresses'?",m:"The narrator means that he has learned to change his personality and expression to suit different social settings — a home face, an office face, a street face — just as one changes outfits for different occasions. This comparison implies that identity has become a costume, not a truth, adjusted for social convenience."},
+  {q:"Explain the line: 'I want to unlearn all these muting things.'",m:"'Muting things' are the social performances that silence genuine emotion — fake smiles, hollow handshakes, insincere words. The narrator wants to shed them all because they have suppressed his authentic voice. 'Unlearn' is significant: these are not natural qualities but things he was taught by the world around him."},
+  {q:"What moral or message does the poem convey to the reader?",m:"The poem's central message is that modern society corrupts even good people into social performers who have lost touch with genuine feeling. The narrator's plea to his son — 'show me how to laugh' — suggests that innocence and authenticity are more valuable than all the social sophistication the adult world demands, and that it is never too late to seek them back."},
+  {q:"How is the child in the poem relevant to a modern student's own life?",m:"The child represents what every student still holds within — the ability to laugh genuinely, to feel sincerely, and to mean what they say. As students grow older and navigate social pressures, academic competition, and social media performance, Okara's warning resonates: the world will teach you to wear many faces. The poem asks: which face is really yours?"}
+];
+
+var p4data=[
+  {q:"Write a character essay on the narrator of 'Once Upon a Time.' Cover all aspects of his character across the full poem.",m:"The narrator of 'Once Upon a Time' is a deeply self-aware father figure who serves as both observer and confessor. He begins the poem as a critic of modern society, cataloguing with precision the ways people have abandoned genuine warmth — their laughter hollow, their handshakes calculating, their welcomes false. What makes him a remarkable literary character, however, is that he does not remain safely outside this critique. By stanza four, he confesses that he too has learned to laugh with only his teeth, to say 'Goodbye' when he means 'Good-riddance,' and to wear multiple social faces like changing costumes. He does not excuse himself or blame circumstance; he simply admits the truth. This honesty is his defining quality. Underneath the social performance, he retains genuine self-awareness and a powerful longing for the authentic self he once was. His turning to his son at the end — asking the child to teach him how to laugh — reveals both humility and hope. He is not a villain; he is a victim of the world he inhabits, and a man who still cares enough to want to change."},
+  {q:"'Once Upon a Time' is a poem about the loss of authentic human connection in modern society. Discuss with reference to specific images and events in the poem.",m:"Gabriel Okara's 'Once Upon a Time' traces the death of authentic human connection through three key social rituals: laughter, the handshake, and hospitality. Laughter — once a full-bodied expression of joy, engaging heart and eyes alike — has been reduced to the baring of teeth while ice-block-cold eyes calculate what can be gained. The handshake — once a gesture of genuine warmth — has become a probe: the right hand extends in greeting while the left secretly searches empty pockets for signs of wealth. Hospitality — once real and lasting — has an invisible expiry: 'Come again!' is said with no intention of meaning it beyond a second visit, and the door is shut on the third. The poem's most devastating point is that even the narrator has been transformed. He too wears many faces like dresses — a home face, an office face, a cocktail face — each with its conforming smile. Okara presents this not as individual moral failure but as the systemic cost of living in a world built on social performance rather than truth."},
+  {q:"Analyse the significance of the image of the snake's fangs in 'Once Upon a Time' and what it reveals about the narrator's condition.",m:"The image of the snake's bare fangs appears at the climax of the poem, when the narrator looks at his own laugh in the mirror and sees nothing but bared teeth — 'like a snake's bare fangs.' This simile is among the most carefully chosen in the poem, and its significance operates on several levels. First, it is physically precise: snake fangs, though shaped like teeth, are weapons — hollow tubes through which venom is injected. They resemble a smile but carry destruction. The narrator's social smile similarly has the shape of warmth but none of its content. Second, the mirror is the one audience before which no performance is possible. The narrator cannot fool himself. What he sees is not joy but threat — something predatory and cold where genuine happiness should be. Third, the image marks the emotional lowest point of the poem. This is the moment the narrator fully recognises his own transformation: he has become the thing he feared. It is this horrifying recognition that drives his desperate plea to his son in the final stanza — to show him how to laugh again with genuine feeling."},
+  {q:"Compare and contrast the world 'once upon a time' with the world the narrator inhabits now. What has been lost and what remains?",m:"The world 'once upon a time' was a world of wholeness: people laughed with their hearts and their eyes together, shook hands with genuine warmth, welcomed guests with real intention. It was a world where language matched feeling — where 'Goodbye' meant farewell and 'Come again' meant a real invitation. This world, as Okara presents it, was not perfect, but it was authentic. The world the narrator inhabits now is a world of fragments and performances. The face has been disconnected from the feeling. The word has been disconnected from the meaning. The smile has been disconnected from the joy. Social rituals continue — handshakes, welcomes, farewells — but emptied of their content, repurposed as tools of social climbing and self-interest. Yet something remains: the child. The son is still in the world Okara mourns — still laughing with his whole face, still meaning what he says. He represents the proof that authenticity has not been destroyed, only lost. And in that fact lies the poem's quiet hope."},
+  {q:"'Face is the index of the mind.' Does this adage concur with the views of the poet in 'Once Upon a Time'? Discuss.",m:"The adage 'face is the index of the mind' suggests that what shows on the face accurately reflects what is happening in the mind — that the face cannot lie. Okara's poem argues precisely the opposite, and does so systematically. His characters wear faces completely disconnected from their minds. The smiling face conceals cold calculation in the eyes. The extended hand of greeting hides the other hand reaching for the pocket. The effusive welcome conceals an intention to shut the door by the third visit. The narrator himself says 'It's been nice talking to you' while inwardly relieved to escape a boring conversation. In Okara's world, the face has become the mask over the mind rather than its reflection. Training people to wear this mask is what modern social life demands. The only exception is the child — whose face still matches his feeling, who still laughs when something is funny and means what he says. The adage applies to the child. In the adult world Okara portrays, the adage has been systematically and deliberately overturned."},
+  {q:"Examine how Gabriel Okara uses language and literary devices to convey the theme of hypocrisy in 'Once Upon a Time.'",m:"Okara builds his indictment of hypocrisy through three principal literary strategies. First, he uses concrete physical imagery — ice-block-cold eyes, empty pockets, shut doors, snake fangs — to make abstract social dishonesty tangible and visceral. Each image gives hypocrisy a body; the reader cannot dismiss it as a vague concept. Second, he employs antithesis systematically: 'laugh with their hearts' versus 'laugh with their teeth'; 'shake hands with their hearts' versus 'shake hands without hearts'; 'Goodbye' versus 'Good-riddance.' These paired contrasts expose the gap between social performance and private truth. Third, and most powerfully, he uses confession. By making the narrator both the critic and the guilty party, Okara refuses to let the poem settle into comfortable moralising. The narrator sees the problem and is part of it — which makes the critique universal rather than judgmental. The result is a poem that convicts not individuals but the social system that shapes them all."},
+  {q:"How relevant is 'Once Upon a Time' to modern life and to the experiences of young people today?",m:"'Once Upon a Time' speaks to the modern world with startling directness. In an age of social media, young people are acutely familiar with the experience of performing for an audience — curating a face for Instagram, projecting confidence on LinkedIn, writing messages that say 'loved catching up!' after conversations that felt hollow. The poem's catalogue of social performances — the smile without feeling, the compliment without sincerity, the welcome without intention — maps precisely onto the pressures of digital social life, where likes and follows have replaced the warmth of genuine connection. Okara's narrator wears a home face and an office face; today's young person wears a Snapchat self and a professional headshot. The core anxiety is the same: which face is real? The poem's plea — 'show me how to laugh' — is perhaps even more urgent now than in 1921. The child in the poem, who still laughs genuinely, is a reminder that authenticity is not lost — only buried. That reminder is why this poem endures."}
+];
+
+function buildP2(){
+  var c=document.getElementById('p2cards');
+  p2data.forEach(function(d,i){
+    var div=document.createElement('div');
+    div.className='q-card';
+    div.id='p2c'+i;
+    div.style.display=i===0?'block':'none';
+    div.innerHTML='<div class="q-meta"><span class="q-num">Q'+(i+1)+'</span><span class="q-type">Reference to Context</span></div>'+
+      '<div class="extract-block">'+d.extract+'</div>'+
+      '<div class="sub-q"><div class="sub-label">(a)</div><p style="font-size:14px;margin-bottom:8px;">'+d.a.q+'</p>'+
+      '<textarea rows="3" placeholder="Write your answer here..."></textarea>'+
+      '<button class="btn" style="margin-top:8px;" onclick="toggleModel(this)"data-rev="0">Show model answer</button>'+
+      '<div class="model-box"><strong style="font-size:12px;color:var(--accent);">(a) Model answer:</strong><br>'+d.a.m+'</div></div>'+
+      '<div class="sub-q"><div class="sub-label">(b)</div><p style="font-size:14px;margin-bottom:8px;">'+d.b.q+'</p>'+
+      '<textarea rows="3" placeholder="Write your answer here..."></textarea>'+
+      '<button class="btn" style="margin-top:8px;" onclick="toggleModel(this)"data-rev="0">Show model answer</button>'+
+      '<div class="model-box"><strong style="font-size:12px;color:var(--accent);">(b) Model answer:</strong><br>'+d.b.m+'</div></div>';
+    c.appendChild(div);
+  });
+}
+
+function buildP3(){
+  var c=document.getElementById('p3cards');
+  p3data.forEach(function(d,i){
+    var div=document.createElement('div');
+    div.className='q-card';
+    div.innerHTML='<div class="q-meta"><span class="q-num">Q'+(i+1)+'</span><span class="q-type">3 Marks · ~30–40 words</span></div>'+
+      '<p style="font-size:14px;margin-bottom:10px;">'+d.q+'</p>'+
+      '<textarea rows="3" placeholder="Write your answer here (~30–40 words)..."></textarea>'+
+      '<div style="margin-top:8px;"><button class="btn" onclick="toggleModel(this)" data-rev="0">Show model answer</button>'+
+      '<div class="model-box">'+d.m+'</div></div>';
+    c.appendChild(div);
+  });
+}
+
+function buildP4(){
+  var c=document.getElementById('p4cards');
+  p4data.forEach(function(d,i){
+    var div=document.createElement('div');
+    div.className='q-card';
+    div.innerHTML='<div class="q-meta"><span class="q-num">Q'+(i+1)+'</span><span class="q-type">5 Marks · 100–150 words</span></div>'+
+      '<p style="font-size:14px;margin-bottom:10px;">'+d.q+'</p>'+
+      '<textarea rows="6" placeholder="Write your essay answer here (100–150 words)..."></textarea>'+
+      '<div style="margin-top:8px;"><button class="btn" onclick="toggleModel(this)" data-rev="0">Show model answer</button>'+
+      '<div class="model-box">'+d.m+'</div></div>';
+    c.appendChild(div);
+  });
+}
+
+function p2Nav(dir){
+  document.getElementById('p2c'+p2current).style.display='none';
+  p2current=Math.max(0,Math.min(9,p2current+dir));
+  document.getElementById('p2c'+p2current).style.display='block';
+  document.getElementById('p2counter').textContent='Question '+(p2current+1)+' of 10';
+  document.getElementById('p2prev').disabled=p2current===0;
+  document.getElementById('p2next').disabled=p2current===9;
+}
+
+function toggleModel(btn){
+  var box=btn.nextElementSibling;
+  var showing=box.classList.toggle('show');
+  btn.textContent=showing?'Hide model answer':'Show model answer';
+  if(showing&&btn.getAttribute('data-rev')==='0'){
+    btn.setAttribute('data-rev','1');
+    p2reveals++;
+    document.getElementById('p2reveal').textContent='Revealed: '+p2reveals+' / 10';
+  }
+}
+
+buildP2();buildP3();buildP4();
+</script>

@@ -1,0 +1,652 @@
+import { useState } from 'react'
+import { useNavigate, useLocation } from 'react-router-dom'
+import { motion, AnimatePresence } from 'framer-motion'
+import {
+  ChevronLeft, ChevronRight, CheckCircle2, XCircle,
+  History, RotateCcw, X, AlertCircle,
+} from 'lucide-react'
+import Badge  from '../components/ui/Badge'
+import Button from '../components/ui/Button'
+
+// ── Helpers ────────────────────────────────────────────────────────────────
+
+function calcMcqScore(questions, answers) {
+  return questions
+    .filter(q => q.type === 'mcq')
+    .filter(q => answers[q.id] === q.correct)
+    .length
+}
+
+function pct(score, total) {
+  return total > 0 ? Math.round((score / total) * 100) : 0
+}
+
+function fmtDate(iso) {
+  return new Date(iso).toLocaleString('en-IN', {
+    day: 'numeric', month: 'short', year: 'numeric',
+    hour: '2-digit', minute: '2-digit',
+  })
+}
+
+const fade = {
+  initial:    { opacity: 0, y: 10 },
+  animate:    { opacity: 1, y: 0  },
+  exit:       { opacity: 0, y: -6 },
+  transition: { duration: 0.18 },
+}
+
+// ── Question sub-renderers ─────────────────────────────────────────────────
+
+function McqQuestion({ q, chosenIdx, onAnswer }) {
+  return (
+    <>
+      {q.section && (
+        <p className="text-[10px] font-semibold italic text-ink-3 mb-2">{q.section}</p>
+      )}
+      <p
+        className="text-[15px] font-semibold text-ink leading-relaxed mb-5"
+        dangerouslySetInnerHTML={{ __html: q.html }}
+      />
+      <div className="space-y-2.5">
+        {q.options.map((opt, i) => {
+          const chosen = chosenIdx === i
+          return (
+            <button
+              key={i}
+              onClick={() => onAnswer(q.id, i)}
+              className={`w-full text-left px-4 py-3 rounded-xl border text-[13px] transition-all duration-150
+                ${chosen
+                  ? 'border-accent bg-accent-soft text-accent-ink font-semibold'
+                  : 'border-line bg-bg hover:bg-bg-sunk text-ink'
+                }`}
+            >
+              <span className={`inline-flex items-center justify-center w-5 h-5 rounded-full
+                text-[10px] font-bold mr-2.5 shrink-0
+                ${chosen ? 'bg-accent text-white' : 'bg-bg-sunk text-ink-3'}`}
+              >
+                {String.fromCharCode(65 + i)}
+              </span>
+              {opt}
+            </button>
+          )
+        })}
+      </div>
+    </>
+  )
+}
+
+function ReferenceQuestion({ q, subAnswers, onWritten }) {
+  return (
+    <>
+      <blockquote className="border-l-4 border-accent/40 pl-4 py-1 mb-5 bg-accent-soft/10 rounded-r-lg">
+        <p className="text-[14px] font-serif italic text-ink leading-relaxed">{q.verse}</p>
+      </blockquote>
+      <div className="space-y-4">
+        {q.subs.map((sub, i) => (
+          <div key={i}>
+            <p className="text-[13px] font-semibold text-ink mb-2">{sub.q}</p>
+            <textarea
+              className="w-full min-h-[72px] px-3 py-2.5 rounded-xl border border-line bg-bg
+                text-[13px] text-ink resize-y outline-none focus:border-accent transition-colors"
+              placeholder="Write your answer here…"
+              value={subAnswers?.[i] ?? ''}
+              onChange={e => onWritten(q.id, i, e.target.value)}
+            />
+          </div>
+        ))}
+      </div>
+    </>
+  )
+}
+
+function WrittenQuestion({ q, value, onWritten }) {
+  return (
+    <>
+      <p
+        className="text-[15px] font-semibold text-ink leading-relaxed mb-4"
+        dangerouslySetInnerHTML={{ __html: q.html }}
+      />
+      <textarea
+        className="w-full px-3 py-2.5 rounded-xl border border-line bg-bg
+          text-[13px] text-ink resize-y outline-none focus:border-accent transition-colors"
+        style={{ minHeight: q.marks >= 5 ? '192px' : '120px' }}
+        placeholder="Write your answer here…"
+        value={value ?? ''}
+        onChange={e => onWritten(q.id, null, e.target.value)}
+      />
+    </>
+  )
+}
+
+// ── QuickNavDots ───────────────────────────────────────────────────────────
+
+function QuickNavDots({ questions, questionIdx, answered, onGoto }) {
+  const groups = [
+    { label: 'MCQ · 1 mark',         qs: questions.filter(q => q.type === 'mcq')                          },
+    { label: 'Reference · 2 marks',  qs: questions.filter(q => q.type === 'reference')                    },
+    { label: 'Short Answer · 3m',    qs: questions.filter(q => q.type === 'written' && q.marks <= 3)      },
+    { label: 'Essay · 5 marks',      qs: questions.filter(q => q.type === 'written' && q.marks > 3)       },
+  ].filter(g => g.qs.length > 0)
+
+  return (
+    <div className="bg-bg-2 border border-line rounded-xl px-4 py-3 space-y-2.5">
+      {groups.map(({ label, qs }) => (
+        <div key={label}>
+          <p className="text-[9px] font-bold uppercase tracking-wider text-ink-4 mb-1">{label}</p>
+          <div className="flex gap-1 overflow-x-auto pb-0.5">
+            {qs.map(q => {
+              const gi      = questions.indexOf(q)
+              const current = gi === questionIdx
+              const isMcq   = q.type === 'mcq'
+              const done    = isMcq
+                ? answered[q.id] !== undefined
+                : q.type === 'reference'
+                  ? q.subs.some((_, i) => answered[q.id]?.[i]?.trim())
+                  : answered[q.id]?.trim()
+              return (
+                <button
+                  key={q.id}
+                  onClick={() => onGoto(gi)}
+                  className={`w-6 h-6 rounded-md text-[9px] font-semibold transition-all shrink-0
+                    ${current
+                      ? 'bg-accent text-white'
+                      : isMcq
+                        ? (done ? 'bg-good-soft text-good-ink' : 'bg-bg-sunk text-ink-3 hover:bg-bg-2')
+                        : (done ? 'bg-accent-soft text-accent-ink' : 'bg-bg-2 text-ink-3 border border-line hover:border-accent-soft')
+                    }`}
+                >
+                  {gi + 1}
+                </button>
+              )
+            })}
+          </div>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+// ── ExamView ───────────────────────────────────────────────────────────────
+
+function ExamView({ questions, chapterMeta, attempt, questionIdx, setQuestionIdx, onAnswer, onWritten, onOpenModal, onHistory }) {
+  const q        = questions[questionIdx]
+  const total    = questions.length
+  const answers  = attempt.answers
+  const mcqQs   = questions.filter(q => q.type === 'mcq')
+  const mcqDone = mcqQs.filter(q => answers[q.id] !== undefined).length
+
+  return (
+    <div className="space-y-4">
+
+      {/* Header */}
+      <div className="flex items-start justify-between gap-3">
+        <div>
+          <p className="text-[10px] font-bold tracking-[0.1em] uppercase text-ink-3 mb-1">
+            {chapterMeta.meta}
+          </p>
+          <h1 className="text-[20px] font-bold text-ink leading-tight">{chapterMeta.title}</h1>
+          <p className="text-[12px] text-ink-3 mt-0.5">{chapterMeta.subject}</p>
+        </div>
+        <div className="flex items-center gap-2 shrink-0 pt-0.5">
+          <Badge tone="accent">In Progress</Badge>
+          <button
+            onClick={onHistory}
+            className="p-1.5 rounded-lg hover:bg-bg-sunk transition-colors text-ink-3 hover:text-ink-2"
+            title="Attempt History"
+          >
+            <History size={15} />
+          </button>
+        </div>
+      </div>
+
+      {/* MCQ progress bar */}
+      {mcqQs.length > 0 && (
+        <div className="bg-bg-2 border border-line rounded-xl px-4 py-3">
+          <div className="flex justify-between items-center mb-2">
+            <span className="text-[12px] font-semibold text-ink-2">Q{questionIdx + 1} of {total}</span>
+            <span className="text-[11px] text-ink-3">MCQ: {mcqDone}/{mcqQs.length} answered</span>
+          </div>
+          <div className="h-1.5 bg-bg-sunk rounded-full overflow-hidden">
+            <div
+              className="h-full bg-accent rounded-full transition-all duration-300"
+              style={{ width: `${(mcqDone / mcqQs.length) * 100}%` }}
+            />
+          </div>
+        </div>
+      )}
+
+      {/* Question card */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={questionIdx}
+          initial={{ opacity: 0, x: 12 }}
+          animate={{ opacity: 1, x: 0  }}
+          exit=   {{ opacity: 0, x: -12 }}
+          transition={{ duration: 0.16 }}
+          className="bg-bg-2 border border-line rounded-xl p-5"
+        >
+          <div className="flex items-center justify-between mb-3">
+            <p className="text-[10px] font-bold tracking-[0.1em] uppercase text-ink-3">
+              Question {questionIdx + 1}
+            </p>
+            <span className="text-[10px] font-semibold text-ink-3 bg-bg-sunk px-2 py-0.5 rounded-full">
+              {q.marks} mark{q.marks > 1 ? 's' : ''}
+            </span>
+          </div>
+
+          {q.type === 'mcq' && (
+            <McqQuestion q={q} chosenIdx={answers[q.id]} onAnswer={onAnswer} />
+          )}
+          {q.type === 'reference' && (
+            <ReferenceQuestion q={q} subAnswers={answers[q.id]} onWritten={onWritten} />
+          )}
+          {q.type === 'written' && (
+            <WrittenQuestion q={q} value={answers[q.id]} onWritten={onWritten} />
+          )}
+        </motion.div>
+      </AnimatePresence>
+
+      {/* Nav */}
+      <div className="flex items-center justify-between">
+        <Button
+          variant="secondary"
+          onClick={() => setQuestionIdx(i => Math.max(0, i - 1))}
+          disabled={questionIdx === 0}
+        >
+          <ChevronLeft size={15} /> Previous
+        </Button>
+        <Button
+          variant="secondary"
+          onClick={() => setQuestionIdx(i => Math.min(total - 1, i + 1))}
+          disabled={questionIdx === total - 1}
+        >
+          Next <ChevronRight size={15} />
+        </Button>
+      </div>
+
+      {/* Quick-nav */}
+      <QuickNavDots
+        questions={questions}
+        questionIdx={questionIdx}
+        answered={answers}
+        onGoto={setQuestionIdx}
+      />
+
+      <Button variant="accent" size="lg" className="w-full" onClick={onOpenModal}>
+        Submit Practice Exam
+      </Button>
+
+    </div>
+  )
+}
+
+// ── SubmitModal ────────────────────────────────────────────────────────────
+
+function SubmitModal({ onCancel, onConfirm }) {
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+      <motion.div
+        initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+        className="absolute inset-0 bg-ink/20 backdrop-blur-sm"
+        onClick={onCancel}
+      />
+      <motion.div
+        initial={{ opacity: 0, scale: 0.96, y: 10 }}
+        animate={{ opacity: 1, scale: 1,    y: 0  }}
+        exit=   {{ opacity: 0, scale: 0.96, y: 10 }}
+        transition={{ duration: 0.18, ease: 'easeOut' }}
+        className="relative bg-bg-2 rounded-xl border border-line p-6 max-w-sm w-full shadow-card-md"
+      >
+        <div className="flex items-start justify-between mb-4">
+          <div className="flex items-center gap-2.5">
+            <div className="w-9 h-9 rounded-full bg-warn-soft flex items-center justify-center shrink-0">
+              <AlertCircle size={18} className="text-warn" />
+            </div>
+            <h2 className="text-[16px] font-bold text-ink">Submit Exam?</h2>
+          </div>
+          <button onClick={onCancel} className="p-1 text-ink-3 hover:text-ink-2 transition-colors">
+            <X size={16} />
+          </button>
+        </div>
+        <p className="text-[13px] text-ink-2 leading-relaxed mb-6">
+          Once submitted, your answers will be locked. This chapter will be marked as practiced.
+        </p>
+        <div className="flex gap-3">
+          <Button variant="secondary" className="flex-1" onClick={onCancel}>Cancel</Button>
+          <Button variant="accent"    className="flex-1" onClick={onConfirm}>Submit Exam</Button>
+        </div>
+      </motion.div>
+    </div>
+  )
+}
+
+// ── Results — MCQ review item ──────────────────────────────────────────────
+
+function McqReviewItem({ q, qi, answered }) {
+  const chosen    = answered[q.id]
+  const isCorrect = chosen === q.correct
+  return (
+    <div className={`bg-bg-2 rounded-xl p-4 border ${isCorrect ? 'border-good-soft' : 'border-line'}`}>
+      <div className="flex items-start gap-2 mb-3">
+        {isCorrect
+          ? <CheckCircle2 size={16} className="text-good shrink-0 mt-0.5" />
+          : <XCircle      size={16} className="text-danger shrink-0 mt-0.5" />
+        }
+        <p
+          className="text-[13px] font-semibold text-ink leading-snug"
+          dangerouslySetInnerHTML={{ __html: `Q${qi + 1}. ${q.html}` }}
+        />
+      </div>
+      <div className="space-y-1.5 ml-6">
+        {q.options.map((opt, i) => {
+          const isChosen = chosen === i
+          const isAnswer = q.correct === i
+          return (
+            <div key={i} className={`text-[12px] flex items-center gap-2 ${
+              isAnswer              ? 'text-good-ink font-semibold'
+              : isChosen && !isCorrect ? 'text-danger line-through'
+              :                         'text-ink-3'
+            }`}>
+              <span className={`w-4 h-4 rounded-full flex items-center justify-center
+                text-[9px] font-bold shrink-0
+                ${isAnswer  ? 'bg-good-soft text-good-ink'
+                : isChosen  ? 'bg-danger/10 text-danger'
+                :              'bg-bg-sunk text-ink-4'}`}
+              >
+                {String.fromCharCode(65 + i)}
+              </span>
+              {opt}
+              {isAnswer && <CheckCircle2 size={11} className="text-good ml-auto shrink-0" />}
+            </div>
+          )
+        })}
+      </div>
+      {!isCorrect && q.hint && (
+        <div className="mt-3 ml-6 px-3 py-2 bg-accent-soft rounded-lg">
+          <p className="text-[11px] text-accent-ink">
+            <span className="font-semibold">Hint: </span>{q.hint}
+          </p>
+        </div>
+      )}
+    </div>
+  )
+}
+
+// ── Results — written review item ──────────────────────────────────────────
+
+function AnswerPair({ studentText, modelAnswer }) {
+  return (
+    <div className="grid grid-cols-2 gap-2 mt-2">
+      <div>
+        <p className="text-[9px] font-bold uppercase tracking-wider text-ink-4 mb-1">Your answer</p>
+        {studentText.trim()
+          ? <p className="text-[12px] text-ink-2 bg-bg-sunk rounded-lg px-3 py-2 min-h-[48px] whitespace-pre-wrap">{studentText}</p>
+          : <p className="text-[12px] text-ink-4 italic px-3 py-2">No answer written</p>
+        }
+      </div>
+      <div>
+        <p className="text-[9px] font-bold uppercase tracking-wider text-good mb-1">Expected answer</p>
+        <p className="text-[12px] text-ink-2 bg-good-soft/30 border border-good-soft rounded-lg px-3 py-2 min-h-[48px] whitespace-pre-wrap">{modelAnswer}</p>
+      </div>
+    </div>
+  )
+}
+
+function WrittenReviewItem({ q, qi, answered }) {
+  return (
+    <div className="bg-bg-2 rounded-xl p-4 border border-line">
+
+      {/* Question header */}
+      <div className="flex items-start justify-between gap-2 mb-3">
+        {q.type === 'reference' ? (
+          <blockquote className="border-l-2 border-line pl-3 flex-1">
+            <p className="text-[12px] font-serif italic text-ink-2 leading-relaxed">{q.verse}</p>
+          </blockquote>
+        ) : (
+          <p
+            className="text-[13px] font-semibold text-ink leading-snug flex-1"
+            dangerouslySetInnerHTML={{ __html: `Q${qi + 1}. ${q.html}` }}
+          />
+        )}
+        <span className="text-[10px] text-ink-4 shrink-0 mt-0.5">{q.marks}m</span>
+      </div>
+
+      {q.type === 'reference' && (
+        <div className="space-y-4 ml-2">
+          {q.subs.map((sub, i) => (
+            <div key={i}>
+              <p className="text-[12px] font-semibold text-ink mb-1">{sub.q}</p>
+              <AnswerPair
+                studentText={answered[q.id]?.[i] ?? ''}
+                modelAnswer={sub.modelAnswer}
+              />
+            </div>
+          ))}
+        </div>
+      )}
+
+      {q.type === 'written' && (
+        <AnswerPair
+          studentText={answered[q.id] ?? ''}
+          modelAnswer={q.modelAnswer}
+        />
+      )}
+
+    </div>
+  )
+}
+
+// ── ResultsView ────────────────────────────────────────────────────────────
+
+function ResultsView({ questions, chapterMeta, attempt, attemptNumber, onRetake, onHistory, onBackToLesson }) {
+  const mcqQs     = questions.filter(q => q.type === 'mcq')
+  const writtenQs = questions.filter(q => q.type !== 'mcq')
+  const total     = mcqQs.length
+  const score     = attempt.score ?? calcMcqScore(questions, attempt.answers)
+  const percentage = pct(score, total)
+  const scoreColor = percentage >= 70 ? 'bg-good' : percentage >= 40 ? 'bg-warn' : 'bg-danger'
+  const scoreText  = percentage >= 70 ? 'text-good-ink' : percentage >= 40 ? 'text-warn' : 'text-danger'
+
+  return (
+    <div className="space-y-4">
+
+      {/* Score header */}
+      <div className="bg-bg-2 border border-line rounded-xl p-5">
+        <div className="flex items-start justify-between gap-3 mb-4">
+          <div>
+            <p className="text-[10px] font-bold tracking-[0.1em] uppercase text-ink-3 mb-1">
+              {chapterMeta.meta}
+            </p>
+            <h1 className="text-[18px] font-bold text-ink leading-tight">Exam Submitted</h1>
+            <p className="text-[12px] text-ink-3 mt-0.5">{chapterMeta.title}</p>
+          </div>
+          <Badge tone="good">Submitted</Badge>
+        </div>
+
+        <p className="text-[10px] font-bold uppercase tracking-wide text-ink-3 mb-1">MCQ Score</p>
+        <div className="flex items-baseline gap-2 flex-wrap mb-2">
+          <span className="text-[32px] font-bold text-ink leading-none">{score}</span>
+          <span className="text-[18px] text-ink-3">/ {total}</span>
+          <span className={`text-[20px] font-bold ${scoreText}`}>· {percentage}%</span>
+        </div>
+        <p className="text-[11px] text-ink-3 mb-3">
+          Attempt {attemptNumber}
+          {attempt.submittedAt ? ` · Submitted ${fmtDate(attempt.submittedAt)}` : ''}
+        </p>
+        <div className="h-2 bg-bg-sunk rounded-full overflow-hidden">
+          <motion.div
+            className={`h-full rounded-full ${scoreColor}`}
+            initial={{ width: 0 }}
+            animate={{ width: `${percentage}%` }}
+            transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
+          />
+        </div>
+        {writtenQs.length > 0 && (
+          <p className="text-[11px] text-ink-3 mt-2.5">
+            {writtenQs.length} written question{writtenQs.length !== 1 ? 's' : ''} below — tap model answers to compare
+          </p>
+        )}
+      </div>
+
+      {/* MCQ review */}
+      {mcqQs.length > 0 && (
+        <>
+          <p className="text-[10px] font-bold uppercase tracking-wide text-ink-3">MCQ Review</p>
+          <div className="space-y-3">
+            {mcqQs.map((q, i) => (
+              <McqReviewItem key={q.id} q={q} qi={i} answered={attempt.answers} />
+            ))}
+          </div>
+        </>
+      )}
+
+      {/* Written review */}
+      {writtenQs.length > 0 && (
+        <>
+          <p className="text-[10px] font-bold uppercase tracking-wide text-ink-3 mt-2">Written Answers</p>
+          <div className="space-y-3">
+            {writtenQs.map((q, i) => (
+              <WrittenReviewItem key={q.id} q={q} qi={i} answered={attempt.answers} />
+            ))}
+          </div>
+        </>
+      )}
+
+      {/* Actions */}
+      <div className="flex gap-3">
+        <Button variant="secondary" className="flex-1" onClick={onBackToLesson}>
+          <ChevronLeft size={14} /> Back to Lesson
+        </Button>
+        <Button variant="secondary" className="flex-1" onClick={onHistory}>
+          <History size={14} /> View Attempt History
+        </Button>
+        <Button variant="accent" className="flex-1" onClick={onRetake}>
+          <RotateCcw size={14} /> Retake Practice Exam
+        </Button>
+      </div>
+
+    </div>
+  )
+}
+
+// ── Main export ────────────────────────────────────────────────────────────
+
+export default function ChapterPracticeExam({ questions, chapterMeta, chapterSlug }) {
+  const navigate = useNavigate()
+  const { pathname } = useLocation()
+  const parentPath = pathname.replace(/\/[^/]+$/, '')
+
+  const INITIAL = { id: 1, status: 'in_progress', answers: {}, score: null, submittedAt: null }
+
+  const [attempts,         setAttempts]         = useState([INITIAL])
+  const [currentAttemptId, setCurrentAttemptId] = useState(1)
+  const [view,             setView]             = useState('exam')
+  const [viewingAttemptId, setViewingAttemptId] = useState(null)
+  const [showModal,        setShowModal]        = useState(false)
+  const [questionIdx,      setQuestionIdx]      = useState(0)
+
+  const currentAttempt = attempts.find(a => a.id === currentAttemptId)
+  const viewingAttempt = viewingAttemptId ? attempts.find(a => a.id === viewingAttemptId) : null
+  const resultsAttempt = viewingAttempt ?? (view === 'results' ? currentAttempt : null)
+
+  if (!questions?.length) {
+    return (
+      <div className="bg-bg-2 border border-line rounded-xl p-6 text-center">
+        <p className="text-ink-3 text-[14px]">No practice questions available for this chapter yet.</p>
+      </div>
+    )
+  }
+
+  function handleAnswer(qId, optIdx) {
+    setAttempts(prev => prev.map(a =>
+      a.id === currentAttemptId
+        ? { ...a, answers: { ...a.answers, [qId]: optIdx } }
+        : a
+    ))
+  }
+
+  function handleWrittenAnswer(qId, subIdx, text) {
+    setAttempts(prev => prev.map(a => {
+      if (a.id !== currentAttemptId) return a
+      if (subIdx !== null) {
+        return { ...a, answers: { ...a.answers, [qId]: { ...(a.answers[qId] ?? {}), [subIdx]: text } } }
+      }
+      return { ...a, answers: { ...a.answers, [qId]: text } }
+    }))
+  }
+
+  function handleSubmit() {
+    const score = calcMcqScore(questions, currentAttempt.answers)
+    const submittedAt = new Date().toISOString()
+    setAttempts(prev => prev.map(a =>
+      a.id === currentAttemptId
+        ? { ...a, status: 'submitted', score, submittedAt }
+        : a
+    ))
+    if (chapterSlug) {
+      const total = questions.filter(q => q.type === 'mcq').length
+      const key = `exam_coach_sessions_${chapterSlug}`
+      const prev = JSON.parse(localStorage.getItem(key) || '[]')
+      localStorage.setItem(key, JSON.stringify([...prev, { score, total, date: submittedAt }]))
+    }
+    setShowModal(false)
+    setViewingAttemptId(currentAttemptId)
+    setView('results')
+  }
+
+  function handleRetake() {
+    const newId = Math.max(...attempts.map(a => a.id)) + 1
+    setAttempts(prev => [...prev, { id: newId, status: 'in_progress', answers: {}, score: null, submittedAt: null }])
+    setCurrentAttemptId(newId)
+    setViewingAttemptId(null)
+    setQuestionIdx(0)
+    setView('exam')
+  }
+
+  const sharedProps = { questions, chapterMeta }
+
+  return (
+    <div className="max-w-2xl mx-auto">
+      <AnimatePresence mode="wait">
+
+        {view === 'exam' && (
+          <motion.div key="exam" {...fade}>
+            <ExamView
+              {...sharedProps}
+              attempt={currentAttempt}
+              questionIdx={questionIdx}
+              setQuestionIdx={setQuestionIdx}
+              onAnswer={handleAnswer}
+              onWritten={handleWrittenAnswer}
+              onOpenModal={() => setShowModal(true)}
+              onHistory={() => navigate(`${parentPath}/attempt-history`)}
+            />
+          </motion.div>
+        )}
+
+        {view === 'results' && resultsAttempt && (
+          <motion.div key={`results-${resultsAttempt.id}`} {...fade}>
+            <ResultsView
+              {...sharedProps}
+              attempt={resultsAttempt}
+              attemptNumber={attempts.indexOf(resultsAttempt) + 1}
+              onRetake={handleRetake}
+              onHistory={() => navigate(`${parentPath}/attempt-history`)}
+              onBackToLesson={() => navigate(parentPath)}
+            />
+          </motion.div>
+        )}
+
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {showModal && (
+          <SubmitModal
+            onCancel={() => setShowModal(false)}
+            onConfirm={handleSubmit}
+          />
+        )}
+      </AnimatePresence>
+    </div>
+  )
+}
