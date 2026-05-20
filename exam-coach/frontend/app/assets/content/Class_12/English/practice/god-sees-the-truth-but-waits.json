@@ -1,0 +1,507 @@
+{
+  "meta": {
+    "subject": "General English -- Class XII",
+    "unit": "Unit 1 · Supplementary · God Sees the Truth, But Waits",
+    "time": "3.00 hrs",
+    "totalMarks": 90,
+    "instructions": "Tamil Nadu State Board · Answer all questions"
+  },
+  "parts": [
+    {
+      "id": "p1",
+      "navLabel": "Part I -- MCQ (20x1)",
+      "title": "Part I -- Objective Type",
+      "type": "mcq",
+      "scoreMax": 20,
+      "marksPer": 1,
+      "sections": [
+        {
+          "label": "Author and glossary",
+          "questions": [
+            {
+              "id": "q1",
+              "html": "Who wrote <em>God Sees the Truth, But Waits</em>?",
+              "options": [
+                "a) Leo Tolstoy",
+                "b) O. Henry",
+                "c) Edwin Muir",
+                "d) R. K. Narayan"
+              ],
+              "answer": 0,
+              "hint": "The story is by Leo Tolstoy."
+            },
+            {
+              "id": "q2",
+              "html": "The word <u>samovar</u> means:",
+              "options": [
+                "a) a horse cart",
+                "b) a Russian metal urn for making tea",
+                "c) a prison cell",
+                "d) a knife"
+              ],
+              "answer": 1,
+              "hint": "The glossary gives this exact meaning."
+            },
+            {
+              "id": "q3",
+              "html": "The word <u>mirth</u> means:",
+              "options": [
+                "a) sorrow",
+                "b) cheerfulness",
+                "c) anger",
+                "d) fear"
+              ],
+              "answer": 1,
+              "hint": "Mirth means cheerfulness."
+            },
+            {
+              "id": "q4",
+              "html": "The word <u>vengeance</u> means:",
+              "options": [
+                "a) mercy",
+                "b) revenge",
+                "c) patience",
+                "d) truth"
+              ],
+              "answer": 1,
+              "hint": "Vengeance means revenge."
+            },
+            {
+              "id": "q5",
+              "html": "The word <u>downcast</u> means:",
+              "options": [
+                "a) happy",
+                "b) depressed",
+                "c) proud",
+                "d) healthy"
+              ],
+              "answer": 1,
+              "hint": "Downcast means depressed."
+            },
+            {
+              "id": "q6",
+              "html": "The word <u>flog</u> means:",
+              "options": [
+                "a) to reward",
+                "b) to beat with a whip or stick",
+                "c) to hide",
+                "d) to forgive"
+              ],
+              "answer": 1,
+              "hint": "The glossary meaning is exact."
+            }
+          ]
+        },
+        {
+          "label": "Story and character",
+          "questions": [
+            {
+              "id": "q7",
+              "html": "Aksionov was sent to prison for:",
+              "options": [
+                "a) theft",
+                "b) murder he did not commit",
+                "c) cheating at cards",
+                "d) rebellion"
+              ],
+              "answer": 1,
+              "hint": "He was falsely accused of murder."
+            },
+            {
+              "id": "q8",
+              "html": "What object was found in Aksionov’s bag?",
+              "options": [
+                "a) a watch",
+                "b) a blood-stained knife",
+                "c) a letter",
+                "d) a coin"
+              ],
+              "answer": 1,
+              "hint": "The knife becomes the key evidence."
+            },
+            {
+              "id": "q9",
+              "html": "How many years did Aksionov live in Siberia as a convict?",
+              "options": [
+                "a) 12",
+                "b) 18",
+                "c) 26",
+                "d) 30"
+              ],
+              "answer": 2,
+              "hint": "He lived there for twenty-six years."
+            },
+            {
+              "id": "q10",
+              "html": "What did Aksionov buy in prison?",
+              "options": [
+                "a) a guitar",
+                "b) The Lives of the Saints",
+                "c) a horse",
+                "d) a map"
+              ],
+              "answer": 1,
+              "hint": "The story clearly mentions this book."
+            },
+            {
+              "id": "q11",
+              "html": "Who really killed the merchant?",
+              "options": [
+                "a) Aksionov",
+                "b) Makar Semyonich",
+                "c) the governor",
+                "d) the wife"
+              ],
+              "answer": 1,
+              "hint": "Makar later confesses the murder."
+            },
+            {
+              "id": "q12",
+              "html": "What is the central idea of the title?",
+              "options": [
+                "a) God forgets truth",
+                "b) truth may wait, but God sees it",
+                "c) people always know the truth",
+                "d) waiting is useless"
+              ],
+              "answer": 1,
+              "hint": "The title says God sees the truth, but waits."
+            }
+          ]
+        },
+        {
+          "label": "Understanding the plot",
+          "questions": [
+            {
+              "id": "q13",
+              "html": "Why did Aksionov’s wife tell him not to go to the fair?",
+              "options": [
+                "a) she was angry",
+                "b) she had a bad dream about him",
+                "c) the road was closed",
+                "d) the shops were busy"
+              ],
+              "answer": 1,
+              "hint": "Her bad dream is the warning."
+            },
+            {
+              "id": "q14",
+              "html": "What did Aksionov do when he was falsely accused?",
+              "options": [
+                "a) he admitted the crime",
+                "b) he fought the police",
+                "c) he denied it and later prayed to God",
+                "d) he escaped"
+              ],
+              "answer": 2,
+              "hint": "He denies the crime and later turns to prayer."
+            },
+            {
+              "id": "q15",
+              "html": "What changed Aksionov’s heart at the end?",
+              "options": [
+                "a) money",
+                "b) Makar’s confession and his own forgiveness",
+                "c) a new job",
+                "d) a court order"
+              ],
+              "answer": 1,
+              "hint": "Forgiveness gives him peace."
+            },
+            {
+              "id": "q16",
+              "html": "Why did Aksionov stop sending petitions?",
+              "options": [
+                "a) they were accepted",
+                "b) he lost hope and trusted God",
+                "c) he forgot his family",
+                "d) he was released"
+              ],
+              "answer": 1,
+              "hint": "He gave up hope in human justice and prayed to God."
+            },
+            {
+              "id": "q17",
+              "html": "What did Makar ask Aksionov for near the end?",
+              "options": [
+                "a) money",
+                "b) food",
+                "c) forgiveness",
+                "d) a horse"
+              ],
+              "answer": 2,
+              "hint": "He begs for forgiveness."
+            },
+            {
+              "id": "q18",
+              "html": "What did Aksionov say when Makar confessed?",
+              "options": [
+                "a) I hate you",
+                "b) God will forgive you",
+                "c) Leave me alone",
+                "d) Call the guard"
+              ],
+              "answer": 1,
+              "hint": "His words are full of forgiveness."
+            },
+            {
+              "id": "q19",
+              "html": "What was Aksionov’s final condition when the release order came?",
+              "options": [
+                "a) he had returned home",
+                "b) he was already dead",
+                "c) he had escaped",
+                "d) he was rich"
+              ],
+              "answer": 1,
+              "hint": "The story ends sadly with his death before release."
+            },
+            {
+              "id": "q20",
+              "html": "The story mainly teaches:",
+              "options": [
+                "a) revenge",
+                "b) patience and forgiveness",
+                "c) speed and adventure",
+                "d) wealth and fame"
+              ],
+              "answer": 1,
+              "hint": "The story strongly teaches patience and forgiveness."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "navLabel": "Part II -- Reference (2×7)",
+      "title": "Part II -- Reference to Context",
+      "type": "reference",
+      "scoreMax": 14,
+      "marksPer": 2,
+      "instruction": "Answer any 7 of the following 10 questions. Read the extract carefully and answer in one or two sentences.",
+      "questions": [
+        {
+          "verse": "I have had a bad dream about you.",
+          "subs": [
+            {
+              "q": "(a) Who says this?",
+              "a": "Aksionov’s wife says this."
+            },
+            {
+              "q": "(b) What does it suggest?",
+              "a": "It suggests a warning and creates a sense of danger before the journey."
+            }
+          ]
+        },
+        {
+          "verse": "How is it there is blood on this knife?",
+          "subs": [
+            {
+              "q": "(a) Who asks this question?",
+              "a": "The police officer asks this question."
+            },
+            {
+              "q": "(b) Why is it important?",
+              "a": "It begins the false accusation against Aksionov."
+            }
+          ]
+        },
+        {
+          "verse": "You are the only person who could have done it.",
+          "subs": [
+            {
+              "q": "(a) Who is being accused?",
+              "a": "Aksionov is being accused."
+            },
+            {
+              "q": "(b) What does the line show?",
+              "a": "It shows how weak the evidence is, yet how strongly the officers suspect him."
+            }
+          ]
+        },
+        {
+          "verse": "It seems that only God can know the truth; it is to Him alone we must appeal, and from Him alone expect mercy.",
+          "subs": [
+            {
+              "q": "(a) What is Aksionov doing in these lines?",
+              "a": "He is accepting that human justice may fail and turning to God."
+            },
+            {
+              "q": "(b) What theme is presented?",
+              "a": "Faith in divine truth and mercy."
+            }
+          ]
+        },
+        {
+          "verse": "For my sins I have been in prison these twenty-six years.",
+          "subs": [
+            {
+              "q": "(a) Why is this line important?",
+              "a": "It shows Aksionov’s humility and acceptance of suffering."
+            },
+            {
+              "q": "(b) Is he blaming himself for the murder?",
+              "a": "No, he is speaking humbly and broadly about sin and suffering."
+            }
+          ]
+        },
+        {
+          "verse": "It must have been him in whose bag the knife was found!",
+          "subs": [
+            {
+              "q": "(a) Who says these words?",
+              "a": "Makar Semyonich says them."
+            },
+            {
+              "q": "(b) What do they reveal?",
+              "a": "They reveal his guilt, because he knows how the knife got there."
+            }
+          ]
+        },
+        {
+          "verse": "God will forgive you!",
+          "subs": [
+            {
+              "q": "(a) Who speaks these words?",
+              "a": "Aksionov speaks them."
+            },
+            {
+              "q": "(b) What do they show about him?",
+              "a": "They show that he has forgiven Makar and found peace."
+            }
+          ]
+        },
+        {
+          "verse": "I will confess that it was I who killed the merchant, and you will be released and can go to your home.",
+          "subs": [
+            {
+              "q": "(a) Who is speaking?",
+              "a": "Makar Semyonich is speaking."
+            },
+            {
+              "q": "(b) What truth is revealed?",
+              "a": "Makar confesses to the murder and admits Aksionov is innocent."
+            }
+          ]
+        },
+        {
+          "verse": "He no longer had any desire to leave the prison, but only hoped for his last hour to come.",
+          "subs": [
+            {
+              "q": "(a) Why does Aksionov feel this way?",
+              "a": "He has found inner peace after forgiveness."
+            },
+            {
+              "q": "(b) What does it show about his character?",
+              "a": "It shows spiritual maturity and acceptance."
+            }
+          ]
+        },
+        {
+          "verse": "God sees the truth, but waits.",
+          "subs": [
+            {
+              "q": "(a) What is the meaning of the title line?",
+              "a": "Truth is always seen by God, even if human justice is delayed."
+            },
+            {
+              "q": "(b) Why is it fitting for the story?",
+              "a": "Because Aksionov’s innocence is finally vindicated after many years."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "navLabel": "Part III -- Short Essay (3×7)",
+      "title": "Part III -- Short Essay / Paragraph Questions",
+      "type": "short-essay",
+      "scoreMax": 21,
+      "marksPer": 3,
+      "instruction": "Answer any 7 of the following 10 questions in two or three sentences. (Approx. 30-40 words per answer)",
+      "questions": [
+        {
+          "q": "Why did Aksionov’s wife warn him not to go to the fair?",
+          "ans": "She had a bad dream about him and feared that something harmful would happen on the journey. Her warning creates a sense of danger and foreshadows the events that follow."
+        },
+        {
+          "q": "How did Aksionov get falsely accused?",
+          "ans": "A merchant was murdered at the inn, and a blood-stained knife was found in Aksionov’s bag. Though he denied the crime, the police officer decided he was guilty and sent him to prison."
+        },
+        {
+          "q": "What changes happened to Aksionov during his years in prison?",
+          "ans": "Aksionov grew old, his hair turned white, his beard grew long and grey, and all his mirth disappeared. At the same time, he became meek, prayerful, and respected by other prisoners."
+        },
+        {
+          "q": "Why did Aksionov stop sending petitions to the Czar?",
+          "ans": "He stopped because his petitions were not accepted and he felt that only God could truly know the truth. He gave up human hope and turned completely to prayer."
+        },
+        {
+          "q": "What made Aksionov think that Makar Semyonich was the murderer?",
+          "ans": "Makar’s strange behaviour and his remark about the knife in the bag made Aksionov suspect him. Later, his direct confession confirmed Aksionov’s suspicion."
+        },
+        {
+          "q": "Describe Aksionov’s response when Makar confessed.",
+          "ans": "Aksionov first felt the pain of all the lost years, but he finally forgave Makar. His forgiveness brought him peace, and his longing for home left him."
+        },
+        {
+          "q": "How is the theme of forgiveness developed in the story?",
+          "ans": "Forgiveness is shown as the highest form of strength. Aksionov forgives the man who ruined his life, and Makar’s guilt is finally released through confession."
+        },
+        {
+          "q": "Explain the meaning of the title.",
+          "ans": "The title means that God knows the truth even when human beings do not, and even when justice is delayed. The story proves that truth can wait, but it does not disappear."
+        },
+        {
+          "q": "Why is Aksionov respected in prison?",
+          "ans": "He is respected because he is gentle, prayerful, and honest. The other prisoners see him as a just man and call him their spokesman."
+        },
+        {
+          "q": "What lesson does the story give about revenge?",
+          "ans": "The story shows that revenge cannot bring peace. Forgiveness, not vengeance, gives Aksionov inner freedom and allows him to die in peace."
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "navLabel": "Part IV -- Long Essay (5×7)",
+      "title": "Part IV -- Long Essay Questions",
+      "type": "long-essay",
+      "scoreMax": 35,
+      "marksPer": 5,
+      "instruction": "Answer any 5 of the following 7 questions. Each answer should be about 100-150 words.",
+      "questions": [
+        {
+          "q": "Describe Aksionov’s life from the time he is falsely accused until his death.",
+          "ans": "After the false accusation, Aksionov is arrested, imprisoned, flogged, and sent to Siberia. For twenty-six years he lives as a convict, growing old, grey, and weary, yet he remains gentle and prayerful. He learns to make boots, buys The Lives of the Saints, and becomes respected among the prisoners. Even after his wife suspects him and his petitions fail, he continues to trust God. The most painful moment comes when he meets Makar Semyonich, the man who really committed the murder. Aksionov initially feels bitterness and wishes for vengeance, but later he forgives Makar when the truth is confessed. This forgiveness gives him inner peace. By the time the release order comes, Aksionov is already dead, but he dies in spiritual freedom."
+        },
+        {
+          "q": "Compare and contrast Aksionov and Makar Semyonich.",
+          "ans": "Aksionov and Makar Semyonich are opposites in moral character. Aksionov is innocent, hardworking, prayerful, and patient, while Makar is guilty, fearful, and morally weak. Aksionov suffers for a crime he did not commit, yet he does not lose his faith. He becomes meek and respected in prison. Makar, on the other hand, carries guilt for years and remains unable to escape it. He first speaks carelessly, then later confesses in tears. The contrast is powerful because Tolstoy shows that the true difference is not outward status but inward character. Aksionov ends in peace; Makar ends in remorse and repentance."
+        },
+        {
+          "q": "Explain the importance of the line \"God sees the truth, but waits.\"",
+          "ans": "The line is the moral centre of the story. It means that God always knows the truth, even if human beings make mistakes or take a long time to correct them. Aksionov is falsely punished, but truth does not disappear. For many years he suffers without justice, yet the truth finally emerges when Makar confesses. The line also teaches patience and faith. Aksionov cannot control the courts, the police, or his own future. What he can control is his response. He chooses prayer, humility, and forgiveness. That is why the line is not only about delay. It is about hope, divine justice, and the deep patience of the human spirit."
+        },
+        {
+          "q": "How does Tolstoy show that forgiveness is stronger than revenge?",
+          "ans": "Tolstoy shows this through Aksionov’s final meeting with Makar Semyonich. Aksionov has every reason to hate him, because Makar’s crime ruined twenty-six years of his life. At first, Aksionov is bitter and angry. But when Makar confesses and begs for mercy, Aksionov forgives him. He says, \"God will forgive you,\" and in doing so releases both Makar and himself from spiritual pain. Revenge would have kept the wound alive. Forgiveness allows healing. Tolstoy presents forgiveness as an act of strength because it requires control over pain, not surrender to it. That is why Aksionov dies in peace."
+        },
+        {
+          "q": "Write a character sketch of Aksionov.",
+          "ans": "Aksionov is a cheerful, ordinary merchant who becomes a victim of injustice. At the beginning, he is lively, fond of singing, and successful in business. After the false accusation, he loses his freedom, his youth, and his family life. Yet prison transforms him spiritually. He becomes humble, prayerful, and patient. Other prisoners respect him because he is gentle and fair. He does not become bitter, even though he suffers terribly. His greatest strength is faith. He believes that only God knows the truth and that mercy will come in the end. By forgiving Makar Semyonich, Aksionov proves that he is morally greater than his suffering. He is a character of patience, faith and inner nobility."
+        },
+        {
+          "q": "How does the story present the idea of human justice and divine justice?",
+          "ans": "The story shows that human justice can fail badly. The police arrest Aksionov quickly, the officer assumes guilt, the petition is rejected, and the world leaves an innocent man in prison. Human systems are shown to be limited and imperfect. Divine justice, however, is different. Aksionov believes that God knows the truth even when people do not. In the end, the truth is revealed, but more important than legal justice is spiritual justice. Aksionov receives peace, forgiveness and moral release. Tolstoy therefore suggests that human courts may delay or distort justice, but divine truth remains steady and patient."
+        },
+        {
+          "q": "Why is the prison important in the story?",
+          "ans": "The prison is more than a physical place. It is the setting where Aksionov’s character is tested and purified. In the beginning, prison looks like punishment and loss. Over time, it becomes the place where he learns patience, humility, prayer and forgiveness. He makes boots, reads The Lives of the Saints, and becomes respected by other inmates. It is also the place where truth finally emerges, because Makar Semyonich confesses there. Tolstoy uses the prison as a moral classroom. Aksionov enters it as a victim and leaves it spiritually free. That is why the prison is central to the meaning of the story."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,197 @@
+export default {
+  meta: {
+    subject: 'General English -- Class XII',
+    unit: 'Unit 3 -- The Hour of Truth',
+    time: '3.00 hrs',
+    totalMarks: 90,
+    instructions: 'Tamil Nadu State Board -- Answer all questions',
+  },
+  parts: [
+    {
+      id: 'p1',
+      navLabel: 'Part I -- MCQ (20 x 1)',
+      title: 'Part I -- Objective Type',
+      type: 'mcq',
+      scoreMax: 20,
+      marksPer: 1,
+      sections: [
+        {
+          label: 'Author and context',
+          questions: [
+            { id: 'q1', html: 'Who wrote <em>The Hour of Truth</em>?', options: ['a) William Shakespeare', 'b) Percival Wilde', 'c) Christiaan Barnard', 'd) Yann Martel'], answer: 1, hint: 'The play is by Percival Wilde.' },
+            { id: 'q2', html: 'The play is a:', options: ['a) novel', 'b) one-act play', 'c) sonnet', 'd) speech'], answer: 1, hint: 'It is a one-act play.' },
+            { id: 'q3', html: 'Baldwin works under:', options: ['a) Marshall', 'b) Gresham', 'c) Donovan', 'd) Evie'], answer: 1, hint: 'He works under John Gresham.' },
+            { id: 'q4', html: 'John Gresham is Baldwin\'s:', options: ['a) son', 'b) friend and employer', 'c) brother', 'd) enemy only'], answer: 1, hint: 'He is both friend and employer.' },
+            { id: 'q5', html: 'The phrase "I don\'t remember" is central because it is:', options: ['a) a joke', 'b) the bribe request', 'c) a prayer', 'd) a greeting'], answer: 1, hint: 'Gresham wants Baldwin to say this in court.' },
+          ],
+        },
+        {
+          label: 'Honesty and conflict',
+          questions: [
+            { id: 'q6', html: 'What amount does Gresham offer Baldwin?', options: ['a) ten thousand', 'b) fifty thousand', 'c) one hundred thousand', 'd) five hundred'], answer: 2, hint: 'He offers a hundred thousand dollars.' },
+            { id: 'q7', html: 'What does Baldwin refuse to do?', options: ['a) go home', 'b) lie in court', 'c) work', 'd) eat'], answer: 1, hint: 'He refuses to lie.' },
+            { id: 'q8', html: 'Baldwin says he will go to his grave:', options: ['a) rich', 'b) clean', 'c) famous', 'd) angry'], answer: 1, hint: 'He says he will go to his grave clean.' },
+            { id: 'q9', html: 'What does John call Gresham\'s case?', options: ['a) a punishment', 'b) a technicality', 'c) a miracle', 'd) a victory'], answer: 1, hint: 'John calls it a technicality.' },
+            { id: 'q10', html: 'What is the title "The Hour of Truth" about?', options: ['a) a train journey', 'b) a moral test', 'c) a school exam', 'd) a storm'], answer: 1, hint: 'It is the moment of moral testing.' },
+            { id: 'q11', html: 'Who finally confesses?', options: ['a) Baldwin', 'b) Gresham', 'c) Marshall', 'd) John'], answer: 1, hint: 'Gresham confesses.' },
+            { id: 'q12', html: 'Who offers Baldwin a job at the end?', options: ['a) Marshall', 'b) John', 'c) Evie', 'd) Martha'], answer: 0, hint: 'Marshall offers the job.' },
+          ],
+        },
+        {
+          label: 'Glossary and theme',
+          questions: [
+            { id: 'q13', html: 'What does "indict" mean?', options: ['a) praise', 'b) accuse or charge for a crime', 'c) forget', 'd) welcome'], answer: 1, hint: 'Indict means to charge for a crime.' },
+            { id: 'q14', html: 'What does "go on the stand" mean?', options: ['a) play a role', 'b) testify during a trial', 'c) sleep', 'd) sing'], answer: 1, hint: 'It means to testify in court.' },
+            { id: 'q15', html: 'What does "buoyantly" mean?', options: ['a) sadly', 'b) cheerfully', 'c) quietly', 'd) angrily'], answer: 1, hint: 'It means cheerfully.' },
+            { id: 'q16', html: 'What is the main theme of the play?', options: ['a) travel', 'b) honesty', 'c) farming', 'd) sports'], answer: 1, hint: 'Honesty is the central theme.' },
+            { id: 'q17', html: 'What does Baldwin value most?', options: ['a) money', 'b) truth and honour', 'c) speed', 'd) comfort'], answer: 1, hint: 'He values truth and honour.' },
+            { id: 'q18', html: 'What does Marshall reveal about Gresham?', options: ['a) He had vanished', 'b) He confessed', 'c) He won the trial', 'd) He left the town'], answer: 1, hint: 'Gresham confessed.' },
+            { id: 'q19', html: 'What kind of ending does the play have?', options: ['a) sad and open', 'b) pleasant surprise', 'c) unfinished', 'd) comic disaster'], answer: 1, hint: 'It ends with a pleasant surprise.' },
+            { id: 'q20', html: 'Baldwin\'s honesty is rewarded by:', options: ['a) imprisonment', 'b) respect and a job', 'c) silence', 'd) ridicule'], answer: 1, hint: 'He gets respect and a job.' },
+          ],
+        },
+      ],
+    },
+    {
+      id: 'p2',
+      navLabel: 'Part II -- RTC (2 x 7)',
+      title: 'Part II -- Reference to Context',
+      type: 'reference',
+      scoreMax: 14,
+      marksPer: 2,
+      instruction: 'Answer any 7 of the following 10 questions. Read the extract carefully and answer in one or two sentences.',
+      questions: [
+        {
+          verse: 'I don\'t remember',
+          subs: [
+            { q: '(a) Who wants Baldwin to say this?', a: 'Gresham wants Baldwin to say it.' },
+            { q: '(b) Why is this phrase important?', a: 'It is the bribe and the moral test.' },
+          ],
+        },
+        {
+          verse: 'I\'ll go to my grave clean!',
+          subs: [
+            { q: '(a) What does Baldwin mean?', a: 'He will remain honest until death.' },
+            { q: '(b) What does this show?', a: 'It shows his integrity.' },
+          ],
+        },
+        {
+          verse: 'All of my past would rise up and strike me in the face.',
+          subs: [
+            { q: '(a) What does Baldwin fear?', a: 'He fears becoming a liar to the world.' },
+            { q: '(b) Why is this line powerful?', a: 'It shows the moral cost of dishonesty.' },
+          ],
+        },
+        {
+          verse: 'A hundred thousand dollars.',
+          subs: [
+            { q: '(a) What is this amount?', a: 'The bribe Gresham offers.' },
+            { q: '(b) How does Baldwin react?', a: 'He refuses the offer.' },
+          ],
+        },
+        {
+          verse: 'He paid you the supreme compliment;',
+          subs: [
+            { q: '(a) What compliment is this?', a: 'Gresham trusted Baldwin\'s honesty so much that he confessed.' },
+            { q: '(b) Who says this?', a: 'Mr. Marshall says it.' },
+          ],
+        },
+        {
+          verse: 'Shams! Liars! Hypocrites! Thieves!',
+          subs: [
+            { q: '(a) Who says this?', a: 'Baldwin says this.' },
+            { q: '(b) Why?', a: 'He is ashamed of the greed around him.' },
+          ],
+        },
+        {
+          verse: 'It is the man that counts.',
+          subs: [
+            { q: '(a) What does Baldwin mean?', a: 'Character matters more than money or status.' },
+            { q: '(b) How does this fit the play?', a: 'It shows his moral judgement.' },
+          ],
+        },
+        {
+          verse: 'He would have to make good.',
+          subs: [
+            { q: '(a) What does make good mean here?', a: 'To correct a wrong or compensate.' },
+            { q: '(b) Why is it important?', a: 'It shows Baldwin\'s insistence on honesty.' },
+          ],
+        },
+        {
+          verse: 'The hour of truth',
+          subs: [
+            { q: '(a) What does the title imply?', a: 'The moment of moral testing.' },
+            { q: '(b) Whose truth is revealed?', a: 'Baldwin\'s honesty is revealed and proved.' },
+          ],
+        },
+        {
+          verse: 'If Gresham ceases to be an honest man, John Gresham and I part company!',
+          subs: [
+            { q: '(a) What does this reveal about Baldwin?', a: 'He values honesty above friendship or money.' },
+            { q: '(b) What is the mood of the line?', a: 'Firm and resolute.' },
+          ],
+        },
+      ],
+    },
+    {
+      id: 'p3',
+      navLabel: 'Part III -- Paragraph (3 x 7)',
+      title: 'Part III -- Short Essay / Paragraph Questions',
+      type: 'short-essay',
+      scoreMax: 21,
+      marksPer: 3,
+      instruction: 'Answer any 7 of the following 10 questions in two or three sentences. (Approx. 30-40 words per answer)',
+      questions: [
+        { q: 'Why is the play called The Hour of Truth?', ans: 'Because the play shows the exact moment when Baldwin\'s honesty is tested and revealed. It is the hour when truth becomes more important than money or friendship.' },
+        { q: 'How does Baldwin respond to the bribe?', ans: 'He refuses it firmly. He says he will not go to his grave dishonestly and will not say "I don\'t remember" in court.' },
+        { q: 'What does Martha initially think about Gresham?', ans: 'She thinks Gresham has always been good to the family and that it is merciful to help him. Later she begins to see the moral issue more clearly.' },
+        { q: 'Why is John upset?', ans: 'He is upset because he fears Baldwin will be treated as a traitor and because the family name may be affected. He is also troubled by the size of the money offer.' },
+        { q: 'What is the significance of Marshall\'s arrival?', ans: 'His arrival brings the truth. He reveals Gresham\'s confession and restores Baldwin\'s dignity.' },
+        { q: 'How does the play show the conflict between money and honour?', ans: 'The huge bribe tempts the family, but Baldwin chooses honour. The play shows that money cannot buy a clear conscience.' },
+        { q: 'What lesson does Gresham learn?', ans: 'He learns that Baldwin cannot be bribed or frightened into dishonesty. So he confesses instead of asking Baldwin to lie.' },
+        { q: 'How does Baldwin treat his old friendship with Gresham?', ans: 'He respects the friendship, but only as long as Gresham remains honest. He will part company when Gresham turns dishonest.' },
+        { q: 'What role does shame play in the play?', ans: 'Shame pushes the family to face their own weakness. Baldwin feels shame at the thought of lying, and John feels shame at the end.' },
+        { q: 'What is the moral value of the title?', ans: 'The title reminds us that truth is tested in difficult moments. That moment reveals a person\'s real character.' },
+      ],
+    },
+    {
+      id: 'p4',
+      navLabel: 'Part IV -- Long Essay (5 x 7)',
+      title: 'Part IV -- Long Essay Questions',
+      type: 'long-essay',
+      scoreMax: 35,
+      marksPer: 5,
+      instruction: 'Answer any 5 of the following 7 questions. Each answer should be about 100-150 words.',
+      questions: [
+        {
+          q: 'Describe Robert Baldwin as the moral centre of the play.',
+          ans: 'Robert Baldwin is the moral centre because he values truth above money, comfort and popularity. He tells Gresham to make good and later refuses the bribe without hesitation. Even when his family pressures him, he remains calm and firm. He says he will go to his grave clean, which shows deep integrity. Baldwin also respects friendship, but only when friendship does not demand dishonesty. His conscience is stronger than fear or shame. By the end, the audience sees that he is not just honest in public; he is honest in private too. That is why the title of the play belongs to him and why Marshall rewards him.',
+        },
+        {
+          q: 'Explain the dramatic conflict between honesty and greed in the play.',
+          ans: 'The play builds a clear conflict between honesty and greed. Baldwin wants to testify truthfully, while Gresham offers a huge bribe to protect himself. Martha, John and Evie all struggle with the practical value of money and the fear of public shame. For a moment, the family seems tempted to accept the bribe. But Baldwin refuses because he would be living a lie. The conflict becomes dramatic because it takes place inside the family itself. In the end, honesty wins when Gresham confesses and Marshall praises Baldwin. The play shows that greed can tempt people, but integrity gives a deeper victory.',
+        },
+        {
+          q: 'How does the play use the family to test Baldwin\'s character?',
+          ans: 'The family is used as a pressure group. Martha worries about loyalty and respectability, John worries about reputation and money, and Evie looks for a practical way out. Their questions and arguments make Baldwin face not only the bribe but also the cost of saying no. This tests his honesty more sharply than the courtroom trial would. Because the challenge comes from his own home, his refusal is stronger. The family scenes show that honesty is often hardest to keep when the people we love ask us to compromise. Baldwin passes that test and proves his character.',
+        },
+        {
+          q: 'Write a character sketch of John Gresham.',
+          ans: 'John Gresham is a complex character. He is guilty of financial wrongdoing, so he must face the law. Yet the play also shows that he respects Baldwin deeply. Instead of pushing Baldwin to lie, he confesses when he understands that Baldwin will not betray the truth. He tries to buy safety at first, but he is not completely heartless. His confession reveals some remaining conscience. The play does not make him heroic, but it does show that he still recognises moral truth. That complexity makes the final scene more powerful.',
+        },
+        {
+          q: 'What role does Marshall play in the ending of the play?',
+          ans: 'Marshall acts as the bringer of truth and reward. He enters after the family has struggled with the idea of the bribe and reveals that Gresham has confessed. This turns the play from tension to relief. Marshall also confirms that Baldwin is an honest man and offers him a job in his own bank. In this way, he restores Baldwin\'s dignity and shows that integrity is respected by the world. Marshall is therefore the character who closes the moral circle of the play.',
+        },
+        {
+          q: 'Discuss the importance of the title in relation to the climax.',
+          ans: 'The title The Hour of Truth points to the exact moment when a person\'s moral fibre is tested. In this play, that hour comes when Gresham asks Baldwin to say, "I don\'t remember." Baldwin refuses, and the truth of his character becomes clear. The title also fits the climax because the real truth arrives when Marshall tells the family that Gresham has confessed. The hour is not just about law; it is about conscience, honesty and the power of truth to prevail.',
+        },
+        {
+          q: 'How does the play end with a pleasant surprise?',
+          ans: 'The ending surprises the family and the audience because Gresham has already confessed before Baldwin testifies. This means Baldwin never has to lie, and his honesty is publicly recognised. Marshall then offers him a job, which rewards his integrity. The sudden shift from anxiety to honour gives the play a satisfying ending. The surprise is pleasant because it proves that truth can still be rewarded in a world of greed and pressure.',
+        },
+      ],
+    },
+  ],
+}

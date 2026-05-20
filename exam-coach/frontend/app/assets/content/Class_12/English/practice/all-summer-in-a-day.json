@@ -1,0 +1,507 @@
+{
+  "meta": {
+    "subject": "General English -- Class XII",
+    "unit": "Unit 5 -- All Summer in a Day",
+    "time": "3.00 hrs",
+    "totalMarks": 90,
+    "instructions": "Tamil Nadu State Board -- Answer all questions"
+  },
+  "parts": [
+    {
+      "id": "p1",
+      "navLabel": "Part I -- MCQ (20 x 1)",
+      "title": "Part I -- Objective Type",
+      "type": "mcq",
+      "scoreMax": 20,
+      "marksPer": 1,
+      "sections": [
+        {
+          "label": "Author, setting and context",
+          "questions": [
+            {
+              "id": "q1",
+              "html": "Who wrote <em>All Summer in a Day</em>?",
+              "options": [
+                "a) Ray Bradbury",
+                "b) William Shakespeare",
+                "c) Ki. Rajanarayanan",
+                "d) Edmund Hillary"
+              ],
+              "answer": 0,
+              "hint": "The lesson is by Ray Bradbury."
+            },
+            {
+              "id": "q2",
+              "html": "The story is mainly set on:",
+              "options": [
+                "a) Earth",
+                "b) Venus",
+                "c) Mars",
+                "d) Jupiter"
+              ],
+              "answer": 1,
+              "hint": "The children live on Venus."
+            },
+            {
+              "id": "q3",
+              "html": "According to the story, it had been raining for:",
+              "options": [
+                "a) two years",
+                "b) seven years",
+                "c) ten years",
+                "d) one day"
+              ],
+              "answer": 1,
+              "hint": "The rain has lasted for seven years."
+            },
+            {
+              "id": "q4",
+              "html": "The story belongs to the genre of:",
+              "options": [
+                "a) historical fiction",
+                "b) science fiction",
+                "c) biography",
+                "d) drama only"
+              ],
+              "answer": 1,
+              "hint": "The textbook introduces it as science fiction."
+            },
+            {
+              "id": "q5",
+              "html": "Margot had come to Venus from:",
+              "options": [
+                "a) Ohio",
+                "b) London",
+                "c) Delhi",
+                "d) Tokyo"
+              ],
+              "answer": 0,
+              "hint": "She remembers Ohio on Earth."
+            }
+          ]
+        },
+        {
+          "label": "Story and characters",
+          "questions": [
+            {
+              "id": "q6",
+              "html": "What does Margot wait for?",
+              "options": [
+                "a) the rain",
+                "b) the Sun",
+                "c) the moon",
+                "d) a teacher"
+              ],
+              "answer": 1,
+              "hint": "She waits for the Sun."
+            },
+            {
+              "id": "q7",
+              "html": "What did the children do to Margot before the Sun came out?",
+              "options": [
+                "a) gave her a gift",
+                "b) locked her in a closet",
+                "c) sent her home",
+                "d) asked her to sing"
+              ],
+              "answer": 1,
+              "hint": "They locked her in a closet."
+            },
+            {
+              "id": "q8",
+              "html": "Who said, <em>What're you waiting for?</em>",
+              "options": [
+                "a) the teacher",
+                "b) William",
+                "c) Margot",
+                "d) the narrator"
+              ],
+              "answer": 1,
+              "hint": "William teases Margot."
+            },
+            {
+              "id": "q9",
+              "html": "What did Margot describe the Sun as in her poem?",
+              "options": [
+                "a) a stone",
+                "b) a flower that blooms for just one hour",
+                "c) a river",
+                "d) a candle in the dark"
+              ],
+              "answer": 1,
+              "hint": "Her poem calls the sun a flower."
+            },
+            {
+              "id": "q10",
+              "html": "When the Sun came out, the children:",
+              "options": [
+                "a) hid under desks",
+                "b) ran and played",
+                "c) went to sleep",
+                "d) left the planet"
+              ],
+              "answer": 1,
+              "hint": "They ran, played and looked at the sunlight."
+            },
+            {
+              "id": "q11",
+              "html": "Why did the children hate Margot?",
+              "options": [
+                "a) because she was rich",
+                "b) because she remembered the Sun and was different",
+                "c) because she was loud",
+                "d) because she was a teacher"
+              ],
+              "answer": 1,
+              "hint": "Her memory and difference set her apart."
+            },
+            {
+              "id": "q12",
+              "html": "At the end of the story, the children feel:",
+              "options": [
+                "a) proud",
+                "b) guilty",
+                "c) angry",
+                "d) sleepy"
+              ],
+              "answer": 1,
+              "hint": "They realise what they have done."
+            }
+          ]
+        },
+        {
+          "label": "Glossary and devices",
+          "questions": [
+            {
+              "id": "q13",
+              "html": "What does <em>peering</em> mean?",
+              "options": [
+                "a) looking closely",
+                "b) running away",
+                "c) laughing loudly",
+                "d) sleeping"
+              ],
+              "answer": 0,
+              "hint": "It means looking closely."
+            },
+            {
+              "id": "q14",
+              "html": "What does <em>predict</em> mean?",
+              "options": [
+                "a) anticipate",
+                "b) forget",
+                "c) hide",
+                "d) shout"
+              ],
+              "answer": 0,
+              "hint": "Predict means anticipate."
+            },
+            {
+              "id": "q15",
+              "html": "What does <em>muffled</em> mean?",
+              "options": [
+                "a) loud",
+                "b) muted",
+                "c) bright",
+                "d) broken"
+              ],
+              "answer": 1,
+              "hint": "Muffled means muted."
+            },
+            {
+              "id": "q16",
+              "html": "What does <em>solemn</em> mean?",
+              "options": [
+                "a) serious",
+                "b) funny",
+                "c) sleepy",
+                "d) angry"
+              ],
+              "answer": 0,
+              "hint": "Solemn means serious."
+            },
+            {
+              "id": "q17",
+              "html": "The line <em>like so many roses, so many weeds</em> contains:",
+              "options": [
+                "a) simile",
+                "b) metaphor",
+                "c) hyperbole",
+                "d) irony"
+              ],
+              "answer": 0,
+              "hint": "The word like makes it a simile."
+            },
+            {
+              "id": "q18",
+              "html": "The Sun in the story mainly symbolises:",
+              "options": [
+                "a) fear",
+                "b) joy and life",
+                "c) anger",
+                "d) sleep"
+              ],
+              "answer": 1,
+              "hint": "The Sun stands for joy and life."
+            },
+            {
+              "id": "q19",
+              "html": "The story is strong in its use of:",
+              "options": [
+                "a) long mathematical proof",
+                "b) imagery and contrast",
+                "c) legal argument",
+                "d) newspaper report"
+              ],
+              "answer": 1,
+              "hint": "The story depends on imagery and contrast."
+            },
+            {
+              "id": "q20",
+              "html": "The final feeling left by the story is:",
+              "options": [
+                "a) delight only",
+                "b) guilt and sadness",
+                "c) amusement only",
+                "d) anger without regret"
+              ],
+              "answer": 1,
+              "hint": "The ending is sad and guilty."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "navLabel": "Part II -- RTC (2 x 7)",
+      "title": "Part II -- Reference to Context",
+      "type": "reference",
+      "scoreMax": 14,
+      "marksPer": 2,
+      "instruction": "Answer any 7 of the following 10 questions. Read the extract carefully and answer in one or two sentences.",
+      "questions": [
+        {
+          "verse": "It had been raining for seven years; thousands upon thousands of days compounded and filled from one end to the other with rain.",
+          "subs": [
+            {
+              "q": "(a) What does this line tell us about Venus?",
+              "a": "It tells us that rain is almost constant on Venus."
+            },
+            {
+              "q": "(b) Why is this opening important?",
+              "a": "It creates the gloomy setting of the story."
+            }
+          ]
+        },
+        {
+          "verse": "The children pressed to each other like so many roses, so many weeds, intermixed, peering out for a look at the hidden sun.",
+          "subs": [
+            {
+              "q": "(a) What does the simile show?",
+              "a": "It shows the children crowded together and waiting eagerly."
+            },
+            {
+              "q": "(b) What are they waiting for?",
+              "a": "They are waiting for the Sun."
+            }
+          ]
+        },
+        {
+          "verse": "I think the sun is a flower, / That blooms for just one hour.",
+          "subs": [
+            {
+              "q": "(a) Who says this?",
+              "a": "Margot says this in her poem."
+            },
+            {
+              "q": "(b) What does the image suggest?",
+              "a": "It suggests beauty that is brief and precious."
+            }
+          ]
+        },
+        {
+          "verse": "What're you waiting for?",
+          "subs": [
+            {
+              "q": "(a) Who speaks these words?",
+              "a": "William speaks these words."
+            },
+            {
+              "q": "(b) Why does he say this?",
+              "a": "He mocks Margot and tries to make her seem foolish."
+            }
+          ]
+        },
+        {
+          "verse": "All a joke!",
+          "subs": [
+            {
+              "q": "(a) What is the boy pretending?",
+              "a": "He pretends that the scientists were wrong."
+            },
+            {
+              "q": "(b) What effect does this have?",
+              "a": "It helps the other children turn against Margot."
+            }
+          ]
+        },
+        {
+          "verse": "The sun came out.",
+          "subs": [
+            {
+              "q": "(a) Why is this line important?",
+              "a": "It marks the great moment everyone has been waiting for."
+            },
+            {
+              "q": "(b) How do the children react?",
+              "a": "They rush out joyfully into the sunlight."
+            }
+          ]
+        },
+        {
+          "verse": "It was the colour of flaming bronze and it was very large.",
+          "subs": [
+            {
+              "q": "(a) What is being described?",
+              "a": "The Sun is being described."
+            },
+            {
+              "q": "(b) What does the description create?",
+              "a": "It creates a vivid and glowing image of the Sun."
+            }
+          ]
+        },
+        {
+          "verse": "They surged about her, caught her up and bore her ... and then slammed and locked the door.",
+          "subs": [
+            {
+              "q": "(a) Who is 'her'?",
+              "a": "It is Margot."
+            },
+            {
+              "q": "(b) What action is described?",
+              "a": "The children lock Margot in a closet."
+            }
+          ]
+        },
+        {
+          "verse": "Behind the closet door was only silence.",
+          "subs": [
+            {
+              "q": "(a) What does the silence suggest?",
+              "a": "It suggests guilt and the emptiness of the locked room."
+            },
+            {
+              "q": "(b) Why is this moment powerful?",
+              "a": "The children suddenly realise their cruelty."
+            }
+          ]
+        },
+        {
+          "verse": "A boom of thunder startled them and like leaves before a new hurricane, they tumbled upon each other and ran.",
+          "subs": [
+            {
+              "q": "(a) What happens at the end?",
+              "a": "Thunder and rain force the children to run back."
+            },
+            {
+              "q": "(b) What does the simile add?",
+              "a": "It shows their sudden and helpless movement."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "navLabel": "Part III -- Paragraph (3 x 7)",
+      "title": "Part III -- Short Essay / Paragraph Questions",
+      "type": "short-essay",
+      "scoreMax": 21,
+      "marksPer": 3,
+      "instruction": "Answer any 7 of the following 10 questions in two or three sentences. (Approx. 30-40 words per answer)",
+      "questions": [
+        {
+          "q": "Describe the setting of the story.",
+          "ans": "The story is set on Venus, where it rains almost continuously and the Sun appears only briefly after seven years. The setting creates a gloomy, enclosed and science-fiction world."
+        },
+        {
+          "q": "How is Margot different from the other children?",
+          "ans": "Margot is frail, quiet and lonely. Unlike the others, she remembers the Sun from Earth and feels a deep longing for it."
+        },
+        {
+          "q": "Why do the children bully Margot?",
+          "ans": "They bully her because she is different, because she remembers the Sun and because they resent her quiet certainty. Their jealousy and crowd behaviour make them cruel."
+        },
+        {
+          "q": "What is the importance of the Sun in the story?",
+          "ans": "The Sun is the centre of hope, memory and joy. It also becomes a symbol of beauty that is rare and easily lost."
+        },
+        {
+          "q": "How does Margot describe the Sun?",
+          "ans": "She describes the Sun in simple, memorable images. She says it is like a penny, like a fire in the stove, and in her poem like a flower that blooms for just one hour."
+        },
+        {
+          "q": "What happens when the Sun finally comes out?",
+          "ans": "The children rush out and play in the sunlight. They feel wonder and delight, but later their happiness turns to guilt when they remember Margot."
+        },
+        {
+          "q": "Why is the story considered science fiction?",
+          "ans": "It imagines life on another planet, Venus, and uses a scientific idea about the Sun appearing briefly after many years. The story also explores human feelings in that imagined setting."
+        },
+        {
+          "q": "What is the effect of the contrast between rain and sunlight?",
+          "ans": "The contrast makes the story vivid and emotional. Rain feels heavy and endless, while sunlight feels warm, rare and beautiful."
+        },
+        {
+          "q": "What does the ending of the story reveal?",
+          "ans": "The ending reveals the children's guilt and shame. Their silence and slow movement show that they realise they have wronged Margot."
+        },
+        {
+          "q": "Why is the title appropriate?",
+          "ans": "The title points to a very brief but unforgettable summer day on Venus. It suggests both joy and loss because the happy moment does not last."
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "navLabel": "Part IV -- Long Essay (5 x 7)",
+      "title": "Part IV -- Long Essay Questions",
+      "type": "long-essay",
+      "scoreMax": 35,
+      "marksPer": 5,
+      "instruction": "Answer any 5 of the following 7 questions. Each answer should be about 100-150 words.",
+      "questions": [
+        {
+          "q": "Explain the conflict between Margot and the other children in the story.",
+          "ans": "The conflict begins with difference. Margot remembers the Sun from Earth, while the other children have lived most of their lives on Venus and cannot remember it properly. Because Margot is quiet and separate, the others see her as strange. They tease her, ignore her and resent her certainty. The conflict becomes cruel when William and the others pretend the prediction about the Sun is a joke and lock Margot in a closet. Bradbury uses this conflict to show how a lonely child can become the target of group cruelty. The later guilt of the children makes the conflict more painful, because their joy is mixed with shame."
+        },
+        {
+          "q": "Describe the setting and explain how it shapes the story.",
+          "ans": "The story is set on Venus, a world where rain falls almost all the time and the Sun appears only for a short while every seven years. This setting creates a strange and enclosed atmosphere. The children live underground and the classroom becomes a place of waiting and longing. Because sunlight is so rare, the Sun becomes precious and almost sacred. The setting also helps Bradbury create a strong contrast between grey rain and bright sunlight. The emotional power of the story depends on this setting, because the brief appearance of the Sun feels both miraculous and heartbreaking. The world of Venus turns a simple event into a major human experience."
+        },
+        {
+          "q": "How does Bradbury present science fiction and human feeling together?",
+          "ans": "Bradbury uses a science-fiction world to tell a deeply human story. The imagined planet Venus, the seven years of rain and the brief return of the Sun are all elements of speculative fiction. At the same time, the story is really about jealousy, loneliness, longing, cruelty and guilt. Margot's memory of the Sun gives the story emotional depth, while the children's behaviour shows ordinary human weakness. The science-fiction setting is therefore not an end in itself. It helps the reader see human emotions more clearly. Bradbury's imagination and his sympathy for children work together to make the story powerful and memorable."
+        },
+        {
+          "q": "Discuss the way Bradbury creates suspense and contrast in the story.",
+          "ans": "Bradbury creates suspense by making the children wait for the Sun with growing excitement. The repeated rain, the crowded windows and Margot's quiet certainty all build anticipation. When William says it is all a joke and the children lock Margot away, the suspense becomes painful because the reader knows something important is about to happen. The contrast between rain and sunlight strengthens this effect. Rain is described as endless, cold and crushing, while the Sun is bright, warm and life-giving. When the Sun finally appears, the scene changes instantly from grey gloom to blazing colour. This sharp contrast makes the story emotionally strong."
+        },
+        {
+          "q": "What does the story say about cruelty and remorse?",
+          "ans": "The story shows how easily children can become cruel when they act as a group. The children do not merely tease Margot; they isolate her, deny her memory and lock her away. Their cruelty comes from jealousy, fear of difference and the excitement of the moment. After the Sun appears, however, the mood changes completely. The children lose their confidence and cannot meet one another's eyes. They remember Margot and feel ashamed. The silence behind the closet door becomes a symbol of remorse. Bradbury suggests that cruelty may be spontaneous, but guilt remains long after the moment of excitement has passed."
+        },
+        {
+          "q": "Write a character sketch of Margot.",
+          "ans": "Margot is the most sensitive and lonely character in the story. She is frail, pale and quiet, almost like someone who has been washed out by the rain. Unlike the other children, she remembers the Sun from Earth and waits for it with sincere hope. Her memory makes her different, and that difference isolates her. She is not aggressive or loud; instead, she speaks in simple, poetic images. Her poem about the Sun shows imagination and tenderness. She also becomes the victim of the children's cruelty. Margot therefore represents innocence, memory and longing. She is both vulnerable and deeply human."
+        },
+        {
+          "q": "Why is the ending of the story effective?",
+          "ans": "The ending is effective because it combines beauty with sadness. The children experience the Sun at the height of its glory, but their joy is interrupted by the memory of Margot in the closet. The return of the rain and thunder brings them back underground, where guilt overtakes excitement. The final silence behind the closet door is very powerful. It gives the reader a sense of shame, regret and quiet sorrow. The ending does not explain everything in a moralising way; instead, it lets the children's actions and silence speak for themselves. This makes the story unforgettable and emotionally complete."
+        }
+      ]
+    }
+  ]
+}

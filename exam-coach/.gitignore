@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.egg-info/
+dist/
+build/
+
+# Environment
+.env
+
+# Content (never commit PDFs or vector store)
+content/raw/
+content/embeddings/
+
+# Node
+node_modules/
+dist/
+.next/
+
+# Flutter
+.dart_tool/
+app/build/
+*.g.dart
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+.claude/
+.idea/
+
+source/textbooks/*.pdf
+tmp/
+
+# Graphify analysis output (never commit)
+graphify-out/

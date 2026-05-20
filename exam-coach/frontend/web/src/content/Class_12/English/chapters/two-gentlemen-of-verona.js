@@ -1,0 +1,397 @@
+export default {
+  eyebrow: 'Unit 1 · Prose · Class XII General English',
+  title: 'Two Gentlemen of Verona',
+  author: 'A. J. Cronin',
+  pills: ['Love', 'Devotion', 'Sacrifice', 'Maturity'],
+  tabs: [
+    {
+      id: 'author',
+      label: '👤 About the Author',
+      blocks: [
+        {
+          type: 'teacher-voice',
+          html: `<p>A. J. Cronin was a Scottish novelist, dramatist and physician. He trained as a doctor, and that medical background helped him write stories with sympathy for ordinary people and their hardships. The textbook notes that his writing is admired for narrative skill, social conscience and finely drawn characters.</p>
+<p>It also notes that some of his books, such as <em>The Citadel</em> and <em>The Keys of the Kingdom</em>, became successful films, and <em>Country Doctor</em> was adapted for radio and television. This matters because Cronin often writes about suffering, care, and human dignity.</p>`,
+        },
+        {
+          type: 'author-stat',
+          label: 'Career',
+          value: 'Scottish novelist, dramatist and physician · Known for social conscience and strong storytelling · Medical training shaped many of his stories',
+        },
+        {
+          type: 'author-stat',
+          label: 'Notable works',
+          value: 'The Citadel · The Keys of the Kingdom · Country Doctor',
+        },
+        {
+          type: 'think-box',
+          label: 'Why this matters',
+          text: 'Cronin understands suffering, healing and sacrifice. That is why the story of Nicola, Jacopo and Lucia feels so human. He does not write about heroism in a loud way; he shows it through quiet work, secrecy and love.',
+        },
+        { type: 'nav', next: 'intro', nextLabel: 'Next: Introduction →' },
+      ],
+    },
+
+    {
+      id: 'intro',
+      label: '📝 Introduction',
+      blocks: [
+        {
+          type: 'teacher-voice',
+          html: `<p>Life is full of ups and downs. It gives us pleasant surprises and rude shocks. The warm-up asks us to think about unexpected challenges and the qualities needed to face them. That is a good way to begin this story, because the boys in the story face war, poverty and illness with courage.</p>
+<p>This is a story about love, devotion, sacrifice, sincerity and maturity shown by two little boys who work day and night to save their sister Lucia. Read the story carefully and notice how every small action reveals their character.</p>`,
+        },
+        {
+          type: 'quote-block',
+          quote: 'Here is a story about love, devotion, sacrifice, sincerity and maturity displayed by two little boys...',
+          context: 'Opening idea of the chapter',
+        },
+        {
+          type: 'think-box',
+          label: 'Before you read',
+          text: 'Ask yourself: if a family member were ill and life had collapsed around you, would you keep working quietly, or would you complain? Nicola and Jacopo answer that question through action, not words.',
+        },
+        { type: 'nav', back: 'author', next: 'text-explained', nextLabel: 'Next: The Text Explained →' },
+      ],
+    },
+
+    {
+      id: 'text-explained',
+      label: '📖 The Text Explained',
+      blocks: [
+        {
+          type: 'section-head',
+          text: 'Phase 1 -- The roadside meeting',
+        },
+        {
+          type: 'teacher-voice',
+          html: `<p>The story opens on the outskirts of Verona, where the narrator and his companion meet two small boys selling wild strawberries. Their clothes are shabby, but their eyes are earnest. Luigi, the driver, does not trust them at first, but the narrator is drawn to them immediately.</p>
+<p>The boys are Nicola and Jacopo. Nicola is the elder brother; Jacopo is younger and smaller. They are not lazy children wandering the streets. Even at this first meeting, their seriousness stands out.</p>`,
+        },
+        {
+          type: 'quote-block',
+          quote: '"We do many things, sir."',
+          context: 'Nicola explains that the boys work at several jobs',
+        },
+
+        {
+          type: 'section-head',
+          text: 'Phase 2 -- Hard work in Verona',
+        },
+        {
+          type: 'teacher-voice',
+          html: `<p>Next morning, the narrator sees them shining shoes beside the fountain in the public square. Later he learns that they also sell fruit, hawk newspapers, conduct tourists round the town and run errands. Their work is varied, steady and exhausting.</p>
+<p>When the narrator asks what they do with their money, Nicola becomes uncomfortable. He does not boast. He speaks carefully and keeps his plan secret.</p>`,
+        },
+        {
+          type: 'quote-block',
+          quote: '"You must be saving up to emigrate to America,"',
+          context: 'The narrator guesses the boys might be saving money for the future',
+        },
+        {
+          type: 'quote-block',
+          quote: '"We should greatly like to go to the States. But here, at present, we have other plans."',
+          context: 'Nicola says they want America, but only after they finish their present duty',
+        },
+        {
+          type: 'think-box',
+          label: 'Notice this',
+          text: 'The boys are not asking for help. They are trying to earn their own way. That pride is part of their dignity.',
+        },
+
+        {
+          type: 'section-head',
+          text: 'Phase 3 -- The Sunday journey',
+        },
+        {
+          type: 'teacher-voice',
+          html: `<p>On Sunday the boys ask the narrator to send them in his car to Poleta, about 30 kilometres away. They go to a large red-roofed villa on a hillside. The narrator waits outside, then enters the hospital through a side door and learns the truth.</p>
+<p>The two boys are visiting their sister Lucia, who is in the hospital. The nurse says Lucia is improving and hopes that one day she will walk and sing again.</p>`,
+        },
+        {
+          type: 'quote-block',
+          quote: '"We could not think of troubling you, sir."',
+          context: 'Nicola and Jacopo do not want to burden the narrator',
+        },
+        {
+          type: 'quote-block',
+          quote: 'The two boys were seated at the bedside of a girl of about twenty...',
+          context: 'The narrator discovers Lucia in the hospital',
+        },
+        {
+          type: 'device-block',
+          kind: 'Contrast',
+          line: 'Shabby clothes outside, deep family devotion inside',
+          exp: 'The boys look poor and rough at first, but the hospital scene reveals deep love, discipline and sacrifice. Cronin uses this contrast to make the truth more moving.',
+        },
+
+        {
+          type: 'section-head',
+          text: 'Phase 4 -- The family story',
+        },
+        {
+          type: 'teacher-voice',
+          html: `<p>The nurse explains that the boys were alone in the world except for Lucia. Their father, a well-known singer, was killed early in the war. A bomb destroyed their home and threw the children into the streets. Lucia had been training as a singer too, but she suffered from tuberculosis of the spine.</p>
+<p>For months the boys barely kept themselves alive in a shelter they built with their own hands. During the German occupation they hated the rulers. When the resistance movement began, they joined at once. When the war ended, they returned to their sister and continued to care for her.</p>`,
+        },
+        {
+          type: 'quote-block',
+          quote: '"War had not broken their spirit."',
+          context: 'The narrator sees that hardship has not defeated the boys',
+        },
+        {
+          type: 'quote-block',
+          quote: '"Their selfless action brought a new nobility to human life..."',
+          context: 'The boys give the story its final note of hope',
+        },
+        {
+          type: 'think-box',
+          label: 'What the story shows',
+          text: 'The boys never speak proudly about what they do. They simply keep working. That quiet sacrifice is what makes them gentlemen.',
+        },
+        { type: 'nav', back: 'intro', next: 'key-lines', nextLabel: 'Next: Key Lines →' },
+      ],
+    },
+
+    {
+      id: 'key-lines',
+      label: 'Key Lines',
+      blocks: [
+        {
+          type: 'teacher-voice',
+          html: '<p>These lines are important for exams because they capture the main ideas of the story: hard work, secrecy, sacrifice and hope.</p>',
+        },
+        {
+          type: 'quote-block',
+          quote: 'Life is full of ups and downs.',
+          context: 'The warm-up line that introduces the theme of hardship and growth',
+        },
+        {
+          type: 'quote-block',
+          quote: '"We do many things, sir."',
+          context: 'Shows that the boys do many small jobs to earn money',
+        },
+        {
+          type: 'quote-block',
+          quote: '"We should greatly like to go to the States. But here, at present, we have other plans."',
+          context: 'Shows their future hope and present responsibility',
+        },
+        {
+          type: 'quote-block',
+          quote: '"We could not think of troubling you, sir."',
+          context: 'Shows their pride and unwillingness to burden others',
+        },
+        {
+          type: 'quote-block',
+          quote: '"They were quite alone in the world..."',
+          context: "Reveals the boys' family loss after the war",
+        },
+        {
+          type: 'quote-block',
+          quote: '"War had not broken their spirit."',
+          context: 'Shows that hardship did not destroy their courage',
+        },
+        {
+          type: 'quote-block',
+          quote: '"Their selfless action brought a new nobility to human life..."',
+          context: 'The ending line that praises their sacrifice and dignity',
+        },
+        { type: 'nav', back: 'text-explained', next: 'glossary', nextLabel: 'Next: Glossary →' },
+      ],
+    },
+
+    {
+      id: 'glossary',
+      label: 'Glossary',
+      blocks: [
+        {
+          type: 'teacher-voice',
+          html: '<p>Learn these meanings exactly as printed in the textbook. They are useful for MCQs, synonyms and fill-in-the-blank questions.</p>',
+        },
+        { type: 'gloss-row', word: 'shrug', def: 'raise one’s shoulders slightly and momentarily', eg: 'He shrugged his shoulders to show disapproval.' },
+        { type: 'gloss-row', word: 'tunic', def: 'a loose outer garment without sleeves', eg: 'One boy wore a shortened army tunic.' },
+        { type: 'gloss-row', word: 'slackened', def: 'reduced', eg: 'The trade slackened as the day went on.' },
+        { type: 'gloss-row', word: 'demeanour', def: 'appearance and behaviour', eg: 'The boys had a serious demeanour.' },
+        { type: 'gloss-row', word: 'artless', def: 'innocent, guileless', eg: 'Jacopo was lively and artless.' },
+        { type: 'gloss-row', word: 'hawk', def: 'sell things crying out loudly, going from place to place', eg: 'They hawked newspapers in the town.' },
+        { type: 'gloss-row', word: 'deserted', def: 'uninhabited, unoccupied', eg: 'They rested in the deserted square.' },
+        { type: 'gloss-row', word: 'emigrate', def: 'take up citizenship of another country', eg: 'The boys were not yet ready to emigrate.' },
+        { type: 'gloss-row', word: 'vexation', def: 'annoyance', eg: 'Nicola looked at his brother in vexation.' },
+        { type: 'gloss-row', word: 'vestibule', def: 'lobby', eg: 'The nurse led him through a cool, tiled vestibule.' },
+        { type: 'gloss-row', word: 'chatter', def: 'a series of short, quick high-pitched sounds', eg: 'Lucia listened to their chatter.' },
+        { type: 'gloss-row', word: 'intrude', def: 'enter without permission', eg: 'He felt he could not intrude on the family party.' },
+        { type: 'gloss-row', word: 'rubble', def: 'debris, broken bricks', eg: 'Their shelter was built amidst the rubble.' },
+        { type: 'nav', next: 'themes', nextLabel: 'Next: Themes & Devices →' },
+      ],
+    },
+
+    {
+      id: 'themes',
+      label: 'Themes & Devices',
+      blocks: [
+        {
+          type: 'section-head',
+          text: 'Love, devotion and sacrifice',
+        },
+        {
+          type: 'teacher-voice',
+          html: '<p>The boys work not for themselves alone but to help their sister Lucia. Their money, their labour and their secrecy all serve one purpose: her treatment and recovery. That makes their devotion the emotional centre of the story.</p>',
+        },
+        {
+          type: 'section-head',
+          text: 'War, loss and survival',
+        },
+        {
+          type: 'teacher-voice',
+          html: '<p>The story never glorifies war. Instead, it shows what war destroys: a father, a home, security and childhood. The boys respond not with complaint but with resilience.</p>',
+        },
+        {
+          type: 'section-head',
+          text: 'Dignity in labour',
+        },
+        {
+          type: 'teacher-voice',
+          html: '<p>Nicola and Jacopo do not beg. They work. Their many jobs, their careful speech and their refusal to expose their family problem show a deep sense of dignity. Cronin presents labour as honorable when it is tied to love and responsibility.</p>',
+        },
+        {
+          type: 'device-block',
+          kind: 'Contrast',
+          line: 'Shabby appearance / earnest eyes',
+          exp: 'The boys look poor, but the eyes reveal sincerity and purpose. The contrast prepares the reader to look beyond surface appearance.',
+        },
+        {
+          type: 'device-block',
+          kind: 'Imagery',
+          line: 'Windy and deserted square, stone pavement beneath the lights',
+          exp: "This image creates loneliness and quiet effort. The setting matches the boys' hard life and makes their work feel more real.",
+        },
+        {
+          type: 'device-block',
+          kind: 'Symbolism',
+          line: 'The hospital visit to Poleta',
+          exp: 'The weekly journey symbolises hope. Even in hardship, the boys keep going back to Lucia with love and duty.',
+        },
+        {
+          type: 'device-block',
+          kind: 'Moral ending',
+          line: 'Their selfless action brought a new nobility to human life',
+          exp: 'The ending lifts the story from private suffering to public meaning. Their sacrifice becomes an example of human goodness.',
+        },
+        { type: 'nav', back: 'glossary', next: 'qa', nextLabel: 'Next: Comprehension Q&A →' },
+      ],
+    },
+
+    {
+      id: 'qa',
+      label: 'Comprehension Q&A',
+      blocks: [
+        {
+          type: 'teacher-voice',
+          html: `<h3 style="font-size:1rem;font-weight:600;margin:0 0 10px">1. Answer in a sentence or two</h3>
+<p><strong>a) Who did the narrator meet at the outskirts of Verona?</strong><br>The narrator met two small boys, Nicola and Jacopo, who were selling wild strawberries.</p>
+<p><strong>b) Why did the driver not approve of the narrator buying fruit from the boys?</strong><br>He thought the boys looked shabby and warned that better fruit could be found in Verona.</p>
+<p><strong>c) What kind of work did the boys do?</strong><br>They shined shoes, sold fruit, hawked newspapers, conducted tourists and ran errands.</p>
+<p><strong>d) What did the boys tell the narrator about their future plans?</strong><br>They said they would like to go to the States, but they had other plans for the present.</p>
+<p><strong>e) Why did the narrator avoid going into Lucia's room at first?</strong><br>He felt he could not intrude upon the happy family party.</p>
+<p><strong>f) What was Lucia suffering from?</strong><br>Lucia was suffering from tuberculosis of the spine.</p>
+<p><strong>g) Why did the boys join the resistance movement?</strong><br>They hated the Germans and wanted to help free their city during the war.</p>
+<p><strong>h) What made the boys work so hard?</strong><br>They worked hard to earn money for Lucia's treatment and their family's survival.</p>
+<p><strong>i) Why did the boys not disclose their problem to the author?</strong><br>They were proud and did not want to trouble him with their private sorrow.</p>
+
+<h3 style="font-size:1rem;font-weight:600;margin:18px 0 10px">2. Answer in three or four sentences</h3>
+<p><strong>a) Describe the appearance of Nicola and Jacopo.</strong><br>Nicola and Jacopo were small boys with shabby clothes, brown skins, tangled hair and dark earnest eyes. Nicola was older and more serious, while Jacopo was lively and young. Their appearance showed poverty, but their eyes showed determination.</p>
+<p><strong>b) How did the narrator help the boys on Sunday?</strong><br>He drove them to Poleta in his car when they asked to be taken there on Sunday. Later he also waited while they visited Lucia. His help was small, but it mattered to them.</p>
+<p><strong>c) What were the sufferings of the siblings after the war?</strong><br>Their father was killed, their house was destroyed by a bomb, and they were thrown into the streets. They lived in a shelter of their own making and suffered from hunger, cold and fear. Lucia was ill and needed treatment.</p>
+<p><strong>d) What does the story say about the boys' character?</strong><br>The boys are brave, responsible and deeply loving. They work without complaint, hide their pain and remain polite to the narrator. Their actions show maturity far beyond their age.</p>
+<p><strong>e) Why did the nurse welcome the narrator to the hospital?</strong><br>She knew Nicola and Jacopo and wanted him to see Lucia. She believed Lucia would be pleased to see him and explained the boys' hardship.</p>
+<p><strong>f) Why was the family's secret important?</strong><br>The secret protected the boys' dignity. They did not want sympathy; they only wanted to work and care for Lucia. That silence makes their devotion stronger.</p>
+<p><strong>g) Why did the narrator say the boys could not do it better?</strong><br>He said this after hearing how hard they worked for Lucia. He realised that their service was already as good as it could be.</p>
+
+<h3 style="font-size:1rem;font-weight:600;margin:18px 0 10px">3. Paragraph type</h3>
+<p><strong>Justify the title "Two Gentlemen of Verona".</strong><br>The title is fitting because Nicola and Jacopo behave like true gentlemen even though they are poor and very young. They work hard, speak politely, hide their suffering and stay devoted to their sister. They do not ask for help, do not complain and do not lose hope. Their actions show that true gentleness is not about wealth or dress, but about character, responsibility and love.</p>
+<p><strong>How does the story present the effect of war on a family?</strong><br>The story shows that war can destroy a family life completely. The boys lose their father, home and comfort, and Lucia is left disabled and in need of treatment. Yet the boys do not surrender. They rebuild their lives from rubble and turn hardship into care.</p>
+<p><strong>Explain the role of Lucia in the story.</strong><br>Lucia is the reason the boys work so hard. Her illness gives the story its emotional centre. She is not only a patient in the hospital; she is the bond that holds the family together. Her recovery also gives the story its note of hope.</p>`,
+        },
+        { type: 'nav', back: 'themes', next: 'activities', nextLabel: 'Next: Activities →' },
+      ],
+    },
+
+    {
+      id: 'activities',
+      label: 'Activities',
+      blocks: [
+        {
+          type: 'section-head',
+          text: 'Vocabulary',
+        },
+        {
+          type: 'teacher-voice',
+          html: `<p>The textbook vocabulary work asks students to study confusables and homophones. Examples include emigrate / immigrate, beside / besides, judicial / judicious, eligible / illegible, conscience / conscious, industrial / industrious, eminent / imminent, illicit / elicit, prescribed / proscribed, affect / effect, aural / oral, born / borne.</p>
+<p>It also asks students to work with phrasal verbs such as cut off, come upon, put out, draw up, pass out, take off, turn away, stand by and bank on. These are useful for grammar and usage questions.</p>`,
+        },
+        {
+          type: 'section-head',
+          text: 'Listening',
+        },
+        {
+          type: 'teacher-voice',
+          html: `<p>The listening activity is about flood warnings and disaster management. Students listen to instructions for people living in flood-prone areas and complete the blanks. The focus is on careful listening, following directions and understanding emergency vocabulary.</p>`,
+        },
+        {
+          type: 'section-head',
+          text: 'Speaking',
+        },
+        {
+          type: 'teacher-voice',
+          html: `<p>The speaking section asks students to draft a speech. One task is on the importance of tree planting. The textbook gives a simple structure: introduction, main points and conclusion. This helps students speak clearly and logically in public.</p>`,
+        },
+        {
+          type: 'section-head',
+          text: 'Reading',
+        },
+        {
+          type: 'teacher-voice',
+          html: `<p>The reading activity is a note-making passage on urban forests and smart cities. It explains how trees, lakes and grasslands help cities by reducing heat, improving air quality and supporting biodiversity. The steps for note-making are also given so that students can practice summarising information neatly.</p>`,
+        },
+        {
+          type: 'section-head',
+          text: 'Grammar: Tenses',
+        },
+        {
+          type: 'teacher-voice',
+          html: `<p>The grammar section reviews the full tense system: present, past and future; simple, continuous, perfect and perfect continuous. The tasks ask students to choose the correct tense forms in sentences and dialogues. The main point is to match the tense to the time expressed in the sentence.</p>`,
+        },
+        {
+          type: 'section-head',
+          text: 'Grammar: Modal Auxiliaries',
+        },
+        {
+          type: 'teacher-voice',
+          html: `<p>The textbook explains the use of modal auxiliaries such as can, could, may, might, must, shall, should, will, would, ought to, need to, used to and dare. It shows that these words express ability, permission, request, possibility, obligation, duty and habit. Students then fill in blanks using the right modal for each meaning.</p>`,
+        },
+        {
+          type: 'section-head',
+          text: 'Grammar: Reported Speech',
+        },
+        {
+          type: 'teacher-voice',
+          html: `<p>The reported speech section revises direct and indirect speech. Students rewrite statements and complete conversations in reported form. The textbook also gives a short passage to transform into indirect speech, so the learner can practice changes in tense, pronoun and time words.</p>`,
+        },
+        {
+          type: 'section-head',
+          text: 'Writing: Letter Writing',
+        },
+        {
+          type: 'teacher-voice',
+          html: `<p>The writing section reminds students of the structure of formal and informal letters. It includes letters of complaint, request, job application, social letters and letters to the editor. The textbook also gives useful tips on planning, drafting and finalising a letter.</p>`,
+        },
+        {
+          type: 'think-box',
+          label: 'Exam tip',
+          text: 'For this lesson, learn the glossary, understand the story in phases, and remember the final moral: hard work and sacrifice can bring hope to others.',
+        },
+        { type: 'nav', back: 'qa', practice: true },
+      ],
+    },
+  ],
+}

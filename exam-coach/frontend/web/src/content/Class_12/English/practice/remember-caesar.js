@@ -1,0 +1,461 @@
+export default {
+  "meta": {
+    "subject": "General English -- Class XII",
+    "unit": "Unit 6 -- Remember Caesar",
+    "time": "3.00 hrs",
+    "totalMarks": 90,
+    "instructions": "Tamil Nadu State Board -- Answer all questions"
+  },
+  "parts": [
+    {
+      "id": "p1",
+      "navLabel": "Part I -- MCQ (20 x 1)",
+      "title": "Part I -- Objective Type",
+      "type": "mcq",
+      "scoreMax": 20,
+      "marksPer": 1,
+      "sections": [
+        {
+          "label": "Author and setting",
+          "questions": [
+            {
+              "id": "q1",
+              "html": "<em>Remember Caesar</em> is by:",
+              "options": [
+                "a) Robert Browning",
+                "b) Gordon Daviot",
+                "c) A.G. Gardiner",
+                "d) Ki. Rajanarayanan"
+              ],
+              "answer": 1,
+              "hint": "The textbook names Gordon Daviot."
+            },
+            {
+              "id": "q2",
+              "html": "Gordon Daviot is the pen name of:",
+              "options": [
+                "a) Elizabeth Mackintosh",
+                "b) Jane Austen",
+                "c) Robert Browning",
+                "d) Mary Shelley"
+              ],
+              "answer": 0,
+              "hint": "The textbook says Miss Elizabeth Mackintosh."
+            },
+            {
+              "id": "q3",
+              "html": "The play revolves around the Ides of:",
+              "options": [
+                "a) April",
+                "b) March",
+                "c) June",
+                "d) August"
+              ],
+              "answer": 1,
+              "hint": "It is the fifteenth of March."
+            },
+            {
+              "id": "q4",
+              "html": "Lord Weston is a:",
+              "options": [
+                "a) farmer",
+                "b) judge",
+                "c) gardener",
+                "d) soldier"
+              ],
+              "answer": 1,
+              "hint": "The play says he is a judge."
+            },
+            {
+              "id": "q5",
+              "html": "Roger Chetwynd is Weston’s:",
+              "options": [
+                "a) son",
+                "b) assistant",
+                "c) brother",
+                "d) servant only"
+              ],
+              "answer": 1,
+              "hint": "He is Weston’s assistant."
+            }
+          ]
+        },
+        {
+          "label": "Plot and misunderstanding",
+          "questions": [
+            {
+              "id": "q6",
+              "html": "The note Weston finds says:",
+              "options": [
+                "a) Beware Caesar",
+                "b) Remember Caesar",
+                "c) Call Caesar",
+                "d) Save Caesar"
+              ],
+              "answer": 1,
+              "hint": "The note says Remember Caesar."
+            },
+            {
+              "id": "q7",
+              "html": "Weston thinks the note is a:",
+              "options": [
+                "a) love letter",
+                "b) death warrant",
+                "c) school notice",
+                "d) recipe"
+              ],
+              "answer": 1,
+              "hint": "He thinks someone wants to assassinate him."
+            },
+            {
+              "id": "q8",
+              "html": "The package brought to Weston is actually:",
+              "options": [
+                "a) a bomb",
+                "b) a new velvet cloak",
+                "c) a sword",
+                "d) a book"
+              ],
+              "answer": 1,
+              "hint": "The parcel turns out to be his new velvet cloak."
+            },
+            {
+              "id": "q9",
+              "html": "The man who finally comes to the house is:",
+              "options": [
+                "a) Mr Caesar, the gardener",
+                "b) a thief",
+                "c) the king",
+                "d) a doctor"
+              ],
+              "answer": 0,
+              "hint": "Mr Caesar is the gardener with an appointment."
+            },
+            {
+              "id": "q10",
+              "html": "Weston hides the package in:",
+              "options": [
+                "a) a pond",
+                "b) a pail of water",
+                "c) a cupboard",
+                "d) the fireplace"
+              ],
+              "answer": 1,
+              "hint": "He drowns the package in a pail."
+            },
+            {
+              "id": "q11",
+              "html": "Which place Weston fears may hide an assassin?",
+              "options": [
+                "a) the ilex tree",
+                "b) the cellar",
+                "c) the attic",
+                "d) the kitchen"
+              ],
+              "answer": 0,
+              "hint": "He thinks someone may be sitting in the ilex tree."
+            },
+            {
+              "id": "q12",
+              "html": "Lady Weston mainly serves as Weston’s:",
+              "options": [
+                "a) enemy",
+                "b) comic contrast and voice of common sense",
+                "c) judge",
+                "d) messenger"
+              ],
+              "answer": 1,
+              "hint": "Her wit keeps the play lively."
+            }
+          ]
+        },
+        {
+          "label": "Glossary and humour",
+          "questions": [
+            {
+              "id": "q13",
+              "html": "The glossary meaning of <em>twiddling my thumbs</em> is:",
+              "options": [
+                "a) being idle",
+                "b) being angry",
+                "c) being careful",
+                "d) being brave"
+              ],
+              "answer": 0,
+              "hint": "It means being idle."
+            },
+            {
+              "id": "q14",
+              "html": "The glossary meaning of <em>minutiae</em> is:",
+              "options": [
+                "a) large decisions",
+                "b) minute details",
+                "c) secret letters",
+                "d) legal cases"
+              ],
+              "answer": 1,
+              "hint": "Minutiae means minute details."
+            },
+            {
+              "id": "q15",
+              "html": "The glossary meaning of <em>infernal</em> is:",
+              "options": [
+                "a) a disguised explosive device",
+                "b) a flower",
+                "c) a horse saddle",
+                "d) a window lock"
+              ],
+              "answer": 0,
+              "hint": "The textbook gives this meaning."
+            },
+            {
+              "id": "q16",
+              "html": "The glossary meaning of <em>foil</em> is:",
+              "options": [
+                "a) to frustrate or thwart",
+                "b) to decorate",
+                "c) to cook",
+                "d) to remember"
+              ],
+              "answer": 0,
+              "hint": "Foil means to frustrate or thwart."
+            },
+            {
+              "id": "q17",
+              "html": "The play is mainly a:",
+              "options": [
+                "a) tragedy",
+                "b) comedy of misunderstanding",
+                "c) heroic epic",
+                "d) ghost story"
+              ],
+              "answer": 1,
+              "hint": "The humour comes from mistaken fear."
+            },
+            {
+              "id": "q18",
+              "html": "The line <em>They don't assassinate nobodies</em> is spoken by:",
+              "options": [
+                "a) Weston",
+                "b) Lady Weston",
+                "c) Roger",
+                "d) Caesar"
+              ],
+              "answer": 1,
+              "hint": "Lady Weston says it."
+            },
+            {
+              "id": "q19",
+              "html": "The play’s comic effect mainly comes from:",
+              "options": [
+                "a) ghostly events",
+                "b) Weston’s overreaction",
+                "c) long battles",
+                "d) a sad ending"
+              ],
+              "answer": 1,
+              "hint": "Weston turns a reminder into panic."
+            },
+            {
+              "id": "q20",
+              "html": "The title is ironic because Caesar in the play is actually a:",
+              "options": [
+                "a) king",
+                "b) gardener",
+                "c) judge",
+                "d) soldier"
+              ],
+              "answer": 1,
+              "hint": "Mr Caesar is the gardener."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "navLabel": "Part II -- Reference",
+      "title": "Part II -- Reference and Context",
+      "type": "reference",
+      "scoreMax": 10,
+      "marksPer": 1,
+      "sections": [
+        {
+          "label": "Reference the line",
+          "questions": [
+            {
+              "id": "r1",
+              "html": "Explain the context of: <em>Remember Caesar</em>.",
+              "answer": "The note is found in Weston’s pocket. He misreads it as a threat, though it is only a reminder about a visitor."
+            },
+            {
+              "id": "r2",
+              "html": "Explain the context of: <em>They don't assassinate nobodies.</em>",
+              "answer": "Lady Weston says this to tease her husband when he panics about being targeted by assassins."
+            },
+            {
+              "id": "r3",
+              "html": "Explain the context of: <em>The last time it was in danger you had been eating game pie.</em>",
+              "answer": "Lady Weston says this when Weston tells her his life is in danger, showing her witty disbelief."
+            },
+            {
+              "id": "r4",
+              "html": "Explain the context of: <em>The last time it was in danger you had been eating game pie.</em>",
+              "answer": "Lady Weston says this when Weston announces that his life is in grave danger. Her remark shows her wit and disbelief."
+            },
+            {
+              "id": "r5",
+              "html": "Explain the context of: <em>What was in the parcel, do you think?</em>",
+              "answer": "Weston asks this at the end after learning that the package was not a bomb. It is the final comic reversal."
+            }
+          ]
+        },
+        {
+          "label": "Meaning in context",
+          "questions": [
+            {
+              "id": "r6",
+              "html": "What does <em>Ides of March</em> refer to in the play?",
+              "answer": "It refers to 15 March, the day Julius Caesar was assassinated."
+            },
+            {
+              "id": "r7",
+              "html": "What does <em>flippancy</em> suggest in Lady Weston’s speech?",
+              "answer": "It suggests a light, humorous attitude that dismisses Weston’s panic."
+            },
+            {
+              "id": "r8",
+              "html": "What does <em>infernal machine</em> mean in Weston’s imagination?",
+              "answer": "He thinks it is a bomb or disguised explosive device."
+            },
+            {
+              "id": "r9",
+              "html": "What does <em>irrelevant and inconsiderable minutiae</em> reveal about Weston?",
+              "answer": "It shows that he is irritated by Lady Weston’s attention to small practical details even while he himself is panicking."
+            },
+            {
+              "id": "r10",
+              "html": "What does the ending reveal about Weston’s mistake?",
+              "answer": "It reveals that the whole crisis was caused by Weston’s absent-mindedness and imagination."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "navLabel": "Part III -- Short Essay",
+      "title": "Part III -- Paragraph Answers",
+      "type": "short-essay",
+      "scoreMax": 20,
+      "marksPer": 2,
+      "sections": [
+        {
+          "label": "Short answers",
+          "questions": [
+            {
+              "id": "s1",
+              "html": "How is Lord Weston introduced in the play?",
+              "answer": "He is introduced as pompous, proud and full of his own importance, but also as an absent-minded man who misreads ordinary events."
+            },
+            {
+              "id": "s2",
+              "html": "Why is Roger’s character comic?",
+              "answer": "Roger is conscientious but absent-minded. He listens, works and obeys, yet he often misses the obvious, which adds to the humour."
+            },
+            {
+              "id": "s3",
+              "html": "What role does Lady Weston play in the comedy?",
+              "answer": "She acts as Weston’s witty opposite. Her calm teasing exposes his panic and keeps the scene light."
+            },
+            {
+              "id": "s4",
+              "html": "Why does Weston think he is in danger?",
+              "answer": "He finds a note saying Remember Caesar and connects it with Caesar’s murder on the Ides of March. That makes him imagine an assassination plot."
+            },
+            {
+              "id": "s5",
+              "html": "What happens to the parcel and why is it funny?",
+              "answer": "Weston and Roger treat it as a bomb, but it is only Weston’s new cloak. The mismatch between panic and reality makes it comic."
+            },
+            {
+              "id": "s6",
+              "html": "How does the play create suspense?",
+              "answer": "The play uses Weston’s fear, the sealed doors, the package, the pistol and the knock at the door to build suspense before revealing the harmless truth."
+            },
+            {
+              "id": "s7",
+              "html": "What is the significance of Mr Caesar’s visit?",
+              "answer": "His visit exposes Weston’s mistake completely. The supposed assassin is merely a gardener with an appointment."
+            },
+            {
+              "id": "s8",
+              "html": "What does the title contribute to the play?",
+              "answer": "The title sounds serious, but in the play it becomes comic because Caesar is only the name of the gardener Weston was expecting."
+            },
+            {
+              "id": "s9",
+              "html": "How does the play treat the idea of reputation?",
+              "answer": "Weston imagines that his reputation makes him a target. The play gently mocks his vanity by showing how small the real situation is."
+            },
+            {
+              "id": "s10",
+              "html": "Why is the ending humorous?",
+              "answer": "The ending is humorous because Weston’s whole alarm turns out to be pointless. The parcel is a cloak and the visitor is the gardener."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "navLabel": "Part IV -- Long Essay",
+      "title": "Part IV -- Essay Answers",
+      "type": "long-essay",
+      "scoreMax": 40,
+      "marksPer": 5,
+      "sections": [
+        {
+          "label": "Long answers",
+          "questions": [
+            {
+              "id": "l1",
+              "html": "<em>Remember Caesar</em> is a light-hearted comedy. Discuss.",
+              "answer": "The play is comic because it is driven by Weston’s false alarm. A harmless reminder turns into a fear of assassination, then into panic about a bomb, and finally into embarrassment when the visitor and the parcel are explained. The title, the dialogue and the repeated misunderstandings all support the humour."
+            },
+            {
+              "id": "l2",
+              "html": "Compare the character traits of Lord Weston and his wife.",
+              "answer": "Weston is pompous, vain, anxious and self-important. Lady Weston is calm, witty, practical and amused by his excesses. Their contrast creates much of the play’s humour."
+            },
+            {
+              "id": "l3",
+              "html": "How does the play depend on mistaken identity and irony?",
+              "answer": "Weston mistakes a reminder for a warning, a parcel for a bomb and the gardener’s name for an assassin’s message. The audience sees the harmless truth long before Weston does, which creates dramatic irony and comedy."
+            },
+            {
+              "id": "l4",
+              "html": "What is the role of Roger in the play’s humour?",
+              "answer": "Roger is dutiful but slow to grasp the situation. His literal obedience makes Weston’s panic look even more absurd, and his careful seriousness contrasts with the ridiculousness of the crisis."
+            },
+            {
+              "id": "l5",
+              "html": "Discuss the importance of the title <em>Remember Caesar</em>.",
+              "answer": "The title sounds threatening because it evokes Julius Caesar’s assassination. But in the play it refers to a simple reminder for a gardener named Caesar. The gap between the title’s gravity and the actual meaning is a major source of irony."
+            },
+            {
+              "id": "l6",
+              "html": "Why is Lady Weston important to the structure of the play?",
+              "answer": "She prevents the play from becoming heavy or fearful. Her quick responses, practical comments and teasing tone keep the comedy moving and help expose Weston’s exaggerated imagination."
+            },
+            {
+              "id": "l7",
+              "html": "How does the play show that fear can create its own problems?",
+              "answer": "Weston’s imagination makes him treat the note, the package and the knock at the door as threats. Because of his fear, he turns ordinary household events into a comic emergency."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

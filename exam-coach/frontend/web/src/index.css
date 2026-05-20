@@ -1,0 +1,582 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Geist Sans (variable) ───────────────────────────────── */
+@font-face {
+  font-family: 'Geist';
+  src: url('/fonts/geist-sans/Geist-Variable.woff2') format('woff2-variations');
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+/* ── Geist Mono (variable) ───────────────────────────────── */
+@font-face {
+  font-family: 'Geist Mono';
+  src: url('/fonts/geist-mono/GeistMono-Variable.woff2') format('woff2-variations');
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+:root {
+  /* ══════════════════════════════════════════════════════════
+     LIGHT THEME — clean navy design system
+     ══════════════════════════════════════════════════════════ */
+  --bg:          #F5F1EB;
+  --bg-2:        #FFFFFF;
+  --bg-sunk:     #EDE9E2;
+  --line:        #E5E7EB;
+  --line-soft:   #E8E3DB;
+  --ink:         #1E293B;
+  --ink-2:       #64748B;
+  --ink-3:       #64748B;
+  --ink-4:       #94A3B8;
+  --accent:      #1B4B82;
+  --accent-soft: #E6F1FB;
+  --accent-ink:  #0C447C;
+  --good:        #1D9E75;
+  --good-soft:   #E1F5EE;
+  --good-ink:    #085041;
+  --warn:        #EF9F27;
+  --warn-soft:   #FAEEDA;
+  --pos:         #b86a2a;
+  --pos-soft:    #f4e8d8;
+  --danger:      #E24B4A;
+  --highlight:   #FEF9C3;
+  --ai:          #8B5CF6;
+  --ai-soft:     #EEEDFE;
+
+  /* ── Design token foundation (pass 1) ──────────────────── */
+  --bg-canvas:          #F5F1EB;
+  --bg-surface:         #FFFFFF;
+  --border-soft:        rgba(15, 23, 42, 0.06);
+  --border-strong:      rgba(15, 23, 42, 0.10);
+  --text-primary:       #0F172A;
+  --text-muted:         #5E6B7A;
+  --text-faint:         #7B8794;
+  --brand-teal:         #2A7B6F;
+  --brand-teal-soft:    rgba(42, 123, 111, 0.10);
+  --brand-teal-soft-hover: rgba(42, 123, 111, 0.18);
+  --brand-teal-hover:   #226860;
+  --accent-navy:        #1E3A5F;
+  --radius-card:        16px;
+  --radius-button:      12px;
+  --radius-pill:        9999px;
+  --shadow-card:        0 1px 2px rgba(15,23,42,0.04), 0 1px 1px rgba(15,23,42,0.03);
+  --shadow-card-hover:  0 4px 12px rgba(15,23,42,0.06), 0 2px 4px rgba(15,23,42,0.04);
+
+  /* ── Layout rail widths ──────────────────────────────────── */
+  --rail-sidebar:           220px;
+  --rail-sidebar-collapsed:  64px;
+  --rail-left:              220px;
+  --rail-right:             280px;
+  --rail-subject:           320px;
+  --rail-parts:             240px;
+  --rail-map:               240px;
+
+  /* ── Motion ──────────────────────────────────────────────── */
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+  --duration-slow: 300ms;
+  --duration-ring: 600ms;
+  --ease-out:    cubic-bezier(0.0, 0.0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+[data-theme="dark"] {
+  /* ══════════════════════════════════════════════════════════
+     DARK THEME — navy slate design system
+     ══════════════════════════════════════════════════════════ */
+  --bg:          #0F172A;
+  --bg-2:        #1E293B;
+  --bg-sunk:     #0B1120;
+  --line:        #334155;
+  --line-soft:   #1E293B;
+  --ink:         #F1F5F9;
+  --ink-2:       #CBD5E1;
+  --ink-3:       #94A3B8;
+  --ink-4:       #475569;
+  --accent:      #3B82F6;
+  --accent-soft: #1E3A5F;
+  --accent-ink:  #93C5FD;
+  --good:        #34D399;
+  --good-soft:   #065F46;
+  --good-ink:    #A7F3D0;
+  --warn:        #FBB040;
+  --warn-soft:   #451A03;
+  --pos:         #FCD34D;
+  --pos-soft:    #451A03;
+  --danger:      #F87171;
+  --highlight:   #3D2F00;
+  --ai:          #A78BFA;
+  --ai-soft:     #2E1065;
+}
+
+:root {
+  /* ── Base surfaces ── */
+  --ec-bg-page:        #4A90E2;   /* Page background — soft blue */
+  --ec-bg-card:        #0D1228;   /* Card / banner background */
+  --ec-bg-card-hover:  #111630;   /* Card hover state */
+  --ec-bg-sidebar:     #0A0E1A;   /* Sidebar background */
+  --ec-border:         #1A2040;   /* Default border */
+  --ec-border-subtle:  #161B2E;   /* Subtle dividers */
+
+  /* ── Text ── */
+  --ec-text-primary:   #EEF0FF;   /* Headings, titles */
+  --ec-text-body:      #9DA8CC;   /* Body paragraphs */
+  --ec-text-muted:     #4B5675;   /* Nav links, metadata */
+  --ec-text-dimmed:    #3A4268;   /* Inactive sidebar items */
+
+  /* ── Brand accent — Blue (focus, active, progress) ── */
+  --ec-blue:           #1B4FD8;   /* Primary action, active nav, step pill */
+  --ec-blue-dim:       rgba(27,79,216,0.10);  /* Active nav background */
+  --ec-blue-border:    rgba(27,79,216,0.30);  /* Tag borders */
+  --ec-blue-text:      #93A4F4;   /* Active nav text, tag text */
+  --ec-blue-meta:      #3D5296;   /* Section labels, metadata */
+
+  /* ── Amber (key terms, memory triggers) ── */
+  --ec-amber:          #F59E0B;   /* Key term highlights, Career card accent */
+  --ec-amber-bg:       #1A1200;   /* Career card background */
+  --ec-amber-border:   #2E2000;   /* Career card border */
+
+  /* ── Teal (info labels, Education card) ── */
+  --ec-teal:           #0EA5E9;   /* Education card accent, decorative ring */
+  --ec-teal-bg:        #071A1A;   /* Education card background */
+  --ec-teal-border:    #0D3535;   /* Education card border */
+
+  /* ── Violet (awards, secondary accent) ── */
+  --ec-violet:         #7C6FE8;   /* Awards card accent */
+  --ec-violet-bg:      #0F0D22;   /* Awards card background */
+  --ec-violet-border:  #1E1A40;   /* Awards card border */
+
+  /* ── Semantic (do not repurpose) ── */
+  --ec-success:        #22C55E;   /* Correct answers */
+  --ec-success-bg:     #071A0F;   /* Model answer / correct state background */
+  --ec-success-border: #0D3520;   /* Model answer / correct state border */
+  --ec-danger:         #EF4444;   /* Wrong answers, errors */
+  --ec-warning:        #F59E0B;   /* Same as amber — caution states */
+
+  /* ── Typography ── */
+  --ec-text-xs:        10px;
+  --ec-text-sm:        11px;
+  --ec-text-base:      13px;
+  --ec-text-md:        14px;
+  --ec-text-lg:        17px;
+  --ec-text-xl:        22px;
+  --ec-text-2xl:       26px;
+  --ec-leading:        1.85;
+  --ec-tracking-wide:  0.1em;
+
+  /* ── Radius ── */
+  --ec-radius-sm:   6px;
+  --ec-radius-md:   8px;
+  --ec-radius-lg:  10px;
+  --ec-radius-pill: 100px;
+}
+
+@layer base {
+  body {
+    @apply font-sans;
+    background-color: var(--bg);
+    color: var(--ink);
+    font-size: 14px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    color: var(--ink);
+  }
+
+  /* Impeccable spacing scale: 8 / 16 / 24 / 32 / 48 / 80 / 120 */
+  * {
+    box-sizing: border-box;
+  }
+}
+
+@layer components {
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-1.5
+           bg-bg-2 text-ink px-4 py-2 rounded-xl font-medium text-sm
+           border border-line hover:bg-bg-sunk hover:border-line
+           disabled:opacity-40 disabled:cursor-not-allowed
+           transition-all duration-150;
+  }
+  .card {
+    @apply bg-bg-2 rounded-2xl shadow-card border border-line-soft p-4;
+  }
+  .card-hover {
+    @apply card hover:shadow-card-md hover:-translate-y-0.5 transition-all duration-150;
+  }
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+  .section-label {
+    @apply text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3;
+  }
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  .rich-highlight {
+    background-color: var(--warn-soft);
+    color: var(--warn);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 0.8125rem;
+    font-weight: 500;
+  }
+  .skeleton {
+    @apply bg-bg-sunk animate-pulse;
+  }
+
+  .syllabus-unit-pill {
+    @apply text-[11px] font-medium px-2 py-0.5 rounded-[10px];
+    color: var(--brand-teal);
+    background: var(--brand-teal-soft);
+    border: 1px solid rgba(42, 123, 111, 0.35);
+  }
+
+  .syllabus-lesson-type {
+    color: var(--brand-teal);
+  }
+}
+
+[data-theme="dark"] .syllabus-unit-pill {
+  color: var(--ink-2);
+  background: var(--bg-sunk);
+  border-color: var(--ink-4);
+}
+
+/* ── Legal pages (react-markdown output) ─────────────────── */
+.prose-legal h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; }
+.prose-legal h2 { font-size: 1.125rem; font-weight: 600; margin: 1.5rem 0 0.5rem; }
+.prose-legal p  { margin-bottom: 0.875rem; color: var(--ink-2); }
+.prose-legal ul, .prose-legal ol { padding-left: 1.25rem; margin-bottom: 0.875rem; }
+.prose-legal li { margin-bottom: 0.25rem; }
+.prose-legal table { border-collapse: collapse; width: 100%; margin-bottom: 1rem; }
+.prose-legal th, .prose-legal td { border: 1px solid var(--line-soft); padding: 6px 10px; text-align: left; }
+.prose-legal th { font-weight: 600; background: var(--bg-sunk); }
+.prose-legal strong { font-weight: 600; }
+.prose-legal a { color: var(--accent); text-decoration: underline; }
+
+.app-footer-disclaimer {
+  margin: 0;
+  width: 100%;
+  font-size: 10px;
+  font-style: italic;
+  line-height: 1.25;
+  color: var(--ink-4);
+  white-space: normal;
+}
+
+@media (min-width: 960px) {
+  .app-footer-disclaimer {
+    white-space: nowrap;
+  }
+}
+
+[data-theme="dark"] .syllabus-lesson-type {
+  color: var(--ink-3);
+}
+
+::selection {
+  background-color: #2A7B6F;
+  color: #ffffff;
+}
+
+[data-theme="dark"] ::selection {
+  background-color: #5DCAA5;
+  color: #0F2027;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   EC Dark Theme — Component Classes
+   All values reference :root tokens only — no raw hex.
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Hero banner ─────────────────────────────────────────── */
+.ec-hero-banner {
+  background: var(--ec-bg-card);
+  border: 0.5px solid var(--ec-border);
+  border-radius: var(--ec-radius-lg);
+  position: relative;
+  overflow: hidden;
+  padding: 20px 24px 22px;
+  margin-bottom: 24px;
+}
+
+/* Ring 1 — blue, top-right */
+.ec-hero-ring-1 {
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 36px solid var(--ec-blue);
+  opacity: 0.06;
+  pointer-events: none;
+}
+
+/* Ring 2 — teal, inset */
+.ec-hero-banner::after {
+  content: '';
+  position: absolute;
+  top: 10px;
+  right: 88px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 26px solid var(--ec-teal);
+  opacity: 0.07;
+  pointer-events: none;
+}
+
+/* ── Section heading ─────────────────────────────────────── */
+.ec-section-head {
+  font-size: var(--ec-text-lg);
+  font-weight: 700;
+  color: var(--ec-text-primary);
+  position: relative;
+  padding-bottom: 10px;
+  margin-top: 22px;
+  margin-bottom: 14px;
+}
+
+.ec-section-head::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 32px;
+  height: 2px;
+  background: var(--ec-blue);
+  border-radius: 2px;
+}
+
+/* ── Prose area — strong / em coloring ──────────────────── */
+.ec-prose {
+  color: var(--ec-text-body);
+  font-size: var(--ec-text-base);
+  line-height: var(--ec-leading);
+}
+
+.ec-prose p { color: var(--ec-text-body); }
+
+.ec-prose strong {
+  color: var(--ec-amber);
+  font-weight: 600;
+}
+
+.ec-prose em {
+  color: var(--ec-text-primary);
+  font-style: italic;
+}
+
+/* ── Think box ───────────────────────────────────────────── */
+.ec-think-box {
+  background: var(--ec-bg-card-hover);
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin: 16px 0;
+  color: var(--ec-text-body);
+}
+
+/* ── Quote block ─────────────────────────────────────────── */
+.ec-quote-block {
+  background: var(--ec-bg-card);
+  border: 0.5px solid var(--ec-border);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin: 16px 0;
+  color: var(--ec-text-body);
+}
+
+/* ── Device block ────────────────────────────────────────── */
+.ec-device-block {
+  background: var(--ec-bg-card);
+  border: 0.5px solid var(--ec-border);
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  color: var(--ec-text-body);
+}
+
+/* ── Info cards (Education / Career / Awards) ────────────── */
+.ec-info-card {
+  border-width: 0.5px;
+  border-style: solid;
+  border-left-width: 2px;
+  border-radius: 0 8px 8px 0;
+  padding: 13px 16px;
+  margin-bottom: 10px;
+  transition: all 0.2s ease;
+}
+
+.ec-info-card-label {
+  font-size: var(--ec-text-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--ec-tracking-wide);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.ec-info-card-value {
+  font-size: var(--ec-text-base);
+  line-height: 1.75;
+  color: var(--ec-text-body);
+}
+
+.ec-info-card--teal {
+  background: var(--ec-teal-bg);
+  border-color: var(--ec-teal-border);
+  border-left-color: var(--ec-teal);
+}
+.ec-info-card--teal .ec-info-card-label { color: var(--ec-teal); }
+
+.ec-info-card--amber {
+  background: var(--ec-amber-bg);
+  border-color: var(--ec-amber-border);
+  border-left-color: var(--ec-amber);
+}
+.ec-info-card--amber .ec-info-card-label { color: var(--ec-amber); }
+
+.ec-info-card--violet {
+  background: var(--ec-violet-bg);
+  border-color: var(--ec-violet-border);
+  border-left-color: var(--ec-violet);
+}
+.ec-info-card--violet .ec-info-card-label { color: var(--ec-violet); }
+
+.ec-info-card--neutral {
+  background: var(--ec-bg-card-hover);
+  border-color: var(--ec-border);
+  border-left-color: var(--ec-border);
+}
+.ec-info-card--neutral .ec-info-card-label { color: var(--ec-text-muted); }
+
+/* ── Hero tags ───────────────────────────────────────────── */
+.ec-tag {
+  font-size: var(--ec-text-sm);
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: var(--ec-radius-pill);
+  background: var(--ec-blue-dim);
+  border: 0.5px solid var(--ec-blue-border);
+  color: var(--ec-blue-text);
+  transition: all 0.2s ease;
+}
+
+/* ── Sidebar nav items ───────────────────────────────────── */
+.ec-sidenav-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 8px 12px;
+  font-size: var(--ec-text-base);
+  border-left: 2px solid transparent;
+  border-radius: 0 var(--ec-radius-sm) var(--ec-radius-sm) 0;
+  color: var(--ec-text-muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 2px;
+  background: transparent;
+}
+
+.ec-sidenav-item:hover {
+  color: var(--ec-blue-text);
+  background: var(--ec-blue-dim);
+}
+
+.ec-sidenav-item--active {
+  color: var(--ec-blue-text);
+  background: var(--ec-blue-dim);
+  border-left-color: var(--ec-blue);
+  font-weight: 600;
+}
+
+/* ── Loading dot pulse ───────────────────────────────────── */
+@keyframes ec-dot-fade {
+  0%, 80%, 100% { opacity: 0.25; transform: scale(0.75); }
+  40%           { opacity: 1;    transform: scale(1);    }
+}
+.ec-dot-pulse {
+  animation: ec-dot-fade 1.2s ease-in-out infinite;
+}
+
+/* ── EC dark buttons ─────────────────────────────────────── */
+.ec-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: var(--ec-blue);
+  color: var(--ec-text-primary);
+  padding: 8px 20px;
+  border-radius: var(--ec-radius-pill);
+  font-size: var(--ec-text-base);
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ec-btn-primary:hover { opacity: 0.85; }
+
+.ec-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: transparent;
+  color: var(--ec-text-body);
+  padding: 8px 20px;
+  border-radius: var(--ec-radius-pill);
+  font-size: var(--ec-text-base);
+  font-weight: 500;
+  border: 0.5px solid var(--ec-border);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ec-btn-secondary:hover {
+  color: var(--ec-text-primary);
+  border-color: var(--ec-blue-border);
+  background: var(--ec-blue-dim);
+}
+
+/* ── Scroll strip — horizontal pill / tab / chip rows ─────
+   Apply .scroll-strip to any flex row that overflows.
+   Children automatically get scroll-snap-align: start.     */
+.scroll-strip {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 0.25rem;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.scroll-strip > * {
+  flex-shrink: 0;
+  scroll-snap-align: start;
+}
+
+.scroll-strip::-webkit-scrollbar { display: none; }
+
+/* ── Ask AI message list — hide scrollbar ───────────────── */
+.chat-msg-list::-webkit-scrollbar { display: none; }
+
+/* ── Webkit scrollbar ────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--ec-bg-card); }
+::-webkit-scrollbar-thumb {
+  background: var(--ec-border);
+  border-radius: 3px;
+  transition: background 0.2s ease;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--ec-blue); }

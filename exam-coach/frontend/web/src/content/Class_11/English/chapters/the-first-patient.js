@@ -1,0 +1,418 @@
+﻿export default {
+  eyebrow: 'Unit 3 · Supplementary · Play · Class XI General English',
+  title: 'The First Patient',
+  author: 'C. V. Burgess',
+  pills: ['Situational Humour', "Dentist's Waiting Room", 'Fear & Rumour', 'One-act Play'],
+  tabs: [
+    /* ─── AUTHOR ──────────────────────────────────────────────────────── */
+    {
+      id: 'author',
+      label: 'Author',
+      blocks: [
+        {
+          type: 'teacher-voice',
+          html: `<p>Let us meet <strong>Christopher Victor Burgess</strong>, known in the textbook as <strong>C. V. Burgess</strong>. The textbook introduces him as a humorous playwright. That word "humorous" is the key to reading this play properly, because Burgess does not create humour through long jokes; he creates it through situations, timing, stage movement, and nervous misunderstandings.</p>
+<p>The textbook tells us that his <strong>situational humour intensifies the emotions of the characters</strong>. Think about what that means. In ordinary life, waiting outside a dentist's surgery is already uncomfortable. But Burgess places many anxious patients in one waiting room, makes them hear hammering, screeching, and sawing, and then lets their imagination do the rest. The humour grows not because something terrible is happening, but because everyone thinks something terrible is happening.</p>
+<p>Another important point is that Burgess's plays usually accommodate a number of characters. This matters in "The First Patient," because the comedy does not belong to just one person. Woman 1, Joe, the Nurse, Woman 5 with her photographs, the Small Boy, the Little Girl, several men, several women, and finally the Dentist all add to the shared panic. The crowded stage itself becomes part of the joke.</p>
+<p>The textbook names his famous works as <em>Short Plays for Large Classes</em>, <em>Teach yourself Speech Training</em>, and <em>Classroom Playhouse Verse in Action</em>. These titles show why his plays fit classrooms well. They give many students speaking roles, easy stage business, and clear comic situations.</p>
+<p><strong>Why this matters for this text:</strong> Knowing Burgess helps us understand why "The First Patient" is written as a play, not as a story. The fun depends on what the audience sees and hears: the Nurse crossing the stage with tools, patients reacting in fear, and Joe finally walking out unharmed. Burgess teaches us that humour can be created when people misread ordinary events through fear.</p>`,
+        },
+        {
+          type: 'author-stat',
+          label: 'Known as',
+          value: 'C. V. Burgess · Humorous playwright · Short Plays for Large Classes · Teach yourself Speech Training · Classroom Playhouse Verse in Action',
+        },
+        { type: 'nav', next: 'before-read', nextLabel: 'Next: Before We Read →' },
+      ],
+    },
+
+    /* ─── BEFORE WE READ ─────────────────────────────────────────────── */
+    {
+      id: 'before-read',
+      label: 'Before We Read',
+      blocks: [
+        {
+          type: 'teacher-voice',
+          html: `<p>Have you ever waited outside a doctor's room or a dentist's clinic and imagined the worst? You hear a sound from inside, someone comes out with a tray, another patient groans, and suddenly your mind writes a horror story. That is exactly what happens in this play.</p>
+<p><strong>The First Patient</strong> is a one-act humorous play. Unlike prose, a play is meant to be performed. So we must pay attention not only to dialogue, but also to stage directions: who enters, who exits, what object is carried, who stands, who sits, who groans, and how the crowd reacts. In this play, the hammer, pliers, and hacksaw are not ordinary tools; on stage, they become triggers for panic.</p>`,
+        },
+        {
+          type: 'quote-block',
+          quote: 'A number of patients wait at the waiting room of a dentist\'s clinic. Everybody is tensed at the thought of a painful tooth being extracted.',
+          context: 'The emotional starting point of the play',
+        },
+        {
+          type: 'teacher-voice',
+          html: `<p>This summary idea is the emotional starting point. The patients have not seen any treatment yet. Their fear comes from imagination. This will appear in the exam because the whole play is built on mistaken understanding.</p>`,
+        },
+        {
+          type: 'think-box',
+          label: 'Think about this',
+          text: 'The title "The First Patient" makes us focus on Joe, the first man called in. But the real comedy is that almost everyone outside reacts as if they are the patient too.',
+        },
+        { type: 'nav', next: 'play-explained', nextLabel: 'Next: Play Explained →' },
+      ],
+    },
+
+    /* ─── PLAY EXPLAINED ─────────────────────────────────────────────── */
+    {
+      id: 'play-explained',
+      label: 'Play Explained',
+      blocks: [
+        { type: 'section-head', text: 'Phase 1 -- The Waiting Room Fills' },
+        {
+          type: 'quote-block',
+          quote: 'A number of patients wait at the waiting room of a dentist\'s clinic. Everybody is tensed at the thought of a painful tooth being extracted.',
+          context: 'Setting and emotional atmosphere',
+        },
+        {
+          type: 'teacher-voice',
+          html: `<p>Let us begin in the dentist's waiting room. This is not a calm place. Everyone has come for dental treatment, and everyone is already afraid. Woman 5 tries to pass time by showing holiday photographs to Woman 6, and this becomes a running comic distraction through the play. Man 5 asks Jack, Man 6, the time, and they complain that eight-thirty is a dreadful hour to see a dentist. Before the dentist even arrives, fear is already sitting in the room like another patient.</p>`,
+        },
+        {
+          type: 'think-box',
+          label: 'Notice this',
+          text: 'This phase sets the stage. The comedy needs a crowd, anxiety, and a closed surgery door. The audience knows that fear will make the patients overreact.',
+        },
+
+        { type: 'section-head', text: 'Phase 2 -- Children, Joe and the First Call' },
+        {
+          type: 'quote-block',
+          quote: 'Good, the dentist shouldn\'t be long now.',
+          context: 'The Nurse signals the surgery is opening',
+        },
+        {
+          type: 'teacher-voice',
+          html: `<p>The Nurse enters, and the waiting room becomes alert. A little girl, Dorothea, is dragged in by Woman 7, crying that she does not want to see the dentist. Her mother threatens that if she will not have her teeth seen to, there will be no more ice-lollies. Joe, the first patient and Woman 1's husband, is called in. This is where the title becomes active: everyone outside now imagines what may be happening to the first patient inside.</p>`,
+        },
+        {
+          type: 'think-box',
+          label: 'Notice this',
+          text: "Joe's entry into the surgery is important because he disappears from sight. Once the audience cannot see him, the waiting room fills the gap with imagination.",
+        },
+
+        { type: 'section-head', text: 'Phase 3 -- The Hammer Appears' },
+        {
+          type: 'quote-block',
+          quote: 'Was that a hammer she was carrying?',
+          context: 'The first tool triggers panic',
+        },
+        {
+          type: 'teacher-voice',
+          html: `<p>Now the real comedy begins. The Nurse crosses the stage carrying a large hammer into the surgery. The patients immediately start guessing. Man 7 says he has seen dentists use queer tools; Man 6 says that if it was not a hammer, he should be seeing an eye specialist instead. Then hammering is heard from inside. Woman 1 cries for Joe, convinced something terrible is being done to his tooth.</p>`,
+        },
+        {
+          type: 'think-box',
+          label: 'Notice this',
+          text: 'This is classic situational humour. The hammer is real, the sound is real, but the conclusion is wrong. This is exactly how misunderstanding grows.',
+        },
+
+        { type: 'section-head', text: 'Phase 4 -- Pliers, Screeching and Panic' },
+        {
+          type: 'quote-block',
+          quote: 'I wish you wouldn\'t talk like that, with my poor Joe in there, may be writhing in agony.',
+          context: 'Woman 1 imagines the worst for Joe',
+        },
+        {
+          type: 'teacher-voice',
+          html: `<p>The Nurse next carries a large pair of pliers. Man 4 groans, everyone groans after him, and Woman 1 watches in horror. The waiting room reacts like an audience watching a tragedy, though no tragedy is happening. Then comes a sudden screech of metal from the surgery. Woman 1 tries to rush to the door, children fight over a magazine, and Man 7 frightens the Small Boy by saying the noise is what a tooth extraction sounds like inside the head.</p>`,
+        },
+        {
+          type: 'think-box',
+          label: 'Notice this',
+          text: 'The phrase "writhing in agony" is exam-important because it shows how far imagination has travelled from fact. Nobody has seen Joe suffer.',
+        },
+
+        { type: 'section-head', text: 'Phase 5 -- The Children Confess and Patients Escape' },
+        {
+          type: 'quote-block',
+          quote: 'I haven\'t got toothache at all. I was only joking. I just wanted to get off school.',
+          context: "The Small Boy's confession -- a comic turning point",
+        },
+        {
+          type: 'teacher-voice',
+          html: `<p>The Small Boy is terrified by Man 7's description. He immediately confesses that he has no toothache and only pretended because he wanted to avoid school. His mother drags him out by the ear and promises punishment. Later the Little Girl also confesses that she was only joking about her toothache. Meanwhile, more hammering and the dentist's off-stage voice make Man 5 and Man 6 leave. One by one, fear clears the waiting room.</p>`,
+        },
+        {
+          type: 'think-box',
+          label: 'Notice this',
+          text: 'The play is funny because the dentist cures toothache before treatment begins -- by frightening the false patients into confession.',
+        },
+
+        { type: 'section-head', text: 'Phase 6 -- Hacksaw, Empty Room and Joe\'s Return' },
+        {
+          type: 'quote-block',
+          quote: 'That was only the dentist trying to force open his instrument cabinet.',
+          context: "Joe reveals the truth after coming out unharmed",
+        },
+        {
+          type: 'teacher-voice',
+          html: `<p>The Nurse brings in a hacksaw, and the sawing and screeching continue. The waiting patients imagine the worst and begin to leave. Finally Joe comes out unharmed. Woman 1 is shocked but relieved. Joe explains that the hammering and sawing were not for him at all; the dentist was trying to force open his instrument cabinet because he had lost the key. Joe cannot wait any longer and has made an evening appointment instead. The Nurse gave him pills to deaden the pain meanwhile.</p>`,
+        },
+        {
+          type: 'think-box',
+          label: 'Notice this',
+          text: 'This is the turning point. The truth is ordinary, but the waiting room has turned it into horror.',
+        },
+
+        { type: 'section-head', text: 'Phase 7 -- The Final Joke' },
+        {
+          type: 'quote-block',
+          quote: 'I found it. Believe it or not, but it was under the telephone directory.',
+          context: 'The Dentist reveals the cause of all the panic',
+        },
+        {
+          type: 'teacher-voice',
+          html: `<p>After Joe and Emily leave, the Dentist enters waving the key. He has found it under the telephone directory. The entire panic has been caused by a misplaced key. The Nurse says the first patient could not wait but has made an appointment for the evening. The Dentist then asks for the next patient. Woman 5, still absorbed in photographs, looks up and innocently says that the long queue moved quickly. She has missed the whole panic because she was busy with her photographs.</p>`,
+        },
+        {
+          type: 'think-box',
+          label: 'Notice this',
+          text: "The ending is brilliant because Woman 5's misunderstanding is different from everyone else's. Others were too afraid; she was too distracted.",
+        },
+
+        { type: 'nav', next: 'key-lines', nextLabel: 'Next: Key Lines →' },
+      ],
+    },
+
+    /* ─── KEY LINES ──────────────────────────────────────────────────── */
+    {
+      id: 'key-lines',
+      label: 'Key Lines',
+      blocks: [
+        {
+          type: 'quote-block',
+          quote: "Isn't it a dreadful hour of the morning to see a Dentist!",
+          context: 'Setting and tone -- fear already present before anything happens. Key word: "dreadful."',
+        },
+        {
+          type: 'quote-block',
+          quote: 'Was that a hammer she was carrying?',
+          context: 'First major trigger of panic -- the tool is innocent but patients misread it. Key word: "hammer."',
+        },
+        {
+          type: 'quote-block',
+          quote: 'Oh! Joe! My poor Joe! Oh, what will I do?',
+          context: 'Character -- Woman 1\'s fear and emotional attachment. Key phrase: "poor Joe."',
+        },
+        {
+          type: 'quote-block',
+          quote: "I wish you wouldn't talk like that, with my poor Joe in there, may be writhing in agony.",
+          context: 'Theme -- imagination becomes exaggeration. Key phrase: "writhing in agony."',
+        },
+        {
+          type: 'quote-block',
+          quote: "I haven't got toothache at all. I was only joking. I just wanted to get off school.",
+          context: "Comic turning point -- dental fear exposes the boy's lie. Key phrase: \"get off school.\"",
+        },
+        {
+          type: 'quote-block',
+          quote: 'That was only the dentist trying to force open his instrument cabinet.',
+          context: 'Climax -- explains the whole misunderstanding. Key phrase: "instrument cabinet."',
+        },
+        {
+          type: 'quote-block',
+          quote: 'I found it. Believe it or not, but it was under the telephone directory.',
+          context: 'Final comic explanation -- panic caused by a simple lost key. Key phrase: "under the telephone directory."',
+        },
+        { type: 'nav', next: 'glossary', nextLabel: 'Next: Glossary →' },
+      ],
+    },
+
+    /* ─── GLOSSARY ───────────────────────────────────────────────────── */
+    {
+      id: 'glossary',
+      label: 'Glossary',
+      blocks: [
+        { type: 'gloss-row', word: 'groaning', def: 'crying in pain', eg: 'Man 4 groans loudly.' },
+        { type: 'gloss-row', word: 'dreadful', def: 'extremely bad; terrible', eg: "Isn't it a dreadful hour of the morning to see a Dentist!" },
+        { type: 'gloss-row', word: 'ice-lollies', def: 'flavoured ice or ice cream on a stick; popsicles', eg: 'If you won\'t have your teeth seen to, no more ice-lollies.' },
+        { type: 'gloss-row', word: 'weeny tug', def: 'a small pull', eg: 'A weeny tug is enough to frighten the child in the dental context.' },
+        { type: 'gloss-row', word: 'gas', def: 'anesthesia (in a dental context)', eg: 'In a dental surgery, gas means anesthesia.' },
+        { type: 'gloss-row', word: 'scream', def: 'something very funny (informal)', eg: "Isn't it a scream, dear?" },
+        { type: 'gloss-row', word: 'ferrying', def: 'carrying from one place to another', eg: 'Enter Nurse left, ferrying a large hammer.' },
+        { type: 'gloss-row', word: 'queer', def: 'strange; unusual', eg: "I've seen dentists use some queer tools." },
+        { type: 'gloss-row', word: 'writhing', def: 'twisting the body from side to side in pain', eg: '...may be writhing in agony.' },
+        { type: 'gloss-row', word: 'agony', def: 'severe pain', eg: '...may be writhing in agony.' },
+        { type: 'gloss-row', word: 'sulking', def: 'being sad and silent; brooding', eg: 'They are both sulking.' },
+        { type: 'gloss-row', word: 'blurred', def: 'hazy; not clear', eg: 'Blurred describes something not clear, like a badly taken photograph.' },
+        { type: 'nav', next: 'themes', nextLabel: 'Next: Themes & Devices →' },
+      ],
+    },
+
+    /* ─── THEMES & DEVICES ───────────────────────────────────────────── */
+    {
+      id: 'themes',
+      label: 'Themes & Devices',
+      blocks: [
+        {
+          type: 'think-box',
+          label: 'Theme 1',
+          text: 'Fear makes ordinary things look terrifying. The Nurse carries a hammer, pliers, and a hacksaw because the dentist has lost the key to his instrument cabinet. But the waiting patients imagine that Joe is being hammered, pulled, and sawed. In an exam answer, write that Burgess creates humour by showing how fear changes simple facts into alarming stories.',
+        },
+        {
+          type: 'think-box',
+          label: 'Theme 2',
+          text: 'Rumour spreads faster than truth. No one inside the waiting room has proof that Joe is suffering. Still, one sound leads to another reaction: Woman 1 cries, Man 4 groans, the children panic, and patients leave. This is exactly how misunderstanding works in real life too -- people react to hints, not facts.',
+        },
+        {
+          type: 'think-box',
+          label: 'Theme 3',
+          text: 'Situational comedy depends on timing. The humour grows because the tools enter one after another: first the hammer, then the pliers, then the hacksaw. Each entrance increases panic. The final explanation -- the key was under the telephone directory -- turns all the fear into comedy.',
+        },
+        {
+          type: 'device-block',
+          kind: 'Dramatic Irony',
+          line: 'Patients panic about Joe while the audience slowly understands the tools are for the cabinet',
+          exp: 'The audience slowly understands that the patients\' guesses are unreliable, while the characters continue to panic. This gap between reality and imagination creates laughter.',
+        },
+        {
+          type: 'device-block',
+          kind: 'Stage Business',
+          line: 'The Nurse walking across the stage with large tools',
+          exp: 'The Nurse walking across the stage with large tools is not just movement. It is a visual joke. The audience sees exactly why the waiting room gets frightened.',
+        },
+        {
+          type: 'device-block',
+          kind: 'Sound Effect',
+          line: 'Hammering, metallic screeching, and sawing from the surgery',
+          exp: 'The hammering, metallic screeching, and sawing sounds act like invisible characters. They are heard but misunderstood, so they drive the plot forward.',
+        },
+        { type: 'nav', next: 'qa', nextLabel: 'Next: Textbook Q&A →' },
+      ],
+    },
+
+    /* ─── TEXTBOOK Q&A ───────────────────────────────────────────────── */
+    {
+      id: 'qa',
+      label: 'Textbook Q&A',
+      blocks: [
+        { type: 'section-head', text: 'Comprehension Questions' },
+        {
+          type: 'device-block',
+          kind: 'a) Where does the play take place?',
+          line: '',
+          exp: 'The play takes place in the waiting room of a dentist\'s clinic. The surgery door is nearby, and the patients hear sounds from inside.',
+        },
+        {
+          type: 'device-block',
+          kind: 'b) Why are the patients nervous?',
+          line: '',
+          exp: 'The patients are nervous because they expect painful dental treatment. Their fear becomes worse when they hear hammering, screeching, and sawing from the surgery.',
+        },
+        {
+          type: 'device-block',
+          kind: 'c) Who is the first patient?',
+          line: '',
+          exp: 'Joe, the husband of Woman 1, is the first patient. He goes into the surgery but comes out later unharmed.',
+        },
+        {
+          type: 'device-block',
+          kind: 'd) Why does Woman 1 become upset?',
+          line: '',
+          exp: 'Woman 1 becomes upset because she thinks the hammering, pliers, and sawing are being used on Joe\'s tooth. She imagines he is suffering in agony.',
+        },
+        {
+          type: 'device-block',
+          kind: 'e) What is Woman 5 doing throughout the play?',
+          line: '',
+          exp: 'Woman 5 keeps showing her holiday photographs to Woman 6. She is so absorbed in them that she barely notices the panic around her.',
+        },
+        {
+          type: 'device-block',
+          kind: 'f) Why does the Small Boy confess the truth?',
+          line: '',
+          exp: 'The Small Boy becomes frightened when Man 7 describes tooth extraction in a terrifying way. He admits he has no toothache and only wanted to avoid school.',
+        },
+        {
+          type: 'device-block',
+          kind: 'g) What tools does the Nurse carry into the surgery?',
+          line: '',
+          exp: 'The Nurse carries a large hammer, a large pair of pliers, and later a hacksaw into the surgery. These tools frighten the waiting patients.',
+        },
+        {
+          type: 'device-block',
+          kind: 'h) Why does Joe come out without treatment?',
+          line: '',
+          exp: 'Joe comes out because the dentist has been trying to force open his instrument cabinet and has not treated him. Joe makes another appointment for the evening.',
+        },
+        {
+          type: 'device-block',
+          kind: 'i) What was the real reason for the hammering and sawing?',
+          line: '',
+          exp: 'The dentist had lost the key to his instrument cabinet and was trying to force it open. The tools were not being used on Joe.',
+        },
+        {
+          type: 'device-block',
+          kind: 'j) How does the play end humorously?',
+          line: '',
+          exp: 'The Dentist finds the key under the telephone directory. Woman 5, still absorbed in photographs, thinks the long queue has moved quickly and becomes the next patient.',
+        },
+        { type: 'section-head', text: 'Paragraph Questions' },
+        {
+          type: 'device-block',
+          kind: '1) How does the author create humour through mistaken understanding?',
+          line: '',
+          exp: "The author creates humour by making the waiting patients misinterpret ordinary events. The Nurse carries a hammer, pliers, and a hacksaw into the surgery, and the patients imagine that they are being used on Joe's tooth. The sounds of hammering, screeching, and sawing make the fear worse. In reality, the dentist has only lost the key to his instrument cabinet and is trying to open it. The contrast between imagination and truth creates the humour.",
+        },
+        {
+          type: 'device-block',
+          kind: '2) How does fear spread in the waiting room?',
+          line: '',
+          exp: 'Fear spreads through sound, sight, and suggestion. First the patients see the Nurse carrying tools. Then they hear hammering and screeching from the surgery. Woman 1 cries for Joe, Man 4 groans, and others begin to worry. Man 7 frightens the Small Boy with a terrible description of tooth extraction. Soon patients leave the waiting room. The play shows that fear grows quickly when people do not know the truth.',
+        },
+        {
+          type: 'device-block',
+          kind: '3) Why is the ending of the play effective?',
+          line: '',
+          exp: "The ending is effective because it completely reverses the audience's expectation. All the patients think Joe is undergoing a painful extraction, but Joe comes out unharmed. He explains that the dentist was only trying to force open the instrument cabinet. Then the Dentist finds the key under the telephone directory. This simple explanation makes all the earlier panic look funny. Woman 5's final surprise that the queue moved quickly adds one last comic touch.",
+        },
+        { type: 'nav', next: 'activities', nextLabel: 'Next: Activities →' },
+      ],
+    },
+
+    /* ─── ACTIVITIES ─────────────────────────────────────────────────── */
+    {
+      id: 'activities',
+      label: 'Activities',
+      blocks: [
+        {
+          type: 'think-box',
+          label: 'Warm Up / Are You Ready?',
+          text: 'The unit prepares students to think about fear before visiting a dentist. The play shows the psychological fear everyone experiences on visiting a dentist to extract a tooth, and how that fear becomes comic when patients misunderstand sounds and tools.',
+        },
+        {
+          type: 'think-box',
+          label: 'Summary Exercise',
+          text: 'Complete the summary answers: (1) waiting room, (2) tooth, (3) photographs, (4) patient, (5) hammer, (6) frightened, (7) pliers, (8) hacksaw, (9) toothache, (10) sawing, (11) clinic, (12) worried, (13) appointment, (14) cabinet, (15) queue.',
+        },
+        {
+          type: 'think-box',
+          label: 'Word Box',
+          text: 'The printed word box contains: hammer, patient, hacksaw, cabinet, frightened, queue, worried, waiting room, pliers, tooth, photographs, clinic, toothache, sawing, appointment.',
+        },
+        {
+          type: 'think-box',
+          label: 'Listening Activity',
+          text: 'Students listen to a talk on the importance of humour and laughter for good physical and mental health. Answers: i) reduce stress and pain; ii) accepted; iii) humour room; iv) spontaneous opportunities; v) way of living.',
+        },
+        {
+          type: 'think-box',
+          label: 'Speaking Activity',
+          text: 'The textbook asks students to complete a dialogue between a doctor and a patient. Situation: a person goes to a doctor for treatment; the doctor wishes to give an injection; the person is scared; the doctor convinces the patient and administers the injection. Sample start: "Doctor: Please don\'t worry. This will only take a few seconds. Patient: I am scared of injections, doctor. Will it hurt?"',
+        },
+        {
+          type: 'think-box',
+          label: 'Writing / Paragraph Activity',
+          text: 'Textbook paragraph prompts: explain how mistaken understanding of events can lead to confusion and how the author uses this unexpected combination of events to create humour. Another prompt asks students to discuss and act out a similar situation from their own experience.',
+        },
+        {
+          type: 'think-box',
+          label: 'ICT Corner',
+          text: 'Topic: Describing a Process. The activity teaches that describing a process needs the present simple passive and active. Students watch BBC Learning English videos, observe active/passive verb forms, and practise describing a process.',
+        },
+        { type: 'nav', practice: true },
+      ],
+    },
+  ],
+}

@@ -1,0 +1,476 @@
+{
+  "eyebrow": "Unit 4 · Poem · Class XI General English",
+  "title": "Macavity - The Mystery Cat",
+  "author": "T. S. Eliot",
+  "pills": [
+    "Humorous Lyric",
+    "Mystery",
+    "Detective Parody",
+    "Practice Paper"
+  ],
+  "tabs": [
+    {
+      "id": "author",
+      "label": "Author",
+      "blocks": [
+        {
+          "type": "teacher-voice",
+          "html": "<p><strong>Thomas Stearns Eliot</strong> (1888-1965) was an essayist, critic, playwright and pioneering poet of the twentieth century. He studied at Harvard and the Sorbonne, read Indian philosophy, studied Sanskrit and later received the Nobel Prize for Literature in 1948.</p>\n<p>His well-known works include <em>The Wasteland</em>, <em>Love Song of J. Alfred Prufrock</em>, <em>Ash Wednesday</em>, <em>Four Quartets</em>, <em>Journey of the Magi</em>, <em>After Strange Gods</em> and <em>Naming of Cats</em>.</p>\n<p><strong>Why this matters:</strong> Eliot makes a cat sound like a criminal mastermind. The poem is a playful parody of detective stories, filled with law, police, alibi and mystery.</p>"
+        },
+        {
+          "type": "author-stat",
+          "label": "Career",
+          "value": "Nobel Prize for Literature 1948 · Studied at Harvard and the Sorbonne · Read Indian philosophy and Sanskrit · Pioneering twentieth century poet"
+        },
+        {
+          "type": "author-stat",
+          "label": "Notable works",
+          "value": "The Wasteland · Love Song of J. Alfred Prufrock · Ash Wednesday · Four Quartets · Journey of the Magi · After Strange Gods · Naming of Cats"
+        },
+        {
+          "type": "think-box",
+          "label": "Why this matters for the poem",
+          "text": "Understanding Eliot helps us read \"Macavity\" as parody. Eliot takes the detective story -- a serious form with law, crime, investigation -- and applies it to a house cat. The comic genius lies in exaggerating ordinary cat mischief into grand criminal legend."
+        },
+        {
+          "type": "nav",
+          "next": "before-read",
+          "nextLabel": "Next: Before We Read →"
+        }
+      ]
+    },
+    {
+      "id": "before-read",
+      "label": "Before We Read",
+      "blocks": [
+        {
+          "type": "teacher-voice",
+          "html": "<p>Cats move silently and vanish quickly. Eliot turns this familiar mystery into the legend of Macavity, the <strong>Hidden Paw</strong>.</p>\n<p>The poem plays with detective story language. You will find words like <strong>master criminal</strong>, <strong>Scotland Yard</strong>, <strong>Flying Squad</strong>, <strong>alibi</strong>, and <strong>crime scene</strong>. But the criminal is not a human thief -- it is a ginger cat. Eliot uses this contrast to create humour and parody.</p>\n<p>Watch for the pattern: whenever authorities investigate a crime, Macavity is never found at the scene. He always has an alibi. The poem's humour comes from exaggeration. Macavity claims to break not just human law, but the law of gravity itself.</p>"
+        },
+        {
+          "type": "quote-block",
+          "quote": "Macavity's a Mystery Cat: he's called the Hidden Paw\nFor he's the master criminal who can defy the Law.",
+          "context": "T. S. Eliot -- Opening lines of the poem"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>These opening lines introduce the poem's central idea: Macavity is famous for defying the law. The phrase \"Hidden Paw\" gives a cat the secret identity of a criminal genius. This line often appears in exams because it introduces the poem's tone, theme, and method of using detective language to describe a cat.</p>"
+        },
+        {
+          "type": "nav",
+          "next": "stanzas",
+          "nextLabel": "Next: Stanza by Stanza →"
+        }
+      ]
+    },
+    {
+      "id": "stanzas",
+      "label": "Stanzas",
+      "blocks": [
+        {
+          "type": "teacher-voice",
+          "html": "<p>The poem has eight stanzas. Read each carefully, noting the refrain \"Macavity, Macavity, there's no one like Macavity\" and the running theme that Macavity is never at the crime scene.</p>"
+        },
+        {
+          "type": "section-head",
+          "text": "Stanza 1"
+        },
+        {
+          "type": "quote-block",
+          "quote": "Macavity is introduced as the Hidden Paw, a master criminal who defies the law. Even Scotland Yard and the Flying Squad cannot catch him because he is never at the scene.",
+          "context": "Summary of Stanza 1"
+        },
+        {
+          "type": "think-box",
+          "label": "The poet is really saying",
+          "text": "This stanza builds Macavity's reputation as a mysterious criminal who always escapes."
+        },
+        {
+          "type": "section-head",
+          "text": "Stanza 2"
+        },
+        {
+          "type": "quote-block",
+          "quote": "Macavity is said to break every human law and even the law of gravity. His levitation would make a fakir stare.",
+          "context": "Summary of Stanza 2"
+        },
+        {
+          "type": "think-box",
+          "label": "The poet is really saying",
+          "text": "This is comic exaggeration. Eliot makes an ordinary cat seem supernatural."
+        },
+        {
+          "type": "section-head",
+          "text": "Stanza 3"
+        },
+        {
+          "type": "quote-block",
+          "quote": "Macavity is a tall, thin ginger cat with sunken eyes, a deeply lined brow, a highly domed head, dusty coat and uncombed whiskers.",
+          "context": "Summary of Stanza 3"
+        },
+        {
+          "type": "think-box",
+          "label": "The poet is really saying",
+          "text": "The description makes him look like a suspicious criminal."
+        },
+        {
+          "type": "section-head",
+          "text": "Stanza 4"
+        },
+        {
+          "type": "quote-block",
+          "quote": "Macavity sways his head like a snake, and while one may think he is asleep, he is actually wide awake.",
+          "context": "Summary of Stanza 4"
+        },
+        {
+          "type": "think-box",
+          "label": "The poet is really saying",
+          "text": "The stanza shows his secret watchfulness and deceit."
+        },
+        {
+          "type": "section-head",
+          "text": "Stanza 5"
+        },
+        {
+          "type": "quote-block",
+          "quote": "Macavity is outwardly respectable but inwardly full of depravity. His footprints are never found in Scotland Yard files.",
+          "context": "Summary of Stanza 5"
+        },
+        {
+          "type": "think-box",
+          "label": "The poet is really saying",
+          "text": "This contrast between respectable appearance and hidden guilt is central."
+        },
+        {
+          "type": "section-head",
+          "text": "Stanza 6"
+        },
+        {
+          "type": "quote-block",
+          "quote": "When the larder is looted, the jewel-case rifled, the milk is missing, the Peke is stifled or greenhouse glass is broken, Macavity is not there.",
+          "context": "Summary of Stanza 6"
+        },
+        {
+          "type": "think-box",
+          "label": "The poet is really saying",
+          "text": "This stanza lists his mischievous crimes and perfect escape."
+        },
+        {
+          "type": "section-head",
+          "text": "Stanza 7"
+        },
+        {
+          "type": "quote-block",
+          "quote": "The Secret Service may suspect him, but he is a mile away, resting or doing complicated division sums.",
+          "context": "Summary of Stanza 7"
+        },
+        {
+          "type": "think-box",
+          "label": "The poet is really saying",
+          "text": "The humour lies in imagining a criminal cat calmly creating an alibi."
+        },
+        {
+          "type": "section-head",
+          "text": "Stanza 8"
+        },
+        {
+          "type": "quote-block",
+          "quote": "Macavity is called a fiend in feline shape, a monster of depravity and the Napoleon of Crime.",
+          "context": "Summary of Stanza 8"
+        },
+        {
+          "type": "think-box",
+          "label": "The poet is really saying",
+          "text": "The ending makes him the commander behind all notorious cat-crimes."
+        },
+        {
+          "type": "nav",
+          "next": "glossary",
+          "nextLabel": "Next: Glossary →"
+        }
+      ]
+    },
+    {
+      "id": "glossary",
+      "label": "Glossary",
+      "blocks": [
+        {
+          "type": "teacher-voice",
+          "html": "<p>These 20 words come directly from the poem. Learn the meaning for each -- glossary is a frequent source of MCQ questions in Tamil Nadu board exams.</p>"
+        },
+        {
+          "type": "gloss-row",
+          "word": "defy",
+          "def": "To resist or challenge",
+          "eg": "Synonym: challenge · Antonym: obey"
+        },
+        {
+          "type": "gloss-row",
+          "word": "bafflement",
+          "def": "Total confusion",
+          "eg": "Synonym: confusion · Antonym: clarity"
+        },
+        {
+          "type": "gloss-row",
+          "word": "Scotland Yard",
+          "def": "Headquarters of London Metropolitan Police Service",
+          "eg": "Proper noun: British police headquarters"
+        },
+        {
+          "type": "gloss-row",
+          "word": "Flying Squad",
+          "def": "Police force ready to plunge into action",
+          "eg": "Proper noun: rapid response police unit"
+        },
+        {
+          "type": "gloss-row",
+          "word": "levitation",
+          "def": "Rising and floating in air",
+          "eg": "Synonym: floating · Antonym: sinking"
+        },
+        {
+          "type": "gloss-row",
+          "word": "fakir",
+          "def": "Holy person living on alms, said to levitate",
+          "eg": "Noun: ascetic or holy person"
+        },
+        {
+          "type": "gloss-row",
+          "word": "ginger",
+          "def": "Light brownish-orange colour",
+          "eg": "Adjective: reddish-brown color"
+        },
+        {
+          "type": "gloss-row",
+          "word": "fiend",
+          "def": "Demon",
+          "eg": "Synonym: devil · Antonym: angel"
+        },
+        {
+          "type": "gloss-row",
+          "word": "feline",
+          "def": "Cat-like",
+          "eg": "Adjective: relating to cats"
+        },
+        {
+          "type": "gloss-row",
+          "word": "depravity",
+          "def": "Evil quality",
+          "eg": "Synonym: wickedness · Antonym: virtue"
+        },
+        {
+          "type": "gloss-row",
+          "word": "larder",
+          "def": "Cupboard for storing food",
+          "eg": "Noun: food storage"
+        },
+        {
+          "type": "gloss-row",
+          "word": "rifle",
+          "def": "Ransack to steal",
+          "eg": "Verb: plunder or search thoroughly"
+        },
+        {
+          "type": "gloss-row",
+          "word": "Peke",
+          "def": "Pekinese dog",
+          "eg": "Noun: small dog breed"
+        },
+        {
+          "type": "gloss-row",
+          "word": "stifle",
+          "def": "Suppress or prevent from acting",
+          "eg": "Verb: suffocate or suppress"
+        },
+        {
+          "type": "gloss-row",
+          "word": "Admiralty",
+          "def": "Department that administered the British Navy",
+          "eg": "Noun: naval authority"
+        },
+        {
+          "type": "gloss-row",
+          "word": "deceitfulness",
+          "def": "Cunningness",
+          "eg": "Noun: dishonesty"
+        },
+        {
+          "type": "gloss-row",
+          "word": "suavity",
+          "def": "Confidence and sophistication",
+          "eg": "Noun: charm or smoothness"
+        },
+        {
+          "type": "gloss-row",
+          "word": "alibi",
+          "def": "Claim that one was elsewhere when a crime happened",
+          "eg": "Noun: proof of innocence"
+        },
+        {
+          "type": "gloss-row",
+          "word": "Napoleon of Crime",
+          "def": "Commanding leader of criminals",
+          "eg": "Metaphor: criminal mastermind"
+        },
+        {
+          "type": "nav",
+          "next": "themes",
+          "nextLabel": "Next: Themes & Devices →"
+        }
+      ]
+    },
+    {
+      "id": "themes",
+      "label": "Themes & Devices",
+      "blocks": [
+        {
+          "type": "section-head",
+          "text": "Mischief becomes mystery"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>Eliot turns common cat mischief into detective-story crime. Ordinary cat behaviour -- stealing milk, looting the larder, breaking things -- is described using detective language. For exam writing, argue that the poem uses exaggeration to transform everyday household chaos into grand criminal legend.</p>"
+        },
+        {
+          "type": "section-head",
+          "text": "Appearance can hide guilt"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>Macavity is <strong>outwardly respectable</strong> but <strong>inwardly wicked</strong>. He looks like a normal cat but commits crimes. This contrast is central to the poem's humour and theme. The poem asks: how can we trust appearances when evil wears a respectable mask?</p>"
+        },
+        {
+          "type": "section-head",
+          "text": "Literary devices"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>These devices create the poem's power and humour. Know the name, the line, and the effect.</p>"
+        },
+        {
+          "type": "device-block",
+          "kind": "Repetition",
+          "line": "\"Macavity, Macavity\" appears many times throughout the poem",
+          "exp": "This repetition creates rhythm and emphasises Macavity's fame and mystery. The repeated name makes the cat sound legendary and builds emphasis on his notoriety."
+        },
+        {
+          "type": "device-block",
+          "kind": "Hyperbole",
+          "line": "He breaks the law of gravity",
+          "exp": "Exaggeration for comic effect. No cat can levitate, but the poem claims Macavity can. This comic hyperbole makes the poem playful and parody-like."
+        },
+        {
+          "type": "device-block",
+          "kind": "Metaphor",
+          "line": "\"The Napoleon of Crime\"",
+          "exp": "Compares Macavity to Napoleon, a famous commander. This metaphor makes a cat sound like a criminal mastermind leading other wicked cats."
+        },
+        {
+          "type": "device-block",
+          "kind": "Irony",
+          "line": "Macavity is suspected but never caught",
+          "exp": "Police, Secret Service, and authorities all suspect him, but he always has an alibi. The irony is that the most infamous criminal remains forever invisible to law enforcement."
+        },
+        {
+          "type": "nav",
+          "next": "key-lines",
+          "nextLabel": "Next: Key Lines →"
+        }
+      ]
+    },
+    {
+      "id": "key-lines",
+      "label": "Key Lines",
+      "blocks": [
+        {
+          "type": "teacher-voice",
+          "html": "<p>These ten lines are the most exam-important quotes. Each can appear in reference to context or short essay questions. Know what each line means and why it matters.</p>"
+        },
+        {
+          "type": "quote-block",
+          "quote": "Macavity's a Mystery Cat: he's called the Hidden Paw",
+          "context": "Opening line. Key words: Mystery and Hidden Paw -- introduces the cat as a secret criminal."
+        },
+        {
+          "type": "quote-block",
+          "quote": "For he's the master criminal who can defy the Law.",
+          "context": "Key word: defy -- Macavity resists human law. Important for understanding the poem's parody of detective stories."
+        },
+        {
+          "type": "quote-block",
+          "quote": "He's the bafflement of Scotland Yard, the Flying Squad's despair.",
+          "context": "Shows police frustration. Important for the theme that Macavity always escapes. Exam question: Why are they baffled?"
+        },
+        {
+          "type": "quote-block",
+          "quote": "He's broken every human law, he breaks the law of gravity.",
+          "context": "Hyperbole. Key device: exaggeration for comic effect. Shows the poem's playful tone."
+        },
+        {
+          "type": "quote-block",
+          "quote": "Macavity's a ginger cat, he's very tall and thin.",
+          "context": "Physical description. Important for understanding how Eliot makes a cat look criminal-like."
+        },
+        {
+          "type": "quote-block",
+          "quote": "His powers of levitation would make a fakir stare.",
+          "context": "Fantastic claim. Key device: hyperbole making Macavity seem supernatural."
+        },
+        {
+          "type": "quote-block",
+          "quote": "Macavity is outwardly respectable.",
+          "context": "Contradiction. Important for the theme: appearance hides guilt. Often in reference to context questions."
+        },
+        {
+          "type": "quote-block",
+          "quote": "He always has an alibi, and one or two to spare.",
+          "context": "Key word: alibi -- detective language. Shows Macavity's cunning escape plans."
+        },
+        {
+          "type": "quote-block",
+          "quote": "He's a fiend in feline shape, a monster of depravity.",
+          "context": "Characterisation. Combines animal and criminal language. Often appears in essay questions."
+        },
+        {
+          "type": "quote-block",
+          "quote": "The Napoleon of Crime!",
+          "context": "Final characterisation. Key metaphor: makes Macavity sound like a criminal leader. Important for understanding the poem's exaggeration."
+        },
+        {
+          "type": "nav",
+          "next": "textbook-qa",
+          "nextLabel": "Next: Textbook Q&A →"
+        }
+      ]
+    },
+    {
+      "id": "textbook-qa",
+      "label": "Textbook Q&A",
+      "blocks": [
+        {
+          "type": "teacher-voice",
+          "html": "<h3 style=\"font-size:1rem;font-weight:600;margin:0 0 12px\">1. Answer in one or two sentences</h3>\n<div style=\"margin-bottom:10px\"><p><strong>a) What is Macavity called?</strong></p><p>Macavity is called the Hidden Paw.</p></div>\n<div style=\"margin-bottom:10px\"><p><strong>b) Why is the Flying Squad frustrated?</strong></p><p>The Flying Squad is frustrated because Macavity is never found at the scene of crime.</p></div>\n<div style=\"margin-bottom:10px\"><p><strong>c) What laws does Macavity break?</strong></p><p>He breaks every human law and even the law of gravity.</p></div>\n<div style=\"margin-bottom:10px\"><p><strong>d) What would make a fakir stare?</strong></p><p>Macavity's power of levitation would make a fakir stare.</p></div>\n<div style=\"margin-bottom:10px\"><p><strong>e) Describe Macavity's appearance.</strong></p><p>He is tall and thin, ginger-coloured, with sunken eyes, a lined brow, a domed head, dusty coat and uncombed whiskers.</p></div>\n<div style=\"margin-bottom:10px\"><p><strong>f) Where can one look for Macavity?</strong></p><p>One may look in the basement or in the air, but Macavity will not be found at the crime scene.</p></div>\n<div style=\"margin-bottom:10px\"><p><strong>g) Why is Macavity called outwardly respectable?</strong></p><p>He appears respectable, but his actions show wickedness and depravity.</p></div>\n<div style=\"margin-bottom:10px\"><p><strong>h) What happens when a loss is discovered?</strong></p><p>The Secret Service investigates, but Macavity has an alibi and is away from the place.</p></div>\n<div style=\"margin-bottom:10px\"><p><strong>i) Why is he called the Napoleon of Crime?</strong></p><p>He is imagined as the leader behind the crimes of other wicked cats.</p></div>\n<h3 style=\"font-size:1rem;font-weight:600;margin:18px 0 12px\">4. Answer in three or four sentences</h3>\n<div style=\"margin-bottom:10px\"><p><strong>a) Describe Macavity and his reputation.</strong></p><p>Macavity is a ginger cat who is called the Hidden Paw and the master criminal. He is tall, thin, with sunken eyes and a lined brow. He is famous for breaking both human law and the law of gravity. Even Scotland Yard and the Flying Squad cannot catch him because he is never at the crime scene.</p></div>\n<div style=\"margin-bottom:10px\"><p><strong>b) How does Eliot use exaggeration in the poem?</strong></p><p>Eliot exaggerates by calling a cat a master criminal, by claiming he breaks gravity, and by suggesting he is wanted by international police. Ordinary cat mischief like stealing milk or looting the larder becomes grand crime. The poem is funny because it treats a house cat with the seriousness reserved for dangerous criminals.</p></div>\n<h3 style=\"font-size:1rem;font-weight:600;margin:18px 0 12px\">5. Paragraph type</h3>\n<div style=\"margin-bottom:10px\"><p><strong>How is Macavity presented as a parody of detective story villains?</strong></p><p>Eliot presents Macavity as a parody by using detective story language for a cat. Words like master criminal, Scotland Yard, Flying Squad, alibi, and crime scene belong to serious crime fiction. But Macavity's crimes are ordinary household mischief: stealing milk, looting the larder, breaking greenhouse glass. The poem is funny because it uses grand criminal language for small cat pranks. Macavity is also presented as clever -- he always has an alibi and is never found. This makes him seem like a legendary criminal genius, though he is only a cat.</p></div>"
+        },
+        {
+          "type": "nav",
+          "next": "activities",
+          "nextLabel": "Next: Activities →"
+        }
+      ]
+    },
+    {
+      "id": "activities",
+      "label": "Activities",
+      "blocks": [
+        {
+          "type": "teacher-voice",
+          "html": "<h3 style=\"font-size:1rem;font-weight:600;margin:0 0 10px\">Warm Up</h3>\n<p><strong>a.</strong> Compare qualities of dog, cat, wolf and elephant. Which is most mysterious?</p>\n<p><strong>b.</strong> Have you heard the French proverb: \"The dog may be wonderful prose, but only the cat is poetry\"? What do you think it means?</p>\n<h3 style=\"font-size:1rem;font-weight:600;margin:18px 0 10px\">Summary Answers</h3>\n<p><strong>Key words to remember:</strong> qualities, criminal, detective, desperate, gravity, fakir, sunken, thought, whiskers, devil, respectable, larder, greenhouse, division, alibi, agents.</p>\n<h3 style=\"font-size:1rem;font-weight:600;margin:18px 0 10px\">Important Coverage</h3>\n<p>Poet note, stanza summaries, glossary, sentence answers, paragraph questions, reference questions, figures of speech and practice questions are included.</p>"
+        },
+        {
+          "type": "nav",
+          "practice": true
+        }
+      ]
+    }
+  ]
+}

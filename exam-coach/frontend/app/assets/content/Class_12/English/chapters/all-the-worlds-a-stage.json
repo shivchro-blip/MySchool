@@ -1,0 +1,500 @@
+{
+  "eyebrow": "Unit 3 -- Poem -- Class XII English",
+  "title": "All the World's a Stage",
+  "author": "William Shakespeare",
+  "pills": [
+    "Life Cycle",
+    "Ageing",
+    "Drama",
+    "Life as a Play"
+  ],
+  "tabs": [
+    {
+      "id": "about-poet",
+      "label": "About the Poet",
+      "blocks": [
+        {
+          "type": "teacher-voice",
+          "html": "<p>William Shakespeare was a prolific writer in the Elizabethan and Jacobean ages. He is famous for his plays, sonnets and other poems. The textbook reminds us that his works continue to shape English literature across the world.</p>\n<p>This extract from <em>As You Like It</em> is one of his most quoted speeches. In it, Shakespeare compares the world to a stage and human life to a play with seven ages.</p>"
+        },
+        {
+          "type": "author-stat",
+          "label": "Lived",
+          "value": "1564-1616"
+        },
+        {
+          "type": "author-stat",
+          "label": "Major form",
+          "value": "Plays and poetry"
+        },
+        {
+          "type": "author-stat",
+          "label": "Source play",
+          "value": "As You Like It"
+        },
+        {
+          "type": "think-box",
+          "label": "Why this poem matters",
+          "text": "The poem gives a clear picture of human life from birth to old age. It is both simple and deep, because it turns ordinary stages of life into dramatic scenes."
+        },
+        {
+          "type": "nav",
+          "next": "intro",
+          "nextLabel": "Next: Introduction ->"
+        }
+      ]
+    },
+    {
+      "id": "intro",
+      "label": "Introduction",
+      "blocks": [
+        {
+          "type": "section-head",
+          "text": "Warm Up"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>The warm up shows the life cycle of a butterfly and asks students to think about the stages of human growth from a newborn to an adult. That idea fits the poem perfectly, because Shakespeare also sees life as a series of stages.</p>\n<p>The textbook gives age-group words such as denarian, vicenarian, tricenarian and so on. These help us see that age itself can be thought of as a sequence.</p>"
+        },
+        {
+          "type": "quote-block",
+          "quote": "All the world's a stage, / And all the men and women merely players;",
+          "context": "Opening lines of the poem"
+        },
+        {
+          "type": "think-box",
+          "label": "Before you read",
+          "text": "The poem does not talk only about theatre. It uses theatre to explain life itself."
+        },
+        {
+          "type": "nav",
+          "next": "stanza-by-stanza",
+          "nextLabel": "Next: Stanza by Stanza ->"
+        }
+      ]
+    },
+    {
+      "id": "stanza-by-stanza",
+      "label": "Stanza by Stanza",
+      "blocks": [
+        {
+          "type": "section-head",
+          "text": "Stage 1 -- The infant"
+        },
+        {
+          "type": "quote-block",
+          "quote": "At first the infant,\nMewling and puking in the nurse's arms;",
+          "context": "The first stage of life"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>The infant depends completely on the nurse. It cries and vomits, showing weakness and helplessness. Shakespeare starts with the very beginning of life.</p>"
+        },
+        {
+          "type": "section-head",
+          "text": "Stage 2 -- The school-boy"
+        },
+        {
+          "type": "quote-block",
+          "quote": "Then the whining school-boy, with his satchel\nAnd shining morning face, creeping like snail\nUnwillingly to school.",
+          "context": "The second stage of life"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>The school-boy is unwilling to go to school. His slow movement and unhappy face show that childhood has its own reluctance and routine.</p>"
+        },
+        {
+          "type": "section-head",
+          "text": "Stage 3 -- The lover"
+        },
+        {
+          "type": "quote-block",
+          "quote": "And then the lover,\nSighing like furnace, with a woeful ballad\nMade to his mistress' eyebrow.",
+          "context": "The third stage of life"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>The lover is full of passion and longing. He writes songs and sighs deeply. Shakespeare presents youth as emotional and intense.</p>"
+        },
+        {
+          "type": "section-head",
+          "text": "Stage 4 -- The soldier"
+        },
+        {
+          "type": "quote-block",
+          "quote": "Then a soldier,\nFull of strange oaths, and bearded like the pard,\nJealous in honour, sudden and quick in quarrel,\nSeeking the bubble reputation\nEven in the cannon's mouth.",
+          "context": "The fourth stage of life"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>The soldier is brave, proud and quick to fight. He seeks reputation even in danger. Shakespeare shows the energy and recklessness of this stage.</p>"
+        },
+        {
+          "type": "section-head",
+          "text": "Stage 5 -- The justice"
+        },
+        {
+          "type": "quote-block",
+          "quote": "And then the justice,\nIn fair round belly with good capon lin'd,\nWith eyes severe and beard of formal cut,\nFull of wise saws and modern instances;",
+          "context": "The fifth stage of life"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>The justice is mature, calm and wise. He is respected, fuller-bodied and more measured. Shakespeare links age with judgement and experience.</p>"
+        },
+        {
+          "type": "section-head",
+          "text": "Stage 6 -- The pantaloon"
+        },
+        {
+          "type": "quote-block",
+          "quote": "And then he plays his part. The sixth age shifts\nInto the lean and slipper'd pantaloon,\nWith spectacles on nose and pouch on side;",
+          "context": "The sixth stage of life"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>The old man becomes thin, weak and dependent. He uses spectacles and walks slowly. His voice also begins to fail.</p>"
+        },
+        {
+          "type": "section-head",
+          "text": "Stage 7 -- Second childishness"
+        },
+        {
+          "type": "quote-block",
+          "quote": "Last scene of all,\nThat ends this strange eventful history,\nIs second childishness and mere oblivion;\nSans teeth, sans eyes, sans taste, sans everything.",
+          "context": "The final stage of life"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>The final stage is old age at its weakest. It becomes like childhood again, but this time with loss and oblivion. Shakespeare ends by showing how life completes its own cycle.</p>"
+        },
+        {
+          "type": "think-box",
+          "label": "Big idea",
+          "text": "The poem makes us see life as a journey through seven roles. Each role has its own mood, strength and weakness."
+        },
+        {
+          "type": "nav",
+          "next": "key-lines",
+          "nextLabel": "Next: Key Lines ->"
+        }
+      ]
+    },
+    {
+      "id": "key-lines",
+      "label": "Key Lines",
+      "blocks": [
+        {
+          "type": "teacher-voice",
+          "html": "<p>These lines express the main thought of the poem and should be remembered for revision.</p>"
+        },
+        {
+          "type": "quote-block",
+          "quote": "All the world's a stage, / And all the men and women merely players;",
+          "context": "The central metaphor of life as theatre"
+        },
+        {
+          "type": "quote-block",
+          "quote": "They have their exits and their entrances;",
+          "context": "Birth and death are like entering and leaving a stage"
+        },
+        {
+          "type": "quote-block",
+          "quote": "And one man in his time plays many parts;",
+          "context": "A person changes roles through life"
+        },
+        {
+          "type": "quote-block",
+          "quote": "Seeking the bubble reputation / Even in the cannon's mouth.",
+          "context": "Youth seeks fame even in danger"
+        },
+        {
+          "type": "quote-block",
+          "quote": "Full of wise saws and modern instances;",
+          "context": "Mature age becomes wise and thoughtful"
+        },
+        {
+          "type": "quote-block",
+          "quote": "And his big manly voice, turning again toward childish treble, pipes / And whistles in his sound.",
+          "context": "Old age weakens the voice"
+        },
+        {
+          "type": "quote-block",
+          "quote": "Sans teeth, sans eyes, sans taste, sans everything.",
+          "context": "The final stage of complete dependence"
+        },
+        {
+          "type": "nav",
+          "next": "glossary",
+          "nextLabel": "Next: Glossary ->"
+        }
+      ]
+    },
+    {
+      "id": "glossary",
+      "label": "Glossary",
+      "blocks": [
+        {
+          "type": "teacher-voice",
+          "html": "<p>These glossary meanings are taken from the textbook source and should be kept exactly for revision.</p>"
+        },
+        {
+          "type": "gloss-row",
+          "word": "time",
+          "def": "lifetime",
+          "eg": "And one man in his time plays many parts."
+        },
+        {
+          "type": "gloss-row",
+          "word": "parts",
+          "def": "here, characters",
+          "eg": "Men and women play many parts."
+        },
+        {
+          "type": "gloss-row",
+          "word": "ages",
+          "def": "here, periods of time",
+          "eg": "His acts being seven ages."
+        },
+        {
+          "type": "gloss-row",
+          "word": "mewling",
+          "def": "a small weak noise that a cat makes",
+          "eg": "The infant is mewling."
+        },
+        {
+          "type": "gloss-row",
+          "word": "puking",
+          "def": "vomiting",
+          "eg": "The infant is puking in the nurse's arms."
+        },
+        {
+          "type": "gloss-row",
+          "word": "whining",
+          "def": "expressing unhappiness",
+          "eg": "The school-boy is whining."
+        },
+        {
+          "type": "gloss-row",
+          "word": "creeping",
+          "def": "walking slowly",
+          "eg": "He is creeping like a snail."
+        },
+        {
+          "type": "gloss-row",
+          "word": "satchel",
+          "def": "a shoulder bag",
+          "eg": "The school-boy carries a satchel."
+        },
+        {
+          "type": "gloss-row",
+          "word": "furnace",
+          "def": "place where fire is made",
+          "eg": "The lover sighs like a furnace."
+        },
+        {
+          "type": "gloss-row",
+          "word": "woeful",
+          "def": "unhappy",
+          "eg": "The lover sings a woeful ballad."
+        },
+        {
+          "type": "gloss-row",
+          "word": "oaths",
+          "def": "promises",
+          "eg": "The soldier is full of strange oaths."
+        },
+        {
+          "type": "gloss-row",
+          "word": "pard",
+          "def": "a large cat, such as a leopard",
+          "eg": "The soldier is bearded like the pard."
+        },
+        {
+          "type": "gloss-row",
+          "word": "justice",
+          "def": "here, a judge, someone very respected",
+          "eg": "And then the justice."
+        },
+        {
+          "type": "gloss-row",
+          "word": "saws",
+          "def": "sayings",
+          "eg": "Full of wise saws."
+        },
+        {
+          "type": "gloss-row",
+          "word": "pouch",
+          "def": "a small bag for carrying money",
+          "eg": "With spectacles on nose and pouch on side."
+        },
+        {
+          "type": "gloss-row",
+          "word": "hose",
+          "def": "tights, thin trousers that men wore in Shakespeare's time",
+          "eg": "His youthful hose, well sav'd."
+        },
+        {
+          "type": "gloss-row",
+          "word": "a world too wide",
+          "def": "much too big",
+          "eg": "His youthful hose is a world too wide."
+        },
+        {
+          "type": "gloss-row",
+          "word": "pipes",
+          "def": "a high sound",
+          "eg": "His voice pipes and whistles."
+        },
+        {
+          "type": "gloss-row",
+          "word": "second childishness",
+          "def": "being like a child again",
+          "eg": "The last scene is second childishness."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Sans",
+          "def": "without",
+          "eg": "Sans teeth, sans eyes."
+        },
+        {
+          "type": "nav",
+          "next": "themes",
+          "nextLabel": "Next: Themes and Devices ->"
+        }
+      ]
+    },
+    {
+      "id": "themes",
+      "label": "Themes and Literary Devices",
+      "blocks": [
+        {
+          "type": "section-head",
+          "text": "Theme: Life as theatre"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>Shakespeare compares life to a stage and people to actors. Everyone enters and exits, and everyone plays different roles.</p>"
+        },
+        {
+          "type": "section-head",
+          "text": "Theme: The seven ages of man"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>The poem traces birth, childhood, youth, maturity, old age and second childhood. It shows that life is a movement from dependence to strength and back to dependence again.</p>"
+        },
+        {
+          "type": "section-head",
+          "text": "Theme: Time and decline"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>Time changes everything. Strength fades, the voice weakens and the senses slowly disappear.</p>"
+        },
+        {
+          "type": "section-head",
+          "text": "Literary devices"
+        },
+        {
+          "type": "device-block",
+          "kind": "Extended metaphor",
+          "line": "All the world's a stage",
+          "exp": "The whole poem is built on the metaphor of life as theatre."
+        },
+        {
+          "type": "device-block",
+          "kind": "Simile",
+          "line": "creeping like snail",
+          "exp": "The school-boy is compared to a snail."
+        },
+        {
+          "type": "device-block",
+          "kind": "Simile",
+          "line": "bearded like the pard",
+          "exp": "The soldier is compared to a leopard."
+        },
+        {
+          "type": "device-block",
+          "kind": "Alliteration",
+          "line": "full of strange oaths",
+          "exp": "The repeated starting sound gives musical force."
+        },
+        {
+          "type": "device-block",
+          "kind": "Imagery",
+          "line": "sans teeth, sans eyes, sans taste, sans everything",
+          "exp": "The line creates a vivid picture of total loss in old age."
+        },
+        {
+          "type": "nav",
+          "next": "qa",
+          "nextLabel": "Next: Textbook Q&A ->"
+        }
+      ]
+    },
+    {
+      "id": "qa",
+      "label": "Comprehension Q&A",
+      "blocks": [
+        {
+          "type": "teacher-voice",
+          "html": "<h3 style=\"font-size:1rem;font-weight:600;margin:0 0 10px\">1. Short answers</h3>\n<p><strong>a) What is the world compared to?</strong><br>The world is compared to a stage.</p>\n<p><strong>b) What do the words \"exits\" and \"entrances\" mean?</strong><br>They mean death and birth or leaving and entering the stage of life.</p>\n<p><strong>c) What is the first stage of a human's life?</strong><br>The infant is the first stage.</p>\n<p><strong>d) Describe the second stage of life.</strong><br>It is the whining school-boy stage, where the boy goes unwillingly to school.</p>\n<p><strong>e) How does a man play a lover's role?</strong><br>He sighs, writes ballads and is full of passionate feeling.</p>\n<p><strong>f) Bring out the features of the fourth stage of a man.</strong><br>The soldier is brave, quick in quarrel, full of oaths and eager for reputation.</p>\n<p><strong>g) When does a man become a judge? How?</strong><br>In maturity, when he becomes wise, serious and respected.</p>\n<p><strong>h) Which stage is associated with the \"shrunk shank\"?</strong><br>The sixth stage, the lean and slipper'd pantaloon.</p>\n<p><strong>i) Why is the last stage called second childishness?</strong><br>Because old age makes a person helpless again, like a child.</p>\n\n<h3 style=\"font-size:1rem;font-weight:600;margin:18px 0 10px\">2. Explain briefly</h3>\n<p><strong>a) \"They have their exits and their entrances; And one man in his time plays many parts.\"</strong><br>People enter life at birth and exit at death. During life, each person plays many roles at different ages.</p>\n<p><strong>b) \"Jealous in honour, sudden and quick in quarrel, Seeking the bubble reputation.\"</strong><br>The soldier is proud, easily provoked and eager for fame, even if the fame is short-lived.</p>\n<p><strong>c) \"Is second childishness and mere oblivion; Sans teeth, sans eyes, sans taste, sans everything.\"</strong><br>The final stage is old age, when the person loses strength, senses and memory and becomes completely dependent.</p>\n\n<h3 style=\"font-size:1rem;font-weight:600;margin:18px 0 10px\">3. Figures of speech</h3>\n<p><strong>a) \"All the world's a stage\"</strong><br>Metaphor.</p>\n<p><strong>b) \"And all the men and women merely players\"</strong><br>Metaphor.</p>\n<p><strong>c) \"And shining morning face, creeping like snail\"</strong><br>Simile.</p>\n<p><strong>d) \"Full of strange oaths, and bearded like the pard\"</strong><br>Simile.</p>\n<p><strong>e) \"Seeking the bubble reputation\"</strong><br>Metaphor.</p>\n<p><strong>f) \"His youthful hose, well sav'd, a world too wide\"</strong><br>Hyperbole and imagery.</p>\n<p><strong>g) \"and his big manly voice, turning again toward childish treble\"</strong><br>Imagery and contrast.</p>\n\n<h3 style=\"font-size:1rem;font-weight:600;margin:18px 0 10px\">4. Alliteration</h3>\n<p><strong>a) and all the men and women merely players</strong><br>m sound.</p>\n<p><strong>b) And one man in his time plays many parts</strong><br>m sound.</p>\n<p><strong>c) Jealous in honour, sudden and quick in quarrel</strong><br>q sound.</p>\n\n<h3 style=\"font-size:1rem;font-weight:600;margin:18px 0 10px\">5. Reference extracts</h3>\n<p><strong>School-boy extract</strong> - The boy is unwilling to go to school, creeps like a snail and carries a satchel. He is slow, reluctant and very young.</p>\n<p><strong>Soldier extract</strong> - The soldier is full of strange oaths, quick in quarrel and eager for reputation. He is brave but reckless.</p>\n<p><strong>Justice extract</strong> - The justice is round-bellied, severe-eyed and wise. He speaks with knowledge and authority.</p>"
+        },
+        {
+          "type": "nav",
+          "next": "activities",
+          "nextLabel": "Next: Activities ->"
+        }
+      ]
+    },
+    {
+      "id": "activities",
+      "label": "Activities",
+      "blocks": [
+        {
+          "type": "section-head",
+          "text": "Summary activity"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p><strong>Completed summary:</strong> Shakespeare views the whole world as a stage where men and women are merely players. They enter the stage when they are born and leave it when they die. A man plays seven roles during his lifetime. As an infant, he depends fully on his mother or nurse. Then he becomes a school-boy, unwilling to go to school. Next he plays the lover who sighs for his beloved. In the fourth stage, he becomes a soldier who seeks reputation. In the fifth, he turns into a judge with wisdom and experience. During the sixth stage, he becomes old, weak and dependent. In the last stage, he becomes like a child again and loses his senses. Thus, life is a journey from helplessness to maturity and back to helplessness.</p>"
+        },
+        {
+          "type": "section-head",
+          "text": "Reference and RTC"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>The textbook asks students to explain lines about the school-boy, the soldier and the justice, and to answer questions about the world, exits, entrances, figure of speech and alliteration. These answers are already summarized in the Q&A tab.</p>"
+        },
+        {
+          "type": "section-head",
+          "text": "Speaking"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>The speaking task asks students to discuss the roles and responsibilities of the second stage of life. It is a chance to talk about learning, discipline and growth.</p>"
+        },
+        {
+          "type": "section-head",
+          "text": "Parallel Reading"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>The parallel reading section includes <em>On the Life of Man</em> and <em>The World Is Too Much with Us</em>. The fill-in-the-blanks activity asks students to compare Shakespeare's view of life with other poetic visions of human existence and nature.</p>\n<p><strong>Visible lines from the source:</strong> \"What is our life? A play of passion\" and \"The world is too much with us; late and soon\".</p>"
+        },
+        {
+          "type": "think-box",
+          "label": "Exam tip",
+          "text": "For this poem, remember the seven stages, the central metaphor of the stage, and the key phrases for each age."
+        },
+        {
+          "type": "nav",
+          "practice": true
+        }
+      ]
+    }
+  ]
+}

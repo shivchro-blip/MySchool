@@ -1,0 +1,386 @@
+{
+  "eyebrow": "Unit 4 -- Prose -- Class XII General English",
+  "title": "The Summit",
+  "author": "Edmund Hillary",
+  "pills": [
+    "Everest",
+    "Teamwork",
+    "Adventure",
+    "Determination"
+  ],
+  "tabs": [
+    {
+      "id": "author",
+      "label": "About the Author",
+      "blocks": [
+        {
+          "type": "teacher-voice",
+          "html": "<p>Sir Edmund Percival Hillary was a New Zealand mountaineer, explorer and philanthropist. The textbook gives his life span as 20 July 1919 to 11 January 2008. He served in the Royal New Zealand Air Force as a navigator during the Second World War, and he is remembered above all for reaching the summit of Mount Everest with Tenzing Norgay.</p><p>After the Everest ascent, Hillary devoted himself to helping the Sherpa people of Nepal through the Himalayan Trust. The textbook names <em>High Adventure</em>, <em>No Latitude for Error</em>, <em>Nothing Venture, Nothing Win</em>, and <em>View from the Summit: The Remarkable Memoir by the First Person to Conquer Everest</em> as some of his famous works.</p>"
+        },
+        {
+          "type": "author-stat",
+          "label": "Full name",
+          "value": "Sir Edmund Percival Hillary"
+        },
+        {
+          "type": "author-stat",
+          "label": "Lived",
+          "value": "20 July 1919 -- 11 January 2008"
+        },
+        {
+          "type": "author-stat",
+          "label": "Known for",
+          "value": "Reaching the summit of Everest with Tenzing Norgay"
+        },
+        {
+          "type": "think-box",
+          "label": "Why this matters for this text",
+          "text": "This lesson is not a detached report about mountaineering. It is Hillary’s own account of danger, decision, faith in a partner and disciplined effort. Knowing that he later served the Sherpa people helps us read the lesson as a story of comradeship, not personal glory alone."
+        },
+        {
+          "type": "nav",
+          "next": "intro",
+          "nextLabel": "Next: Introduction ->"
+        }
+      ]
+    },
+    {
+      "id": "intro",
+      "label": "Introduction",
+      "blocks": [
+        {
+          "type": "section-head",
+          "text": "Warm Up"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>Let us begin with a simple question. Why would anyone risk cold, exhaustion and death just to stand on the top of a mountain? The warm up asks us to choose qualities needed for such a feat: passion, determination, physical fitness, faith, courage, inspiration, undying spirit and perseverance.</p><p>The textbook says this prose unit is a slightly adapted excerpt from <em>The Ascent of Everest</em> by John Hunt, and that Sir Edmund Hillary’s own words tell how the summit of Everest was reached. The lesson begins on 28 May, when six men were at Camp 8 on the South Col: Edmund Hillary, Tenzing, George Lowe, Alfred Gregory, and the Sherpas Pemba and Ang Nyima. Pemba was too ill to climb, and finally Hillary and Tenzing prepared for the last ascent.</p>"
+        },
+        {
+          "type": "quote-block",
+          "quote": "There are “Everests” to be climbed in our everyday life.",
+          "context": "The textbook turns the mountain climb into a life lesson."
+        },
+        {
+          "type": "think-box",
+          "label": "Before you read",
+          "text": "Read the lesson as a sequence of decisions. At every stage Hillary and Tenzing survive because they prepare carefully, share work and continue even when the snow, oxygen and time are against them."
+        },
+        {
+          "type": "nav",
+          "back": "author",
+          "next": "text-explained",
+          "nextLabel": "Next: The Text Explained ->"
+        }
+      ]
+    },
+    {
+      "id": "text-explained",
+      "label": "The Text Explained",
+      "blocks": [
+        {
+          "type": "section-head",
+          "text": "Phase 1 -- The final camp and preparation"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>On May 28, Hillary and Tenzing put up a little tent at 27,900 feet and watched their companions descend towards the South Col. As the sun set, they crawled into the tent, put on all their warm clothing and got into their sleeping bags. At 4 a.m. on May 29, they began preparing for the climb.</p><p>Hillary describes very practical preparation. They started the cooker, drank lemon juice and sugar, ate sardines on biscuits, cleaned and tested the oxygen sets, softened frozen boots over the flame of the Primus and wore layers of protective clothing and gloves. This matters because the conquest of Everest begins not with drama, but with discipline.</p>"
+        },
+        {
+          "type": "quote-block",
+          "quote": "We started up our cooker and drank large quantities of lemon juice and sugar, and followed this with our last tin of sardines on biscuits.",
+          "context": "Hillary records the simple but vital preparation before the ascent."
+        },
+        {
+          "type": "think-box",
+          "label": "Notice this",
+          "text": "For exam answers, mention the boots, oxygen sets, food and gloves. These details prove that preparation was essential."
+        },
+        {
+          "type": "section-head",
+          "text": "Phase 2 -- From the tent to the South Peak"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>At 6.30 a.m. Hillary and Tenzing crawled into the snow carrying thirty pounds of oxygen gear. Tenzing first kicked steps towards the ridge. When Hillary’s feet became warm, he took the lead. The ridge narrowed into a knife-edge, and soft snow made the route dangerous because it sometimes held their weight and sometimes gave way suddenly.</p><p>They found two oxygen bottles left by Evans and Bourdillon in a tiny hollow. Hillary scraped ice off the gauges and was relieved to find several hundred litres of oxygen. This oxygen was important because it was enough to help them descend to the South Col if used sparingly.</p>"
+        },
+        {
+          "type": "quote-block",
+          "quote": "The soft snow made a route on top of the ridge both difficult and dangerous, which sometimes held my weight but often gave way suddenly.",
+          "context": "The main danger in the early climb."
+        },
+        {
+          "type": "section-head",
+          "text": "Phase 3 -- Cutting steps and crossing the cornices"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>After reaching firmer snow, Hillary felt his hopes rise. The snow was crystalline and firm, and the ice-axe produced usable steps. They moved one at a time. Hillary cut a forty-foot line of steps while Tenzing belayed him, then Tenzing moved up under protection. This shows the trust between the two climbers.</p><p>Large overhanging ice cornices made the climb more dangerous. Hillary cut steps down towards the rocks to escape them. He then faced a narrow crack between a cornice and rock. He jammed himself into the crack, used his crampons, knees, shoulders and arms, and slowly moved backwards up it. When he reached a ledge, he pulled Tenzing up with the rope.</p>"
+        },
+        {
+          "type": "quote-block",
+          "quote": "For a few moments I lay regaining my breath, and for the first time really felt the fierce determination that nothing now could stop us reaching the top.",
+          "context": "A turning point after Hillary climbs the difficult crack."
+        },
+        {
+          "type": "think-box",
+          "label": "Notice this",
+          "text": "The crack scene is a key exam moment. It shows physical strength, technical skill, trust and determination."
+        },
+        {
+          "type": "section-head",
+          "text": "Phase 4 -- The summit"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>The ridge seemed never-ending. Hillary says their original zest had gone and the climb had become a grim struggle. Then the ridge dropped away and a narrow snow ridge led to the summit. A few more blows of the ice-axe in firm snow, and they stood on the top.</p><p>Hillary’s first feeling was relief. There were no more steps to cut, no more ridges to traverse and no more humps to deceive them with hopes of success. Tenzing’s grin of delight was visible even behind helmet, goggles and oxygen mask. They shook hands, embraced and thumped each other on the back. It was 11.30 a.m.; the ridge had taken two and a half hours, but it seemed like a lifetime.</p>"
+        },
+        {
+          "type": "quote-block",
+          "quote": "A few more whacks of the ice-axe in the firm snow and we stood on top.",
+          "context": "The moment of reaching the summit."
+        },
+        {
+          "type": "quote-block",
+          "quote": "The ridge had taken us two and a half hours, but it seemed like a lifetime.",
+          "context": "The emotional weight of the final climb."
+        },
+        {
+          "type": "section-head",
+          "text": "Phase 5 -- The view, offerings and descent"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>From the top, Hillary saw Makalu to the east, Kanchenjunga across the clouds and the unexplored ranges of Nepal to the west. He took an important photograph down the North Ridge, showing the North Col and the old route made famous by climbers of the 1920s and 1930s. After ten minutes he became clumsy-fingered and slow-moving, so he replaced his oxygen set.</p><p>Tenzing made a little hole in the snow and placed food as a token gift to the gods believed by devout Buddhists to live on the summit. Hillary placed a crucifix beside Tenzing’s gifts. Then they descended carefully, driven by the urgency of diminishing oxygen. George Lowe and Wilfrid Noyce met them with hot soup and emergency oxygen. Hillary’s oxygen ran out just before the tent.</p>"
+        },
+        {
+          "type": "quote-block",
+          "quote": "We had had enough to do the job, but by no means too much.",
+          "context": "Hillary explains how narrow their oxygen margin was."
+        },
+        {
+          "type": "section-head",
+          "text": "Phase 6 -- The larger meaning"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>John Hunt called it an unforgettable day. The textbook stresses that the ascent of Everest is a story of comradeship and teamwork, formed through dangers and difficulties. Then it expands the lesson beyond mountaineering: not all adventures are found on mountains. There are Everests in everyday life too.</p><p>The final lesson is that selflessness, resolve and a higher spirit can help human beings reach heights that once seemed impossible.</p>"
+        },
+        {
+          "type": "quote-block",
+          "quote": "Given the selflessness and resolve which enabled men to climb Everest, there is no height, no depth, that the spirit of man, guided by a higher Spirit, cannot attain.",
+          "context": "The moral conclusion of the prose lesson."
+        },
+        {
+          "type": "nav",
+          "next": "key-lines",
+          "nextLabel": "Next: Key Lines ->"
+        }
+      ]
+    },
+    {
+      "id": "key-lines",
+      "label": "Key Lines",
+      "blocks": [
+        {
+          "type": "quote-block",
+          "quote": "The soft snow made a route on top of the ridge both difficult and dangerous, which sometimes held my weight but often gave way suddenly.",
+          "context": "Shows the danger of the climb."
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>This line is important for questions about hardship. It explains why the climbers had to be cautious and why soft snow was a serious threat.</p>"
+        },
+        {
+          "type": "quote-block",
+          "quote": "The snow was crystalline and firm.",
+          "context": "Shows why Hillary’s hope rose again."
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>The word <em>firm</em> matters because it contrasts with the earlier soft snow. Firm snow allowed the ice-axe to make safe steps.</p>"
+        },
+        {
+          "type": "quote-block",
+          "quote": "For the first time really felt the fierce determination that nothing now could stop us reaching the top.",
+          "context": "Shows determination after a difficult obstacle."
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>This line is likely to support a character or theme answer. It shows that success depends on mental strength as much as physical skill.</p>"
+        },
+        {
+          "type": "quote-block",
+          "quote": "A few more whacks of the ice-axe in the firm snow and we stood on top.",
+          "context": "The summit moment."
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>This is the central achievement of the lesson. The simplicity of the sentence makes the moment powerful.</p>"
+        },
+        {
+          "type": "quote-block",
+          "quote": "The ridge had taken us two and a half hours, but it seemed like a lifetime.",
+          "context": "Shows exhaustion and emotional intensity."
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>This line may be used to explain the difficulty of the final ridge. The phrase <em>like a lifetime</em> shows how long and intense the struggle felt.</p>"
+        },
+        {
+          "type": "quote-block",
+          "quote": "We had had enough to do the job, but by no means too much.",
+          "context": "Shows the narrow oxygen margin."
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>This line proves that the success was exact and dangerous. They had enough oxygen to complete the work, but no comfortable surplus.</p>"
+        },
+        {
+          "type": "quote-block",
+          "quote": "There are “Everests” to be climbed in our everyday life.",
+          "context": "The life lesson of the prose."
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>The mountain becomes a symbol. The line tells students that ordinary life also has difficult goals that require courage and perseverance.</p>"
+        },
+        {
+          "type": "nav",
+          "next": "glossary",
+          "nextLabel": "Next: Glossary ->"
+        }
+      ]
+    },
+    {
+      "id": "glossary",
+      "label": "Glossary",
+      "blocks": [
+        {
+          "type": "section-head",
+          "text": "Textbook Glossary"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p><strong>lb</strong> means pound, a unit for measuring weight, equal to 0.454 of a kilogram. <strong>rope</strong> links members of a climbing party for safety; a party may be referred to as “a rope”. <strong>cornice</strong> means an overhanging mass of snow or ice along a ridge, shaped like the curling crest of a wave. <strong>cwm</strong> means an enclosed arm-chair-shaped hollow situated at the head of a valley.</p><p><strong>scrambling</strong> means climbing hurriedly on hands and knees. <strong>wriggle</strong> means to move with a twist or turn. <strong>traverse</strong> means to cross a mountain slope horizontally or diagonally; the name is also given to such a crossing. <strong>tantalize</strong> means tease or taunt. <strong>cramponed</strong> means climbing on ice wearing spike shoes.</p>"
+        },
+        {
+          "type": "think-box",
+          "label": "Vocabulary tip",
+          "text": "Most glossary words are mountaineering words. Connect each word to the action in the climb: rope for safety, cornice for danger, traverse for movement, crampons for grip."
+        },
+        {
+          "type": "nav",
+          "next": "themes",
+          "nextLabel": "Next: Themes & Devices ->"
+        }
+      ]
+    },
+    {
+      "id": "themes",
+      "label": "Themes & Devices",
+      "blocks": [
+        {
+          "type": "section-head",
+          "text": "Teamwork and comradeship"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>The climb succeeds because Hillary and Tenzing work as a team. They change leads, belay one another, share danger and celebrate together. The textbook later says the ascent is a story of comradeship and teamwork formed through dangers and difficulties.</p>"
+        },
+        {
+          "type": "section-head",
+          "text": "Perseverance under danger"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>The lesson repeatedly shows physical danger: soft snow gives way, cornices overhang the ridge, oxygen diminishes and the ridge seems endless. Hillary’s determination after reaching the ledge shows that perseverance is the central human quality behind the achievement.</p>"
+        },
+        {
+          "type": "section-head",
+          "text": "Adventure as a symbol of life"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>The final paragraph turns Everest into a symbol. The textbook says there are “Everests” in everyday life. Students can use this idea in paragraph answers: the lesson is about mountain climbing, but its message is about facing any difficult goal with selflessness and resolve.</p>"
+        },
+        {
+          "type": "section-head",
+          "text": "Figures and language"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>The lesson uses simile when Tenzing collapses “like a giant fish when it has just been hauled from the sea after a terrible struggle.” It uses symbolic language when “Everests” refers to life’s difficult challenges. The narrative style is factual, first-person and sequential, which makes the achievement believable.</p>"
+        },
+        {
+          "type": "nav",
+          "next": "qa",
+          "nextLabel": "Next: Textbook Q&A ->"
+        }
+      ]
+    },
+    {
+      "id": "qa",
+      "label": "Textbook Q&A",
+      "blocks": [
+        {
+          "type": "section-head",
+          "text": "Answer in one or two sentences"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p><strong>a) What did Hillary do with his wet boots?</strong> Hillary’s boots had become wet and frozen solid. He cooked them over the fierce flame of the Primus and softened them.</p><p><strong>b) Name an equipment and a tool carried by the climbers during their expedition.</strong> The climbers carried oxygen apparatus as equipment and an ice-axe as a tool.</p><p><strong>c) Why did Hillary become clumsy-fingered and slow-moving?</strong> After spending ten minutes on the summit, Hillary became clumsy-fingered and slow-moving because he needed oxygen. He quickly replaced his oxygen set.</p><p><strong>d) What did Hillary find in a tiny hollow?</strong> Hillary found two oxygen bottles left on the earlier attempt by Evans and Bourdillon.</p><p><strong>e) When did Hillary feel a sense of freedom and well being?</strong> He felt a sense of freedom and well-being when his oxygen apparatus became lighter after the partly-full bottle was exhausted and removed.</p><p><strong>f) What did Hillary mean by saying “We had had enough to do the job, but by no means too much”?</strong> He meant that they had just enough oxygen to complete the ascent and return, but there was no comfortable surplus.</p>"
+        },
+        {
+          "type": "section-head",
+          "text": "Answer in two or three sentences"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p><strong>a) How did the mountaineers belay?</strong> Hillary cut a forty-foot line of steps while Tenzing belayed him. Then Hillary sank his shaft, looped the rope around it, and Tenzing moved up protected against a breaking step.</p><p><strong>b) Why was the original zest fading away?</strong> The ridge seemed never-ending and time was passing. Their climb changed from excitement into a grim struggle.</p><p><strong>c) What did Edmund Hillary do to escape the large overhanging ice cornices?</strong> He cut a line of steps down to where the snow met the rocks on the west. This helped them avoid the dangerous overhanging cornices.</p><p><strong>d) What did Tenzing and Edmund Hillary gift to the Gods of lofty Summit? How did they do it?</strong> Tenzing placed chocolate, biscuits and lollies in a little hole in the snow as offerings to the gods. Hillary placed a small crucifix beside Tenzing’s gifts.</p><p><strong>e) What did the photograph portray?</strong> The photograph showed the North Ridge, the North Col and the old route made famous by climbers of the 1920s and 1930s.</p><p><strong>f) The soft snow was difficult and dangerous. Why?</strong> The soft snow sometimes held Hillary’s weight but often gave way suddenly. This made the route unsafe and exhausting.</p><p><strong>g) How did the firm snow at the higher regions fill them with hope?</strong> The firm crystalline snow allowed the ice-axe to cut strong steps. It gave Hillary a solid belay and renewed hope.</p>"
+        },
+        {
+          "type": "section-head",
+          "text": "Paragraph answers"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p><strong>How did Hillary and Tenzing prepare themselves before they set off to the summit?</strong> Hillary and Tenzing prepared carefully before setting off. They started the cooker, drank large quantities of lemon juice and sugar, and ate their last tin of sardines on biscuits. Hillary dragged the oxygen sets into the tent, cleaned ice from them, and rechecked and tested them. His boots had become wet and frozen, so he softened them over the fierce flame of the Primus. Over their down clothing they wore windproof clothing and pulled on three pairs of gloves: silk, woollen and windproof. Their preparation shows that discipline and attention to detail were essential for success.</p><p><strong>Describe the feelings of Edmund Hillary and Tenzing as they reached the top of the Summit.</strong> When Hillary and Tenzing reached the summit, Hillary first felt relief. He was relieved that there were no more steps to cut, no more ridges to traverse and no more humps to raise false hopes. Tenzing’s face was hidden by his helmet, goggles and oxygen mask, but his grin of delight could not be disguised. They shook hands, Tenzing threw his arm around Hillary’s shoulders, and they thumped each other on the back until they were almost breathless. Their joy came from shared danger, effort and success.</p>"
+        },
+        {
+          "type": "nav",
+          "next": "activities",
+          "nextLabel": "Next: Activities ->"
+        }
+      ]
+    },
+    {
+      "id": "activities",
+      "label": "Activities",
+      "blocks": [
+        {
+          "type": "section-head",
+          "text": "Vocabulary and activities from the textbook"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>The vocabulary section includes idioms such as <em>wait for the dust to settle</em>, <em>get/have all your ducks in a row</em>, <em>fetch and carry</em>, <em>do the math</em>, and <em>round the corner</em>. It also introduces <em>the icing on the cake</em> and <em>break the ice</em>. The phrasal verbs include <em>turn on</em>, <em>took over</em>, <em>set off</em> and <em>put off</em>, and travel phrasal verbs such as <em>see off</em>, <em>stop over</em>, <em>get in</em>, <em>get off</em>, <em>get on</em>, <em>get away</em>, <em>check in</em> and <em>check out</em>.</p><p>The compound words chosen from the text are <em>ice-fall</em>, <em>knife-edge</em>, <em>wind-proof</em>, <em>sleeping-bags</em>, <em>half-way</em>, <em>never-ending</em>, <em>partly-full</em> and <em>ice-axe</em>. The semantic network activity asks students to classify snow-board, snow-mobile, snow-chains, snow-storm, snow-bird and snow-belt under fields such as Machinery, Sports, Transportation, Geography, Weather and Travel.</p>"
+        },
+        {
+          "type": "section-head",
+          "text": "Grammar and writing"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>The grammar section revises simple, complex and compound sentences. A simple sentence has one finite verb and one independent clause. A complex sentence has one main clause and one or more subordinate clauses. A compound sentence has two main clauses connected by a conjunction. The unit also revises conditional clauses of Type I, Type II and Type III.</p><p>The writing section covers summarizing and interpreting non-verbal presentation. Students are asked to make notes from the Sherpa reading passage and summarize it, and to interpret a map connected with Mount Everest.</p>"
+        },
+        {
+          "type": "nav",
+          "back": "qa",
+          "practice": true,
+          "practiceLabel": "Practice Questions ->"
+        }
+      ]
+    }
+  ]
+}

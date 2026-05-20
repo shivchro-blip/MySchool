@@ -1,0 +1,497 @@
+export default {
+  "meta": {
+    "subject": "General English -- Class XII",
+    "unit": "Unit 5 -- The Chair",
+    "time": "3.00 hrs",
+    "totalMarks": 90,
+    "instructions": "Tamil Nadu State Board -- Answer all questions"
+  },
+  "parts": [
+    {
+      "id": "p1",
+      "navLabel": "Part I -- MCQ (20 x 1)",
+      "title": "Part I -- Objective Type",
+      "type": "mcq",
+      "scoreMax": 20,
+      "marksPer": 1,
+      "sections": [
+        {
+          "label": "Author, glossary and story",
+          "questions": [
+            {
+              "id": "q1",
+              "html": "The short story <em>The Chair</em> was written by:",
+              "options": [
+                "a) Ray Bradbury",
+                "b) Ki. Rajanarayanan",
+                "c) Carl Sandburg",
+                "d) A.G. Gardiner"
+              ],
+              "answer": 1,
+              "hint": "The textbook gives the author as Ki. Rajanarayanan."
+            },
+            {
+              "id": "q2",
+              "html": "The original title of <em>The Chair</em> is:",
+              "options": [
+                "a) Naarkaali",
+                "b) Gopalla Grammam",
+                "c) Karisal Kaadu",
+                "d) Nattuppura Kadhai"
+              ],
+              "answer": 0,
+              "hint": "The textbook says the original title is Naarkaali."
+            },
+            {
+              "id": "q3",
+              "html": "What was put on the family agenda?",
+              "options": [
+                "a) buying a cow",
+                "b) making a chair",
+                "c) visiting Maamanaar",
+                "d) selling the stool"
+              ],
+              "answer": 1,
+              "hint": "The family decided that a chair would be made for the home."
+            },
+            {
+              "id": "q4",
+              "html": "Who fell from the three-legged stool?",
+              "options": [
+                "a) Pedanna",
+                "b) Maamanaar",
+                "c) the sub-judge",
+                "d) the carpenter"
+              ],
+              "answer": 2,
+              "hint": "The portly sub-judge fell from the stool."
+            },
+            {
+              "id": "q5",
+              "html": "The family?s stool was mainly used by Paati to:",
+              "options": [
+                "a) churn curd",
+                "b) write letters",
+                "c) prepare betel leaves",
+                "d) light a lamp"
+              ],
+              "answer": 0,
+              "hint": "Paati sat on it to churn curd."
+            },
+            {
+              "id": "q6",
+              "html": "Pedanna suggested that they could:",
+              "options": [
+                "a) borrow a chair from the temple",
+                "b) buy a chair from the town",
+                "c) sell the stool",
+                "d) stop receiving guests"
+              ],
+              "answer": 1,
+              "hint": "Pedanna suggested buying one from the town."
+            },
+            {
+              "id": "q7",
+              "html": "Maamanaar suggested which wood for the chair?",
+              "options": [
+                "a) teak",
+                "b) neem",
+                "c) sandalwood",
+                "d) bamboo"
+              ],
+              "answer": 1,
+              "hint": "Maamanaar said neem was best."
+            },
+            {
+              "id": "q8",
+              "html": "Grandmother said which wood was best?",
+              "options": [
+                "a) teak",
+                "b) poovarasu",
+                "c) neem",
+                "d) palmyra"
+              ],
+              "answer": 0,
+              "hint": "Grandmother said teak was the best."
+            },
+            {
+              "id": "q9",
+              "html": "Pedanna said poovarasu wood was good because it was:",
+              "options": [
+                "a) soft and cheap",
+                "b) fine-grained, glossy and strong",
+                "c) dark and heavy",
+                "d) sacred"
+              ],
+              "answer": 1,
+              "hint": "He praises its grain, gloss and strength."
+            },
+            {
+              "id": "q10",
+              "html": "The two chairs were compared to:",
+              "options": [
+                "a) Rama-Lakshmana",
+                "b) Krishna-Arjuna",
+                "c) Laurel-Hardy",
+                "d) sun-moon"
+              ],
+              "answer": 0,
+              "hint": "The narrator says they were like Rama-Lakshmana."
+            },
+            {
+              "id": "q11",
+              "html": "Why did villagers first take the family?s chair at night?",
+              "options": [
+                "a) for a wedding",
+                "b) for a school function",
+                "c) because an important person had died",
+                "d) to repair it"
+              ],
+              "answer": 2,
+              "hint": "They needed it after an important person died."
+            },
+            {
+              "id": "q12",
+              "html": "After the chair was used at a funeral, the children:",
+              "options": [
+                "a) fought more for it",
+                "b) were scared even to look at it",
+                "c) painted it",
+                "d) sold it"
+              ],
+              "answer": 1,
+              "hint": "The children became afraid of the chair."
+            },
+            {
+              "id": "q13",
+              "html": "Who helped the children finally sit on the chair without fear?",
+              "options": [
+                "a) Athai",
+                "b) Suganthi?s baby brother",
+                "c) the carpenter",
+                "d) the sub-judge"
+              ],
+              "answer": 1,
+              "hint": "Suganthi placed her baby brother on the chair."
+            },
+            {
+              "id": "q14",
+              "html": "Pedanna sent the funeral visitors to:",
+              "options": [
+                "a) the carpenter?s village",
+                "b) Maamanaar?s house",
+                "c) the town",
+                "d) the temple"
+              ],
+              "answer": 1,
+              "hint": "He told them the chair was at Maamanaar?s house."
+            },
+            {
+              "id": "q15",
+              "html": "At the end, Maamanaar was sitting:",
+              "options": [
+                "a) on the floor",
+                "b) on the chair",
+                "c) on the stool",
+                "d) in the garden"
+              ],
+              "answer": 0,
+              "hint": "The narrator finds him sitting on the floor."
+            },
+            {
+              "id": "q16",
+              "html": "The glossary meaning of <em>portly</em> is:",
+              "options": [
+                "a) weak",
+                "b) stocky",
+                "c) sleepy",
+                "d) angry"
+              ],
+              "answer": 1,
+              "hint": "Portly means stocky."
+            },
+            {
+              "id": "q17",
+              "html": "The glossary meaning of <em>impudent</em> is:",
+              "options": [
+                "a) respectful",
+                "b) disrespectful",
+                "c) silent",
+                "d) generous"
+              ],
+              "answer": 1,
+              "hint": "Impudent means disrespectful."
+            },
+            {
+              "id": "q18",
+              "html": "The glossary meaning of <em>bereavement</em> is:",
+              "options": [
+                "a) mourning, grief",
+                "b) celebration",
+                "c) splendour",
+                "d) speed"
+              ],
+              "answer": 0,
+              "hint": "Bereavement means mourning or grief."
+            },
+            {
+              "id": "q19",
+              "html": "The phrase <em>spread like fire</em> is an example of:",
+              "options": [
+                "a) simile",
+                "b) apostrophe",
+                "c) hyperbole only",
+                "d) pun"
+              ],
+              "answer": 0,
+              "hint": "It compares the spread of news to fire using like."
+            },
+            {
+              "id": "q20",
+              "html": "The ending of the story is mainly:",
+              "options": [
+                "a) tragic",
+                "b) heroic",
+                "c) humorous and ironic",
+                "d) supernatural"
+              ],
+              "answer": 2,
+              "hint": "Maamanaar calmly turns the joke back on the family."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "navLabel": "Part II -- RTC (2 x 7)",
+      "title": "Part II -- Reference to Context",
+      "type": "reference",
+      "scoreMax": 14,
+      "marksPer": 2,
+      "instruction": "Answer any 7 of the following 10 questions. Read the extract carefully and answer in one or two sentences.",
+      "questions": [
+        {
+          "verse": "A house without a chair?",
+          "subs": [
+            {
+              "q": "(a) What does this question refer to?",
+              "a": "It refers to the family?s sudden realization that their house has no chair."
+            },
+            {
+              "q": "(b) Why does it become important?",
+              "a": "It becomes important after a visitor falls from their small stool."
+            }
+          ]
+        },
+        {
+          "verse": "Poor thing?just as we were about to caution the sub-judge, he fell down with a thud and rolled over.",
+          "subs": [
+            {
+              "q": "(a) Why did the sub-judge fall?",
+              "a": "He sat on the three-legged stool without placing his weight exactly above its legs."
+            },
+            {
+              "q": "(b) What effect did this incident have?",
+              "a": "It made the family decide that a chair should be made for the house."
+            }
+          ]
+        },
+        {
+          "verse": "The one practical difficulty in getting it made was that there wasn?t a single chair in our village to show as a model.",
+          "subs": [
+            {
+              "q": "(a) What was being made?",
+              "a": "A chair was being made for the family."
+            },
+            {
+              "q": "(b) What does this line show about the village?",
+              "a": "It shows that chairs were unfamiliar and uncommon in that village."
+            }
+          ]
+        },
+        {
+          "verse": "Anna would say with an impudent smile.",
+          "subs": [
+            {
+              "q": "(a) What does impudent mean?",
+              "a": "Impudent means disrespectful."
+            },
+            {
+              "q": "(b) Who was being teased?",
+              "a": "Maamanaar was being teased by Anna."
+            }
+          ]
+        },
+        {
+          "verse": "If you looked at one, you didn?t need to see the other?they were like Rama-Lakshmana.",
+          "subs": [
+            {
+              "q": "(a) What is being compared?",
+              "a": "The two newly made chairs are being compared."
+            },
+            {
+              "q": "(b) Why is the comparison used?",
+              "a": "It shows that the chairs were almost identical."
+            }
+          ]
+        },
+        {
+          "verse": "The news of the arrival of our chair spread like fire around the village.",
+          "subs": [
+            {
+              "q": "(a) Name the figure of speech.",
+              "a": "The figure of speech is simile."
+            },
+            {
+              "q": "(b) What does the line mean?",
+              "a": "It means the news spread very quickly through the village."
+            }
+          ]
+        },
+        {
+          "verse": "It was on our chair that they had propped up the eminent person!",
+          "subs": [
+            {
+              "q": "(a) Who was the eminent person?",
+              "a": "The eminent person was a dead important person in the village."
+            },
+            {
+              "q": "(b) Why is this moment important?",
+              "a": "It changes the chair?s role from family furniture to funeral furniture."
+            }
+          ]
+        },
+        {
+          "verse": "Good chair we made. For the corpses of our village to sit on. Tchai!",
+          "subs": [
+            {
+              "q": "(a) Who says this in frustration?",
+              "a": "Anna says this in frustration."
+            },
+            {
+              "q": "(b) What does it reveal?",
+              "a": "It reveals the family?s irritation that their chair is repeatedly borrowed for funerals."
+            }
+          ]
+        },
+        {
+          "verse": "Chair only, no? It?s in our Maamanaar?s house. Go and ask him, he will give it.",
+          "subs": [
+            {
+              "q": "(a) Who says this?",
+              "a": "Pedanna says this to the people who come for the chair."
+            },
+            {
+              "q": "(b) What is his intention?",
+              "a": "He wants to shift the trouble of lending the chair to Maamanaar."
+            }
+          ]
+        },
+        {
+          "verse": "I asked them to keep the chair for that purpose alone. Anyway, you need one for that too, no?",
+          "subs": [
+            {
+              "q": "(a) Who says this?",
+              "a": "Maamanaar says this to the narrator."
+            },
+            {
+              "q": "(b) Why is this a humorous ending?",
+              "a": "Maamanaar calmly turns Pedanna?s trick back on the narrator?s family."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "navLabel": "Part III -- Paragraph (3 x 7)",
+      "title": "Part III -- Short Essay / Paragraph Questions",
+      "type": "short-essay",
+      "scoreMax": 21,
+      "marksPer": 3,
+      "instruction": "Answer any 7 of the following 10 questions in two or three sentences. (Approx. 30-40 words per answer)",
+      "questions": [
+        {
+          "q": "What caused the family to decide that they needed a chair?",
+          "ans": "A portly sub-judge visited the house and was made to sit on a small three-legged stool. He fell down with a thud, making the family feel that a proper chair was necessary."
+        },
+        {
+          "q": "Describe the stool in the narrator?s house.",
+          "ans": "The stool had three legs and was only about three-fourth of a foot high. Paati used it to churn curd, but it toppled if weight was not placed exactly over its legs."
+        },
+        {
+          "q": "Why was it difficult to make a chair in the village?",
+          "ans": "There was no chair in the village to show as a model. There was also no carpenter in the village who knew how to make one."
+        },
+        {
+          "q": "How does the story present Maamanaar?",
+          "ans": "Maamanaar is shown as thrifty, patient and humorous. He enjoys the family?s buttermilk, carefully keeps his possessions, and finally outwits Pedanna calmly."
+        },
+        {
+          "q": "How did the villagers react to the new chair?",
+          "ans": "The news of the chair spread quickly through the village. Children and adults came in crowds to see it, and some even stroked it."
+        },
+        {
+          "q": "Why did the children fear the chair?",
+          "ans": "They feared the chair after it was used to prop up a corpse at a funeral. Even after it was washed, they did not want to sit on it."
+        },
+        {
+          "q": "How was the chair brought back into use?",
+          "ans": "A guest and then a local elder sat on the chair, which gave the family some relief. The children finally lost fear when Suganthi placed her baby brother on it."
+        },
+        {
+          "q": "What was Pedanna?s trick?",
+          "ans": "When villagers came at night to borrow the chair, Pedanna told them it was at Maamanaar?s house. He hoped to shift the funeral-chair problem to Maamanaar."
+        },
+        {
+          "q": "How did Maamanaar respond to the situation?",
+          "ans": "Maamanaar did not complain. He asked the villagers to keep the chair for funeral use and calmly reminded the narrator that his family also needed such a chair."
+        },
+        {
+          "q": "What is the central humour of the story?",
+          "ans": "The humour lies in the changing role of the chair. It is made for family respectability, becomes a village wonder, and finally turns into funeral equipment."
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "navLabel": "Part IV -- Long Essay (5 x 7)",
+      "title": "Part IV -- Long Essay Questions",
+      "type": "long-essay",
+      "scoreMax": 35,
+      "marksPer": 5,
+      "instruction": "Answer any 5 of the following 7 questions. Each answer should be about 100-150 words.",
+      "questions": [
+        {
+          "q": "Narrate the humorous incidents that happened before and after the arrival of the chair.",
+          "ans": "The humour begins when a portly sub-judge visits the narrator?s house. As the family has no chair, he is asked to sit on a small three-legged stool. The stool topples and he falls with a thud, making the children laugh uncontrollably. This incident leads the family to arrange for a chair. When the chair arrives, it becomes a village attraction. Everyone wants to sit on it, and villagers come in crowds to see it. Soon the chair is borrowed to prop up a corpse at a funeral. The children become afraid of it. Later it is repeatedly taken for funerals. Pedanna tries to shift the trouble to Maamanaar, but Maamanaar calmly turns the joke back on the family."
+        },
+        {
+          "q": "Write a character sketch of Maamanaar.",
+          "ans": "Maamanaar is one of the most humorous characters in the story. He is the narrator?s maternal uncle and is described as very thrifty. The children believe he visits mainly to drink the family?s buttermilk. He has fixed habits, such as sitting in the same place, loosening his tuft and preparing betel leaves with great care. He keeps his possessions neat, including his betel box, torch and chair. Though the children tease him, he accepts it patiently. At the end, he proves cleverer than Pedanna. When villagers take his chair for funeral use, he simply asks them to keep it and reminds the narrator that his family too needs one for the same purpose."
+        },
+        {
+          "q": "Write a character sketch of Pedanna.",
+          "ans": "Pedanna is lively, witty and practical. When the family discusses the absence of a chair, he suggests buying one from the town. Later he comments on the chair, sits on it happily and makes humorous remarks. After the chair is repeatedly borrowed for funerals, he becomes irritated like the others. He then thinks of a trick and sends funeral visitors to Maamanaar?s house, saying the chair is there. He also lies to Appa that the visitors wanted bullocks for threshing. Pedanna?s plan shows his quick wit, but the ending also shows that his cleverness is matched by Maamanaar?s calm humour."
+        },
+        {
+          "q": "How does Ki. Rajanarayanan create humour from ordinary village life?",
+          "ans": "Ki. Rajanarayanan creates humour through small domestic details. The family has no chair, and a portly sub-judge falls from their three-legged stool. The children run away laughing, and the parents also suppress their giggles. The discussion about wood, Maamanaar?s fixed habits, the buttermilk, and the family?s pride in the new chair all create gentle comedy. The greatest humour comes when the chair, made for respectable visitors, is used to seat corpses at funerals. The family?s irritation and Pedanna?s trick make the story funnier. The humour is natural because it grows from family behaviour, village customs and ordinary conversation."
+        },
+        {
+          "q": "Explain the significance of the chair in the story.",
+          "ans": "The chair is the central object in the story. At first, it represents the family?s lack of proper furniture and their embarrassment before visitors. After the sub-judge falls from the stool, the chair becomes a symbol of dignity and social respect. When it is made, the family treats it with pride, and the whole village comes to see it. But its meaning changes when it is used to prop up a corpse. From then on, it becomes a source of fear, irritation and sleepless nights. The chair is significant because it connects humour, family pride, village curiosity and funeral custom in one simple object."
+        },
+        {
+          "q": "How is irony used in <em>The Chair</em>?",
+          "ans": "Irony is central to the story. The family makes a chair because they want to receive living guests properly. But the chair becomes most useful for seating dead bodies during funerals. This is the main reversal. Another irony occurs when Pedanna tries to escape the problem by sending villagers to Maamanaar?s house. He thinks he has cleverly shifted the burden. But Maamanaar calmly gives up the chair and tells the narrator that his family also needs one for the same purpose. The ending is ironic because the trick does not solve the problem. Instead, it exposes how helpless the family is before village custom."
+        },
+        {
+          "q": "What message does the story convey?",
+          "ans": "The story conveys that ordinary objects can gain unexpected importance in social life. A chair seems simple, but in the story it becomes a matter of pride, curiosity, fear and inconvenience. The story also shows how village communities share objects and customs, sometimes without asking whether the owner is comfortable. It teaches us to laugh at human behaviour: pride, thrift, teasing, fear and cleverness. Ki. Rajanarayanan does not preach directly. Through humour, he shows that life often turns our plans upside down. The family makes the chair for respectability, but it becomes useful in a way they never expected."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,297 @@
+/**
+ * Mock syllabus data — Tamil Nadu State Board
+ * Structure mirrors the real TNBSE +1 and +2 English syllabus.
+ *
+ * When the backend is ready, replace this with API calls
+ * from src/api/syllabus.js — the component interfaces stay the same.
+ */
+
+export const SYLLABUS = {
+  plus1: {
+    label: '+1',
+    fullLabel: 'Class XI — Higher Secondary First Year',
+    subjects: {
+      english: {
+        label: 'English',
+        slug: 'english',
+        // units: TN board groups lessons into 6 units, each with Prose + Poem + Supplementary
+        units: [
+          { id: 1, title: 'Unit 1', color: '#e8824a', light: '#fdf0e8', border: '#f0a97a',
+            lessons: [
+              { slug: 'the-portrait-of-a-lady',          title: 'The Portrait of a Lady',          type: 'Prose',         tag: 'prose',         category: 'prose'         },
+              { slug: 'once-upon-a-time',                title: 'Once Upon a Time',                type: 'Poem',          tag: 'poem',          category: 'poetry'        },
+              { slug: 'after-twenty-years',              title: 'After Twenty Years',              type: 'Supplementary', tag: 'supplementary', category: 'supplementary' },
+            ]},
+          { id: 2, title: 'Unit 2', color: '#5c8fd6', light: '#eaf2fd', border: '#8ab4e8',
+            lessons: [
+              { slug: 'the-queen-of-boxing',             title: 'The Queen of Boxing',             type: 'Prose',         tag: 'prose',         category: 'prose'         },
+              { slug: 'confessions-of-a-born-spectator', title: 'Confessions of a Born Spectator', type: 'Poem',          tag: 'poem',          category: 'poetry'        },
+              { slug: 'a-shot-in-the-dark',              title: 'A Shot in the Dark',              type: 'Supplementary', tag: 'supplementary', category: 'supplementary' },
+            ]},
+          { id: 3, title: 'Unit 3', color: '#59a87a', light: '#e8f5ee', border: '#84c9a0',
+            lessons: [
+              { slug: 'forgetting',                      title: 'Forgetting',                      type: 'Prose',         tag: 'prose',         category: 'prose'         },
+              { slug: 'lines-written-in-early-spring',   title: 'Lines Written in Early Spring',   type: 'Poem',          tag: 'poem',          category: 'poetry'        },
+              { slug: 'the-first-patient',               title: 'The First Patient',               type: 'Supplementary', tag: 'supplementary', category: 'supplementary' },
+            ]},
+          { id: 4, title: 'Unit 4', color: '#a06cd5', light: '#f2ebfc', border: '#c49ee8',
+            lessons: [
+              { slug: 'tight-corners',                   title: 'Tight Corners',                   type: 'Prose',         tag: 'prose',         category: 'prose'         },
+              { slug: 'macavity-the-mystery-cat',        title: 'Macavity – The Mystery Cat',       type: 'Poem',          tag: 'poem',          category: 'poetry'        },
+              { slug: 'with-the-photographer',           title: 'With the Photographer',           type: 'Supplementary', tag: 'supplementary', category: 'supplementary' },
+            ]},
+          { id: 5, title: 'Unit 5', color: '#d4873a', light: '#fdf3e7', border: '#e8b070',
+            lessons: [
+              { slug: 'the-convocation-address',         title: 'The Convocation Address',         type: 'Prose',         tag: 'prose',         category: 'prose'         },
+              { slug: 'everest-is-not-the-only-peak',    title: 'Everest is Not the Only Peak',    type: 'Poem',          tag: 'poem',          category: 'poetry'        },
+              { slug: 'the-singing-lesson',              title: 'The Singing Lesson',              type: 'Supplementary', tag: 'supplementary', category: 'supplementary' },
+            ]},
+          { id: 6, title: 'Unit 6', color: '#d45c6a', light: '#fdeaec', border: '#e88d97',
+            lessons: [
+              { slug: 'the-accidental-tourist',          title: 'The Accidental Tourist',          type: 'Prose',         tag: 'prose',         category: 'prose'         },
+              { slug: 'the-hollow-crown',                title: 'The Hollow Crown',                type: 'Poem',          tag: 'poem',          category: 'poetry'        },
+              { slug: 'the-never-never-nest',            title: 'The Never Never Nest',            type: 'Supplementary', tag: 'supplementary', category: 'supplementary' },
+            ]},
+        ],
+        categories: {
+          prose: {
+            label: 'Prose', slug: 'prose', icon: '📖',
+            lessons: [
+              { slug: 'the-portrait-of-a-lady',       title: 'The Portrait of a Lady'       },
+              { slug: 'the-queen-of-boxing',           title: 'The Queen of Boxing'           },
+              { slug: 'forgetting',                    title: 'Forgetting'                    },
+              { slug: 'tight-corners',                 title: 'Tight Corners'                 },
+              { slug: 'the-convocation-address',       title: 'The Convocation Address'       },
+              { slug: 'the-accidental-tourist',        title: 'The Accidental Tourist'        },
+            ],
+          },
+          poetry: {
+            label: 'Poetry', slug: 'poetry', icon: '🎵',
+            lessons: [
+              { slug: 'once-upon-a-time',                title: 'Once Upon a Time'                },
+              { slug: 'confessions-of-a-born-spectator', title: 'Confessions of a Born Spectator' },
+              { slug: 'lines-written-in-early-spring',   title: 'Lines Written in Early Spring'   },
+              { slug: 'macavity-the-mystery-cat',        title: 'Macavity – The Mystery Cat'       },
+              { slug: 'everest-is-not-the-only-peak',    title: 'Everest is Not the Only Peak'    },
+              { slug: 'the-hollow-crown',                title: 'The Hollow Crown'                },
+            ],
+          },
+          supplementary: {
+            label: 'Supplementary', slug: 'supplementary', icon: '📑',
+            lessons: [
+              { slug: 'after-twenty-years',   title: 'After Twenty Years'   },
+              { slug: 'a-shot-in-the-dark',   title: 'A Shot in the Dark'   },
+              { slug: 'the-first-patient',    title: 'The First Patient'    },
+              { slug: 'with-the-photographer',title: 'With the Photographer'},
+              { slug: 'the-singing-lesson',   title: 'The Singing Lesson'   },
+              { slug: 'the-never-never-nest', title: 'The Never Never Nest' },
+            ],
+          },
+        },
+      },
+      maths: {
+        label: 'Mathematics',
+        slug: 'maths',
+        categories: {
+          algebra: {
+            label: 'Algebra',
+            slug: 'algebra',
+            icon: '🔢',
+            lessons: [
+              { slug: 'sets-and-functions', title: 'Sets and Functions' },
+              { slug: 'basic-algebra',      title: 'Basic Algebra'      },
+              { slug: 'trigonometry',       title: 'Trigonometry'       },
+            ],
+          },
+          calculus: {
+            label: 'Calculus',
+            slug: 'calculus',
+            icon: '📐',
+            lessons: [
+              { slug: 'differential-calculus', title: 'Differential Calculus' },
+              { slug: 'integral-calculus',     title: 'Integral Calculus'     },
+            ],
+          },
+        },
+      },
+      science: {
+        label: 'Science',
+        slug: 'science',
+        categories: {
+          physics: {
+            label: 'Physics',
+            slug: 'physics',
+            icon: '⚡',
+            lessons: [
+              { slug: 'nature-of-physical-world', title: 'Nature of Physical World' },
+              { slug: 'kinematics',               title: 'Kinematics'               },
+              { slug: 'laws-of-motion',           title: 'Laws of Motion'           },
+            ],
+          },
+          chemistry: {
+            label: 'Chemistry',
+            slug: 'chemistry',
+            icon: '🧪',
+            lessons: [
+              { slug: 'basic-concepts',           title: 'Basic Concepts of Chemistry' },
+              { slug: 'quantum-mechanical-model', title: 'Quantum Mechanical Model'    },
+            ],
+          },
+        },
+      },
+    },
+  },
+
+  plus2: {
+    label: '+2',
+    fullLabel: 'Class XII — Higher Secondary Second Year',
+    subjects: {
+      english: {
+        label: 'English',
+        slug: 'english',
+        units: [
+          { id: 1, title: 'Unit 1', color: '#e8824a', light: '#fdf0e8', border: '#f0a97a',
+            lessons: [
+              { slug: 'two-gentlemen-of-verona',        title: 'Two Gentlemen of Verona',        type: 'Prose',              tag: 'prose',         category: 'prose'         },
+              { slug: 'the-castle',                     title: 'The Castle',                     type: 'Poem',               tag: 'poem',          category: 'poetry'        },
+              { slug: 'god-sees-the-truth-but-waits',   title: 'God Sees the Truth but Waits',   type: 'Supplementary',      tag: 'supplementary', category: 'supplementary' },
+            ]},
+          { id: 2, title: 'Unit 2', color: '#5c8fd6', light: '#eaf2fd', border: '#8ab4e8',
+            lessons: [
+              { slug: 'a-nice-cup-of-tea',              title: 'A Nice Cup of Tea',              type: 'Prose',              tag: 'prose',         category: 'prose'         },
+              { slug: 'our-casuarina-tree',             title: 'Our Casuarina Tree',             type: 'Poem',               tag: 'poem',          category: 'poetry'        },
+              { slug: 'life-of-pi',                     title: 'Life of Pi',                     type: 'Supplementary',      tag: 'supplementary', category: 'supplementary' },
+            ]},
+          { id: 3, title: 'Unit 3', color: '#59a87a', light: '#e8f5ee', border: '#84c9a0',
+            lessons: [
+              { slug: 'in-celebration-of-being-alive',  title: 'In Celebration of Being Alive',  type: 'Prose',              tag: 'prose',         category: 'prose'         },
+              { slug: 'all-the-worlds-a-stage',         title: "All the World's a Stage",         type: 'Poem',               tag: 'poem',          category: 'poetry'        },
+              { slug: 'the-hour-of-truth',              title: 'The Hour of Truth',              type: 'Supplementary / Play', tag: 'supplementary', category: 'supplementary' },
+            ]},
+          { id: 4, title: 'Unit 4', color: '#a06cd5', light: '#f2ebfc', border: '#c49ee8',
+            lessons: [
+              { slug: 'the-summit',                     title: 'The Summit',                     type: 'Prose',              tag: 'prose',         category: 'prose'         },
+              { slug: 'ulysses',                        title: 'Ulysses',                        type: 'Poem',               tag: 'poem',          category: 'poetry'        },
+              { slug: 'the-midnight-visitor',           title: 'The Midnight Visitor',           type: 'Supplementary',      tag: 'supplementary', category: 'supplementary' },
+            ]},
+          { id: 5, title: 'Unit 5', color: '#d4873a', light: '#fdf3e7', border: '#e8b070',
+            lessons: [
+              { slug: 'the-chair',                      title: 'The Chair',                      type: 'Prose',              tag: 'prose',         category: 'prose'         },
+              { slug: 'a-father-to-his-son',            title: 'A Father to His Son',            type: 'Poem',               tag: 'poem',          category: 'poetry'        },
+              { slug: 'all-summer-in-a-day',            title: 'All Summer in a Day',            type: 'Supplementary',      tag: 'supplementary', category: 'supplementary' },
+            ]},
+          { id: 6, title: 'Unit 6', color: '#d45c6a', light: '#fdeaec', border: '#e88d97',
+            lessons: [
+              { slug: 'on-the-rule-of-the-road',        title: 'On the Rule of the Road',        type: 'Prose',              tag: 'prose',         category: 'prose'         },
+              { slug: 'incident-of-the-french-camp',    title: 'Incident of the French Camp',    type: 'Poem',               tag: 'poem',          category: 'poetry'        },
+              { slug: 'remember-caesar',                title: 'Remember Caesar',                type: 'Supplementary / Play', tag: 'supplementary', category: 'supplementary' },
+            ]},
+        ],
+        categories: {
+          prose: {
+            label: 'Prose',
+            slug: 'prose',
+            icon: '📖',
+            lessons: [
+              { slug: 'two-gentlemen-of-verona',        title: 'Two Gentlemen of Verona'        },
+              { slug: 'a-nice-cup-of-tea',              title: 'A Nice Cup of Tea'              },
+              { slug: 'in-celebration-of-being-alive',  title: 'In Celebration of Being Alive'  },
+              { slug: 'the-summit',                     title: 'The Summit'                     },
+              { slug: 'the-chair',                      title: 'The Chair'                      },
+              { slug: 'on-the-rule-of-the-road',        title: 'On the Rule of the Road'        },
+            ],
+          },
+          poetry: {
+            label: 'Poetry',
+            slug: 'poetry',
+            icon: '🎵',
+            lessons: [
+              { slug: 'the-castle',                     title: 'The Castle'                     },
+              { slug: 'our-casuarina-tree',             title: 'Our Casuarina Tree'             },
+              { slug: 'all-the-worlds-a-stage',         title: "All the World's a Stage"         },
+              { slug: 'ulysses',                        title: 'Ulysses'                        },
+              { slug: 'a-father-to-his-son',            title: 'A Father to His Son'            },
+              { slug: 'incident-of-the-french-camp',    title: 'Incident of the French Camp'    },
+            ],
+          },
+          supplementary: {
+            label: 'Supplementary',
+            slug: 'supplementary',
+            icon: '📑',
+            lessons: [
+              { slug: 'god-sees-the-truth-but-waits',   title: 'God Sees the Truth but Waits'   },
+              { slug: 'life-of-pi',                     title: 'Life of Pi'                     },
+              { slug: 'the-hour-of-truth',              title: 'The Hour of Truth'              },
+              { slug: 'the-midnight-visitor',           title: 'The Midnight Visitor'           },
+              { slug: 'all-summer-in-a-day',            title: 'All Summer in a Day'            },
+              { slug: 'remember-caesar',                title: 'Remember Caesar'                },
+            ],
+          },
+        },
+      },
+      maths: {
+        label: 'Mathematics',
+        slug: 'maths',
+        categories: {
+          algebra: {
+            label: 'Algebra',
+            slug: 'algebra',
+            icon: '🔢',
+            lessons: [
+              { slug: 'applications-of-matrices', title: 'Applications of Matrices' },
+              { slug: 'complex-numbers',           title: 'Complex Numbers'          },
+            ],
+          },
+        },
+      },
+    },
+  },
+}
+
+export function getYear(year) {
+  return SYLLABUS[year] || null
+}
+
+export function getSubject(year, subject) {
+  return SYLLABUS[year]?.subjects?.[subject] || null
+}
+
+export function getCategory(year, subject, category) {
+  return SYLLABUS[year]?.subjects?.[subject]?.categories?.[category] || null
+}
+
+export function getLesson(year, subject, category, lessonSlug) {
+  const cat = getCategory(year, subject, category)
+  return cat?.lessons?.find(l => l.slug === lessonSlug) || null
+}
+
+export function getSubjectList(year) {
+  const y = getYear(year)
+  if (!y) return []
+  return Object.entries(y.subjects).map(([slug, data]) => ({ slug, ...data }))
+}
+
+export function getCategoryList(year, subject) {
+  const s = getSubject(year, subject)
+  if (!s) return []
+  return Object.entries(s.categories).map(([slug, data]) => ({ slug, ...data }))
+}
+
+export function getLessonList(year, subject, category) {
+  const cat = getCategory(year, subject, category)
+  return cat?.lessons || []
+}
+
+export const LESSON_SECTIONS = [
+  { slug: 'about-author',  label: 'About Author',  icon: '👤', description: 'Learn about the writer'    },
+  { slug: 'text',          label: 'Text',           icon: '📄', description: 'Read the full lesson'      },
+  { slug: 'glossary',      label: 'Glossary',       icon: '🔤', description: 'Key words and meanings'    },
+  { slug: 'comprehension', label: 'Comprehension',  icon: '💡', description: 'Check your understanding'  },
+  { slug: 'practice',        label: 'Practice',        icon: '✍️', description: 'Answer exam questions'         },
+  { slug: 'attempt-history', label: 'Attempt History', icon: '🕐', description: 'Your practice session history' },
+  { slug: 'ask-ai',          label: 'Ask AI',          icon: '🤖', description: 'Get instant explanations'      },
+]
+
+export function getSection(sectionSlug) {
+  return LESSON_SECTIONS.find(s => s.slug === sectionSlug) || null
+}

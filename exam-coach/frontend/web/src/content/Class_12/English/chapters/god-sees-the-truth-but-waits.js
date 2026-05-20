@@ -1,0 +1,342 @@
+export default {
+  eyebrow: 'Unit 1 · Supplementary · Class XII English',
+  title: 'God Sees the Truth, But Waits',
+  author: 'Leo Tolstoy',
+  pills: ['Faith', 'Forgiveness', 'Patience', 'Truth'],
+  tabs: [
+    {
+      id: 'about-author',
+      label: 'About the Author',
+      blocks: [
+        { type: 'author-stat', label: 'Full name', value: 'Leo Tolstoy' },
+        { type: 'author-stat', label: 'Born', value: 'September 9, 1828' },
+        { type: 'author-stat', label: 'Died', value: 'November 20, 1910' },
+        { type: 'author-stat', label: 'Known for', value: 'War and Peace, Anna Karenina, and realist fiction' },
+        {
+          type: 'teacher-voice',
+          html: `<p>Leo Tolstoy was born in Tula Province, Russia, and became one of the most important novelists in world literature. The textbook reminds us that he is best known for <em>War and Peace</em> and <em>Anna Karenina</em>. He also wrote short stories, novellas, plays and philosophical essays.</p><p>In <em>God Sees the Truth, But Waits</em>, Tolstoy writes about an innocent man who suffers for many years, yet learns patience, faith and forgiveness. This is the kind of story Tolstoy loved: simple on the surface, but deeply moral underneath.</p>`,
+        },
+        {
+          type: 'think-box',
+          label: 'Why this matters',
+          text: 'Tolstoy does not make Aksionov a hero because he wins. He makes him memorable because he keeps his faith even when life is unfair.',
+        },
+        { type: 'nav', next: 'introduction', nextLabel: 'Next: Introduction →' },
+      ],
+    },
+    {
+      id: 'introduction',
+      label: 'Introduction',
+      blocks: [
+        {
+          type: 'section-head',
+          text: 'Warm Up',
+        },
+        {
+          type: 'teacher-voice',
+          html: `<p>The Warm Up asks a direct question: if you are punished for a prank your classmate played, how would you react? The textbook then gently points to a larger moral idea: some people seek vengeance, while others trust God, forgive the wrong done to them, and move on in life.</p><p>That idea shapes the whole story. Aksionov is punished for a murder he did not commit. The question for the reader is not only whether he will survive, but whether he will remain a good man while waiting for truth.</p>`,
+        },
+        {
+          type: 'quote-block',
+          quote: 'God sees the truth, but waits.',
+          context: 'The lesson behind the title',
+        },
+        {
+          type: 'teacher-voice',
+          html: `<p>This title is the key to the whole story. Truth does not disappear just because it is delayed. Tolstoy asks us to believe that justice may take time, but it is not lost.</p>`,
+        },
+        {
+          type: 'think-box',
+          label: 'Before we read',
+          text: 'Watch how the story moves from a happy family scene to prison, then to repentance, and finally to peace. Each stage teaches something different about faith.',
+        },
+        { type: 'nav', next: 'story-explained', nextLabel: 'Next: The Story Explained →' },
+      ],
+    },
+    {
+      id: 'story-explained',
+      label: 'The Story Explained',
+      blocks: [
+        {
+          type: 'section-head',
+          text: 'Phase 1: A happy merchant and a warning dream',
+        },
+        {
+          type: 'teacher-voice',
+          html: `<p>The story begins with Ivan Dmitrich Aksionov, a young merchant in Vladimir. He has shops, a house of his own, and a cheerful nature. He once drank too much when he was young, but after marriage he gave up drinking most of the time. This opening lets us see him as a normal human being, not a saint.</p><p>Before he leaves for the fair, his wife begs him not to go because she has had a bad dream. She dreams that he returns with grey hair. Aksionov laughs it off and sets out anyway. The dream is only a warning, but the family does not yet know what it means.</p>`,
+        },
+        {
+          type: 'quote-block',
+          quote: 'I have had a bad dream about you.',
+          context: 'The wife’s warning',
+        },
+        {
+          type: 'teacher-voice',
+          html: `<p>The dream matters because it prepares the reader for suffering. Tolstoy often uses such moments to show that human beings cannot see the future clearly, even when danger is near.</p>`,
+        },
+        {
+          type: 'section-head',
+          text: 'Phase 2: Arrest, accusation, and prison',
+        },
+        {
+          type: 'teacher-voice',
+          html: `<p>On the way to the fair, Aksionov stops at an inn. He plays his guitar and then is suddenly questioned by a police officer. A merchant has been murdered, and a blood-stained knife is found in Aksionov’s bag. Though he protests his innocence, he is arrested. The story makes clear that the evidence is weak, but the officials still imprison him.</p><p>Aksionov’s wife visits him in jail and cannot fully believe the accusation. He writes petitions, but they are not accepted. Eventually he gives up hope and prays only to God. He is flogged, sent to Siberia, and made to live as a convict for twenty-six years.</p>`,
+        },
+        {
+          type: 'quote-block',
+          quote: 'It seems that only God can know the truth; it is to Him alone we must appeal, and from Him alone expect mercy.',
+          context: 'Aksionov’s turning point',
+        },
+        {
+          type: 'think-box',
+          label: 'Notice this',
+          text: 'Aksionov loses everything outside him, but he begins to build patience inside himself. The prison becomes the place where his character is purified.',
+        },
+        {
+          type: 'section-head',
+          text: 'Phase 3: The book, the years, and the change',
+        },
+        {
+          type: 'teacher-voice',
+          html: `<p>In prison, Aksionov learns to make boots and earns a little money. He buys <em>The Lives of the Saints</em>, reads it when there is enough light, and on Sundays reads lessons and sings in the church choir. This is important: the prison does not destroy his spirit. It changes him into a meek, gentle man who becomes respected by the other prisoners.</p><p>The textbook makes us notice the physical effects of suffering too. His hair turns white, his beard grows thin and grey, and all his mirth goes. But the more important change is spiritual. He prays. He waits. He accepts what he cannot control.</p>`,
+        },
+        {
+          type: 'quote-block',
+          quote: 'For my sins I have been in prison these twenty-six years.',
+          context: 'Aksionov’s humility',
+        },
+        {
+          type: 'section-head',
+          text: 'Phase 4: Meeting Makar Semyonich',
+        },
+        {
+          type: 'teacher-voice',
+          html: `<p>One day a new convict arrives: Makar Semyonich. The others explain Aksionov’s story, and Makar seems to recognize him. At first he jokes, then he speaks in a way that makes Aksionov suspect he knows more than he admits. Aksionov now believes Makar is the real murderer.</p><p>The most painful part of this phase is not the suspicion itself. It is the anger it wakes up in Aksionov. He feels he wants vengeance. Tolstoy shows us that even a patient man can still struggle with bitterness.</p>`,
+        },
+        {
+          type: 'quote-block',
+          quote: 'It must have been him in whose bag the knife was found!',
+          context: 'Makar’s careless confession-like remark',
+        },
+        {
+          type: 'section-head',
+          text: 'Phase 5: Forgiveness and truth',
+        },
+        {
+          type: 'teacher-voice',
+          html: `<p>Later, Aksionov notices Makar digging a tunnel to escape. The authorities investigate, and the governor asks Aksionov who dug the hole. Aksionov could expose Makar, but he hesitates. That hesitation matters. He has suffered for years, yet he still does not rush to revenge.</p><p>At night, Makar comes to Aksionov’s bed and confesses the truth: he killed the merchant, hid the knife among Aksionov’s things, and ruined his life. He begs for forgiveness. Aksionov weeps and finally says that God will forgive him. At that moment, his heart becomes light, the longing for home leaves him, and he is at peace. By the end, Makar confesses publicly, but Aksionov dies before the release order arrives.</p>`,
+        },
+        {
+          type: 'quote-block',
+          quote: 'God will forgive you!',
+          context: 'The story’s emotional climax',
+        },
+        {
+          type: 'teacher-voice',
+          html: `<p>This is the heart of the story. Aksionov does not win his old life back, but he wins something more valuable: inner peace. Tolstoy shows that forgiveness can free the soul even when the body is still imprisoned.</p>`,
+        },
+        { type: 'nav', next: 'key-lines', nextLabel: 'Next: Key Lines →' },
+      ],
+    },
+    {
+      id: 'key-lines',
+      label: 'Key Lines',
+      blocks: [
+        {
+          type: 'teacher-voice',
+          html: '<p>These are the lines you should remember. They carry the moral weight of the story and are useful for short answers and reference questions.</p>',
+        },
+        {
+          type: 'quote-block',
+          quote: 'I have had a bad dream about you.',
+          context: 'The wife’s warning before the journey',
+        },
+        {
+          type: 'quote-block',
+          quote: 'You are the only person who could have done it.',
+          context: 'The police officer’s accusation',
+        },
+        {
+          type: 'quote-block',
+          quote: 'It seems that only God can know the truth; it is to Him alone we must appeal, and from Him alone expect mercy.',
+          context: 'Aksionov’s surrender to faith',
+        },
+        {
+          type: 'quote-block',
+          quote: 'For my sins I have been in prison these twenty-six years.',
+          context: 'Aksionov’s humility and acceptance',
+        },
+        {
+          type: 'quote-block',
+          quote: 'It must have been him in whose bag the knife was found!',
+          context: 'Makar’s statement that reveals his guilt',
+        },
+        {
+          type: 'quote-block',
+          quote: 'God will forgive you!',
+          context: 'Aksionov’s forgiveness',
+        },
+        {
+          type: 'quote-block',
+          quote: 'God sees the truth, but waits.',
+          context: 'The title line and the moral of the story',
+        },
+        { type: 'nav', next: 'glossary', nextLabel: 'Next: Glossary →' },
+      ],
+    },
+    {
+      id: 'glossary',
+      label: 'Glossary',
+      blocks: [
+        {
+          type: 'teacher-voice',
+          html: '<p>Keep these textbook meanings exactly as they appear in the source. They are often used in direct vocabulary questions.</p>',
+        },
+        { type: 'gloss-row', word: 'indulging in', def: 'something actively', eg: 'He had been indulging in drinking when he was young.' },
+        { type: 'gloss-row', word: 'go on a spree', def: 'in an unrestrained way', eg: 'He feared Aksionov might go on a spree.' },
+        { type: 'gloss-row', word: 'porch', def: 'portico', eg: 'He stepped out into the porch.' },
+        { type: 'gloss-row', word: 'samovar', def: 'a Russian metal urn for making tea', eg: 'He ordered a samovar to be heated.' },
+        { type: 'gloss-row', word: 'troika', def: 'a cart pulled by a team of three horses (in olden Russia)', eg: 'A troika drove up with tinkling bells.' },
+        { type: 'gloss-row', word: 'stammer', def: 'to speak haltingly, fumble for words', eg: 'He could only stammer that the knife was not his.' },
+        { type: 'gloss-row', word: 'betray', def: 'fail, let one down', eg: 'His face and manner betray you.' },
+        { type: 'gloss-row', word: 'despair', def: 'hopelessness', eg: 'His wife was in despair.' },
+        { type: 'gloss-row', word: 'downcast', def: 'depressed', eg: 'Aksionov looked downcast.' },
+        { type: 'gloss-row', word: 'flog', def: 'to beat with a whip or stick', eg: 'He was flogged and sent to the mines.' },
+        { type: 'gloss-row', word: 'mirth', def: 'cheerfulness', eg: 'All his mirth went.' },
+        { type: 'gloss-row', word: 'sledge', def: 'a vehicle pulled by horses for transportation on snow', eg: 'A horse that was tied to a sledge.' },
+        { type: 'gloss-row', word: 'wretched', def: 'dejected', eg: 'He felt wretched after thinking of his past.' },
+        { type: 'gloss-row', word: 'vengeance', def: 'revenge', eg: 'He longed for vengeance.' },
+        { type: 'nav', next: 'themes-and-devices', nextLabel: 'Next: Themes & Devices →' },
+      ],
+    },
+    {
+      id: 'themes-and-devices',
+      label: 'Themes and Devices',
+      blocks: [
+        {
+          type: 'section-head',
+          text: 'Theme 1: Faith in divine truth',
+        },
+        {
+          type: 'teacher-voice',
+          html: '<p>The title says it all: human beings may delay justice, but God sees the truth. Aksionov cannot prove his innocence to the world, yet he trusts that truth will not disappear.</p>',
+        },
+        {
+          type: 'section-head',
+          text: 'Theme 2: Forgiveness',
+        },
+        {
+          type: 'teacher-voice',
+          html: '<p>The story treats forgiveness as strength, not weakness. Aksionov forgives the man who ruined his life, and that forgiveness frees him inwardly.</p>',
+        },
+        {
+          type: 'section-head',
+          text: 'Theme 3: Patience and acceptance',
+        },
+        {
+          type: 'teacher-voice',
+          html: '<p>Aksionov waits twenty-six years. He does not stop suffering, but he learns to endure suffering without losing goodness.</p>',
+        },
+        {
+          type: 'section-head',
+          text: 'Theme 4: Punishment and innocence',
+        },
+        {
+          type: 'teacher-voice',
+          html: '<p>The story makes us feel the pain of a punishment that is not deserved. Tolstoy uses this injustice to ask how a human being should live when truth is delayed.</p>',
+        },
+        {
+          type: 'section-head',
+          text: 'Literary devices',
+        },
+        {
+          type: 'device-block',
+          kind: 'Irony',
+          line: 'An innocent man is sent to prison for a murder he did not commit',
+          exp: 'The situation is deeply ironic because the reader sees his innocence while the authorities do not.',
+        },
+        {
+          type: 'device-block',
+          kind: 'Symbolism',
+          line: 'White hair and grey beard',
+          exp: 'These symbols show the passage of time, suffering and old age.',
+        },
+        {
+          type: 'device-block',
+          kind: 'Contrast',
+          line: 'Happy merchant at the beginning versus a weary convict at the end',
+          exp: 'The story contrasts his early cheerfulness with his later humility and suffering.',
+        },
+        {
+          type: 'device-block',
+          kind: 'Repetition',
+          line: 'God ... God ... God',
+          exp: 'Repeated reference to God strengthens the story’s spiritual mood.',
+        },
+        { type: 'nav', next: 'comprehension-qa', nextLabel: 'Next: Comprehension Q&A →' },
+      ],
+    },
+    {
+      id: 'comprehension-qa',
+      label: 'Comprehension Q&A',
+      blocks: [
+        {
+          type: 'section-head',
+          text: 'Textbook Questions',
+        },
+        {
+          type: 'teacher-voice',
+          html: `<p><strong>a) Why did Aksionov’s wife stop him from going to the fair?</strong><br>She stopped him because she had a bad dream about him and feared something would happen.</p><p><strong>b) What is the importance of Aksionov’s wife’s dream?</strong><br>The dream acts as a warning of the suffering ahead. It also creates a feeling that the story is guided by fate and faith.</p><p><strong>c) What made Aksionov leave the inn before dawn?</strong><br>He was not used to sleeping late and wanted to travel while it was still cool.</p><p><strong>d) What were the circumstances that led to Aksionov’s imprisonment?</strong><br>A merchant was found murdered, a blood-stained knife was discovered in Aksionov’s bag, and he was falsely accused and arrested.</p><p><strong>e) Why did Aksionov give up sending petitions?</strong><br>He gave up because the petitions were not accepted and he finally put all his hope in God.</p><p><strong>f) Why didn’t Makar disclose that he had killed the merchant?</strong><br>He kept silent because he was guilty and afraid of punishment.</p><p><strong>g) Did Makar feel guilty when he heard Aksionov’s story?</strong><br>Yes. His later confession shows that he felt deep guilt and remorse.</p><p><strong>h) What made Aksionov think that Makar was the real murderer?</strong><br>Makar’s strange words and his remark about the knife in the bag made Aksionov suspect him.</p><p><strong>i) What was Aksionov’s realization by the end of the story?</strong><br>He realized that forgiveness brings peace, and that God alone knows the truth.</p><p><strong>j) Why did Aksionov’s wife suspect him of involvement in the murder?</strong><br>She was confused and frightened by the situation, and she could not understand what had really happened.</p>`,
+        },
+        {
+          type: 'section-head',
+          text: 'Summary / Mind Map',
+        },
+        {
+          type: 'teacher-voice',
+          html: `<p><strong>Brief summary from the mind map:</strong> Aksionov lives with his wife and children, but his wife tries to stop him because of a bad dream. He goes to the fair, is wrongly charged with murder, and is sent to the mines of Siberia. He prays, reads <em>The Lives of the Saints</em>, and becomes respected for his gentle nature. Years later, he meets Makar Semyonich, discovers the truth, forgives him, and dies in peace.</p>`,
+        },
+        {
+          type: 'section-head',
+          text: 'Reference to Context',
+        },
+        {
+          type: 'teacher-voice',
+          html: `<p><strong>1) "God sees the truth, but waits."</strong><br>This line tells us that truth is not lost even when justice is delayed.</p><p><strong>2) "I have had a bad dream about you."</strong><br>The wife is warning Aksionov not to leave, because she fears something bad will happen.</p><p><strong>3) "I am travelling on business of my own..."</strong><br>Aksionov is trying to defend himself and show that he is innocent.</p><p><strong>4) "It seems that only God can know the truth..."</strong><br>Aksionov has begun to trust divine justice more than human justice.</p><p><strong>5) "For my sins I have been in prison these twenty-six years."</strong><br>He speaks humbly and accepts suffering without bitterness.</p><p><strong>6) "God will forgive you!"</strong><br>Aksionov forgives Makar and shows true spiritual greatness.</p>`,
+        },
+        { type: 'nav', next: 'activities', nextLabel: 'Next: Activities →' },
+      ],
+    },
+    {
+      id: 'activities',
+      label: 'Activities',
+      blocks: [
+        {
+          type: 'section-head',
+          text: 'ICT Corner',
+        },
+        {
+          type: 'teacher-voice',
+          html: `<p>The textbook ICT corner asks students to explore <strong>Reported Speech</strong> online. The steps tell you to open the website, watch the video, scroll to the exercises, and practise the questions until you are comfortable with reported speech. This is an extra grammar-support activity, not part of the story itself.</p>`,
+        },
+        {
+          type: 'section-head',
+          text: 'Story takeaways',
+        },
+        {
+          type: 'teacher-voice',
+          html: `<p><strong>Aksionov’s lesson:</strong> patience and forgiveness are stronger than revenge.<br><strong>Makar’s lesson:</strong> guilt does not vanish until truth is spoken.<br><strong>Our lesson:</strong> do not confuse delay with defeat. Truth may wait, but it remains true.</p>`,
+        },
+        {
+          type: 'section-head',
+          text: 'Textbook activity answers',
+        },
+        {
+          type: 'teacher-voice',
+          html: `<p>The warm-up discussion asks students to think about punishment, trust, forgiveness and moving on. A good response should explain that revenge may feel easy, but forgiveness and faith can give peace. The story strongly supports this idea through Aksionov’s final words and final peace.</p>`,
+        },
+        { type: 'nav', practice: true },
+      ],
+    },
+  ],
+}

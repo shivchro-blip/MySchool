@@ -1,0 +1,325 @@
+﻿export default {
+  meta: {
+    subject: 'General English -- Class XI',
+    unit: 'Unit 4 · Prose · Tight Corners',
+    time: '3.00 hrs',
+    totalMarks: 90,
+    instructions: 'Tamil Nadu State Board · Answer all questions',
+  },
+
+  parts: [
+    /* ─── PART I -- MCQ ─────────────────────────────────────────────── */
+    {
+      id: 'p1',
+      navLabel: 'Part I -- MCQ (20×1)',
+      title: 'Part I -- Objective Type',
+      type: 'mcq',
+      scoreMax: 20,
+      marksPer: 1,
+      sections: [
+        {
+          label: 'Vocabulary -- meanings, synonyms, and antonyms',
+          questions: [
+            {
+              id: 'q1',
+              html: '"Tight Corner" means a ______.',
+              options: ['a) difficult situation', 'b) crowded corner', 'c) tragic incident', 'd) fierce fight'],
+              answer: 0,
+              hint: 'The textbook answer is difficult situation.',
+            },
+            {
+              id: 'q2',
+              html: 'Barbizon refers to a _______.',
+              options: ['a) kind of paint', 'b) type of architecture', 'c) region in Britain', 'd) French school of painters'],
+              answer: 3,
+              hint: 'The textbook answer is French school of painters.',
+            },
+            {
+              id: 'q3',
+              html: 'Choose the meaning of "electrified".',
+              options: ['a) shocked by something unexpected', 'b) made electrical', 'c) calmed gently', 'd) paid fully'],
+              answer: 0,
+              hint: 'The glossary gives electrified as shocked by something unexpected.',
+            },
+            {
+              id: 'q4',
+              html: 'Choose the meaning of "nonchalantly".',
+              options: ['a) unconcernedly, coolly', 'b) nervously', 'c) angrily', 'd) secretly'],
+              answer: 0,
+              hint: 'The glossary gives nonchalantly as unconcernedly, coolly.',
+            },
+            {
+              id: 'q5',
+              html: 'Choose the <u>antonym</u> of "rectitude".',
+              options: ['a) honesty', 'b) deceit', 'c) good behaviour', 'd) virtue'],
+              answer: 1,
+              hint: 'Rectitude means honesty and good behaviour; deceit is the opposite.',
+            },
+            {
+              id: 'q6',
+              html: 'Choose the <u>synonym</u> of "guile".',
+              options: ['a) innocence', 'b) cunning', 'c) kindness', 'd) poverty'],
+              answer: 1,
+              hint: 'Guile means cunning or deceit.',
+            },
+          ],
+        },
+        {
+          label: 'Story comprehension',
+          questions: [
+            {
+              id: 'q7',
+              html: "The narrator visited Christie's because he",
+              options: ['a) wished to see an auction', 'b) had a painting to sell', 'c) was persuaded by his friend', 'd) wanted to buy a painting'],
+              answer: 2,
+              hint: 'The textbook answer is that he was persuaded by his friend.',
+            },
+            {
+              id: 'q8',
+              html: 'The narrator had been a safe contributor because',
+              options: ['a) there were bidders quoting higher prices', 'b) he had a sound financial background', 'c) his friend lent him money', 'd) he did not make any bidding'],
+              answer: 0,
+              hint: 'Other bidders kept raising the price, so he was not caught at first.',
+            },
+            {
+              id: 'q9',
+              html: '"And I got it." Here "it" refers to the',
+              options: ['a) picture he wanted to buy', 'b) money he asked for', 'c) card to participate', 'd) amount he had to pay'],
+              answer: 1,
+              hint: 'He demanded one hundred guineas and got that money.',
+            },
+            {
+              id: 'q10',
+              html: 'The narrator had only ______ in the bank.',
+              options: ['a) sixty-three pounds', 'b) four thousand guineas', 'c) five hundred pounds', 'd) one hundred guineas'],
+              answer: 0,
+              hint: 'The text says he had exactly sixty-three pounds in the bank.',
+            },
+            {
+              id: 'q11',
+              html: 'Who first warned him that he would get caught?',
+              options: ['a) the auctioneer', 'b) his friend', 'c) the clerk', 'd) the dealer'],
+              answer: 1,
+              hint: 'His friend said, "You\'ll get caught."',
+            },
+            {
+              id: 'q12',
+              html: 'Who started the sensational bid of four thousand guineas?',
+              options: ['a) a short red-faced dealer', 'b) the narrator', "c) the narrator's friend", 'd) the clerk'],
+              answer: 0,
+              hint: 'A short red-faced dealer in a new top-hat began the bid.',
+            },
+            {
+              id: 'q13',
+              html: "What did the auctioneer's hammer indicate?",
+              options: ['a) the picture was sold to the narrator', 'b) the sale was cancelled', 'c) the bid was wrong', 'd) the narrator could leave'],
+              answer: 0,
+              hint: 'The hammer falling meant the picture was sold to the highest bidder.',
+            },
+          ],
+        },
+        {
+          label: 'Idioms, language, and grammar',
+          questions: [
+            {
+              id: 'q14',
+              html: '"By the skin of one\'s teeth" means',
+              options: ['a) a narrow escape', 'b) a rich man', 'c) a bold bid', 'd) a dental problem'],
+              answer: 0,
+              hint: 'The textbook explains this idiom as a narrow escape.',
+            },
+            {
+              id: 'q15',
+              html: '"Have cold feet" means',
+              options: ['a) become frightened', 'b) be very rich', 'c) walk fast', 'd) speak smoothly'],
+              answer: 0,
+              hint: 'The idiom means to become nervous or afraid.',
+            },
+            {
+              id: 'q16',
+              html: 'A person who conducts an auction is an',
+              options: ['a) auctioneer', 'b) painter', 'c) dealer', 'd) clerk only'],
+              answer: 0,
+              hint: 'The auction-house puzzle clue "conducts auction" gives auctioneer.',
+            },
+            {
+              id: 'q17',
+              html: 'The phrasal verb "look into" means',
+              options: ['a) investigate', 'b) wear', 'c) postpone', 'd) escape'],
+              answer: 0,
+              hint: 'Look into means investigate.',
+            },
+            {
+              id: 'q18',
+              html: 'Conditional: If you heat ice, it ______.',
+              options: ['a) melts', 'b) will melted', 'c) would melt', 'd) had melted'],
+              answer: 0,
+              hint: 'This is zero conditional: present simple + present simple.',
+            },
+            {
+              id: 'q19',
+              html: 'Question tag: You are a student, ______?',
+              options: ['a) are you', "b) aren't you", "c) isn't it", "d) don't you"],
+              answer: 1,
+              hint: "A positive statement takes a negative tag: aren't you.",
+            },
+            {
+              id: 'q20',
+              html: 'The narrator finally received',
+              options: ['a) one hundred guineas', 'b) the painting free', 'c) four thousand guineas', 'd) nothing'],
+              answer: 0,
+              hint: 'He demanded a hundred and received it.',
+            },
+          ],
+        },
+      ],
+    },
+
+    /* ─── PART II -- REFERENCE TO CONTEXT ───────────────────────────── */
+    {
+      id: 'p2',
+      navLabel: 'Part II -- Reference (2×7)',
+      title: 'Part II -- Short Answer / Reference to Context',
+      type: 'reference',
+      scoreMax: 14,
+      marksPer: 2,
+      instruction: 'Answer any 7 of the following 10 questions. Read the passage carefully and answer in one or two sentences.',
+      questions: [
+        {
+          verse: '"But you all talk," said one of the company, "as though tight corners were always physical affairs. Surely they can be tighter when they are mental. The tightest corner I was ever in was at Christie\'s."',
+          subs: [
+            { q: '(a) What kind of tight corner is introduced here?', a: 'A mental tight corner is introduced here.' },
+            { q: '(b) Why is this line important?', a: "It shifts the discussion from physical dangers to psychological crisis and prepares us for the narrator's auction-room experience." },
+          ],
+        },
+        {
+          verse: 'I found myself bidding too just for fun. I had exactly sixty-three pounds in the bank and not enough securities to borrow five hundred on, and here I was nodding away to the auctioneer like a bloatocrat.',
+          subs: [
+            { q: '(a) How much money did the narrator have?', a: 'He had exactly sixty-three pounds in the bank.' },
+            { q: '(b) What does this reveal about the narrator?', a: 'It reveals his foolish rashness. He behaves like a wealthy bidder though he has very little money.' },
+          ],
+        },
+        {
+          verse: '"You\'ll get caught," my friend said to me.\n\n"No, I shan\'t," I said. "I\'m not going to run any risks."',
+          subs: [
+            { q: '(a) Who gives the warning?', a: "The narrator's friend gives the warning." },
+            { q: '(b) What is ironic about the narrator\'s reply?', a: 'He says he will not take risks, but he is already taking a risk by bidding casually in a serious auction.' },
+          ],
+        },
+        {
+          verse: 'There was a rustle of excitement, and at the end of it I heard my own voice saying, "And fifty!"',
+          subs: [
+            { q: '(a) What did the narrator say?', a: 'He said, "And fifty!" adding fifty guineas to the bid.' },
+            { q: '(b) What does "heard my own voice" suggest?', a: 'It suggests that the bid was impulsive and almost uncontrolled, as if he realized the words only after saying them.' },
+          ],
+        },
+        {
+          verse: 'To my surprise and horror the red-faced dealer gave no sign of life. I realized now, as I ought to have done at first, that he had shot his bolt.',
+          subs: [
+            { q: '(a) What shocked the narrator?', a: 'The red-faced dealer did not raise the bid further.' },
+            { q: '(b) What does "shot his bolt" mean here?', a: 'It means the dealer had gone as far as he intended and would not bid again.' },
+          ],
+        },
+        {
+          verse: 'My heart stopped; my blood congealed. There was no sound but a curious smothered noise from my friend.',
+          subs: [
+            { q: '(a) What happened to the narrator emotionally?', a: 'He was terrified and shocked because he realized he had bought the picture.' },
+            { q: "(b) What is humorous about the friend's reaction?", a: "The friend makes a suppressed sound because he is trying not to laugh at the narrator's predicament." },
+          ],
+        },
+        {
+          verse: "That was a nice pickle to be in! Here was I, with sixty-three pounds in the world and not five hundred pounds' worth of securities, the purchaser of a picture which I didn't want, for four thousand and fifty guineas, the top price of the day.",
+          subs: [
+            { q: "(a) What was the narrator's predicament?", a: 'He had bought an unwanted picture for four thousand and fifty guineas though he had only sixty-three pounds.' },
+            { q: '(b) Why is this a mental tight corner?', a: 'He is not physically trapped, but he faces financial ruin and public humiliation.' },
+          ],
+        },
+        {
+          verse: "Picture after picture was put up and sold, but I saw none of them. I was running over the names of uncles and other persons from whom it might be possible to borrow, but wasn't...",
+          subs: [
+            { q: '(a) What was the narrator thinking about?', a: 'He was thinking about borrowing money from relatives or others.' },
+            { q: '(b) What does this reveal about his state of mind?', a: 'It shows that panic has taken over. He cannot pay attention to the auction and thinks only of escape.' },
+          ],
+        },
+        {
+          verse: '"Well, the gent who offered four thousand guineas wants to know if you\'ll take fifty guineas for your bid."',
+          subs: [
+            { q: "(a) Who wanted to buy the narrator's bid?", a: 'The gentleman who had originally offered four thousand guineas wanted it.' },
+            { q: '(b) Why is this offer important?', a: 'It is the sudden stroke of luck that gives the narrator a chance to escape from the tight corner.' },
+          ],
+        },
+        {
+          verse: '"Tell him I\'ll take a hundred," I said.\nAnd I got it.',
+          subs: [
+            { q: '(a) How much did the narrator finally ask for?', a: 'He asked for one hundred guineas.' },
+            { q: '(b) What character trait is shown here?', a: 'He shows presence of mind and worldly guile by turning a rescue opportunity into profit.' },
+          ],
+        },
+      ],
+    },
+
+    /* ─── PART III -- SHORT ESSAY ────────────────────────────────────── */
+    {
+      id: 'p3',
+      navLabel: 'Part III -- Short Essay (3×7)',
+      title: 'Part III -- Short Essay / Paragraph Questions',
+      type: 'short-essay',
+      scoreMax: 21,
+      marksPer: 3,
+      instruction: 'Answer any 7 of the following 10 questions in two or three sentences. (Approx. 30-40 words per answer)',
+      questions: [
+        { q: "Describe the narrator's financial condition.", ans: 'The narrator had only sixty-three pounds in the bank and no securities worth five hundred pounds. He could not afford the four-thousand-and-fifty-guinea picture he accidentally bought.' },
+        { q: 'What was the narrator doing at the auction?', ans: "The narrator entered Christie's with a friend and watched Barbizon pictures being sold. He then began bidding for fun, believing other buyers would always raise the price." },
+        { q: 'Compare a physical tight corner and a mental tight corner.', ans: "A physical tight corner involves bodily danger like tide, tiger, fire, or war. A mental tight corner involves anxiety, shame, fear, and decision-making, like the narrator's auction crisis." },
+        { q: 'What character trait is shown when the narrator says "And fifty"?', ans: 'The phrase shows impulsiveness and foolish confidence. He speaks without proper thought, forgetting that an auction is serious and that he cannot afford the picture.' },
+        { q: 'Why is the falling of the hammer significant?', ans: 'The falling hammer means the picture is sold to the narrator. It turns his playful bidding into a serious financial and social crisis.' },
+        { q: 'How is the theme of folly shown?', ans: "Folly is shown through the narrator's casual bidding without money or intention. He treats the auction as entertainment and nearly suffers public humiliation and debt." },
+        { q: 'What did the narrator think of doing after being caught?', ans: "He thought of borrowing from relatives, approaching moneylenders, and confessing poverty to Christie's staff. Yet each idea seemed impossible or humiliating." },
+        { q: 'Explain "I should have welcomed a firing party."', ans: 'The narrator exaggerates his misery by saying even death by a firing party would be welcome. It shows how deeply ashamed and frightened he felt.' },
+        { q: 'What is the message of the lesson?', ans: 'The lesson teaches that rash acts can create serious trouble. It also shows that quick thinking and presence of mind can help one escape a crisis.' },
+        { q: 'How is the lesson relevant to modern life?', ans: 'People still take careless risks online, in public, or with money for fun. The lesson warns us to think before acting in serious situations.' },
+      ],
+    },
+
+    /* ─── PART IV -- LONG ESSAY ──────────────────────────────────────── */
+    {
+      id: 'p4',
+      navLabel: 'Part IV -- Long Essay (5×7)',
+      title: 'Part IV -- Long Essay Questions',
+      type: 'long-essay',
+      scoreMax: 35,
+      marksPer: 5,
+      instruction: 'Answer any 5 of the following 7 questions. Each answer should be about 100-150 words.',
+      questions: [
+        {
+          q: 'Narrate the circumstances that led the narrator into a tight corner.',
+          ans: "The narrator entered Christie's sale-room because his friend persuaded him after lunch. Pictures from the Barbizon school were being sold for huge sums. The narrator had no intention of buying anything and had only sixty-three pounds in the bank. Yet he began bidding \"just for fun\" because other bidders always raised the price after him. His friend warned him that he would get caught, but he ignored it. When a red-faced dealer opened a bid at four thousand guineas, the narrator impulsively added, \"And fifty!\" Unfortunately, the dealer stopped bidding. The auctioneer's hammer fell, and the narrator became the buyer of an unwanted picture for four thousand and fifty guineas.",
+        },
+        {
+          q: "Trace the narrator's thoughts after he bought the picture.",
+          ans: 'After the hammer fell, the narrator was stunned and dazed. He had only sixty-three pounds, yet he had bought a picture for four thousand and fifty guineas. As picture after picture was put up and sold, he saw none of them. His mind ran over the names of uncles and other people from whom he might borrow. He wondered whether moneylenders who spoke glibly about "note of hand only" really meant it. He also thought of confessing his poverty to Christie\'s staff and asking them to put the picture up again. But he feared that no one would believe it was a genuine mistake.',
+        },
+        {
+          q: 'Explain how the narrator escaped from the tight corner.',
+          ans: "The narrator escaped from the tight corner through luck and presence of mind. While he was waiting miserably near the buyers' desk, a man approached him and asked whether he was the gentleman who had bought the big Daubigny. The original dealer, who had offered four thousand guineas, wanted to buy the picture and was willing to give the narrator fifty guineas for his bid. The narrator felt as if a messenger from the high gods had arrived. Though he would have accepted even fifty farthings, he calmly asked whether that was the dealer's highest offer. Then he demanded one hundred guineas and received it.",
+        },
+        {
+          q: 'Write a character sketch of the narrator.',
+          ans: "The narrator is humorous, impulsive, self-aware, and capable of quick thinking. His impulsiveness is clear when he joins the auction and bids \"just for fun\" despite having only sixty-three pounds. His foolish pride appears when he ignores his friend's warning. However, he is also honest enough to describe his fear and humiliation. After accidentally buying the picture, he panics and thinks of borrowing, moneylenders, and confession. At the same time, he has presence of mind. When offered fifty guineas for his bid, he asks whether more can be obtained and demands one hundred. Thus he is foolish, but witty enough to escape.",
+        },
+        {
+          q: 'Do you agree that mental tight corners can be worse than physical ones?',
+          ans: "Yes, mental tight corners can sometimes be worse than physical ones. In the lesson, people first discuss physical dangers such as tide, tiger, fire, and war. These dangers are serious, but they are clear and immediate. The narrator's danger at Christie's is different. He is trapped by shame, debt, and fear of public exposure. He cannot run away, and he cannot easily confess. His blood congeals, he thinks of borrowing, and even a firing party seems welcome. This shows that mental pressure can be extremely painful. Lucas humorously proves that embarrassment and anxiety can become a very tight corner.",
+        },
+        {
+          q: 'How does E. V. Lucas create humour in "Tight Corners"?',
+          ans: 'E. V. Lucas creates humour through exaggeration, contrast, and self-mockery. The narrator has only sixty-three pounds but behaves like a rich "bloatocrat" at an auction. He casually adds "And fifty!" to a four-thousand-guinea bid and then freezes when the dealer stops. His heart stops, his blood congeals, and he imagines borrowing from uncles and moneylenders. His friend repeatedly runs away to laugh. The greatest humour comes when the narrator is saved by the very dealer who caused the crisis and then cleverly demands one hundred guineas. Lucas makes the reader laugh at folly, fear, and sudden luck.',
+        },
+        {
+          q: 'How is "Tight Corners" relevant to modern life?',
+          ans: '"Tight Corners" is relevant to modern life because people still get into trouble through careless actions done "just for fun." Someone may click, bid, comment, spend, or promise without thinking of the consequences. Like the narrator, we may assume that nothing serious will happen until the situation suddenly becomes real. The lesson teaches us that public systems like auctions, contracts, payments, and online transactions are not games. It also teaches that when crisis comes, panic alone is useless. We need honesty, calm thinking, and presence of mind. Lucas\'s humour therefore gives a practical warning for everyday life.',
+        },
+      ],
+    },
+  ],
+}

@@ -1,0 +1,353 @@
+export default {
+  meta: {
+    title: 'The Never Never Nest',
+    author: 'Cedric Mount',
+    unit: 'Unit 6 · Supplementary · Play',
+    totalMarks: 125,
+  },
+  parts: [
+    {
+      id: 'p1',
+      navLabel: 'Part I — Objective',
+      title: 'Part I — Objective Type (20 × 1 = 20 Marks)',
+      type: 'mcq',
+      scoreMax: 20,
+      marksPer: 1,
+      sections: [
+        {
+          id: 's1',
+          label: 'Vocabulary (Q 1–9)',
+          questions: [
+            {
+              id: 'q1',
+              html: 'Choose the meaning of “lounge”.',
+              options: ['living room', 'kitchen', 'bedroom', 'garden'],
+              answer: 0,
+            },
+            {
+              id: 'q2',
+              html: 'Choose the meaning of “cosy”.',
+              options: ['comfortable', 'costly', 'cold', 'empty'],
+              answer: 0,
+            },
+            {
+              id: 'q3',
+              html: 'Choose the meaning of “instalment”.',
+              options: ['part payment of a debt', 'free gift', 'full payment', 'wedding present'],
+              answer: 0,
+            },
+            {
+              id: 'q4',
+              html: 'Choose the synonym of “absurd”.',
+              options: ['ridiculously unreasonable', 'sensible', 'wealthy', 'silent'],
+              answer: 0,
+            },
+            {
+              id: 'q5',
+              html: 'Choose the meaning of “propose”.',
+              options: ['intend to do something', 'refuse', 'forget', 'borrow'],
+              answer: 0,
+            },
+            {
+              id: 'q6',
+              html: 'Choose the meaning of “realise”.',
+              options: ['understand', 'purchase', 'decorate', 'hide'],
+              answer: 0,
+            },
+            {
+              id: 'q7',
+              html: 'Choose the meaning of “thingummies”.',
+              options: ['small articles whose names are not remembered', 'large debts', 'bank notes', 'babies'],
+              answer: 0,
+            },
+            {
+              id: 'q8',
+              html: 'Choose the meaning of “motto”.',
+              options: ['guiding phrase', 'doctor\'s bill', 'instalment book', 'sofa leg'],
+              answer: 0,
+            },
+            {
+              id: 'q9',
+              html: 'Choose the meaning of “tartar”.',
+              options: ['person of irritable temper', 'gentle child', 'doctor', 'banker'],
+              answer: 0,
+            },
+          ],
+        },
+        {
+          id: 's2',
+          label: 'Play Comprehension (Q 10–18)',
+          questions: [
+            {
+              id: 'q10',
+              html: 'Who wrote “The Never Never Nest”?',
+              options: ['Cedric Mount', 'Bill Bryson', 'William Shakespeare', 'Katherine Mansfield'],
+              answer: 0,
+            },
+            {
+              id: 'q11',
+              html: 'The play is a',
+              options: ['one-act play', 'novel', 'sonnet', 'travel essay'],
+              answer: 0,
+            },
+            {
+              id: 'q12',
+              html: 'Who visits Jack and Jill?',
+              options: ['Aunt Jane', 'Dr. Martin', 'Mr. Sage', 'Nurse only'],
+              answer: 0,
+            },
+            {
+              id: 'q13',
+              html: 'Jack earns',
+              options: ['six pounds a week', 'seven pounds a week', 'ten pounds a week', 'two thousand pounds a week'],
+              answer: 0,
+            },
+            {
+              id: 'q14',
+              html: 'Aunt Jane gives the couple',
+              options: ['a cheque', 'a car', 'a sofa', 'a piano'],
+              answer: 0,
+            },
+            {
+              id: 'q15',
+              html: 'Jill sends the cheque to',
+              options: ['Dr. Martin', 'Mr. Sage', 'the car company', 'Aunt Jane'],
+              answer: 0,
+            },
+            {
+              id: 'q16',
+              html: 'Jack hopes to pay the next two months on the',
+              options: ['car', 'baby', 'sofa', 'piano'],
+              answer: 0,
+            },
+            {
+              id: 'q17',
+              html: 'The final instalment is for the',
+              options: ['baby', 'radio', 'house', 'steering wheel'],
+              answer: 0,
+            },
+            {
+              id: 'q18',
+              html: 'The play mainly criticises',
+              options: ['living beyond one\'s means', 'simple living', 'joint families', 'education'],
+              answer: 0,
+            },
+          ],
+        },
+        {
+          id: 's3',
+          label: 'Activity and Theme (Q 19–20)',
+          questions: [
+            {
+              id: 'q19',
+              html: 'The speaking activity is a debate on',
+              options: ['whether EMI is boon or bane', 'war and peace', 'formal occasions', 'photography'],
+              answer: 0,
+            },
+            {
+              id: 'q20',
+              html: 'The writing task asks students to write as',
+              options: ['Aunt Jane', 'Jack', 'Dr. Martin', 'the Nurse'],
+              answer: 0,
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: 'p2',
+      navLabel: 'Part II — RTC',
+      title: 'Part II — Reference to Context (10 × 4 = 40 Marks)',
+      type: 'reference',
+      scoreMax: 40,
+      marksPer: 4,
+      questions: [
+        {
+          id: 'r1',
+          verse: 'Oh, this is a charming little nest!',
+          subs: [
+            { q: 'Who says this?', a: 'Aunt Jane says this when she sees Jack and Jill\'s home.' },
+            { q: 'Why is it ironic?', a: 'It is ironic because the “nest” looks charming, but most of it is not truly owned by them.' },
+          ],
+        },
+        {
+          id: 'r2',
+          verse: 'You\'re paying seven pounds eight and eight pence out of six pounds?',
+          subs: [
+            { q: 'Who is shocked by this?', a: 'Aunt Jane is shocked by Jack\'s financial arrangement.' },
+            { q: 'Why is it absurd?', a: 'It is absurd because Jack pays more in instalments than he earns.' },
+          ],
+        },
+        {
+          id: 'r3',
+          verse: 'We own the steering wheel, and one of the tyres, and two of the cylinders.',
+          subs: [
+            { q: 'What is being discussed?', a: 'Jill is discussing the parts of the car they have actually paid for.' },
+            { q: 'What does this reveal?', a: 'It reveals the ridiculous nature of partial ownership under instalment buying.' },
+          ],
+        },
+        {
+          id: 'r4',
+          verse: 'I\'m not going to sit on Mr. Sage\'s part of the sofa.',
+          subs: [
+            { q: 'Who says this?', a: 'Aunt Jane says this after learning that the sofa is not fully theirs.' },
+            { q: 'What is humorous here?', a: 'The humour lies in treating a sofa as if different parts belong to different people.' },
+          ],
+        },
+        {
+          id: 'r5',
+          verse: 'Don\'t you see, you ought to pay off what you owe.',
+          subs: [
+            { q: 'What advice is given here?', a: 'Aunt Jane advises Jack and Jill to clear their debts.' },
+            { q: 'What theme does this line express?', a: 'It expresses the theme of financial responsibility.' },
+          ],
+        },
+        {
+          id: 'r6',
+          verse: 'Ten pounds.',
+          subs: [
+            { q: 'What does this amount refer to?', a: 'It refers to the cheque or money Aunt Jane leaves for Jack and Jill.' },
+            { q: 'Why is it important?', a: 'This money becomes important because Jack wants it for the car, but Jill has sent it to the doctor.' },
+          ],
+        },
+        {
+          id: 'r7',
+          verse: 'Who have you sent it to?',
+          subs: [
+            { q: 'Who asks this question?', a: 'Jack asks Jill this question after learning the cheque has been sent away.' },
+            { q: 'What answer does Jill give?', a: 'Jill says she has sent it to Dr. Martin.' },
+          ],
+        },
+        {
+          id: 'r8',
+          verse: 'Why waste good money on the doctor?',
+          subs: [
+            { q: 'Who says this?', a: 'Jack says this when Jill tells him she sent the cheque to Dr. Martin.' },
+            { q: 'What does it show about Jack?', a: 'It shows that Jack is careless and even treats medical dues as less urgent than consumer instalments.' },
+          ],
+        },
+        {
+          id: 'r9',
+          verse: 'Why; just one more instalment and BABY\'S REALLY OURS!',
+          subs: [
+            { q: 'Who says this?', a: 'Jill says this near the end of the play.' },
+            { q: 'Why is it the climax?', a: 'It reveals the most shocking absurdity of their instalment lifestyle, making even the baby part of the debt system.' },
+          ],
+        },
+        {
+          id: 'r10',
+          verse: 'These one act plays expose the shams of contemporary society besides delicately admonishing the guilty.',
+          subs: [
+            { q: 'What does this say about Cedric Mount\'s plays?', a: 'It says his plays expose false appearances in modern society.' },
+            { q: 'How does this apply here?', a: 'The play exposes the false appearance of prosperity created by instalment buying.' },
+          ],
+        },
+      ],
+    },
+    {
+      id: 'p3',
+      navLabel: 'Part III — Short Essay',
+      title: 'Part III — Short Essay (10 × 3 = 30 Marks)',
+      type: 'short-essay',
+      scoreMax: 30,
+      marksPer: 3,
+      questions: [
+        {
+          id: 'se1',
+          q: 'Describe Jack and Jill\'s lifestyle.',
+          ans: 'Jack and Jill live in a cosy home filled with modern comforts, but most things are bought on instalment. Their lifestyle looks prosperous outside, but it is actually built on debt.',
+        },
+        {
+          id: 'se2',
+          q: 'What does Aunt Jane notice about the little nest?',
+          ans: 'Aunt Jane first admires the cosy home and its comforts. Later, she realises that the charming nest is not secure because most things are not fully owned.',
+        },
+        {
+          id: 'se3',
+          q: 'Compare Aunt Jane and Jack.',
+          ans: 'Aunt Jane is careful, practical and financially responsible. Jack is careless, overconfident and proud of buying luxuries on credit even when his income is insufficient.',
+        },
+        {
+          id: 'se4',
+          q: 'What character trait of Jill is shown at the end?',
+          ans: 'Jill is emotional but also trapped in the same debt habit. Her statement about the baby shows how deeply instalment thinking has entered their life.',
+        },
+        {
+          id: 'se5',
+          q: 'Why is the cheque important?',
+          ans: 'The cheque is important because Aunt Jane expects it to reduce debt. Jack wants it for the car, but Jill sends it to Dr. Martin to pay for the baby.',
+        },
+        {
+          id: 'se6',
+          q: 'How is the theme of consumerism shown?',
+          ans: 'Consumerism is shown through Jack and Jill\'s desire to own a house, car, furniture and other luxuries immediately, even without enough income to pay for them.',
+        },
+        {
+          id: 'se7',
+          q: 'What does partial ownership reveal?',
+          ans: 'Partial ownership reveals the absurdity of instalment living. Owning only a steering wheel, tyre or sofa leg shows that their prosperity is only an illusion.',
+        },
+        {
+          id: 'se8',
+          q: 'Explain the title “The Never Never Nest.”',
+          ans: 'The title means that Jack and Jill\'s home is never fully theirs. It remains a “never-never” nest because everything is bought on unpaid instalments.',
+        },
+        {
+          id: 'se9',
+          q: 'What is the message of the play?',
+          ans: 'The play teaches that people should not live beyond their means. Comfort bought through endless debt can destroy peace and real ownership.',
+        },
+        {
+          id: 'se10',
+          q: 'How is the play relevant today?',
+          ans: 'The play is relevant because EMI culture is common today. It warns families to use credit carefully and not confuse possession with true ownership.',
+        },
+      ],
+    },
+    {
+      id: 'p4',
+      navLabel: 'Part IV — Long Essay',
+      title: 'Part IV — Long Essay (7 × 5 = 35 Marks)',
+      type: 'long-essay',
+      scoreMax: 35,
+      marksPer: 5,
+      questions: [
+        {
+          id: 'le1',
+          q: 'Write a character essay on Aunt Jane.',
+          ans: 'Aunt Jane is the voice of common sense and financial responsibility in the play. When she enters Jack and Jill\'s house, she first admires their charming little nest. But as she learns the truth, her admiration turns into shock. She cannot accept that the young couple pays more in instalments than Jack earns. She is disturbed by the idea that they own only parts of objects, such as a steering wheel, a tyre and a sofa leg. Her advice is simple and wise: they must pay off what they owe and stop living beyond their means. Aunt Jane represents an older, more careful value system that believes in real ownership, not debt-driven display.',
+        },
+        {
+          id: 'le2',
+          q: 'Explain the central theme of “The Never Never Nest.”',
+          ans: 'The central theme of “The Never Never Nest” is the danger of living beyond one\'s means. Jack and Jill want the comforts of modern life immediately, so they buy everything on instalment. Their house, car, furniture, piano and other items give the appearance of prosperity, but the reality is debt. Jack earns only six pounds a week but pays more than that in instalments. The absurdity reaches its height when Jill says one more instalment will make the baby really theirs. Cedric Mount uses humour to warn that easy credit can trap families and turn comfort into lifelong anxiety.',
+        },
+        {
+          id: 'le3',
+          q: 'Why is the title “The Never Never Nest” suitable?',
+          ans: 'The title is highly suitable because it captures the irony of Jack and Jill\'s life. A nest should be a safe, warm and owned home. But their nest is “never-never” because it is never truly theirs. Almost every item in it is bought on instalment and belongs partly to creditors. The double “never” suggests endless postponement of real ownership. They may live in the house and use the furniture and car, but they have not fully paid for them. The final line about the baby makes the title even more powerful, because their instalment mentality has entered every part of life.',
+        },
+        {
+          id: 'le4',
+          q: 'Compare Jack and Aunt Jane.',
+          ans: 'Jack and Aunt Jane represent two opposite attitudes to money. Jack believes in enjoying modern comforts immediately. He is proud of instalment buying and does not worry that his weekly payments exceed his income. He even thinks of using Aunt Jane\'s cheque to pay more on the car. Aunt Jane, however, believes in careful spending and real ownership. She is shocked by the couple\'s debts and advises them to pay what they owe. Jack is comic because he is blind to danger; Aunt Jane is sensible because she sees the financial trap. Their contrast creates both humour and moral meaning.',
+        },
+        {
+          id: 'le5',
+          q: 'Do you agree that EMI can be a bane to middle-class families?',
+          ans: 'Yes, EMI can become a bane when families spend without planning. Instalments may help people buy necessary things, but they become dangerous when used for show and luxury. Jack and Jill buy a home, car, furniture and other items though their income is too small. They pay more than they earn and still feel proud. This creates an illusion of prosperity while increasing debt. The play does not say that all credit is bad; it warns against irresponsible borrowing. Middle-class families should use EMI only within their means and should not let desire control their future.',
+        },
+        {
+          id: 'le6',
+          q: 'How does Cedric Mount create humour in the play?',
+          ans: 'Cedric Mount creates humour through irony, exaggeration and absurd dialogue. At first, Aunt Jane admires the couple\'s little nest, but the truth slowly reveals that almost nothing is fully theirs. The funniest idea is partial ownership: Jack and Jill own the steering wheel, one tyre, two cylinders and one leg of the sofa. Aunt Jane\'s refusal to sit on another person\'s part of the sofa adds visual comedy. The final line about the baby being truly theirs after one more instalment is shocking and hilarious. Mount\'s humour is effective because it makes the audience laugh while exposing a serious social problem.',
+        },
+        {
+          id: 'le7',
+          q: 'How is “The Never Never Nest” relevant to modern life?',
+          ans: '“The Never Never Nest” is highly relevant today because instalment buying and EMI schemes are common everywhere. People buy phones, vehicles, appliances, furniture and even houses on credit. This can be useful when planned carefully, but it becomes dangerous when people buy things only to appear modern or wealthy. Jack and Jill\'s life shows the danger of confusing possession with ownership. They have many comforts but no real financial freedom. The play reminds modern families to spend within their means, avoid unnecessary debt and remember that peace is more valuable than display. Its warning is still practical and powerful.',
+        },
+      ],
+    },
+  ],
+}

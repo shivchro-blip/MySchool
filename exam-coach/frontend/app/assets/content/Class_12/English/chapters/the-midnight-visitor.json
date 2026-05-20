@@ -1,0 +1,328 @@
+{
+  "eyebrow": "Unit 4 -- Supplementary -- Class XII English",
+  "title": "The Midnight Visitor",
+  "author": "Robert Arthur",
+  "pills": [
+    "Mystery",
+    "Presence of Mind",
+    "Deception",
+    "Spy Story"
+  ],
+  "tabs": [
+    {
+      "id": "author",
+      "label": "About the Author",
+      "blocks": [
+        {
+          "type": "teacher-voice",
+          "html": "<p>Robert Jay Arthur Jr. lived from November 10, 1909 to May 2, 1969. The textbook describes him as a writer of speculative fiction who specialised in crime fiction and mystery fiction. He was known for his work with <em>The Mysterious Traveler</em> radio series and for writing <em>The Three Investigators</em>, a series of young adult novels.</p><p>The textbook also says Arthur was honoured twice by the Mystery Writers of America with an Edgar Award for Best Radio Drama and wrote scripts for television.</p>"
+        },
+        {
+          "type": "author-stat",
+          "label": "Lived",
+          "value": "November 10, 1909 -- May 2, 1969"
+        },
+        {
+          "type": "author-stat",
+          "label": "Genres",
+          "value": "Crime fiction, mystery fiction, speculative fiction"
+        },
+        {
+          "type": "author-stat",
+          "label": "Known for",
+          "value": "The Mysterious Traveler and The Three Investigators"
+        },
+        {
+          "type": "think-box",
+          "label": "Why this matters",
+          "text": "This story depends on suspense, misdirection and a final twist. Knowing Arthur’s connection with mystery writing helps us notice how carefully the balcony trick is planted and revealed."
+        },
+        {
+          "type": "nav",
+          "next": "intro",
+          "nextLabel": "Next: Introduction ->"
+        }
+      ]
+    },
+    {
+      "id": "intro",
+      "label": "Introduction",
+      "blocks": [
+        {
+          "type": "section-head",
+          "text": "Warm Up"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>The warm up asks us to think about how professionals are identified by appearance. A pilot, soldier, scientist or traffic policeman may seem easy to picture. The story challenges that habit. Ausable looks nothing like Fowler’s idea of a secret agent, but he is the cleverest person in the room.</p><p>The textbook says appearances can be deceptive. Ausable’s common looks hide resourcefulness and presence of mind. That is exactly how he defeats Max, a dangerous criminal with a pistol.</p>"
+        },
+        {
+          "type": "quote-block",
+          "quote": "AUSABLE did not fit any description of a secret agent Fowler had ever read.",
+          "context": "The opening sentence challenges the spy stereotype."
+        },
+        {
+          "type": "think-box",
+          "label": "Before you read",
+          "text": "Do not judge Ausable by appearance. Watch how he uses words, timing and calmness as weapons."
+        },
+        {
+          "type": "nav",
+          "next": "story-explained",
+          "nextLabel": "Next: The Story Explained ->"
+        }
+      ]
+    },
+    {
+      "id": "story-explained",
+      "label": "The Story Explained",
+      "blocks": [
+        {
+          "type": "section-head",
+          "text": "Phase 1 -- Fowler’s disappointment"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>Fowler is a young romantic writer who wants to meet a thrilling secret agent. He expects danger, dark figures, pistols and drama. Instead, he follows Ausable through the musty corridor of a gloomy French hotel to a small room on the sixth floor. Ausable is fat, speaks with an American accent and has spent the evening in a dull music hall.</p><p>Ausable understands Fowler’s disappointment. He says Fowler expected espionage and danger, but saw only a sloppy fat man receiving a prosaic telephone call. This scene is important because the story first makes Ausable seem ordinary, then proves that his mind is extraordinary.</p>"
+        },
+        {
+          "type": "quote-block",
+          "quote": "You are disillusioned,” Ausable told him. “But take cheer, my young friend.",
+          "context": "Ausable knows Fowler is disappointed."
+        },
+        {
+          "type": "section-head",
+          "text": "Phase 2 -- Max appears with a pistol"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>Ausable tells Fowler that an important paper will come to him soon, a paper that may affect history. When he switches on the light, Fowler finally gets his thrill. A man with a small automatic pistol is standing halfway across the room.</p><p>The man is Max. Ausable does not panic. He recognises Max and asks why he is in his room. Max says he has come for the report about new missiles. He believes it will be safer in his hands.</p>"
+        },
+        {
+          "type": "quote-block",
+          "quote": "For halfway across the room, a small automatic pistol in his hand, stood a man.",
+          "context": "The real danger enters the room."
+        },
+        {
+          "type": "section-head",
+          "text": "Phase 3 -- The invented balcony"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>Ausable immediately creates a lie. He complains angrily that this is the second time in a month someone has got into his room through the balcony. In reality, there is no balcony. But Max does not know that. Ausable explains that the balcony belongs to the next apartment and extends under his window.</p><p>This is the turning point. Ausable’s weapon is not a gun; it is a believable story told calmly at the right moment. Fowler looks at the window. Max also believes the balcony story.</p>"
+        },
+        {
+          "type": "quote-block",
+          "quote": "This is the second time in a month that somebody has got into my room through that nuisance of a balcony!",
+          "context": "Ausable begins the trick."
+        },
+        {
+          "type": "think-box",
+          "label": "Notice this",
+          "text": "Ausable gives details about the next apartment, the old living room and the management promise. These details make the lie believable."
+        },
+        {
+          "type": "section-head",
+          "text": "Phase 4 -- The knocking at the door"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>Max tells them to sit down and wait for the report. Then there is a knock at the door. Fowler is startled, but Ausable smiles and says it will be the police. He claims he asked them to check on him because the paper was important.</p><p>Max becomes nervous. Ausable adds pressure by saying that if he does not open the door, the police will enter anyway and will not hesitate to shoot. Max backs towards the window and decides to hide on the supposed balcony.</p>"
+        },
+        {
+          "type": "quote-block",
+          "quote": "That will be the police,” he said.",
+          "context": "Ausable uses the expected waiter as part of his trick."
+        },
+        {
+          "type": "section-head",
+          "text": "Phase 5 -- Max falls and the truth is revealed"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>Max climbs out through the window while still covering Ausable and Fowler with his gun. He pushes himself free from the sill to drop to the balcony. But there is no balcony. He screams as he falls. The door opens, and it is not the police at all. It is Henry, the waiter, bringing the drink Ausable had ordered.</p><p>Fowler is shocked. Ausable calmly explains that there were no police, only Henry. When Fowler asks about the man on the balcony, Ausable gives the final twist: Max will not return because there is no balcony.</p>"
+        },
+        {
+          "type": "quote-block",
+          "quote": "You see, my young friend, there is no balcony.",
+          "context": "The final twist of the story."
+        },
+        {
+          "type": "think-box",
+          "label": "What the story shows",
+          "text": "Ausable defeats an armed spy without violence. He uses observation, calmness, timing and imagination."
+        },
+        {
+          "type": "nav",
+          "next": "key-lines",
+          "nextLabel": "Next: Key Lines ->"
+        }
+      ]
+    },
+    {
+      "id": "key-lines",
+      "label": "Key Lines",
+      "blocks": [
+        {
+          "type": "quote-block",
+          "quote": "AUSABLE did not fit any description of a secret agent Fowler had ever read.",
+          "context": "Opening contrast between appearance and ability."
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>This line is important for the theme of deceptive appearances.</p>"
+        },
+        {
+          "type": "quote-block",
+          "quote": "For halfway across the room, a small automatic pistol in his hand, stood a man.",
+          "context": "The suspense begins."
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>The ordinary hotel room suddenly becomes dangerous.</p>"
+        },
+        {
+          "type": "quote-block",
+          "quote": "This is the second time in a month that somebody has got into my room through that nuisance of a balcony!",
+          "context": "Ausable invents the balcony."
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>This is the most important trick in the story. It makes Max believe he has an escape route.</p>"
+        },
+        {
+          "type": "quote-block",
+          "quote": "That will be the police,” he said.",
+          "context": "Ausable uses the knock to frighten Max."
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>Ausable turns Henry’s expected visit into a threat.</p>"
+        },
+        {
+          "type": "quote-block",
+          "quote": "There were no police.",
+          "context": "The first part of the reveal."
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>Fowler and the reader realise that Ausable created the police story.</p>"
+        },
+        {
+          "type": "quote-block",
+          "quote": "You see, my young friend, there is no balcony.",
+          "context": "The final twist."
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>This line explains how Max was outwitted and why appearance is less important than intelligence.</p>"
+        },
+        {
+          "type": "nav",
+          "next": "glossary",
+          "nextLabel": "Next: Glossary ->"
+        }
+      ]
+    },
+    {
+      "id": "glossary",
+      "label": "Glossary",
+      "blocks": [
+        {
+          "type": "section-head",
+          "text": "Textbook Glossary"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p><strong>musty</strong> means having a stale smell. <strong>wheezily</strong> means with a hissing sound while breathing. <strong>espionage</strong> means the practice of spying to obtain information. <strong>sloppy</strong> means careless and unsystematic.</p><p><strong>prosaic</strong> means ordinary, usual. <strong>inflection</strong> means modulation or intonation. <strong>sill</strong> means a slab of wood or stone at the foot of a window opening or doorway. <strong>deftly</strong> means skillfully.</p>"
+        },
+        {
+          "type": "nav",
+          "next": "themes",
+          "nextLabel": "Next: Themes & Devices ->"
+        }
+      ]
+    },
+    {
+      "id": "themes",
+      "label": "Themes & Devices",
+      "blocks": [
+        {
+          "type": "section-head",
+          "text": "Appearance versus reality"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>Ausable looks unlike a secret agent, while Max looks more conventionally dangerous. Yet Ausable is the one with true control. The story teaches that appearance can be deceptive.</p>"
+        },
+        {
+          "type": "section-head",
+          "text": "Presence of mind"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>Ausable does not panic when he sees Max. He invents the balcony, uses the knock at the door and forces Max to make a fatal mistake. His quick thinking is the central quality of the story.</p>"
+        },
+        {
+          "type": "section-head",
+          "text": "Suspense and twist"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>The story creates suspense through the pistol, the secret report, the knock and Max’s attempted escape. The twist comes when the police are revealed to be Henry and the balcony is revealed to be imaginary.</p>"
+        },
+        {
+          "type": "nav",
+          "next": "qa",
+          "nextLabel": "Next: Textbook Q&A ->"
+        }
+      ]
+    },
+    {
+      "id": "qa",
+      "label": "Textbook Q&A",
+      "blocks": [
+        {
+          "type": "section-head",
+          "text": "Textbook questions and model answers"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p><strong>Mention two features of Ausable that were uncharacteristic of a detective.</strong> Ausable was very fat and had an American accent. His small hotel room also did not match Fowler’s romantic idea of a secret agent’s setting.</p><p><strong>What was Ausable waiting for?</strong> He was waiting for an important paper concerning new missiles. He also expected Henry, the waiter, to bring the drink he had ordered.</p><p><strong>Who was the Midnight Visitor? What was the purpose of his visit?</strong> Max was the midnight visitor. He came with a pistol to take the report that was being brought to Ausable.</p><p><strong>How had Max actually entered the room?</strong> Max had entered the room with a passkey. He had not used a balcony.</p><p><strong>Did Max’s presence alarm Ausable?</strong> Ausable was startled, but he did not lose his calm. He quickly began to outwit Max.</p><p><strong>Who was Henry?</strong> Henry was a waiter. He came to Ausable’s room with a tray, bottle and two glasses.</p><p><strong>What happened to Max finally?</strong> Max believed Ausable’s balcony story and tried to hide outside the window. Since there was no balcony, he fell and screamed.</p>"
+        },
+        {
+          "type": "section-head",
+          "text": "Paragraph answer"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p><strong>How did Ausable outwit Max?</strong> Ausable outwitted Max by using calmness and imagination. When he saw Max with a pistol, he did not panic. Instead, he invented a story about a balcony below his window and complained that people had entered his room through it before. Max believed the story. When Henry knocked at the door, Ausable said it was the police who had come to protect the important paper. This frightened Max. He moved to the window and tried to hide on the supposed balcony. But there was no balcony, and Max fell. Thus Ausable defeated an armed criminal without using force.</p>"
+        },
+        {
+          "type": "nav",
+          "next": "activities",
+          "nextLabel": "Next: Activities ->"
+        }
+      ]
+    },
+    {
+      "id": "activities",
+      "label": "Activities",
+      "blocks": [
+        {
+          "type": "section-head",
+          "text": "Activities from the textbook"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>The textbook asks students to match expressions from the story with their meanings: <em>let down</em>, <em>chuckled to himself</em>, <em>take cheer</em>, <em>raise the devil</em>, <em>black with anger</em> and <em>take chances</em>. It also asks them to complete a graphic organiser with the title, setting, characters, author, plot and climax.</p><p>The lesson includes a list of espionage agencies such as RAW in India, CIA in the USA, MI6 in the UK, Mossad in Israel, ASIS in Australia, MSS in China and FSB in Russia. It also has a detective-character activity involving Sankar Lal, Dr. Watson, Hercule Poirot, Sherlock Holmes, Sambu, and Ganesh and Vasanth, along with authors such as Agatha Christie, Tamizhvanan, Sujatha, Devan and Sir Arthur Conan Doyle.</p>"
+        },
+        {
+          "type": "nav",
+          "practice": true,
+          "practiceLabel": "Practice Questions ->"
+        }
+      ]
+    }
+  ]
+}

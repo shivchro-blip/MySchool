@@ -1,0 +1,344 @@
+export default {
+  "eyebrow": "Unit 5 -- Poem -- Class XII General English",
+  "title": "A Father to his Son",
+  "author": "Carl August Sandburg",
+  "pills": [
+    "Advice",
+    "Manhood",
+    "Wisdom",
+    "Integrity"
+  ],
+  "tabs": [
+    {
+      "id": "about-poet",
+      "label": "About the Poet",
+      "blocks": [
+        {
+          "type": "teacher-voice",
+          "html": "<p>Carl August Sandburg was born in Galesburg, Illinois, to parents of Swedish ancestry. The textbook gives his life span as January 6, 1878 to July 22, 1967. He was an American poet, writer and editor.</p><p>The textbook states that Sandburg won three Pulitzer Prizes: two for his poetry and one for his biography of Abraham Lincoln. It also says that he was widely regarded during his lifetime as a major figure in contemporary literature, especially for collected verse such as <em>Chicago Poems</em> (1916), <em>Cornhuskers</em> (1918), and <em>Smoke and Steel</em> (1920).</p><p>The textbook quotes President Lyndon B. Johnson?s tribute that Carl Sandburg was more than the voice of America and that ?He was America.?</p>"
+        },
+        {
+          "type": "author-stat",
+          "label": "Lived",
+          "value": "January 6, 1878 -- July 22, 1967"
+        },
+        {
+          "type": "author-stat",
+          "label": "Nationality",
+          "value": "American"
+        },
+        {
+          "type": "author-stat",
+          "label": "Known for",
+          "value": "Poetry and biography of Abraham Lincoln"
+        },
+        {
+          "type": "think-box",
+          "label": "Why this matters for this poem",
+          "text": "This poem is written as advice from a father to a son who is nearing manhood. Sandburg?s plain but powerful style suits the poem because the father speaks directly about strength, gentleness, money, solitude, mistakes and self-knowledge."
+        },
+        {
+          "type": "nav",
+          "next": "intro",
+          "nextLabel": "Next: Introduction ->"
+        }
+      ]
+    },
+    {
+      "id": "intro",
+      "label": "Introduction",
+      "blocks": [
+        {
+          "type": "section-head",
+          "text": "Warm Up"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>The warm-up begins from a familiar experience: parents are anxious about their children?s welfare and often advise them. The poem develops the same idea in a serious and thoughtful way. Here, a father sees his son approaching manhood and wonders what kind of guidance will truly help him.</p><p>The father does not give only one kind of advice. He asks the son to be hard like steel and rock when life is difficult, but also to be gentle like soft loam. He warns him against greed, asks him to learn from mistakes, tells him to value solitude and encourages him to be different if that is natural to him.</p>"
+        },
+        {
+          "type": "quote-block",
+          "quote": "A father sees his son nearing manhood.",
+          "context": "The opening situation of the poem."
+        },
+        {
+          "type": "think-box",
+          "label": "Before you read",
+          "text": "Do not read the poem as a list of disconnected advice. Read it as balanced guidance: hardness and gentleness, action and reflection, ambition and honesty, individuality and responsibility."
+        },
+        {
+          "type": "nav",
+          "back": "about-poet",
+          "next": "poem",
+          "nextLabel": "Next: Poem Text ->"
+        }
+      ]
+    },
+    {
+      "id": "poem",
+      "label": "Poem Text",
+      "blocks": [
+        {
+          "type": "section-head",
+          "text": "Full poem"
+        },
+        {
+          "type": "quote-block",
+          "quote": "A father sees his son nearing manhood.\nWhat shall he tell that son\n?Life is hard; be steel; be a rock.?\nAnd this might stand him for the storms\nand serve him for humdrum monotony\n\nand guide him among sudden betrayals\nand tighten him for slack moments.\n?Life is a soft loam; be gentle; go easy.?\nAnd this too might serve him.\nBrutes have been gentled where lashes failed.\n\nThe growth of a frail flower in a path up\nhas sometimes shattered and split a rock.\nA tough will counts. So does desire.\nSo does a rich soft wanting.\nWithout rich wanting nothing arrives.\n\nTell him too much money has killed men\nand left them dead years before burial:\nthe quest of lucre beyond a few easy needs\nhas twisted good enough men\nsometimes into dry thwarted worms.\n\nTell him time as a stuff can be wasted.\nTell him to be a fool ever so often\nand to have no shame over having been a fool\nyet learning something out of every folly\nhoping to repeat none of the cheap follies\n\nthus arriving at intimate understanding\nof a world numbering many fools.\nTell him to be alone often and get at himself\nand above all tell himself no lies about himself\nwhatever the white lies and protective fronts\n\nhe may use against other people.\nTell him solitude is creative if he is strong\nand the final decisions are made in silent rooms.\nTell him to be different from other people\nif it comes natural and easy being different.\n\nLet him have lazy days seeking his deeper motives.\nLet him seek deep for where he is born natural.\nThen he may understand Shakespeare\nand the Wright brothers, Pasteur, Pavlov,\nMichael Faraday and free imaginations\n\nBringing changes into a world resenting change.\nHe will be lonely enough\nto have time for the work\nhe knows as his own.",
+          "context": "Textbook poem lines, arranged without page-number markers."
+        },
+        {
+          "type": "nav",
+          "next": "stanza-by-stanza",
+          "nextLabel": "Next: Explanation ->"
+        }
+      ]
+    },
+    {
+      "id": "stanza-by-stanza",
+      "label": "Explanation",
+      "blocks": [
+        {
+          "type": "section-head",
+          "text": "Lines 1?10 -- Strength and gentleness"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>The father first asks what he should tell his son who is nearing manhood. One answer is that life is hard, so the son must be like steel and rock. This will help him face storms, dull routine, sudden betrayals and weak moments. But the father immediately balances this advice. Life is also like soft loam, so the son must be gentle and must go easy. The poem says that even brutes have been gentled where lashes failed.</p>"
+        },
+        {
+          "type": "quote-block",
+          "quote": "?Life is hard; be steel; be a rock.?",
+          "context": "Advice to be strong when life is difficult."
+        },
+        {
+          "type": "quote-block",
+          "quote": "?Life is a soft loam; be gentle; go easy.?",
+          "context": "Advice to be gentle and flexible."
+        },
+        {
+          "type": "section-head",
+          "text": "Lines 11?20 -- Desire, will and danger of greed"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>The father says that the growth of a frail flower has sometimes split a rock. This means gentleness and growth can be stronger than force. A tough will matters, but so does desire. Without deep wanting, nothing arrives. However, the father also warns against too much money. The quest of lucre beyond a few easy needs has twisted good men into dry, thwarted worms.</p>"
+        },
+        {
+          "type": "quote-block",
+          "quote": "A tough will counts. So does desire.",
+          "context": "Both determination and inner desire are necessary."
+        },
+        {
+          "type": "quote-block",
+          "quote": "the quest of lucre beyond a few easy needs",
+          "context": "The father condemns greedy pursuit of dishonourable money."
+        },
+        {
+          "type": "section-head",
+          "text": "Lines 21?30 -- Time, mistakes and honesty"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>The father tells his son that time can sometimes be wasted. This does not mean careless idleness; it means the son should have space to learn, reflect and grow. He should not be ashamed of being a fool at times, if he learns from every folly and does not repeat cheap follies. The father also advises him to be alone often, to understand himself, and to tell himself no lies about himself.</p>"
+        },
+        {
+          "type": "quote-block",
+          "quote": "Tell him to be a fool ever so often",
+          "context": "The father values learning from mistakes."
+        },
+        {
+          "type": "quote-block",
+          "quote": "and above all tell himself no lies about himself",
+          "context": "The father?s advice on self-honesty."
+        },
+        {
+          "type": "section-head",
+          "text": "Lines 31?44 -- Solitude, difference and creative work"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>The father says solitude is creative if the son is strong. Final decisions are made in silent rooms. He should be different from others if difference comes naturally and easily to him. He should have lazy days to seek his deeper motives and discover what he is born for. Then he may understand how free imaginations, like those of Shakespeare, the Wright brothers, Pasteur, Pavlov and Michael Faraday, bring changes into a world that resents change.</p><p>At the end, the son will be lonely enough to have time for the work he knows as his own. The poem ends by connecting loneliness not with sadness, but with purposeful work.</p>"
+        },
+        {
+          "type": "quote-block",
+          "quote": "Tell him solitude is creative if he is strong",
+          "context": "Solitude helps a strong person think deeply."
+        },
+        {
+          "type": "quote-block",
+          "quote": "He will be lonely enough to have time for the work he knows as his own.",
+          "context": "The closing idea of personal purpose."
+        },
+        {
+          "type": "nav",
+          "next": "key-lines",
+          "nextLabel": "Next: Key Lines ->"
+        }
+      ]
+    },
+    {
+      "id": "key-lines",
+      "label": "Key Lines",
+      "blocks": [
+        {
+          "type": "quote-block",
+          "quote": "and guide him among sudden betrayals and tighten him for slack moments.",
+          "context": "The father wants his son to be prepared for betrayal and weakness."
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>This line is useful for exam answers about facing life?s challenges. It shows that the father?s advice is practical: the son must be steady in both crisis and ordinary weakness.</p>"
+        },
+        {
+          "type": "quote-block",
+          "quote": "Brutes have been gentled where lashes failed.",
+          "context": "Gentleness can succeed where force fails."
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>The line contrasts gentleness and violence. It suggests that kindness can reform even rough people better than punishment.</p>"
+        },
+        {
+          "type": "quote-block",
+          "quote": "Yet learning something out of every folly hoping to repeat none of the cheap follies",
+          "context": "The father?s advice about mistakes."
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>The father does not demand perfection. He wants his son to learn from foolishness and avoid repeating the same cheap mistakes.</p>"
+        },
+        {
+          "type": "quote-block",
+          "quote": "the final decisions are made in silent rooms.",
+          "context": "Important decisions require solitude and reflection."
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>This line is important for questions about solitude. It shows that serious decisions are often made inwardly, away from public noise.</p>"
+        },
+        {
+          "type": "nav",
+          "next": "glossary",
+          "nextLabel": "Next: Glossary ->"
+        }
+      ]
+    },
+    {
+      "id": "glossary",
+      "label": "Glossary",
+      "blocks": [
+        {
+          "type": "section-head",
+          "text": "Textbook Glossary"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p><strong>humdrum monotony</strong> means boring routine. The father wants his son to endure ordinary dullness as well as storms.</p><p><strong>soft loam</strong> means fertile soil. The poem uses it to suggest gentleness, growth and fruitfulness.</p><p><strong>lashes</strong> means whips. The line about brutes and lashes contrasts force with gentleness.</p><p><strong>thwarted</strong> means frustrated. Men twisted by greed become dry, thwarted worms.</p><p><strong>white lies</strong> are lies told to avoid hurting one?s feelings. The father tells his son not to lie to himself, whatever protective fronts he may use with others.</p><p><strong>quest of lucre</strong> means money gained in a dishonourable way. The father condemns greed beyond a few easy needs.</p><p><strong>resenting</strong> means disliking. The poem says free imaginations bring changes into a world that resents change.</p>"
+        },
+        {
+          "type": "nav",
+          "next": "themes",
+          "nextLabel": "Next: Themes ->"
+        }
+      ]
+    },
+    {
+      "id": "themes",
+      "label": "Themes",
+      "blocks": [
+        {
+          "type": "section-head",
+          "text": "Balanced guidance"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>The poem?s main strength is balance. The father does not say that his son should only be hard. He also says that life is soft loam and that gentleness may succeed where lashes fail. The poem teaches that a mature person needs firmness and tenderness together.</p>"
+        },
+        {
+          "type": "section-head",
+          "text": "Learning from mistakes"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>The father advises the son to be a fool sometimes and not be ashamed, provided he learns from every folly and avoids repeating cheap follies. This theme is exam-important because it shows that experience, not mere success, creates wisdom.</p>"
+        },
+        {
+          "type": "section-head",
+          "text": "Self-knowledge and solitude"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>The poem values solitude because it helps a strong person become creative and honest with himself. Silent rooms are where final decisions are made. Lazy days are not presented as laziness alone, but as time to seek deeper motives and discover one?s natural work.</p>"
+        },
+        {
+          "type": "section-head",
+          "text": "Poetic devices"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>The textbook identifies antithesis in the contrast between frail flower and rock, and between brutes being gentled and lashes failing. It identifies transferred epithet in lines such as <em>?dead years before burial?</em>, <em>?lazy days?</em>, and <em>?a world resenting change.?</em> It also identifies repetition in the repeated use of <em>?Tell him?</em> and <em>?himself?</em>. The line <em>?And this might stand him for the storms?</em> contains alliteration in the repeated <em>s</em> sound.</p>"
+        },
+        {
+          "type": "nav",
+          "next": "qa",
+          "nextLabel": "Next: Q&A ->"
+        }
+      ]
+    },
+    {
+      "id": "qa",
+      "label": "Comprehension Q&A",
+      "blocks": [
+        {
+          "type": "section-head",
+          "text": "Answer in one or two sentences"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p><strong>a) How would the poet?s advice help his son who is at the threshold of manhood?</strong><br>The poet?s advice would help his son face hardship, routine, betrayal and loneliness with strength, gentleness and self-knowledge.</p><p><strong>b) ?A tough will counts.? Explain.</strong><br>The line means that determination is important in life. A strong will helps a person achieve goals and face obstacles.</p><p><strong>c) What happened to the people who wanted too much money?</strong><br>People who wanted too much money were spiritually dead before actual burial. Greed twisted even good men into dry, thwarted worms.</p><p><strong>d) What has twisted good men into thwarted worms?</strong><br>The quest of lucre beyond a few easy needs has twisted good men into thwarted worms.</p><p><strong>e) How would his being alone help the boy?</strong><br>Being alone would help the boy understand himself, avoid self-deception and make creative, final decisions.</p><p><strong>f) Where are the final decisions taken?</strong><br>The final decisions are taken in silent rooms.</p><p><strong>g) What are the poet?s thoughts on being different?</strong><br>The poet advises his son to be different from other people if being different comes naturally and easily to him.</p><p><strong>h) Why does the poet advise his son to have lazy days?</strong><br>The poet advises lazy days so that the son can seek his deeper motives and discover where he is born natural.</p><p><strong>i) The poet says ?Without rich wanting nothing arrives? but condemns ?the quest of lucre beyond a few easy needs.? Analyse the difference.</strong><br>Rich wanting is a deep desire that leads to meaningful achievement. The quest of lucre is greedy pursuit of dishonourable money beyond real needs, and the poet condemns it.</p>"
+        },
+        {
+          "type": "section-head",
+          "text": "Paragraph answers"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p><strong>a) Explain how the poet guides his son who is at the threshold of manhood, to face the challenges of life.</strong><br>The poet guides his son with balanced and practical advice. He tells him that life is hard, so he must be like steel and rock to withstand storms, monotony, betrayals and slack moments. At the same time, he says life is soft loam and asks him to be gentle. The son must have a tough will and rich desire, but he must avoid greed for money. He should learn from mistakes, spend time alone, tell himself no lies and be different if it comes naturally. He must seek his deeper motives and find the work meant for him.</p><p><strong>b) How according to the poet is it possible for his son to bring changes into a world that resents change?</strong><br>The poet believes that change comes through free imagination, solitude and self-knowledge. He asks his son to be alone often, to make final decisions in silent rooms and to be different if that is natural. Lazy days can help him discover his deeper motives and his true abilities. Then he may understand great creators such as Shakespeare, the Wright brothers, Pasteur, Pavlov and Michael Faraday. Their free imaginations brought changes into a world that disliked change. Similarly, the son can bring change by discovering and doing the work that is truly his own.</p>"
+        },
+        {
+          "type": "nav",
+          "next": "activities",
+          "nextLabel": "Next: Activities ->"
+        }
+      ]
+    },
+    {
+      "id": "activities",
+      "label": "Activities",
+      "blocks": [
+        {
+          "type": "section-head",
+          "text": "Listening and Speaking"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>The listening activity asks students to listen to the poem read by the teacher or to a recorded version and write a synopsis of about 100 words. The teacher may choose any three stanzas.</p><p>The speaking activity begins from the lines, <em>?Tell him too much money has killed men / and left them dead years before burial:?</em>. Students are expected to discuss the idea that harmful human qualities may destroy a person morally before physical death.</p>"
+        },
+        {
+          "type": "section-head",
+          "text": "Parallel Reading"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>The parallel reading gives Polonius? advice to Laertes from Shakespeare?s <em>Hamlet</em>. It includes well-known guidance such as being true to oneself, being careful in quarrels, listening more than speaking, and avoiding borrowing and lending. This passage can be compared with Sandburg?s poem because both texts present advice from an older person to a younger one.</p>"
+        },
+        {
+          "type": "nav",
+          "back": "qa",
+          "nextLabel": "Practice Questions ->"
+        }
+      ]
+    }
+  ]
+}

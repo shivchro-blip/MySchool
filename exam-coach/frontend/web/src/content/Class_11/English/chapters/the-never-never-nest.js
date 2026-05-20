@@ -1,0 +1,248 @@
+export default {
+  eyebrow: 'Unit 6 · Supplementary · Play',
+  title: 'The Never Never Nest',
+  author: 'Cedric Mount',
+  pills: ['One-act Play', 'Satire', 'EMI Lifestyle', 'Debt Trap'],
+  tabs: [
+    {
+      id: 'author',
+      label: 'Author',
+      blocks: [
+        { type: 'section-head', text: 'About the Author' },
+        {
+          type: 'teacher-voice',
+          html: '<p>Let us meet <strong>Cedric Mount</strong>, whom the textbook introduces as a considerably distinguished playwright of his age. His plays include <em>Twentieth Century Lullaby</em>, <em>To Cut a Long Story Short</em> and <em>Nature Abhors a Vacuum</em>. The important point for us is that his one-act plays are easy to perform, satirical, witty and insightful.</p><p>The textbook says his one-act plays expose the shams of contemporary society besides delicately admonishing the guilty. That sentence is the key to reading this play. Mount does not shout at Jack and Jill. He places them in a cosy home, lets them proudly explain their purchases, and then quietly exposes the absurdity behind their comfortable-looking life.</p><p><strong>Why this matters for this text:</strong> “The Never Never Nest” is funny on the surface, but it is a serious warning about modern consumerism. Jack and Jill appear to own a beautiful little home, a car, furniture, a piano, a radiogram and even a baby. But almost everything is bought on instalment. Understanding Mount\'s satirical style helps us see that the laughter is not empty. It is meant to make us ask: are we living, or are we merely paying instalments?</p>',
+        },
+        { type: 'section-head', text: 'Before We Read' },
+        {
+          type: 'teacher-voice',
+          html: '<p>Think about modern buying habits. A family may buy a car, sofa, phone, fridge or television by paying a small amount first and the rest every month. This can be useful if the family plans carefully. But what happens when everything in life is bought on credit? What happens when comfort becomes show, and show becomes debt?</p>',
+        },
+        {
+          type: 'quote-block',
+          quote: 'Why, just one more instalment and BABY\'S REALLY OURS!',
+          context: 'This final line is shocking and comic at the same time. It shows that Jack and Jill\'s instalment habit has gone beyond furniture and cars. Even the doctor\'s bill for the baby is treated like another purchase. That is the heart of the satire.',
+        },
+        { type: 'nav', next: 'play-explained', nextLabel: 'Play Explained →' },
+      ],
+    },
+    {
+      id: 'play-explained',
+      label: 'Play Explained',
+      blocks: [
+        { type: 'section-head', text: 'Phase 1 — Aunt Jane admires the “little nest”' },
+        {
+          type: 'teacher-voice',
+          html: '<p>The play opens in Jack and Jill\'s lounge. Aunt Jane has come to visit them and is impressed by their cosy little home. She calls it a charming little nest and admires the furniture, piano, car and other comforts. At first, the young couple seem like a modern success story: they are newly married, comfortably settled and surrounded by beautiful things. But the word “nest” is already important, because a nest should be safe, warm and truly one\'s own.</p>',
+        },
+        { type: 'think-box', label: 'Notice this', text: 'This beginning is deliberately pleasant. Mount first makes the home look attractive so that the later truth feels more shocking.' },
+
+        { type: 'section-head', text: 'Phase 2 — Aunt Jane discovers the instalment life' },
+        {
+          type: 'teacher-voice',
+          html: '<p>Aunt Jane slowly learns that Jack and Jill do not really own most of the things around them. The house is not fully theirs. The furniture, car, piano, radiogram and other objects are being paid for in instalments. Jack and Jill speak proudly, as if instalment buying is clever and modern. Aunt Jane, however, begins to feel disturbed because what looks like ownership is actually debt.</p>',
+        },
+        { type: 'think-box', label: 'Notice this', text: 'This is the main comic situation: the home looks full, but ownership is empty. The nest is never fully theirs.' },
+
+        { type: 'section-head', text: 'Phase 3 — Jack\'s absurd monthly arithmetic' },
+        {
+          type: 'teacher-voice',
+          html: '<p>Aunt Jane becomes more alarmed when she hears about Jack\'s income and commitments. Jack earns only six pounds a week, but somehow pays seven pounds eight and eight pence every week in instalments. The arithmetic sounds impossible, but Jack treats it casually. The couple are not frightened by debt; they are proud of their ability to keep buying things.</p>',
+        },
+        { type: 'think-box', label: 'Notice this', text: 'This phase exposes the harsh reality of modern living beyond means. The numbers themselves become satire.' },
+
+        { type: 'section-head', text: 'Phase 4 — Partial ownership becomes ridiculous' },
+        {
+          type: 'teacher-voice',
+          html: '<p>Jill explains that they own only parts of things: the steering wheel of the car, one tyre, two cylinders and one leg of the sofa. This is funny because ownership is reduced to absurd fragments. A car cannot be enjoyed by owning only a steering wheel, and a sofa cannot be meaningful when only one leg is truly paid for.</p>',
+        },
+        { type: 'think-box', label: 'Notice this', text: 'This is exam-important because it shows the play\'s title in action. They “own” things and yet do not own them.' },
+
+        { type: 'section-head', text: 'Phase 5 — Aunt Jane gives sensible advice' },
+        {
+          type: 'teacher-voice',
+          html: '<p>Aunt Jane is shocked by their lifestyle. She advises them not to spend beyond their means and urges them to pay off their debts. She gives them a cheque, hoping it will help them reduce what they owe. Her values are different from theirs: she believes in real ownership, careful spending and financial responsibility.</p>',
+        },
+        { type: 'think-box', label: 'Notice this', text: 'Aunt Jane becomes the voice of practical wisdom in the play. She does not hate modern comforts; she hates careless borrowing.' },
+
+        { type: 'section-head', text: 'Phase 6 — The cheque goes to Dr. Martin' },
+        {
+          type: 'teacher-voice',
+          html: '<p>After Aunt Jane leaves, Jack is pleased with the cheque and thinks it can pay off the next two months on the car. But Jill reveals that she has already sent the cheque to Dr. Martin. Jack is shocked and asks why she wasted good money on the doctor. Jill becomes emotional because he still has not understood the most serious debt.</p>',
+        },
+        { type: 'think-box', label: 'Notice this', text: 'The scene turns from ordinary financial comedy to a darker satire. Even medical expenses are part of the instalment world.' },
+
+        { type: 'section-head', text: 'Phase 7 — The baby is also on instalment' },
+        {
+          type: 'teacher-voice',
+          html: '<p>Jill finally says that one more instalment will make the baby really theirs. She is holding the baby as the play ends. This final joke is deliberately shocking. It pushes the instalment logic to its extreme: if everything is bought on credit, even the baby seems not fully theirs until the doctor is paid.</p>',
+        },
+        { type: 'think-box', label: 'Notice this', text: 'The ending makes the audience laugh and then feel uncomfortable. That is true satire: humour that leaves a warning behind.' },
+
+        { type: 'nav', next: 'key-lines', nextLabel: 'Key Lines →' },
+      ],
+    },
+    {
+      id: 'key-lines',
+      label: 'Key Lines',
+      blocks: [
+        {
+          type: 'quote-block',
+          quote: 'Oh, this is a charming little nest!',
+          context: 'Aunt Jane\'s admiration creates the first impression of comfort and success. The word “nest” matters because the home should be secure, but later we learn it is built on debt.',
+        },
+        {
+          type: 'quote-block',
+          quote: 'We like to be modern.',
+          context: 'Jack and Jill\'s attitude is captured here. They believe modern living means enjoying things immediately, even if they are not fully paid for.',
+        },
+        {
+          type: 'quote-block',
+          quote: 'You\'re paying seven pounds eight and eight pence out of six pounds?',
+          context: 'This line exposes the absurd financial situation. Jack earns less than what he pays in instalments, yet he is not worried.',
+        },
+        {
+          type: 'quote-block',
+          quote: 'We own the steering wheel, and one of the tyres, and two of the cylinders.',
+          context: 'This is a key comic line. It shows the ridiculous idea of partial ownership under the instalment system.',
+        },
+        {
+          type: 'quote-block',
+          quote: 'I\'m not going to sit on Mr. Sage\'s part of the sofa.',
+          context: 'Aunt Jane\'s remark makes the fragmented ownership visible and funny. It also shows her moral discomfort.',
+        },
+        {
+          type: 'quote-block',
+          quote: 'Don\'t you see, you ought to pay off what you owe.',
+          context: 'Aunt Jane gives the central advice of the play. The lesson is simple: comfort without financial discipline becomes a trap.',
+        },
+        {
+          type: 'quote-block',
+          quote: 'Why; just one more instalment and BABY\'S REALLY OURS!',
+          context: 'This final line is the climax of the satire. The instalment habit has become so extreme that even the baby is spoken of as not fully theirs.',
+        },
+        { type: 'nav', next: 'glossary', nextLabel: 'Glossary →' },
+      ],
+    },
+    {
+      id: 'glossary',
+      label: 'Glossary',
+      blocks: [
+        { type: 'gloss-row', word: 'lounge', def: 'a place in a home or public building for leisure activities, living room' },
+        { type: 'gloss-row', word: 'cosy', def: 'comfortable' },
+        { type: 'gloss-row', word: 'instalment', def: 'one of the parts into which a debt is divided when payment is made at intervals' },
+        { type: 'gloss-row', word: 'absurd', def: 'ridiculously unreasonable and meaningless' },
+        { type: 'gloss-row', word: 'propose', def: 'intend to do something' },
+        { type: 'gloss-row', word: 'realise', def: 'to understand or become aware of' },
+        { type: 'gloss-row', word: 'thingummies', def: 'small articles the names of which are not remembered' },
+        { type: 'gloss-row', word: 'motto', def: 'a short sentence or phrase that expresses a rule guiding the behaviour of a particular person or group' },
+        { type: 'gloss-row', word: 'endorse', def: 'to make over to another' },
+        { type: 'gloss-row', word: 'tartar', def: 'a person of irritable temper' },
+        { type: 'gloss-row', word: 'possessed', def: 'completely controlled by an evil spirit' },
+        { type: 'nav', next: 'themes', nextLabel: 'Themes & Devices →' },
+      ],
+    },
+    {
+      id: 'themes',
+      label: 'Themes & Devices',
+      blocks: [
+        {
+          type: 'teacher-voice',
+          html: '<p><strong>Theme: Consumerism creates the illusion of prosperity.</strong> Jack and Jill seem comfortable because they possess many things, but they own very little. Students should write that the play attacks the desire to appear modern without financial stability.</p>',
+        },
+        {
+          type: 'teacher-voice',
+          html: '<p><strong>Theme: Debt can destroy real ownership.</strong> Owning only the steering wheel, one tyre, two cylinders and one sofa leg shows that instalment buying gives partial control, not true ownership. The title itself shows this never-ending postponement.</p>',
+        },
+        {
+          type: 'teacher-voice',
+          html: '<p><strong>Theme: Comedy can expose social foolishness.</strong> Mount makes us laugh at absurd ownership and the final baby instalment, but behind the laughter is a warning against spending beyond one\'s means.</p>',
+        },
+        { type: 'device-block', kind: 'Irony', line: 'Oh, this is a charming little nest!', exp: 'The “charming little nest” is not secure because it is built on debt.' },
+        { type: 'device-block', kind: 'Satire', line: 'The whole play exposes the EMI lifestyle.', exp: 'The play satirises instalment culture and the false pride of consumer society.' },
+        { type: 'device-block', kind: 'Comic exaggeration', line: 'Why; just one more instalment and BABY\'S REALLY OURS!', exp: 'The idea that the baby will be really theirs after one more instalment exaggerates instalment thinking to reveal its absurdity.' },
+        { type: 'nav', next: 'textbook-qa', nextLabel: 'Textbook Q&A →' },
+      ],
+    },
+    {
+      id: 'textbook-qa',
+      label: 'Textbook Q&A',
+      blocks: [
+        { type: 'section-head', text: 'Reading Comprehension Questions' },
+        {
+          type: 'teacher-voice',
+          html: '<p><strong>What did Aunt Jane like about Jack\'s “little nest”?</strong></p><p>Aunt Jane liked Jack and Jill\'s cosy little home, the furniture and the comfortable things in it. At first, she felt that the young couple had built a charming and pleasant household.</p>',
+        },
+        {
+          type: 'teacher-voice',
+          html: '<p><strong>Aunt Jane seemed to think that there was a mistake in the wedding present she had given Jack. Why?</strong></p><p>Aunt Jane had given Jack a cheque as a wedding present. Seeing their apparently grand lifestyle, she thought she must have made a mistake and written two thousand pounds instead of twenty pounds.</p>',
+        },
+        {
+          type: 'teacher-voice',
+          html: '<p><strong>What would make Jack the owner instead of being the tenant?</strong></p><p>Jack would become the owner only when he paid all the instalments. Until then, he was practically a tenant because the house and things were not fully paid for.</p>',
+        },
+        {
+          type: 'teacher-voice',
+          html: '<p><strong>What sounded absurd to Aunt Jane?</strong></p><p>It sounded absurd to Aunt Jane that Jack earned only six pounds a week but paid seven pounds eight and eight pence in instalments. Spending more than one\'s income seemed ridiculous to her.</p>',
+        },
+        {
+          type: 'teacher-voice',
+          html: '<p><strong>How did Jack manage to pay seven pounds eighty and eighty pence out of six pounds?</strong></p><p>Jack managed it by borrowing and buying more things on credit. His system depended on future payments, not on present income.</p>',
+        },
+        {
+          type: 'teacher-voice',
+          html: '<p><strong>What advice did Aunt Jane offer the couple?</strong></p><p>Aunt Jane advised Jack and Jill not to spend beyond their means. She wanted them to pay off their debts and live a more financially responsible life.</p>',
+        },
+        {
+          type: 'teacher-voice',
+          html: '<p><strong>For what purpose did Aunt Jane wish to use the cheque given by Aunt Jane?</strong></p><p>Aunt Jane expected her cheque to be used to reduce their debt, especially to pay off some instalments on the items they had bought. Jack hoped to use it for the car, but Jill sent it to Dr. Martin.</p>',
+        },
+        {
+          type: 'teacher-voice',
+          html: '<p><strong>“Just one more instalment and BABY\'S REALLY OURS!” This tells us that the couple ________.</strong></p><p>This tells us that the couple had even delayed the doctor\'s payment connected with the baby. Their instalment habit had reached an absurd and shocking level.</p>',
+        },
+        { type: 'section-head', text: 'Paragraph Answers' },
+        {
+          type: 'teacher-voice',
+          html: '<p><strong>Why is there a double negative in the title: The Never – Never Nest? Elucidate with reasons from the play.</strong></p><p>The title uses a double negative to suggest that Jack and Jill\'s home is never truly theirs. A nest should be a safe, owned home, but everything in their house is bought on instalment. They own only parts of objects: a steering wheel, a tyre, two cylinders and a leg of the sofa. Even the baby becomes part of instalment logic. The title therefore satirises a lifestyle where ownership is always postponed.</p>',
+        },
+        {
+          type: 'teacher-voice',
+          html: '<p><strong>Bring out the humorous elements in the play.</strong></p><p>The humour comes from exaggeration, irony and absurd conversation. Aunt Jane thinks Jack and Jill are prosperous, but slowly discovers that they own only fragments of things. Jack\'s calm explanation that they pay more than they earn is funny because he sees nothing wrong in it. Jill\'s statement that one more instalment will make the baby really theirs is the funniest and most shocking moment. The humour exposes the foolishness of living on debt.</p>',
+        },
+        {
+          type: 'teacher-voice',
+          html: '<p><strong>How does the play “The Never – Never Nest” expose the harsh reality of modern living?</strong></p><p>The play exposes modern living as a debt-driven lifestyle. Jack and Jill want every comfort immediately: house, car, furniture, piano and other luxuries. They buy everything on instalment though their income is insufficient. Their home looks comfortable, but it is not truly theirs. The play shows that consumer desire can trap young families in lifelong repayment. Through humour, it warns us not to confuse appearance with real prosperity.</p>',
+        },
+        {
+          type: 'teacher-voice',
+          html: '<p><strong>Jill said that they owned the steering wheel of a car, one of the tyres, two of the cylinders and leg of the sofa. What does this convey?</strong></p><p>This conveys the absurdity of instalment ownership. Jack and Jill do not really own whole things; they own only small paid portions while the rest belongs to companies or creditors. It shows that their pride is hollow. The line also reveals how consumer society gives people the illusion of ownership while keeping them trapped in debt.</p>',
+        },
+        { type: 'nav', practice: true },
+      ],
+    },
+    {
+      id: 'activities',
+      label: 'Activities',
+      blocks: [
+        {
+          type: 'teacher-voice',
+          html: '<p><strong>Listening Activity:</strong> The textbook asks students to listen to a passage and answer questions on EMI. Answers: i) False; ii) option; iii) monetary; iv) legal action; v) within. The listening passage warns that income may not always be sufficient to meet desires, and people must learn to spend within their means.</p>',
+        },
+        {
+          type: 'teacher-voice',
+          html: '<p><strong>Speaking Activity:</strong> The debate topic is: <strong>“Is Equated Monthly Instalment Scheme — a boon or bane to middle-class families?”</strong> Students may argue that EMI is a boon when used for essentials with planning, but a bane when used for luxury and status display beyond income.</p>',
+        },
+        {
+          type: 'teacher-voice',
+          html: '<p><strong>Writing Task:</strong> The writing task asks students to imagine themselves as Aunt Jane and write a letter to Jack and Jill advising them not to spend beyond their means. The letter should include suggestions for debt-free life, such as budgeting, buying essentials first, avoiding unnecessary loans and paying existing dues.</p>',
+        },
+        {
+          type: 'teacher-voice',
+          html: '<p><strong>ICT Corner — Form Filling:</strong> The unit ends with an online form-filling activity. Students are asked to explore form templates such as registration forms, job application forms, online booking forms, CV submission forms and club enrolment forms, and then practise filling forms online.</p>',
+        },
+        { type: 'nav', practice: true },
+      ],
+    },
+  ],
+}

@@ -1,0 +1,17 @@
+node_modules/
+__pycache__/
+.venv/
+venv/
+*.pyc
+*.pyo
+.env
+content/raw/
+content/embeddings/
+*.pdf
+dist/
+build/
+.dart_tool/
+flutter/build/
+*.lock
+*.log
+.DS_Store

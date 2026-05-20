@@ -1,0 +1,300 @@
+export default {
+  eyebrow: 'Unit 6 · Poem',
+  title: 'The Hollow Crown',
+  author: 'William Shakespeare — from Richard II',
+  pills: ['Monologue', 'Mortality', 'Power', 'Blank Verse'],
+  tabs: [
+    {
+      id: 'poet',
+      label: 'Poet',
+      blocks: [
+        { type: 'section-head', text: 'About the Poet and Context' },
+        {
+          type: 'teacher-voice',
+          html: '<p><strong>William Shakespeare</strong> is one of the greatest dramatists and poets in English literature. The textbook gives this poem as an extract from his historical play <em>Richard II</em>. The full name note in the textbook says that Shakespeare\'s full name is <strong>William Arden Shakespeare</strong>, where Arden is his mother\'s family name.</p><p>This passage is a <strong>monologue</strong> spoken by King Richard II when he is defeated and forced to face the loss of his power. In it, the king understands that the power of <strong>Death</strong> overshadows everything, including royal power. Kings may wear crowns, command armies and receive reverence, but they are still made of flesh and blood like common people.</p><p><strong>Why this matters for this text:</strong> The poem is not merely about one defeated king. It teaches an eternal truth: worldly power is temporary, and death makes rulers and subjects equal. Richard\'s grief becomes wisdom because he sees that the crown is hollow when death sits within it.</p>',
+        },
+        { type: 'section-head', text: 'Before We Read' },
+        {
+          type: 'teacher-voice',
+          html: '<p>The warm-up asks students to think about wars, battles, why rulers fight, whether war outcomes are fair, and whether rulers understand life better in defeat or victory. This prepares us for Richard, a ruler who learns the truth of life only after losing his crown.</p>',
+        },
+        {
+          type: 'quote-block',
+          quote: 'In it, King Richard II is reminded of the power of Death that overshadows everything else, including the power of rulers, and renders them as powerless as any commoner at a moment\'s notice.',
+          context: 'This textbook introduction gives the central idea. The poem is about the fall of royal pride and the rise of human truth.',
+        },
+        { type: 'nav', next: 'lines-explained', nextLabel: 'Lines Explained →' },
+      ],
+    },
+    {
+      id: 'lines-explained',
+      label: 'Lines Explained',
+      blocks: [
+        { type: 'section-head', text: 'Part 1 — Graves, Worms and Epitaphs' },
+        {
+          type: 'quote-block',
+          quote: 'Let\'s talk of graves, of worms, and epitaphs,\nMake dust our paper, and with rainy eyes\nWrite sorrow on the bosom of the earth.\nLet\'s choose executors and talk of wills.',
+          context: 'Richard begins in deep sorrow. Instead of speaking like a confident king, he wants to speak of graves, worms and epitaphs. "Rainy eyes" means tearful eyes. He imagines writing sorrow on the earth itself because defeat has made him think of death and burial.',
+        },
+        {
+          type: 'teacher-voice',
+          html: '<p><strong>Real-life connection:</strong> When a person loses power or faces death, pride disappears and the mind turns to basic truths: body, earth, tears and memory.</p><p><strong>Poetic device:</strong> Personification appears in "bosom of the earth." The earth is treated like a living body that can receive sorrow.</p>',
+        },
+        { type: 'think-box', label: 'The speaker is really saying', text: 'The king is really saying that royal concerns are now meaningless; only death and remembrance matter.' },
+
+        { type: 'section-head', text: 'Part 2 — Nothing Left but Death' },
+        {
+          type: 'quote-block',
+          quote: 'And yet not so – for what can we bequeath\nSave our deposed bodies to the ground?\nOur lands, our lives, and all, are Bolingbroke\'s,\nAnd nothing can we call our own but death;\nAnd that small model of the barren earth\nWhich serves as paste and cover to our bones.',
+          context: 'Richard corrects himself. He says even wills are useless because he has nothing left to leave behind. His lands, life and power belong to Bolingbroke. The only thing left to him is death and his body, which is made of earth and will return to earth.',
+        },
+        {
+          type: 'teacher-voice',
+          html: '<p><strong>Real-life connection:</strong> A ruler may own land legally, but when defeated, he realises that the body alone is truly his — and even that belongs to the grave.</p><p><strong>Poetic device:</strong> "Small model of the barren earth" is a metaphor for the human body, made from dust and returning to dust.</p>',
+        },
+        { type: 'think-box', label: 'The speaker is really saying', text: 'The king is really saying that defeat has stripped him of everything except mortality.' },
+
+        { type: 'section-head', text: 'Part 3 — Sad Stories of Dead Kings' },
+        {
+          type: 'quote-block',
+          quote: 'For God\'s sake let us sit upon the ground\nAnd tell sad stories of the death of kings:\nHow some have been depos\'d, some slain in war,\nSome haunted by the ghosts they have deposed,\nSome poisoned by their wives, some sleeping kill\'d,\nAll murdered –',
+          context: 'Richard asks everyone to sit on the ground and talk about dead kings. He lists different royal deaths: some kings were deposed, some killed in war, some haunted by those they overthrew, some poisoned by wives and some murdered in sleep. Royal history becomes a catalogue of death.',
+        },
+        {
+          type: 'teacher-voice',
+          html: '<p><strong>Real-life connection:</strong> This reminds us that the palace is not always safe. Power attracts betrayal, fear and violence.</p><p><strong>Poetic device:</strong> The repeated "some" creates accumulation. It builds a long list of royal suffering and shows that no king escapes death.</p>',
+        },
+        { type: 'think-box', label: 'The speaker is really saying', text: 'The king is really saying that kingship does not protect anyone from danger, betrayal or death.' },
+
+        { type: 'section-head', text: 'Part 4 — Death Keeps Court in the Hollow Crown' },
+        {
+          type: 'quote-block',
+          quote: 'for within the hollow crown\nThat rounds the mortal temples of a king\nKeeps Death his court, and there the antic sits,\nScoffing his state and grinning at his pomp,',
+          context: 'This is the central image. Inside the crown, Death keeps court like a ruler. The king thinks he is ruling, but Death is actually sitting inside the hollow crown, mocking royal grandeur. The temples of the king are mortal, meaning the king\'s head will die like anyone else\'s.',
+        },
+        {
+          type: 'teacher-voice',
+          html: '<p><strong>Real-life connection:</strong> A crown may look solid from outside, but if death sits within it, royal power is empty.</p><p><strong>Poetic device:</strong> Death is personified as a court-keeper and jester. "Scoffing" and "grinning" give human actions to Death.</p>',
+        },
+        { type: 'think-box', label: 'The speaker is really saying', text: 'The poet is really saying that death secretly rules even rulers.' },
+
+        { type: 'section-head', text: 'Part 5 — A Brief Scene of Kingship' },
+        {
+          type: 'quote-block',
+          quote: 'Allowing him a breath, a little scene,\nTo monarchize, be fear\'d, and kill with looks;\nInfusing him with self and vain conceit,\nAs if this flesh which walls about our life\nWere brass impregnable;',
+          context: 'Death allows the king a short time to perform the role of a monarch. The king believes he can command fear and kill with looks, but this confidence is vain conceit. He imagines his flesh is like impregnable brass, though it is only weak human flesh.',
+        },
+        {
+          type: 'teacher-voice',
+          html: '<p><strong>Real-life connection:</strong> A powerful person may feel untouchable, but the body remains fragile.</p><p><strong>Poetic device:</strong> "A little scene" compares kingship to a brief stage performance. "Flesh which walls about our life" is a metaphor for the body as a wall around life.</p>',
+        },
+        { type: 'think-box', label: 'The speaker is really saying', text: 'Richard is really saying that kingship is a temporary performance and human bodies are weak.' },
+
+        { type: 'section-head', text: 'Part 6 — The Little Pin' },
+        {
+          type: 'quote-block',
+          quote: 'and, humour\'d thus,\nComes at the last, and with a little pin\nBores through his castle wall, and farewell king!',
+          context: 'At last Death comes with only a little pin and pierces the king\'s castle wall. The mighty body, imagined as a fortress, is easily broken. Once death enters, the king is gone. The phrase "farewell king" ends royal power instantly.',
+        },
+        {
+          type: 'teacher-voice',
+          html: '<p><strong>Real-life connection:</strong> A tiny illness, wound or moment can bring down a mighty ruler.</p><p><strong>Poetic device:</strong> The "little pin" is an image of death\'s small but final power. The "castle wall" is a metaphor for the body.</p>',
+        },
+        { type: 'think-box', label: 'The speaker is really saying', text: 'The king is really saying that death needs very little to destroy pride and power.' },
+
+        { type: 'section-head', text: 'Part 7 — I Live with Bread like You' },
+        {
+          type: 'quote-block',
+          quote: 'Cover your heads, and mock not flesh and blood\nWith solemn reverence; throw away respect,\nTradition, form, and ceremonious duty;\nFor you have but mistook me all this while.\nI live with bread like you, feel want,\nTaste grief, need friends – subjected thus,\nHow can you say to me, I am a king?',
+          context: 'Richard tells his followers not to treat him with royal reverence anymore. He is flesh and blood like them. He eats bread, feels want, tastes grief and needs friends. These ordinary human needs prove that he is equal to his subjects in the end. His final question challenges the very idea of kingship.',
+        },
+        {
+          type: 'teacher-voice',
+          html: '<p><strong>Real-life connection:</strong> When suffering comes, titles become weak. Hunger, grief and need make all human beings equal.</p><p><strong>Poetic device:</strong> The final question is a rhetorical question. It does not ask for information; it expresses Richard\'s painful realisation.</p>',
+        },
+        { type: 'think-box', label: 'The speaker is really saying', text: 'The king is really saying that beneath the crown he is only human.' },
+
+        { type: 'nav', next: 'key-lines', nextLabel: 'Key Lines →' },
+      ],
+    },
+    {
+      id: 'key-lines',
+      label: 'Key Lines',
+      blocks: [
+        {
+          type: 'quote-block',
+          quote: 'Let\'s talk of graves, of worms, and epitaphs;',
+          context: 'The king\'s mind has turned from rule to death. The words graves, worms and epitaphs all point to burial and mortality.',
+        },
+        {
+          type: 'quote-block',
+          quote: 'Our lands, our lives, and all, are Bolingbroke\'s, / And nothing can we call our own but death;',
+          context: 'Richard admits complete defeat. Bolingbroke has taken everything except death, which alone remains certain.',
+        },
+        {
+          type: 'quote-block',
+          quote: 'For God\'s sake let us sit upon the ground / And tell sad stories of the death of kings:',
+          context: 'The king now wants to sit on the ground, not on a throne. This shows humility, grief and awareness of mortality.',
+        },
+        {
+          type: 'quote-block',
+          quote: 'All murdered – for within the hollow crown / That rounds the mortal temples of a king / Keeps Death his court,',
+          context: 'This is the central image of the poem. Death sits inside the crown and rules secretly over the ruler.',
+        },
+        {
+          type: 'quote-block',
+          quote: 'Comes at the last, and with a little pin / Bores through his castle wall, and farewell king!',
+          context: 'Death needs only a tiny opening to destroy a king\'s body. The castle wall is a metaphor for flesh.',
+        },
+        {
+          type: 'quote-block',
+          quote: 'I live with bread like you, feel want, / Taste grief, need friends – subjected thus,',
+          context: 'Richard proves that he shares the same human needs as common people. Bread, want, grief and friendship make rulers and subjects equal.',
+        },
+        {
+          type: 'quote-block',
+          quote: 'How can you say to me, I am a king?',
+          context: 'The final rhetorical question shows Richard\'s complete disillusionment with royal identity.',
+        },
+        { type: 'nav', next: 'glossary', nextLabel: 'Glossary →' },
+      ],
+    },
+    {
+      id: 'glossary',
+      label: 'Glossary',
+      blocks: [
+        { type: 'gloss-row', word: 'farewell', def: 'goodbye' },
+        { type: 'gloss-row', word: 'ceremonious', def: 'formal, performed as part of a ceremony' },
+        { type: 'gloss-row', word: 'deposed', def: 'removed from power' },
+        { type: 'gloss-row', word: 'reverence', def: 'deep respect' },
+        { type: 'gloss-row', word: 'vain', def: 'useless / excessively proud' },
+        { type: 'gloss-row', word: 'pomp', def: 'splendour and show' },
+        { type: 'gloss-row', word: 'conceited', def: 'excessively proud of oneself' },
+        { type: 'gloss-row', word: 'sorrow', def: 'deep sadness' },
+        { type: 'gloss-row', word: 'scoffing', def: 'mocking' },
+        { type: 'gloss-row', word: 'executor', def: 'one who carries out the instructions in a will' },
+        { type: 'gloss-row', word: 'epitaph', def: 'words written on a tomb in memory of a dead person' },
+        { type: 'gloss-row', word: 'bequeath', def: 'leave property to someone by will' },
+        { type: 'gloss-row', word: 'Bolingbroke', def: 'the enemy who takes Richard\'s lands and power' },
+        { type: 'gloss-row', word: 'hollow', def: 'empty inside' },
+        { type: 'gloss-row', word: 'mortal', def: 'subject to death' },
+        { type: 'gloss-row', word: 'antic', def: 'a clownish or mocking figure' },
+        { type: 'gloss-row', word: 'impregnable', def: 'too strong to be captured or broken' },
+        { type: 'gloss-row', word: 'vanquished', def: 'defeated' },
+        { type: 'gloss-row', word: 'deposer', def: 'one who removes a ruler from power' },
+        { type: 'nav', next: 'themes', nextLabel: 'Themes & Devices →' },
+      ],
+    },
+    {
+      id: 'themes',
+      label: 'Themes & Devices',
+      blocks: [
+        {
+          type: 'teacher-voice',
+          html: '<p><strong>Theme: Death is stronger than power.</strong> Richard sees Death sitting inside the crown and mocking royal pomp. This shows that crowns, ceremonies and fear cannot protect rulers from mortality.</p>',
+        },
+        {
+          type: 'teacher-voice',
+          html: '<p><strong>Theme: Defeat can create wisdom.</strong> Richard understands life more deeply after losing power. He sees that kings and commoners share bread, want, grief and need for friendship.</p>',
+        },
+        {
+          type: 'teacher-voice',
+          html: '<p><strong>Theme: The emptiness of worldly glory.</strong> The crown looks grand, but it is hollow. The poem warns against vain conceit and pomp because the human body is only flesh.</p>',
+        },
+        {
+          type: 'device-block',
+          kind: 'Personification',
+          line: 'Death keeps court, sits, scoffs and grins.',
+          exp: 'This makes Death seem like the true ruler behind the king.',
+        },
+        {
+          type: 'device-block',
+          kind: 'Metaphor',
+          line: 'flesh which walls about our life / Were brass impregnable',
+          exp: 'The fragile human body is compared to a fortress, and the castle wall is a metaphor for flesh that Death easily pierces.',
+        },
+        {
+          type: 'device-block',
+          kind: 'Rhetorical Question',
+          line: 'How can you say to me, I am a king?',
+          exp: 'Richard\'s final question expresses his loss of royal identity and complete disillusionment with power.',
+        },
+        { type: 'nav', next: 'textbook-qa', nextLabel: 'Textbook Q&A →' },
+      ],
+    },
+    {
+      id: 'textbook-qa',
+      label: 'Textbook Q&A',
+      blocks: [
+        { type: 'section-head', text: 'Section C — Short Answers' },
+        { type: 'teacher-voice', html: '<p><strong>Q1. What do the three words, "graves, worms and epitaphs", refer to?</strong></p><p>They refer to death, burial and remembrance after death. Richard\'s mind is fixed on mortality after his defeat.</p>' },
+        { type: 'teacher-voice', html: '<p><strong>Q2. What does the executor mentioned in the poem do?</strong></p><p>An executor carries out the instructions in a will. Richard mentions executors because he is thinking of death and inheritance.</p>' },
+        { type: 'teacher-voice', html: '<p><strong>Q3. Who is Bolingbroke? Is he a friend or foe?</strong></p><p>Bolingbroke is Richard\'s enemy and the one who has seized his lands, life and power. He is a foe, not a friend.</p>' },
+        { type: 'teacher-voice', html: '<p><strong>Q4. Are all deposed kings slain by the deposer?</strong></p><p>No. The poem lists many ways kings die: some are deposed, some slain in war, some haunted, some poisoned and some killed in sleep.</p>' },
+        { type: 'teacher-voice', html: '<p><strong>Q5. What does the crown of rulers stand for?</strong></p><p>The crown stands for royal power, authority, grandeur and the outward glory of kingship.</p>' },
+        { type: 'teacher-voice', html: '<p><strong>Q6. What hides within the crown and laughs at the king\'s grandeur?</strong></p><p>Death hides within the hollow crown and laughs at the king\'s state and pomp.</p>' },
+        { type: 'teacher-voice', html: '<p><strong>Q7. What does "flesh" mean here?</strong></p><p>Flesh means the human body. Richard says even a king\'s body is made of vulnerable flesh and blood.</p>' },
+        { type: 'teacher-voice', html: '<p><strong>Q8. What are the various functions and objects given up by a defeated king?</strong></p><p>A defeated king gives up lands, power, respect, tradition, form, ceremonious duty and royal identity. Richard says only death remains his own.</p>' },
+        { type: 'teacher-voice', html: '<p><strong>Q9. How does the king establish that he and his subjects are equal in the end?</strong></p><p>He says he lives with bread, feels want, tastes grief and needs friends like ordinary people. These human needs make him equal to his subjects.</p>' },
+        { type: 'teacher-voice', html: '<p><strong>Q10. Bring out King Richard\'s feelings when he was defeated.</strong></p><p>Richard feels sorrowful, humbled, powerless and disillusioned. Defeat makes him understand that kingship is temporary and death makes all human beings equal.</p>' },
+
+        { type: 'section-head', text: 'Reference Questions' },
+        {
+          type: 'quote-block',
+          quote: 'Our lands, our lives, and all, are Bolingbroke\'s,\nAnd nothing can we call our own but death;',
+          context: 'a) Bolingbroke is Richard\'s foe who has taken his lands and power.\nb) Only death is left to Richard as his own.',
+        },
+        {
+          type: 'quote-block',
+          quote: 'All murdered – for within the hollow crown\nThat rounds the mortal temples of a king\nKeeps Death his court,',
+          context: 'a) Death keeps his court inside the hollow crown.\nb) It suggests that death secretly rules over kings and mocks royal power.',
+        },
+        {
+          type: 'quote-block',
+          quote: 'Comes at the last, and with a little pin\nBores through his castle wall, and farewell king!',
+          context: 'a) Death comes at the last.\nb) The castle wall is a metaphor for the human body or flesh.',
+        },
+        {
+          type: 'quote-block',
+          quote: 'How can you say to me, I am a king?',
+          context: 'a) King Richard asks this question.\nb) He does not seek an answer; he expresses his loss of royal identity and power.',
+        },
+
+        { type: 'section-head', text: 'Paragraph Answers' },
+        { type: 'teacher-voice', html: '<p><strong>Q1. What are the causes for King Richard\'s grief?</strong></p><p>King Richard\'s grief is caused by defeat, loss of power and the awareness of mortality. Bolingbroke has taken his lands, life and authority. Richard now sees that royal glory is hollow because Death sits inside the crown and mocks the king\'s pomp. He remembers the sad deaths of kings who were deposed, slain, poisoned or murdered. Most painfully, he realises that he is only flesh and blood like common people. His grief comes from losing both his crown and his illusion of greatness.</p>' },
+        { type: 'teacher-voice', html: '<p><strong>Q2. How are eternal truths and wisdom brought to the reader here?</strong></p><p>The poem brings eternal truths through Richard\'s painful self-realisation. He learns that land, authority, ceremony and pomp are temporary. Death is stronger than royal power and can destroy a king with a "little pin." The crown may appear glorious, but it is hollow because mortality lives within it. Richard also understands that kings and commoners share the same human needs: bread, want, grief and friendship. Thus the poem teaches wisdom about equality, impermanence and the emptiness of worldly power.</p>' },
+        { type: 'teacher-voice', html: '<p><strong>Q3. Death has been cited in many ways in this monologue. Identify the poetic devices used in those references.</strong></p><p>Death is presented through several poetic devices. It is personified as a ruler keeping court inside the hollow crown and as a mocking figure scoffing and grinning at royal pomp. The "little pin" image shows Death\'s small but final power. The "castle wall" is a metaphor for the human body, and Death boring through it suggests how easily life can be ended. The list of dead kings creates accumulation and reinforces the certainty of death. These devices make death vivid, active and unavoidable.</p>' },
+        { type: 'teacher-voice', html: '<p><strong>Q4. Who does the future generations remember easily — the victor or the vanquished? Give reasons.</strong></p><p>Future generations often remember both victor and vanquished, but the vanquished may be remembered more deeply when defeat reveals truth and dignity. Bolingbroke wins power, but Richard\'s speech gives him tragic depth. His sorrow produces wisdom about death, equality and the hollowness of pomp. The lines "I live with bread like you" and "How can you say to me, I am a king?" make Richard unforgettable because he speaks for all humanity, not just kings. A victor wins history\'s event, but a suffering speaker may win human sympathy.</p>' },
+
+        { type: 'nav', practice: true },
+      ],
+    },
+    {
+      id: 'activities',
+      label: 'Activities',
+      blocks: [
+        {
+          type: 'teacher-voice',
+          html: '<p><strong>Warm Up:</strong> The warm-up asks students to discuss wars, battles, why rulers fight, whether the result of war is always fair, whether rulers understand life in defeat or victory, and examples of kings or leaders who fell from glory to disgrace.</p>',
+        },
+        {
+          type: 'teacher-voice',
+          html: '<p><strong>Speaking Activity:</strong> Students discuss two adages with a partner: <strong>War begets war</strong> and <strong>Uneasy lies the head that wears a crown</strong>. They must justify their views, take turns and present them to the class.</p>',
+        },
+        {
+          type: 'teacher-voice',
+          html: '<p><strong>Poetic Devices:</strong> The textbook focuses on personification, interrogation, metaphor, rhetorical question, internal rhyme and alliteration. Alliteration examples include "Our lands, our lives," "sad stories," and "last... little."</p>',
+        },
+        {
+          type: 'teacher-voice',
+          html: '<p><strong>Parallel Poem:</strong> The parallel poem is <strong>High Flight</strong> by John Gillespie Magee, Jr. The textbook also suggests reading <em>Ozymandias</em> by P. B. Shelley. The parallel section connects height, glory, mortality and human aspiration.</p>',
+        },
+        {
+          type: 'teacher-voice',
+          html: '<p><strong>Quotable Quote:</strong> "Never be weak, you must be strong: you have infinite strength within you. Strength is life; Weakness is death." — Swami Vivekananda.</p>',
+        },
+        { type: 'nav', practice: true },
+      ],
+    },
+  ],
+}

@@ -1,0 +1,377 @@
+{
+  "eyebrow": "Unit 4 -- Poem -- Class XII English",
+  "title": "Ulysses",
+  "author": "Alfred Tennyson",
+  "pills": [
+    "Dramatic Monologue",
+    "Adventure",
+    "Will Power",
+    "Blank Verse"
+  ],
+  "tabs": [
+    {
+      "id": "about-poet",
+      "label": "About the Poet",
+      "blocks": [
+        {
+          "type": "teacher-voice",
+          "html": "<p>Alfred Tennyson, 1st Baron Tennyson, lived from 6 August 1809 to 6 October 1892. The textbook describes him as a British poet who was Poet Laureate of Great Britain and Ireland during much of Queen Victoria’s reign. He remains one of the most popular British poets.</p><p>The textbook says Tennyson excelled at short lyrics such as “Break, Break, Break”, “The Charge of the Light Brigade”, “Tears, Idle Tears”, and “Crossing the Bar”. It also says he wrote verses on classical mythology such as <em>Ulysses</em>, <em>Idylls of the King</em> and <em>Tithonus</em>. His use of the musical qualities of words to emphasise rhythm and meaning is described as sensitive.</p>"
+        },
+        {
+          "type": "author-stat",
+          "label": "Lived",
+          "value": "6 August 1809 -- 6 October 1892"
+        },
+        {
+          "type": "author-stat",
+          "label": "Role",
+          "value": "Poet Laureate during much of Queen Victoria’s reign"
+        },
+        {
+          "type": "author-stat",
+          "label": "Form here",
+          "value": "Dramatic monologue in blank verse"
+        },
+        {
+          "type": "think-box",
+          "label": "Why this poem matters",
+          "text": "The poem gives voice to an old hero who refuses to treat old age as the end of action. Tennyson uses Ulysses to speak about the hunger for knowledge, courage and purposeful living."
+        },
+        {
+          "type": "nav",
+          "next": "intro",
+          "nextLabel": "Next: Introduction ->"
+        }
+      ]
+    },
+    {
+      "id": "intro",
+      "label": "Introduction",
+      "blocks": [
+        {
+          "type": "section-head",
+          "text": "Before we read"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>Think of someone who has retired from a great career but still says, “I am not finished.” That is the emotional centre of this poem. Ulysses has returned to Ithaca after many adventures, but he cannot remain only an idle king. He wants to travel again and seek new knowledge until death overtakes him.</p><p>The textbook introduces the poem as a dramatic monologue of 70 lines of blank verse. It divides the poem into three parts: Ulysses’ thirst for adventure, his handing over responsibility to Telemachus, and his call to his sailors to venture into unknown lands.</p>"
+        },
+        {
+          "type": "quote-block",
+          "quote": "I cannot rest from travel: I will drink / Life to the lees:",
+          "context": "Ulysses states his hunger for experience."
+        },
+        {
+          "type": "think-box",
+          "label": "Before you read",
+          "text": "Ulysses is not rejecting duty because he is lazy. He is restless because he believes life must be used fully."
+        },
+        {
+          "type": "nav",
+          "next": "stanza-by-stanza",
+          "nextLabel": "Next: Stanza by Stanza ->"
+        }
+      ]
+    },
+    {
+      "id": "stanza-by-stanza",
+      "label": "Stanza by Stanza",
+      "blocks": [
+        {
+          "type": "section-head",
+          "text": "Part 1 -- The idle king and the hunger for life"
+        },
+        {
+          "type": "quote-block",
+          "quote": "It little profits that an idle king,\nBy this still hearth, among these barren crags,\nMatch’d with an aged wife, I mete and dole\nUnequal laws unto a savage race,\nThat hoard, and sleep, and feed, and know not me.",
+          "context": "Lines 1-5"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>Ulysses begins by saying that it is of little use for him to remain an idle king. He is beside a still hearth, among barren crags, married to an aged wife, and ruling people who do not understand him. The words make Ithaca feel dull and lifeless.</p>"
+        },
+        {
+          "type": "quote-block",
+          "quote": "I cannot rest from travel: I will drink\nLife to the lees: All times I have enjoy’d\nGreatly, have suffer’d greatly, both with those\nThat loved me, and alone, on shore, and when\nThro’ scudding drifts the rainy Hyades\nVext the dim sea: I am become a name;",
+          "context": "Lines 6-11"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>Here Ulysses says he cannot stop travelling. To drink life to the lees means to live life to the very last drop. He has enjoyed greatly and suffered greatly, both with companions and alone. His adventures have made him famous.</p>"
+        },
+        {
+          "type": "section-head",
+          "text": "Part 2 -- Experience opens another world"
+        },
+        {
+          "type": "quote-block",
+          "quote": "I am a part of all that I have met;\nYet all experience is an arch wherethro’\nGleams that untravell’d world whose margin fades\nFor ever and forever when I move.",
+          "context": "Lines 18-21"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>Ulysses says every experience has become part of him. But experience does not close his desire; it opens another arch. The more he travels, the more the untravelled world moves away. This is the image of endless exploration.</p>"
+        },
+        {
+          "type": "quote-block",
+          "quote": "How dull it is to pause, to make an end,\nTo rust unburnish’d, not to shine in use!\nAs tho’ to breathe were life!",
+          "context": "Lines 22-24"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>Ulysses compares unused life to metal that rusts when not polished by use. Merely breathing is not real living for him. Life must shine through action.</p>"
+        },
+        {
+          "type": "quote-block",
+          "quote": "To follow knowledge like a sinking star,\nBeyond the utmost bound of human thought.",
+          "context": "Lines 31-32"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>The simile compares knowledge to a sinking star. It is beautiful, distant and almost unreachable. Ulysses still wants to follow it beyond the limits of ordinary thought.</p>"
+        },
+        {
+          "type": "section-head",
+          "text": "Part 3 -- Telemachus and duty"
+        },
+        {
+          "type": "quote-block",
+          "quote": "This is my son, mine own Telemachus,\nTo whom I leave the sceptre and the isle,\n- Well-loved of me, discerning to fulfil\nThis labour, by slow prudence to make mild\nA rugged people, and thro’ soft degrees\nSubdue them to the useful and the good.",
+          "context": "Lines 33-38"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>Ulysses now speaks of his son Telemachus. He trusts him with the kingdom, the sceptre and the island. Telemachus is patient, prudent and suitable for civilising the people of Ithaca. The father and son have different kinds of work.</p>"
+        },
+        {
+          "type": "quote-block",
+          "quote": "He works his work, I mine.",
+          "context": "Line 43"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>This short line clearly separates their roles. Telemachus will rule; Ulysses will continue seeking adventure and knowledge.</p>"
+        },
+        {
+          "type": "section-head",
+          "text": "Part 4 -- The call to the mariners"
+        },
+        {
+          "type": "quote-block",
+          "quote": "There lies the port; the vessel puffs her sail:\nThere gloom the dark, broad seas. My mariners,\nSouls that have toil’d, and wrought, and thought with me",
+          "context": "Lines 44-46"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>The port and ship are ready. Ulysses turns to the sailors who have worked, suffered and thought with him. They are not ordinary followers; they are companions in hardship.</p>"
+        },
+        {
+          "type": "quote-block",
+          "quote": "Death closes all: but something ere the end,\nSome work of noble note, may yet be done,\nNot unbecoming men that strove with Gods.",
+          "context": "Lines 51-53"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>Ulysses accepts that death ends everything, but he refuses to wait passively for death. Before the end, some noble work can still be done. This is the heroic philosophy of the poem.</p>"
+        },
+        {
+          "type": "quote-block",
+          "quote": "‘T is not too late to seek a newer world.",
+          "context": "Line 57"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>This is the poem’s great call to action. Age has not destroyed purpose.</p>"
+        },
+        {
+          "type": "quote-block",
+          "quote": "Tho’ much is taken, much abides; and tho’\nWe are not now that strength which in old days\nMoved earth and heaven, that which we are, we are;\nOne equal temper of heroic hearts,\nMade weak by time and fate, but strong in will\nTo strive, to seek, to find, and not to yield.",
+          "context": "Lines 65-70"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>The ending admits loss but insists on remaining strength. Ulysses and his sailors are weaker in body, but strong in will. The final line is a motto of courage: strive, seek, find and never yield.</p>"
+        },
+        {
+          "type": "nav",
+          "next": "key-lines",
+          "nextLabel": "Next: Key Lines ->"
+        }
+      ]
+    },
+    {
+      "id": "key-lines",
+      "label": "Key Lines",
+      "blocks": [
+        {
+          "type": "quote-block",
+          "quote": "I cannot rest from travel: I will drink / Life to the lees:",
+          "context": "Shows Ulysses’ attitude to life."
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>This means he wants to experience life fully. The key word is <em>lees</em>, because it means the last drop.</p>"
+        },
+        {
+          "type": "quote-block",
+          "quote": "I am a part of all that I have met;",
+          "context": "Experience has shaped him."
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>Ulysses says that every person, place and adventure has become part of his identity.</p>"
+        },
+        {
+          "type": "quote-block",
+          "quote": "How dull it is to pause, to make an end, / To rust unburnish’d, not to shine in use!",
+          "context": "Shows his fear of unused life."
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>The image of rusted metal suggests that human life loses value when it is not used actively.</p>"
+        },
+        {
+          "type": "quote-block",
+          "quote": "To follow knowledge like a sinking star, / Beyond the utmost bound of human thought.",
+          "context": "Simile for endless knowledge."
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>Knowledge is compared to a sinking star. It is distant, beautiful and difficult to reach.</p>"
+        },
+        {
+          "type": "quote-block",
+          "quote": "He works his work, I mine.",
+          "context": "Contrasts Telemachus and Ulysses."
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>The line distinguishes the son’s duty of rule from the father’s quest for exploration.</p>"
+        },
+        {
+          "type": "quote-block",
+          "quote": "‘T is not too late to seek a newer world.",
+          "context": "Ulysses’ call to action."
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>This is important for theme questions on courage and old age.</p>"
+        },
+        {
+          "type": "quote-block",
+          "quote": "To strive, to seek, to find, and not to yield.",
+          "context": "Final line of the poem."
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>This line sums up the poem’s spirit: effort, search, discovery and refusal to surrender.</p>"
+        },
+        {
+          "type": "nav",
+          "next": "glossary",
+          "nextLabel": "Next: Glossary ->"
+        }
+      ]
+    },
+    {
+      "id": "glossary",
+      "label": "Glossary",
+      "blocks": [
+        {
+          "type": "section-head",
+          "text": "Textbook Glossary"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p><strong>drink life to the lees</strong> means drink to the very last drop; here, live life to the fullest. <strong>scudding</strong> means moving rapidly because of the wind. <strong>Hyades</strong> is a group of stars in the constellation Taurus often associated with rain. <strong>vext</strong> is the past tense of vex and means upset.</p><p><strong>to rust unburnish’d</strong> means to let go waste, without being used. <strong>three suns</strong> means three long years. <strong>Telemachus</strong> is the son of Ulysses. <strong>smite</strong> means strike. <strong>furrow</strong> means the mark made in the water by the ship. <strong>baths</strong> means the outer ocean or river that the Greeks believed to surround the flat earth. <strong>Happy Isles</strong> is a fortunate island situated in the Atlantic Ocean, popularly known as Greek Paradise. <strong>Achilles</strong> is the greatest of Greek warriors.</p>"
+        },
+        {
+          "type": "nav",
+          "next": "themes",
+          "nextLabel": "Next: Themes & Devices ->"
+        }
+      ]
+    },
+    {
+      "id": "themes",
+      "label": "Themes & Devices",
+      "blocks": [
+        {
+          "type": "section-head",
+          "text": "The unending quest for knowledge"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>The central theme is the thirst for knowledge and experience. Ulysses cannot rest from travel, and he wants to follow knowledge like a sinking star. For an essay, explain that the poem values active seeking over passive existence.</p>"
+        },
+        {
+          "type": "section-head",
+          "text": "Old age and heroic will"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>Ulysses admits that he and his mariners are old and weak, but he insists that they remain strong in will. The poem does not deny age; it shows how purpose can survive age.</p>"
+        },
+        {
+          "type": "section-head",
+          "text": "Duty and difference of roles"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>Telemachus represents patient civic duty, while Ulysses represents exploration. The line “He works his work, I mine” shows that both roles have value.</p>"
+        },
+        {
+          "type": "section-head",
+          "text": "Figures of speech"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>The poem uses personification in “the rainy Hyades / Vext the dim sea” and “the deep / Moans round with many voices.” It uses metaphor in “all experience is an arch” and simile in “To follow knowledge like a sinking star.” It also uses alliteration in phrases such as “Death closes all” and “strong in will / To strive, to seek.”</p>"
+        },
+        {
+          "type": "nav",
+          "next": "qa",
+          "nextLabel": "Next: Textbook Q&A ->"
+        }
+      ]
+    },
+    {
+      "id": "qa",
+      "label": "Textbook Q&A",
+      "blocks": [
+        {
+          "type": "section-head",
+          "text": "Textbook questions and model answers"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p><strong>Why is Ulysses not happy to perform his duties as a king?</strong> Ulysses feels that ruling an ordinary people from a still hearth is dull. His spirit longs for travel, adventure and knowledge.</p><p><strong>What does he think of the people of his kingdom?</strong> He calls them a savage race who hoard, sleep and feed, and do not know him. This shows his distance from them.</p><p><strong>What has Ulysses gained from his travel experiences?</strong> He has seen cities, manners, climates, councils and governments. These experiences have made him famous and have become part of him.</p><p><strong>What does Ulysses yearn for?</strong> He yearns to follow knowledge beyond the limits of human thought and to seek a newer world.</p><p><strong>Why did Ulysses want to hand over the kingdom to his son?</strong> He trusted Telemachus to rule with patience and prudence. Ulysses wanted to continue his own quest for travel and knowledge.</p><p><strong>What is Ulysses’ clarion call to his sailors?</strong> He calls them to push off, sail beyond the sunset, seek a newer world and remain strong in will though old and weakened by time.</p>"
+        },
+        {
+          "type": "nav",
+          "next": "activities",
+          "nextLabel": "Next: Activities ->"
+        }
+      ]
+    },
+    {
+      "id": "activities",
+      "label": "Activities",
+      "blocks": [
+        {
+          "type": "section-head",
+          "text": "Summary, reference and listening"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>The textbook summary activity divides the poem into lines 1 to 32, lines 33 to 42, and lines 44 to 70. It asks students to complete the summary with words such as <em>unwilling</em>, <em>king</em>, <em>adventure</em>, <em>unquenchable</em>, <em>travel</em>, <em>fullest</em>, <em>knowledge</em>, <em>matters</em>, <em>experience</em>, <em>rust</em>, <em>breathing</em> and <em>unattainable</em>.</p><p>The reference questions ask students to explain important lines such as “I mete and dole / Unequal laws unto a savage race,” “Yet all experience is an arch,” “Death closes all,” and “To strive, to seek, to find, and not to yield.” The listening activity asks students to complete a poem by choosing answers connected with wander-thirst, a star as guide, voyaging, ships, and the seas.</p>"
+        },
+        {
+          "type": "nav",
+          "practice": true,
+          "practiceLabel": "Practice Questions ->"
+        }
+      ]
+    }
+  ]
+}

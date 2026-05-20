@@ -1,0 +1,507 @@
+export default {
+  "meta": {
+    "subject": "General English -- Class XII",
+    "unit": "Unit 4 -- Ulysses",
+    "time": "3.00 hrs",
+    "totalMarks": 90,
+    "instructions": "Tamil Nadu State Board -- Answer all questions"
+  },
+  "parts": [
+    {
+      "id": "p1",
+      "navLabel": "Part I -- MCQ (20 x 1)",
+      "title": "Part I -- Objective Type",
+      "type": "mcq",
+      "scoreMax": 20,
+      "marksPer": 1,
+      "sections": [
+        {
+          "label": "Poet and form",
+          "questions": [
+            {
+              "id": "q1",
+              "html": "Who wrote <em>Ulysses</em>?",
+              "options": [
+                "a) Robert Arthur",
+                "b) Alfred Tennyson",
+                "c) Edmund Hillary",
+                "d) John Hunt"
+              ],
+              "answer": 1,
+              "hint": "The poem is by Alfred Tennyson."
+            },
+            {
+              "id": "q2",
+              "html": "The poem <em>Ulysses</em> is a:",
+              "options": [
+                "a) dramatic monologue",
+                "b) short story",
+                "c) one-act play",
+                "d) letter"
+              ],
+              "answer": 0,
+              "hint": "The introduction calls it a dramatic monologue."
+            },
+            {
+              "id": "q3",
+              "html": "How many lines does the poem contain according to the textbook?",
+              "options": [
+                "a) 40",
+                "b) 50",
+                "c) 70",
+                "d) 100"
+              ],
+              "answer": 2,
+              "hint": "The textbook says 70 lines."
+            },
+            {
+              "id": "q4",
+              "html": "Ulysses is the King of:",
+              "options": [
+                "a) Ithaca",
+                "b) Verona",
+                "c) Paris",
+                "d) Nepal"
+              ],
+              "answer": 0,
+              "hint": "Ulysses is King of Ithaca."
+            },
+            {
+              "id": "q5",
+              "html": "Tennyson was Poet Laureate during much of whose reign?",
+              "options": [
+                "a) Queen Victoria",
+                "b) Queen Elizabeth I",
+                "c) King George III",
+                "d) King Lear"
+              ],
+              "answer": 0,
+              "hint": "The textbook mentions Queen Victoria’s reign."
+            }
+          ]
+        },
+        {
+          "label": "Poem content",
+          "questions": [
+            {
+              "id": "q6",
+              "html": "Ulysses says he cannot rest from:",
+              "options": [
+                "a) travel",
+                "b) eating",
+                "c) ruling",
+                "d) sleeping"
+              ],
+              "answer": 0,
+              "hint": "He says, I cannot rest from travel."
+            },
+            {
+              "id": "q7",
+              "html": "Who is Telemachus?",
+              "options": [
+                "a) Ulysses’ son",
+                "b) a sailor",
+                "c) a god",
+                "d) an enemy"
+              ],
+              "answer": 0,
+              "hint": "The glossary states Telemachus is Ulysses’ son."
+            },
+            {
+              "id": "q8",
+              "html": "What does Ulysses leave to Telemachus?",
+              "options": [
+                "a) the sceptre and the isle",
+                "b) the ship only",
+                "c) his sword only",
+                "d) a bottle"
+              ],
+              "answer": 0,
+              "hint": "He leaves the sceptre and isle."
+            },
+            {
+              "id": "q9",
+              "html": "Ulysses wants to follow knowledge like:",
+              "options": [
+                "a) a sinking star",
+                "b) a roaring lion",
+                "c) a silent tree",
+                "d) a golden crown"
+              ],
+              "answer": 0,
+              "hint": "The poem uses this simile."
+            },
+            {
+              "id": "q10",
+              "html": "The mariners have taken the thunder and sunshine with:",
+              "options": [
+                "a) fear",
+                "b) frolic welcome",
+                "c) hatred",
+                "d) silence"
+              ],
+              "answer": 1,
+              "hint": "They took both with frolic welcome."
+            },
+            {
+              "id": "q11",
+              "html": "What closes all according to Ulysses?",
+              "options": [
+                "a) sleep",
+                "b) Death",
+                "c) hunger",
+                "d) rain"
+              ],
+              "answer": 1,
+              "hint": "Death closes all."
+            },
+            {
+              "id": "q12",
+              "html": "The final line ends with:",
+              "options": [
+                "a) not to yield",
+                "b) not to sleep",
+                "c) not to rule",
+                "d) not to speak"
+              ],
+              "answer": 0,
+              "hint": "The poem ends with not to yield."
+            }
+          ]
+        },
+        {
+          "label": "Glossary and devices",
+          "questions": [
+            {
+              "id": "q13",
+              "html": "What does <em>drink life to the lees</em> mean?",
+              "options": [
+                "a) live life to the fullest",
+                "b) avoid life",
+                "c) sleep deeply",
+                "d) rule harshly"
+              ],
+              "answer": 0,
+              "hint": "The glossary explains this meaning."
+            },
+            {
+              "id": "q14",
+              "html": "What does <em>scudding</em> mean?",
+              "options": [
+                "a) moving rapidly because of the wind",
+                "b) standing still",
+                "c) singing softly",
+                "d) ruling badly"
+              ],
+              "answer": 0,
+              "hint": "This is the glossary meaning."
+            },
+            {
+              "id": "q15",
+              "html": "What does <em>smite</em> mean?",
+              "options": [
+                "a) strike",
+                "b) sleep",
+                "c) ask",
+                "d) forget"
+              ],
+              "answer": 0,
+              "hint": "Smite means strike."
+            },
+            {
+              "id": "q16",
+              "html": "What does <em>Happy Isles</em> refer to?",
+              "options": [
+                "a) Greek Paradise",
+                "b) Ithaca’s market",
+                "c) a prison",
+                "d) a battlefield"
+              ],
+              "answer": 0,
+              "hint": "The glossary calls it Greek Paradise."
+            },
+            {
+              "id": "q17",
+              "html": "Which figure of speech is in “To follow knowledge like a sinking star”?",
+              "options": [
+                "a) Simile",
+                "b) Pun",
+                "c) Irony",
+                "d) Oxymoron"
+              ],
+              "answer": 0,
+              "hint": "The word like makes it a simile."
+            },
+            {
+              "id": "q18",
+              "html": "Which figure of speech is in “the deep / Moans round with many voices”?",
+              "options": [
+                "a) Personification",
+                "b) Antithesis",
+                "c) Metonymy",
+                "d) Pun"
+              ],
+              "answer": 0,
+              "hint": "The sea is given human action."
+            },
+            {
+              "id": "q19",
+              "html": "The central theme of the poem is:",
+              "options": [
+                "a) hunger for knowledge and adventure",
+                "b) fear of travel",
+                "c) hatred of sailors",
+                "d) love of wealth"
+              ],
+              "answer": 0,
+              "hint": "Ulysses seeks knowledge and new worlds."
+            },
+            {
+              "id": "q20",
+              "html": "“Made weak by time and fate, but strong in will” shows:",
+              "options": [
+                "a) physical weakness but mental strength",
+                "b) complete defeat",
+                "c) laziness",
+                "d) silence"
+              ],
+              "answer": 0,
+              "hint": "The contrast is between body and will."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "navLabel": "Part II -- RTC (2 x 7)",
+      "title": "Part II -- Reference to Context",
+      "type": "reference",
+      "scoreMax": 14,
+      "marksPer": 2,
+      "instruction": "Answer any 7 of the following 10 questions. Read the extract carefully and answer in one or two sentences.",
+      "questions": [
+        {
+          "verse": "I cannot rest from travel: I will drink / Life to the lees:",
+          "subs": [
+            {
+              "q": "(a) Who says this?",
+              "a": "Ulysses says this."
+            },
+            {
+              "q": "(b) What does it mean?",
+              "a": "He wants to experience life fully."
+            }
+          ]
+        },
+        {
+          "verse": "I am become a name; / For always roaming with a hungry heart",
+          "subs": [
+            {
+              "q": "(a) Why has he become a name?",
+              "a": "His many adventures have made him famous."
+            },
+            {
+              "q": "(b) What does hungry heart mean?",
+              "a": "It means an eager, restless desire for more experience."
+            }
+          ]
+        },
+        {
+          "verse": "I am a part of all that I have met;",
+          "subs": [
+            {
+              "q": "(a) What does Ulysses mean?",
+              "a": "His experiences have shaped his identity."
+            },
+            {
+              "q": "(b) What theme does it show?",
+              "a": "It shows the value of experience."
+            }
+          ]
+        },
+        {
+          "verse": "Yet all experience is an arch wherethro’ / Gleams that untravell’d world",
+          "subs": [
+            {
+              "q": "(a) What is experience compared to?",
+              "a": "Experience is compared to an arch."
+            },
+            {
+              "q": "(b) What does the image suggest?",
+              "a": "Every experience opens the view to more unknown worlds."
+            }
+          ]
+        },
+        {
+          "verse": "To follow knowledge like a sinking star, / Beyond the utmost bound of human thought.",
+          "subs": [
+            {
+              "q": "(a) Identify the figure of speech.",
+              "a": "It is a simile."
+            },
+            {
+              "q": "(b) What does it show?",
+              "a": "It shows Ulysses’ endless quest for knowledge."
+            }
+          ]
+        },
+        {
+          "verse": "This is my son, mine own Telemachus, / To whom I leave the sceptre and the isle",
+          "subs": [
+            {
+              "q": "(a) Who is Telemachus?",
+              "a": "Telemachus is Ulysses’ son."
+            },
+            {
+              "q": "(b) What does Ulysses give him?",
+              "a": "He gives him the sceptre and the island kingdom."
+            }
+          ]
+        },
+        {
+          "verse": "He works his work, I mine.",
+          "subs": [
+            {
+              "q": "(a) What contrast is shown?",
+              "a": "Telemachus will rule, while Ulysses will seek adventure."
+            },
+            {
+              "q": "(b) What does it reveal?",
+              "a": "It reveals that both have different duties."
+            }
+          ]
+        },
+        {
+          "verse": "Death closes all: but something ere the end, / Some work of noble note, may yet be done",
+          "subs": [
+            {
+              "q": "(a) What does Ulysses accept?",
+              "a": "He accepts that death ends life."
+            },
+            {
+              "q": "(b) What does he still believe?",
+              "a": "He believes noble work can still be done before death."
+            }
+          ]
+        },
+        {
+          "verse": "‘T is not too late to seek a newer world.",
+          "subs": [
+            {
+              "q": "(a) Who is addressed?",
+              "a": "Ulysses addresses his mariners."
+            },
+            {
+              "q": "(b) What is the message?",
+              "a": "Age has not ended their chance for adventure."
+            }
+          ]
+        },
+        {
+          "verse": "To strive, to seek, to find, and not to yield.",
+          "subs": [
+            {
+              "q": "(a) What does this line express?",
+              "a": "It expresses courage, effort and refusal to surrender."
+            },
+            {
+              "q": "(b) Why is it important?",
+              "a": "It sums up the spirit of the poem."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "navLabel": "Part III -- Paragraph (3 x 7)",
+      "title": "Part III -- Short Essay / Paragraph Questions",
+      "type": "short-essay",
+      "scoreMax": 21,
+      "marksPer": 3,
+      "instruction": "Answer any 7 of the following 10 questions in two or three sentences. (Approx. 30-40 words per answer)",
+      "questions": [
+        {
+          "q": "Why is Ulysses unhappy as king?",
+          "ans": "He feels idle and trapped by ordinary rule. He thinks his people merely hoard, sleep and feed, and do not understand him."
+        },
+        {
+          "q": "What does Ulysses mean by drinking life to the lees?",
+          "ans": "He wants to live life fully, to the very last drop. For him, real life means experience, travel and struggle."
+        },
+        {
+          "q": "How has travel shaped Ulysses?",
+          "ans": "He has seen cities, manners, climates, councils and governments. These experiences have become part of his identity."
+        },
+        {
+          "q": "Explain the arch image.",
+          "ans": "Experience is compared to an arch through which another untravelled world gleams. The image shows that knowledge and exploration are endless."
+        },
+        {
+          "q": "Why does Ulysses trust Telemachus?",
+          "ans": "He believes Telemachus is prudent, patient and capable of making the people useful and good. He can rule Ithaca responsibly."
+        },
+        {
+          "q": "How are Ulysses and his mariners alike?",
+          "ans": "They have toiled, worked and thought together. They faced thunder and sunshine with courage and share an undying spirit of adventure."
+        },
+        {
+          "q": "What does “Death closes all” mean?",
+          "ans": "It means death ends human life and action. Yet Ulysses believes some noble work may still be done before the end."
+        },
+        {
+          "q": "How does Ulysses inspire his sailors?",
+          "ans": "He reminds them that they are heroic hearts, though old. He urges them to seek a newer world and not yield."
+        },
+        {
+          "q": "What is the role of old age in the poem?",
+          "ans": "Old age weakens the body but not the will. Ulysses accepts age but refuses to surrender his purpose."
+        },
+        {
+          "q": "What is the message of the final line?",
+          "ans": "The final line teaches effort, search, discovery and endurance. It is a call to continue bravely and never yield."
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "navLabel": "Part IV -- Long Essay (5 x 7)",
+      "title": "Part IV -- Long Essay Questions",
+      "type": "long-essay",
+      "scoreMax": 35,
+      "marksPer": 5,
+      "instruction": "Answer any 5 of the following 7 questions. Each answer should be about 100-150 words.",
+      "questions": [
+        {
+          "q": "What makes Ulysses seek newer adventures?",
+          "ans": "Ulysses seeks newer adventures because he cannot accept idle existence. He feels that ruling a people who do not understand him gives little profit. His past travels have taught him that life must be experienced fully. He has enjoyed greatly and suffered greatly, and these experiences have made him famous. Yet experience does not satisfy him completely; it opens another untravelled world before him. He compares unused life to metal that rusts without shining. He wants to follow knowledge like a sinking star beyond the limits of human thought. His hunger for knowledge and action makes him seek newer adventures."
+        },
+        {
+          "q": "Describe the role of Telemachus in the poem.",
+          "ans": "Telemachus represents patient duty and responsible rule. Ulysses leaves the sceptre and the island of Ithaca to him because he trusts his son’s ability. Telemachus is well-loved by Ulysses and is described as discerning, prudent and blameless. His work is to civilise a rugged people slowly and gently, bringing them towards the useful and the good. Unlike Ulysses, he is suited to common duties and household worship. The line “He works his work, I mine” shows the difference between father and son. Telemachus gives Ulysses freedom to continue his quest."
+        },
+        {
+          "q": "What is Ulysses’ clarion call to his sailors?",
+          "ans": "Ulysses calls his sailors to begin another voyage. He reminds them that they have worked, struggled and thought with him. They accepted both thunder and sunshine with a cheerful spirit. Though they are old, he says old age still has honour and toil. Death may end everything, but some noble work can still be done before the end. He urges them to push off and sail beyond the sunset, even if the sea may destroy them. His final call is to strive, seek, find and not yield. This speech inspires courage and heroic endurance."
+        },
+        {
+          "q": "How does the poem present old age?",
+          "ans": "The poem presents old age honestly but hopefully. Ulysses accepts that he and his sailors are old and no longer have the strength that once moved earth and heaven. Time and fate have weakened them physically. Yet he refuses to equate old age with uselessness. He says old age still has honour and toil. The body may be weak, but the will can remain strong. This idea gives the poem its power. It teaches that purpose and courage need not disappear with age. Ulysses turns old age into a final chance for noble action."
+        },
+        {
+          "q": "Explain the major figures of speech in Ulysses.",
+          "ans": "Tennyson uses several figures of speech to express Ulysses’ restless spirit. The line “all experience is an arch” is a metaphor that shows how every experience opens another world. “To follow knowledge like a sinking star” is a simile, comparing knowledge to something distant and beautiful. “The deep / Moans round with many voices” is personification because the sea is given a human action. The line “To rust unburnish’d” is also metaphorical, comparing unused life to metal that loses shine. These devices make the poem vivid and philosophical."
+        },
+        {
+          "q": "How does Ulysses contrast duty and adventure?",
+          "ans": "The poem contrasts duty and adventure through Telemachus and Ulysses. Telemachus is suited to ruling Ithaca with patience and prudence. He can make the people mild and useful through soft degrees. Ulysses respects this work, but it is not his own nature. His spirit belongs to travel, danger and the search for knowledge. The line “He works his work, I mine” clearly separates the two roles. The poem does not say one role is worthless. Instead, it shows that different people have different duties. Ulysses’ duty is to follow his heroic quest."
+        },
+        {
+          "q": "Why is the ending of Ulysses memorable?",
+          "ans": "The ending is memorable because it combines loss and courage. Ulysses admits that much has been taken and that he and his sailors are not as strong as before. Time and fate have weakened them. Yet he insists that what remains is still heroic. Their hearts are equal in courage and strong in will. The final line, “To strive, to seek, to find, and not to yield,” gives the poem the force of a motto. It is simple, rhythmic and inspiring. It teaches that human beings should continue to seek purpose even when weakened by age."
+        }
+      ]
+    }
+  ]
+}

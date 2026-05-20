@@ -1,0 +1,26 @@
+# Systemd service for FastAPI backend
+# Place at: /etc/systemd/system/examcoach-backend.service
+# Enable:   sudo systemctl enable examcoach-backend
+# Start:    sudo systemctl start  examcoach-backend
+
+[Unit]
+Description=AI Exam Coach FastAPI Backend
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/opt/examcoach/backend
+ExecStart=/opt/examcoach/backend/.venv/bin/uvicorn main:app \
+          --host 127.0.0.1 \
+          --port 8000 \
+          --workers 2 \
+          --log-level info
+Restart=always
+RestartSec=5
+EnvironmentFile=/opt/examcoach/backend/.env
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

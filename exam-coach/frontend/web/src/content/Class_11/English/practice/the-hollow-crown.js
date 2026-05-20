@@ -1,0 +1,373 @@
+export default {
+  meta: {
+    title: 'The Hollow Crown',
+    author: 'William Shakespeare — from Richard II',
+    unit: 'Unit 6 · Poem',
+    totalMarks: 50,
+  },
+  parts: [
+    {
+      id: 'p1',
+      navLabel: 'Part I — Objective',
+      title: 'Part I — Objective Type (20 × 1 = 20 Marks)',
+      type: 'mcq',
+      scoreMax: 20,
+      marksPer: 1,
+      sections: [
+        {
+          id: 's1',
+          label: 'Vocabulary (Q 1–6)',
+          questions: [
+            {
+              id: 'q1',
+              html: 'Choose the meaning of <em>deposed</em>.',
+              options: ['removed from power', 'crowned', 'protected', 'praised'],
+              answer: 0,
+              hint: 'Richard says some kings were depos\'d.',
+            },
+            {
+              id: 'q2',
+              html: 'Choose the synonym of <em>reverence</em>.',
+              options: ['deep respect', 'mockery', 'anger', 'fear'],
+              answer: 0,
+              hint: 'Richard tells his men to throw away reverence.',
+            },
+            {
+              id: 'q3',
+              html: 'Choose the antonym of <em>vain</em>.',
+              options: ['useful', 'empty', 'proud', 'useless'],
+              answer: 0,
+              hint: 'Vain means useless or excessively proud.',
+            },
+            {
+              id: 'q4',
+              html: 'Choose the meaning of <em>pomp</em>.',
+              options: ['splendour and show', 'poverty', 'silence', 'defeat'],
+              answer: 0,
+              hint: 'Death grins at the king\'s pomp.',
+            },
+            {
+              id: 'q5',
+              html: 'Choose the synonym of <em>scoffing</em>.',
+              options: ['mocking', 'praising', 'crowning', 'sleeping'],
+              answer: 0,
+              hint: 'Death sits scoffing at the king\'s state.',
+            },
+            {
+              id: 'q6',
+              html: 'Choose the meaning of <em>bequeath</em>.',
+              options: ['leave by will', 'destroy', 'steal', 'hide'],
+              answer: 0,
+              hint: 'Richard asks what he can bequeath after defeat.',
+            },
+          ],
+        },
+        {
+          id: 's2',
+          label: 'Poem Comprehension (Q 7–18)',
+          questions: [
+            {
+              id: 'q7',
+              html: 'Who is the speaker in the poem?',
+              options: ['King Richard II', 'Bolingbroke', 'Death', 'John Magee'],
+              answer: 0,
+              hint: 'The poem is a monologue spoken after defeat.',
+            },
+            {
+              id: 'q8',
+              html: 'The poem is taken from',
+              options: ['Richard II', 'Macbeth', 'Hamlet', 'Othello'],
+              answer: 0,
+              hint: 'It is Shakespeare\'s historical play.',
+            },
+            {
+              id: 'q9',
+              html: 'Bolingbroke is Richard\'s',
+              options: ['foe', 'son', 'friend', 'executor'],
+              answer: 0,
+              hint: 'He has seized Richard\'s lands and power.',
+            },
+            {
+              id: 'q10',
+              html: 'The phrase "rainy eyes" means',
+              options: ['tearful eyes', 'angry eyes', 'blind eyes', 'sleepy eyes'],
+              answer: 0,
+              hint: 'Richard imagines writing sorrow with rainy eyes.',
+            },
+            {
+              id: 'q11',
+              html: 'The crown is called',
+              options: ['hollow', 'golden only', 'broken only', 'hidden'],
+              answer: 0,
+              hint: 'The title itself tells us what the crown is called.',
+            },
+            {
+              id: 'q12',
+              html: 'Who keeps court inside the hollow crown?',
+              options: ['Death', 'Bolingbroke', 'an executor', 'a soldier'],
+              answer: 0,
+              hint: 'Death is personified as a ruler inside the crown.',
+            },
+            {
+              id: 'q13',
+              html: '"Mortal temples" refers to',
+              options: ['the king\'s head', 'a church', 'a palace', 'a battlefield'],
+              answer: 0,
+              hint: 'Temples are the sides of the head.',
+            },
+            {
+              id: 'q14',
+              html: 'What does "flesh" refer to?',
+              options: ['human body', 'crown', 'land', 'paper'],
+              answer: 0,
+              hint: 'Richard says "flesh which walls about our life."',
+            },
+            {
+              id: 'q15',
+              html: 'What does Richard live with like others?',
+              options: ['bread', 'gold', 'pomp', 'throne'],
+              answer: 0,
+              hint: 'He says "I live with bread like you."',
+            },
+            {
+              id: 'q16',
+              html: '"How can you say to me, I am a king?" is a',
+              options: ['rhetorical question', 'simile', 'pun', 'alliteration only'],
+              answer: 0,
+              hint: 'It seeks no information; it expresses realisation.',
+            },
+            {
+              id: 'q17',
+              html: '"Our lands, our lives" contains',
+              options: ['alliteration', 'simile', 'irony only', 'internal rhyme only'],
+              answer: 0,
+              hint: 'Repetition of the same initial letter or sound.',
+            },
+            {
+              id: 'q18',
+              html: 'The parallel poem mentioned is',
+              options: ['High Flight', 'Be the Best', 'To Autumn', 'A Lament'],
+              answer: 0,
+              hint: 'It is by John Gillespie Magee, Jr.',
+            },
+          ],
+        },
+        {
+          id: 's3',
+          label: 'Context and Theme (Q 19–20)',
+          questions: [
+            {
+              id: 'q19',
+              html: '"War begets war" is part of the',
+              options: ['speaking activity', 'glossary', 'poem title', 'author note'],
+              answer: 0,
+              hint: 'Students discuss this adage with a partner.',
+            },
+            {
+              id: 'q20',
+              html: 'The main theme is',
+              options: ['mortality and equality', 'comic travel', 'photography', 'consumer credit'],
+              answer: 0,
+              hint: 'The poem is about death making rulers and subjects equal.',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: 'p2',
+      navLabel: 'Part II — RTC',
+      title: 'Part II — Reference to Context (10 × 4 = 40 Marks)',
+      type: 'reference',
+      scoreMax: 40,
+      marksPer: 4,
+      questions: [
+        {
+          id: 'r1',
+          verse: 'Our lands, our lives, and all, are Bolingbroke\'s,\nAnd nothing can we call our own but death;',
+          subs: [
+            { q: 'Who is Bolingbroke?', a: 'Bolingbroke is Richard\'s foe who has taken his lands and power.' },
+            { q: 'What is left to Richard?', a: 'Only death is left to Richard as his own.' },
+          ],
+        },
+        {
+          id: 'r2',
+          verse: 'All murdered – for within the hollow crown\nThat rounds the mortal temples of a king\nKeeps Death his court,',
+          subs: [
+            { q: 'What is inside the hollow crown?', a: 'Death keeps his court inside the hollow crown.' },
+            { q: 'What does this image suggest?', a: 'It suggests that death secretly rules over kings and mocks royal power.' },
+          ],
+        },
+        {
+          id: 'r3',
+          verse: 'Comes at the last, and with a little pin\nBores through his castle wall, and farewell king!',
+          subs: [
+            { q: 'Who comes at the last?', a: 'Death comes at the last.' },
+            { q: 'What is the castle wall?', a: 'The castle wall is a metaphor for the human body or flesh.' },
+          ],
+        },
+        {
+          id: 'r4',
+          verse: 'How can you say to me, I am a king?',
+          subs: [
+            { q: 'Who asks this question?', a: 'King Richard asks this question.' },
+            { q: 'Why is it rhetorical?', a: 'He does not seek an answer; he expresses his loss of royal identity and power.' },
+          ],
+        },
+        {
+          id: 'r5',
+          verse: 'Let\'s talk of graves, of worms, and epitaphs;\nMake dust our paper, and with rainy eyes\nWrite sorrow on the bosom of the earth.',
+          subs: [
+            { q: 'What do graves, worms and epitaphs refer to?', a: 'They refer to death, burial and memorial words.' },
+            { q: 'What does "rainy eyes" mean?', a: 'It means tearful eyes filled with sorrow.' },
+          ],
+        },
+        {
+          id: 'r6',
+          verse: 'For God\'s sake let us sit upon the ground\nAnd tell sad stories of the death of kings:',
+          subs: [
+            { q: 'Why does Richard want to sit on the ground?', a: 'He is humbled by defeat and no longer speaks proudly from a throne.' },
+            { q: 'What stories does he want to tell?', a: 'He wants to tell sad stories about how kings die.' },
+          ],
+        },
+        {
+          id: 'r7',
+          verse: 'Some poisoned by their wives, some sleeping kill\'d,\nAll murdered –',
+          subs: [
+            { q: 'What different deaths are mentioned here?', a: 'Kings may be poisoned by wives or killed while sleeping.' },
+            { q: 'What truth does this show?', a: 'It shows that kingship does not protect rulers from betrayal and death.' },
+          ],
+        },
+        {
+          id: 'r8',
+          verse: 'Scoffing his state and grinning at his pomp,',
+          subs: [
+            { q: 'Who is scoffing and grinning?', a: 'Death is scoffing and grinning at the king\'s pomp.' },
+            { q: 'Name the figure of speech.', a: 'It is personification because Death is given human actions.' },
+          ],
+        },
+        {
+          id: 'r9',
+          verse: 'As if this flesh which walls about our life\nWere brass impregnable;',
+          subs: [
+            { q: 'What does flesh refer to?', a: 'Flesh refers to the human body.' },
+            { q: 'What is the figure of speech?', a: 'It is a metaphor comparing the body to a wall around life.' },
+          ],
+        },
+        {
+          id: 'r10',
+          verse: 'I live with bread like you, feel want,\nTaste grief, need friends – subjected thus,',
+          subs: [
+            { q: 'What common needs does Richard mention?', a: 'He mentions bread, want, grief and the need for friends.' },
+            { q: 'What does this prove?', a: 'It proves that kings are human and equal to common people in suffering.' },
+          ],
+        },
+      ],
+    },
+    {
+      id: 'p3',
+      navLabel: 'Part III — Short Essay',
+      title: 'Part III — Short Essay (10 × 3 = 30 Marks)',
+      type: 'short-essay',
+      scoreMax: 30,
+      marksPer: 3,
+      questions: [
+        {
+          id: 'se1',
+          q: 'Describe King Richard\'s state of mind.',
+          ans: 'King Richard is sorrowful, defeated and disillusioned. He has lost power to Bolingbroke and now realises that kings are mortal like ordinary people.',
+        },
+        {
+          id: 'se2',
+          q: 'What does the hollow crown symbolize?',
+          ans: 'The hollow crown symbolizes empty royal power. Though it appears grand outside, Death sits within it and mocks the king\'s pomp.',
+        },
+        {
+          id: 'se3',
+          q: 'How does Richard describe the death of kings?',
+          ans: 'Richard says kings die in many ways: deposed, slain in war, haunted by ghosts, poisoned by wives or killed in sleep. Kingship cannot protect them.',
+        },
+        {
+          id: 'se4',
+          q: 'What is the role of Death in the poem?',
+          ans: 'Death is personified as a ruler and mocker inside the crown. It allows kings a brief scene of power and finally destroys them.',
+        },
+        {
+          id: 'se5',
+          q: 'How does Richard prove equality with his subjects?',
+          ans: 'He says he lives with bread, feels want, tastes grief and needs friends like everyone else. These human needs make him equal to his subjects.',
+        },
+        {
+          id: 'se6',
+          q: 'Explain "little pin."',
+          ans: 'The little pin represents Death\'s small but decisive power. Even a tiny wound, illness or moment can break the body and end kingship.',
+        },
+        {
+          id: 'se7',
+          q: 'What is the message of the poem?',
+          ans: 'The poem teaches that worldly power is temporary. Death makes rulers and commoners equal, and pride is meaningless before mortality.',
+        },
+        {
+          id: 'se8',
+          q: 'Why does Richard mention graves, worms and epitaphs?',
+          ans: 'He mentions them because defeat has made him think of death and burial. His mind has turned from power to mortality.',
+        },
+        {
+          id: 'se9',
+          q: 'Explain the phrase "sad stories of the death of kings."',
+          ans: 'The phrase means histories of how rulers lose power and die. Richard wants to remember that kings are not immune to suffering or death.',
+        },
+        {
+          id: 'se10',
+          q: 'How is the poem relevant today?',
+          ans: 'The poem is relevant because people still chase power and status. It reminds us that authority is temporary and all humans share mortality and need.',
+        },
+      ],
+    },
+    {
+      id: 'p4',
+      navLabel: 'Part IV — Long Essay',
+      title: 'Part IV — Long Essay (7 × 5 = 35 Marks)',
+      type: 'long-essay',
+      scoreMax: 35,
+      marksPer: 5,
+      questions: [
+        {
+          id: 'le1',
+          q: 'Explain the central idea of "The Hollow Crown."',
+          ans: 'The central idea of "The Hollow Crown" is that royal power is temporary and death makes all human beings equal. King Richard II, after defeat, realises that his lands, life and authority now belong to Bolingbroke. He has nothing left except death. The crown, which appears to symbolize power and glory, is described as hollow because Death sits within it and mocks the king\'s pomp. Richard also understands that he eats bread, feels want, tastes grief and needs friends like ordinary people. Thus, the poem teaches that kingship is only a brief performance before mortality.',
+        },
+        {
+          id: 'le2',
+          q: 'Write an essay on Richard\'s grief and wisdom.',
+          ans: 'Richard\'s grief comes from the loss of his crown, lands and royal identity. Bolingbroke has defeated him, and Richard can no longer speak like an all-powerful king. Yet his grief leads to wisdom. He sees that kings die in many ways: deposed, slain, poisoned or murdered. He understands that Death sits inside the hollow crown and laughs at royal pomp. He also realises that his body is only flesh and blood, not impregnable brass. His final admission that he lives with bread, feels want and needs friends shows his human wisdom. Through grief, Richard discovers equality and mortality.',
+        },
+        {
+          id: 'le3',
+          q: 'How does Shakespeare personify Death in the poem?',
+          ans: 'Shakespeare personifies Death powerfully in the poem. Death is imagined as keeping court inside the hollow crown, just as a king keeps court in a palace. Death sits there like an antic, scoffing at the king\'s state and grinning at his pomp. It allows the king a breath and a little scene to act as monarch, then comes at last with a little pin and bores through the castle wall of the body. Through this personification, Death becomes active, mocking and powerful. It is the true ruler behind all rulers.',
+        },
+        {
+          id: 'le4',
+          q: 'How are eternal truths brought out in the poem?',
+          ans: 'The poem brings out eternal truths through Richard\'s fall. The first truth is that power is temporary. Lands, lives, crowns and ceremonies can be lost. The second truth is that the body is mortal. Richard calls it flesh and compares it to a castle wall easily pierced by Death. The third truth is human equality: kings and subjects need bread, feel want, taste grief and need friends. The fourth truth is that pride is vain. Death sits inside the hollow crown and mocks royal grandeur. These truths make the poem timeless and philosophical.',
+        },
+        {
+          id: 'le5',
+          q: 'Who is remembered more: the victor or the vanquished? Discuss with reference to the poem.',
+          ans: 'The victor may be remembered for winning power, but the vanquished is often remembered for the wisdom that suffering produces. Bolingbroke wins Richard\'s lands and crown, but Richard\'s speech is what moves us. His defeat strips away illusion and makes him speak universal truths about death, grief and equality. Lines such as "I live with bread like you" and "How can you say to me, I am a king?" make him deeply human. Future generations remember such voices because they reveal the meaning of life. Therefore, the vanquished can be remembered more powerfully than the victor.',
+        },
+        {
+          id: 'le6',
+          q: 'Explain the poetic devices in "The Hollow Crown."',
+          ans: 'The poem uses many poetic devices. Personification is central: Death keeps court, scoffs and grins inside the crown. Metaphor appears in "flesh which walls about our life," comparing the body to a wall, and in "castle wall," suggesting the body as a fortress. "Rainy eyes" is an image for tears. The final question, "How can you say to me, I am a king?" is rhetorical. Alliteration appears in "lands, lives" and "sad stories." These devices make Richard\'s grief dramatic and turn political defeat into universal reflection.',
+        },
+        {
+          id: 'le7',
+          q: 'How is "The Hollow Crown" relevant to modern life?',
+          ans: '"The Hollow Crown" is relevant because people still chase power, position and status. Political leaders, officials, celebrities and ordinary people may believe that titles make them superior. Shakespeare reminds us that all power is temporary. Death sits inside every crown, and every human being needs food, friendship and comfort. The poem teaches humility to those in power and dignity to those without power. It also shows that suffering can reveal truth. In a world full of competition and pride, Richard\'s words remind us to value humanity above rank.',
+        },
+      ],
+    },
+  ],
+}
