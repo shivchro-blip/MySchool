@@ -1,0 +1,1 @@
+{"nodes": [{"id": "flutter_icon_512", "label": "Flutter App Icon 512px", "file_type": "image", "source_file": "exam-coach/frontend/app/web/icons/Icon-512.png", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null, "rationale": "512x512 version of the Flutter default icon. Used for PWA manifest."}], "edges": [], "hyperedges": []}

@@ -9,8 +9,10 @@ import OnboardingPage   from './pages/OnboardingPage'
 import ProgressPage     from './pages/ProgressPage'
 import DashboardPage    from './pages/DashboardPage'
 import CoursesIndexPage from './pages/CoursesIndexPage'
+import AssignmentsPage  from './pages/AssignmentsPage'
 import ActivityPage     from './pages/ActivityPage'
 import CertificatePage  from './pages/CertificatePage'
+import MessagesPage     from './pages/MessagesPage'
 import PrivacyPage      from './pages/PrivacyPage'
 import TermsPage        from './pages/TermsPage'
 import ContactPage      from './pages/ContactPage'
@@ -29,6 +31,8 @@ import FinalExamPrepPage        from './pages/syllabus/FinalExamPrepPage'
 import ExamPaperViewerPage      from './pages/ExamPaperViewerPage'
 import ExamPaperPracticePage    from './pages/ExamPaperPracticePage'
 import ModelExamPracticePage    from './pages/ModelExamPracticePage'
+import AssignmentsPage          from './pages/AssignmentsPage'
+import MessagesPage              from './pages/MessagesPage'
 
 function Guard({ children }) {
   const location = useLocation()
@@ -83,6 +87,12 @@ function CourseContent({ children }) {
   )
 }
 
+function LegacyCourseRedirect({ year }) {
+  const { pathname, search, hash } = useLocation()
+  const rest = pathname.slice(`/${year}`.length)
+  return <Navigate to={`/courses/${year}${rest}${search}${hash}`} replace />
+}
+
 export default function App() {
   const [authKey, setAuthKey] = useState(0)
 
@@ -120,6 +130,10 @@ export default function App() {
           </DashShell>
         } />
 
+        <Route path="/assignments" element={
+          <DashShell><AssignmentsPage /></DashShell>
+        } />
+
         <Route path="/progress" element={
           <DashShell>
             <CourseContent><ProgressPage /></CourseContent>
@@ -134,72 +148,89 @@ export default function App() {
           <DashShell><CertificatePage /></DashShell>
         } />
 
+        <Route path="/messages" element={
+          <DashShell><MessagesPage /></DashShell>
+        } />
+
         <Route path="/practice-exam" element={
           <DashShell>
             <CourseContent><ChapterPracticeExamPage /></CourseContent>
           </DashShell>
         } />
 
-        {/* ── Syllabus drill-down — stays in DashboardShell ─── */}
-        {/* Internal navigate() calls use /:year/... so these   */}
-        {/* routes keep the user in the EduFlow shell throughout */}
-        <Route path="/:year" element={
+        <Route path="/assignments" element={
+          <DashShell>
+            <CourseContent><AssignmentsPage /></CourseContent>
+          </DashShell>
+        } />
+
+        <Route path="/messages" element={
+          <DashShell>
+            <CourseContent><MessagesPage /></CourseContent>
+          </DashShell>
+        } />
+
+        {/* Syllabus drill-down is prefixed so top-level app routes are never captured as a year. */}
+        <Route path="/plus1/*" element={<LegacyCourseRedirect year="plus1" />} />
+        <Route path="/plus2/*" element={<LegacyCourseRedirect year="plus2" />} />
+
+        <Route path="/courses/:year" element={
           <DashShell>
             <CourseContent><YearPage /></CourseContent>
           </DashShell>
         } />
-        <Route path="/:year/:subject" element={
+        <Route path="/courses/:year/:subject" element={
           <DashShell>
             <CourseContent><SubjectPage /></CourseContent>
           </DashShell>
         } />
-        <Route path="/plus1/english/final-exam-prep" element={
+        <Route path="/courses/plus1/english/final-exam-prep" element={
           <DashShell>
             <CourseContent><FinalExamPrepPage /></CourseContent>
           </DashShell>
         } />
-        <Route path="/plus1/english/final-exam-prep/paper/:paperId" element={
+        <Route path="/courses/plus1/english/final-exam-prep/paper/:paperId" element={
           <DashShell><ExamPaperViewerPage /></DashShell>
         } />
-        <Route path="/plus2/english/final-exam-prep" element={
+        <Route path="/courses/plus2/english/final-exam-prep" element={
           <DashShell>
             <CourseContent><FinalExamPrepPage classLevel="plus2" subjectSlug="english" /></CourseContent>
           </DashShell>
         } />
-        <Route path="/plus2/english/final-exam-prep/paper/:paperId" element={
-          <DashShell><ExamPaperViewerPage backPath="/plus2/english/final-exam-prep" /></DashShell>
+        <Route path="/courses/plus2/english/final-exam-prep/paper/:paperId" element={
+          <DashShell><ExamPaperViewerPage backPath="/courses/plus2/english/final-exam-prep" /></DashShell>
         } />
-        <Route path="/plus1/english/exam/:examYear" element={
+        <Route path="/courses/plus1/english/exam/:examYear" element={
           <DashShell>
             <CourseContent><ExamPaperPracticePage classLevel="plus1" /></CourseContent>
           </DashShell>
         } />
-        <Route path="/plus2/english/exam/:examYear" element={
+        <Route path="/courses/plus2/english/exam/:examYear" element={
           <DashShell>
             <CourseContent><ExamPaperPracticePage classLevel="plus2" /></CourseContent>
           </DashShell>
         } />
-        <Route path="/plus1/english/model-exam/:modelId" element={
+        <Route path="/courses/plus1/english/model-exam/:modelId" element={
           <DashShell>
             <CourseContent><ModelExamPracticePage classLevel="plus1" /></CourseContent>
           </DashShell>
         } />
-        <Route path="/plus2/english/model-exam/:modelId" element={
+        <Route path="/courses/plus2/english/model-exam/:modelId" element={
           <DashShell>
             <CourseContent><ModelExamPracticePage classLevel="plus2" /></CourseContent>
           </DashShell>
         } />
-        <Route path="/:year/:subject/:category" element={
+        <Route path="/courses/:year/:subject/:category" element={
           <DashShell>
             <CourseContent><LessonListPage /></CourseContent>
           </DashShell>
         } />
-        <Route path="/:year/:subject/:category/:lesson" element={
+        <Route path="/courses/:year/:subject/:category/:lesson" element={
           <DashShell>
             <CourseContent><LessonDetailPage /></CourseContent>
           </DashShell>
         } />
-        <Route path="/:year/:subject/:category/:lesson/:section" element={
+        <Route path="/courses/:year/:subject/:category/:lesson/:section" element={
           <DashShell>
             <CourseContent><SectionPage /></CourseContent>
           </DashShell>

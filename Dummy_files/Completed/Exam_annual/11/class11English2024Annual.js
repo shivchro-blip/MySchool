@@ -1,0 +1,497 @@
+// Source: Class 11 English Annual Exam Paper (PDF)
+// Status: extracted from PDF — verify marks and question numbers manually
+
+export const class11English2024Annual = {
+  paperId: "class11-english-2024-annual",
+  title: "2024 Annual Exam Paper",
+  classLabel: "Class 11",
+  subject: "English",
+  duration: "3.00 Hours",
+  maximumMarks: 90,
+  totalPages: 8,
+  pages: [
+    {
+      pageNumber: 1,
+      blocks: [
+        {
+          type: "paper_header",
+          content: "Language — Part II — English"
+        },
+        {
+          type: "metadata_row",
+          duration: "3.00 Hours",
+          maximumMarks: 90,
+          totalPages: 8
+        },
+        {
+          type: "instructions",
+          content: "Instructions: (1) Check the question paper for fairness of printing. If there is any lack of fairness, inform the Hall Supervisor immediately. (2) Use Blue or Black ink to write and underline and pencil to draw diagrams."
+        },
+        {
+          type: "part_heading",
+          content: "PART - I"
+        },
+        {
+          type: "instructions",
+          content: "Answer all the questions. 20x1=20"
+        },
+        {
+          type: "instructions",
+          content: "Choose the appropriate synonyms of the underlined words in the following sentences."
+        },
+        {
+          type: "mcq_question",
+          questionId: "q1",
+          marks: 1,
+          content: "They were content to work in secluded spheres.",
+          options: ["uninformed", "isolated", "associated", "liberated"]
+        },
+        {
+          type: "mcq_question",
+          questionId: "q2",
+          marks: 1,
+          content: "We regard a man who does not possess it as eccentric.",
+          options: ["strange", "conventional", "persuasive", "reasonable"]
+        },
+        {
+          type: "mcq_question",
+          questionId: "q3",
+          marks: 1,
+          content: "A career of rectitude sometimes has rewards :",
+          options: ["wickedness", "honesty", "immorality", "iniquity"]
+        },
+        {
+          type: "instructions",
+          content: "Choose the appropriate antonyms for the underlined words in the following sentences."
+        },
+        {
+          type: "mcq_question",
+          questionId: "q4",
+          marks: 1,
+          content: "They consoled me and lauded me on the silver win.",
+          options: ["appreciated", "acclaimed", "criticised", "witnessed"]
+        },
+        {
+          type: "mcq_question",
+          questionId: "q5",
+          marks: 1,
+          content: "I explained to her the close and venerable relationship between the names.",
+          options: ["respected", "valued", "confused", "unworthy"]
+        },
+        {
+          type: "footer_note",
+          content: "[ Turn over"
+        }
+      ]
+    },
+    {
+      pageNumber: 2,
+      blocks: [
+        {
+          type: "mcq_question",
+          questionId: "q6",
+          marks: 1,
+          content: "She said her morning prayer in a monotonous sing-song.",
+          options: ["interesting", "melodious", "loud", "unchanging"]
+        },
+        {
+          type: "mcq_question",
+          questionId: "q7",
+          marks: 1,
+          content: "Choose the word that can be placed after the word 'spinning' to form a compound word.",
+          options: ["gate", "proof", "wheel", "piece"]
+        },
+        {
+          type: "mcq_question",
+          questionId: "q8",
+          marks: 1,
+          content: "Form a derivative by adding a suitable suffix to the root word \"arrange\".",
+          options: ["-ous", "-ful", "-ness", "-ment"]
+        },
+        {
+          type: "mcq_question",
+          questionId: "q9",
+          marks: 1,
+          content: "Identify the pattern of the following sentence. Our team won the overall title.",
+          options: ["SVOC", "SVA", "SVC", "SVO"]
+        },
+        {
+          type: "mcq_question",
+          questionId: "q10",
+          marks: 1,
+          content: "Choose the tetra-syllabic word.",
+          options: ["advantage", "eradicate", "distinguished", "demonstrate"]
+        },
+        {
+          type: "mcq_question",
+          questionId: "q11",
+          marks: 1,
+          content: "Fill in the blank with a suitable preposition. The English language is vital ________ the medical field.",
+          options: ["in", "for", "on", "of"]
+        },
+        {
+          type: "mcq_question",
+          questionId: "q12",
+          marks: 1,
+          content: "Choose the correct meaning of the idiom used in the given sentence. The sponsors got cold feet and cancelled the order.",
+          options: ["prepared", "reassured", "frightened", "unaffected"]
+        }
+      ]
+    },
+    {
+      pageNumber: 3,
+      blocks: [
+        {
+          type: "mcq_question",
+          questionId: "q13",
+          marks: 1,
+          content: "Fill in the blank with the correct tense form. If I ________ you there, I would have said 'hello'.",
+          options: ["had seen", "have seen", "were seen", "saw"]
+        },
+        {
+          type: "mcq_question",
+          questionId: "q14",
+          marks: 1,
+          content: "An ambidextrous is one who ________.",
+          options: ["produces beautiful handwriting.", "is able to use the left and right hands equally.", "speaks and understands many languages.", "studies how people vote in elections."]
+        },
+        {
+          type: "mcq_question",
+          questionId: "q15",
+          marks: 1,
+          content: "Choose the word that has been wrongly spelt.",
+          options: ["venerable", "indelible", "felecitation", "enunciated"]
+        },
+        {
+          type: "mcq_question",
+          questionId: "q16",
+          marks: 1,
+          content: "Choose the appropriate question tag for the following sentence. Cities are increasingly becoming urbanised, ________ ?",
+          options: ["are they", "do they", "aren't they", "don't they"]
+        },
+        {
+          type: "mcq_question",
+          questionId: "q17",
+          marks: 1,
+          content: "Replace the underlined word in the sentence below with a phrasal verb. The managing director of the company has postponed the meeting for a week.",
+          options: ["put up", "put off", "put out", "put down"]
+        },
+        {
+          type: "mcq_question",
+          questionId: "q18",
+          marks: 1,
+          content: "Choose the expanded form of NCC.",
+          options: ["National Candidate Corps", "National Cadet Corps", "Native Cadet Corpse", "National Cadet Crops"]
+        },
+        {
+          type: "mcq_question",
+          questionId: "q19",
+          marks: 1,
+          content: "Choose the meaning of the foreign word in the given sentence. The principal opened the envelope and found a bon voyage card.",
+          options: ["Anniversary", "Invitation", "Remembrance", "Happy Journey"]
+        },
+        {
+          type: "mcq_question",
+          questionId: "q20",
+          marks: 1,
+          content: "Add a suitable prefix to form the opposite of the word audible.",
+          options: ["in", "un", "di", "non"]
+        },
+        {
+          type: "footer_note",
+          content: "[ Turn over"
+        }
+      ]
+    },
+    {
+      pageNumber: 4,
+      blocks: [
+        {
+          type: "part_heading",
+          content: "PART - II"
+        },
+        {
+          type: "section_heading",
+          content: "SECTION - 1"
+        },
+        {
+          type: "instructions",
+          content: "Answer any four of the following. 4x2=8"
+        },
+        {
+          type: "instructions",
+          content: "Read the sets of poetic lines given and answer the questions that follow."
+        },
+        {
+          type: "multi_subquestion",
+          questionId: "q21",
+          marks: 2,
+          content: "And 'tis my faith that every flower\nEnjoys the air it breathes...",
+          subQuestions: [
+            { id: "q21a", label: "a", content: "What is the poet's faith ?", marks: 1 },
+            { id: "q21b", label: "b", content: "What trait of Nature do we see here ?", marks: 1 }
+          ]
+        },
+        {
+          type: "multi_subquestion",
+          questionId: "q22",
+          marks: 2,
+          content: "And nothing can we call our own but death;\nAnd that small model of the barren earth.",
+          subQuestions: [
+            { id: "q22a", label: "a", content: "What does the 'small model' refer to here ?", marks: 1 },
+            { id: "q22b", label: "b", content: "Pick out the rhyming words in these lines.", marks: 1 }
+          ]
+        },
+        {
+          type: "multi_subquestion",
+          questionId: "q23",
+          marks: 2,
+          content: "'Most of all, I want to relearn\nHow to laugh,",
+          subQuestions: [
+            { id: "q23a", label: "a", content: "Why does the poet want to relearn how to laugh ?", marks: 1 },
+            { id: "q23b", label: "b", content: "Whom does the poet want to relearn from ?", marks: 1 }
+          ]
+        },
+        {
+          type: "multi_subquestion",
+          questionId: "q24",
+          marks: 2,
+          content: "We are proud of the position we\nhold, humble as we are",
+          subQuestions: [
+            { id: "q24a", label: "a", content: "What is the speaker proud of ?", marks: 1 },
+            { id: "q24b", label: "b", content: "Pick out the words of alliteration in these lines.", marks: 1 }
+          ]
+        },
+        {
+          type: "multi_subquestion",
+          questionId: "q25",
+          marks: 2,
+          content: "Macavity's a Mystery Cat : he's called the Hidden Paw...",
+          subQuestions: [
+            { id: "q25a", label: "a", content: "Does the poet talk about a real cat ?", marks: 1 },
+            { id: "q25b", label: "b", content: "Why is he called the Hidden Paw ?", marks: 1 }
+          ]
+        },
+        {
+          type: "multi_subquestion",
+          questionId: "q26",
+          marks: 2,
+          content: "Well, ego it might be pleased enough,\nBut zealous athletes play so rough...",
+          subQuestions: [
+            { id: "q26a", label: "a", content: "What pleases the ego ?", marks: 1 },
+            { id: "q26b", label: "b", content: "Why are athletes often rough during play ?", marks: 1 }
+          ]
+        }
+      ]
+    },
+    {
+      pageNumber: 5,
+      blocks: [
+        {
+          type: "section_heading",
+          content: "SECTION - 2"
+        },
+        {
+          type: "instructions",
+          content: "Answer any three of the following questions. 3x2=6"
+        },
+        {
+          type: "question",
+          questionId: "q27",
+          marks: 2,
+          content: "Pranav said that he had been walking along the street.\n(Change into direct speech)"
+        },
+        {
+          type: "question",
+          questionId: "q28",
+          marks: 2,
+          content: "May God bless you with happiness.\n(Change the voice)"
+        },
+        {
+          type: "question",
+          questionId: "q29",
+          marks: 2,
+          content: "We stayed up all night but we were not tired at all.\n(Rewrite as a complex sentence)"
+        },
+        {
+          type: "question",
+          questionId: "q30",
+          marks: 2,
+          content: "If I were a millionaire,\nI would buy a car.\n(Begin with \"were\")"
+        },
+        {
+          type: "part_heading",
+          content: "PART - III"
+        },
+        {
+          type: "section_heading",
+          content: "SECTION - 1"
+        },
+        {
+          type: "instructions",
+          content: "Explain any two of the following with reference to the context. 2x3=6"
+        },
+        {
+          type: "question",
+          questionId: "q31",
+          marks: 3,
+          content: "I live with bread like you, feel want,\nTaste grief, need friends - subjected thus,"
+        },
+        {
+          type: "question",
+          questionId: "q32",
+          marks: 3,
+          content: "I am just glad as glad can be\nThat I am not them, that they are not me."
+        },
+        {
+          type: "question",
+          questionId: "q33",
+          marks: 3,
+          content: "I heard a thousand blended notes."
+        },
+        {
+          type: "footer_note",
+          content: "[ Turn over"
+        }
+      ]
+    },
+    {
+      pageNumber: 6,
+      blocks: [
+        {
+          type: "section_heading",
+          content: "SECTION - 2"
+        },
+        {
+          type: "instructions",
+          content: "Answer any two of the following questions in not more than 30 words. 2x3=6"
+        },
+        {
+          type: "question",
+          questionId: "q34",
+          marks: 3,
+          content: "Who are the citizens of 'dreamland' ? Why ?"
+        },
+        {
+          type: "question",
+          questionId: "q35",
+          marks: 3,
+          content: "What did Bryson wish to avoid in his life ?"
+        },
+        {
+          type: "question",
+          questionId: "q36",
+          marks: 3,
+          content: "Describe the author's grandmother."
+        },
+        {
+          type: "section_heading",
+          content: "SECTION - 3"
+        },
+        {
+          type: "instructions",
+          content: "Answer any three of the following. 3x3=9"
+        },
+        {
+          type: "question",
+          questionId: "q37",
+          marks: 3,
+          content: "Write an email to your friend congratulating him/her on his/her success in the Chess Tournament."
+        },
+        {
+          type: "question",
+          questionId: "q38",
+          marks: 3,
+          content: "You are the secretary of your School Heritage Club. Draft a notice informing about a field visit to the nearby Museum."
+        },
+        {
+          type: "question",
+          questionId: "q39",
+          marks: 3,
+          content: "Describe the process of making a cup of tea."
+        },
+        {
+          type: "question",
+          questionId: "q40",
+          marks: 3,
+          content: "Complete the proverbs using the words given below.\n(a) Cut your ________ according to your cloth.\n(b) A bad workman always blames his ________.\n(c) ________ gives courage to a coward.\n(stage, tools, failure, coat, despair)"
+        },
+        {
+          type: "part_heading",
+          content: "PART - IV"
+        },
+        {
+          type: "instructions",
+          content: "Answer the following in a paragraph of about 150 words. 7x5=35"
+        },
+        {
+          type: "or_question",
+          questionId: "q41",
+          marks: 5,
+          optionA: { content: "Describe Mary Kom's personal experiences during her first International Championship match from the time of selection to winning the medal." },
+          optionB: { content: "Trace the thoughts that went on in the mind of the narrator when picture after picture was put up and sold at the auction." }
+        },
+        {
+          type: "or_question",
+          questionId: "q42",
+          marks: 5,
+          optionA: { content: "Explain the things the poet Gabriel Okara has learnt when he grew into an adult." },
+          optionB: { content: "In what way is every hillock similar to Everest ?" }
+        }
+      ]
+    },
+    {
+      pageNumber: 7,
+      blocks: [
+        {
+          type: "or_question",
+          questionId: "q43",
+          marks: 5,
+          optionA: { content: "Answer in a paragraph of about 150 words developing the following hints.\nTwo best friends - part ways - appointment - twenty years - Bob arrived - policeman on beat - tall man came - Jimmy Wells - Stopped suddenly - man's nose - Roman to a pug - under arrest - a note - from Patrolman Wells." },
+          optionB: { content: "Answer in a paragraph of about 150 words developing the following hints.\nMiss Meadows - gloomy in class - taxes the students - lament - Basil - letter - change of mood - Head mistress Ms. Wyatt - telegram - feels happy - returns to class - good cheer." }
+        },
+        {
+          type: "or_question",
+          questionId: "q44",
+          marks: 5,
+          optionA: { content: "Summarize or Make notes of the following passage :\nCork is an extremely impressive and attractive material derived from the cork oak tree's thick bark. They grow naturally in the Mediterranean region of Europe which produces 80% of the world's cork. Because of its impermeable, elastic and fire retardant properties, it is used widely for sealing containers, fishing equipment and domestic applications. In ancient Greece, cork was used in foot wear, to manufacture a type of sandals attached to the foot by straps. In the second century AD, Greek physician Diascorides, noted several medical applications of cork, mainly for hair loss treatment. Cork is an excellent gasket material. Some carburetor float bowl gaskets are made of cork, for example cork is also an essential element in the production of cricket balls and badminton shuttle cocks. In musical Instruments, particularly, woodwind instruments, it is used to fasten together segments of the instruments. Cork is moisture resistant and so it is used as an alternative to leather in handbags, wallets and other fashion items. Many racing bicycles have their handle bars wrapped in cork based tape manufactured in a variety of colours." },
+          optionB: { content: "Write conversation between a father and a son on choice of a career.\n(Minimum of five exchanges)" }
+        },
+        {
+          type: "or_question",
+          questionId: "q45",
+          marks: 5,
+          optionA: { content: "Respond to the given advertisement and prepare a bio-data considering yourself fulfilling the conditions specified.\n(Write XXXX for your name and YYYY for the address)\n\nWanted\nPersonal Assistant\nThe applicant should be a graduate with fluency in English and Computer Knowledge.\nApply to\nThe Manager, (HR)\nABC Info Tech,\nABC street,\nChennai - 600006." },
+          optionB: { content: "Write a letter to the headmaster of your school requesting him/her to issue a bonafide certificate." }
+        },
+        {
+          type: "footer_note",
+          content: "[ Turn over"
+        }
+      ]
+    },
+    {
+      pageNumber: 8,
+      blocks: [
+        {
+          type: "or_question",
+          questionId: "q46",
+          marks: 5,
+          optionA: { content: "Fill in the blanks appropriately.\n(i) The stranger ________ for a few minutes before he ________ my house. (paused/passed)\n(ii) ________ girls who attended the class informed the others about the test. (some/few)\n(iii) Teachers ________ encourage the students to read science literature. (semi-modal verb)\n(iv) You have to hurry ________ you will miss the bus. (Fill in the blank with a suitable conjunction)" },
+          optionB: { content: "Read the following sentences, spot the errors and rewrite the sentences correctly.\n(i) The little boy memorised the alphabets with in a week.\n(ii) Everyone of the students were questioned.\n(iii) Wordsworth is one of the greatest poet of the world.\n(iv) Raju has took half a day leave.\n(v) I have been working in this school since twenty years." }
+        },
+        {
+          type: "or_question",
+          questionId: "q47",
+          marks: 5,
+          optionA: { content: "Read the following passage and answer the questions in your own words.\n\nThere are many forms of collecting that come with a specific technical name. A person who collects coins is called a numismatist. A philatelist collects postage stamps and a deltiologist collects post cards. The term philately was coined in 1864 by a French man, Georges Herpin. The first postage stamps for the prepayment of letter postage were issued in England in 1840. They were the brainchild of Rowland Hill, who was interested in problems of teaching. The ten rupees postage stamp depicting Mahatma Gandhi issued in 1948 is one of the most famous stamps of India. Collecting postage stamps will give a great opportunity to gain knowledge of different countries, plants, animals or famous people that they are in the stamps.\n\nQuestions:\n(i) Identify the term used for a person collecting post cards.\n(ii) Who proposed the idea of postage stamps ?\n(iii) When was the first postage stamp circulated in England ?\n(iv) Which is the renowned stamp in India ?\n(v) What do we learn beyond collecting postage stamps ?" },
+          optionB: { content: "Write a paragraph in about 150 words on \"Students and Social Service\"." }
+        },
+        {
+          type: "footer_note",
+          content: "- o 0 o -"
+        }
+      ]
+    }
+  ]
+};

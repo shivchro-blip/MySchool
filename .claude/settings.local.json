@@ -131,7 +131,10 @@
       "Bash(Start-Sleep -Seconds 5)",
       "Bash(Get-Content \"C:\\\\Users\\\\shiva\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Projects-TNSchool\\\\b3928a5b-6d57-4ef0-a0a7-2e196e72ef90\\\\tasks\\\\b3lexjs4o.output\" -Tail 15)",
       "Bash(dart analyze *)",
-      "Skill(ecc:resume-session)"
+      "Skill(ecc:resume-session)",
+      "Bash(uv lock *)",
+      "Bash(uv *)",
+      "mcp__plugin_ecc_playwright__browser_navigate"
     ]
   }
 }
