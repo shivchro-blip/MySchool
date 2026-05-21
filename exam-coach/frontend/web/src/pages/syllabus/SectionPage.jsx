@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import {
@@ -7,6 +8,7 @@ import { buildBreadcrumbs } from '../../lib/nav'
 import { Card } from '../../components/ui'
 import { Breadcrumb } from '../../components/nav'
 import NotFound from './NotFound'
+import PageLoader from '../../components/ui/PageLoader'
 
 import contentRegistry from '../../content/registry'
 import LearnRichPage   from '../LearnRichPage'
@@ -36,13 +38,25 @@ export default function SectionPage() {
   const categoryData = getCategory(year, subject, category)
   const crumbs       = buildBreadcrumbs(year, subject, category, lesson, section, SYLLABUS)
 
+  const hasRichContent = lesson in contentRegistry
+  const [richContent, setRichContent] = useState(null)
+
+  useEffect(() => {
+    if (!hasRichContent) return
+    let cancelled = false
+    contentRegistry[lesson]().then(mod => {
+      if (!cancelled) setRichContent(mod.default ?? mod)
+    })
+    return () => { cancelled = true }
+  }, [lesson, hasRichContent])
+
   if (!lessonData) return <NotFound message={`Lesson "${lesson}" not found`} />
 
   // Rich content check MUST come before sectionData check:
   // LearnRichPage tab IDs (e.g. "text-explained") are not LESSON_SECTIONS slugs,
   // so getSection() returns undefined for them — but we still want LearnRichPage.
-  const richContent = contentRegistry[lesson]
-  if (richContent) {
+  if (hasRichContent) {
+    if (!richContent) return <PageLoader />
     return <LearnRichPage content={richContent} chapterSlug={lesson} />
   }
 

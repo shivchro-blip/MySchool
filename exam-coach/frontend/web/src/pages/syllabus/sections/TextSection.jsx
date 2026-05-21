@@ -1,11 +1,27 @@
+import { useState, useEffect } from 'react'
 import { Card } from '../../../components/ui'
 import contentRegistry from '../../../content/registry'
 import LearnRichPage from '../../LearnRichPage'
 
 export default function TextSection({ lessonSlug, lessonTitle }) {
-  const content = contentRegistry[lessonSlug]
+  const hasContent = lessonSlug in contentRegistry
+  const [content, setContent] = useState(null)
 
-  if (content) {
+  useEffect(() => {
+    if (!hasContent) return
+    let cancelled = false
+    contentRegistry[lessonSlug]().then(mod => {
+      if (!cancelled) setContent(mod.default ?? mod)
+    })
+    return () => { cancelled = true }
+  }, [lessonSlug, hasContent])
+
+  if (hasContent) {
+    if (!content) return (
+      <div className="flex items-center justify-center py-24">
+        <div className="w-7 h-7 border-2 border-accent border-t-transparent rounded-full animate-spin" />
+      </div>
+    )
     return <LearnRichPage content={content} chapterSlug={lessonSlug} />
   }
 

@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { Pencil } from 'lucide-react'
 import { Card, Button } from '../../../components/ui'
@@ -22,9 +23,24 @@ export default function PracticeSection({ lessonSlug }) {
   const { year, subject, category } = useParams()
   const navigate = useNavigate()
 
-  const content = practiceRegistry[lessonSlug]
+  const hasContent = lessonSlug in practiceRegistry
+  const [content, setContent] = useState(null)
 
-  if (content) {
+  useEffect(() => {
+    if (!hasContent) return
+    let cancelled = false
+    practiceRegistry[lessonSlug]().then(mod => {
+      if (!cancelled) setContent(mod.default ?? mod)
+    })
+    return () => { cancelled = true }
+  }, [lessonSlug, hasContent])
+
+  if (hasContent) {
+    if (!content) return (
+      <div className="flex items-center justify-center py-24">
+        <div className="w-7 h-7 border-2 border-accent border-t-transparent rounded-full animate-spin" />
+      </div>
+    )
     return <PracticeRichPage content={content} chapterSlug={lessonSlug} />
   }
 
