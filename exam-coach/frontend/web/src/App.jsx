@@ -31,8 +31,6 @@ import FinalExamPrepPage        from './pages/syllabus/FinalExamPrepPage'
 import ExamPaperViewerPage      from './pages/ExamPaperViewerPage'
 import ExamPaperPracticePage    from './pages/ExamPaperPracticePage'
 import ModelExamPracticePage    from './pages/ModelExamPracticePage'
-import AssignmentsPage          from './pages/AssignmentsPage'
-import MessagesPage              from './pages/MessagesPage'
 
 function Guard({ children }) {
   const location = useLocation()
