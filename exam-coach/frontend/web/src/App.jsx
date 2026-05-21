@@ -1,36 +1,37 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, lazy, Suspense } from 'react'
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import { isLoggedIn } from './api/auth'
 import { getCachedProfile } from './api/users'
 
-import LoginPage        from './pages/LoginPage'
-import AuthCallbackPage from './pages/AuthCallbackPage'
-import OnboardingPage   from './pages/OnboardingPage'
-import ProgressPage     from './pages/ProgressPage'
-import DashboardPage    from './pages/DashboardPage'
-import CoursesIndexPage from './pages/CoursesIndexPage'
-import AssignmentsPage  from './pages/AssignmentsPage'
-import ActivityPage     from './pages/ActivityPage'
-import CertificatePage  from './pages/CertificatePage'
-import MessagesPage     from './pages/MessagesPage'
-import PrivacyPage      from './pages/PrivacyPage'
-import TermsPage        from './pages/TermsPage'
-import ContactPage      from './pages/ContactPage'
-
 import DashboardShell from './components/layout/DashboardShell'
 import CookieBanner   from './components/CookieBanner'
+import PageLoader     from './components/ui/PageLoader'
 
-import YearPage         from './pages/syllabus/YearPage'
-import SubjectPage      from './pages/syllabus/SubjectPage'
-import LessonListPage   from './pages/syllabus/LessonListPage'
-import LessonDetailPage         from './pages/syllabus/LessonDetailPage'
-import SectionPage              from './pages/syllabus/SectionPage'
-import NotFound                 from './pages/syllabus/NotFound'
-import ChapterPracticeExamPage  from './pages/ChapterPracticeExamPage'
-import FinalExamPrepPage        from './pages/syllabus/FinalExamPrepPage'
-import ExamPaperViewerPage      from './pages/ExamPaperViewerPage'
-import ExamPaperPracticePage    from './pages/ExamPaperPracticePage'
-import ModelExamPracticePage    from './pages/ModelExamPracticePage'
+const LoginPage        = lazy(() => import('./pages/LoginPage'))
+const AuthCallbackPage = lazy(() => import('./pages/AuthCallbackPage'))
+const OnboardingPage   = lazy(() => import('./pages/OnboardingPage'))
+const ProgressPage     = lazy(() => import('./pages/ProgressPage'))
+const DashboardPage    = lazy(() => import('./pages/DashboardPage'))
+const CoursesIndexPage = lazy(() => import('./pages/CoursesIndexPage'))
+const AssignmentsPage  = lazy(() => import('./pages/AssignmentsPage'))
+const ActivityPage     = lazy(() => import('./pages/ActivityPage'))
+const CertificatePage  = lazy(() => import('./pages/CertificatePage'))
+const MessagesPage     = lazy(() => import('./pages/MessagesPage'))
+const PrivacyPage      = lazy(() => import('./pages/PrivacyPage'))
+const TermsPage        = lazy(() => import('./pages/TermsPage'))
+const ContactPage      = lazy(() => import('./pages/ContactPage'))
+
+const YearPage                = lazy(() => import('./pages/syllabus/YearPage'))
+const SubjectPage             = lazy(() => import('./pages/syllabus/SubjectPage'))
+const LessonListPage          = lazy(() => import('./pages/syllabus/LessonListPage'))
+const LessonDetailPage        = lazy(() => import('./pages/syllabus/LessonDetailPage'))
+const SectionPage             = lazy(() => import('./pages/syllabus/SectionPage'))
+const NotFound                = lazy(() => import('./pages/syllabus/NotFound'))
+const ChapterPracticeExamPage = lazy(() => import('./pages/ChapterPracticeExamPage'))
+const FinalExamPrepPage       = lazy(() => import('./pages/syllabus/FinalExamPrepPage'))
+const ExamPaperViewerPage     = lazy(() => import('./pages/ExamPaperViewerPage'))
+const ExamPaperPracticePage   = lazy(() => import('./pages/ExamPaperPracticePage'))
+const ModelExamPracticePage   = lazy(() => import('./pages/ModelExamPracticePage'))
 
 function Guard({ children }) {
   const location = useLocation()
@@ -48,11 +49,7 @@ function Guard({ children }) {
   }
 
   if (state.loading) {
-    return (
-      <div className="min-h-screen bg-bg-canvas flex items-center justify-center">
-        <div className="text-text-muted text-sm">Loading…</div>
-      </div>
-    )
+    return <PageLoader />
   }
 
   const onboarded = state.profile?.onboarding_completed === true
@@ -72,7 +69,11 @@ function Guard({ children }) {
 function DashShell({ children }) {
   return (
     <Guard>
-      <DashboardShell>{children}</DashboardShell>
+      <DashboardShell>
+        <Suspense fallback={<div className="flex items-center justify-center py-24"><div className="w-7 h-7 border-2 border-accent border-t-transparent rounded-full animate-spin" /></div>}>
+          {children}
+        </Suspense>
+      </DashboardShell>
     </Guard>
   )
 }
@@ -105,6 +106,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <CookieBanner />
+      <Suspense fallback={<PageLoader />}>
       <Routes key={authKey}>
 
         <Route path="/login"          element={<LoginPage />} />
@@ -153,18 +155,6 @@ export default function App() {
         <Route path="/practice-exam" element={
           <DashShell>
             <CourseContent><ChapterPracticeExamPage /></CourseContent>
-          </DashShell>
-        } />
-
-        <Route path="/assignments" element={
-          <DashShell>
-            <CourseContent><AssignmentsPage /></CourseContent>
-          </DashShell>
-        } />
-
-        <Route path="/messages" element={
-          <DashShell>
-            <CourseContent><MessagesPage /></CourseContent>
           </DashShell>
         } />
 
@@ -241,6 +231,7 @@ export default function App() {
         } />
 
       </Routes>
+      </Suspense>
     </BrowserRouter>
   )
 }

@@ -6,6 +6,8 @@ export default function ImageBlock({ block }) {
           src={block.src}
           alt={block.altText ?? ""}
           className="w-full rounded border border-ink-4/20"
+          loading="lazy"
+          decoding="async"
         />
         {block.caption && (
           <p className="text-[10px] text-ink-2 italic text-center mt-1">{block.caption}</p>
