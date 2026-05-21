@@ -580,3 +580,24 @@
   transition: background 0.2s ease;
 }
 ::-webkit-scrollbar-thumb:hover { background: var(--ec-blue); }
+
+/* ── Mobile safe-area bottom fix ──────────────────────────────
+   Prevents content and tab-bar buttons from being hidden behind
+   the browser nav bar (iOS home indicator, Android nav bar).
+   max-width: 899px matches exactly when the mobile tab bar is
+   visible (DashboardShell hides it at min-width: 900px).
+   No effect on desktop — both rules are inside the media query. */
+@media (max-width: 899px) {
+  /* Scrollable content area: bottom clearance = tab bar + safe zone */
+  main {
+    padding-bottom: calc(64px + env(safe-area-inset-bottom, 0px));
+  }
+
+  /* Fixed tab bar: expand beyond 64px into the safe zone so
+     buttons are not obscured by the home indicator.
+     min-height beats the inline height:64 when safe area > 0. */
+  nav.flex {
+    min-height: calc(64px + env(safe-area-inset-bottom, 0px));
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+}
