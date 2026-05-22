@@ -16,6 +16,7 @@ import {
 import Badge   from '../components/ui/Badge'
 import Button  from '../components/ui/Button'
 import Eyebrow from '../components/ui/Eyebrow'
+import { getQuestionStats } from '../utils/questionStats'
 
 // ── Helpers ────────────────────────────────────────────────────────────────
 
@@ -266,8 +267,7 @@ function ExamView({ questions, chapterMeta, attempt, questionIdx, onPrevious, on
   const q        = questions[questionIdx]
   const total    = questions.length
   const answers  = attempt.answers
-  const mcqQs   = questions.filter(q => q.type === 'mcq')
-  const mcqDone = mcqQs.filter(q => answers[q.id] !== undefined).length
+  const { total: totalQs, answered: allAnswered } = getQuestionStats(questions, answers)
 
   return (
     <div className="space-y-4">
@@ -291,17 +291,17 @@ function ExamView({ questions, chapterMeta, attempt, questionIdx, onPrevious, on
         </div>
       </div>
 
-      {/* MCQ progress bar */}
-      {mcqQs.length > 0 && (
+      {/* Progress bar */}
+      {questions.length > 0 && (
         <div className="bg-bg-2 border border-line rounded-xl px-4 py-3">
           <div className="flex justify-between items-center mb-2">
             <span className="text-[12px] font-semibold text-ink-2">Q{questionIdx + 1} of {total}</span>
-            <span className="text-[11px] text-ink-3">MCQ: {mcqDone}/{mcqQs.length} answered</span>
+            <span className="text-[11px] text-ink-3">{allAnswered}/{totalQs} answered</span>
           </div>
           <div className="h-1.5 bg-bg-sunk rounded-full overflow-hidden">
             <div
               className="h-full bg-accent rounded-full transition-all duration-300"
-              style={{ width: `${(mcqDone / mcqQs.length) * 100}%` }}
+              style={{ width: `${totalQs > 0 ? (allAnswered / totalQs) * 100 : 0}%` }}
             />
           </div>
         </div>

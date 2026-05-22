@@ -266,8 +266,22 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> with WidgetsBin
   List<ExamQuestion> get _mcqQuestions =>
       _questions.where((q) => q.type == ExamQuestionType.mcq).toList();
 
-  int get _mcqDone =>
-      _mcqQuestions.where((q) => _currentAttempt.answers[q.id] != null).length;
+  int get _allAnswered {
+    final answers = _currentAttempt.answers;
+    var count = 0;
+    for (final q in _questions) {
+      if (q.type == ExamQuestionType.mcq) {
+        if (answers[q.id] != null) count++;
+      } else if (q.type == ExamQuestionType.reference) {
+        final map = _asAnswerMap(answers[q.id]);
+        if (map != null && map.values.any((v) => v.toString().trim().isNotEmpty)) count++;
+      } else {
+        final val = _asAnswerString(answers[q.id]) ?? '';
+        if (val.trim().isNotEmpty) count++;
+      }
+    }
+    return count;
+  }
 
   String get _lessonSlug => widget.chapterSlug;
 
@@ -733,14 +747,12 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> with WidgetsBin
     final q       = _questions[safeIdx];
     final total   = _questions.length;
     final answers = _currentAttempt.answers;
-    final mcqTotal = _mcqQuestions.length;
-
     return ListView(
       padding: const EdgeInsets.fromLTRB(16, 16, 16, 32),
       key: ValueKey(safeIdx),
       children: [
 
-        if (mcqTotal > 0) ...[
+        if (_questions.isNotEmpty) ...[
           Container(
             padding: const EdgeInsets.all(14),
             decoration: BoxDecoration(
@@ -758,7 +770,7 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> with WidgetsBin
                           fontSize: 12, fontWeight: FontWeight.w600,
                           color: AppTheme.text2Of(context),
                         )),
-                    Text('MCQ: $_mcqDone/$mcqTotal',
+                    Text('$_allAnswered/$total answered',
                         style: TextStyle(
                           fontSize: 11, color: AppTheme.textMutedOf(context),
                         )),
@@ -768,7 +780,7 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> with WidgetsBin
                 ClipRRect(
                   borderRadius: BorderRadius.circular(4),
                   child: LinearProgressIndicator(
-                    value: mcqTotal > 0 ? _mcqDone / mcqTotal : 0,
+                    value: total > 0 ? _allAnswered / total : 0,
                     backgroundColor: AppTheme.surfaceOf(context),
                     color: AppTheme.brand,
                     minHeight: 6,
