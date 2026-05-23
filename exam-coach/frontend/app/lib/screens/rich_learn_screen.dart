@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../config/theme.dart';
+import '../theme/typography.dart';
 import '../models/syllabus_model.dart';
 import '../models/chapter_content_model.dart';
 import '../models/learning_model.dart';
 import '../services/chapter_content_service.dart';
 import '../services/learning_service.dart';
 import '../widgets/error_view.dart';
+import '../widgets/info_card.dart';
 
 class RichLearnScreen extends StatefulWidget {
   final String   classLevel;
@@ -147,8 +149,8 @@ class _RichLearnScreenState extends State<RichLearnScreen> {
               if (ch != null) ...[
                 const SizedBox(height: 4),
                 Text(ch.typeLabel,
-                    style: const TextStyle(
-                      fontSize: 12, color: AppTheme.brand,
+                    style: TextStyle(
+                      fontSize: 12, color: AppTheme.brandOf(context),
                       fontWeight: FontWeight.w600,
                     )),
               ],
@@ -216,84 +218,27 @@ class _RichLearnScreenState extends State<RichLearnScreen> {
       (t) => t.id == _activeTabId,
       orElse: () => visibleTabs.isNotEmpty ? visibleTabs.first : allTabs.first,
     );
-    final dark = AppTheme.isDark(context);
 
     return Column(
       children: [
         // Chapter header card
         _ChapterHeader(content: content),
 
-        // Content tab strip (scrollable — author, phases, glossary, etc.)
-        Container(
-          color:  AppTheme.cardOf(context),
-          height: 44,
-          child: Stack(
-            children: [
-              ListView.builder(
-                controller:    _tabScrollCtrl,
-                scrollDirection: Axis.horizontal,
-                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 7),
-                itemCount: contentTabs.length,
-                itemBuilder: (_, i) {
-                  final tab      = contentTabs[i];
-                  final isActive = tab.id == activeTab.id;
-                  // intentional neutral pill — content tabs use textPrimary in light, this dimmer
-                  // gray-blue in dark; distinct from action tabs which use brand teal
-                  final activeBg = dark ? const Color(0xFF374151) : AppTheme.textPrimary;
-                  return Padding(
-                    padding: const EdgeInsets.only(right: 6),
-                    child: GestureDetector(
-                      onTap: () => _switchTab(tab.id),
-                      child: AnimatedContainer(
-                        duration: const Duration(milliseconds: 120),
-                        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 5),
-                        decoration: BoxDecoration(
-                          color: isActive ? activeBg : AppTheme.cardOf(context),
-                          borderRadius: BorderRadius.circular(20),
-                          border: Border.all(
-                            color: isActive ? activeBg : AppTheme.borderOf(context),
-                            width: 1.5,
-                          ),
-                          boxShadow: isActive ? [
-                            BoxShadow(
-                              color: activeBg.withAlpha(40),
-                              blurRadius: 8, offset: const Offset(0, 2),
-                            ),
-                          ] : null,
-                        ),
-                        child: Text(
-                          tab.label,
-                          style: TextStyle(
-                            fontSize:   13,
-                            fontWeight: isActive ? FontWeight.w600 : FontWeight.w500,
-                            color: isActive ? Colors.white : AppTheme.text2Of(context),
-                          ),
-                        ),
-                      ),
-                    ),
-                  );
-                },
-              ),
-              // Right-edge fade: cues horizontal scrollability
-              Positioned(
-                right: 0, top: 0, bottom: 0,
-                child: IgnorePointer(
-                  child: Container(
-                    width: 28,
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.centerLeft,
-                        end:   Alignment.centerRight,
-                        colors: [
-                          AppTheme.cardOf(context).withValues(alpha: 0),
-                          AppTheme.cardOf(context),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ],
+        // Three-zone progress-aware sub-nav
+        _ThreeZoneNav(
+          tabs:      contentTabs,
+          activeTab: activeTab,
+          onSelect:  _switchTab,
+          onShowContents: () => showModalBottomSheet(
+            context: context,
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+            ),
+            builder: (_) => _ContentsSheet(
+              tabs:      contentTabs,
+              activeTab: activeTab,
+              onSelect:  (id) { Navigator.pop(context); _switchTab(id); },
+            ),
           ),
         ),
 
@@ -354,9 +299,9 @@ class _RichLearnScreenState extends State<RichLearnScreen> {
           ElevatedButton(
             onPressed: () => context.push('/practice/${widget.classLevel}/${widget.subjectSlug}/${widget.chapterSlug}'),
             style: ElevatedButton.styleFrom(
-              backgroundColor: AppTheme.brand,
+              backgroundColor: AppTheme.brandOf(context),
               foregroundColor: Colors.white,
-              overlayColor:    AppTheme.brandDark,
+              overlayColor:    AppTheme.brandOf(context),
               elevation:       0,
             ),
             child: const Text('🔥 Practice',
@@ -367,14 +312,19 @@ class _RichLearnScreenState extends State<RichLearnScreen> {
     ),
   );
 
-  Widget _buildBlocksTab(ContentTab tab) => ListView.builder(
-    padding: const EdgeInsets.fromLTRB(16, 16, 16, 40),
-    itemCount: tab.blocks.length,
-    itemBuilder: (_, i) => _BlockWidget(
-      block:      tab.blocks[i],
-      accentColor: AppTheme.brand,
-      onSwitchTab: _switchTab,
-      chapterSlug: widget.chapterSlug,
+  Widget _buildBlocksTab(ContentTab tab) => Center(
+    child: ConstrainedBox(
+      constraints: const BoxConstraints(maxWidth: 680),
+      child: ListView.builder(
+        padding: const EdgeInsets.fromLTRB(16, 16, 16, 40),
+        itemCount: tab.blocks.length,
+        itemBuilder: (_, i) => _BlockWidget(
+          block:      tab.blocks[i],
+          accentColor: AppTheme.brandOf(context),
+          onSwitchTab: _switchTab,
+          chapterSlug: widget.chapterSlug,
+        ),
+      ),
     ),
   );
 }
@@ -396,9 +346,9 @@ class _ChapterHeader extends StatelessWidget {
           if (content.eyebrow.isNotEmpty)
             Text(
               content.eyebrow,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 11, fontWeight: FontWeight.w600,
-                color: AppTheme.brand, letterSpacing: 0.3,
+                color: AppTheme.brandOf(context), letterSpacing: 0.3,
               ),
             ),
           const SizedBox(height: 4),
@@ -410,9 +360,9 @@ class _ChapterHeader extends StatelessWidget {
             const SizedBox(height: 2),
             Text(
               content.author,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 14, fontWeight: FontWeight.w600,
-                color: AppTheme.brand,
+                color: AppTheme.brandOf(context),
               ),
             ),
           ],
@@ -464,7 +414,7 @@ class _ActionTabPill extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const activeBg = AppTheme.brand;
+    final activeBg = AppTheme.brandOf(context);
     return GestureDetector(
       onTap: onTap,
       child: AnimatedContainer(
@@ -539,15 +489,15 @@ class _TeacherVoice extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final baseColor   = AppTheme.text2Of(context);
+    final baseColor   = AppTheme.textPrimaryOf(context);
     final strongColor = AppTheme.textOf(context);
-    final paragraphs  = _extractParagraphs(html, baseColor, strongColor);
+    final paragraphs  = _extractParagraphs(html, baseColor, strongColor, context);
     return Padding(
       padding: const EdgeInsets.only(bottom: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: paragraphs.map((spans) => Padding(
-          padding: const EdgeInsets.only(bottom: 16),
+          padding: const EdgeInsets.only(bottom: 20),
           child: RichText(
             text: TextSpan(children: spans),
           ),
@@ -557,26 +507,26 @@ class _TeacherVoice extends StatelessWidget {
   }
 
   static List<List<InlineSpan>> _extractParagraphs(
-      String html, Color baseColor, Color strongColor) {
+      String html, Color baseColor, Color strongColor, BuildContext ctx) {
     final cleaned  = html.trim();
     final pPattern = RegExp(r'<p[^>]*>([\s\S]*?)<\/p>', multiLine: true);
     final matches  = pPattern.allMatches(cleaned);
 
     if (matches.isEmpty) {
-      return [_parseInline(cleaned, baseColor, strongColor)];
+      return [_parseInline(cleaned, baseColor, strongColor, ctx)];
     }
     return matches
-        .map((m) => _parseInline(m.group(1) ?? '', baseColor, strongColor))
+        .map((m) => _parseInline(m.group(1) ?? '', baseColor, strongColor, ctx))
         .toList();
   }
 
   static List<InlineSpan> _parseInline(
-      String html, Color baseColor, Color strongColor) {
+      String html, Color baseColor, Color strongColor, BuildContext ctx) {
     final spans      = <InlineSpan>[];
     final tagPattern = RegExp(
       r'<strong>([\s\S]*?)<\/strong>|<span[^>]*rich-highlight[^>]*>([\s\S]*?)<\/span>|([^<]+)',
     );
-    final base = TextStyle(fontSize: 15, height: 1.6, color: baseColor);
+    final base = AppTypography.body.copyWith(color: baseColor);
     for (final m in tagPattern.allMatches(html)) {
       if (m.group(1) != null) {
         spans.add(TextSpan(
@@ -586,7 +536,7 @@ class _TeacherVoice extends StatelessWidget {
       } else if (m.group(2) != null) {
         spans.add(TextSpan(
           text:  _decode(m.group(2)!),
-          style: base.copyWith(color: AppTheme.brand),
+          style: base.copyWith(color: AppTheme.brandOf(ctx)),
         ));
       } else if (m.group(3) != null) {
         spans.add(TextSpan(text: _decode(m.group(3)!), style: base));
@@ -610,15 +560,13 @@ class _SectionHead extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Padding(
-    padding: const EdgeInsets.fromLTRB(0, 24, 0, 12),
+    padding: const EdgeInsets.fromLTRB(0, 48, 0, 12),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           text,
-          style: const TextStyle(
-            fontSize: 15, fontWeight: FontWeight.w700,
-          ),
+          style: AppTypography.headingLg.copyWith(color: AppTheme.textPrimaryOf(context)),
         ),
         const SizedBox(height: 5),
         Container(
@@ -729,7 +677,7 @@ class _AuthorStat extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = _statColors[label] ?? AppTheme.brand;
+    final color = _statColors[label] ?? AppTheme.brandOf(context);
     return Container(
       margin: const EdgeInsets.only(bottom: 10),
       padding: const EdgeInsets.fromLTRB(14, 10, 14, 10),
@@ -894,9 +842,9 @@ class _NavButtons extends StatelessWidget {
           ElevatedButton(
             onPressed: () => onSwitchTab('practice'),
             style: ElevatedButton.styleFrom(
-              backgroundColor: AppTheme.brand,
+              backgroundColor: AppTheme.brandOf(context),
               foregroundColor: Colors.white,
-              overlayColor:    AppTheme.brandDark,
+              overlayColor:    AppTheme.brandOf(context),
               minimumSize:     const Size(0, 38),
               padding:         const EdgeInsets.symmetric(horizontal: 16),
               elevation:       0,
@@ -1163,7 +1111,7 @@ class _AskAITabState extends State<_AskAITab> {
         Container(
           width: 32, height: 32,
           decoration: BoxDecoration(
-            color: AppTheme.brand.withAlpha(22),
+            color: AppTheme.brandOf(context).withAlpha(22),
             borderRadius: BorderRadius.circular(8),
           ),
           child: const Center(child: Text('🤖', style: TextStyle(fontSize: 15))),
@@ -1172,21 +1120,21 @@ class _AskAITabState extends State<_AskAITab> {
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
           decoration: BoxDecoration(
-            color: AppTheme.brand.withAlpha(15),
+            color: AppTheme.brandOf(context).withAlpha(15),
             borderRadius: BorderRadius.circular(12),
           ),
-          child: const Row(
+          child: Row(
             children: [
               SizedBox(
                 width: 40, height: 8,
                 child: LinearProgressIndicator(
                   backgroundColor: Colors.transparent,
-                  color: AppTheme.brand,
+                  color: AppTheme.brandOf(context),
                 ),
               ),
               SizedBox(width: 8),
               Text('Thinking…',
-                  style: TextStyle(fontSize: 12, color: AppTheme.brand,
+                  style: TextStyle(fontSize: 12, color: AppTheme.brandOf(context),
                       fontStyle: FontStyle.italic)),
             ],
           ),
@@ -1217,7 +1165,7 @@ class _AskAITabState extends State<_AskAITab> {
         ),
         const SizedBox(width: 8),
         Material(
-          color:        AppTheme.brand,
+          color:        AppTheme.brandOf(context),
           borderRadius: BorderRadius.circular(10),
           child: InkWell(
             borderRadius: BorderRadius.circular(10),
@@ -1246,7 +1194,7 @@ class _MsgBubble extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final r        = msg.response;
-    final userBg   = AppTheme.isDark(context) ? AppTheme.brand : AppTheme.textPrimary;
+    final userBg   = AppTheme.isDark(context) ? AppTheme.brandOf(context) : AppTheme.textPrimary;
     return Padding(
       padding: const EdgeInsets.only(bottom: 16),
       child: Column(
@@ -1284,7 +1232,7 @@ class _MsgBubble extends StatelessWidget {
               Container(
                 width: 32, height: 32,
                 decoration: BoxDecoration(
-                  color: AppTheme.brand.withAlpha(22),
+                  color: AppTheme.brandOf(context).withAlpha(22),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: const Center(child: Text('🤖', style: TextStyle(fontSize: 15))),
@@ -1350,38 +1298,11 @@ class _MsgBubble extends StatelessWidget {
                     ],
                     if (r.examTip.isNotEmpty) ...[
                       const SizedBox(height: 6),
-                      Container(
-                        padding: const EdgeInsets.all(12),
-                        decoration: BoxDecoration(
-                          color: AppTheme.warningBgOf(context),
-                          borderRadius: BorderRadius.circular(10),
-                          border: Border.all(
-                              color: AppTheme.warningBorderOf(context)),
-                        ),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Text('💡 ', style: TextStyle(fontSize: 13)),
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text('EXAM TIP',
-                                      style: TextStyle(
-                                          fontSize: 10,
-                                          fontWeight: FontWeight.w800,
-                                          color: AppTheme.warningFgOf(context))),
-                                  const SizedBox(height: 3),
-                                  Text(r.examTip,
-                                      style: TextStyle(
-                                          fontSize: 12,
-                                          color: AppTheme.warningFgOf(context),
-                                          fontStyle: FontStyle.italic)),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
+                      InfoCard(
+                        label: 'Exam tip',
+                        icon: Icons.lightbulb_outline,
+                        body: r.examTip,
+                        isTip: true,
                       ),
                     ],
                   ],
@@ -1473,9 +1394,9 @@ class _AttemptHistoryTabState extends State<_AttemptHistoryTab> {
               ElevatedButton(
                 onPressed: () => context.push('/exam/${widget.classLevel}/${widget.subjectSlug}/${widget.chapterSlug}'),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: AppTheme.brand,
+                  backgroundColor: AppTheme.brandOf(context),
                   foregroundColor: Colors.white,
-                  overlayColor:    AppTheme.brandDark,
+                  overlayColor:    AppTheme.brandOf(context),
                   elevation:       0,
                 ),
                 child: const Text('🔥 Practice',
@@ -1574,6 +1495,205 @@ class _AttemptHistoryTabState extends State<_AttemptHistoryTab> {
           ),
         );
       },
+    );
+  }
+}
+
+// ── Three-zone progress-aware sub-nav ─────────────────────────────────────────
+
+class _ThreeZoneNav extends StatelessWidget {
+  final List<ContentTab>      tabs;
+  final ContentTab            activeTab;
+  final void Function(String) onSelect;
+  final VoidCallback          onShowContents;
+
+  const _ThreeZoneNav({
+    required this.tabs,
+    required this.activeTab,
+    required this.onSelect,
+    required this.onShowContents,
+  });
+
+  static String _trunc(String s, int max) =>
+      s.length > max ? '${s.substring(0, max)}…' : s;
+
+  @override
+  Widget build(BuildContext context) {
+    final activeIdx = tabs.indexWhere((t) => t.id == activeTab.id);
+    final total     = tabs.length;
+    final progress  = total > 0 ? (activeIdx + 1) / total : 0.0;
+    final hasNext   = activeIdx >= 0 && activeIdx < total - 1;
+    final nextTab   = hasNext ? tabs[activeIdx + 1] : null;
+
+    return Container(
+      color:   AppTheme.cardOf(context),
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+      child: Row(
+        children: [
+          // Left — Contents button
+          GestureDetector(
+            onTap: onShowContents,
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(Icons.menu, size: 18, color: AppTheme.text2Of(context)),
+                const SizedBox(width: 4),
+                Text(
+                  'Contents',
+                  style: TextStyle(
+                    fontSize: 13, fontWeight: FontWeight.w500,
+                    color: AppTheme.text2Of(context),
+                  ),
+                ),
+              ],
+            ),
+          ),
+
+          // Divider
+          Container(
+            width: 1, height: 20,
+            margin: const EdgeInsets.symmetric(horizontal: 10),
+            color: AppTheme.borderOf(context),
+          ),
+
+          // Center — tab name + N/M + progress bar
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        activeTab.label,
+                        style: TextStyle(
+                          fontSize: 13, fontWeight: FontWeight.w600,
+                          color: AppTheme.textOf(context),
+                        ),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                    const SizedBox(width: 6),
+                    Text(
+                      '${activeIdx + 1} / $total',
+                      style: TextStyle(
+                        fontSize: 11,
+                        color: AppTheme.textMutedOf(context),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 5),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(4),
+                  child: LinearProgressIndicator(
+                    value:           progress,
+                    backgroundColor: AppTheme.borderOf(context),
+                    valueColor:      AlwaysStoppedAnimation<Color>(
+                      AppTheme.brandOf(context),
+                    ),
+                    minHeight: 4,
+                  ),
+                ),
+              ],
+            ),
+          ),
+
+          // Divider
+          Container(
+            width: 1, height: 20,
+            margin: const EdgeInsets.symmetric(horizontal: 10),
+            color: AppTheme.borderOf(context),
+          ),
+
+          // Right — Next or Complete
+          if (!hasNext)
+            Text(
+              'Complete ✓',
+              style: TextStyle(
+                fontSize: 13, fontWeight: FontWeight.w500,
+                color: AppTheme.textMutedOf(context),
+              ),
+            )
+          else
+            GestureDetector(
+              onTap: () { if (nextTab != null) onSelect(nextTab.id); },
+              child: Text(
+                '${_trunc(nextTab?.label ?? '', 12)} →',
+                style: TextStyle(
+                  fontSize: 13, fontWeight: FontWeight.w600,
+                  color: AppTheme.brandOf(context),
+                ),
+              ),
+            ),
+        ],
+      ),
+    );
+  }
+}
+
+// ── Contents bottom-sheet ──────────────────────────────────────────────────────
+
+class _ContentsSheet extends StatelessWidget {
+  final List<ContentTab>      tabs;
+  final ContentTab            activeTab;
+  final void Function(String) onSelect;
+
+  const _ContentsSheet({
+    required this.tabs,
+    required this.activeTab,
+    required this.onSelect,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
+            child: Text(
+              'Contents',
+              style: TextStyle(
+                fontSize: 16, fontWeight: FontWeight.w700,
+                color: AppTheme.textOf(context),
+              ),
+            ),
+          ),
+          const Divider(height: 1),
+          ...tabs.asMap().entries.map((entry) {
+            final i      = entry.key;
+            final tab    = entry.value;
+            final active = tab.id == activeTab.id;
+            return ListTile(
+              onTap:     () => onSelect(tab.id),
+              tileColor: active ? AppTheme.brandOf(context).withAlpha(15) : null,
+              title: Text(
+                tab.label,
+                style: TextStyle(
+                  fontSize:   14,
+                  fontWeight: active ? FontWeight.w600 : FontWeight.w400,
+                  color: active
+                      ? AppTheme.brandOf(context)
+                      : AppTheme.textOf(context),
+                ),
+              ),
+              trailing: Text(
+                '${i + 1}',
+                style: TextStyle(
+                  fontSize: 12,
+                  color: AppTheme.textMutedOf(context),
+                ),
+              ),
+            );
+          }),
+          const SizedBox(height: 8),
+        ],
+      ),
     );
   }
 }

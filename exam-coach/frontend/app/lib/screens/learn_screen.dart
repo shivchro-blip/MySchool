@@ -6,6 +6,7 @@ import '../models/learning_model.dart';
 import '../services/syllabus_service.dart';
 import '../services/learning_service.dart';
 import '../widgets/error_view.dart';
+import '../widgets/info_card.dart';
 
 // ── Local chat message model ───────────────────────────────────────────────
 
@@ -157,8 +158,8 @@ class _LearnScreenState extends State<LearnScreen>
         title: Text(title, overflow: TextOverflow.ellipsis),
         bottom: TabBar(
           controller: _tabs,
-          indicatorColor: AppTheme.brand,
-          labelColor:     AppTheme.brand,
+          indicatorColor: AppTheme.brandOf(context),
+          labelColor:     AppTheme.brandOf(context),
           unselectedLabelColor: AppTheme.textMutedOf(context),
           tabs: const [
             Tab(text: 'Overview'),
@@ -272,9 +273,9 @@ class _LearnScreenState extends State<LearnScreen>
           child: Container(
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
-              color: AppTheme.brand.withAlpha(15),
+              color: AppTheme.brandOf(context).withAlpha(15),
               borderRadius: BorderRadius.circular(14),
-              border: Border.all(color: AppTheme.brand.withAlpha(60)),
+              border: Border.all(color: AppTheme.brandOf(context).withAlpha(60)),
             ),
             child: Row(
               children: [
@@ -284,10 +285,10 @@ class _LearnScreenState extends State<LearnScreen>
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text('Ask AI about this chapter',
+                      Text('Ask AI about this chapter',
                           style: TextStyle(
                             fontSize: 14, fontWeight: FontWeight.w700,
-                            color: AppTheme.brand,
+                            color: AppTheme.brandOf(context),
                           )),
                       const SizedBox(height: 2),
                       Text('Get explanations, key points, and exam tips',
@@ -296,7 +297,7 @@ class _LearnScreenState extends State<LearnScreen>
                     ],
                   ),
                 ),
-                const Icon(Icons.arrow_forward_ios, size: 14, color: AppTheme.brand),
+                Icon(Icons.arrow_forward_ios, size: 14, color: AppTheme.brandOf(context)),
               ],
             ),
           ),
@@ -445,7 +446,7 @@ class _LearnScreenState extends State<LearnScreen>
           Container(
             width: 32, height: 32,
             decoration: BoxDecoration(
-              color:        AppTheme.brand.withAlpha(22),
+              color:        AppTheme.brandOf(context).withAlpha(22),
               borderRadius: BorderRadius.circular(8),
             ),
             child: const Center(child: Text('🤖', style: TextStyle(fontSize: 15))),
@@ -454,22 +455,22 @@ class _LearnScreenState extends State<LearnScreen>
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
             decoration: BoxDecoration(
-              color:        AppTheme.brand.withAlpha(15),
+              color:        AppTheme.brandOf(context).withAlpha(15),
               borderRadius: BorderRadius.circular(12),
             ),
-            child: const Row(
+            child: Row(
               children: [
                 SizedBox(
                   width: 40, height: 8,
                   child: LinearProgressIndicator(
                     backgroundColor: Colors.transparent,
-                    color: AppTheme.brand,
+                    color: AppTheme.brandOf(context),
                   ),
                 ),
-                SizedBox(width: 8),
+                const SizedBox(width: 8),
                 Text('Thinking…',
                     style: TextStyle(
-                      fontSize: 12, color: AppTheme.brand,
+                      fontSize: 12, color: AppTheme.brandOf(context),
                       fontStyle: FontStyle.italic,
                     )),
               ],
@@ -503,7 +504,7 @@ class _LearnScreenState extends State<LearnScreen>
           ),
           const SizedBox(width: 8),
           Material(
-            color:        AppTheme.brand,
+            color:        AppTheme.brandOf(context),
             borderRadius: BorderRadius.circular(10),
             child: InkWell(
               borderRadius: BorderRadius.circular(10),
@@ -542,8 +543,8 @@ class _ChatBubble extends StatelessWidget {
               Flexible(
                 child: Container(
                   padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
-                  decoration: const BoxDecoration(
-                    color:        AppTheme.brand,
+                  decoration: BoxDecoration(
+                    color:        AppTheme.brandOf(context),
                     borderRadius: BorderRadius.only(
                       topLeft:     Radius.circular(14),
                       topRight:    Radius.circular(4),
@@ -570,7 +571,7 @@ class _ChatBubble extends StatelessWidget {
               Container(
                 width: 32, height: 32,
                 decoration: BoxDecoration(
-                  color:        AppTheme.brand.withAlpha(22),
+                  color:        AppTheme.brandOf(context).withAlpha(22),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: const Center(child: Text('🤖', style: TextStyle(fontSize: 15))),
@@ -649,39 +650,11 @@ class _ChatBubble extends StatelessWidget {
                     // Exam tip
                     if (r.examTip.isNotEmpty) ...[
                       const SizedBox(height: 6),
-                      Container(
-                        padding: const EdgeInsets.all(12),
-                        decoration: BoxDecoration(
-                          color: AppTheme.warningBgOf(context),
-                          borderRadius: BorderRadius.circular(10),
-                          border: Border.all(color: AppTheme.warningBorderOf(context)),
-                        ),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Text('💡 ',
-                                style: TextStyle(fontSize: 13)),
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text('Exam Tip',
-                                      style: TextStyle(
-                                        fontSize: 11, fontWeight: FontWeight.w700,
-                                        color: AppTheme.warningFgOf(context),
-                                      )),
-                                  const SizedBox(height: 3),
-                                  Text(r.examTip,
-                                      style: TextStyle(
-                                        fontSize: 12,
-                                        color: AppTheme.warningFgOf(context),
-                                        fontStyle: FontStyle.italic,
-                                      )),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
+                      InfoCard(
+                        label: 'Exam tip',
+                        icon: Icons.lightbulb_outline,
+                        body: r.examTip,
+                        isTip: true,
                       ),
                     ],
 
@@ -689,7 +662,7 @@ class _ChatBubble extends StatelessWidget {
                     const SizedBox(height: 6),
                     Row(
                       children: [
-                        _Badge(label: r.modelUsed, color: AppTheme.brand),
+                        _Badge(label: r.modelUsed, color: AppTheme.brandOf(context)),
                         if (r.cached) ...[
                           const SizedBox(width: 6),
                           const _Badge(label: 'cached', color: AppTheme.success),
@@ -698,7 +671,7 @@ class _ChatBubble extends StatelessWidget {
                           const SizedBox(width: 6),
                           _Badge(
                             label: '${r.sourceChunks} chunks',
-                            color: AppTheme.textMuted,
+                            color: AppTheme.textMutedOf(context),
                           ),
                         ],
                       ],

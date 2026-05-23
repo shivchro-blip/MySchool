@@ -96,8 +96,8 @@ class _ExamPapersCard extends StatelessWidget {
             padding: const EdgeInsets.fromLTRB(16, 14, 16, 12),
             child: Row(
               children: [
-                const Icon(Icons.description_outlined,
-                    color: AppTheme.brand, size: 20),
+                Icon(Icons.description_outlined,
+                    color: AppTheme.brandOf(context), size: 20),
                 const SizedBox(width: 8),
                 Text(
                   'Past Annual Exam Papers',
@@ -152,7 +152,7 @@ class _PaperRow extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                 decoration: BoxDecoration(
-                  color: AppTheme.brandDark,
+                  color: AppTheme.brandOf(context),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Text(
@@ -271,8 +271,8 @@ class _PriorityLessonsCard extends StatelessWidget {
             padding: const EdgeInsets.fromLTRB(16, 14, 16, 12),
             child: Row(
               children: [
-                const Icon(Icons.local_fire_department,
-                    color: AppTheme.brand, size: 20),
+                Icon(Icons.local_fire_department,
+                    color: AppTheme.brandOf(context), size: 20),
                 const SizedBox(width: 8),
                 Text(
                   'High-Priority Lessons',

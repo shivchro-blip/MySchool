@@ -19,10 +19,10 @@ class FinalExamPrepEntryCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppTheme.brandLightOf(context),
         borderRadius: BorderRadius.circular(AppTheme.radiusCard),
-        border: Border.all(color: AppTheme.brand.withAlpha(60)),
+        border: Border.all(color: AppTheme.brandOf(context).withAlpha(60)),
         boxShadow: [
           BoxShadow(
-            color: AppTheme.brand.withAlpha(18),
+            color: AppTheme.brandOf(context).withAlpha(18),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -37,25 +37,25 @@ class FinalExamPrepEntryCard extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(AppTheme.radiusPill),
-              border: Border.all(color: AppTheme.brand),
+              border: Border.all(color: AppTheme.brandOf(context)),
             ),
-            child: const Text(
+            child: Text(
               'Final Exam Prep',
               style: TextStyle(
                 fontSize: 11,
                 fontWeight: FontWeight.w600,
-                color: AppTheme.brand,
+                color: AppTheme.brandOf(context),
               ),
             ),
           ),
           const SizedBox(height: 10),
           // Headline
-          const Text(
+          Text(
             'Prepare for your Final Exams',
             style: TextStyle(
               fontSize: 17,
               fontWeight: FontWeight.w700,
-              color: AppTheme.brandDark,
+              color: AppTheme.brandOf(context),
               height: 1.3,
             ),
           ),
@@ -76,7 +76,7 @@ class FinalExamPrepEntryCard extends StatelessWidget {
             width: double.infinity,
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: AppTheme.brandDark,
+                backgroundColor: AppTheme.brandOf(context),
                 foregroundColor: Colors.white,
                 padding: const EdgeInsets.symmetric(vertical: 12),
                 shape: RoundedRectangleBorder(

@@ -32,7 +32,7 @@ class _ProgressScreenState extends State<ProgressScreen> {
           ? const Center(child: CircularProgressIndicator())
           : _error.isNotEmpty
               ? Center(child: Text(_error,
-                    style: const TextStyle(color: AppTheme.error)))
+                    style: TextStyle(color: AppTheme.errorOf(context))))
               : ListView(
                   padding: const EdgeInsets.all(16),
                   children: [
@@ -61,8 +61,8 @@ class _ProgressScreenState extends State<ProgressScreen> {
                               const Text('Overall Score',
                                   style: TextStyle(fontWeight: FontWeight.w600)),
                               Text('${_data!['average_score']}%',
-                                  style: const TextStyle(
-                                    color: AppTheme.brand,
+                                  style: TextStyle(
+                                    color: AppTheme.brandOf(context),
                                     fontWeight: FontWeight.w700,
                                   )),
                             ],
@@ -75,7 +75,7 @@ class _ProgressScreenState extends State<ProgressScreen> {
                                                    .toDouble() / 100,
                               minHeight:       10,
                               backgroundColor: AppTheme.borderOf(context),
-                              color:           AppTheme.brand,
+                              color:           AppTheme.brandOf(context),
                             ),
                           ),
                         ]),
@@ -103,10 +103,10 @@ class _ProgressScreenState extends State<ProgressScreen> {
       padding: const EdgeInsets.all(16),
       child: Column(children: [
         Text(value,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize:   28,
               fontWeight: FontWeight.w800,
-              color:      AppTheme.brand,
+              color:      AppTheme.brandOf(context),
             )),
         const SizedBox(height: 4),
         Text(label,

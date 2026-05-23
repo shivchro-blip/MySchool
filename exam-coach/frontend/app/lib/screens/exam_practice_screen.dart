@@ -169,10 +169,10 @@ class _QuickNavDots extends StatelessWidget {
                           : _asAnswerString(answers[q.id])?.trim().isNotEmpty ?? false;
 
                   Color bg; Color fg;
-                  if (current) { bg = AppTheme.brand; fg = Colors.white; }
+                  if (current) { bg = AppTheme.brandOf(context); fg = Colors.white; }
                   else if (isInvalid) {
                     bg = AppTheme.errorBgOf(context);
-                    fg = AppTheme.error;
+                    fg = AppTheme.errorOf(context);
                   }
                   else if (isMcq && done)   {
                     bg = AppTheme.successBgOf(context);
@@ -180,7 +180,7 @@ class _QuickNavDots extends StatelessWidget {
                   }
                   else if (!isMcq && done)  {
                     bg = AppTheme.brandLightOf(context);
-                    fg = AppTheme.brand;
+                    fg = AppTheme.brandOf(context);
                   }
                   else {
                     bg = AppTheme.surfaceOf(context);
@@ -782,7 +782,7 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> with WidgetsBin
                   child: LinearProgressIndicator(
                     value: total > 0 ? _allAnswered / total : 0,
                     backgroundColor: AppTheme.surfaceOf(context),
-                    color: AppTheme.brand,
+                    color: AppTheme.brandOf(context),
                     minHeight: 6,
                   ),
                 ),
@@ -851,9 +851,9 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> with WidgetsBin
               onPressed: _openReviewSubmitSheet,
               style: OutlinedButton.styleFrom(
                 backgroundColor: AppTheme.brandLightOf(context),
-                foregroundColor: AppTheme.brand,
+                foregroundColor: AppTheme.brandOf(context),
                 side: BorderSide(
-                  color: AppTheme.brand.withValues(alpha: 0.4),
+                  color: AppTheme.brandOf(context).withValues(alpha: 0.4),
                   width: 1.5,
                 ),
                 overlayColor: AppTheme.brandLightHoverOf(context),
@@ -922,7 +922,7 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> with WidgetsBin
           decoration: BoxDecoration(
             color: AppTheme.brandLightOf(context),
             borderRadius: BorderRadius.circular(8),
-            border: const Border(left: BorderSide(color: AppTheme.brand, width: 3)),
+            border: Border(left: BorderSide(color: AppTheme.brandOf(context), width: 3)),
           ),
           child: Text(q.verse ?? '',
               style: TextStyle(
@@ -995,7 +995,7 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> with WidgetsBin
     final score      = attempt.mcqScore ?? 0;
     final pct        = total > 0 ? (score / total * 100).round() : 0;
     final scoreColor = pct >= 70 ? AppTheme.success
-        : pct >= 40 ? AppTheme.warning : AppTheme.error;
+        : pct >= 40 ? AppTheme.warning : AppTheme.errorOf(context);
     final attemptNum = _attempts.indexOf(attempt) + 1;
 
     return ListView(
@@ -1119,7 +1119,7 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> with WidgetsBin
                       children: [
                         Icon(
                           correct ? Icons.check_circle : Icons.cancel,
-                          color: correct ? AppTheme.success : AppTheme.error,
+                          color: correct ? AppTheme.success : AppTheme.errorOf(context),
                           size: 16,
                         ),
                         const SizedBox(width: 8),
@@ -1162,8 +1162,8 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> with WidgetsBin
                           borderRadius: BorderRadius.circular(8),
                         ),
                         child: Text('Hint: ${q.hint}',
-                            style: const TextStyle(
-                              fontSize: 11, color: AppTheme.brandDark,
+                            style: TextStyle(
+                              fontSize: 11, color: AppTheme.brandOf(context),
                             )),
                       ),
                     ],
@@ -1289,9 +1289,9 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> with WidgetsBin
               child: ElevatedButton.icon(
                 onPressed: _handleRetake,
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: AppTheme.brand,
+                  backgroundColor: AppTheme.brandOf(context),
                   foregroundColor: Colors.white,
-                  overlayColor:    AppTheme.brandDark,
+                  overlayColor:    AppTheme.brandOf(context),
                   elevation:       0,
                 ),
                 icon:  const Icon(Icons.replay, size: 16),
@@ -1355,7 +1355,7 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> with WidgetsBin
         body: Center(
           child: Padding(
             padding: const EdgeInsets.all(24),
-            child: Text(_error!, style: const TextStyle(color: AppTheme.error)),
+            child: Text(_error!, style: TextStyle(color: AppTheme.errorOf(context))),
           ),
         ),
       );
@@ -1490,7 +1490,7 @@ class _ReviewSheet extends StatelessWidget {
                         label: 'Needs Fix',
                         value: '$invalid',
                         bg: invalid > 0 ? AppTheme.errorBgOf(context) : AppTheme.surfaceOf(context),
-                        fg: invalid > 0 ? AppTheme.error : AppTheme.textMutedOf(context),
+                        fg: invalid > 0 ? AppTheme.errorOf(context) : AppTheme.textMutedOf(context),
                       ),
                     ],
                   ),
@@ -1508,11 +1508,11 @@ class _ReviewSheet extends StatelessWidget {
                   spacing: 12,
                   runSpacing: 6,
                   children: [
-                    const _LegendChip(color: AppTheme.brand,    label: 'Current'),
+                    _LegendChip(color: AppTheme.brandOf(context),    label: 'Current'),
                     const _LegendChip(color: AppTheme.success,  label: 'Answered'),
                     _LegendChip(color: AppTheme.borderOf(context), label: 'Unanswered'),
                     if (mode == 'submit')
-                      const _LegendChip(color: AppTheme.error, label: 'Needs correction'),
+                      _LegendChip(color: AppTheme.errorOf(context), label: 'Needs correction'),
                   ],
                 ),
               ],
@@ -1535,7 +1535,7 @@ class _ReviewSheet extends StatelessWidget {
                   Expanded(
                     child: OutlinedButton(
                       onPressed: () => onGoto(firstInvalidIdx),
-                      style: OutlinedButton.styleFrom(foregroundColor: AppTheme.error),
+                      style: OutlinedButton.styleFrom(foregroundColor: AppTheme.errorOf(context)),
                       child: const Text('Review Corrections'),
                     ),
                   ),

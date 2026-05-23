@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../theme/typography.dart';
 
 class AppTheme {
   // ── Brand ─────────────────────────────────────────────────────────────────
@@ -17,6 +18,7 @@ class AppTheme {
 
   // ── Light surface tokens ──────────────────────────────────────────────────
   static const Color surface    = Color(0xFFFBFAF7);
+  static const Color surfaceAlt = Color(0xFFF1EFE8);
   static const Color card       = Colors.white;
 
   // ── Light text tokens ─────────────────────────────────────────────────────
@@ -34,6 +36,7 @@ class AppTheme {
   // ── Dark surface tokens ───────────────────────────────────────────────────
   static const Color darkSurface    = Color(0xFF0E1A16);
   static const Color darkCard       = Color(0xFF15241F);
+  static const Color darkSurfaceAlt = Color(0xFF1C302A);
   static const Color darkBorder          = Color(0xFF2A3D36);
   static const Color darkBorderSoft      = Color(0xFF1C302A);
   static const Color darkBrandLight      = Color(0xFF1C302A);
@@ -96,6 +99,15 @@ class AppTheme {
       isDark(ctx) ? darkBrandLightHover : brandLightHover;
   static Color borderSoftOf(BuildContext ctx) =>
       isDark(ctx) ? darkBorderSoft : borderSoft;
+  static Color textPrimaryOf(BuildContext ctx) =>
+      isDark(ctx) ? darkText : textPrimary;
+  static Color textSecondaryOf(BuildContext ctx) =>
+      isDark(ctx) ? darkText2 : textSecondary;
+
+  static Color brandOf(BuildContext ctx) =>
+      isDark(ctx) ? darkBrand : brand;
+  static Color brandStrongOf(BuildContext ctx) =>
+      isDark(ctx) ? darkBrandStrong : brandStrong;
 
   static Color errorBgOf(BuildContext ctx) =>
       isDark(ctx) ? darkErrorBg : const Color(0xFFFEF2F2);
@@ -103,6 +115,8 @@ class AppTheme {
       isDark(ctx) ? darkErrorBorder : const Color(0xFFFECACA);
   static Color errorFgOf(BuildContext ctx) =>
       isDark(ctx) ? darkErrorFg : const Color(0xFFB91C1C);
+  static Color errorOf(BuildContext ctx) =>
+      isDark(ctx) ? darkErrorFg : error;
 
   static Color successBgOf(BuildContext ctx) =>
       isDark(ctx) ? darkSuccessBg : const Color(0xFFF0FDF4);
@@ -156,37 +170,56 @@ class AppTheme {
 
   // ── ThemeData ─────────────────────────────────────────────────────────────
   static ThemeData get light => _buildTheme(
-    brightness:       Brightness.light,
-    scaffoldBg:       surface,
-    cardColor:        card,
-    borderColor:      border,
-    textColor:        textPrimary,
-    overlayStyle:     SystemUiOverlayStyle.light,
-    fillColor:        Colors.white,
-    inputBorderColor: border,
-    bottomNavBg:      Colors.white,
-    appBarBg:         brandDeep,
-    appBarFg:         Colors.white,
+    brightness:         Brightness.light,
+    primaryBrand:       brand,
+    primaryBrandStrong: brandStrong,
+    scaffoldBg:         card,
+    cardColor:          card,
+    borderColor:        border,
+    textColor:          textPrimary,
+    overlayStyle:       SystemUiOverlayStyle.light,
+    fillColor:          Colors.white,
+    inputBorderColor:   border,
+    bottomNavBg:        Colors.white,
+    appBarBg:           brandDeep,
+    appBarFg:           Colors.white,
     unselectedNavColor: textMuted,
   );
 
   static ThemeData get dark => _buildTheme(
-    brightness:       Brightness.dark,
-    scaffoldBg:       darkSurface,
-    cardColor:        darkCard,
-    borderColor:      darkBorder,
-    textColor:        darkText,
-    overlayStyle:     SystemUiOverlayStyle.light,
-    fillColor:        darkCard,
-    inputBorderColor: darkBorder,
-    bottomNavBg:      darkCard,
-    appBarBg:         brandDeep,
-    appBarFg:         Colors.white,
+    brightness:         Brightness.dark,
+    primaryBrand:       darkBrand,
+    primaryBrandStrong: darkBrandStrong,
+    scaffoldBg:         darkCard,
+    cardColor:          darkCard,
+    borderColor:        darkBorder,
+    textColor:          darkText,
+    overlayStyle:       SystemUiOverlayStyle.light,
+    fillColor:          darkCard,
+    inputBorderColor:   darkBorder,
+    bottomNavBg:        darkCard,
+    appBarBg:           brandDeep,
+    appBarFg:           Colors.white,
     unselectedNavColor: darkTextMuted,
+  );
+
+  static TextTheme _buildTextTheme() => TextTheme(
+    displayLarge:   AppTypography.displayXl,
+    headlineLarge:  AppTypography.headingLg,
+    headlineMedium: AppTypography.headingMd,
+    headlineSmall:  AppTypography.headingSm,
+    titleLarge:     AppTypography.headingSm,
+    bodyLarge:      AppTypography.body,
+    bodyMedium:     AppTypography.bodySm,
+    bodySmall:      AppTypography.caption,
+    labelLarge:     AppTypography.label,
+    labelSmall:     AppTypography.eyebrow,
   );
 
   static ThemeData _buildTheme({
     required Brightness brightness,
+    required Color primaryBrand,
+    required Color primaryBrandStrong,
     required Color scaffoldBg,
     required Color cardColor,
     required Color borderColor,
@@ -203,13 +236,10 @@ class AppTheme {
       useMaterial3:           true,
       brightness:             brightness,
       colorScheme: ColorScheme.fromSeed(
-        seedColor:  brand,
+        seedColor:  primaryBrand,
         brightness: brightness,
       ),
-      textTheme: GoogleFonts.interTextTheme().apply(
-        bodyColor:    textColor,
-        displayColor: textColor,
-      ),
+      textTheme: _buildTextTheme(),
       scaffoldBackgroundColor: scaffoldBg,
       appBarTheme: AppBarTheme(
         backgroundColor:    appBarBg,
@@ -226,7 +256,7 @@ class AppTheme {
       ),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         backgroundColor:     bottomNavBg,
-        selectedItemColor:   brand,
+        selectedItemColor:   primaryBrand,
         unselectedItemColor: unselectedNavColor,
         type:                BottomNavigationBarType.fixed,
         elevation:           8,
@@ -251,7 +281,7 @@ class AppTheme {
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(AppTheme.radiusInput),
-          borderSide: const BorderSide(color: brand, width: 2),
+          borderSide: BorderSide(color: primaryBrand, width: 2),
         ),
         filled:         true,
         fillColor:      fillColor,
@@ -259,7 +289,7 @@ class AppTheme {
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
-          backgroundColor: brand,
+          backgroundColor: primaryBrand,
           foregroundColor: Colors.white,
           minimumSize: const Size.fromHeight(48),
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppTheme.radiusButton)),
