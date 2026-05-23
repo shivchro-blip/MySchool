@@ -38,135 +38,120 @@ on web (`#1B4B82`). Do not attempt to unify them.
 
 ## 2. Web Color Tokens
 
-### Active tokens (PAPER system — use these)
+### Canonical tokens (use these for all new code)
 
 Defined in `frontend/web/src/index.css` under `:root` (light) and `[data-theme="dark"]`.
 Aliased in `tailwind.config.js` as Tailwind color utilities — no hardcoded hex in config.
 
-**PAPER tokens are active. Legacy `--ec-*` tokens are being retired — do not add new `--ec-*` tokens.**
+**Legacy `--ec-*` tokens are being retired — do not add new ones.**
 
 #### Light theme (`:root`)
 
 ```css
 /* Surfaces */
---bg:          #F5F1EB;   /* page background (warm paper) */
---bg-2:        #FFFFFF;   /* card surface */
---bg-sunk:     #EDE9E2;   /* recessed surface */
-
-/* Borders */
---line:        #E5E7EB;   /* default border */
---line-soft:   #E8E3DB;   /* subtle dividers */
+--page-bg:     #FBFAF7;   /* page background — warm white */
+--surface:     #FFFFFF;   /* card / panel surface */
+--surface-alt: #F1EFE8;   /* recessed / alternate surface */
+--border:      #E8E5DD;   /* default border */
 
 /* Text */
---ink:         #1E293B;   /* primary text */
---ink-2:       #64748B;   /* secondary text */
---ink-3:       #64748B;   /* tertiary (≥4.5:1 on --bg) */
---ink-4:       #94A3B8;   /* DECORATION ONLY — never for text */
+--text-primary:   #1F2A27;   /* headings, body */
+--text-secondary: #5C6B66;   /* labels, secondary body */
+--text-tertiary:  #97A09B;   /* placeholders, decoration */
 
-/* Accent — UI chrome, active nav, progress */
---accent:      #1B4B82;
---accent-soft: #E6F1FB;
---accent-ink:  #0C447C;   /* text on --accent-soft */
+/* Brand */
+--brand-deep:  #04342C;   /* header bar, deep surfaces */
+--brand:       #1D9E75;   /* primary brand, active states */
+--brand-strong:#0F6E56;   /* links, hover, emphasis */
 
-/* Semantic */
---good:        #1D9E75;
---good-soft:   #E1F5EE;
---good-ink:    #085041;
---warn:        #EF9F27;
---warn-soft:   #FAEEDA;
---pos:         #b86a2a;   /* achievement / streak */
---pos-soft:    #f4e8d8;
+/* Exam tip callout */
+--tip-bg:      #FBF1DD;
+--tip-border:  #E9C27A;
+--tip-text:    #8A5A12;
+
+/* Semantic (unchanged) */
+--good:        #1D9E75;   --good-soft: #E1F5EE;   --good-ink: #085041;
+--warn:        #EF9F27;   --warn-soft: #FAEEDA;
 --danger:      #E24B4A;
---highlight:   #FEF9C3;   /* inline text marker */
-
-/* AI feature surfaces */
---ai:          #8B5CF6;
---ai-soft:     #EEEDFE;
+--ai:          #8B5CF6;   --ai-soft:   #EEEDFE;
 ```
 
 #### Dark theme (`[data-theme="dark"]`)
 
 ```css
---bg:          #0F172A;
---bg-2:        #1E293B;
---bg-sunk:     #0B1120;
---line:        #334155;
---line-soft:   #1E293B;
---ink:         #F1F5F9;
---ink-2:       #CBD5E1;
---ink-3:       #94A3B8;
---ink-4:       #475569;
---accent:      #3B82F6;
---accent-soft: #1E3A5F;
---accent-ink:  #93C5FD;
---good:        #34D399;
---good-soft:   #065F46;
---good-ink:    #A7F3D0;
---warn:        #FBB040;
---warn-soft:   #451A03;
---pos:         #FCD34D;
---pos-soft:    #451A03;
---danger:      #F87171;
---highlight:   #3D2F00;
---ai:          #A78BFA;
---ai-soft:     #2E1065;
+/* Surfaces */
+--page-bg:     #0E1A16;
+--surface:     #15241F;
+--surface-alt: #1C302A;
+--border:      #2A3D36;
+
+/* Text */
+--text-primary:   #E8EDEA;
+--text-secondary: #9DAAA4;
+--text-tertiary:  #6B7872;
+
+/* Brand */
+--brand-deep:  #04342C;   /* same in both modes */
+--brand:       #34C99A;
+--brand-strong:#5DCAA5;
+
+/* Exam tip callout */
+--tip-bg:      #2E2412;
+--tip-border:  #6B5117;
+--tip-text:    #E0B25C;
 ```
 
-### Brand palette (primary CTA buttons)
+### PAPER aliases (legacy — keep working, migrate away in Phase 4+)
 
-The `brand.*` scale is **purple** — used for primary action buttons (`.btn-primary`, `bg-brand-600`),
-distinct from `--accent` (navy). Do not conflate them.
+Old token names now alias the canonical tokens above:
 
-```js
-// tailwind.config.js — brand.*
-brand: {
-  50:  '#EEEDFE',
-  100: '#CECBF6',
-  200: '#AFA9EC',
-  300: '#9F99E8',
-  400: '#7F77DD',
-  500: '#6860CC',
-  600: '#534AB7',   ← primary button background
-  700: '#3C3489',   ← primary button hover
-  800: '#26215C',
-  900: '#1A1640',
-}
-```
+| Old name | → Resolves to |
+|----------|--------------|
+| `--bg` | `--page-bg` |
+| `--bg-2` | `--surface` |
+| `--bg-sunk` | `--surface-alt` |
+| `--line`, `--line-soft` | `--border` |
+| `--ink` | `--text-primary` |
+| `--ink-2`, `--ink-3` | `--text-secondary` |
+| `--ink-4` | `--text-tertiary` |
+| `--accent` | `--brand-strong` (light) / `--brand` (dark) |
+| `--brand-teal` | `--brand` |
 
-**Color axis split:**
+### Color axis
+
 | Axis | Token | Use case |
 |------|-------|----------|
-| Navigation / chrome | `--accent` (#1B4B82 light / #3B82F6 dark) | active nav, progress fill, focus rings |
-| Primary action | `brand-600` (#534AB7) | buttons, CTAs |
+| Header / sidebar chrome | `--brand-deep` (#04342C, both modes) | chrome background |
+| Navigation / links | `--brand-strong` / `--brand` | active nav, breadcrumbs, links |
+| Primary brand | `--brand` | icons, progress bars, highlights |
 
 ### Contrast contract
-- `--ink` on `--bg` ≥ 12:1
-- `--ink-2` on `--bg` ≥ 7:1
-- `--ink-3` on `--bg` ≥ 4.5:1 (lightest allowed for text)
-- `--ink-4` — no text, decoration only
-- `--accent` on `--bg` ≥ 4.5:1
-- `--accent-ink` on `--accent-soft` ≥ 4.5:1
-- `--good-ink` on `--good-soft` ≥ 4.5:1
+- `--text-primary` on `--page-bg` ≥ 12:1
+- `--text-secondary` on `--page-bg` ≥ 4.5:1
+- `--text-tertiary` — decorative only, use `--text-secondary` for readable text
+- `--brand-strong` on `--page-bg` ≥ 4.5:1
+- `--tip-text` on `--tip-bg` ≥ 4.5:1
 
-### Extended tokens (also in `:root`)
-
-These tokens exist in `index.css` alongside the PAPER tokens. Use them where appropriate:
+### Extended aliases (also in `:root`)
 
 ```css
-/* Canvas / surface aliases (supplement PAPER tokens) */
---bg-canvas:             #F5F1EB;   /* alias of --bg */
---bg-surface:            #FFFFFF;   /* alias of --bg-2 */
---border-soft:           rgba(15, 23, 42, 0.06);
---border-strong:         rgba(15, 23, 42, 0.10);
---text-primary:          #0F172A;
---text-muted:            #5E6B7A;
---text-faint:            #7B8794;
+/* Legacy canvas aliases */
+--bg-canvas:   var(--page-bg)
+--bg-surface:  var(--surface)
 
-/* Brand teal (used in some card/button surfaces) */
---brand-teal:            #2A7B6F;
---brand-teal-soft:       rgba(42, 123, 111, 0.10);
---brand-teal-soft-hover: rgba(42, 123, 111, 0.18);
---brand-teal-hover:      #226860;
+/* Borders */
+--border-soft:   rgba(15, 23, 42, 0.06)
+--border-strong: rgba(15, 23, 42, 0.10)
+
+/* Text aliases */
+--text-muted:  var(--text-secondary)
+--text-faint:  var(--text-tertiary)
+
+/* Brand teal aliases (point at --brand now) */
+--brand-teal:            var(--brand)
+--brand-teal-soft:       rgba(29, 158, 117, 0.10)
+--brand-teal-soft-hover: rgba(29, 158, 117, 0.18)
+--brand-teal-hover:      var(--brand-strong)
 --accent-navy:           #1E3A5F;
 
 /* Radius shortcuts */
@@ -351,9 +336,12 @@ All share: `border-radius: 0 var(--ec-radius-md) var(--ec-radius-md) 0`, left bo
 
 ```dart
 // AppTheme constants (from theme.dart)
-static const Color brand      = Color(0xFF2A7B6F);  // teal-green — all brand elements
-static const Color brandLight = Color(0xFFE6F4F2);
-static const Color brandDark  = Color(0xFF1d5c53);
+static const Color brand       = Color(0xFF1D9E75);  // primary brand green
+static const Color brandDeep   = Color(0xFF04342C);  // header bar (both modes)
+static const Color brandStrong = Color(0xFF0F6E56);  // links / hover
+static const Color brandLight  = Color(0xFFE6F5EE);  // soft brand tint (light)
+static const Color darkBrand   = Color(0xFF34C99A);  // brand on dark bg
+static const Color darkBrandStrong = Color(0xFF5DCAA5);
 ```
 
 ### Light theme tokens

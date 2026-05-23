@@ -4,13 +4,19 @@ import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
   // ── Brand ─────────────────────────────────────────────────────────────────
-  static const Color brand      = Color(0xFF2A7B6F);
-  static const Color brandLight      = Color(0xFFE6F4F2);
-  static const Color brandLightHover = Color(0xFFD5EBE7);
-  static const Color brandDark       = Color(0xFF1d5c53);
+  static const Color brand           = Color(0xFF1D9E75);
+  static const Color brandDeep       = Color(0xFF04342C);
+  static const Color brandStrong     = Color(0xFF0F6E56);
+  static const Color brandLight      = Color(0xFFE6F5EE);
+  static const Color brandLightHover = Color(0xFFD0EDE3);
+  static const Color brandDark       = Color(0xFF0F6E56);
+
+  // ── Dark brand tokens ─────────────────────────────────────────────────────
+  static const Color darkBrand       = Color(0xFF34C99A);
+  static const Color darkBrandStrong = Color(0xFF5DCAA5);
 
   // ── Light surface tokens ──────────────────────────────────────────────────
-  static const Color surface    = Color(0xFFF9FAFB);
+  static const Color surface    = Color(0xFFFBFAF7);
   static const Color card       = Colors.white;
 
   // ── Light text tokens ─────────────────────────────────────────────────────
@@ -26,12 +32,12 @@ class AppTheme {
   static const Color success = Color(0xFF16A34A);
 
   // ── Dark surface tokens ───────────────────────────────────────────────────
-  static const Color darkSurface    = Color(0xFF0F1117);
-  static const Color darkCard       = Color(0xFF1A1D27);
-  static const Color darkBorder          = Color(0xFF2D3142);
-  static const Color darkBorderSoft      = Color(0xFF22252F);
-  static const Color darkBrandLight      = Color(0xFF1A3330);
-  static const Color darkBrandLightHover = Color(0xFF234540);
+  static const Color darkSurface    = Color(0xFF0E1A16);
+  static const Color darkCard       = Color(0xFF15241F);
+  static const Color darkBorder          = Color(0xFF2A3D36);
+  static const Color darkBorderSoft      = Color(0xFF1C302A);
+  static const Color darkBrandLight      = Color(0xFF1C302A);
+  static const Color darkBrandLightHover = Color(0xFF243D33);
 
   // ── Dark text tokens ──────────────────────────────────────────────────────
   static const Color darkText       = Color(0xFFF9FAFB);
@@ -155,11 +161,12 @@ class AppTheme {
     cardColor:        card,
     borderColor:      border,
     textColor:        textPrimary,
-    overlayStyle:     SystemUiOverlayStyle.dark,
+    overlayStyle:     SystemUiOverlayStyle.light,
     fillColor:        Colors.white,
     inputBorderColor: border,
     bottomNavBg:      Colors.white,
-    appBarBg:         Colors.white,
+    appBarBg:         brandDeep,
+    appBarFg:         Colors.white,
     unselectedNavColor: textMuted,
   );
 
@@ -173,7 +180,8 @@ class AppTheme {
     fillColor:        darkCard,
     inputBorderColor: darkBorder,
     bottomNavBg:      darkCard,
-    appBarBg:         darkCard,
+    appBarBg:         brandDeep,
+    appBarFg:         Colors.white,
     unselectedNavColor: darkTextMuted,
   );
 
@@ -188,6 +196,7 @@ class AppTheme {
     required Color inputBorderColor,
     required Color bottomNavBg,
     required Color appBarBg,
+    required Color appBarFg,
     required Color unselectedNavColor,
   }) {
     return ThemeData(
@@ -204,7 +213,7 @@ class AppTheme {
       scaffoldBackgroundColor: scaffoldBg,
       appBarTheme: AppBarTheme(
         backgroundColor:    appBarBg,
-        foregroundColor:    textColor,
+        foregroundColor:    appBarFg,
         elevation:          0,
         surfaceTintColor:   Colors.transparent,
         centerTitle:        false,
@@ -212,7 +221,7 @@ class AppTheme {
         titleTextStyle: GoogleFonts.inter(
           fontSize:   18,
           fontWeight: FontWeight.w700,
-          color:      textColor,
+          color:      appBarFg,
         ),
       ),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(

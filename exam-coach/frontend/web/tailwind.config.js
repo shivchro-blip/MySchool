@@ -19,7 +19,18 @@ export default {
         'soft-in-out': 'cubic-bezier(0.4, 0.0, 0.2, 1)',
       },
       colors: {
-        /* ── PAPER theme tokens ─────────────────────────────── */
+        /* ── Canonical tokens ───────────────────────────────── */
+        'page-bg':    'var(--page-bg)',
+        surface: {
+          DEFAULT: 'var(--surface)',
+          alt:     'var(--surface-alt)',
+        },
+        tip: {
+          bg:     'var(--tip-bg)',
+          border: 'var(--tip-border)',
+          text:   'var(--tip-text)',
+        },
+        /* ── PAPER aliases (keep for existing components) ───── */
         bg: {
           DEFAULT: 'var(--bg)',
           canvas:  'var(--bg-canvas)',
@@ -51,20 +62,26 @@ export default {
         ai:          'var(--ai)',
         'ai-soft':   'var(--ai-soft)',
         brand: {
+          DEFAULT:           'var(--brand)',
+          deep:              'var(--brand-deep)',
+          strong:            'var(--brand-strong)',
           teal:              'var(--brand-teal)',
           'teal-soft':       'var(--brand-teal-soft)',
           'teal-soft-hover': 'var(--brand-teal-soft-hover)',
           'teal-hover':      'var(--brand-teal-hover)',
         },
-        /* ── design-token foundation (pass 1) ─────────────── */
+        /* ── Text + border token utilities ──────────────────── */
         border: {
-          soft:   'var(--border-soft)',
-          strong: 'var(--border-strong)',
+          DEFAULT: 'var(--border)',
+          soft:    'var(--border-soft)',
+          strong:  'var(--border-strong)',
         },
         text: {
-          primary: 'var(--text-primary)',
-          muted:   'var(--text-muted)',
-          faint:   'var(--text-faint)',
+          primary:   'var(--text-primary)',
+          secondary: 'var(--text-secondary)',
+          tertiary:  'var(--text-tertiary)',
+          muted:     'var(--text-muted)',
+          faint:     'var(--text-faint)',
         },
       },
       borderRadius: {
