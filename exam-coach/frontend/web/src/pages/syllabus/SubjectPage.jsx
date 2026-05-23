@@ -3,6 +3,8 @@ import { useParams, useNavigate, Navigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronRight, BookOpen, MessageCircle, LayoutGrid } from 'lucide-react'
 import { getSubject, getCategoryList, SYLLABUS } from '../../data/syllabus'
+import registry from '../../content/registry'
+import practiceRegistry from '../../content/practiceRegistry'
 import { getCachedProfile } from '../../api/users'
 import { getAllowedYearKey, isSubjectAllowed } from '../../lib/userAccess'
 import { buildBreadcrumbs } from '../../lib/nav'
@@ -11,7 +13,7 @@ import { Breadcrumb } from '../../components/nav'
 import NotFound from './NotFound'
 import FinalExamPrepEntryCard from './FinalExamPrepEntryCard'
 
-const UNIT_STYLE = { color: '#1B4B82', light: 'var(--accent-soft)' }
+const UNIT_STYLE = { color: 'var(--lesson-accent)', light: 'var(--lesson-accent-soft)' }
 
 const TYPE_ICON = {
   prose:         (color) => <BookOpen    size={16} strokeWidth={1.8} style={{ color }} />,
@@ -30,7 +32,7 @@ function LessonRow({ lesson, unit, year, subject }) {
       onMouseLeave={() => setHov(false)}
       className="flex items-center gap-3.5 px-[18px] py-[13px]"
       style={{
-        borderTop: `1px solid ${UNIT_STYLE.color}33`,
+        borderTop: '1px solid var(--lesson-accent-a20)',
         background: hov ? UNIT_STYLE.light : 'transparent',
         transition: 'background 0.15s',
       }}
@@ -38,7 +40,7 @@ function LessonRow({ lesson, unit, year, subject }) {
       {/* Icon */}
       <div
         className="w-[34px] h-[34px] rounded-[9px] flex items-center justify-center shrink-0"
-        style={{ background: UNIT_STYLE.light, border: `1px solid ${UNIT_STYLE.color}55` }}
+        style={{ background: UNIT_STYLE.light, border: '1px solid var(--lesson-accent-a33)' }}
       >
         {TYPE_ICON[lesson.tag]?.(UNIT_STYLE.color)}
       </div>
@@ -70,7 +72,7 @@ function LessonRow({ lesson, unit, year, subject }) {
           style={{
             border: `1.5px solid ${UNIT_STYLE.color}`,
             color: UNIT_STYLE.color,
-            background: 'var(--bg-2)',
+            background: 'var(--surface-alt)',
           }}
         >
           Practice
@@ -89,12 +91,13 @@ function UnitCard({ unit, isOpen, onToggle, year, subject }) {
       style={{
         borderRadius: 18,
         overflow: 'hidden',
-        background: 'var(--bg-2)',
-        border: `1.5px solid ${isOpen ? UNIT_STYLE.color : hov ? UNIT_STYLE.color + '77' : 'var(--line)'}`,
+        background: 'var(--surface-alt)',
+        border: `1.5px solid ${isOpen ? 'var(--lesson-accent)' : hov ? 'var(--lesson-accent-a47)' : 'var(--line)'}`,
         boxShadow: isOpen
-          ? `0 8px 32px ${UNIT_STYLE.color}18`
-          : hov ? `0 4px 16px ${UNIT_STYLE.color}12` : '0 1px 4px rgba(0,0,0,0.04)',
+          ? '0 8px 32px var(--lesson-accent-a10)'
+          : hov ? '0 4px 16px var(--lesson-accent-a07)' : '0 1px 4px rgba(0,0,0,0.04)',
         transition: 'border-color 0.2s, box-shadow 0.2s',
+        gridColumn: isOpen ? '1 / -1' : 'auto',
       }}
     >
       {/* Header */}
@@ -104,14 +107,14 @@ function UnitCard({ unit, isOpen, onToggle, year, subject }) {
         onMouseLeave={() => setHov(false)}
         className="flex items-center gap-4 px-[22px] py-[18px] cursor-pointer"
         style={{
-          background: isOpen ? UNIT_STYLE.light : 'var(--bg-2)',
+          background: isOpen ? UNIT_STYLE.light : 'var(--surface-alt)',
           transition: 'background 0.2s',
         }}
       >
         {/* Number badge */}
         <div
           className="w-[46px] h-[46px] rounded-[13px] flex items-center justify-center shrink-0"
-          style={{ background: 'var(--brand-teal)', boxShadow: '0 3px 10px #2A7B6F44' }}
+          style={{ background: 'var(--lesson-accent)', boxShadow: '0 3px 10px var(--lesson-accent-a27)' }}
         >
           <span className="text-white font-extrabold text-[15px] tracking-tight">
             {unit.id}
@@ -183,9 +186,9 @@ function ExamPapersCard({ year }) {
       className="px-5 py-4 sm:px-6 sm:py-5 mb-3"
       style={{
         borderRadius: 18,
-        background: 'color-mix(in srgb, var(--brand-blue) 6%, var(--bg-2))',
-        border: `1.5px solid ${UNIT_STYLE.color}${hov ? '55' : '22'}`,
-        boxShadow: hov ? `0 6px 24px ${UNIT_STYLE.color}18` : `0 2px 8px ${UNIT_STYLE.color}0a`,
+        background: 'color-mix(in srgb, var(--brand-blue) 6%, var(--surface-alt))',
+        border: `1.5px solid ${hov ? 'var(--lesson-accent-a33)' : 'var(--lesson-accent-a13)'}`,
+        boxShadow: hov ? '0 6px 24px var(--lesson-accent-a10)' : '0 2px 8px var(--lesson-accent-a07)',
         transition: 'border-color 0.2s, box-shadow 0.2s',
       }}
       onMouseEnter={() => setHov(true)}
@@ -194,15 +197,15 @@ function ExamPapersCard({ year }) {
       <span
         className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-semibold mb-2"
         style={{
-          border: `1.5px solid ${UNIT_STYLE.color}66`,
-          color: UNIT_STYLE.color,
-          background: 'color-mix(in srgb, var(--brand-blue) 8%, var(--bg-2))',
+          border: '1.5px solid var(--lesson-accent-a40)',
+          color: 'var(--lesson-accent)',
+          background: 'color-mix(in srgb, var(--brand-blue) 8%, var(--surface-alt))',
         }}
       >
         Previous Year Papers
       </span>
 
-      <p className="text-base font-bold leading-snug mb-1" style={{ color: UNIT_STYLE.color }}>
+      <p className="text-base font-bold leading-snug mb-1" style={{ color: 'var(--lesson-accent)' }}>
         Practice with Real Exam Papers
       </p>
       <p className="text-xs leading-relaxed mb-3 max-w-[440px]" style={{ color: 'var(--ink-2)' }}>
@@ -215,12 +218,101 @@ function ExamPapersCard({ year }) {
             key={ey}
             onClick={() => navigate(`/${year}/english/exam/${ey}`)}
             className="px-4 py-1.5 rounded-[14px] text-sm font-semibold transition-opacity"
-            style={{ background: UNIT_STYLE.color, color: '#fff', opacity: hov ? 1 : 0.88 }}
+            style={ey === '2025'
+              ? { background: 'var(--lesson-accent)', color: '#fff', opacity: hov ? 1 : 0.88 }
+              : { background: 'transparent', color: 'var(--lesson-accent)', border: '1.5px solid var(--lesson-accent-a47)', opacity: hov ? 1 : 0.88 }
+            }
           >
             {ey}
           </button>
         ))}
       </div>
+    </div>
+  )
+}
+
+// ── Chapter row for Maths ─────────────────────────────────────────────────────
+function ChapterRow({ chapter, year, subject, hasLearn, hasPractice }) {
+  const navigate = useNavigate()
+  const [hov, setHov] = useState(false)
+
+  return (
+    <div
+      onMouseEnter={() => setHov(true)}
+      onMouseLeave={() => setHov(false)}
+      className="flex items-center gap-3.5 px-[18px] py-[13px]"
+      style={{
+        borderTop: '1px solid var(--lesson-accent-a20)',
+        background: hov ? UNIT_STYLE.light : 'transparent',
+        transition: 'background 0.15s',
+      }}
+    >
+      {/* Number badge */}
+      <div
+        className="w-[34px] h-[34px] rounded-[9px] flex items-center justify-center shrink-0 text-[13px] font-extrabold"
+        style={{ background: UNIT_STYLE.light, border: '1px solid var(--lesson-accent-a33)', color: 'var(--lesson-accent)' }}
+      >
+        {chapter.number}
+      </div>
+
+      {/* Label + title */}
+      <div className="flex-1 min-w-0">
+        <p className="text-[12px] font-semibold tracking-[0.08em] uppercase mb-0.5 syllabus-lesson-type">
+          Mathematics
+        </p>
+        <p className="text-sm font-semibold text-ink leading-snug">
+          {chapter.title}
+        </p>
+      </div>
+
+      {/* Learn / Practice buttons */}
+      <div className="flex gap-1.5 shrink-0">
+        <button
+          onClick={() => hasLearn && navigate(`/courses/${year}/${subject}/${chapter.slug}`)}
+          disabled={!hasLearn}
+          className="px-3.5 py-1.5 rounded-[14px] text-white text-xs font-semibold transition-opacity"
+          style={{
+            background: UNIT_STYLE.color,
+            opacity: hasLearn ? (hov ? 1 : 0.88) : 0.35,
+            cursor: hasLearn ? 'pointer' : 'not-allowed',
+          }}
+        >
+          Learn
+        </button>
+        <button
+          onClick={() => hasPractice && navigate(`/courses/${year}/${subject}/${chapter.slug}/practice`)}
+          disabled={!hasPractice}
+          className="px-3.5 py-1.5 rounded-[14px] text-xs font-semibold"
+          style={{
+            border: `1.5px solid ${hasPractice ? UNIT_STYLE.color : 'var(--line)'}`,
+            color: hasPractice ? UNIT_STYLE.color : 'var(--ink-4)',
+            background: 'var(--surface-alt)',
+            opacity: hasPractice ? 1 : 0.45,
+            cursor: hasPractice ? 'pointer' : 'not-allowed',
+          }}
+        >
+          Practice
+        </button>
+      </div>
+    </div>
+  )
+}
+
+// ── Volume divider ────────────────────────────────────────────────────────────
+function VolumeDivider({ label }) {
+  return (
+    <div
+      className="flex items-center gap-3 px-[18px] py-[9px]"
+      style={{ borderTop: '1px solid var(--lesson-accent-a20)' }}
+    >
+      <div className="flex-1 h-px" style={{ background: 'var(--line)' }} />
+      <span
+        className="text-[11px] font-semibold tracking-[0.1em] uppercase"
+        style={{ color: 'var(--ink-4)', whiteSpace: 'nowrap' }}
+      >
+        {label}
+      </span>
+      <div className="flex-1 h-px" style={{ background: 'var(--line)' }} />
     </div>
   )
 }
@@ -268,7 +360,7 @@ export default function SubjectPage() {
         />
 
         {subject === 'english' && (year === 'plus1' || year === 'plus2') && (
-          <div className="max-w-[680px]">
+          <div>
             <FinalExamPrepEntryCard
               dest={`/${year}/english/final-exam-prep`}
               classLabel={year === 'plus2' ? 'Class 12' : 'Class 11'}
@@ -277,7 +369,7 @@ export default function SubjectPage() {
           </div>
         )}
 
-        <div className="flex flex-col gap-3 max-w-[680px]">
+        <div className="unit-grid">
           {subjectData.units.map(unit => (
             <UnitCard
               key={unit.id}
@@ -286,6 +378,57 @@ export default function SubjectPage() {
               onToggle={() => setOpenUnit(prev => prev === unit.id ? null : unit.id)}
               year={year}
               subject={subject}
+            />
+          ))}
+        </div>
+      </div>
+    )
+  }
+
+  // ── Chapters layout (Maths) ──
+  if (subjectData.type === 'chapters') {
+    const chapters = subjectData.chapters ?? []
+    const vol1 = chapters.filter(c => c.volume === 1)
+    const vol2 = chapters.filter(c => c.volume === 2)
+
+    return (
+      <div>
+        <PageHeader
+          breadcrumb={<Breadcrumb crumbs={crumbs} />}
+          title={subjectData.label}
+          subtitle="Select a chapter to study"
+        />
+
+        <div
+          style={{
+            borderRadius: 18,
+            overflow: 'hidden',
+            background: 'var(--surface-alt)',
+            border: '1.5px solid var(--lesson-accent)',
+            boxShadow: '0 8px 32px var(--lesson-accent-a10)',
+          }}
+        >
+          <VolumeDivider label="Volume I" />
+          {vol1.map(ch => (
+            <ChapterRow
+              key={ch.slug}
+              chapter={ch}
+              year={year}
+              subject={subject}
+              hasLearn={!!registry[ch.slug]}
+              hasPractice={!!practiceRegistry[ch.slug]}
+            />
+          ))}
+
+          <VolumeDivider label="Volume II" />
+          {vol2.map(ch => (
+            <ChapterRow
+              key={ch.slug}
+              chapter={ch}
+              year={year}
+              subject={subject}
+              hasLearn={!!registry[ch.slug]}
+              hasPractice={!!practiceRegistry[ch.slug]}
             />
           ))}
         </div>

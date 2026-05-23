@@ -52,7 +52,7 @@ export default function ModelPaperListCard({ papers, basePath = '/plus1/english'
         <div className="px-5 py-3 border-t border-line-soft flex justify-center">
           <span
             className="inline-flex items-center px-3.5 py-1.5 rounded-pill text-[11px] font-medium text-brand-teal"
-            style={{ background: 'var(--brand-teal-soft)', border: '1px solid color-mix(in srgb, var(--brand-teal) 25%, transparent)' }}
+            style={{ background: 'var(--brand-teal-soft)', border: '1px solid color-mix(in srgb, var(--brand) 25%, transparent)' }}
           >
             AI-curated practice sets aligned with the latest exam pattern
           </span>

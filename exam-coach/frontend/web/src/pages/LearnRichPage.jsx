@@ -5,6 +5,7 @@ import practiceRegistry from '../content/practiceRegistry'
 import { Breadcrumb } from '../components/nav'
 import PageTitle from '../components/ui/PageTitle'
 import Eyebrow from '../components/ui/Eyebrow'
+import InfoCard, { InfoCardGrid } from '../components/ui/InfoCard'
 import ChapterPracticeExam from './ChapterPracticeExam'
 import AttemptHistorySection from './syllabus/sections/AttemptHistorySection'
 import { stripTabLabel } from '../utils/resolveTabIcon'
@@ -56,11 +57,20 @@ function adaptAllQuestions(practiceData) {
   return out
 }
 
-const STAT_COLOR = {
-  Education:       'var(--brand-teal)',
-  Career:          '#EF9F27',
-  Awards:          '#8B5CF6',
-  'Notable works': '#085041',
+
+function groupBlocks(blocks) {
+  const out = []
+  let i = 0
+  while (i < blocks.length) {
+    if (blocks[i].type === 'author-stat') {
+      const group = []
+      while (i < blocks.length && blocks[i].type === 'author-stat') group.push(blocks[i++])
+      out.push(group.length === 1 ? group[0] : { type: 'author-stat-group', items: group })
+    } else {
+      out.push(blocks[i++])
+    }
+  }
+  return out
 }
 
 function Block({ block, switchTab, chapterSlug, navigate, practiceUrl }) {
@@ -69,40 +79,33 @@ function Block({ block, switchTab, chapterSlug, navigate, practiceUrl }) {
     case 'teacher-voice':
       return (
         <div
-          className="
-            text-[14px] text-ink-2 leading-[1.9] mb-5
-            [&>p]:mb-3.5 [&>p:last-child]:mb-0
-            [&_strong]:text-ink [&_strong]:font-semibold
-          "
+          className="type-body mb-5 [&>p]:mb-5 [&>p:last-child]:mb-0 [&_strong]:font-semibold"
+          style={{ fontSize: 'var(--reading-px, 18px)', color: 'var(--text-primary)' }}
           dangerouslySetInnerHTML={{ __html: block.html }}
         />
       )
 
     case 'section-head':
       return (
-        <div className="mt-7 mb-4">
-          <h2 className="text-[15px] font-bold text-ink mb-2">{block.text}</h2>
-          <div className="h-[2px] w-8 rounded-full" style={{ background: 'var(--accent)' }} />
+        <div className="mt-12 mb-4">
+          <h2 className="type-heading-lg font-serif" style={{ color: 'var(--text-primary)', margin: '0 0 6px' }}>{block.text}</h2>
+          <div className="h-[3px] w-8 rounded-full" style={{ background: 'var(--brand)' }} />
         </div>
       )
 
     case 'think-box':
       return (
-        <div
-          className="px-4 py-3.5 my-4 rounded-xl"
-          style={{ background: 'var(--accent-soft)' }}
-        >
-          <Eyebrow style={{ color: 'var(--accent)', marginBottom: 8 }}>{block.label}</Eyebrow>
-          <p className="text-[13px] text-ink-2 leading-[1.85]">{block.text}</p>
-        </div>
+        <InfoCard label={block.label} className="my-4">
+          {block.text}
+        </InfoCard>
       )
 
     case 'quote-block':
       return (
-        <div className="bg-bg-2 border border-line rounded-2xl px-5 py-4 my-4">
+        <div className="my-6">
           <p
-            className="text-[15px] italic leading-[1.7] mb-3 pl-3.5 border-l-2 text-ink"
-            style={{ borderLeftColor: 'var(--accent)' }}
+            className="font-serif italic text-[18px] leading-[1.5] pl-4 border-l-[3px] mb-3"
+            style={{ borderLeftColor: 'var(--brand)', color: 'var(--text-primary)' }}
           >
             {block.quote}
           </p>
@@ -110,18 +113,23 @@ function Block({ block, switchTab, chapterSlug, navigate, practiceUrl }) {
         </div>
       )
 
-    case 'author-stat': {
-      const color = STAT_COLOR[block.label] || 'var(--accent)'
+    case 'author-stat':
       return (
-        <div
-          className="px-4 py-3 mb-2.5 rounded-xl"
-          style={{ background: color + '1e' }}
-        >
-          <Eyebrow style={{ color, marginBottom: 6 }}>{block.label}</Eyebrow>
-          <p className="text-[13px] text-ink-2 leading-[1.7]">{block.value}</p>
-        </div>
+        <InfoCard label={block.label} className="mb-2.5">
+          {block.value}
+        </InfoCard>
       )
-    }
+
+    case 'author-stat-group':
+      return (
+        <InfoCardGrid>
+          {block.items.map((item, i) => (
+            <InfoCard key={i} label={item.label}>
+              {item.value}
+            </InfoCard>
+          ))}
+        </InfoCardGrid>
+      )
 
     case 'device-block':
       return (
@@ -129,7 +137,7 @@ function Block({ block, switchTab, chapterSlug, navigate, practiceUrl }) {
           <Eyebrow style={{ color: 'var(--ink-4)', marginBottom: 6 }}>{block.kind}</Eyebrow>
           <p
             className="text-[13px] italic mb-2 leading-relaxed"
-            style={{ color: 'var(--accent)' }}
+            style={{ color: 'var(--brand)' }}
           >
             {block.line}
           </p>
@@ -142,7 +150,7 @@ function Block({ block, switchTab, chapterSlug, navigate, practiceUrl }) {
         <div className="grid grid-cols-[140px_1fr] max-sm:grid-cols-1 max-sm:gap-1 border-b border-line-soft py-3 last:border-0 items-start">
           <span
             className="text-[13px] font-semibold"
-            style={{ color: 'var(--accent)' }}
+            style={{ color: 'var(--brand)' }}
           >
             {block.word}
           </span>
@@ -172,9 +180,9 @@ function Block({ block, switchTab, chapterSlug, navigate, practiceUrl }) {
               onClick={() => switchTab('practice')}
               className="px-4 py-2 rounded-pill text-sm font-semibold text-white
                          transition-all duration-[var(--duration-fast)]"
-              style={{ background: 'var(--accent)' }}
+              style={{ background: 'var(--brand)' }}
               onMouseEnter={e => { e.currentTarget.style.background = 'var(--accent-ink)' }}
-              onMouseLeave={e => { e.currentTarget.style.background = 'var(--accent)' }}
+              onMouseLeave={e => { e.currentTarget.style.background = 'var(--brand)' }}
             >
               🔥 Practice
             </button>
@@ -184,7 +192,7 @@ function Block({ block, switchTab, chapterSlug, navigate, practiceUrl }) {
               onClick={() => switchTab(block.next)}
               className="px-4 py-2 rounded-pill text-sm font-semibold text-white
                          transition-all duration-[var(--duration-fast)] hover:opacity-90"
-              style={{ background: 'var(--accent)' }}
+              style={{ background: 'var(--brand)' }}
             >
               {block.nextLabel}
             </button>
@@ -248,7 +256,7 @@ function AskAIPanel({ chapterSlug }) {
   }
 
   return (
-    <div className="max-w-[680px] mx-auto">
+    <div>
       <div className="bg-bg-2 border border-line rounded-2xl p-4">
         <div
           ref={listRef}
@@ -258,13 +266,13 @@ function AskAIPanel({ chapterSlug }) {
           {messages.map((msg, i) => (
             <div key={i} className={`flex flex-col ${msg.role === 'user' ? 'items-end' : 'items-start'}`}>
               {msg.role === 'ai' && (
-                <Eyebrow style={{ color: 'var(--accent)', marginBottom: 4 }}>AI TUTOR</Eyebrow>
+                <Eyebrow style={{ color: 'var(--brand)', marginBottom: 4 }}>AI TUTOR</Eyebrow>
               )}
               <div
                 className="max-w-[82%] text-[13px] leading-relaxed px-3.5 py-2.5"
                 style={{
-                  background: msg.role === 'user' ? 'var(--accent)' : 'var(--bg)',
-                  color: msg.role === 'user' ? '#fff' : 'var(--ink)',
+                  background: msg.role === 'user' ? 'var(--brand)' : 'var(--page-bg)',
+                  color: msg.role === 'user' ? '#fff' : 'var(--text-primary)',
                   borderRadius: msg.role === 'user' ? '14px 14px 4px 14px' : '14px 14px 14px 4px',
                   border: msg.role === 'ai' ? '1px solid var(--line)' : 'none',
                 }}
@@ -287,9 +295,9 @@ function AskAIPanel({ chapterSlug }) {
                       </ul>
                     )}
                     {msg.examTip && (
-                      <p className="mt-2 text-[12px] italic" style={{ color: 'var(--accent)' }}>
-                        💡 {msg.examTip}
-                      </p>
+                      <InfoCard label="Exam tip" icon="💡" isTip={true} className="mt-2">
+                        {msg.examTip}
+                      </InfoCard>
                     )}
                   </>
                 )}
@@ -302,7 +310,7 @@ function AskAIPanel({ chapterSlug }) {
               <div
                 className="px-3.5 py-2.5 flex gap-1.5 items-center"
                 style={{
-                  background: 'var(--bg)',
+                  background: 'var(--page-bg)',
                   border: '1px solid var(--line)',
                   borderRadius: '14px 14px 14px 4px',
                 }}
@@ -333,7 +341,7 @@ function AskAIPanel({ chapterSlug }) {
             onClick={send}
             disabled={busy || !input.trim()}
             className="px-4 py-2 rounded-pill text-[13px] font-semibold text-white transition-all disabled:opacity-40 disabled:cursor-not-allowed whitespace-nowrap"
-            style={{ background: 'var(--accent)' }}
+            style={{ background: 'var(--brand)' }}
           >
             Ask
           </button>
@@ -393,6 +401,17 @@ export default function LearnRichPage({ content, chapterSlug }) {
     })
   }, [activeTab])
 
+  const menuRef = useRef(null)
+  const [menuOpen, setMenuOpen] = useState(false)
+  useEffect(() => {
+    if (!menuOpen) return
+    function handle(e) {
+      if (menuRef.current && !menuRef.current.contains(e.target)) setMenuOpen(false)
+    }
+    document.addEventListener('mousedown', handle)
+    return () => document.removeEventListener('mousedown', handle)
+  }, [menuOpen])
+
   function switchTab(id) {
     if (year && subject && category && lesson) {
       navigate(`/${year}/${subject}/${category}/${lesson}/${id}`)
@@ -413,6 +432,13 @@ export default function LearnRichPage({ content, chapterSlug }) {
         { label: content.eyebrow, to: null },
       ]
 
+  const activeTabIdx      = visibleTabs.findIndex(t => t.id === activeTab)
+  const nextTab           = visibleTabs[activeTabIdx + 1]
+  const tabIsLast         = activeTabIdx === visibleTabs.length - 1
+  const tabProgress       = ((activeTabIdx + 1) / visibleTabs.length) * 100
+  const nextTabLabel      = nextTab ? stripTabLabel(nextTab.label) : ''
+  const nextTabLabelShort = nextTabLabel.length > 12 ? nextTabLabel.slice(0, 12) + '…' : nextTabLabel
+
   return (
     <div>
       {/* Chapter header — white card */}
@@ -427,7 +453,7 @@ export default function LearnRichPage({ content, chapterSlug }) {
             <span
               key={p}
               className="text-[11px] font-medium px-2.5 py-0.5 rounded-full"
-              style={{ background: 'var(--bg-sunk)', color: 'var(--ink-2)' }}
+              style={{ background: 'var(--surface-alt)', color: 'var(--ink-2)' }}
             >
               {p}
             </span>
@@ -435,26 +461,80 @@ export default function LearnRichPage({ content, chapterSlug }) {
         </div>
       </div>
 
-      {/* Tab row — scrollable */}
-      <div className="scroll-strip mb-1">
-        {visibleTabs.map(tab => {
-          const isActive = activeTab === tab.id
-          const cleanLabel = stripTabLabel(tab.label)
-          return (
-            <button
-              key={tab.id}
-              ref={isActive ? activeTabRef : null}
-              onClick={() => switchTab(tab.id)}
-              className={`shrink-0 whitespace-nowrap px-3 py-2 rounded-[8px] text-[14px] transition-colors duration-[120ms] outline-none focus-visible:ring-2 focus-visible:ring-[rgba(42,123,111,0.30)] focus-visible:ring-offset-1
-                ${isActive
-                  ? 'bg-brand-teal text-white font-semibold shadow-[0_2px_8px_rgba(42,123,111,0.22)]'
-                  : 'bg-transparent text-text-muted font-medium hover:bg-brand-teal-soft hover:text-brand-teal'
-                }`}
-            >
-              {cleanLabel}
-            </button>
-          )
-        })}
+      {/* Three-zone sub-nav */}
+      <div className="flex items-center gap-2 mb-3 bg-surface border border-border rounded-sm px-3 py-2.5">
+        {/* Left — Contents dropdown */}
+        <div className="relative shrink-0" ref={menuRef}>
+          <button
+            onClick={() => setMenuOpen(o => !o)}
+            className="flex items-center gap-1 text-label text-text-secondary hover:text-text-primary transition-colors"
+          >
+            <span className="text-base leading-none">≡</span>
+            <span className="hidden sm:inline ml-0.5">Contents</span>
+            <span className="text-[9px] ml-0.5">{menuOpen ? '▴' : '▾'}</span>
+          </button>
+          {menuOpen && (
+            <div className="absolute left-0 top-full mt-1.5 z-50 bg-surface border border-border rounded-sm shadow-card-md min-w-[180px]">
+              {visibleTabs.map((tab, i) => {
+                const cleanLabel = stripTabLabel(tab.label)
+                const isActive   = tab.id === activeTab
+                return (
+                  <button
+                    key={tab.id}
+                    onClick={() => { setMenuOpen(false); switchTab(tab.id) }}
+                    className={`w-full text-left flex items-center gap-2 px-3 py-2 text-caption transition-colors
+                      ${isActive
+                        ? 'text-brand-strong font-semibold bg-surface-alt'
+                        : 'text-text-secondary hover:bg-surface-alt hover:text-text-primary'
+                      }`}
+                  >
+                    <span className="flex-1">{cleanLabel}</span>
+                    <span className="text-[10px] text-text-tertiary">{i + 1}</span>
+                  </button>
+                )
+              })}
+            </div>
+          )}
+        </div>
+
+        {/* Divider */}
+        <div className="w-px h-5 bg-border shrink-0" />
+
+        {/* Center — current tab + progress */}
+        <div className="flex-1 min-w-0">
+          <div className="flex items-baseline justify-between mb-1.5">
+            <span className="text-label text-text-primary truncate">
+              {stripTabLabel(visibleTabs[activeTabIdx]?.label ?? '')}
+            </span>
+            <span className="text-caption text-text-tertiary shrink-0 ml-2">
+              {activeTabIdx + 1} / {visibleTabs.length}
+            </span>
+          </div>
+          <div className="h-1 rounded-full bg-border overflow-hidden">
+            <div
+              className="h-full rounded-full bg-brand-strong transition-all duration-slow"
+              style={{ width: `${tabProgress}%` }}
+            />
+          </div>
+        </div>
+
+        {/* Divider */}
+        <div className="w-px h-5 bg-border shrink-0" />
+
+        {/* Right — Next or Complete */}
+        {tabIsLast ? (
+          <span className="shrink-0 text-label text-text-tertiary opacity-60 select-none">
+            Complete ✓
+          </span>
+        ) : (
+          <button
+            onClick={() => switchTab(nextTab.id)}
+            className="shrink-0 text-label text-brand-strong hover:opacity-75 transition-opacity"
+          >
+            <span className="sm:hidden">{nextTabLabelShort} →</span>
+            <span className="hidden sm:inline">Next: {nextTabLabel} →</span>
+          </button>
+        )}
       </div>
 
       {/* Panel content */}
@@ -465,14 +545,14 @@ export default function LearnRichPage({ content, chapterSlug }) {
           chapterSlug={chapterSlug}
         />
       ) : panel?.type === 'attempt-history' ? (
-        <div className="max-w-[680px] mx-auto">
+        <div>
           <AttemptHistorySection lessonSlug={lesson || chapterSlug} />
         </div>
       ) : panel?.type === 'askai' ? (
         <AskAIPanel chapterSlug={chapterSlug} />
       ) : (
-        <div className="max-w-[680px] mx-auto">
-          {panel?.blocks?.map((block, i) => (
+        <div className="reading-column">
+          {groupBlocks(panel?.blocks ?? []).map((block, i) => (
             <Block
               key={i}
               block={block}

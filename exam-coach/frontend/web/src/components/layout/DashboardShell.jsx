@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
-import { Search, LayoutGrid, BookOpen, TrendingUp, Award, Sun, Moon, LogOut } from 'lucide-react'
+import { Search, LayoutGrid, BookOpen, TrendingUp, MessageSquare, Sun, Moon, LogOut } from 'lucide-react'
 import BrandLogo from '../ui/BrandLogo'
 import DashboardSidebar from './DashboardSidebar'
 import { useTheme } from '../../hooks/useTheme'
@@ -8,13 +8,14 @@ import { logout } from '../../api/auth'
 import { getCachedProfile } from '../../api/users'
 
 // Active nav teal — no token exists in web Tailwind config for this shade
-const TEAL = '#2A7B6F'
+const TEAL = 'var(--brand)'
+const FONT_SIZES = [14, 16, 18]
 
 const BOTTOM_TABS = [
-  { id: 'dashboard',   label: 'Home',     icon: LayoutGrid, to: '/'            },
-  { id: 'courses',     label: 'Courses',  icon: BookOpen,   to: '/courses'     },
-  { id: 'progress',    label: 'Progress', icon: TrendingUp, to: '/progress'    },
-  { id: 'certificate', label: 'Certs',    icon: Award,      to: '/certificate' },
+  { id: 'dashboard', label: 'Home',     icon: LayoutGrid,    to: '/'         },
+  { id: 'courses',   label: 'Courses',  icon: BookOpen,      to: '/courses'  },
+  { id: 'progress',  label: 'Progress', icon: TrendingUp,    to: '/progress' },
+  { id: 'messages',  label: 'Messages', icon: MessageSquare, to: '/messages' },
 ]
 
 export default function DashboardShell({ children }) {
@@ -22,6 +23,21 @@ export default function DashboardShell({ children }) {
   const navigate = useNavigate()
   const { pathname } = useLocation()
   const [initial, setInitial] = useState('?')
+  const [fontIdx, setFontIdx] = useState(() => {
+    const stored = localStorage.getItem('ec-reading-font')
+    const idx = FONT_SIZES.indexOf(Number(stored))
+    return idx >= 0 ? idx : 1
+  })
+
+  const isLessonPage = pathname.split('/').filter(Boolean).length >= 4
+
+  function adjustFont(delta) {
+    setFontIdx(prev => {
+      const next = Math.max(0, Math.min(FONT_SIZES.length - 1, prev + delta))
+      localStorage.setItem('ec-reading-font', FONT_SIZES[next])
+      return next
+    })
+  }
 
   useEffect(() => {
     getCachedProfile().then(p => {
@@ -41,24 +57,24 @@ export default function DashboardShell({ children }) {
   }
 
   return (
-    <div style={{ display: 'flex', minHeight: '100vh', background: 'var(--bg)' }}>
+    <div style={{ display: 'flex', minHeight: '100vh', background: 'var(--page-bg)' }}>
 
-      {/* Desktop sidebar — always visible at ≥900px */}
+      {/* Desktop sidebar — always visible at ≥768px */}
       <div
-        className="hidden min-[900px]:flex"
-        style={{ flexShrink: 0, position: 'sticky', top: 0, height: '100vh', alignSelf: 'flex-start' }}
+        className="hidden min-[768px]:flex"
+        style={{ flexShrink: 0, position: 'sticky', top: 0, height: '100vh', alignSelf: 'flex-start', overflow: 'hidden' }}
       >
-        <DashboardSidebar />
+        <DashboardSidebar collapsed={isLessonPage} />
       </div>
 
       {/* Right side: header + content */}
-      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', minWidth: 0 }}>
+      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', minWidth: 0, '--reading-px': `${FONT_SIZES[fontIdx]}px` }}>
 
         {/* ── Header ──────────────────────────────────────────── */}
         <header style={{
           height: 58,
-          background: 'var(--bg-2)',
-          borderBottom: '1px solid var(--line-soft)',
+          background: 'var(--chrome-bg)',
+          borderBottom: '0.5px solid var(--chrome-line)',
           display: 'flex',
           alignItems: 'center',
           padding: '0 16px',
@@ -70,17 +86,17 @@ export default function DashboardShell({ children }) {
         }}>
 
           {/* Mobile: brand icon + name */}
-          <div className="flex min-[900px]:hidden" style={{ alignItems: 'center', gap: 8, flexShrink: 0 }}>
+          <div className="flex min-[768px]:hidden" style={{ alignItems: 'center', gap: 8, flexShrink: 0 }}>
             <BrandLogo height={34} variant="compact" />
-            <span style={{ fontSize: 14, fontWeight: 700, color: 'var(--ink)', letterSpacing: '-0.01em' }}>
+            <span className="text-label font-bold" style={{ color: 'var(--chrome-ink)', letterSpacing: '-0.01em' }}>
               Exam Coach
             </span>
           </div>
 
           {/* Desktop: plain wordmark (sidebar already shows logo) */}
-          <span className="hidden min-[900px]:block" style={{ fontSize: 13, fontWeight: 700, color: 'var(--ink)', letterSpacing: '-0.01em' }}>
+          <span className="hidden min-[768px]:block text-label font-bold" style={{ color: 'var(--chrome-ink)', letterSpacing: '-0.01em' }}>
             Exam Coach
-            <span style={{ fontWeight: 400, color: 'var(--ink-4)', marginLeft: 6, fontSize: 11 }}>TN Board</span>
+            <span className="text-caption font-normal" style={{ color: 'var(--chrome-ink-faint)', marginLeft: 6 }}>TN Board</span>
           </span>
 
           {/* Spacer */}
@@ -89,12 +105,43 @@ export default function DashboardShell({ children }) {
           {/* Search — hidden on mobile */}
           <div className="hidden min-[640px]:flex" style={{
             alignItems: 'center', gap: 8,
-            background: 'var(--bg-sunk)', borderRadius: 10, padding: '7px 12px',
-            fontSize: 13, color: 'var(--ink-4)',
+            background: 'var(--chrome-hover)', borderRadius: 10, padding: '7px 12px',
+            fontSize: 13, color: 'var(--chrome-ink-faint)',
           }}>
-            <Search size={14} style={{ color: 'var(--ink-4)' }} />
+            <Search size={14} style={{ color: 'var(--chrome-ink-faint)' }} />
             <span>Search...</span>
           </div>
+
+          {/* A−/A+ font size toggles — shown only on lesson pages */}
+          {isLessonPage && (
+            <>
+              <button
+                onClick={() => adjustFont(-1)}
+                disabled={fontIdx === 0}
+                title="Decrease font size"
+                style={{
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  background: 'var(--chrome-hover)', border: '1px solid var(--chrome-line)',
+                  borderRadius: 8, padding: '5px 9px', cursor: fontIdx === 0 ? 'not-allowed' : 'pointer',
+                  color: fontIdx === 0 ? 'var(--chrome-ink-faint)' : 'var(--chrome-ink-dim)',
+                  fontSize: 12, fontWeight: 600, opacity: fontIdx === 0 ? 0.5 : 1, flexShrink: 0,
+                }}
+              >A−</button>
+              <button
+                onClick={() => adjustFont(1)}
+                disabled={fontIdx === FONT_SIZES.length - 1}
+                title="Increase font size"
+                style={{
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  background: 'var(--chrome-hover)', border: '1px solid var(--chrome-line)',
+                  borderRadius: 8, padding: '5px 9px',
+                  cursor: fontIdx === FONT_SIZES.length - 1 ? 'not-allowed' : 'pointer',
+                  color: fontIdx === FONT_SIZES.length - 1 ? 'var(--chrome-ink-faint)' : 'var(--chrome-ink-dim)',
+                  fontSize: 12, fontWeight: 600, opacity: fontIdx === FONT_SIZES.length - 1 ? 0.5 : 1, flexShrink: 0,
+                }}
+              >A+</button>
+            </>
+          )}
 
           {/* Theme toggle — neutral pill.
               Same style in both modes; only icon + label change. */}
@@ -104,12 +151,12 @@ export default function DashboardShell({ children }) {
               display: 'flex',
               alignItems: 'center',
               gap: 6,
-              background: 'var(--bg-sunk)',
-              border: '1px solid var(--line)',
+              background: 'var(--chrome-hover)',
+              border: '1px solid var(--chrome-line)',
               borderRadius: 100,
               padding: '6px 12px',
               cursor: 'pointer',
-              color: 'var(--ink-2)',
+              color: 'var(--chrome-ink-dim)',
               whiteSpace: 'nowrap',
               flexShrink: 0,
               transition: 'background 150ms ease',
@@ -132,7 +179,7 @@ export default function DashboardShell({ children }) {
           {/* Logout — mobile only; desktop uses sidebar */}
           <button
             onClick={handleLogout}
-            className="flex min-[900px]:hidden"
+            className="flex min-[768px]:hidden"
             title="Log out"
             style={{
               background: 'none', border: 'none', cursor: 'pointer',
@@ -140,7 +187,7 @@ export default function DashboardShell({ children }) {
               justifyContent: 'center', minWidth: 36, minHeight: 36,
             }}
           >
-            <LogOut size={18} style={{ color: 'var(--ink-3)' }} />
+            <LogOut size={18} style={{ color: 'var(--chrome-ink-dim)' }} />
           </button>
 
           {/* Avatar */}
@@ -167,14 +214,14 @@ export default function DashboardShell({ children }) {
           </div>
         </main>
 
-        {/* Mobile bottom tab bar — hidden on desktop (≥900px).
+        {/* Mobile bottom tab bar — hidden on desktop (≥768px).
             display must live in className, not inline style — inline overrides Tailwind. */}
         <nav
-          className="flex min-[900px]:hidden"
+          className="flex min-[768px]:hidden"
           style={{
             position: 'fixed', bottom: 0, left: 0, right: 0,
             height: 64,
-            background: 'var(--bg-2)',
+            background: 'var(--surface-alt)',
             borderTop: '0.5px solid var(--line)',
             zIndex: 30,
           }}

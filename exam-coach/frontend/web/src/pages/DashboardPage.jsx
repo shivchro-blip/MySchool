@@ -61,11 +61,7 @@ export default function DashboardPage() {
     profileLoaded && profile?.class_level && filteredEntries.length === 0
 
   return (
-    <div style={{
-      maxWidth: 1040,
-      margin: '0 auto',
-      padding: 'clamp(24px, 4vw, 40px) clamp(20px, 3vw, 32px) 96px',
-    }}>
+    <div style={{ padding: '16px 20px 96px' }}>
 
       {/* ── Hero ─────────────────────────────────────────────── */}
       <div style={{ marginBottom: 32, paddingBottom: 32, borderBottom: '1px solid var(--line)' }}>
@@ -90,7 +86,7 @@ export default function DashboardPage() {
             border: '1px solid var(--line)',
             borderRadius: 14,
             overflow: 'hidden',
-            background: 'var(--bg-2)',
+            background: 'var(--surface-alt)',
           }}>
             {filteredEntries.map(([yearKey, yearData], idx, arr) => {
               const info = YEAR_INFO[yearKey]
@@ -112,7 +108,7 @@ export default function DashboardPage() {
                       textAlign: 'left',
                       transition: 'background 150ms ease',
                     }}
-                    onMouseEnter={e => e.currentTarget.style.background = 'var(--bg-sunk)'}
+                    onMouseEnter={e => e.currentTarget.style.background = 'var(--surface-alt)'}
                     onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
                   >
                     {/* Year badge */}
@@ -130,7 +126,7 @@ export default function DashboardPage() {
 
                     {/* Info */}
                     <div style={{ flex: 1, minWidth: 0 }}>
-                      <div style={{ fontSize: 14, fontWeight: 600, color: 'var(--ink)', marginBottom: 3 }}>
+                      <div style={{ fontSize: 14, fontWeight: 600, color: 'var(--text-primary)', marginBottom: 3 }}>
                         {info.title}
                       </div>
                       <div style={{ fontSize: 12, color: 'var(--ink-4)' }}>

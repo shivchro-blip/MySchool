@@ -85,7 +85,7 @@ function ClassPicker({ classLevel, setClassLevel, onNext }) {
               <GraduationCap
                 size={22}
                 className="mb-3"
-                style={{ color: sel ? cls.color : 'var(--text-muted)' }}
+                style={{ color: sel ? cls.color : 'var(--text-secondary)' }}
               />
               <div className="font-semibold text-sm text-text-primary">{cls.label}</div>
               <div className="text-xs text-text-muted mt-0.5">{cls.sub}</div>
@@ -180,7 +180,7 @@ function SuccessScreen({ classLevel, subjects, onDone }) {
         className="w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6"
         style={{ background: 'var(--brand-teal-soft)' }}
       >
-        <Check size={40} style={{ color: 'var(--brand-teal)' }} strokeWidth={2.5} />
+        <Check size={40} style={{ color: 'var(--brand)' }} strokeWidth={2.5} />
       </div>
 
       <h1 className="text-2xl font-bold text-text-primary mb-2">You're all set!</h1>

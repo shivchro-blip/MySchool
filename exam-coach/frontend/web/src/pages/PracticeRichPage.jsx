@@ -60,10 +60,10 @@ function McqPart({ part, done, score, onAnswer }) {
 
                 <div className="grid grid-cols-2 max-sm:grid-cols-1 gap-2 mb-3">
                   {q.options.map((opt, i) => {
-                    let bg = 'var(--bg-sunk)', borderColor = 'var(--line)', color = 'var(--ink-2)', weight = 400
+                    let bg = 'var(--surface-alt)', borderColor = 'var(--line)', color = 'var(--ink-2)', weight = 400
                     if (answered) {
                       if (i === correct) {
-                        bg = 'var(--good-soft)'; borderColor = 'var(--good)'; color = 'var(--good-ink)'; weight = 600
+                        bg = 'var(--good-soft)'; borderColor = 'var(--good)'; color = 'var(--text-primary)'; weight = 600
                       } else if (i === chosen) {
                         bg = 'rgba(176,58,48,0.08)'; borderColor = 'rgba(176,58,48,0.5)'; color = 'var(--danger)'
                       }
@@ -91,7 +91,7 @@ function McqPart({ part, done, score, onAnswer }) {
 
                 {answered && (
                   <p className="text-[12px] text-ink-3 leading-[1.6] pt-2.5 border-t border-line-soft">
-                    <strong style={{ color: chosen === correct ? 'var(--good-ink)' : 'var(--danger)' }}>
+                    <strong style={{ color: chosen === correct ? 'var(--text-primary)' : 'var(--danger)' }}>
                       {chosen === correct ? '✓ Correct.' : '✗ Incorrect.'}
                     </strong>{' '}
                     {q.hint}
@@ -128,7 +128,7 @@ function ReferencePart({ part, cur, onNav, revealed, onToggle, answers, onAnswer
         {/* Verse */}
         <div
           className="px-4 py-3 rounded-xl text-[14px] italic text-ink leading-[1.8] mb-4"
-          style={{ background: 'var(--bg-sunk)' }}
+          style={{ background: 'var(--surface-alt)' }}
         >
           {q.verse}
         </div>
@@ -176,7 +176,7 @@ function ReferencePart({ part, cur, onNav, revealed, onToggle, answers, onAnswer
           >
             <p
               className="text-[10px] font-bold tracking-[0.1em] uppercase mb-2"
-              style={{ color: 'var(--good-ink)' }}
+              style={{ color: 'var(--text-primary)' }}
             >
               Model answers
             </p>
@@ -282,7 +282,7 @@ function EssayPart({ part, answers, onAnswer, revealed, onToggle, onBlur, valida
             >
               <p
                 className="text-[10px] font-bold tracking-[0.1em] uppercase mb-2"
-                style={{ color: 'var(--good-ink)' }}
+                style={{ color: 'var(--text-primary)' }}
               >
                 Model answer
               </p>
@@ -874,12 +874,12 @@ export default function PracticeRichPage({ content, chapterSlug }) {
           className="flex items-start gap-3 rounded-xl px-5 py-4 mb-4 border"
           style={{ background: 'var(--good-soft)', borderColor: 'var(--good)' }}
         >
-          <CheckCircle size={18} style={{ color: 'var(--good-ink)', marginTop: 1, flexShrink: 0 }} />
+          <CheckCircle size={18} style={{ color: 'var(--text-primary)', marginTop: 1, flexShrink: 0 }} />
           <div>
-            <p className="text-[14px] font-semibold" style={{ color: 'var(--good-ink)' }}>
+            <p className="text-[14px] font-semibold" style={{ color: 'var(--text-primary)' }}>
               Practice submitted!
             </p>
-            <p className="text-[13px] mt-0.5" style={{ color: 'var(--good-ink)', opacity: 0.8 }}>
+            <p className="text-[13px] mt-0.5" style={{ color: 'var(--text-primary)', opacity: 0.8 }}>
               Review model answers above, then retake when you're ready.
             </p>
           </div>

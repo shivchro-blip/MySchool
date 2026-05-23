@@ -9,7 +9,7 @@ export default function PrivacyPage() {
       title="Privacy Policy"
       description="How TN Exam Coach collects, uses, and protects your personal information."
     >
-      <div style={{ color: 'var(--ink)', lineHeight: 1.7 }} className="prose-legal">
+      <div style={{ color: 'var(--text-primary)', lineHeight: 1.7 }} className="prose-legal">
         <p style={{ fontSize: 12, color: 'var(--ink-4)', marginBottom: 24 }}>
           Last updated: {LEGAL_LAST_UPDATED}
         </p>

@@ -16,7 +16,7 @@ const btnPrimary = {
 }
 
 const btnSecondary = {
-  background: 'var(--bg-sunk)',
+  background: 'var(--surface-alt)',
   color: 'var(--ink-2)',
   border: '1px solid var(--line)',
   borderRadius: 8,
@@ -53,7 +53,7 @@ export default function CookieBanner() {
       left: 0,
       right: 0,
       zIndex: 200,
-      background: 'var(--bg-2)',
+      background: 'var(--surface-alt)',
       borderTop: '1px solid var(--line)',
       padding: '16px 20px',
       display: 'flex',

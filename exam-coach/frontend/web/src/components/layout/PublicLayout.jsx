@@ -19,10 +19,10 @@ export default function PublicLayout({ children, title, description }) {
   }, [title, description])
 
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', background: 'var(--bg)' }}>
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', background: 'var(--page-bg)' }}>
       <header style={{
         height: 58,
-        background: 'var(--bg-2)',
+        background: 'var(--surface-alt)',
         borderBottom: '1px solid var(--line-soft)',
         display: 'flex',
         alignItems: 'center',
@@ -34,7 +34,7 @@ export default function PublicLayout({ children, title, description }) {
       }}>
         <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: 8, textDecoration: 'none' }}>
           <BrandLogo height={34} variant="compact" />
-          <span style={{ fontSize: 14, fontWeight: 700, color: 'var(--ink)', letterSpacing: '-0.01em' }}>
+          <span style={{ fontSize: 14, fontWeight: 700, color: 'var(--text-primary)', letterSpacing: '-0.01em' }}>
             Exam Coach
           </span>
         </Link>

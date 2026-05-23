@@ -28,7 +28,7 @@ export default function ContactPage() {
         display: 'flex',
         alignItems: 'center',
         gap: 12,
-        background: 'var(--bg-2)',
+        background: 'var(--surface-alt)',
         border: '1px solid var(--line-soft)',
         borderRadius: 12,
         padding: '14px 18px',
@@ -36,14 +36,14 @@ export default function ContactPage() {
       }}>
         <a
           href={`mailto:${CONTACT_EMAIL}`}
-          style={{ fontSize: 15, fontWeight: 600, color: 'var(--ink)', textDecoration: 'none', flex: 1 }}
+          style={{ fontSize: 15, fontWeight: 600, color: 'var(--text-primary)', textDecoration: 'none', flex: 1 }}
         >
           {CONTACT_EMAIL}
         </a>
         <button
           onClick={copyEmail}
           style={{
-            background: copied ? '#2A7B6F' : 'var(--bg-sunk)',
+            background: copied ? '#2A7B6F' : 'var(--surface-alt)',
             color: copied ? 'white' : 'var(--ink-2)',
             border: '1px solid var(--line)',
             borderRadius: 8,
@@ -59,7 +59,7 @@ export default function ContactPage() {
         </button>
       </div>
 
-      <h2 style={{ fontSize: 16, fontWeight: 600, color: 'var(--ink)', marginBottom: 8 }}>
+      <h2 style={{ fontSize: 16, fontWeight: 600, color: 'var(--text-primary)', marginBottom: 8 }}>
         Data deletion requests
       </h2>
       <p style={{ color: 'var(--ink-3)', lineHeight: 1.6, marginBottom: 24 }}>
@@ -68,7 +68,7 @@ export default function ContactPage() {
         with your account. We aim to respond within 30 days.
       </p>
 
-      <h2 style={{ fontSize: 16, fontWeight: 600, color: 'var(--ink)', marginBottom: 8 }}>
+      <h2 style={{ fontSize: 16, fontWeight: 600, color: 'var(--text-primary)', marginBottom: 8 }}>
         Response time
       </h2>
       <p style={{ color: 'var(--ink-3)', lineHeight: 1.6 }}>

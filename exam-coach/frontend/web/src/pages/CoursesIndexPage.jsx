@@ -34,7 +34,7 @@ export default function CoursesIndexPage() {
   )
 
   return (
-    <div style={{ maxWidth: 680, margin: '0 auto', padding: 'clamp(24px, 4vw, 48px) clamp(16px, 4vw, 32px) 96px' }}>
+    <div>
 
       <PageHeader
         eyebrow="Tamil Nadu State Board"
@@ -58,12 +58,12 @@ export default function CoursesIndexPage() {
                   width: '100%',
                   display: 'flex', alignItems: 'center', gap: 16,
                   padding: '20px 24px',
-                  background: 'var(--bg-2)',
+                  background: 'var(--surface-alt)',
                   border: 'none', cursor: 'pointer', textAlign: 'left',
                   transition: 'background 150ms ease',
                 }}
-                onMouseEnter={e => e.currentTarget.style.background = 'var(--bg-sunk)'}
-                onMouseLeave={e => e.currentTarget.style.background = 'var(--bg-2)'}
+                onMouseEnter={e => e.currentTarget.style.background = 'var(--surface-alt)'}
+                onMouseLeave={e => e.currentTarget.style.background = 'var(--surface-alt)'}
               >
                 {/* Year badge */}
                 <div style={{
@@ -78,7 +78,7 @@ export default function CoursesIndexPage() {
 
                 {/* Info */}
                 <div style={{ flex: 1, minWidth: 0 }}>
-                  <div style={{ fontSize: 14, fontWeight: 600, color: 'var(--ink)', marginBottom: 3 }}>
+                  <div style={{ fontSize: 14, fontWeight: 600, color: 'var(--text-primary)', marginBottom: 3 }}>
                     {cfg.subtitle}
                   </div>
                   <div style={{ fontSize: 12, color: 'var(--ink-4)' }}>
