@@ -50,7 +50,7 @@ function LessonRow({ lesson, unit, year, subject }) {
         >
           {lesson.type}
         </p>
-        <p className="text-sm font-semibold text-ink leading-snug truncate">
+        <p className="text-sm font-semibold text-text-primary leading-snug truncate">
           {lesson.title}
         </p>
       </div>
@@ -93,7 +93,7 @@ function UnitCard({ unit, isOpen, onToggle, year, subject }) {
         border: `1.5px solid ${isOpen ? UNIT_STYLE.color : hov ? UNIT_STYLE.color + '77' : 'var(--line)'}`,
         boxShadow: isOpen
           ? `0 8px 32px ${UNIT_STYLE.color}18`
-          : hov ? `0 4px 16px ${UNIT_STYLE.color}12` : '0 1px 4px rgba(0,0,0,0.04)',
+          : hov ? `0 4px 16px ${UNIT_STYLE.color}12` : 'var(--shadow-sm)',
         transition: 'border-color 0.2s, box-shadow 0.2s',
       }}
     >
@@ -120,7 +120,7 @@ function UnitCard({ unit, isOpen, onToggle, year, subject }) {
 
         {/* Title + type pills */}
         <div className="flex-1 min-w-0">
-          <p className="text-base font-bold text-ink mb-1.5">{unit.title}</p>
+          <p className="text-base font-bold text-text-primary mb-1.5">{unit.title}</p>
           <div className="flex gap-1.5 flex-wrap">
             {unit.lessons.map(l => (
               <span
@@ -205,7 +205,7 @@ function ExamPapersCard({ year }) {
       <p className="text-base font-bold leading-snug mb-1" style={{ color: UNIT_STYLE.color }}>
         Practice with Real Exam Papers
       </p>
-      <p className="text-xs leading-relaxed mb-3 max-w-[440px]" style={{ color: 'var(--ink-2)' }}>
+      <p className="text-xs leading-relaxed mb-3 max-w-[440px]" style={{ color: 'var(--text-secondary)' }}>
         Attempt full annual exam papers and get instant feedback on your answers.
       </p>
 
@@ -215,7 +215,7 @@ function ExamPapersCard({ year }) {
             key={ey}
             onClick={() => navigate(`/${year}/english/exam/${ey}`)}
             className="px-4 py-1.5 rounded-[14px] text-sm font-semibold transition-opacity"
-            style={{ background: UNIT_STYLE.color, color: '#fff', opacity: hov ? 1 : 0.88 }}
+            style={{ background: UNIT_STYLE.color, color: 'var(--surface)', opacity: hov ? 1 : 0.88 }}
           >
             {ey}
           </button>
@@ -316,8 +316,8 @@ export default function SubjectPage() {
               onClick={() => navigate(`/${year}/${subject}/${c.slug}`)}
             >
               <div className="text-3xl mb-3">{c.icon}</div>
-              <p className="font-semibold text-ink">{c.label}</p>
-              <p className="text-xs text-ink-4 mt-1">
+              <p className="font-semibold text-text-primary">{c.label}</p>
+              <p className="text-xs text-text-tertiary mt-1">
                 {c.lessons.length} lesson{c.lessons.length !== 1 ? 's' : ''}
               </p>
             </Card>

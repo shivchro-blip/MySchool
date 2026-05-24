@@ -30,7 +30,7 @@ export default function PracticeSection({ lessonSlug }) {
 
   return (
     <div className="space-y-2.5">
-      <p className="text-xs font-semibold text-ink-3 mb-3">
+      <p className="text-xs font-semibold text-text-secondary mb-3">
         Board exam questions for this lesson — sorted by marks
       </p>
 
@@ -39,11 +39,11 @@ export default function PracticeSection({ lessonSlug }) {
           <div className="flex items-start gap-3">
             <span className={`
               inline-flex px-2 py-0.5 rounded-full text-xs font-bold shrink-0
-              ${MARK_COLORS[q.marks] || 'bg-bg-sunk text-ink-2'}
+              ${MARK_COLORS[q.marks] || 'bg-surface-alt text-text-secondary'}
             `}>
               {q.marks}m
             </span>
-            <p className="flex-1 text-sm text-ink-2 leading-snug">
+            <p className="flex-1 text-sm text-text-secondary leading-snug">
               {q.text}
             </p>
             <Button

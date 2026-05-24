@@ -41,14 +41,14 @@ export default function LessonListPage() {
               onClick={() => navigate(`/${year}/${subject}/${category}/${lesson.slug}`)}
             >
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-lg bg-bg-sunk flex items-center
-                                justify-center text-xs font-bold text-ink-3 shrink-0">
+                <div className="w-8 h-8 rounded-lg bg-surface-alt flex items-center
+                                justify-center text-xs font-bold text-text-secondary shrink-0">
                   {i + 1}
                 </div>
-                <p className="flex-1 text-sm font-semibold text-ink leading-snug">
+                <p className="flex-1 text-sm font-semibold text-text-primary leading-snug">
                   {lesson.title}
                 </p>
-                <ChevronRight size={16} className="text-ink-4 shrink-0" />
+                <ChevronRight size={16} className="text-text-tertiary shrink-0" />
               </div>
             </Card>
           </motion.div>

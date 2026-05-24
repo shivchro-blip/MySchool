@@ -26,14 +26,14 @@ class McqOption extends StatelessWidget {
 
   Color _border(BuildContext ctx) => switch (state) {
     OptionState.resting   => AppTheme.borderOf(ctx),
-    OptionState.selected  => AppTheme.brand,
+    OptionState.selected  => AppTheme.brandOf(ctx),
     OptionState.correct   => AppTheme.successBorderOf(ctx),
     OptionState.incorrect => AppTheme.errorBorderOf(ctx),
   };
 
   Color _chipBg(BuildContext ctx) => switch (state) {
     OptionState.resting   => AppTheme.surfaceOf(ctx),
-    OptionState.selected  => AppTheme.brand,
+    OptionState.selected  => AppTheme.brandOf(ctx),
     OptionState.correct   => AppTheme.successFgOf(ctx),
     OptionState.incorrect => AppTheme.errorFgOf(ctx),
   };

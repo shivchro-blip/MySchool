@@ -59,19 +59,19 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-bg flex items-center justify-center px-4">
+    <div className="min-h-screen bg-page-bg flex items-center justify-center px-4">
       <div className="w-full max-w-sm">
 
         {/* Brand header */}
         <div className="text-center mb-8">
           <BrandLogo height={120} className="mx-auto mb-2" />
-          <p className="text-ink-3 text-sm mt-1">
+          <p className="text-text-secondary text-sm mt-1">
             Tamil Nadu +1 &amp; +2 Board Exam Prep
           </p>
         </div>
 
         {/* Card */}
-        <div className="bg-bg-2 rounded-2xl shadow-card border border-line-soft p-6">
+        <div className="bg-surface-alt rounded-2xl shadow-card border border-line-soft p-6">
 
           {/* Google sign-in */}
           <button
@@ -79,11 +79,11 @@ export default function LoginPage() {
             onClick={signInWithGoogle}
             disabled={loading}
             className="w-full flex items-center justify-center gap-2.5 mb-4
-                       py-2.5 px-4 rounded-full border border-line bg-bg-2
-                       text-sm font-semibold text-ink
-                       hover:bg-bg-sunk transition-colors
+                       py-2.5 px-4 rounded-full border border-line bg-surface-alt
+                       text-sm font-semibold text-text-primary
+                       hover:bg-surface-alt transition-colors
                        disabled:opacity-40 disabled:cursor-not-allowed
-                       focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                       focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2"
           >
             <svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true">
               <path fill="#FFC107" d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 12.955 4 4 12.955 4 24s8.955 20 20 20 20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z"/>
@@ -96,12 +96,12 @@ export default function LoginPage() {
 
           <div className="flex items-center gap-3 mb-4">
             <div className="flex-1 h-px bg-line-soft" />
-            <span className="text-xs text-ink-4 font-medium">or</span>
+            <span className="text-xs text-text-tertiary font-medium">or</span>
             <div className="flex-1 h-px bg-line-soft" />
           </div>
 
           {/* Tab switcher */}
-          <div className="flex rounded-xl bg-bg-sunk p-1 mb-5">
+          <div className="flex rounded-xl bg-surface-alt p-1 mb-5">
             {['login', 'signup'].map(m => (
               <button
                 key={m}
@@ -109,8 +109,8 @@ export default function LoginPage() {
                 className={`flex-1 py-1.5 rounded-lg text-sm font-medium
                             transition-all ${
                   mode === m
-                    ? 'bg-bg-2 text-ink shadow-sm'
-                    : 'text-ink-3 hover:text-ink-2'
+                    ? 'bg-surface-alt text-text-primary shadow-sm'
+                    : 'text-text-secondary hover:text-text-secondary'
                 }`}
               >
                 {m === 'login' ? 'Login' : 'Sign Up'}
@@ -120,7 +120,7 @@ export default function LoginPage() {
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-ink-2 mb-1.5">
+              <label className="block text-sm font-medium text-text-secondary mb-1.5">
                 Email
               </label>
               <Input
@@ -132,7 +132,7 @@ export default function LoginPage() {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-ink-2 mb-1.5">
+              <label className="block text-sm font-medium text-text-secondary mb-1.5">
                 Password
               </label>
               <Input
@@ -148,7 +148,7 @@ export default function LoginPage() {
             {mode === 'signup' && (
               <>
                 <div>
-                  <p className="text-sm font-medium text-ink-2 mb-2">Age confirmation</p>
+                  <p className="text-sm font-medium text-text-secondary mb-2">Age confirmation</p>
                   {[
                     { value: 'adult',              label: 'I am 18 years or older' },
                     { value: 'minor_with_consent', label: 'I am under 18, and my parent or guardian has agreed to my use of TN Exam Coach' },
@@ -162,7 +162,7 @@ export default function LoginPage() {
                         onChange={() => setAge(opt.value)}
                         className="mt-0.5 flex-shrink-0"
                       />
-                      <span className="text-sm text-ink-2">{opt.label}</span>
+                      <span className="text-sm text-text-secondary">{opt.label}</span>
                     </label>
                   ))}
                 </div>
@@ -173,7 +173,7 @@ export default function LoginPage() {
                     onChange={e => setConsent(e.target.checked)}
                     className="mt-0.5 flex-shrink-0"
                   />
-                  <span className="text-sm text-ink-2">
+                  <span className="text-sm text-text-secondary">
                     I agree to the{' '}
                     <a href="/privacy" target="_blank" rel="noopener noreferrer"
                        className="text-brand underline">Privacy Policy</a>
@@ -217,7 +217,7 @@ export default function LoginPage() {
           </form>
         </div>
 
-        <p className="text-center text-xs text-ink-4 mt-6">
+        <p className="text-center text-xs text-text-tertiary mt-6">
           Higher Secondary · Tamil Nadu State Board
         </p>
       </div>

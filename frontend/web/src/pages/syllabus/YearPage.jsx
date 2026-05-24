@@ -152,11 +152,11 @@ export default function YearPage() {
       />
 
       {subjectNotFound ? (
-        <p className="text-sm text-text-muted">
+        <p className="text-sm text-text-secondary">
           We couldn't find your subjects. Please update your settings.
         </p>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div className="unit-grid">
           {filteredSubjects.map((s, i) => (
             <motion.div
               key={s.slug}

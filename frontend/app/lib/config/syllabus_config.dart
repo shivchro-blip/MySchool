@@ -46,6 +46,19 @@ class UnitConfig {
   });
 }
 
+class MathsChapter {
+  final int    number;
+  final String title;
+  final String slug;
+  final int    volume;
+  const MathsChapter({
+    required this.number,
+    required this.title,
+    required this.slug,
+    required this.volume,
+  });
+}
+
 class SyllabusConfig {
   // Mirrors web/src/data/syllabus.js — single source of truth for subject list
   static const _subjects = [
@@ -306,11 +319,33 @@ class SyllabusConfig {
     ),
   ];
 
+  static const _plus1Maths = [
+    MathsChapter(number: 1,  title: 'Sets, Relations and Functions',                           slug: 'sets-relations-functions',              volume: 1),
+    MathsChapter(number: 2,  title: 'Basic Algebra',                                           slug: 'basic-algebra',                         volume: 1),
+    MathsChapter(number: 3,  title: 'Trigonometry',                                            slug: 'trigonometry',                          volume: 1),
+    MathsChapter(number: 4,  title: 'Combinatorics and Mathematical Induction',                slug: 'combinatorics-mathematical-induction',   volume: 1),
+    MathsChapter(number: 5,  title: 'Binomial Theorem, Sequences and Series',                  slug: 'binomial-theorem-sequences-series',      volume: 1),
+    MathsChapter(number: 6,  title: 'Two Dimensional Analytical Geometry',                     slug: 'two-dimensional-analytical-geometry',    volume: 1),
+    MathsChapter(number: 7,  title: 'Matrices and Determinants',                               slug: 'matrices-and-determinants',              volume: 2),
+    MathsChapter(number: 8,  title: 'Vector Algebra',                                          slug: 'vector-algebra',                        volume: 2),
+    MathsChapter(number: 9,  title: 'Differential Calculus – Limits and Continuity',           slug: 'differential-calculus-limits-continuity', volume: 2),
+    MathsChapter(number: 10, title: 'Differential Calculus – Differentiability and Methods',   slug: 'differential-calculus-differentiability', volume: 2),
+    MathsChapter(number: 11, title: 'Integral Calculus',                                       slug: 'integral-calculus',                     volume: 2),
+  ];
+
   static List<UnitConfig>? getUnits(String classLevel, String subjectSlug) {
     final key = '${classLevel.toLowerCase()}/${subjectSlug.toLowerCase()}';
     return switch (key) {
       '+1/english' => _plus1English,
       '+2/english' => _plus2English,
+      _ => null,
+    };
+  }
+
+  static List<MathsChapter>? getMathsChapters(String classLevel, String subjectSlug) {
+    final key = '${classLevel.toLowerCase()}/${subjectSlug.toLowerCase()}';
+    return switch (key) {
+      '+1/maths' => _plus1Maths,
       _ => null,
     };
   }

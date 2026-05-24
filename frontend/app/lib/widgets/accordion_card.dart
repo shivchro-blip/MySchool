@@ -38,8 +38,8 @@ class AccordionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final dark = AppTheme.isDark(context);
-    final borderColor  = open ? AppTheme.brand             : AppTheme.borderOf(context);
-    final chevronColor = open ? AppTheme.brand             : AppTheme.textMutedOf(context);
+    final borderColor  = open ? AppTheme.brandOf(context)  : AppTheme.borderOf(context);
+    final chevronColor = open ? AppTheme.brandOf(context)  : AppTheme.textMutedOf(context);
 
     return Container(
       decoration: BoxDecoration(
@@ -49,7 +49,7 @@ class AccordionCard extends StatelessWidget {
         boxShadow: open
             ? [
                 BoxShadow(
-                  color: AppTheme.brand.withValues(alpha: dark ? 0.15 : 0.08),
+                  color: AppTheme.brandOf(context).withValues(alpha: dark ? 0.15 : 0.08),
                   blurRadius: 24,
                   offset: const Offset(0, 4),
                 ),

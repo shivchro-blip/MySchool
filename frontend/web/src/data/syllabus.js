@@ -92,27 +92,20 @@ export const SYLLABUS = {
       maths: {
         label: 'Mathematics',
         slug: 'maths',
-        categories: {
-          algebra: {
-            label: 'Algebra',
-            slug: 'algebra',
-            icon: '🔢',
-            lessons: [
-              { slug: 'sets-and-functions', title: 'Sets and Functions' },
-              { slug: 'basic-algebra',      title: 'Basic Algebra'      },
-              { slug: 'trigonometry',       title: 'Trigonometry'       },
-            ],
-          },
-          calculus: {
-            label: 'Calculus',
-            slug: 'calculus',
-            icon: '📐',
-            lessons: [
-              { slug: 'differential-calculus', title: 'Differential Calculus' },
-              { slug: 'integral-calculus',     title: 'Integral Calculus'     },
-            ],
-          },
-        },
+        type: 'chapters',
+        chapters: [
+          { number: 1,  volume: 1, title: 'Sets, Relations and Functions',                         slug: 'sets-relations-functions'               },
+          { number: 2,  volume: 1, title: 'Basic Algebra',                                         slug: 'basic-algebra'                          },
+          { number: 3,  volume: 1, title: 'Trigonometry',                                          slug: 'trigonometry'                           },
+          { number: 4,  volume: 1, title: 'Combinatorics and Mathematical Induction',              slug: 'combinatorics-mathematical-induction'   },
+          { number: 5,  volume: 1, title: 'Binomial Theorem, Sequences and Series',                slug: 'binomial-theorem-sequences-series'      },
+          { number: 6,  volume: 1, title: 'Two Dimensional Analytical Geometry',                   slug: 'two-dimensional-analytical-geometry'    },
+          { number: 7,  volume: 2, title: 'Matrices and Determinants',                             slug: 'matrices-and-determinants'              },
+          { number: 8,  volume: 2, title: 'Vector Algebra',                                        slug: 'vector-algebra'                         },
+          { number: 9,  volume: 2, title: 'Differential Calculus – Limits and Continuity',         slug: 'differential-calculus-limits-continuity' },
+          { number: 10, volume: 2, title: 'Differential Calculus – Differentiability and Methods', slug: 'differential-calculus-differentiability' },
+          { number: 11, volume: 2, title: 'Integral Calculus',                                     slug: 'integral-calculus'                      },
+        ],
       },
       science: {
         label: 'Science',
@@ -273,8 +266,13 @@ export function getSubjectList(year) {
 
 export function getCategoryList(year, subject) {
   const s = getSubject(year, subject)
-  if (!s) return []
+  if (!s || !s.categories) return []
   return Object.entries(s.categories).map(([slug, data]) => ({ slug, ...data }))
+}
+
+export function getSubjectChapters(year, subject) {
+  const s = getSubject(year, subject)
+  return s?.chapters ?? []
 }
 
 export function getLessonList(year, subject, category) {

@@ -81,14 +81,14 @@ export default function CoursesIndexPage() {
                   <div style={{ fontSize: 14, fontWeight: 600, color: 'var(--ink)', marginBottom: 3 }}>
                     {cfg.subtitle}
                   </div>
-                  <div style={{ fontSize: 12, color: 'var(--ink-4)' }}>
+                  <div style={{ fontSize: 12, color: 'var(--text-tertiary)' }}>
                     {subjects} subject{subjects !== 1 ? 's' : ''}
                     &nbsp;·&nbsp;
                     {lessons} lesson{lessons !== 1 ? 's' : ''}
                   </div>
                 </div>
 
-                <ChevronRight size={16} style={{ flexShrink: 0, color: 'var(--ink-4)' }} />
+                <ChevronRight size={16} style={{ flexShrink: 0, color: 'var(--text-tertiary)' }} />
               </button>
 
               {idx < arr.length - 1 && (
