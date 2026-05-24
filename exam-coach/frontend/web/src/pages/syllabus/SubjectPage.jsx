@@ -52,7 +52,7 @@ function LessonRow({ lesson, unit, year, subject }) {
         >
           {lesson.type}
         </p>
-        <p className="text-sm font-semibold text-ink leading-snug truncate">
+        <p className="text-sm font-semibold text-text-primary leading-snug truncate">
           {lesson.title}
         </p>
       </div>
@@ -95,7 +95,7 @@ function UnitCard({ unit, isOpen, onToggle, year, subject }) {
         border: `1.5px solid ${isOpen ? 'var(--lesson-accent)' : hov ? 'var(--lesson-accent-a47)' : 'var(--line)'}`,
         boxShadow: isOpen
           ? '0 8px 32px var(--lesson-accent-a10)'
-          : hov ? '0 4px 16px var(--lesson-accent-a07)' : '0 1px 4px rgba(0,0,0,0.04)',
+          : hov ? '0 4px 16px var(--lesson-accent-a07)' : 'var(--shadow-sm)',
         transition: 'border-color 0.2s, box-shadow 0.2s',
         gridColumn: isOpen ? '1 / -1' : 'auto',
       }}
@@ -123,7 +123,7 @@ function UnitCard({ unit, isOpen, onToggle, year, subject }) {
 
         {/* Title + type pills */}
         <div className="flex-1 min-w-0">
-          <p className="text-base font-bold text-ink mb-1.5">{unit.title}</p>
+          <p className="text-base font-bold text-text-primary mb-1.5">{unit.title}</p>
           <div className="flex gap-1.5 flex-wrap">
             {unit.lessons.map(l => (
               <span
@@ -208,7 +208,7 @@ function ExamPapersCard({ year }) {
       <p className="text-base font-bold leading-snug mb-1" style={{ color: 'var(--lesson-accent)' }}>
         Practice with Real Exam Papers
       </p>
-      <p className="text-xs leading-relaxed mb-3 max-w-[440px]" style={{ color: 'var(--ink-2)' }}>
+      <p className="text-xs leading-relaxed mb-3 max-w-[440px]" style={{ color: 'var(--text-secondary)' }}>
         Attempt full annual exam papers and get instant feedback on your answers.
       </p>
 
@@ -219,7 +219,7 @@ function ExamPapersCard({ year }) {
             onClick={() => navigate(`/${year}/english/exam/${ey}`)}
             className="px-4 py-1.5 rounded-[14px] text-sm font-semibold transition-opacity"
             style={ey === '2025'
-              ? { background: 'var(--lesson-accent)', color: '#fff', opacity: hov ? 1 : 0.88 }
+              ? { background: 'var(--lesson-accent)', color: 'var(--surface)', opacity: hov ? 1 : 0.88 }
               : { background: 'transparent', color: 'var(--lesson-accent)', border: '1.5px solid var(--lesson-accent-a47)', opacity: hov ? 1 : 0.88 }
             }
           >
@@ -260,7 +260,7 @@ function ChapterRow({ chapter, year, subject, hasLearn, hasPractice }) {
         <p className="text-[12px] font-semibold tracking-[0.08em] uppercase mb-0.5 syllabus-lesson-type">
           Mathematics
         </p>
-        <p className="text-sm font-semibold text-ink leading-snug">
+        <p className="text-sm font-semibold text-text-primary leading-snug">
           {chapter.title}
         </p>
       </div>
@@ -285,7 +285,7 @@ function ChapterRow({ chapter, year, subject, hasLearn, hasPractice }) {
           className="px-3.5 py-1.5 rounded-[14px] text-xs font-semibold"
           style={{
             border: `1.5px solid ${hasPractice ? UNIT_STYLE.color : 'var(--line)'}`,
-            color: hasPractice ? UNIT_STYLE.color : 'var(--ink-4)',
+            color: hasPractice ? UNIT_STYLE.color : 'var(--text-tertiary)',
             background: 'var(--surface-alt)',
             opacity: hasPractice ? 1 : 0.45,
             cursor: hasPractice ? 'pointer' : 'not-allowed',
@@ -308,7 +308,7 @@ function VolumeDivider({ label }) {
       <div className="flex-1 h-px" style={{ background: 'var(--line)' }} />
       <span
         className="text-[11px] font-semibold tracking-[0.1em] uppercase"
-        style={{ color: 'var(--ink-4)', whiteSpace: 'nowrap' }}
+        style={{ color: 'var(--text-tertiary)', whiteSpace: 'nowrap' }}
       >
         {label}
       </span>
@@ -459,8 +459,8 @@ export default function SubjectPage() {
               onClick={() => navigate(`/${year}/${subject}/${c.slug}`)}
             >
               <div className="text-3xl mb-3">{c.icon}</div>
-              <p className="font-semibold text-ink">{c.label}</p>
-              <p className="text-xs text-ink-4 mt-1">
+              <p className="font-semibold text-text-primary">{c.label}</p>
+              <p className="text-xs text-text-tertiary mt-1">
                 {c.lessons.length} lesson{c.lessons.length !== 1 ? 's' : ''}
               </p>
             </Card>

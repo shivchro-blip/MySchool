@@ -19,7 +19,7 @@ export default function ContactPage() {
       description={`Get in touch with ${PRODUCT_NAME} for support or questions.`}
     >
       <PageHeader title="Contact" />
-      <p style={{ color: 'var(--ink-3)', marginBottom: 32, lineHeight: 1.6 }}>
+      <p style={{ color: 'var(--text-secondary)', marginBottom: 32, lineHeight: 1.6 }}>
         {PRODUCT_NAME} is run by a single operator. For support, privacy requests,
         or data deletion requests, email us at:
       </p>
@@ -44,7 +44,7 @@ export default function ContactPage() {
           onClick={copyEmail}
           style={{
             background: copied ? '#2A7B6F' : 'var(--surface-alt)',
-            color: copied ? 'white' : 'var(--ink-2)',
+            color: copied ? 'white' : 'var(--text-secondary)',
             border: '1px solid var(--line)',
             borderRadius: 8,
             padding: '6px 14px',
@@ -62,7 +62,7 @@ export default function ContactPage() {
       <h2 style={{ fontSize: 16, fontWeight: 600, color: 'var(--text-primary)', marginBottom: 8 }}>
         Data deletion requests
       </h2>
-      <p style={{ color: 'var(--ink-3)', lineHeight: 1.6, marginBottom: 24 }}>
+      <p style={{ color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: 24 }}>
         To request deletion of your account and data, email the address above with the subject
         line <strong>"Data deletion request"</strong> and include the email address associated
         with your account. We aim to respond within 30 days.
@@ -71,7 +71,7 @@ export default function ContactPage() {
       <h2 style={{ fontSize: 16, fontWeight: 600, color: 'var(--text-primary)', marginBottom: 8 }}>
         Response time
       </h2>
-      <p style={{ color: 'var(--ink-3)', lineHeight: 1.6 }}>
+      <p style={{ color: 'var(--text-secondary)', lineHeight: 1.6 }}>
         We aim to respond to all emails within 5 business days.
       </p>
     </PublicLayout>

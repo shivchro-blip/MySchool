@@ -58,7 +58,7 @@ export default function AskAISection({ lessonTitle, chapterId }) {
     <div className="space-y-4">
       {/* Quick question chips */}
       <div>
-        <p className="text-xs font-semibold text-ink-3 mb-2.5">
+        <p className="text-xs font-semibold text-text-secondary mb-2.5">
           Quick questions
         </p>
         <div className="flex flex-wrap gap-2">
@@ -66,9 +66,9 @@ export default function AskAISection({ lessonTitle, chapterId }) {
             <button
               key={q}
               onClick={() => { setQ(q); handleAsk(q) }}
-              className="px-3 py-1.5 bg-bg-2 border border-line
-                         rounded-full text-xs font-medium text-ink-2
-                         hover:border-accent hover:text-accent
+              className="px-3 py-1.5 bg-surface-alt border border-line
+                         rounded-full text-xs font-medium text-text-secondary
+                         hover:border-accent hover:text-brand
                          transition-colors"
             >
               {q}
@@ -96,15 +96,15 @@ export default function AskAISection({ lessonTitle, chapterId }) {
 
       {/* Language toggle */}
       <div className="flex items-center gap-2">
-        <span className="text-xs text-ink-3">Respond in:</span>
-        <div className="flex bg-bg-sunk rounded-lg p-0.5 text-xs">
+        <span className="text-xs text-text-secondary">Respond in:</span>
+        <div className="flex bg-surface-alt rounded-lg p-0.5 text-xs">
           {[['en', 'English'], ['ta', 'தமிழ்']].map(([val, label]) => (
             <button
               key={val}
               onClick={() => setLang(val)}
               className={`
                 px-3 py-1 rounded-md font-semibold transition-all
-                ${language === val ? 'bg-bg-2 text-ink shadow-sm' : 'text-ink-3'}
+                ${language === val ? 'bg-surface-alt text-text-primary shadow-sm' : 'text-text-secondary'}
               `}
             >
               {label}
@@ -127,17 +127,17 @@ export default function AskAISection({ lessonTitle, chapterId }) {
             className="space-y-3"
           >
             <Card padding="lg">
-              <p className="text-xs font-bold text-ink-4 uppercase tracking-wide mb-2">
+              <p className="text-xs font-bold text-text-tertiary uppercase tracking-wide mb-2">
                 Explanation
               </p>
-              <p className="text-sm text-ink-2 leading-relaxed">
+              <p className="text-sm text-text-secondary leading-relaxed">
                 {result.explanation}
               </p>
             </Card>
 
             {result.key_points?.length > 0 && (
               <Card padding="md">
-                <p className="text-xs font-bold text-ink-4 uppercase tracking-wide mb-2.5">
+                <p className="text-xs font-bold text-text-tertiary uppercase tracking-wide mb-2.5">
                   Key Points
                 </p>
                 <div className="space-y-2">
@@ -148,7 +148,7 @@ export default function AskAISection({ lessonTitle, chapterId }) {
                                       font-bold text-brand-teal shrink-0 mt-0.5">
                         {i + 1}
                       </div>
-                      <p className="text-sm text-ink-2">{pt}</p>
+                      <p className="text-sm text-text-secondary">{pt}</p>
                     </div>
                   ))}
                 </div>

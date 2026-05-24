@@ -241,7 +241,7 @@ class _AuthCallbackScreenState extends State<AuthCallbackScreen> {
                                     : Icons.radio_button_unchecked,
                                 size:  20,
                                 color: _ageConfirmation == value
-                                    ? AppTheme.brand
+                                    ? AppTheme.brandOf(context)
                                     : AppTheme.text2Of(context),
                               ),
                               const SizedBox(width: 8),
@@ -279,11 +279,11 @@ class _AuthCallbackScreenState extends State<AuthCallbackScreen> {
                                 ),
                                 GestureDetector(
                                   onTap: () => context.push('/privacy'),
-                                  child: const Text(
+                                  child: Text(
                                     'Privacy Policy',
                                     style: TextStyle(
                                       fontSize:   13,
-                                      color:      AppTheme.brand,
+                                      color:      AppTheme.brandOf(context),
                                       decoration: TextDecoration.underline,
                                     ),
                                   ),
@@ -294,11 +294,11 @@ class _AuthCallbackScreenState extends State<AuthCallbackScreen> {
                                 ),
                                 GestureDetector(
                                   onTap: () => context.push('/terms'),
-                                  child: const Text(
+                                  child: Text(
                                     'Terms of Service',
                                     style: TextStyle(
                                       fontSize:   13,
-                                      color:      AppTheme.brand,
+                                      color:      AppTheme.brandOf(context),
                                       decoration: TextDecoration.underline,
                                     ),
                                   ),

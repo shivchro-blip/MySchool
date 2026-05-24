@@ -9,18 +9,18 @@ export default function Breadcrumb({ crumbs = [] }) {
       {crumbs.map((crumb, i) => (
         <div key={i} className="flex items-center gap-1">
           {i > 0 && (
-            <ChevronRight size={13} className="text-ink-4 shrink-0" />
+            <ChevronRight size={13} className="text-text-tertiary shrink-0" />
           )}
           {crumb.to ? (
             <Link
               to={crumb.to}
-              className="text-xs font-medium text-accent hover:text-accent-ink
+              className="text-xs font-medium text-brand hover:text-brand-strong
                          transition-colors truncate max-w-[120px]"
             >
               {crumb.label}
             </Link>
           ) : (
-            <span className="text-xs font-medium text-ink-3 truncate max-w-[120px]">
+            <span className="text-xs font-medium text-text-secondary truncate max-w-[120px]">
               {crumb.label}
             </span>
           )}

@@ -99,7 +99,7 @@ class _SubjectListScreenState extends State<SubjectListScreen> {
               ),
             )
           : RefreshIndicator(
-              color: AppTheme.brand,
+              color: AppTheme.brandOf(context),
               onRefresh: () => context.read<SyllabusProvider>().load(),
               child: ListView(
                 padding: const EdgeInsets.all(16),

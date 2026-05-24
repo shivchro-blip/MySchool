@@ -23,7 +23,7 @@ const stepVariants = {
 
 function ProgressBar({ progress }) {
   return (
-    <div className="h-1 rounded-full bg-bg-sunk overflow-hidden mb-6">
+    <div className="h-1 rounded-full bg-surface-alt overflow-hidden mb-6">
       <div
         className="h-full rounded-full bg-brand-teal transition-[width] duration-500"
         style={{ width: `${progress}%` }}
@@ -49,7 +49,7 @@ function CtaButton({ children, onClick, disabled, loading }) {
 
 function ClassPicker({ classLevel, setClassLevel, onNext }) {
   return (
-    <div className="bg-bg-surface rounded-card border border-border-soft shadow-card p-8">
+    <div className="bg-surface rounded-card border border-border-soft shadow-card p-8">
       <ProgressBar progress={50} />
       <p className="text-xs font-semibold text-text-faint uppercase tracking-widest mb-3">
         Step 1 of 2
@@ -57,7 +57,7 @@ function ClassPicker({ classLevel, setClassLevel, onNext }) {
       <h1 className="text-2xl font-bold text-text-primary mb-2">
         Which class are you in?
       </h1>
-      <p className="text-sm text-text-muted mb-6">
+      <p className="text-sm text-text-secondary mb-6">
         We'll tailor your lessons to your year.
       </p>
 
@@ -88,7 +88,7 @@ function ClassPicker({ classLevel, setClassLevel, onNext }) {
                 style={{ color: sel ? cls.color : 'var(--text-secondary)' }}
               />
               <div className="font-semibold text-sm text-text-primary">{cls.label}</div>
-              <div className="text-xs text-text-muted mt-0.5">{cls.sub}</div>
+              <div className="text-xs text-text-secondary mt-0.5">{cls.sub}</div>
             </button>
           )
         })}
@@ -103,10 +103,10 @@ function ClassPicker({ classLevel, setClassLevel, onNext }) {
 
 function SubjectPicker({ subjects, toggleSubject, loading, error, onBack, onFinish }) {
   return (
-    <div className="bg-bg-surface rounded-card border border-border-soft shadow-card p-8">
+    <div className="bg-surface rounded-card border border-border-soft shadow-card p-8">
       <button
         onClick={onBack}
-        className="flex items-center gap-1.5 text-sm text-text-muted hover:text-text-primary
+        className="flex items-center gap-1.5 text-sm text-text-secondary hover:text-text-primary
                    transition-colors duration-150 mb-5 focus:outline-none"
       >
         <ArrowLeft size={16} />
@@ -120,7 +120,7 @@ function SubjectPicker({ subjects, toggleSubject, loading, error, onBack, onFini
       <h1 className="text-2xl font-bold text-text-primary mb-2">
         Pick your subjects
       </h1>
-      <p className="text-sm text-text-muted mb-6">
+      <p className="text-sm text-text-secondary mb-6">
         Choose one or more. You can add more later.
       </p>
 
@@ -175,7 +175,7 @@ function SuccessScreen({ classLevel, subjects, onDone }) {
   const romanClass = classLevel === '+1' ? 'XI' : 'XII'
 
   return (
-    <div className="bg-bg-surface rounded-card border border-border-soft shadow-card p-8 text-center">
+    <div className="bg-surface rounded-card border border-border-soft shadow-card p-8 text-center">
       <div
         className="w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6"
         style={{ background: 'var(--brand-teal-soft)' }}
@@ -184,7 +184,7 @@ function SuccessScreen({ classLevel, subjects, onDone }) {
       </div>
 
       <h1 className="text-2xl font-bold text-text-primary mb-2">You're all set!</h1>
-      <p className="text-sm text-text-muted mb-6">
+      <p className="text-sm text-text-secondary mb-6">
         Your learning space is ready. Here's what we've unlocked for you:
       </p>
 
@@ -245,7 +245,7 @@ export default function OnboardingPage() {
   }
 
   return (
-    <div className="min-h-screen bg-bg-canvas flex items-center justify-center px-4 py-8">
+    <div className="min-h-screen bg-page-bg flex items-center justify-center px-4 py-8">
       <div className="w-full max-w-[480px]">
         <AnimatePresence mode="wait">
           {step === 1 && (

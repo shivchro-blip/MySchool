@@ -80,7 +80,7 @@ function DashShell({ children }) {
 
 function CourseContent({ children }) {
   return (
-    <div className="max-w-3xl mx-auto px-4 py-6 lg:py-8">
+    <div style={{ padding: '16px 20px 96px' }}>
       {children}
     </div>
   )

@@ -1,4 +1,4 @@
-﻿const chapterModules = import.meta.glob('./Class_*/English/chapters/*.js')
+﻿const chapterModules = import.meta.glob('./Class_*/**/chapters/*.js')
 
 export default Object.fromEntries(
   Object.entries(chapterModules).map(([path, loader]) => [

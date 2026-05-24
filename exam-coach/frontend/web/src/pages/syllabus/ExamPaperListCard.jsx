@@ -12,7 +12,7 @@ export default function ExamPaperListCard({ papers: papersProp, basePath = '/plu
         <div className="w-8 h-8 rounded-sm flex items-center justify-center shrink-0 bg-brand-teal-soft">
           <FileText size={16} strokeWidth={1.8} className="text-brand-teal" />
         </div>
-        <p className="text-sm font-bold text-ink">Past Annual Exam Papers</p>
+        <p className="text-sm font-bold text-text-primary">Past Annual Exam Papers</p>
       </div>
 
       {papers.map((paper, i) => (
@@ -24,28 +24,28 @@ export default function ExamPaperListCard({ papers: papersProp, basePath = '/plu
             {paper.year}
           </span>
 
-          <p className="flex-1 min-w-0 text-sm font-medium text-ink truncate">
+          <p className="flex-1 min-w-0 text-sm font-medium text-text-primary truncate">
             {paper.title}
           </p>
 
           <div className="flex gap-1.5 shrink-0">
             <button
               onClick={() => navigate(`${basePath}/final-exam-prep/paper/${paper.id}`)}
-              className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-button text-[11px] font-semibold text-brand-teal border border-brand-teal bg-bg-2 hover:bg-brand-teal-soft transition-colors duration-fast"
+              className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-button text-[11px] font-semibold text-brand-teal border border-brand-teal bg-surface-alt hover:bg-brand-teal-soft transition-colors duration-fast"
             >
               <FileText size={12} strokeWidth={1.8} />
               <span className="hidden sm:inline">View Paper</span>
             </button>
             <button
               onClick={() => navigate(`${basePath}/exam/${paper.year}`)}
-              className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-button text-[11px] font-semibold text-brand-teal border border-brand-teal bg-bg-2 hover:bg-brand-teal-soft transition-colors duration-fast"
+              className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-button text-[11px] font-semibold text-brand-teal border border-brand-teal bg-surface-alt hover:bg-brand-teal-soft transition-colors duration-fast"
             >
               <Pencil size={12} strokeWidth={1.8} />
               <span className="hidden sm:inline">Practice</span>
             </button>
           </div>
 
-          <ChevronRight size={15} className="text-ink-4 shrink-0" />
+          <ChevronRight size={15} className="text-text-tertiary shrink-0" />
         </div>
       ))}
     </Card>

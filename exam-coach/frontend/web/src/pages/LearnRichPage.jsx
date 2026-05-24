@@ -6,6 +6,7 @@ import { Breadcrumb } from '../components/nav'
 import PageTitle from '../components/ui/PageTitle'
 import Eyebrow from '../components/ui/Eyebrow'
 import InfoCard, { InfoCardGrid } from '../components/ui/InfoCard'
+import LessonTOC from '../components/ui/LessonTOC'
 import ChapterPracticeExam from './ChapterPracticeExam'
 import AttemptHistorySection from './syllabus/sections/AttemptHistorySection'
 import { stripTabLabel } from '../utils/resolveTabIcon'
@@ -109,7 +110,7 @@ function Block({ block, switchTab, chapterSlug, navigate, practiceUrl }) {
           >
             {block.quote}
           </p>
-          <p className="text-[13px] text-ink-3 leading-[1.75]">{block.context}</p>
+          <p className="text-[13px] text-text-secondary leading-[1.75]">{block.context}</p>
         </div>
       )
 
@@ -133,15 +134,15 @@ function Block({ block, switchTab, chapterSlug, navigate, practiceUrl }) {
 
     case 'device-block':
       return (
-        <div className="bg-bg-2 border border-line rounded-xl px-4 py-3.5 mb-3">
-          <Eyebrow style={{ color: 'var(--ink-4)', marginBottom: 6 }}>{block.kind}</Eyebrow>
+        <div className="bg-surface-alt border border-line rounded-xl px-4 py-3.5 mb-3">
+          <Eyebrow style={{ color: 'var(--text-tertiary)', marginBottom: 6 }}>{block.kind}</Eyebrow>
           <p
             className="text-[13px] italic mb-2 leading-relaxed"
             style={{ color: 'var(--brand)' }}
           >
             {block.line}
           </p>
-          <p className="text-[13px] text-ink-2 leading-[1.75]">{block.exp}</p>
+          <p className="text-[13px] text-text-secondary leading-[1.75]">{block.exp}</p>
         </div>
       )
 
@@ -155,9 +156,9 @@ function Block({ block, switchTab, chapterSlug, navigate, practiceUrl }) {
             {block.word}
           </span>
           <div>
-            <p className="text-[13px] text-ink-2 leading-relaxed">{block.def}</p>
+            <p className="text-[13px] text-text-secondary leading-relaxed">{block.def}</p>
             {block.eg && (
-              <p className="text-[11px] text-ink-4 mt-0.5 leading-relaxed">{block.eg}</p>
+              <p className="text-[11px] text-text-tertiary mt-0.5 leading-relaxed">{block.eg}</p>
             )}
           </div>
         </div>
@@ -170,7 +171,7 @@ function Block({ block, switchTab, chapterSlug, navigate, practiceUrl }) {
             <button
               onClick={() => switchTab(block.back)}
               className="px-4 py-2 rounded-pill text-sm font-semibold border border-line
-                         text-ink-2 bg-bg-2 hover:bg-bg-sunk transition-all duration-[var(--duration-fast)]"
+                         text-text-secondary bg-surface-alt hover:bg-surface-alt transition-all duration-[var(--duration-fast)]"
             >
               ← Back
             </button>
@@ -257,7 +258,7 @@ function AskAIPanel({ chapterSlug }) {
 
   return (
     <div>
-      <div className="bg-bg-2 border border-line rounded-2xl p-4">
+      <div className="bg-surface-alt border border-line rounded-2xl p-4">
         <div
           ref={listRef}
           className="chat-msg-list flex flex-col gap-3 overflow-y-auto pb-1"
@@ -319,7 +320,7 @@ function AskAIPanel({ chapterSlug }) {
                   <span
                     key={i}
                     className="block w-1.5 h-1.5 rounded-full ec-dot-pulse"
-                    style={{ background: 'var(--ink-4)', animationDelay: `${i * 0.2}s` }}
+                    style={{ background: 'var(--text-tertiary)', animationDelay: `${i * 0.2}s` }}
                   />
                 ))}
               </div>
@@ -335,7 +336,7 @@ function AskAIPanel({ chapterSlug }) {
             onKeyDown={e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send() } }}
             placeholder="Ask about the story…"
             disabled={busy}
-            className="flex-1 border border-line rounded-pill px-4 py-2 text-[13px] text-ink bg-bg-2 focus:outline-none focus:border-accent transition-colors"
+            className="flex-1 border border-line rounded-pill px-4 py-2 text-[13px] text-text-primary bg-surface-alt focus:outline-none focus:border-brand transition-colors"
           />
           <button
             onClick={send}
@@ -380,6 +381,18 @@ export default function LearnRichPage({ content, chapterSlug }) {
     }
     return extra.length ? [...tabs, ...extra] : tabs
   })()
+
+  // Load practice data asynchronously (practiceRegistry values are lazy loaders since ebb1e34)
+  const [practiceContent, setPracticeContent] = useState(null)
+  useEffect(() => {
+    const loader = practiceRegistry[chapterSlug]
+    if (!loader) return
+    let cancelled = false
+    loader().then(mod => {
+      if (!cancelled) setPracticeContent(mod.default ?? mod)
+    })
+    return () => { cancelled = true }
+  }, [chapterSlug])
 
   // Initialize from URL section param; fall back to first tab
   const [activeTab, setActiveTab] = useState(
@@ -441,11 +454,11 @@ export default function LearnRichPage({ content, chapterSlug }) {
 
   return (
     <div>
-      {/* Chapter header — white card */}
-      <div className="bg-bg-2 border border-line rounded-2xl px-6 pt-5 pb-5 mb-5">
+      {/* Chapter header — white card, full-width outside the two-column grid */}
+      <div className="bg-surface-alt border border-line rounded-2xl px-6 pt-5 pb-5 mb-5">
         <Breadcrumb crumbs={crumbs} />
         <PageTitle className="mb-1.5">{content.title}</PageTitle>
-        <p className="text-sm font-semibold mb-4" style={{ color: 'var(--ink-2)' }}>
+        <p className="text-sm font-semibold mb-4" style={{ color: 'var(--text-secondary)' }}>
           {content.author}
         </p>
         <div className="flex gap-1.5 flex-wrap">
@@ -453,13 +466,24 @@ export default function LearnRichPage({ content, chapterSlug }) {
             <span
               key={p}
               className="text-[11px] font-medium px-2.5 py-0.5 rounded-full"
-              style={{ background: 'var(--surface-alt)', color: 'var(--ink-2)' }}
+              style={{ background: 'var(--surface-alt)', color: 'var(--text-secondary)' }}
             >
               {p}
             </span>
           ))}
         </div>
       </div>
+
+      {/* Two-column layout: sticky TOC + content */}
+      <div className="lesson-layout">
+        <aside className="lesson-toc">
+          <LessonTOC
+            sections={visibleTabs}
+            activeId={activeTab}
+            onSelect={switchTab}
+          />
+        </aside>
+        <main className="lesson-content">
 
       {/* Three-zone sub-nav */}
       <div className="flex items-center gap-2 mb-3 bg-surface border border-border rounded-sm px-3 py-2.5">
@@ -540,7 +564,7 @@ export default function LearnRichPage({ content, chapterSlug }) {
       {/* Panel content */}
       {panel?.type === 'practice' ? (
         <ChapterPracticeExam
-          questions={adaptAllQuestions(practiceRegistry[chapterSlug])}
+          questions={adaptAllQuestions(practiceContent)}
           chapterMeta={{ title: content.title, meta: content.eyebrow, subject: content.author }}
           chapterSlug={chapterSlug}
         />
@@ -564,6 +588,9 @@ export default function LearnRichPage({ content, chapterSlug }) {
           ))}
         </div>
       )}
+
+        </main>
+      </div>
     </div>
   )
 }

@@ -4,9 +4,21 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans:  ['Geist', '"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
-        serif: ['"Source Serif 4"', 'Georgia', 'serif'],
-        mono:  ['"Geist Mono"', 'ui-monospace', 'monospace'],
+        sans:    ['Geist', '"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+        serif:   ['"Source Serif 4"', '"Lora"', 'Georgia', 'serif'],
+        mono:    ['"Geist Mono"', 'ui-monospace', 'monospace'],
+        body:    ['Inter', 'system-ui', 'sans-serif'],
+      },
+      fontSize: {
+        'display-xl': ['40px', { lineHeight: '1.15', fontWeight: '500' }],
+        'heading-lg': ['28px', { lineHeight: '1.2',  fontWeight: '500' }],
+        'heading-md': ['22px', { lineHeight: '1.25', fontWeight: '500' }],
+        'heading-sm': ['17px', { lineHeight: '1.3',  fontWeight: '500' }],
+        'body':       ['18px', { lineHeight: '1.7',  fontWeight: '400' }],
+        'body-sm':    ['15px', { lineHeight: '1.65', fontWeight: '400' }],
+        'caption':    ['13px', { lineHeight: '1.5',  fontWeight: '400' }],
+        'eyebrow':    ['12px', { lineHeight: '1.0',  fontWeight: '500' }],
+        'label':      ['14px', { lineHeight: '1.4',  fontWeight: '500' }],
       },
       transitionDuration: {
         fast: '120ms',
@@ -65,6 +77,7 @@ export default {
           DEFAULT:           'var(--brand)',
           deep:              'var(--brand-deep)',
           strong:            'var(--brand-strong)',
+          subtle:            'rgb(var(--brand-subtle) / <alpha-value>)',
           teal:              'var(--brand-teal)',
           'teal-soft':       'var(--brand-teal-soft)',
           'teal-soft-hover': 'var(--brand-teal-soft-hover)',

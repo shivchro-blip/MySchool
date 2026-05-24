@@ -109,10 +109,10 @@ function McqQuestion({ q, chosenIdx, onAnswer }) {
   return (
     <>
       {q.section && (
-        <p className="text-[10px] font-semibold italic text-ink-3 mb-2">{q.section}</p>
+        <p className="text-[10px] font-semibold italic text-text-secondary mb-2">{q.section}</p>
       )}
       <p
-        className="text-[15px] font-semibold text-ink leading-relaxed mb-5"
+        className="text-[15px] font-semibold text-text-primary leading-relaxed mb-5"
         dangerouslySetInnerHTML={{ __html: q.html }}
       />
       <div className="space-y-2.5">
@@ -125,12 +125,12 @@ function McqQuestion({ q, chosenIdx, onAnswer }) {
               className={`w-full text-left flex items-center gap-3 px-4 py-[14px] min-h-[56px] rounded-button border-[1.5px] text-[13px] transition-colors duration-150 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgba(42,123,111,0.30)] focus-visible:ring-offset-2
                 ${chosen
                   ? 'border-brand-teal bg-brand-teal-soft text-white'
-                  : 'border-border-soft bg-bg-surface text-text-primary hover:border-[rgba(42,123,111,0.50)]'
+                  : 'border-border-soft bg-surface text-text-primary hover:border-[rgba(42,123,111,0.50)]'
                 }`}
             >
               <span className={`inline-flex items-center justify-center w-7 h-7 rounded-full
                 text-[13px] font-semibold shrink-0
-                ${chosen ? 'bg-brand-teal text-white' : 'bg-bg-canvas text-text-muted'}`}
+                ${chosen ? 'bg-brand-teal text-white' : 'bg-page-bg text-text-secondary'}`}
               >
                 {String.fromCharCode(65 + i)}
               </span>
@@ -146,8 +146,8 @@ function McqQuestion({ q, chosenIdx, onAnswer }) {
 function ReferenceQuestion({ q, subAnswers, onWritten, onBlur, validationErrors }) {
   return (
     <>
-      <blockquote className="px-5 py-4 mb-5 bg-bg-sunk rounded-xl">
-        <p className="text-[14px] font-serif italic text-ink leading-relaxed">{q.verse}</p>
+      <blockquote className="px-5 py-4 mb-5 bg-surface-alt rounded-xl">
+        <p className="text-[14px] font-serif italic text-text-primary leading-relaxed">{q.verse}</p>
       </blockquote>
       <div className="space-y-4">
         {q.subs.map((sub, i) => {
@@ -155,10 +155,10 @@ function ReferenceQuestion({ q, subAnswers, onWritten, onBlur, validationErrors 
           const error  = validationErrors?.[errKey]
           return (
             <div key={i}>
-              <p className="text-[13px] font-semibold text-ink mb-2">{sub.q}</p>
+              <p className="text-[13px] font-semibold text-text-primary mb-2">{sub.q}</p>
               <textarea
-                className="w-full min-h-[72px] px-3 py-2.5 rounded-xl border border-line bg-bg
-                  text-[13px] text-ink resize-y outline-none focus:border-accent transition-colors"
+                className="w-full min-h-[72px] px-3 py-2.5 rounded-xl border border-line bg-page-bg
+                  text-[13px] text-text-primary resize-y outline-none focus:border-brand transition-colors"
                 style={{ borderColor: error ? 'var(--danger)' : undefined }}
                 placeholder="Write your answer here…"
                 value={subAnswers?.[i] ?? ''}
@@ -184,12 +184,12 @@ function WrittenQuestion({ q, value, onWritten, onBlur, validationErrors }) {
   return (
     <>
       <p
-        className="text-[15px] font-semibold text-ink leading-relaxed mb-4"
+        className="text-[15px] font-semibold text-text-primary leading-relaxed mb-4"
         dangerouslySetInnerHTML={{ __html: q.html }}
       />
       <textarea
-        className="w-full px-3 py-2.5 rounded-xl border border-line bg-bg
-          text-[13px] text-ink resize-y outline-none focus:border-accent transition-colors"
+        className="w-full px-3 py-2.5 rounded-xl border border-line bg-page-bg
+          text-[13px] text-text-primary resize-y outline-none focus:border-brand transition-colors"
         style={{ minHeight: q.marks >= 5 ? '192px' : '120px', borderColor: error ? 'var(--danger)' : undefined }}
         placeholder="Write your answer here…"
         value={value ?? ''}
@@ -217,10 +217,10 @@ function QuickNavDots({ questions, questionIdx, answered, onGoto, validationErro
   ].filter(g => g.qs.length > 0)
 
   return (
-    <div className="bg-bg-2 border border-line rounded-xl px-4 py-3 space-y-2.5">
+    <div className="bg-surface-alt border border-line rounded-xl px-4 py-3 space-y-2.5">
       {groups.map(({ label, qs }) => (
         <div key={label}>
-          <p className="text-[9px] font-bold uppercase tracking-wider text-ink-4 mb-1">{label}</p>
+          <p className="text-[9px] font-bold uppercase tracking-wider text-text-tertiary mb-1">{label}</p>
           <div className="flex gap-1 overflow-x-auto pb-0.5">
             {qs.map(q => {
               const gi       = questions.indexOf(q)
@@ -242,12 +242,12 @@ function QuickNavDots({ questions, questionIdx, answered, onGoto, validationErro
                   onClick={() => onGoto(gi)}
                   className={`w-6 h-6 rounded-md text-[9px] font-semibold transition-all shrink-0
                     ${current
-                      ? 'bg-accent text-white'
+                      ? 'bg-brand text-white'
                       : isInvalid
                         ? 'bg-danger/10 text-danger border border-danger/30'
                         : isMcq
-                          ? (done ? 'bg-good-soft text-good-ink' : 'bg-bg-sunk text-ink-3 hover:bg-bg-2')
-                          : (done ? 'bg-brand-teal-soft text-brand-teal' : 'bg-bg-2 text-ink-3 border border-line hover:border-brand-teal')
+                          ? (done ? 'bg-good-soft text-good-ink' : 'bg-surface-alt text-text-secondary hover:bg-surface-alt')
+                          : (done ? 'bg-brand-teal-soft text-brand-teal' : 'bg-surface-alt text-text-secondary border border-line hover:border-brand-teal')
                     }`}
                 >
                   {gi + 1}
@@ -276,14 +276,14 @@ function ExamView({ questions, chapterMeta, attempt, questionIdx, onPrevious, on
       <div className="flex items-start justify-between gap-3">
         <div>
           <Eyebrow style={{ marginBottom: 4 }}>{chapterMeta.meta}</Eyebrow>
-          <h1 className="text-[20px] font-bold text-ink leading-tight">{chapterMeta.title}</h1>
-          <p className="text-[12px] text-ink-3 mt-0.5">{chapterMeta.subject}</p>
+          <h1 className="text-[20px] font-bold text-text-primary leading-tight">{chapterMeta.title}</h1>
+          <p className="text-[12px] text-text-secondary mt-0.5">{chapterMeta.subject}</p>
         </div>
         <div className="flex items-center gap-2 shrink-0 pt-0.5">
           <Badge tone="accent">In Progress</Badge>
           <button
             onClick={onHistory}
-            className="p-1.5 rounded-lg hover:bg-bg-sunk transition-colors text-ink-3 hover:text-ink-2"
+            className="p-1.5 rounded-lg hover:bg-surface-alt transition-colors text-text-secondary hover:text-text-secondary"
             title="Attempt History"
           >
             <History size={15} />
@@ -293,14 +293,14 @@ function ExamView({ questions, chapterMeta, attempt, questionIdx, onPrevious, on
 
       {/* Progress bar */}
       {questions.length > 0 && (
-        <div className="bg-bg-2 border border-line rounded-xl px-4 py-3">
+        <div className="bg-surface-alt border border-line rounded-xl px-4 py-3">
           <div className="flex justify-between items-center mb-2">
-            <span className="text-[12px] font-semibold text-ink-2">Q{questionIdx + 1} of {total}</span>
-            <span className="text-[11px] text-ink-3">{allAnswered}/{totalQs} answered</span>
+            <span className="text-[12px] font-semibold text-text-secondary">Q{questionIdx + 1} of {total}</span>
+            <span className="text-[11px] text-text-secondary">{allAnswered}/{totalQs} answered</span>
           </div>
-          <div className="h-1.5 bg-bg-sunk rounded-full overflow-hidden">
+          <div className="h-1.5 bg-surface-alt rounded-full overflow-hidden">
             <div
-              className="h-full bg-accent rounded-full transition-all duration-300"
+              className="h-full bg-brand rounded-full transition-all duration-300"
               style={{ width: `${totalQs > 0 ? (allAnswered / totalQs) * 100 : 0}%` }}
             />
           </div>
@@ -315,11 +315,11 @@ function ExamView({ questions, chapterMeta, attempt, questionIdx, onPrevious, on
           animate={{ opacity: 1, x: 0  }}
           exit=   {{ opacity: 0, x: -12 }}
           transition={{ duration: 0.16 }}
-          className="bg-bg-2 border border-line rounded-xl p-5"
+          className="bg-surface-alt border border-line rounded-xl p-5"
         >
           <div className="flex items-center justify-between mb-3">
             <Eyebrow>Question {questionIdx + 1}</Eyebrow>
-            <span className="text-[10px] font-semibold text-ink-3 bg-bg-sunk px-2 py-0.5 rounded-full">
+            <span className="text-[10px] font-semibold text-text-secondary bg-surface-alt px-2 py-0.5 rounded-full">
               {q.marks} mark{q.marks > 1 ? 's' : ''}
             </span>
           </div>
@@ -373,7 +373,7 @@ function LegendDot({ bg, label }) {
   return (
     <div className="flex items-center gap-1.5">
       <span className={`w-3 h-3 rounded-sm shrink-0 ${bg}`} />
-      <span className="text-[10px] text-ink-3">{label}</span>
+      <span className="text-[10px] text-text-secondary">{label}</span>
     </div>
   )
 }
@@ -420,13 +420,13 @@ function ReviewModal({ questions, questionIdx, answers, validationErrors, mode, 
         animate={{ opacity: 1, y: 0  }}
         exit=   {{ opacity: 0, y: 20 }}
         transition={{ duration: 0.2, ease: 'easeOut' }}
-        className="relative bg-bg-2 rounded-xl border border-line w-full max-w-lg shadow-card-md flex flex-col"
+        className="relative bg-surface-alt rounded-xl border border-line w-full max-w-lg shadow-card-md flex flex-col"
         style={{ maxHeight: '85vh' }}
       >
         {/* Header */}
         <div className="flex items-center justify-between px-5 pt-5 pb-3 border-b border-line shrink-0">
-          <h2 className="text-[15px] font-bold text-ink">Review Your Answers</h2>
-          <button onClick={onCancel} className="p-1 text-ink-3 hover:text-ink-2 transition-colors">
+          <h2 className="text-[15px] font-bold text-text-primary">Review Your Answers</h2>
+          <button onClick={onCancel} className="p-1 text-text-secondary hover:text-text-secondary transition-colors">
             <X size={15} />
           </button>
         </div>
@@ -437,21 +437,21 @@ function ReviewModal({ questions, questionIdx, answers, validationErrors, mode, 
           {/* Summary — submit mode only */}
           {mode === 'submit' && (
             <div className="grid grid-cols-4 gap-2">
-              <div className="bg-bg-sunk rounded-lg px-2 py-2.5 text-center">
-                <p className="text-[17px] font-bold text-ink leading-none">{total}</p>
-                <p className="text-[8px] font-bold uppercase tracking-wider text-ink-4 mt-1">Total</p>
+              <div className="bg-surface-alt rounded-lg px-2 py-2.5 text-center">
+                <p className="text-[17px] font-bold text-text-primary leading-none">{total}</p>
+                <p className="text-[8px] font-bold uppercase tracking-wider text-text-tertiary mt-1">Total</p>
               </div>
               <div className="bg-good-soft rounded-lg px-2 py-2.5 text-center">
                 <p className="text-[17px] font-bold text-good-ink leading-none">{answered}</p>
                 <p className="text-[8px] font-bold uppercase tracking-wider text-good-ink mt-1">Answered</p>
               </div>
-              <div className="bg-bg-sunk rounded-lg px-2 py-2.5 text-center">
-                <p className="text-[17px] font-bold text-ink-3 leading-none">{unanswered}</p>
-                <p className="text-[8px] font-bold uppercase tracking-wider text-ink-4 mt-1">Unanswered</p>
+              <div className="bg-surface-alt rounded-lg px-2 py-2.5 text-center">
+                <p className="text-[17px] font-bold text-text-secondary leading-none">{unanswered}</p>
+                <p className="text-[8px] font-bold uppercase tracking-wider text-text-tertiary mt-1">Unanswered</p>
               </div>
-              <div className={`rounded-lg px-2 py-2.5 text-center ${invalid > 0 ? 'bg-danger/10' : 'bg-bg-sunk'}`}>
-                <p className={`text-[17px] font-bold leading-none ${invalid > 0 ? 'text-danger' : 'text-ink-3'}`}>{invalid}</p>
-                <p className={`text-[8px] font-bold uppercase tracking-wider mt-1 ${invalid > 0 ? 'text-danger' : 'text-ink-4'}`}>
+              <div className={`rounded-lg px-2 py-2.5 text-center ${invalid > 0 ? 'bg-danger/10' : 'bg-surface-alt'}`}>
+                <p className={`text-[17px] font-bold leading-none ${invalid > 0 ? 'text-danger' : 'text-text-secondary'}`}>{invalid}</p>
+                <p className={`text-[8px] font-bold uppercase tracking-wider mt-1 ${invalid > 0 ? 'text-danger' : 'text-text-tertiary'}`}>
                   Needs Fix
                 </p>
               </div>
@@ -469,9 +469,9 @@ function ReviewModal({ questions, questionIdx, answers, validationErrors, mode, 
 
           {/* Legend */}
           <div className="flex flex-wrap gap-x-3 gap-y-1.5">
-            <LegendDot bg="bg-accent" label="Current" />
+            <LegendDot bg="bg-brand" label="Current" />
             <LegendDot bg="bg-good-soft" label="Answered" />
-            <LegendDot bg="bg-bg-sunk border border-line" label="Unanswered" />
+            <LegendDot bg="bg-surface-alt border border-line" label="Unanswered" />
             {mode === 'submit' && <LegendDot bg="bg-danger/10 border border-danger/30" label="Needs correction" />}
           </div>
 
@@ -507,14 +507,14 @@ function McqReviewItem({ q, qi, answered }) {
   const chosen    = answered[q.id]
   const isCorrect = isMcqCorrect(q, answered)
   return (
-    <div className={`bg-bg-2 rounded-xl p-4 border ${isCorrect ? 'border-good-soft' : 'border-line'}`}>
+    <div className={`bg-surface-alt rounded-xl p-4 border ${isCorrect ? 'border-good-soft' : 'border-line'}`}>
       <div className="flex items-start gap-2 mb-3">
         {isCorrect
           ? <CheckCircle2 size={16} className="text-good shrink-0 mt-0.5" />
           : <XCircle      size={16} className="text-danger shrink-0 mt-0.5" />
         }
         <p
-          className="text-[13px] font-semibold text-ink leading-snug"
+          className="text-[13px] font-semibold text-text-primary leading-snug"
           dangerouslySetInnerHTML={{ __html: `Q${qi + 1}. ${q.html}` }}
         />
       </div>
@@ -526,13 +526,13 @@ function McqReviewItem({ q, qi, answered }) {
             <div key={i} className={`text-[12px] flex items-center gap-2 ${
               isAnswer              ? 'text-good-ink font-semibold'
               : isChosen && !isCorrect ? 'text-danger line-through'
-              :                         'text-ink-3'
+              :                         'text-text-secondary'
             }`}>
               <span className={`w-4 h-4 rounded-full flex items-center justify-center
                 text-[9px] font-bold shrink-0
                 ${isAnswer  ? 'bg-good-soft text-good-ink'
                 : isChosen  ? 'bg-danger/10 text-danger'
-                :              'bg-bg-sunk text-ink-4'}`}
+                :              'bg-surface-alt text-text-tertiary'}`}
               >
                 {String.fromCharCode(65 + i)}
               </span>
@@ -543,8 +543,8 @@ function McqReviewItem({ q, qi, answered }) {
         })}
       </div>
       {!isCorrect && q.hint && (
-        <div className="mt-3 ml-6 px-3 py-2 bg-accent-soft rounded-lg">
-          <p className="text-[11px] text-accent-ink">
+        <div className="mt-3 ml-6 px-3 py-2 bg-brand-subtle rounded-lg">
+          <p className="text-[11px] text-brand-strong">
             <span className="font-semibold">Hint: </span>{q.hint}
           </p>
         </div>
@@ -559,15 +559,15 @@ function AnswerPair({ studentText, modelAnswer }) {
   return (
     <div className="grid grid-cols-2 gap-2 mt-2">
       <div>
-        <p className="text-[9px] font-bold uppercase tracking-wider text-ink-4 mb-1">Your answer</p>
+        <p className="text-[9px] font-bold uppercase tracking-wider text-text-tertiary mb-1">Your answer</p>
         {studentText.trim()
-          ? <p className="text-[12px] text-ink-2 bg-bg-sunk rounded-lg px-3 py-2 min-h-[48px] whitespace-pre-wrap">{studentText}</p>
-          : <p className="text-[12px] text-ink-4 italic px-3 py-2">No answer written</p>
+          ? <p className="text-[12px] text-text-secondary bg-surface-alt rounded-lg px-3 py-2 min-h-[48px] whitespace-pre-wrap">{studentText}</p>
+          : <p className="text-[12px] text-text-tertiary italic px-3 py-2">No answer written</p>
         }
       </div>
       <div>
         <p className="text-[9px] font-bold uppercase tracking-wider text-good mb-1">Expected answer</p>
-        <p className="text-[12px] text-ink-2 bg-good-soft/30 border border-good-soft rounded-lg px-3 py-2 min-h-[48px] whitespace-pre-wrap">{modelAnswer}</p>
+        <p className="text-[12px] text-text-secondary bg-good-soft/30 border border-good-soft rounded-lg px-3 py-2 min-h-[48px] whitespace-pre-wrap">{modelAnswer}</p>
       </div>
     </div>
   )
@@ -575,28 +575,28 @@ function AnswerPair({ studentText, modelAnswer }) {
 
 function WrittenReviewItem({ q, qi, answered }) {
   return (
-    <div className="bg-bg-2 rounded-xl p-4 border border-line">
+    <div className="bg-surface-alt rounded-xl p-4 border border-line">
 
       {/* Question header */}
       <div className="flex items-start justify-between gap-2 mb-3">
         {q.type === 'reference' ? (
           <blockquote className="border-l-2 border-line pl-3 flex-1">
-            <p className="text-[12px] font-serif italic text-ink-2 leading-relaxed">{q.verse}</p>
+            <p className="text-[12px] font-serif italic text-text-secondary leading-relaxed">{q.verse}</p>
           </blockquote>
         ) : (
           <p
-            className="text-[13px] font-semibold text-ink leading-snug flex-1"
+            className="text-[13px] font-semibold text-text-primary leading-snug flex-1"
             dangerouslySetInnerHTML={{ __html: `Q${qi + 1}. ${q.html}` }}
           />
         )}
-        <span className="text-[10px] text-ink-4 shrink-0 mt-0.5">{q.marks}m</span>
+        <span className="text-[10px] text-text-tertiary shrink-0 mt-0.5">{q.marks}m</span>
       </div>
 
       {q.type === 'reference' && (
         <div className="space-y-4 ml-2">
           {q.subs.map((sub, i) => (
             <div key={i}>
-              <p className="text-[12px] font-semibold text-ink mb-1">{sub.q}</p>
+              <p className="text-[12px] font-semibold text-text-primary mb-1">{sub.q}</p>
               <AnswerPair
                 studentText={answered[q.id]?.[i] ?? ''}
                 modelAnswer={sub.modelAnswer}
@@ -632,27 +632,27 @@ function ResultsView({ questions, chapterMeta, attempt, attemptNumber, onRetake,
     <div className="space-y-4">
 
       {/* Score header */}
-      <div className="bg-bg-2 border border-line rounded-xl p-5">
+      <div className="bg-surface-alt border border-line rounded-xl p-5">
         <div className="flex items-start justify-between gap-3 mb-4">
           <div>
             <Eyebrow style={{ marginBottom: 4 }}>{chapterMeta.meta}</Eyebrow>
-            <h1 className="text-[18px] font-bold text-ink leading-tight">Exam Submitted</h1>
-            <p className="text-[12px] text-ink-3 mt-0.5">{chapterMeta.title}</p>
+            <h1 className="text-[18px] font-bold text-text-primary leading-tight">Exam Submitted</h1>
+            <p className="text-[12px] text-text-secondary mt-0.5">{chapterMeta.title}</p>
           </div>
           <Badge tone="good">Submitted</Badge>
         </div>
 
         <Eyebrow style={{ marginBottom: 4 }}>MCQ Score</Eyebrow>
         <div className="flex items-baseline gap-2 flex-wrap mb-2">
-          <span className="text-[32px] font-bold text-ink leading-none">{score}</span>
-          <span className="text-[18px] text-ink-3">/ {total}</span>
+          <span className="text-[32px] font-bold text-text-primary leading-none">{score}</span>
+          <span className="text-[18px] text-text-secondary">/ {total}</span>
           <span className={`text-[20px] font-bold ${scoreText}`}>· {percentage}%</span>
         </div>
-        <p className="text-[11px] text-ink-3 mb-3">
+        <p className="text-[11px] text-text-secondary mb-3">
           Attempt {attemptNumber}
           {attempt.submittedAt ? ` · Submitted ${fmtDate(attempt.submittedAt)}` : ''}
         </p>
-        <div className="h-2 bg-bg-sunk rounded-full overflow-hidden">
+        <div className="h-2 bg-surface-alt rounded-full overflow-hidden">
           <motion.div
             className={`h-full rounded-full ${scoreColor}`}
             initial={{ width: 0 }}
@@ -661,7 +661,7 @@ function ResultsView({ questions, chapterMeta, attempt, attemptNumber, onRetake,
           />
         </div>
         {writtenQs.length > 0 && (
-          <p className="text-[11px] text-ink-3 mt-2.5">
+          <p className="text-[11px] text-text-secondary mt-2.5">
             {writtenQs.length} written question{writtenQs.length !== 1 ? 's' : ''} below — tap model answers to compare
           </p>
         )}
@@ -825,8 +825,8 @@ export default function ChapterPracticeExam({ questions, chapterMeta, chapterSlu
 
   if (!questions?.length) {
     return (
-      <div className="bg-bg-2 border border-line rounded-xl p-6 text-center">
-        <p className="text-ink-3 text-[14px]">No practice questions available for this chapter yet.</p>
+      <div className="bg-surface-alt border border-line rounded-xl p-6 text-center">
+        <p className="text-text-secondary text-[14px]">No practice questions available for this chapter yet.</p>
       </div>
     )
   }

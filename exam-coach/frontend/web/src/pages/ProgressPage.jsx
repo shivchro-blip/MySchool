@@ -31,7 +31,7 @@ export default function ProgressPage() {
         <button
           onClick={() => navigate(-1)}
           className="w-9 h-9 rounded-full flex items-center justify-center
-                     hover:bg-bg-sunk text-ink-3 transition-colors"
+                     hover:bg-surface-alt text-text-secondary transition-colors"
         >
           <ArrowLeft size={18} />
         </button>
@@ -42,7 +42,7 @@ export default function ProgressPage() {
       {loading && (
         <div className="space-y-3">
           {[1, 2, 3].map(i => (
-            <div key={i} className="h-20 bg-bg-sunk rounded-2xl animate-pulse" />
+            <div key={i} className="h-20 bg-surface-alt rounded-2xl animate-pulse" />
           ))}
         </div>
       )}
@@ -64,13 +64,13 @@ export default function ProgressPage() {
           <div className="grid grid-cols-2 gap-3">
             <Card padding="md" className="text-center py-5">
               <p className="text-3xl font-bold text-brand-teal">{data.total_attempts}</p>
-              <p className="text-xs text-ink-3 mt-1.5 font-medium">Total Attempts</p>
+              <p className="text-xs text-text-secondary mt-1.5 font-medium">Total Attempts</p>
             </Card>
             <Card padding="md" className="text-center py-5">
               <p className={`text-3xl font-bold ${scoreColor(data.average_score).text}`}>
                 {data.average_score}%
               </p>
-              <p className="text-xs text-ink-3 mt-1.5 font-medium">Avg Score</p>
+              <p className="text-xs text-text-secondary mt-1.5 font-medium">Avg Score</p>
             </Card>
           </div>
 
@@ -78,12 +78,12 @@ export default function ProgressPage() {
           {data.total_attempts > 0 && (
             <Card padding="md">
               <div className="flex justify-between text-sm mb-2.5">
-                <span className="font-medium text-ink-2">Overall Score</span>
+                <span className="font-medium text-text-secondary">Overall Score</span>
                 <span className={`font-semibold ${scoreColor(data.average_score).text}`}>
                   {data.average_score}%
                 </span>
               </div>
-              <div className="h-2.5 bg-bg-sunk rounded-full overflow-hidden">
+              <div className="h-2.5 bg-surface-alt rounded-full overflow-hidden">
                 <motion.div
                   initial={{ width: 0 }}
                   animate={{ width: `${data.average_score}%` }}
@@ -97,7 +97,7 @@ export default function ProgressPage() {
           {/* By chapter */}
           {data.by_chapter?.length > 0 && (
             <Card padding="md">
-              <p className="text-xs font-bold text-ink-4 uppercase tracking-wide mb-4">
+              <p className="text-xs font-bold text-text-tertiary uppercase tracking-wide mb-4">
                 By Chapter
               </p>
               <div className="space-y-4">
@@ -105,8 +105,8 @@ export default function ProgressPage() {
                   const colors = scoreColor(ch.average_score)
                   return (
                     <div key={i}>
-                      <div className="flex justify-between text-xs text-ink-3 mb-1.5">
-                        <span className="font-medium text-ink-2">Chapter {i + 1}</span>
+                      <div className="flex justify-between text-xs text-text-secondary mb-1.5">
+                        <span className="font-medium text-text-secondary">Chapter {i + 1}</span>
                         <span>
                           {ch.attempts} attempt{ch.attempts !== 1 ? 's' : ''} ·{' '}
                           <span className={`${colors.text} font-semibold`}>
@@ -114,7 +114,7 @@ export default function ProgressPage() {
                           </span>
                         </span>
                       </div>
-                      <div className="h-2 bg-bg-sunk rounded-full overflow-hidden">
+                      <div className="h-2 bg-surface-alt rounded-full overflow-hidden">
                         <motion.div
                           initial={{ width: 0 }}
                           animate={{ width: `${ch.average_score}%` }}
@@ -133,8 +133,8 @@ export default function ProgressPage() {
           {data.total_attempts === 0 && (
             <div className="text-center py-16">
               <p className="text-5xl mb-4">📝</p>
-              <p className="text-base font-bold text-ink mb-1">No attempts yet</p>
-              <p className="text-sm text-ink-3 mb-6">
+              <p className="text-base font-bold text-text-primary mb-1">No attempts yet</p>
+              <p className="text-sm text-text-secondary mb-6">
                 Practice questions to track your progress
               </p>
               <Button onClick={() => navigate('/plus1')}>

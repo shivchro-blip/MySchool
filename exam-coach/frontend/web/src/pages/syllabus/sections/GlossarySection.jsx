@@ -19,8 +19,8 @@ export default function GlossarySection() {
               {item.word[0]}
             </div>
             <div>
-              <p className="text-sm font-bold text-ink">{item.word}</p>
-              <p className="text-sm text-ink-3 mt-0.5 leading-snug">
+              <p className="text-sm font-bold text-text-primary">{item.word}</p>
+              <p className="text-sm text-text-secondary mt-0.5 leading-snug">
                 {item.meaning}
               </p>
             </div>

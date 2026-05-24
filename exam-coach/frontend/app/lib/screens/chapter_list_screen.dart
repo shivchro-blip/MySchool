@@ -26,10 +26,11 @@ class ChapterListScreen extends StatefulWidget {
 class _ChapterListScreenState extends State<ChapterListScreen> {
   final _svc = SyllabusService();
 
-  List<Chapter>              _chapters  = [];
-  Map<String, List<Chapter>> _groups    = {};
+  List<Chapter>              _chapters      = [];
+  Map<String, List<Chapter>> _groups        = {};
   List<UnitConfig>?          _units;
-  Map<String, Chapter>       _bySlug    = {};
+  List<MathsChapter>?        _mathsChapters;
+  Map<String, Chapter>       _bySlug        = {};
   bool   _loading = true;
   String _error   = '';
 
@@ -44,6 +45,11 @@ class _ChapterListScreenState extends State<ChapterListScreen> {
   Future<void> _load() async {
     setState(() { _loading = true; _error = ''; });
     try {
+      final mathsChapters = SyllabusConfig.getMathsChapters(widget.classLevel, widget.subjectSlug);
+      if (mathsChapters != null) {
+        setState(() { _mathsChapters = mathsChapters; _loading = false; });
+        return;
+      }
       final chapters = await _svc.getChapters(widget.subjectSlug);
       final units    = SyllabusConfig.getUnits(widget.classLevel, widget.subjectSlug);
       setState(() {
@@ -85,9 +91,11 @@ class _ChapterListScreenState extends State<ChapterListScreen> {
                     padding: const EdgeInsets.all(16),
                     children: [ErrorView(message: _error, onRetry: _load)],
                   )
-                : _units != null
-                    ? _buildUnitList()
-                    : _buildCategoryList(),
+                : _mathsChapters != null
+                    ? _buildMathsList()
+                    : _units != null
+                        ? _buildUnitList()
+                        : _buildCategoryList(),
       ),
     );
   }
@@ -143,6 +151,31 @@ class _ChapterListScreenState extends State<ChapterListScreen> {
           )),
           const SizedBox(height: 16),
         ],
+      ],
+    );
+  }
+
+  // ── Static maths chapter list (Volume I / II) ─────────────────────────────
+
+  Widget _buildMathsList() {
+    final vol1 = _mathsChapters!.where((c) => c.volume == 1).toList();
+    final vol2 = _mathsChapters!.where((c) => c.volume == 2).toList();
+    return ListView(
+      padding: const EdgeInsets.fromLTRB(16, 16, 16, 32),
+      children: [
+        _SectionHeader(label: 'Volume I', color: _color),
+        const SizedBox(height: 8),
+        ...vol1.map((ch) => Padding(
+          padding: const EdgeInsets.only(bottom: 8),
+          child: _MathsChapterTile(chapter: ch, accentColor: _color),
+        )),
+        const SizedBox(height: 16),
+        _SectionHeader(label: 'Volume II', color: _color),
+        const SizedBox(height: 8),
+        ...vol2.map((ch) => Padding(
+          padding: const EdgeInsets.only(bottom: 8),
+          child: _MathsChapterTile(chapter: ch, accentColor: _color),
+        )),
       ],
     );
   }
@@ -571,6 +604,95 @@ class _ChapterTile extends StatelessWidget {
               Icon(Icons.chevron_right,
                   color: AppTheme.textMutedOf(context), size: 18),
             ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+// ── Maths chapter tile (disabled — content coming soon) ───────────────────
+
+class _MathsChapterTile extends StatelessWidget {
+  final MathsChapter chapter;
+  final Color        accentColor;
+  const _MathsChapterTile({required this.chapter, required this.accentColor});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color:        AppTheme.cardOf(context),
+        borderRadius: BorderRadius.circular(12),
+        border:       Border.all(color: AppTheme.borderOf(context)),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+        child: Row(
+          children: [
+            Container(
+              width: 38, height: 38,
+              decoration: BoxDecoration(
+                color:        accentColor.withAlpha(22),
+                borderRadius: BorderRadius.circular(9),
+              ),
+              child: Center(
+                child: Text(
+                  '${chapter.number}',
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w700,
+                    color: accentColor,
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Text(
+                chapter.title,
+                style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
+              ),
+            ),
+            const SizedBox(width: 8),
+            const _DisabledActionButton(label: 'Learn'),
+            const SizedBox(width: 6),
+            const _DisabledActionButton(label: 'Practice', outline: true),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _DisabledActionButton extends StatelessWidget {
+  final String label;
+  final bool   outline;
+  const _DisabledActionButton({required this.label, this.outline = false});
+
+  @override
+  Widget build(BuildContext context) {
+    final muted = AppTheme.textMutedOf(context);
+    return GestureDetector(
+      onTap: () => ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Coming soon'),
+          duration: Duration(seconds: 2),
+        ),
+      ),
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+        decoration: BoxDecoration(
+          color:        outline ? Colors.transparent : muted.withAlpha(30),
+          borderRadius: BorderRadius.circular(8),
+          border:       Border.all(color: muted.withAlpha(80)),
+        ),
+        child: Text(
+          label,
+          style: TextStyle(
+            fontSize:   11,
+            fontWeight: FontWeight.w600,
+            color:      muted,
           ),
         ),
       ),

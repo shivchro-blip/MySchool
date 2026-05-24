@@ -30,7 +30,7 @@ class ViewerHeader extends StatelessWidget {
                 'Final Exam Prep',
                 style: TextStyle(
                   fontSize: 11,
-                  color: AppTheme.brand,
+                  color: AppTheme.brandOf(context),
                   decoration: TextDecoration.underline,
                 ),
               ),
@@ -89,7 +89,7 @@ class ViewerHeader extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () => debugPrint('TODO: Start Practice'),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: AppTheme.brand,
+                  backgroundColor: AppTheme.brandOf(context),
                   foregroundColor: Colors.white,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(AppTheme.radiusButton),

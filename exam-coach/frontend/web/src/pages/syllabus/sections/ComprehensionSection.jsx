@@ -10,7 +10,7 @@ const SAMPLE_QUESTIONS = [
 export default function ComprehensionSection() {
   return (
     <div className="space-y-2.5">
-      <p className="text-xs font-semibold text-ink-3 mb-3">
+      <p className="text-xs font-semibold text-text-secondary mb-3">
         Check your understanding — answer these questions in your notebook.
       </p>
       {SAMPLE_QUESTIONS.map((q, i) => (
@@ -19,7 +19,7 @@ export default function ComprehensionSection() {
             <span className="text-sm font-bold text-brand-teal shrink-0">
               Q{i + 1}.
             </span>
-            <p className="text-sm text-ink-2">{q}</p>
+            <p className="text-sm text-text-secondary">{q}</p>
           </div>
         </Card>
       ))}

@@ -6,8 +6,6 @@ import { getCachedProfile } from '../api/users'
 import PageHeader from '../components/ui/PageHeader'
 import Eyebrow from '../components/ui/Eyebrow'
 
-const TEAL = '#2A7B6F'
-
 // ── Data helpers ──────────────────────────────────────────────
 function computeCounts() {
   let lessons = 0
@@ -78,7 +76,7 @@ export default function DashboardPage() {
         <Eyebrow style={{ marginBottom: 14 }}>My Courses</Eyebrow>
 
         {classNotFound ? (
-          <p className="text-sm text-text-muted">
+          <p className="text-sm text-text-secondary">
             We couldn't find your class. Please update your settings.
           </p>
         ) : (
@@ -116,10 +114,10 @@ export default function DashboardPage() {
                       width: 46, height: 46,
                       borderRadius: 10,
                       flexShrink: 0,
-                      background: `${TEAL}18`,
+                      background: 'color-mix(in srgb, var(--brand) 9%, transparent)',
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                     }}>
-                      <span style={{ fontSize: 17, fontWeight: 800, color: TEAL }}>
+                      <span style={{ fontSize: 17, fontWeight: 800, color: 'var(--brand)' }}>
                         {info.label}
                       </span>
                     </div>
@@ -129,14 +127,14 @@ export default function DashboardPage() {
                       <div style={{ fontSize: 14, fontWeight: 600, color: 'var(--text-primary)', marginBottom: 3 }}>
                         {info.title}
                       </div>
-                      <div style={{ fontSize: 12, color: 'var(--ink-4)' }}>
+                      <div style={{ fontSize: 12, color: 'var(--text-tertiary)' }}>
                         {counts.subjects} subject{counts.subjects !== 1 ? 's' : ''}
                         &nbsp;·&nbsp;
                         {counts.lessons} lesson{counts.lessons !== 1 ? 's' : ''}
                       </div>
                     </div>
 
-                    <ChevronRight size={16} style={{ color: 'var(--ink-4)', flexShrink: 0 }} />
+                    <ChevronRight size={16} style={{ color: 'var(--text-tertiary)', flexShrink: 0 }} />
                   </button>
 
                   {idx < arr.length - 1 && (
