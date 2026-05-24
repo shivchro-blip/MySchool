@@ -27,7 +27,7 @@ class InfoCard extends StatelessWidget {
     } else {
       bgColor     = AppTheme.cardOf(context);
       borderColor = AppTheme.borderOf(context);
-      accentColor = AppTheme.brandOf(context);
+      accentColor = AppTheme.brand;
     }
     return Container(
       padding: EdgeInsets.symmetric(
@@ -50,7 +50,7 @@ class InfoCard extends StatelessWidget {
                 label,
                 style: isTip
                     ? AppTypography.eyebrow.copyWith(color: accentColor)
-                    : AppTypography.label.copyWith(color: AppTheme.textPrimaryOf(context)),
+                    : AppTypography.label.copyWith(color: AppTheme.textOf(context)),
               ),
             ],
           ),
@@ -58,8 +58,8 @@ class InfoCard extends StatelessWidget {
           Text(
             body,
             style: isTip
-                ? AppTypography.bodySm.copyWith(color: AppTheme.textPrimaryOf(context))
-                : AppTypography.caption.copyWith(color: AppTheme.textSecondaryOf(context)),
+                ? AppTypography.bodySm.copyWith(color: AppTheme.textOf(context))
+                : AppTypography.caption.copyWith(color: AppTheme.text2Of(context)),
           ),
         ],
       ),

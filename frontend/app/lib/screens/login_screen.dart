@@ -239,7 +239,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 ? Icons.radio_button_checked
                                 : Icons.radio_button_unchecked,
                             size:  20,
-                            color: _ageConfirmation == value ? AppTheme.brandOf(context) : AppTheme.text2Of(context),
+                            color: _ageConfirmation == value ? AppTheme.brand : AppTheme.text2Of(context),
                           ),
                           const SizedBox(width: 8),
                           Expanded(
@@ -263,12 +263,12 @@ class _LoginScreenState extends State<LoginScreen> {
                           Text('I agree to the ', style: TextStyle(fontSize: 13, color: AppTheme.text2Of(context))),
                           GestureDetector(
                             onTap: () => context.push('/privacy'),
-                            child: Text('Privacy Policy', style: TextStyle(fontSize: 13, color: AppTheme.brandOf(context), decoration: TextDecoration.underline)),
+                            child: Text('Privacy Policy', style: TextStyle(fontSize: 13, color: AppTheme.brand, decoration: TextDecoration.underline)),
                           ),
                           Text(' and ', style: TextStyle(fontSize: 13, color: AppTheme.text2Of(context))),
                           GestureDetector(
                             onTap: () => context.push('/terms'),
-                            child: Text('Terms of Service', style: TextStyle(fontSize: 13, color: AppTheme.brandOf(context), decoration: TextDecoration.underline)),
+                            child: Text('Terms of Service', style: TextStyle(fontSize: 13, color: AppTheme.brand, decoration: TextDecoration.underline)),
                           ),
                         ],
                       ),
@@ -326,7 +326,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Text(
                     "After signup, you'll choose your class and subjects.",
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 12, color: AppTheme.brandOf(context)),
+                    style: TextStyle(fontSize: 12, color: AppTheme.brand),
                   ),
                 ),
                 const SizedBox(height: 12),

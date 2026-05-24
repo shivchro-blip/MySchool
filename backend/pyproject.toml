@@ -15,12 +15,21 @@ dependencies = [
     "pdfplumber",
     "pymupdf",
     "langchain-text-splitters",
+    "torch",
     "sentence-transformers",
     "rich",
     "python-jose[cryptography]",
     "passlib[bcrypt]",
     "slowapi",
 ]
+
+[tool.uv.sources]
+torch = { index = "pytorch-cpu" }
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
 
 [tool.pytest.ini_options]
 testpaths = ["backend/tests"]

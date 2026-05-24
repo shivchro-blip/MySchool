@@ -87,7 +87,7 @@ class _ShellScaffoldState extends State<ShellScaffold> {
                             child: Icon(
                               active ? tab.activeIcon : tab.icon,
                               size:  22,
-                              color: active ? AppTheme.brandOf(context) : AppTheme.textMutedOf(context),
+                              color: active ? AppTheme.brand : AppTheme.textMutedOf(context),
                             ),
                           ),
                         ),
@@ -97,7 +97,7 @@ class _ShellScaffoldState extends State<ShellScaffold> {
                           style: TextStyle(
                             fontSize:   10,
                             fontWeight: active ? FontWeight.w600 : FontWeight.w500,
-                            color: active ? AppTheme.brandOf(context) : AppTheme.textMutedOf(context),
+                            color: active ? AppTheme.brand : AppTheme.textMutedOf(context),
                           ),
                         ),
                       ],

@@ -14,11 +14,11 @@ import { Link } from 'react-router-dom'
 const TOP_NAV = [
   { id: 'dashboard',   label: 'Dashboard',   icon: LayoutGrid,    to: '/'            },
   { id: 'courses',     label: 'Courses',     icon: BookOpen,      to: '/courses'     },
-  { id: 'assignments', label: 'Assignments', icon: ClipboardList, to: null           },
+  { id: 'assignments', label: 'Assignments', icon: ClipboardList, to: '/assignments' },
   { id: 'progress',    label: 'Progress',    icon: TrendingUp,    to: '/progress'    },
   { id: 'activity',    label: 'Activity',    icon: Activity,      to: '/activity'    },
   { id: 'certificate', label: 'Certificate', icon: Award,         to: '/certificate' },
-  { id: 'messages',    label: 'Messages',    icon: MessageSquare, to: null           },
+  { id: 'messages',    label: 'Messages',    icon: MessageSquare, to: '/messages'    },
 ]
 
 const BOTTOM_NAV = [

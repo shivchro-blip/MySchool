@@ -69,7 +69,7 @@ class _CoursesScreenState extends State<CoursesScreen> {
     return Scaffold(
       appBar: AppBar(title: const Text('My Courses')),
       body: RefreshIndicator(
-        color: AppTheme.brandOf(context),
+        color: AppTheme.brand,
         onRefresh: () => context.read<SyllabusProvider>().load(),
         child: ListView(
           padding: const EdgeInsets.fromLTRB(16, 24, 16, 32),

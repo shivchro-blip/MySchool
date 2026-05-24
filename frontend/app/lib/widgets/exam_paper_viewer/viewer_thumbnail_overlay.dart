@@ -82,7 +82,7 @@ class ViewerThumbnailOverlay extends StatelessWidget {
                                       ),
                                       border: Border.all(
                                         color: isCurrent
-                                            ? AppTheme.brandOf(context)
+                                            ? AppTheme.brand
                                             : Colors.white.withValues(alpha: 0.10),
                                         width: isCurrent ? 2 : 1,
                                       ),
@@ -108,7 +108,7 @@ class ViewerThumbnailOverlay extends StatelessWidget {
                                   padding: const EdgeInsets.symmetric(vertical: 5),
                                   decoration: BoxDecoration(
                                     color: isCurrent
-                                        ? AppTheme.brandOf(context)
+                                        ? AppTheme.brand
                                         : Colors.black.withValues(alpha: 0.60),
                                     borderRadius: const BorderRadius.vertical(
                                       bottom: Radius.circular(4),

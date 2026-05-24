@@ -68,7 +68,7 @@ class NoticeBoxBlock extends StatelessWidget {
                   block.address!,
                   style: TextStyle(
                     fontSize: 10,
-                    color: AppTheme.mutedOf(context),
+                    color: AppTheme.textMutedOf(context),
                     height: 1.6,
                   ),
                 ),

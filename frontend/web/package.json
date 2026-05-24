@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build --mode production",
     "preview": "vite preview",
     "content": "node scripts/html-to-content.js",
     "export-practice": "node scripts/export-practice-json.mjs"

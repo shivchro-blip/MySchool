@@ -239,7 +239,7 @@ class _IntroStep extends StatelessWidget {
                 color:        AppTheme.brandLightOf(context),
                 borderRadius: BorderRadius.circular(20),
               ),
-              child: Icon(Icons.school_rounded, color: AppTheme.brandOf(context), size: 36),
+              child: Icon(Icons.school_rounded, color: AppTheme.brand, size: 36),
             ),
           ),
           const SizedBox(height: 32),
@@ -269,19 +269,19 @@ class _IntroStep extends StatelessWidget {
             decoration: BoxDecoration(
               color:        AppTheme.brandLightOf(context),
               borderRadius: BorderRadius.circular(10),
-              border:       Border.all(color: AppTheme.brandOf(context).withAlpha(50)),
+              border:       Border.all(color: AppTheme.brand.withAlpha(50)),
             ),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Icon(Icons.info_outline_rounded, color: AppTheme.brandOf(context), size: 15),
+                Icon(Icons.info_outline_rounded, color: AppTheme.brand, size: 15),
                 const SizedBox(width: 8),
                 Expanded(
                   child: Text(
                     'Your dashboard will include only the class and subjects you choose here.',
                     style: TextStyle(
                       fontSize: 13,
-                      color:    AppTheme.brandOf(context),
+                      color:    AppTheme.brand,
                       height:   1.5,
                     ),
                   ),
@@ -497,7 +497,7 @@ class _ProgressBar extends StatelessWidget {
             value:            step / total,
             minHeight:        3,
             backgroundColor:  AppTheme.borderOf(context),
-            valueColor:       AlwaysStoppedAnimation<Color>(AppTheme.brandOf(context)),
+            valueColor:       AlwaysStoppedAnimation<Color>(AppTheme.brand),
           ),
         ),
         const SizedBox(height: 12),

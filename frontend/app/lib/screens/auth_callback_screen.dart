@@ -241,7 +241,7 @@ class _AuthCallbackScreenState extends State<AuthCallbackScreen> {
                                     : Icons.radio_button_unchecked,
                                 size:  20,
                                 color: _ageConfirmation == value
-                                    ? AppTheme.brandOf(context)
+                                    ? AppTheme.brand
                                     : AppTheme.text2Of(context),
                               ),
                               const SizedBox(width: 8),
@@ -283,7 +283,7 @@ class _AuthCallbackScreenState extends State<AuthCallbackScreen> {
                                     'Privacy Policy',
                                     style: TextStyle(
                                       fontSize:   13,
-                                      color:      AppTheme.brandOf(context),
+                                      color:      AppTheme.brand,
                                       decoration: TextDecoration.underline,
                                     ),
                                   ),
@@ -298,7 +298,7 @@ class _AuthCallbackScreenState extends State<AuthCallbackScreen> {
                                     'Terms of Service',
                                     style: TextStyle(
                                       fontSize:   13,
-                                      color:      AppTheme.brandOf(context),
+                                      color:      AppTheme.brand,
                                       decoration: TextDecoration.underline,
                                     ),
                                   ),

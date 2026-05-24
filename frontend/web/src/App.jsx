@@ -11,6 +11,8 @@ import DashboardPage    from './pages/DashboardPage'
 import CoursesIndexPage from './pages/CoursesIndexPage'
 import ActivityPage     from './pages/ActivityPage'
 import CertificatePage  from './pages/CertificatePage'
+import AssignmentsPage  from './pages/AssignmentsPage'
+import MessagesPage     from './pages/MessagesPage'
 import PrivacyPage      from './pages/PrivacyPage'
 import TermsPage        from './pages/TermsPage'
 import ContactPage      from './pages/ContactPage'
@@ -131,6 +133,14 @@ export default function App() {
 
         <Route path="/certificate" element={
           <DashShell><CertificatePage /></DashShell>
+        } />
+
+        <Route path="/assignments" element={
+          <DashShell><AssignmentsPage /></DashShell>
+        } />
+
+        <Route path="/messages" element={
+          <DashShell><MessagesPage /></DashShell>
         } />
 
         <Route path="/practice-exam" element={

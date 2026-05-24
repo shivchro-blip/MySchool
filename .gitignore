@@ -40,3 +40,7 @@ tmp/
 
 # Graphify analysis output (never commit)
 graphify-out/
+
+# Local dev artifacts (never commit)
+Dummy_files/
+.launch/

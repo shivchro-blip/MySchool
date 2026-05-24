@@ -1,6 +1,5 @@
 import chromadb
 from chromadb.config import Settings as ChromaSettings
-from sentence_transformers import SentenceTransformer
 from pathlib import Path
 from rich.console import Console
 from rich.progress import track
@@ -31,6 +30,7 @@ def embed_chunks(chunks: list[dict]) -> None:
         console.print("[yellow]No chunks to embed[/yellow]")
         return
 
+    from sentence_transformers import SentenceTransformer  # deferred: heavy torch dep
     console.print(f"[blue]Loading[/blue] embedding model: {EMBEDDING_MODEL}")
     model = SentenceTransformer(EMBEDDING_MODEL)
     client = get_chroma_client()
@@ -89,6 +89,7 @@ def search_similar(
     n_results: int = 5,
     filters: dict | None = None,
 ) -> list[dict]:
+    from sentence_transformers import SentenceTransformer  # deferred: heavy torch dep
     model = SentenceTransformer(EMBEDDING_MODEL)
     query_embedding = model.encode([query])[0].tolist()
 
