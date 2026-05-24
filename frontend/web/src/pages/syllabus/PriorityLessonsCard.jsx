@@ -15,7 +15,7 @@ export default function PriorityLessonsCard({ lessons: lessonsProp }) {
         <div className="w-8 h-8 rounded-sm flex items-center justify-center shrink-0 bg-brand-teal-soft">
           <Flame size={16} strokeWidth={1.8} className="text-brand-teal" />
         </div>
-        <p className="text-sm font-bold text-ink">High-Priority Lessons</p>
+        <p className="text-sm font-bold text-text-primary">High-Priority Lessons</p>
       </div>
 
       {lessons.map((lesson, i) => {
@@ -27,13 +27,13 @@ export default function PriorityLessonsCard({ lessons: lessonsProp }) {
             tabIndex={0}
             onClick={() => console.log('TODO: open lesson', lesson.id)}
             onKeyDown={e => e.key === 'Enter' && console.log('TODO: open lesson', lesson.id)}
-            className={`flex items-center gap-3 px-4 sm:px-5 py-3.5 cursor-pointer hover:bg-bg-sunk transition-colors duration-fast${i > 0 ? ' border-t border-line-soft' : ''}`}
+            className={`flex items-center gap-3 px-4 sm:px-5 py-3.5 cursor-pointer hover:bg-surface-alt transition-colors duration-fast${i > 0 ? ' border-t border-line-soft' : ''}`}
           >
             <div className="w-8 h-8 rounded-sm flex items-center justify-center shrink-0 bg-brand-teal-soft">
               <BookOpen size={15} strokeWidth={1.8} className="text-brand-teal" />
             </div>
 
-            <p className="flex-1 min-w-0 text-sm font-medium text-ink truncate">
+            <p className="flex-1 min-w-0 text-sm font-medium text-text-primary truncate">
               {lesson.category} — {lesson.title}
             </p>
 
@@ -41,7 +41,7 @@ export default function PriorityLessonsCard({ lessons: lessonsProp }) {
               {badge.label}
             </span>
 
-            <ChevronRight size={15} className="text-ink-4 shrink-0" />
+            <ChevronRight size={15} className="text-text-tertiary shrink-0" />
           </div>
         )
       })}

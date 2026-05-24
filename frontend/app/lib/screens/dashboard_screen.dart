@@ -97,7 +97,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             Container(
               width: 34, height: 34,
               decoration: BoxDecoration(
-                color:        AppTheme.brand,
+                color:        AppTheme.brandOf(context),
                 borderRadius: BorderRadius.circular(8),
               ),
               child: const Icon(Icons.school_rounded, color: Colors.white, size: 19),
@@ -132,7 +132,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             padding: const EdgeInsets.only(right: 14),
             child: CircleAvatar(
               radius: 15,
-              backgroundColor: AppTheme.brand,
+              backgroundColor: AppTheme.brandOf(context),
               child: Text(
                 name.isNotEmpty ? name[0].toUpperCase() : 'S',
                 style: const TextStyle(
@@ -152,7 +152,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
       // ── Body ────────────────────────────────────────────────
       body: RefreshIndicator(
-        color: AppTheme.brand,
+        color: AppTheme.brandOf(context),
         backgroundColor: AppTheme.cardOf(context),
         onRefresh: () async {
           final userProvider = context.read<UserProvider>();

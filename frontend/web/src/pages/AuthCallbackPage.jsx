@@ -87,15 +87,15 @@ export default function AuthCallbackPage() {
 
   if (phase === 'loading') {
     return (
-      <div className="min-h-screen bg-bg flex items-center justify-center">
-        <div className="text-ink-3 text-sm">Signing in…</div>
+      <div className="min-h-screen bg-page-bg flex items-center justify-center">
+        <div className="text-text-secondary text-sm">Signing in…</div>
       </div>
     )
   }
 
   if (phase === 'error') {
     return (
-      <div className="min-h-screen bg-bg flex items-center justify-center px-4">
+      <div className="min-h-screen bg-page-bg flex items-center justify-center px-4">
         <div className="w-full max-w-sm text-center">
           <BrandLogo height={80} className="mx-auto mb-6" />
           <div className="text-sm text-danger bg-pos-soft border border-line-soft
@@ -104,7 +104,7 @@ export default function AuthCallbackPage() {
           </div>
           <button
             onClick={() => navigate('/login', { replace: true })}
-            className="text-sm text-accent underline hover:text-accent-ink"
+            className="text-sm text-brand underline hover:text-brand-strong"
           >
             Back to login
           </button>
@@ -114,23 +114,23 @@ export default function AuthCallbackPage() {
   }
 
   return (
-    <div className="min-h-screen bg-bg flex items-center justify-center px-4">
+    <div className="min-h-screen bg-page-bg flex items-center justify-center px-4">
       <div className="w-full max-w-sm">
 
         <div className="text-center mb-8">
           <BrandLogo height={80} className="mx-auto mb-2" />
         </div>
 
-        <div className="bg-bg-2 rounded-2xl shadow-card border border-line-soft p-6">
-          <h2 className="text-base font-semibold text-ink mb-1">One last step</h2>
-          <p className="text-sm text-ink-3 mb-5">
+        <div className="bg-surface-alt rounded-2xl shadow-card border border-line-soft p-6">
+          <h2 className="text-base font-semibold text-text-primary mb-1">One last step</h2>
+          <p className="text-sm text-text-secondary mb-5">
             Before we set up your account, please confirm the following.
           </p>
 
           <form onSubmit={handleConsent} className="space-y-4">
 
             <div>
-              <p className="text-sm font-medium text-ink-2 mb-2">Age confirmation</p>
+              <p className="text-sm font-medium text-text-secondary mb-2">Age confirmation</p>
               {[
                 { value: 'adult',              label: 'I am 18 years or older' },
                 { value: 'minor_with_consent', label: 'I am under 18, and my parent or guardian has agreed to my use of TN Exam Coach' },
@@ -144,7 +144,7 @@ export default function AuthCallbackPage() {
                     onChange={() => setAge(opt.value)}
                     className="mt-0.5 flex-shrink-0"
                   />
-                  <span className="text-sm text-ink-2">{opt.label}</span>
+                  <span className="text-sm text-text-secondary">{opt.label}</span>
                 </label>
               ))}
             </div>
@@ -156,7 +156,7 @@ export default function AuthCallbackPage() {
                 onChange={e => setConsent(e.target.checked)}
                 className="mt-0.5 flex-shrink-0"
               />
-              <span className="text-sm text-ink-2">
+              <span className="text-sm text-text-secondary">
                 I agree to the{' '}
                 <a href="/privacy" target="_blank" rel="noopener noreferrer"
                    className="text-brand underline">Privacy Policy</a>
@@ -184,7 +184,7 @@ export default function AuthCallbackPage() {
           </form>
         </div>
 
-        <p className="text-center text-xs text-ink-4 mt-6">
+        <p className="text-center text-xs text-text-tertiary mt-6">
           Higher Secondary · Tamil Nadu State Board
         </p>
       </div>

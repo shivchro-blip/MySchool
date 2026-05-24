@@ -10,7 +10,7 @@ export default function TermsPage() {
       description="The terms and conditions for using TN Exam Coach."
     >
       <div style={{ color: 'var(--ink)', lineHeight: 1.7 }} className="prose-legal">
-        <p style={{ fontSize: 12, color: 'var(--ink-4)', marginBottom: 24 }}>
+        <p style={{ fontSize: 12, color: 'var(--text-tertiary)', marginBottom: 24 }}>
           Last updated: {LEGAL_LAST_UPDATED}
         </p>
         <Markdown>{termsMd}</Markdown>

@@ -85,7 +85,7 @@ class _ChapterDetailScreenState extends State<ChapterDetailScreen> {
                 ] else ...[
                   _ActionCard(
                     icon:    Icons.auto_stories_outlined,
-                    color:   AppTheme.brand,
+                    color:   AppTheme.brandOf(context),
                     emoji:   '📖',
                     title:   'Learn',
                     subtitle: 'AI explanation, key points, and exam tips',
@@ -144,7 +144,7 @@ class _ChapterInfoCard extends StatelessWidget {
               margin: const EdgeInsets.only(bottom: 8),
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
               decoration: BoxDecoration(
-                color: AppTheme.brand.withAlpha(18),
+                color: AppTheme.brandOf(context).withAlpha(18),
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Row(
@@ -154,9 +154,9 @@ class _ChapterInfoCard extends StatelessWidget {
                   const SizedBox(width: 5),
                   Text(
                     ch.typeLabel,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 11, fontWeight: FontWeight.w700,
-                      color: AppTheme.brand,
+                      color: AppTheme.brandOf(context),
                     ),
                   ),
                 ],
@@ -197,7 +197,7 @@ class _SixCardGrid extends StatelessWidget {
       _CardData(emoji: '👤', title: 'About Author', sub: 'Learn about the writer',
           color: AppTheme.maths, onTap: onAboutAuthor),
       _CardData(emoji: '📄', title: 'Text', sub: 'Read the full lesson',
-          color: AppTheme.brand, onTap: onText),
+          color: AppTheme.brandOf(context), onTap: onText),
       _CardData(emoji: '🔤', title: 'Glossary', sub: 'Key words and meanings',
           color: const Color(0xFF0ea5e9), onTap: onGlossary),
       _CardData(emoji: '📋', title: 'Comprehension', sub: 'Check your understanding',

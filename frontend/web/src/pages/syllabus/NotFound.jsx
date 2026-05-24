@@ -6,8 +6,8 @@ export default function NotFound({ message = 'Page not found' }) {
   return (
     <div className="text-center py-16">
       <p className="text-5xl mb-4">📭</p>
-      <p className="text-lg font-bold text-ink mb-1">Not Found</p>
-      <p className="text-sm text-ink-4 mb-6">{message}</p>
+      <p className="text-lg font-bold text-text-primary mb-1">Not Found</p>
+      <p className="text-sm text-text-tertiary mb-6">{message}</p>
       <Button variant="secondary" onClick={() => navigate('/')}>
         Go home
       </Button>

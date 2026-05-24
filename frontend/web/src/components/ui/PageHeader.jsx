@@ -15,7 +15,7 @@ export default function PageHeader({ breadcrumb, eyebrow, categoryEyebrow, title
       )}
       <PageTitle>{title}</PageTitle>
       {subtitle && (
-        <p className="text-base text-text-muted font-normal mt-1.5">{subtitle}</p>
+        <p className="text-base text-text-secondary font-normal mt-1.5">{subtitle}</p>
       )}
     </div>
   )

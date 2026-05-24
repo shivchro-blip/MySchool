@@ -9,9 +9,9 @@ import { Breadcrumb } from '../../components/nav'
 import NotFound from './NotFound'
 
 const CATEGORY_EYEBROW = {
-  prose:         { label: '📖 PROSE',         color: 'var(--brand-teal)' },
-  poetry:        { label: '✍️ POEM',           color: 'var(--brand-teal)' },
-  supplementary: { label: '📑 SUPPLEMENTARY', color: 'var(--brand-teal)' },
+  prose:         { label: '📖 Prose',         color: 'var(--brand)' },
+  poetry:        { label: '✍️ Poem',           color: 'var(--brand)' },
+  supplementary: { label: '📑 Supplementary', color: 'var(--brand)' },
 }
 
 export default function LessonDetailPage() {
@@ -24,12 +24,14 @@ export default function LessonDetailPage() {
 
   return (
     <div>
-      <PageHeader
-        breadcrumb={<Breadcrumb crumbs={crumbs} />}
-        categoryEyebrow={CATEGORY_EYEBROW[lessonData.category]}
-        title={lessonData.title}
-        subtitle="Choose a section to begin"
-      />
+      <div className="bg-surface border border-border rounded-xl px-6 py-5 mb-8">
+        <PageHeader
+          breadcrumb={<Breadcrumb crumbs={crumbs} />}
+          categoryEyebrow={CATEGORY_EYEBROW[category]}
+          title={lessonData.title}
+          subtitle="Choose a section to begin"
+        />
+      </div>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
         {LESSON_SECTIONS.map((section, i) => (
@@ -48,8 +50,8 @@ export default function LessonDetailPage() {
               className="h-full"
             >
               <div className="text-2xl mb-2.5">{section.icon}</div>
-              <p className="text-sm font-bold text-ink">{section.label}</p>
-              <p className="text-xs text-ink-4 mt-1 leading-snug">
+              <p className="text-sm font-bold text-text-primary">{section.label}</p>
+              <p className="text-xs text-text-tertiary mt-1 leading-snug">
                 {section.description}
               </p>
             </Card>

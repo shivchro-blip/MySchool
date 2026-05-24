@@ -11,10 +11,10 @@ export default function Button({
     lg: 'h-11 px-5 text-sm min-h-[44px]',
   }
   const variants = {
-    primary:   'bg-accent text-white hover:bg-accent-ink',
-    secondary: 'bg-bg-2 border border-line text-ink hover:bg-bg-sunk',
+    primary:   'bg-brand text-white hover:bg-brand-strong',
+    secondary: 'bg-surface-alt border border-line text-text-primary hover:bg-surface-alt',
     accent:    'bg-brand-teal text-white hover:bg-brand-teal-hover',
-    ghost:     'text-ink-2 hover:bg-bg-sunk',
+    ghost:     'text-text-secondary hover:bg-surface-alt',
     soft:      'bg-brand-teal-soft text-brand-teal hover:bg-brand-teal-soft-hover',
   }
   return (

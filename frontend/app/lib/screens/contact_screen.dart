@@ -53,7 +53,7 @@ class _ContactScreenState extends State<ContactScreen> {
                 TextButton(
                   onPressed: _copyEmail,
                   style: TextButton.styleFrom(
-                    foregroundColor: _copied ? AppTheme.brand : AppTheme.text2Of(context),
+                    foregroundColor: _copied ? AppTheme.brandOf(context) : AppTheme.text2Of(context),
                   ),
                   child: Text(_copied ? 'Copied!' : 'Copy'),
                 ),

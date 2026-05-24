@@ -16,8 +16,8 @@ const btnPrimary = {
 }
 
 const btnSecondary = {
-  background: 'var(--bg-sunk)',
-  color: 'var(--ink-2)',
+  background: 'var(--surface-alt)',
+  color: 'var(--text-secondary)',
   border: '1px solid var(--line)',
   borderRadius: 8,
   padding: '8px 18px',
@@ -61,7 +61,7 @@ export default function CookieBanner() {
       gap: 12,
       boxShadow: '0 -4px 16px rgba(0,0,0,0.08)',
     }}>
-      <p style={{ margin: 0, fontSize: 13, color: 'var(--ink-2)', lineHeight: 1.5 }}>
+      <p style={{ margin: 0, fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.5 }}>
         TN Exam Coach uses a few small files (cookies and similar storage) to keep you signed in
         and to understand which lessons are most helpful, so we can improve them. We do not use
         advertising cookies.
@@ -69,7 +69,7 @@ export default function CookieBanner() {
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, alignItems: 'center' }}>
         <button onClick={accept} style={btnPrimary}>Accept</button>
         <button onClick={essentialOnly} style={btnSecondary}>Continue with essential cookies only</button>
-        <Link to="/privacy" style={{ fontSize: 13, color: 'var(--ink-3)', marginLeft: 4 }}>
+        <Link to="/privacy" style={{ fontSize: 13, color: 'var(--text-secondary)', marginLeft: 4 }}>
           Learn more →
         </Link>
       </div>

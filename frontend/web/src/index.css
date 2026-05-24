@@ -20,20 +20,40 @@
 
 :root {
   /* ══════════════════════════════════════════════════════════
-     LIGHT THEME — clean navy design system
+     CANONICAL DESIGN TOKENS — LIGHT
      ══════════════════════════════════════════════════════════ */
-  --bg:          #F5F1EB;
-  --bg-2:        #FFFFFF;
-  --bg-sunk:     #EDE9E2;
-  --line:        #E5E7EB;
-  --line-soft:   #E8E3DB;
-  --ink:         #1E293B;
-  --ink-2:       #64748B;
-  --ink-3:       #64748B;
-  --ink-4:       #94A3B8;
-  --accent:      #1B4B82;
-  --accent-soft: #E6F1FB;
-  --accent-ink:  #0C447C;
+
+  /* ── New canonical tokens ──────────────────────────────── */
+  --page-bg:        #FBFAF7;
+  --surface:        #FFFFFF;
+  --surface-alt:    #F1EFE8;
+  --border:         #E8E5DD;
+  --text-primary:   #1F2A27;
+  --text-secondary: #5C6B66;
+  --text-tertiary:  #86908B;
+  --brand-deep:     #04342C;
+  --brand:          #1D9E75;
+  --brand-strong:   #0F6E56;
+  --brand-subtle:   230 245 238;
+  --tip-bg:         #FBF1DD;
+  --tip-border:     #E9C27A;
+  --tip-text:       #8A5A12;
+
+  /* Compatibility shim — examPaperViewer only. Do not remove.
+     All other components use canonical tokens directly. */
+  /* ── PAPER aliases → canonical tokens ─────────────────── */
+  --bg:          var(--page-bg);
+  --bg-2:        var(--surface);
+  --bg-sunk:     var(--surface-alt);
+  --line:        var(--border);
+  --line-soft:   var(--border);
+  --ink:         var(--text-primary);
+  --ink-2:       var(--text-secondary);
+  --ink-3:       var(--text-secondary);
+  --ink-4:       var(--text-tertiary);
+  --accent:      var(--brand-strong);
+  --accent-soft: #E6F5EE;
+  --accent-ink:  var(--brand-strong);
   --good:        #1D9E75;
   --good-soft:   #E1F5EE;
   --good-ink:    #085041;
@@ -41,29 +61,65 @@
   --warn-soft:   #FAEEDA;
   --pos:         #b86a2a;
   --pos-soft:    #f4e8d8;
-  --danger:      #E24B4A;
-  --highlight:   #FEF9C3;
+  --danger:        #E24B4A;
+  --danger-hover:  #C0392B;
+  --danger-bg:     rgba(226, 74, 74, 0.10);
+  --highlight:     #FEF9C3;
   --ai:          #8B5CF6;
   --ai-soft:     #EEEDFE;
 
-  /* ── Design token foundation (pass 1) ──────────────────── */
-  --bg-canvas:          #F5F1EB;
-  --bg-surface:         #FFFFFF;
-  --border-soft:        rgba(15, 23, 42, 0.06);
-  --border-strong:      rgba(15, 23, 42, 0.10);
-  --text-primary:       #0F172A;
-  --text-muted:         #5E6B7A;
-  --text-faint:         #7B8794;
-  --brand-teal:         #2A7B6F;
-  --brand-teal-soft:    rgba(42, 123, 111, 0.10);
-  --brand-teal-soft-hover: rgba(42, 123, 111, 0.18);
-  --brand-teal-hover:   #226860;
-  --accent-navy:        #1E3A5F;
-  --radius-card:        16px;
-  --radius-button:      12px;
-  --radius-pill:        9999px;
-  --shadow-card:        0 1px 2px rgba(15,23,42,0.04), 0 1px 1px rgba(15,23,42,0.03);
-  --shadow-card-hover:  0 4px 12px rgba(15,23,42,0.06), 0 2px 4px rgba(15,23,42,0.04);
+  /* ── Extended aliases ───────────────────────────────────── */
+  --bg-canvas:             var(--page-bg);
+  --bg-surface:            var(--surface);
+  --border-soft:           rgba(15, 23, 42, 0.06);
+  --border-strong:         rgba(15, 23, 42, 0.10);
+  --text-muted:            var(--text-secondary);
+  --text-faint:            var(--text-tertiary);
+  --brand-teal:            var(--brand);
+  --brand-teal-soft:       rgba(29, 158, 117, 0.10);
+  --brand-teal-soft-hover: rgba(29, 158, 117, 0.18);
+  --brand-teal-hover:      var(--brand-strong);
+  --accent-navy:           #1E3A5F;
+  --radius-card:           16px;
+  --radius-button:         12px;
+  --radius-pill:           9999px;
+  --shadow-sm:             0 1px 4px rgba(0, 0, 0, 0.04);
+  --shadow-card:           0 1px 2px rgba(15,23,42,0.04), 0 1px 1px rgba(15,23,42,0.03);
+  --shadow-card-hover:     0 4px 12px rgba(15,23,42,0.06), 0 2px 4px rgba(15,23,42,0.04);
+
+  /* ── Chrome shell (sidebar + header) — brand-deep in both modes ── */
+  --chrome-bg:        var(--brand-deep);
+  --chrome-bg-active: #1C4F3B;
+  --chrome-ink:       #ffffff;
+  --chrome-ink-dim:   rgba(255,255,255,0.70);
+  --chrome-ink-faint: rgba(255,255,255,0.40);
+  --chrome-line:      rgba(255,255,255,0.12);
+  --chrome-hover:     rgba(255,255,255,0.07);
+
+  /* ── Lesson accent (SubjectPage components) ── */
+  --lesson-accent:      var(--brand-deep);
+  --lesson-accent-soft: #e8f5ee;
+  --lesson-accent-a07:  rgba(4,52,44,0.07);
+  --lesson-accent-a10:  rgba(4,52,44,0.10);
+  --lesson-accent-a13:  rgba(4,52,44,0.13);
+  --lesson-accent-a20:  rgba(4,52,44,0.20);
+  --lesson-accent-a27:  rgba(4,52,44,0.27);
+  --lesson-accent-a33:  rgba(4,52,44,0.33);
+  --lesson-accent-a40:  rgba(4,52,44,0.40);
+  --lesson-accent-a47:  rgba(4,52,44,0.47);
+
+  /* ── Category tag pills ── */
+  --tag-bg:     #e8f5ee;
+  --tag-ink:    var(--brand-deep);
+  --tag-border: rgba(4,52,44,0.35);
+
+  /* ── Final Exam Prep card ── */
+  --final-card-bg:      var(--brand-deep);
+  --final-card-ink:     #ffffff;
+  --final-card-body:    rgba(255,255,255,0.80);
+  --final-card-btn-bg:  #ffffff;
+  --final-card-btn-ink: var(--brand-deep);
+  --final-card-glow:    rgba(4,52,44,0.25);
 
   /* ── Layout rail widths ──────────────────────────────────── */
   --rail-sidebar:           220px;
@@ -81,24 +137,46 @@
   --duration-ring: 600ms;
   --ease-out:    cubic-bezier(0.0, 0.0, 0.2, 1);
   --ease-in-out: cubic-bezier(0.4, 0.0, 0.2, 1);
+
+  /* ── Typography families ─────────────────────────────────── */
+  --font-display: "Source Serif 4", "Lora", serif;
+  --font-body:    "Inter", system-ui, sans-serif;
 }
 
 [data-theme="dark"] {
   /* ══════════════════════════════════════════════════════════
-     DARK THEME — navy slate design system
+     CANONICAL DESIGN TOKENS — DARK
      ══════════════════════════════════════════════════════════ */
-  --bg:          #0F172A;
-  --bg-2:        #1E293B;
-  --bg-sunk:     #0B1120;
-  --line:        #334155;
-  --line-soft:   #1E293B;
-  --ink:         #F1F5F9;
-  --ink-2:       #CBD5E1;
-  --ink-3:       #94A3B8;
-  --ink-4:       #475569;
-  --accent:      #3B82F6;
-  --accent-soft: #1E3A5F;
-  --accent-ink:  #93C5FD;
+
+  /* ── New canonical tokens (dark) ──────────────────────── */
+  --page-bg:        #0E1A16;
+  --surface:        #15241F;
+  --surface-alt:    #1C302A;
+  --border:         #2A3D36;
+  --text-primary:   #E8EDEA;
+  --text-secondary: #9DAAA4;
+  --text-tertiary:  #6B7872;
+  --brand-deep:     #04342C;
+  --brand:          #34C99A;
+  --brand-strong:   #5DCAA5;
+  --brand-subtle:   11 46 34;
+  --tip-bg:         #2E2412;
+  --tip-border:     #6B5117;
+  --tip-text:       #E0B25C;
+
+  /* ── PAPER aliases (dark) ─────────────────────────────── */
+  --bg:          var(--page-bg);
+  --bg-2:        var(--surface);
+  --bg-sunk:     var(--surface-alt);
+  --line:        var(--border);
+  --line-soft:   var(--surface);
+  --ink:         var(--text-primary);
+  --ink-2:       var(--text-secondary);
+  --ink-3:       var(--text-secondary);
+  --ink-4:       var(--text-tertiary);
+  --accent:      var(--brand);
+  --accent-soft: var(--surface-alt);
+  --accent-ink:  var(--brand-strong);
   --good:        #34D399;
   --good-soft:   #065F46;
   --good-ink:    #A7F3D0;
@@ -106,10 +184,55 @@
   --warn-soft:   #451A03;
   --pos:         #FCD34D;
   --pos-soft:    #451A03;
-  --danger:      #F87171;
-  --highlight:   #3D2F00;
+  --danger:        #F87171;
+  --danger-hover:  #EF4444;
+  --danger-bg:     rgba(248, 113, 113, 0.12);
+  --shadow-sm:     0 1px 4px rgba(0, 0, 0, 0.16);
+  --highlight:     #3D2F00;
   --ai:          #A78BFA;
   --ai-soft:     #2E1065;
+
+  /* ── Extended aliases (dark) ─────────────────────────── */
+  --text-muted:            var(--text-secondary);
+  --text-faint:            var(--text-tertiary);
+  --brand-teal:            var(--brand);
+  --brand-teal-soft:       rgba(52,201,154,0.10);
+  --brand-teal-soft-hover: rgba(52,201,154,0.18);
+  --brand-teal-hover:      var(--brand-strong);
+
+  /* ── Chrome shell — brand-deep in both modes ─────────── */
+  --chrome-bg:        var(--brand-deep);
+  --chrome-bg-active: #1C4F3B;
+  --chrome-ink:       var(--text-primary);
+  --chrome-ink-dim:   var(--text-secondary);
+  --chrome-ink-faint: var(--text-tertiary);
+  --chrome-line:      var(--border);
+  --chrome-hover:     rgba(52,201,154,0.07);
+
+  /* ── Lesson accent (dark) ────────────────────────────── */
+  --lesson-accent:      var(--brand-strong);
+  --lesson-accent-soft: var(--surface-alt);
+  --lesson-accent-a07:  rgba(93,202,165,0.07);
+  --lesson-accent-a10:  rgba(93,202,165,0.10);
+  --lesson-accent-a13:  rgba(93,202,165,0.13);
+  --lesson-accent-a20:  rgba(93,202,165,0.20);
+  --lesson-accent-a27:  rgba(93,202,165,0.27);
+  --lesson-accent-a33:  rgba(93,202,165,0.33);
+  --lesson-accent-a40:  rgba(93,202,165,0.40);
+  --lesson-accent-a47:  rgba(93,202,165,0.47);
+
+  /* ── Category tag pills ── */
+  --tag-bg:     var(--surface-alt);
+  --tag-ink:    var(--brand-strong);
+  --tag-border: rgba(93,202,165,0.30);
+
+  /* ── Final Exam Prep card ── */
+  --final-card-bg:      color-mix(in srgb, var(--brand) 7%, var(--surface));
+  --final-card-ink:     var(--brand);
+  --final-card-body:    var(--text-secondary);
+  --final-card-btn-bg:  var(--brand);
+  --final-card-btn-ink: #0E1A16;
+  --final-card-glow:    rgba(52,201,154,0.13);
 }
 
 :root {
@@ -175,10 +298,10 @@
 }
 
 @layer base {
-  body {
-    @apply font-sans;
-    background-color: var(--bg);
-    color: var(--ink);
+  html, body {
+    font-family: var(--font-body);
+    background-color: var(--page-bg);
+    color: var(--text-primary);
     font-size: 14px;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
@@ -234,20 +357,14 @@
 
   .syllabus-unit-pill {
     @apply text-[11px] font-medium px-2 py-0.5 rounded-[10px];
-    color: var(--brand-teal);
-    background: var(--brand-teal-soft);
-    border: 1px solid rgba(42, 123, 111, 0.35);
+    color: var(--tag-ink);
+    background: var(--tag-bg);
+    border: 1px solid var(--tag-border);
   }
 
   .syllabus-lesson-type {
     color: var(--brand-teal);
   }
-}
-
-[data-theme="dark"] .syllabus-unit-pill {
-  color: var(--ink-2);
-  background: var(--bg-sunk);
-  border-color: var(--ink-4);
 }
 
 /* ── Legal pages (react-markdown output) ─────────────────── */
@@ -580,3 +697,104 @@
   transition: background 0.2s ease;
 }
 ::-webkit-scrollbar-thumb:hover { background: var(--ec-blue); }
+
+/* ── 2-column card grid (unit cards, subject cards, etc.) ────
+   Odd last card spans full width and centers at half-width.
+   Single column on mobile. */
+.unit-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  align-items: stretch;
+}
+
+.unit-grid > *:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  max-width: 50%;
+  margin: 0 auto;
+  width: 100%;
+}
+
+@media (max-width: 767px) {
+  .unit-grid {
+    grid-template-columns: 1fr;
+  }
+  .unit-grid > *:last-child:nth-child(odd) {
+    max-width: 100%;
+  }
+}
+
+/* ── Mobile safe-area bottom fix ──────────────────────────────
+   Prevents content and tab-bar buttons from being hidden behind
+   the browser nav bar (iOS home indicator, Android nav bar). */
+@media (max-width: 767px) {
+  main {
+    padding-bottom: calc(64px + env(safe-area-inset-bottom, 0px));
+  }
+  nav.flex {
+    min-height: calc(64px + env(safe-area-inset-bottom, 0px));
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   SEMANTIC TYPE UTILITIES — Phase 2 typography foundations
+   ══════════════════════════════════════════════════════════════ */
+
+.type-display-xl { font-family: var(--font-display); font-size: 40px; line-height: 1.15; font-weight: 500; }
+.type-heading-lg { font-family: var(--font-display); font-size: 28px; line-height: 1.2;  font-weight: 500; }
+.type-heading-md { font-family: var(--font-display); font-size: 22px; line-height: 1.25; font-weight: 500; }
+.type-heading-sm { font-family: var(--font-display); font-size: 17px; line-height: 1.3;  font-weight: 500; }
+.type-body       { font-family: var(--font-body);    font-size: 18px; line-height: 1.7;  font-weight: 400; }
+.type-body-sm    { font-family: var(--font-body);    font-size: 15px; line-height: 1.65; font-weight: 400; }
+.type-caption    { font-family: var(--font-body);    font-size: 13px; line-height: 1.5;  font-weight: 400; }
+.type-eyebrow    { font-family: var(--font-body);    font-size: 12px; line-height: 1.0;  font-weight: 500; letter-spacing: 0.07em; }
+.type-label      { font-family: var(--font-body);    font-size: 14px; line-height: 1.4;  font-weight: 500; }
+
+/* ══════════════════════════════════════════════════════════════
+   LAYOUT PRIMITIVES — Phase 3
+   ══════════════════════════════════════════════════════════════ */
+
+.reading-column {
+  width: 100%;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+@media (max-width: 640px) {
+  .reading-column { padding-left: 16px; padding-right: 16px; }
+}
+
+.lesson-layout {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 0;
+  align-items: start;
+  padding: 0;
+}
+@media (max-width: 1024px) {
+  .lesson-layout { grid-template-columns: 1fr; padding: 0 16px; }
+}
+
+.lesson-toc {
+  position: sticky;
+  top: 58px;
+  height: calc(100vh - 58px);
+  overflow-y: auto;
+  padding: 24px 16px 24px 0;
+  border-right: 1px solid var(--border);
+}
+@media (max-width: 1024px) {
+  .lesson-toc { display: none; }
+}
+
+.lesson-content {
+  min-width: 0;
+  padding: 24px 0 24px 32px;
+}
+@media (max-width: 1024px) {
+  .lesson-content { padding: 16px 0; }
+}
+
+.surface-page   { background-color: var(--page-bg); }
+.surface-card   { background-color: var(--surface); }
+.surface-raised { background-color: var(--surface-alt); }

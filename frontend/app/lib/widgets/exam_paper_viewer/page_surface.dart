@@ -49,7 +49,7 @@ class PageSurface extends StatelessWidget {
                     onStartPractice?.call();
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: AppTheme.brand,
+                    backgroundColor: AppTheme.brandOf(context),
                     foregroundColor: Colors.white,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(AppTheme.radiusButton),

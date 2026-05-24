@@ -17,8 +17,8 @@ function McqPart({ part, done, score, onAnswer }) {
   return (
     <div>
       {/* Score bar */}
-      <div className="bg-bg-2 border border-line rounded-xl px-4 py-3 mb-5 flex justify-between items-center flex-wrap gap-2">
-        <span className="text-[13px] text-ink-2">
+      <div className="bg-surface-alt border border-line rounded-xl px-4 py-3 mb-5 flex justify-between items-center flex-wrap gap-2">
+        <span className="text-[13px] text-text-secondary">
           Score:{' '}
           <span className="font-bold text-brand-teal">{score}</span>
           {' '}/ {part.scoreMax}
@@ -32,7 +32,7 @@ function McqPart({ part, done, score, onAnswer }) {
         <div key={si}>
           <p
             className={`text-[10px] font-bold tracking-[0.1em] uppercase mb-3
-                        bg-accent-soft/30 text-accent-ink rounded-lg px-4 py-2.5
+                        bg-brand-subtle/30 text-brand-strong rounded-lg px-4 py-2.5
                         ${si === 0 ? '' : 'mt-7'}`}
           >
             {sec.label}
@@ -46,21 +46,21 @@ function McqPart({ part, done, score, onAnswer }) {
             return (
               <div
                 key={q.id}
-                className="bg-bg-2 rounded-xl px-4 py-4 mb-3 border"
+                className="bg-surface-alt rounded-xl px-4 py-4 mb-3 border"
                 style={{ borderColor: answered && chosen === correct ? 'var(--good)' : 'var(--line)' }}
               >
-                <p className="text-[10px] font-bold tracking-[0.08em] uppercase text-ink-4 mb-2">
+                <p className="text-[10px] font-bold tracking-[0.08em] uppercase text-text-tertiary mb-2">
                   {q.id.toUpperCase()}
                 </p>
 
                 <div
-                  className="text-[14px] text-ink leading-[1.7] mb-3"
+                  className="text-[14px] text-text-primary leading-[1.7] mb-3"
                   dangerouslySetInnerHTML={{ __html: q.html }}
                 />
 
                 <div className="grid grid-cols-2 max-sm:grid-cols-1 gap-2 mb-3">
                   {q.options.map((opt, i) => {
-                    let bg = 'var(--bg-sunk)', borderColor = 'var(--line)', color = 'var(--ink-2)', weight = 400
+                    let bg = 'var(--surface-alt)', borderColor = 'var(--line)', color = 'var(--text-secondary)', weight = 400
                     if (answered) {
                       if (i === correct) {
                         bg = 'var(--good-soft)'; borderColor = 'var(--good)'; color = 'var(--good-ink)'; weight = 600
@@ -90,7 +90,7 @@ function McqPart({ part, done, score, onAnswer }) {
                 </div>
 
                 {answered && (
-                  <p className="text-[12px] text-ink-3 leading-[1.6] pt-2.5 border-t border-line-soft">
+                  <p className="text-[12px] text-text-secondary leading-[1.6] pt-2.5 border-t border-line-soft">
                     <strong style={{ color: chosen === correct ? 'var(--good-ink)' : 'var(--danger)' }}>
                       {chosen === correct ? '✓ Correct.' : '✗ Incorrect.'}
                     </strong>{' '}
@@ -113,22 +113,22 @@ function ReferencePart({ part, cur, onNav, revealed, onToggle, answers, onAnswer
 
   return (
     <div>
-      <p className="text-[12px] italic mb-4 leading-relaxed bg-accent-soft/30 text-accent-ink rounded-lg px-4 py-2.5">
+      <p className="text-[12px] italic mb-4 leading-relaxed bg-brand-subtle/30 text-brand-strong rounded-lg px-4 py-2.5">
         {part.instruction}
       </p>
 
       <div
-        className="bg-bg-2 rounded-xl px-5 py-5 border"
+        className="bg-surface-alt rounded-xl px-5 py-5 border"
         style={{ borderColor: revealed[cur] ? 'var(--good)' : 'var(--line)' }}
       >
-        <p className="text-[10px] font-bold tracking-[0.08em] uppercase text-ink-4 mb-3">
+        <p className="text-[10px] font-bold tracking-[0.08em] uppercase text-text-tertiary mb-3">
           Q{cur + 1} of {total} · {part.marksPer} marks
         </p>
 
         {/* Verse */}
         <div
-          className="px-4 py-3 rounded-xl text-[14px] italic text-ink leading-[1.8] mb-4"
-          style={{ background: 'var(--bg-sunk)' }}
+          className="px-4 py-3 rounded-xl text-[14px] italic text-text-primary leading-[1.8] mb-4"
+          style={{ background: 'var(--surface-alt)' }}
         >
           {q.verse}
         </div>
@@ -139,16 +139,16 @@ function ReferencePart({ part, cur, onNav, revealed, onToggle, answers, onAnswer
           const error  = validationErrors?.[errKey]
           return (
             <div key={i} className="mb-4">
-              <p className="text-[13px] text-ink leading-[1.6] mb-2">{s.q}</p>
+              <p className="text-[13px] text-text-primary leading-[1.6] mb-2">{s.q}</p>
               <textarea
                 rows={3}
                 placeholder="Write your answer here…"
                 value={answers[cur][i]}
                 onChange={e => onAnswer(cur, i, e.target.value)}
                 onBlur={e => onBlur?.(cur, i, e.target.value)}
-                className="w-full border border-line rounded-lg px-3 py-2 text-[13px] text-ink-2
-                           bg-bg-sunk leading-relaxed resize-y block outline-none font-[inherit]
-                           focus:border-accent transition-colors"
+                className="w-full border border-line rounded-lg px-3 py-2 text-[13px] text-text-secondary
+                           bg-surface-alt leading-relaxed resize-y block outline-none font-[inherit]
+                           focus:border-brand transition-colors"
                 style={{ minHeight: '70px', borderColor: error ? 'var(--danger)' : undefined }}
               />
               {error && (
@@ -164,7 +164,7 @@ function ReferencePart({ part, cur, onNav, revealed, onToggle, answers, onAnswer
         <button
           onClick={() => onToggle(cur)}
           className="px-3.5 py-1.5 rounded-lg text-[12px] font-semibold border border-line
-                     text-ink-2 bg-bg-2 hover:bg-bg-sunk transition-all"
+                     text-text-secondary bg-surface-alt hover:bg-surface-alt transition-all"
         >
           {revealed[cur] ? 'Hide model answers' : 'Show model answers'}
         </button>
@@ -183,10 +183,10 @@ function ReferencePart({ part, cur, onNav, revealed, onToggle, answers, onAnswer
             {q.subs.map((s, i) => (
               <p
                 key={i}
-                className="text-ink leading-[1.7]"
+                className="text-text-primary leading-[1.7]"
                 style={{ marginBottom: i < q.subs.length - 1 ? '10px' : 0 }}
               >
-                <strong className="text-ink-2">{s.q.substring(0, 3)}</strong> {s.a}
+                <strong className="text-text-secondary">{s.q.substring(0, 3)}</strong> {s.a}
               </p>
             ))}
           </div>
@@ -207,16 +207,16 @@ function ReferencePart({ part, cur, onNav, revealed, onToggle, answers, onAnswer
           disabled={cur === 0}
           onClick={() => onNav(-1)}
           className="px-4 py-2 rounded-xl text-[13px] font-semibold border border-line
-                     text-ink-2 bg-bg-2 hover:bg-bg-sunk transition-all disabled:opacity-40"
+                     text-text-secondary bg-surface-alt hover:bg-surface-alt transition-all disabled:opacity-40"
         >
           ← Previous
         </button>
-        <span className="text-[12px] text-ink-4">Question {cur + 1} of {total}</span>
+        <span className="text-[12px] text-text-tertiary">Question {cur + 1} of {total}</span>
         <button
           disabled={cur === total - 1}
           onClick={() => onNav(1)}
           className="px-4 py-2 rounded-xl text-[13px] font-semibold border border-line
-                     text-ink-2 bg-bg-2 hover:bg-bg-sunk transition-all disabled:opacity-40"
+                     text-text-secondary bg-surface-alt hover:bg-surface-alt transition-all disabled:opacity-40"
         >
           Next →
         </button>
@@ -232,7 +232,7 @@ function EssayPart({ part, answers, onAnswer, revealed, onToggle, onBlur, valida
 
   return (
     <div>
-      <p className="text-[12px] italic mb-4 leading-relaxed bg-accent-soft/30 text-accent-ink rounded-lg px-4 py-2.5">
+      <p className="text-[12px] italic mb-4 leading-relaxed bg-brand-subtle/30 text-brand-strong rounded-lg px-4 py-2.5">
         {part.instruction}
       </p>
 
@@ -241,13 +241,13 @@ function EssayPart({ part, answers, onAnswer, revealed, onToggle, onBlur, valida
         return (
         <div
           key={i}
-          className="bg-bg-2 rounded-xl px-5 py-5 mb-3 border"
+          className="bg-surface-alt rounded-xl px-5 py-5 mb-3 border"
           style={{ borderColor: revealed[i] ? 'var(--good)' : 'var(--line)' }}
         >
-          <p className="text-[10px] font-bold tracking-[0.08em] uppercase text-ink-4 mb-2">
+          <p className="text-[10px] font-bold tracking-[0.08em] uppercase text-text-tertiary mb-2">
             Q{i + 1} · {part.marksPer} marks · {wordHint}
           </p>
-          <p className="text-[14px] text-ink leading-[1.7] mb-3">{q.q}</p>
+          <p className="text-[14px] text-text-primary leading-[1.7] mb-3">{q.q}</p>
 
           <textarea
             rows={isLong ? 7 : 4}
@@ -255,9 +255,9 @@ function EssayPart({ part, answers, onAnswer, revealed, onToggle, onBlur, valida
             value={answers[i]}
             onChange={e => onAnswer(i, e.target.value)}
             onBlur={e => onBlur?.(i, e.target.value)}
-            className="w-full border border-line rounded-lg px-3 py-2 text-[13px] text-ink-2
-                       bg-bg-sunk leading-relaxed resize-y block outline-none font-[inherit]
-                       mb-2.5 focus:border-accent transition-colors"
+            className="w-full border border-line rounded-lg px-3 py-2 text-[13px] text-text-secondary
+                       bg-surface-alt leading-relaxed resize-y block outline-none font-[inherit]
+                       mb-2.5 focus:border-brand transition-colors"
             style={{ borderColor: error ? 'var(--danger)' : undefined }}
           />
           {error && (
@@ -270,7 +270,7 @@ function EssayPart({ part, answers, onAnswer, revealed, onToggle, onBlur, valida
           <button
             onClick={() => onToggle(i)}
             className="px-3.5 py-1.5 rounded-lg text-[12px] font-semibold border border-line
-                       text-ink-2 bg-bg-2 hover:bg-bg-sunk transition-all"
+                       text-text-secondary bg-surface-alt hover:bg-surface-alt transition-all"
           >
             {revealed[i] ? 'Hide model answer' : 'Show model answer'}
           </button>
@@ -286,7 +286,7 @@ function EssayPart({ part, answers, onAnswer, revealed, onToggle, onBlur, valida
               >
                 Model answer
               </p>
-              <p className="text-[13px] text-ink leading-[1.8] whitespace-pre-line">{q.ans}</p>
+              <p className="text-[13px] text-text-primary leading-[1.8] whitespace-pre-line">{q.ans}</p>
             </div>
           )}
         </div>
@@ -887,7 +887,7 @@ export default function PracticeRichPage({ content, chapterSlug }) {
         <button
           onClick={handleRetake}
           className="px-4 py-2 rounded-xl text-[13px] font-semibold border border-line
-                     text-ink-2 bg-bg-2 hover:bg-bg-sunk transition-all"
+                     text-text-secondary bg-surface-alt hover:bg-surface-alt transition-all"
         >
           ↺ Retake Practice
         </button>
@@ -899,7 +899,7 @@ export default function PracticeRichPage({ content, chapterSlug }) {
     <div>
       {resumeNotice && (
         <div
-          className="mb-4 rounded-xl border border-accent-soft bg-accent-soft/30 px-4 py-3 text-[12px] text-accent-ink"
+          className="mb-4 rounded-xl border border-brand-subtle bg-brand-subtle/30 px-4 py-3 text-[12px] text-brand-strong"
           role="status"
           aria-live="polite"
         >
@@ -921,7 +921,7 @@ export default function PracticeRichPage({ content, chapterSlug }) {
               border-b-2 -mb-px transition-all duration-[var(--duration-fast)]
               ${activePartId === part.id
                 ? 'border-brand-teal text-brand-teal font-semibold'
-                : 'border-transparent text-ink-3 hover:text-ink'}
+                : 'border-transparent text-text-secondary hover:text-text-primary'}
             `}
           >
             {part.navLabel}

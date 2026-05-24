@@ -37,37 +37,39 @@ const YEARS = [
   { key: 'plus2', label: '+2' },
 ]
 
-function NavItem({ item, active, dim, danger, onClick }) {
+function NavItem({ item, active, dim, danger, onClick, collapsed }) {
   const [hovered, setHovered] = useState(false)
   return (
     <button
       onClick={onClick}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
+      title={collapsed ? item.label : undefined}
       style={{
         position: 'relative',
         overflow: 'hidden',
         display: 'flex',
         alignItems: 'center',
-        gap: 10,
+        justifyContent: collapsed ? 'center' : undefined,
+        gap: collapsed ? 0 : 10,
         width: '100%',
-        padding: '8px 14px',
+        padding: collapsed ? '8px 0' : '8px 14px',
         borderRadius: 8,
-        border: danger ? `1.5px solid ${hovered ? '#C0392B' : '#E24B4A'}` : 'none',
+        border: danger ? `1.5px solid ${hovered ? 'var(--danger-hover)' : 'var(--danger)'}` : 'none',
         cursor: (item.to || danger) ? 'pointer' : 'default',
         transition: 'all 0.18s ease',
         background: active
-          ? 'var(--brand-teal-soft)'
+          ? 'var(--chrome-bg-active)'
           : (danger && hovered)
-          ? '#FCEBEB'
+          ? 'var(--danger-bg)'
           : (!danger && hovered)
-          ? 'rgba(42,123,111,0.05)'
+          ? 'var(--chrome-hover)'
           : 'transparent',
         color: active
-          ? 'var(--brand-teal)'
+          ? 'var(--chrome-ink)'
           : danger
-          ? (hovered ? '#C0392B' : '#E24B4A')
-          : dim ? 'var(--ink-4)' : 'var(--ink-3)',
+          ? (hovered ? 'var(--danger-hover)' : 'var(--danger)')
+          : dim ? 'var(--chrome-ink-faint)' : 'var(--chrome-ink-dim)',
         fontSize: 13.5,
         fontWeight: active ? 600 : 500,
         textAlign: 'left',
@@ -80,12 +82,12 @@ function NavItem({ item, active, dim, danger, onClick }) {
           top: 0,
           bottom: 0,
           width: 3,
-          background: active ? 'var(--brand-teal)' : 'transparent',
+          background: active ? 'var(--chrome-ink)' : 'transparent',
           transition: 'background 0.18s ease',
         }} />
       )}
       <item.icon size={danger ? 16 : 17} strokeWidth={active ? 2.2 : 1.8} />
-      <span>{item.label}</span>
+      {!collapsed && <span>{item.label}</span>}
     </button>
   )
 }
@@ -107,8 +109,8 @@ function SubItem({ label, active, depth, onClick }) {
         borderRadius: 8,
         border: 'none',
         cursor: 'pointer',
-        background: active ? 'var(--brand-teal-soft)' : 'transparent',
-        color: active ? 'var(--brand-teal)' : 'var(--ink-4)',
+        background: active ? 'var(--chrome-bg-active)' : 'transparent',
+        color: active ? 'var(--chrome-ink)' : 'var(--chrome-ink-faint)',
         fontSize: depth === 1 ? 12.5 : 12,
         fontWeight: active ? 600 : 400,
         textAlign: 'left',
@@ -117,7 +119,7 @@ function SubItem({ label, active, depth, onClick }) {
     >
       <span style={{
         width: 4, height: 4, borderRadius: '50%', flexShrink: 0,
-        background: active ? 'var(--brand-teal)' : 'var(--line)',
+        background: active ? 'var(--chrome-ink)' : 'var(--chrome-line)',
         transition: 'background 0.15s ease',
       }} />
       {label}
@@ -125,7 +127,7 @@ function SubItem({ label, active, depth, onClick }) {
   )
 }
 
-export default function DashboardSidebar({ onClose }) {
+export default function DashboardSidebar({ onClose, collapsed = false }) {
   const navigate    = useNavigate()
   const { pathname } = useLocation()
   const [profile, setProfile] = useState(null)
@@ -165,13 +167,14 @@ export default function DashboardSidebar({ onClose }) {
 
   return (
     <div style={{
-      width: 200,
-      minWidth: 200,
+      width: collapsed ? 52 : 200,
+      minWidth: collapsed ? 52 : 200,
       height: '100%',
-      background: 'var(--bg-2)',
-      borderRight: '1px solid var(--line-soft)',
+      background: 'var(--chrome-bg)',
+      borderRight: '1px solid var(--chrome-line)',
       display: 'flex',
       flexDirection: 'column',
+      transition: 'width 200ms ease, min-width 200ms ease',
     }}>
 
       {/* Scrollable section: logo + main nav.
@@ -192,10 +195,11 @@ export default function DashboardSidebar({ onClose }) {
                 item={item}
                 active={isActive(item)}
                 onClick={() => item.to && go(item.to)}
+                collapsed={collapsed}
               />
 
               {/* Course drill-down sub-items */}
-              {item.id === 'courses' && inCourses && (
+              {item.id === 'courses' && inCourses && !collapsed && (
                 <div style={{ marginBottom: 4 }}>
                   {YEARS.filter(yr => {
                     const allowed = getAllowedYearKey(profile)
@@ -236,7 +240,7 @@ export default function DashboardSidebar({ onClose }) {
 
       {/* Bottom nav — pinned to the bottom of the sidebar at all viewport heights */}
       <div style={{ flexShrink: 0 }}>
-        <div style={{ height: 1, background: 'var(--line)', margin: '0 16px' }} />
+        <div style={{ height: 1, background: 'var(--chrome-line)', margin: '0 16px' }} />
         <div style={{ padding: '8px 10px 12px', display: 'flex', flexDirection: 'column', gap: 2 }}>
           {BOTTOM_NAV.map(item => (
             <NavItem
@@ -246,37 +250,40 @@ export default function DashboardSidebar({ onClose }) {
               dim={item.id !== 'logout'}
               danger={item.id === 'logout'}
               onClick={() => handleBottomNavClick(item)}
+              collapsed={collapsed}
             />
           ))}
         </div>
-        <div style={{
-          padding: '0 14px 12px',
-          display: 'flex',
-          flexWrap: 'wrap',
-          gap: '4px 8px',
-          alignItems: 'center',
-          fontSize: 10,
-          lineHeight: 1.3,
-          color: 'var(--ink-4)',
-        }}>
-          {SIDEBAR_LEGAL_LINKS.map((item, index) => (
-            <Fragment key={item.to}>
-              <Link
-                to={item.to}
-                style={{
-                  color: 'var(--ink-4)',
-                  textDecoration: 'none',
-                  fontWeight: 500,
-                }}
-              >
-                {item.label}
-              </Link>
-              {index < SIDEBAR_LEGAL_LINKS.length - 1 && (
-                <span aria-hidden="true" style={{ color: 'var(--line)' }}>&middot;</span>
-              )}
-            </Fragment>
-          ))}
-        </div>
+        {!collapsed && (
+          <div style={{
+            padding: '0 14px 12px',
+            display: 'flex',
+            flexWrap: 'wrap',
+            gap: '4px 8px',
+            alignItems: 'center',
+            fontSize: 10,
+            lineHeight: 1.3,
+            color: 'var(--chrome-ink-faint)',
+          }}>
+            {SIDEBAR_LEGAL_LINKS.map((item, index) => (
+              <Fragment key={item.to}>
+                <Link
+                  to={item.to}
+                  style={{
+                    color: 'var(--chrome-ink-faint)',
+                    textDecoration: 'none',
+                    fontWeight: 500,
+                  }}
+                >
+                  {item.label}
+                </Link>
+                {index < SIDEBAR_LEGAL_LINKS.length - 1 && (
+                  <span aria-hidden="true" style={{ color: 'var(--line)' }}>&middot;</span>
+                )}
+              </Fragment>
+            ))}
+          </div>
+        )}
       </div>
 
     </div>

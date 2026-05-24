@@ -22,10 +22,10 @@ export default function AttemptHistorySection({ lessonSlug: propLessonSlug } = {
 
   if (sessions.length === 0) {
     return (
-      <div className="bg-bg-2 border border-line rounded-xl p-8 text-center">
+      <div className="bg-surface-alt border border-line rounded-xl p-8 text-center">
         <div className="text-3xl mb-3">🕐</div>
-        <p className="text-[15px] font-semibold text-ink mb-1">No attempts yet</p>
-        <p className="text-[13px] text-ink-3 mb-5">
+        <p className="text-[15px] font-semibold text-text-primary mb-1">No attempts yet</p>
+        <p className="text-[13px] text-text-secondary mb-5">
           Complete a practice exam to see your history here.
         </p>
         <button
@@ -42,7 +42,7 @@ export default function AttemptHistorySection({ lessonSlug: propLessonSlug } = {
 
   return (
     <div className="space-y-3">
-      <p className="text-[10px] font-bold uppercase tracking-wide text-ink-3">
+      <p className="text-[10px] font-bold uppercase tracking-wide text-text-secondary">
         {sessions.length} session{sessions.length !== 1 ? 's' : ''} completed
       </p>
 
@@ -56,7 +56,7 @@ export default function AttemptHistorySection({ lessonSlug: propLessonSlug } = {
         return (
           <div
             key={i}
-            className="bg-bg-2 border border-line rounded-xl p-4"
+            className="bg-surface-alt border border-line rounded-xl p-4"
           >
             <div className="flex items-center justify-between gap-3">
               <div className="flex items-center gap-3">
@@ -65,14 +65,14 @@ export default function AttemptHistorySection({ lessonSlug: propLessonSlug } = {
                 </div>
                 <div>
                   <div className="flex items-center gap-2 mb-0.5">
-                    <span className="text-[13px] font-semibold text-ink">Session {sessionNum}</span>
+                    <span className="text-[13px] font-semibold text-text-primary">Session {sessionNum}</span>
                     <Badge tone={tone}>{percentage}%</Badge>
                   </div>
-                  <p className="text-[11px] text-ink-3">{fmtDate(s.date)}</p>
+                  <p className="text-[11px] text-text-secondary">{fmtDate(s.date)}</p>
                 </div>
               </div>
               <div className="text-right shrink-0">
-                <div className="text-[16px] font-bold text-ink">{s.score}/{s.total} MCQ</div>
+                <div className="text-[16px] font-bold text-text-primary">{s.score}/{s.total} MCQ</div>
               </div>
             </div>
           </div>
