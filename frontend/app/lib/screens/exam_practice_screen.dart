@@ -169,7 +169,7 @@ class _QuickNavDots extends StatelessWidget {
                           : _asAnswerString(answers[q.id])?.trim().isNotEmpty ?? false;
 
                   Color bg; Color fg;
-                  if (current) { bg = AppTheme.brand; fg = Colors.white; }
+                  if (current) { bg = Colors.transparent; fg = AppTheme.brand; }
                   else if (isInvalid) {
                     bg = AppTheme.errorBgOf(context);
                     fg = AppTheme.error;
@@ -195,7 +195,7 @@ class _QuickNavDots extends StatelessWidget {
                       decoration: BoxDecoration(
                         color:        bg,
                         borderRadius: BorderRadius.circular(6),
-                        border: current ? null : Border.all(color: AppTheme.borderOf(context)),
+                        border: current ? Border.all(color: AppTheme.brand, width: 2) : Border.all(color: AppTheme.borderOf(context)),
                       ),
                       alignment: Alignment.center,
                       child: Text('${gi + 1}',
@@ -1056,15 +1056,6 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> with WidgetsBin
                 style: TextStyle(fontSize: 11, color: AppTheme.textMutedOf(context)),
               ),
               const SizedBox(height: 10),
-              ClipRRect(
-                borderRadius: BorderRadius.circular(4),
-                child: LinearProgressIndicator(
-                  value: total > 0 ? score / total : 0,
-                  backgroundColor: AppTheme.surfaceOf(context),
-                  color: scoreColor,
-                  minHeight: 8,
-                ),
-              ),
               if (writtenQs.isNotEmpty) ...[
                 const SizedBox(height: 8),
                 Text('${writtenQs.length} written question${writtenQs.length != 1 ? 's' : ''} · review below',
@@ -1251,23 +1242,31 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> with WidgetsBin
 
         Row(
           children: [
-            Expanded(
-              child: OutlinedButton.icon(
-                onPressed: () => context.go(
-                  '/rich-learn/${widget.classLevel}/${widget.subjectSlug}/${widget.chapterSlug}',
-                  extra: {'chapter': widget.chapter, 'tab': null},
+            if (!widget.chapterSlug.contains('model-qa') && !widget.chapterSlug.contains('annual')) ...[
+              Expanded(
+                child: OutlinedButton.icon(
+                  onPressed: () => context.go(
+                    '/rich-learn/${widget.classLevel}/${widget.subjectSlug}/${widget.chapterSlug}',
+                    extra: {'chapter': widget.chapter, 'tab': null},
+                  ),
+                  icon:  const Icon(Icons.chevron_left, size: 16),
+                  label: const Text('Back'),
                 ),
-                icon:  const Icon(Icons.chevron_left, size: 16),
-                label: const Text('Back'),
               ),
-            ),
-            const SizedBox(width: 8),
+              const SizedBox(width: 8),
+            ],
             Expanded(
               child: OutlinedButton.icon(
-                onPressed: () => context.go(
-                  '/rich-learn/${widget.classLevel}/${widget.subjectSlug}/${widget.chapterSlug}',
-                  extra: {'chapter': widget.chapter, 'tab': 'attempt-history'},
-                ),
+                onPressed: () {
+                  if (widget.chapterSlug.contains('model-qa') || widget.chapterSlug.contains('annual')) {
+                    context.go('/courses/${widget.classLevel}/${widget.subjectSlug}/final-exam-prep');
+                  } else {
+                    context.go(
+                      '/rich-learn/${widget.classLevel}/${widget.subjectSlug}/${widget.chapterSlug}',
+                      extra: {'chapter': widget.chapter, 'tab': 'attempt-history'},
+                    );
+                  }
+                },
                 icon:  const Icon(Icons.history, size: 16),
                 label: const Text('History'),
               ),
@@ -1320,10 +1319,16 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> with WidgetsBin
           IconButton(
             icon:    const Icon(Icons.history),
             tooltip: 'Attempt History',
-            onPressed: () => context.go(
-              '/rich-learn/${widget.classLevel}/${widget.subjectSlug}/${widget.chapterSlug}',
-              extra: {'chapter': widget.chapter, 'tab': 'attempt-history'},
-            ),
+            onPressed: () {
+              if (widget.chapterSlug.contains('model-qa') || widget.chapterSlug.contains('annual')) {
+                context.go('/courses/${widget.classLevel}/${widget.subjectSlug}/final-exam-prep');
+              } else {
+                context.go(
+                  '/rich-learn/${widget.classLevel}/${widget.subjectSlug}/${widget.chapterSlug}',
+                  extra: {'chapter': widget.chapter, 'tab': 'attempt-history'},
+                );
+              }
+            },
           ),
       ],
     );

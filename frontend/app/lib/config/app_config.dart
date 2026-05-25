@@ -10,7 +10,24 @@ class AppConfig {
     defaultValue: 'http://localhost:8000/api/v1',
   );
 
+  static const String supabaseUrl = String.fromEnvironment(
+    'SUPABASE_URL',
+    defaultValue: '',
+  );
+
+  static const String supabaseAnonKey = String.fromEnvironment(
+    'SUPABASE_ANON_KEY',
+    defaultValue: '',
+  );
+
   static const String appName = 'AI Exam Coach';
   static const int freeAiCallsPerDay = 20;
   static const int requestTimeoutSeconds = 90;
+
+  static void assertConfigured() {
+    assert(supabaseUrl.isNotEmpty,
+        'SUPABASE_URL must be set via --dart-define=SUPABASE_URL=...');
+    assert(supabaseAnonKey.isNotEmpty,
+        'SUPABASE_ANON_KEY must be set via --dart-define=SUPABASE_ANON_KEY=...');
+  }
 }

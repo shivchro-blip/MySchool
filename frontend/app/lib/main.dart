@@ -9,6 +9,7 @@ import 'router.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  AppConfig.assertConfigured();
   // Use path-based URLs (/dashboard instead of /#/dashboard) so the
   // /auth/callback route can coexist with the Supabase OAuth hash fragment.
   usePathUrlStrategy();

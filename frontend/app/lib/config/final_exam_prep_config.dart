@@ -1,3 +1,16 @@
+class ModelPaper {
+  final String id;
+  final String modelId;
+  final String label;
+  final String title;
+  const ModelPaper({
+    required this.id,
+    required this.modelId,
+    required this.label,
+    required this.title,
+  });
+}
+
 class ExamPaper {
   final String id;
   final String year;
@@ -30,6 +43,22 @@ const kPlus2EnglishExamPapers = <ExamPaper>[
   ExamPaper(id: 'class12-english-2024-annual', year: '2024', title: '2024 Annual Exam Paper'),
   ExamPaper(id: 'class12-english-2023-annual', year: '2023', title: '2023 Annual Exam Paper'),
   ExamPaper(id: 'class12-english-2022-annual', year: '2022', title: 'Annual Exam Paper'),
+];
+
+const kPlus1EnglishModelPapers = <ModelPaper>[
+  ModelPaper(id: 'class11-english-model-qa-1', modelId: 'model-qa-1', label: 'Set 1', title: 'Full Syllabus Model Paper — Set 1'),
+  ModelPaper(id: 'class11-english-model-qa-2', modelId: 'model-qa-2', label: 'Set 2', title: 'Full Syllabus Model Paper — Set 2'),
+  ModelPaper(id: 'class11-english-model-qa-3', modelId: 'model-qa-3', label: 'Set 3', title: 'Full Syllabus Model Paper — Set 3'),
+  ModelPaper(id: 'class11-english-model-qa-4', modelId: 'model-qa-4', label: 'Set 4', title: 'Full Syllabus Model Paper — Set 4'),
+  ModelPaper(id: 'class11-english-model-qa-5', modelId: 'model-qa-5', label: 'Set 5', title: 'Full Syllabus Model Paper — Set 5'),
+];
+
+const kPlus2EnglishModelPapers = <ModelPaper>[
+  ModelPaper(id: 'class12-english-model-qa-1', modelId: 'model-qa-1', label: 'Set 1', title: 'Full Syllabus Model Paper — Set 1'),
+  ModelPaper(id: 'class12-english-model-qa-2', modelId: 'model-qa-2', label: 'Set 2', title: 'Full Syllabus Model Paper — Set 2'),
+  ModelPaper(id: 'class12-english-model-qa-3', modelId: 'model-qa-3', label: 'Set 3', title: 'Full Syllabus Model Paper — Set 3'),
+  ModelPaper(id: 'class12-english-model-qa-4', modelId: 'model-qa-4', label: 'Set 4', title: 'Full Syllabus Model Paper — Set 4'),
+  ModelPaper(id: 'class12-english-model-qa-5', modelId: 'model-qa-5', label: 'Set 5', title: 'Full Syllabus Model Paper — Set 5'),
 ];
 
 const kPlus1EnglishPriorityLessons = <PriorityLesson>[

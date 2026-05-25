@@ -186,6 +186,15 @@ final router = GoRouter(
           ),
         ),
 
+        GoRoute(
+          path: '/model-exam/:classLevel/:subjectSlug/:modelId',
+          builder: (_, state) => ExamPracticeScreen(
+            classLevel:  state.pathParameters['classLevel']!,
+            subjectSlug: state.pathParameters['subjectSlug']!,
+            chapterSlug: state.pathParameters['modelId']!,
+          ),
+        ),
+
       ],
     ),
 

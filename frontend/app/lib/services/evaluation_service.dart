@@ -31,4 +31,13 @@ class EvaluationService {
   Future<Map<String, dynamic>> getProgress() async {
     return (await _api.get('/evaluation/progress')) as Map<String, dynamic>;
   }
+
+  Future<List<dynamic>> getHistory({int limit = 20}) async {
+    try {
+      final data = await _api.get('/evaluation/history?limit=$limit');
+      return (data as Map<String, dynamic>)['history'] as List<dynamic>? ?? [];
+    } catch (_) {
+      return [];
+    }
+  }
 }

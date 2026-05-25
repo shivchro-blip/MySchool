@@ -3,9 +3,10 @@ import 'dart:convert';
 import 'dart:html' as html;
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:http/http.dart' as http;
+import '../config/app_config.dart';
 
-const _supabaseUrl  = 'https://txszimvmoigkvhqermow.supabase.co';
-const _supabaseAnon = 'sb_publishable_RpGIQ7y547VGbYODMPUUpQ_yLA8LaY4';
+String get _supabaseUrl  => AppConfig.supabaseUrl;
+String get _supabaseAnon => AppConfig.supabaseAnonKey;
 
 String _authError(Map<String, dynamic> data, String fallback) {
   final candidates = [
@@ -95,6 +96,7 @@ class AuthService {
     }
   }
 
+  @Deprecated('Use UserService.updateProfile(ageConfirmation: ...) instead')
   Future<void> createUserProfile(String? userId, String ageConfirmation) async {
     if (userId == null) return;
     final token = await getToken();
@@ -130,7 +132,20 @@ class AuthService {
 
   Future<bool> isLoggedIn() async {
     final token = await getToken();
-    return token != null && token.isNotEmpty;
+    if (token == null || token.isEmpty) return false;
+    try {
+      final parts  = token.split('.');
+      if (parts.length < 2) return false;
+      final padded  = parts[1].padRight((parts[1].length + 3) ~/ 4 * 4, '=');
+      final payload = jsonDecode(
+        utf8.decode(base64Decode(padded.replaceAll('-', '+').replaceAll('_', '/'))),
+      ) as Map<String, dynamic>;
+      final exp = payload['exp'];
+      if (exp is! num) return false;
+      return exp > DateTime.now().millisecondsSinceEpoch / 1000;
+    } catch (_) {
+      return false;
+    }
   }
 
   // ── Google OAuth ─────────────────────────────────────────────────────────────
