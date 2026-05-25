@@ -296,25 +296,6 @@ function ExamView({ questions, chapterMeta, attempt, questionIdx, onPrevious, on
         </div>
       </div>
 
-      {/* Progress bar */}
-      {questions.length > 0 && (
-        <div className="bg-surface-alt border border-line rounded-xl px-4 py-3">
-          <div className="flex justify-between items-center mb-2">
-            <span className="text-[12px] font-semibold text-text-secondary">Q{questionIdx + 1} of {total}</span>
-            <span className="text-[11px] text-text-secondary">{allAnswered}/{totalQs} answered</span>
-          </div>
-          <div className="h-1.5 bg-surface-alt rounded-full overflow-hidden">
-            <div
-              className="h-full rounded-full transition-all duration-300"
-              style={{
-                width: `${totalQs ? (allAnswered / totalQs) * 100 : 0}%`,
-                background: 'var(--brand)',
-              }}
-            />
-          </div>
-        </div>
-      )}
-
       {/* Question card */}
       <AnimatePresence mode="wait">
         <motion.div
