@@ -242,13 +242,14 @@ function QuickNavDots({ questions, questionIdx, answered, onGoto, validationErro
                   onClick={() => onGoto(gi)}
                   className={`w-6 h-6 rounded-md text-[9px] font-semibold transition-all shrink-0 border
                     ${current
-                      ? 'bg-brand text-white border-brand'
+                      ? 'text-white'
                       : isInvalid
                         ? 'bg-amber-100 text-amber-700 border-amber-400 dark:bg-amber-900/30 dark:text-amber-300 dark:border-amber-600'
                         : done
                           ? 'bg-brand/20 text-brand border-brand'
                           : 'bg-surface-alt text-text-secondary border-border'
                     }`}
+                  style={current ? { background: 'var(--brand)', borderColor: 'var(--brand)' } : undefined}
                 >
                   {gi + 1}
                 </button>
@@ -494,7 +495,12 @@ function ReviewModal({ questions, questionIdx, answers, validationErrors, mode, 
             </Button>
           )}
           {mode === 'submit' && invalid === 0 && (
-            <Button variant="accent" className="flex-1" onClick={onConfirm}>
+            <Button
+              variant="accent"
+              className="flex-1 text-white hover:opacity-90"
+              style={{ background: 'var(--brand)', borderColor: 'var(--brand)' }}
+              onClick={onConfirm}
+            >
               Submit
             </Button>
           )}
