@@ -1056,15 +1056,6 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> with WidgetsBin
                 style: TextStyle(fontSize: 11, color: AppTheme.textMutedOf(context)),
               ),
               const SizedBox(height: 10),
-              ClipRRect(
-                borderRadius: BorderRadius.circular(4),
-                child: LinearProgressIndicator(
-                  value: total > 0 ? score / total : 0,
-                  backgroundColor: AppTheme.surfaceOf(context),
-                  color: scoreColor,
-                  minHeight: 8,
-                ),
-              ),
               if (writtenQs.isNotEmpty) ...[
                 const SizedBox(height: 8),
                 Text('${writtenQs.length} written question${writtenQs.length != 1 ? 's' : ''} · review below',
