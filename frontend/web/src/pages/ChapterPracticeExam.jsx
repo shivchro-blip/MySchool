@@ -448,27 +448,27 @@ function ReviewModal({ questions, questionIdx, answers, validationErrors, mode, 
           />
 
           {/* Legend */}
-          <div className="flex items-center justify-center gap-5 py-2">
-            <div className="flex items-center gap-1.5">
-              <span className="w-3 h-3 rounded-full border-2 border-brand bg-transparent inline-block" />
-              <span className="text-xs text-text-secondary">Current</span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <span className="w-3 h-3 rounded-full bg-brand inline-block" />
-              <span className="text-xs text-text-secondary">Answered</span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <span className="w-3 h-3 rounded-full bg-surface-alt border border-border inline-block" />
-              <span className="text-xs text-text-secondary">Unanswered</span>
-            </div>
+          <div style={{ display:'flex', alignItems:'center', gap:16, fontSize:12, color:'var(--text-secondary)' }}>
+            <span style={{ display:'flex', alignItems:'center', gap:6 }}>
+              <span style={{ width:12, height:12, borderRadius:'50%', border:'2px solid var(--brand)', display:'inline-block', flexShrink:0 }} />
+              Current
+            </span>
+
+            <span style={{ display:'flex', alignItems:'center', gap:6 }}>
+              <span style={{ width:12, height:12, borderRadius:'50%', background:'var(--brand)', display:'inline-block', flexShrink:0 }} />
+              Answered
+            </span>
+
+            <span style={{ display:'flex', alignItems:'center', gap:6 }}>
+              <span style={{ width:12, height:12, borderRadius:'50%', border:'1.5px solid var(--border)', background:'var(--surface-alt)', display:'inline-block', flexShrink:0 }} />
+              Unanswered
+            </span>
+
             {mode === 'submit' && (
-              <div className="flex items-center gap-1.5">
-                <span
-                  className="w-3 h-3 rounded-full border-2 inline-block"
-                  style={{ borderColor: 'var(--tip-border)', background: 'var(--tip-bg)' }}
-                />
-                <span className="text-xs text-text-secondary">Needs correction</span>
-              </div>
+              <span style={{ display:'flex', alignItems:'center', gap:6 }}>
+                <span style={{ width:12, height:12, borderRadius:'50%', border:'1.5px solid var(--tip-border)', background:'var(--tip-bg)', display:'inline-block', flexShrink:0 }} />
+                Needs correction
+              </span>
             )}
           </div>
 
