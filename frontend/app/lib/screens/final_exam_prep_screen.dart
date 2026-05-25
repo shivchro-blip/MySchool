@@ -54,7 +54,11 @@ class FinalExamPrepScreen extends StatelessWidget {
               subjectSlug: subjectSlug,
             ),
             const SizedBox(height: 16),
-            _PriorityLessonsCard(lessons: _lessons),
+            _PriorityLessonsCard(
+              lessons: _lessons,
+              classLevel: classLevel,
+              subjectSlug: subjectSlug,
+            ),
           ],
         ),
       ),
@@ -247,7 +251,13 @@ class _OutlineActionButton extends StatelessWidget {
 
 class _PriorityLessonsCard extends StatelessWidget {
   final List<PriorityLesson> lessons;
-  const _PriorityLessonsCard({required this.lessons});
+  final String classLevel;
+  final String subjectSlug;
+  const _PriorityLessonsCard({
+    required this.lessons,
+    required this.classLevel,
+    required this.subjectSlug,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -290,7 +300,11 @@ class _PriorityLessonsCard extends StatelessWidget {
             final isLast = e.key == lessons.length - 1;
             return Column(
               children: [
-                _LessonRow(lesson: e.value),
+                _LessonRow(
+                  lesson: e.value,
+                  classLevel: classLevel,
+                  subjectSlug: subjectSlug,
+                ),
                 if (!isLast)
                   Divider(height: 1, color: AppTheme.borderOf(context)),
               ],
@@ -304,12 +318,18 @@ class _PriorityLessonsCard extends StatelessWidget {
 
 class _LessonRow extends StatelessWidget {
   final PriorityLesson lesson;
-  const _LessonRow({required this.lesson});
+  final String classLevel;
+  final String subjectSlug;
+  const _LessonRow({
+    required this.lesson,
+    required this.classLevel,
+    required this.subjectSlug,
+  });
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => debugPrint('TODO: navigate to lesson ${lesson.id}'),
+      onTap: () => context.push('/rich-learn/$classLevel/$subjectSlug/${lesson.id}'),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
         child: Row(
