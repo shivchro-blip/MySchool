@@ -240,14 +240,14 @@ function QuickNavDots({ questions, questionIdx, answered, onGoto, validationErro
                 <button
                   key={q.id}
                   onClick={() => onGoto(gi)}
-                  className={`w-6 h-6 rounded-md text-[9px] font-semibold transition-all shrink-0
+                  className={`w-6 h-6 rounded-md text-[9px] font-semibold transition-all shrink-0 border
                     ${current
-                      ? 'bg-brand text-white'
+                      ? 'bg-brand text-white border-brand'
                       : isInvalid
-                        ? 'bg-danger/10 text-danger border border-danger/30'
-                        : isMcq
-                          ? (done ? 'bg-good-soft text-good-ink' : 'bg-surface-alt text-text-secondary hover:bg-surface-alt')
-                          : (done ? 'bg-brand-teal-soft text-brand-teal' : 'bg-surface-alt text-text-secondary border border-line hover:border-brand-teal')
+                        ? 'bg-amber-100 text-amber-700 border-amber-400 dark:bg-amber-900/30 dark:text-amber-300 dark:border-amber-600'
+                        : done
+                          ? 'bg-brand/20 text-brand border-brand'
+                          : 'bg-surface-alt text-text-secondary border-border'
                     }`}
                 >
                   {gi + 1}
@@ -438,20 +438,20 @@ function ReviewModal({ questions, questionIdx, answers, validationErrors, mode, 
           {mode === 'submit' && (
             <div className="grid grid-cols-4 gap-2">
               <div className="bg-surface-alt rounded-lg px-2 py-2.5 text-center">
-                <p className="text-[17px] font-bold text-text-primary leading-none">{total}</p>
-                <p className="text-[8px] font-bold uppercase tracking-wider text-text-tertiary mt-1">Total</p>
+                <p className="text-2xl font-bold text-text-primary leading-none">{total}</p>
+                <p className="text-xs font-bold uppercase tracking-wide text-text-tertiary mt-1">Total</p>
               </div>
-              <div className="bg-good-soft rounded-lg px-2 py-2.5 text-center">
-                <p className="text-[17px] font-bold text-good-ink leading-none">{answered}</p>
-                <p className="text-[8px] font-bold uppercase tracking-wider text-good-ink mt-1">Answered</p>
+              <div className="bg-brand rounded-xl px-4 py-2 text-center">
+                <p className="text-2xl font-bold text-white leading-none">{answered}</p>
+                <p className="text-xs font-bold uppercase tracking-wide text-white mt-1">Answered</p>
               </div>
               <div className="bg-surface-alt rounded-lg px-2 py-2.5 text-center">
-                <p className="text-[17px] font-bold text-text-secondary leading-none">{unanswered}</p>
-                <p className="text-[8px] font-bold uppercase tracking-wider text-text-tertiary mt-1">Unanswered</p>
+                <p className="text-2xl font-bold text-text-primary leading-none">{unanswered}</p>
+                <p className="text-xs font-bold uppercase tracking-wide text-text-tertiary mt-1">Unanswered</p>
               </div>
-              <div className={`rounded-lg px-2 py-2.5 text-center ${invalid > 0 ? 'bg-danger/10' : 'bg-surface-alt'}`}>
-                <p className={`text-[17px] font-bold leading-none ${invalid > 0 ? 'text-danger' : 'text-text-secondary'}`}>{invalid}</p>
-                <p className={`text-[8px] font-bold uppercase tracking-wider mt-1 ${invalid > 0 ? 'text-danger' : 'text-text-tertiary'}`}>
+              <div className="bg-surface-alt rounded-lg px-2 py-2.5 text-center">
+                <p className={`text-2xl font-bold leading-none ${invalid > 0 ? 'text-amber-700 dark:text-amber-300' : 'text-text-primary'}`}>{invalid}</p>
+                <p className="text-xs font-bold uppercase tracking-wide text-text-tertiary mt-1">
                   Needs Fix
                 </p>
               </div>
@@ -470,9 +470,9 @@ function ReviewModal({ questions, questionIdx, answers, validationErrors, mode, 
           {/* Legend */}
           <div className="flex flex-wrap gap-x-3 gap-y-1.5">
             <LegendDot bg="bg-brand" label="Current" />
-            <LegendDot bg="bg-good-soft" label="Answered" />
-            <LegendDot bg="bg-surface-alt border border-line" label="Unanswered" />
-            {mode === 'submit' && <LegendDot bg="bg-danger/10 border border-danger/30" label="Needs correction" />}
+            <LegendDot bg="bg-brand" label="Answered" />
+            <LegendDot bg="bg-surface-alt border border-border" label="Unanswered" />
+            {mode === 'submit' && <LegendDot bg="bg-amber-100 border border-amber-400 dark:bg-amber-900/30 dark:border-amber-600" label="Needs correction" />}
           </div>
 
         </div>
