@@ -9,6 +9,7 @@ import '../services/auth_service.dart';
 import '../services/user_preferences_service.dart';
 import '../widgets/eyebrow.dart';
 import '../widgets/page_header.dart';
+import '../widgets/brand_logo.dart';
 import '../widgets/theme_toggle.dart';
 
 class _ClassInfo {
@@ -90,20 +91,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
         scrolledUnderElevation: 1,
         shadowColor: AppTheme.borderOf(context),
         titleSpacing: 16,
-        title: Row(
+        title: const Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            // Brand icon — teal rounded square
-            Container(
-              width: 34, height: 34,
-              decoration: BoxDecoration(
-                color:        AppTheme.brand,
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: const Icon(Icons.school_rounded, color: Colors.white, size: 19),
-            ),
-            const SizedBox(width: 9),
-            const Text(
+            BrandLogo(height: 34),
+            SizedBox(width: 9),
+            Text(
               'Exam Coach',
               style: TextStyle(
                 fontSize:    15,
