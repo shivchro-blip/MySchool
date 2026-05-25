@@ -169,7 +169,7 @@ class _QuickNavDots extends StatelessWidget {
                           : _asAnswerString(answers[q.id])?.trim().isNotEmpty ?? false;
 
                   Color bg; Color fg;
-                  if (current) { bg = AppTheme.brand; fg = Colors.white; }
+                  if (current) { bg = Colors.transparent; fg = AppTheme.brand; }
                   else if (isInvalid) {
                     bg = AppTheme.errorBgOf(context);
                     fg = AppTheme.error;
@@ -195,7 +195,7 @@ class _QuickNavDots extends StatelessWidget {
                       decoration: BoxDecoration(
                         color:        bg,
                         borderRadius: BorderRadius.circular(6),
-                        border: current ? null : Border.all(color: AppTheme.borderOf(context)),
+                        border: current ? Border.all(color: AppTheme.brand, width: 2) : Border.all(color: AppTheme.borderOf(context)),
                       ),
                       alignment: Alignment.center,
                       child: Text('${gi + 1}',
