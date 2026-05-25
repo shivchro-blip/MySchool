@@ -28,21 +28,17 @@ export default function ModelPaperListCard({ papers, basePath = '/plus1/english'
               {paper.label}
             </span>
 
-            <p className="flex-1 min-w-0 text-sm font-medium text-text-primary truncate">
-              {paper.title}
-            </p>
-
             <div className="flex gap-1.5 shrink-0">
               <button
                 onClick={() => navigate(`${basePath}/final-exam-prep/paper/${paper.id}`)}
-                className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-md text-[11px] font-semibold text-brand border border-brand bg-surface-alt hover:bg-brand-subtle transition-colors duration-fast"
+                className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-button text-[11px] font-semibold text-brand-teal border border-brand-teal bg-surface-alt hover:bg-brand-teal-soft transition-colors duration-fast"
               >
                 <FileText size={12} strokeWidth={1.8} />
                 <span className="hidden sm:inline">View Paper</span>
               </button>
               <button
                 onClick={() => navigate(`${basePath}/model-exam/${paper.modelId}`)}
-                className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-md text-[11px] font-semibold text-brand border border-brand bg-surface-alt hover:bg-brand-subtle transition-colors duration-fast"
+                className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-button text-[11px] font-semibold text-brand-teal border border-brand-teal bg-surface-alt hover:bg-brand-teal-soft transition-colors duration-fast"
               >
                 <Pencil size={12} strokeWidth={1.8} />
                 <span className="hidden sm:inline">Practice</span>
