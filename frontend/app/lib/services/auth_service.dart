@@ -130,7 +130,20 @@ class AuthService {
 
   Future<bool> isLoggedIn() async {
     final token = await getToken();
-    return token != null && token.isNotEmpty;
+    if (token == null || token.isEmpty) return false;
+    try {
+      final parts  = token.split('.');
+      if (parts.length < 2) return false;
+      final padded  = parts[1].padRight((parts[1].length + 3) ~/ 4 * 4, '=');
+      final payload = jsonDecode(
+        utf8.decode(base64Decode(padded.replaceAll('-', '+').replaceAll('_', '/'))),
+      ) as Map<String, dynamic>;
+      final exp = payload['exp'];
+      if (exp is! num) return false;
+      return exp > DateTime.now().millisecondsSinceEpoch / 1000;
+    } catch (_) {
+      return false;
+    }
   }
 
   // ── Google OAuth ─────────────────────────────────────────────────────────────
