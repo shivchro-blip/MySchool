@@ -41,7 +41,7 @@ export default function ModelPaperListCard({ papers, basePath = '/plus1/english'
                 <span className="hidden sm:inline">View Paper</span>
               </button>
               <button
-                onClick={() => navigate('/practice-exam')}
+                onClick={() => navigate(`${basePath}/model-exam/${paper.modelId}`)}
                 className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-md text-[11px] font-semibold text-brand border border-brand bg-surface-alt hover:bg-brand-subtle transition-colors duration-fast"
               >
                 <Pencil size={12} strokeWidth={1.8} />
