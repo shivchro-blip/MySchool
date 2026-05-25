@@ -939,6 +939,16 @@ export default function ChapterPracticeExam({ questions, chapterMeta, chapterSlu
     setResumeNotice(false)
   }
 
+  const historyPath = (() => {
+    if (chapterSlug?.includes('model-qa') || chapterSlug?.includes('annual')) {
+      const parts = pathname.split('/')
+      const classLevel = parts[1]
+      const subject = parts[2]
+      if (classLevel && subject) return `/${classLevel}/${subject}/final-exam-prep`
+    }
+    return `${parentPath}/attempt-history`
+  })()
+
   const sharedProps = { questions, chapterMeta, chapterSlug }
 
   return (
@@ -959,7 +969,7 @@ export default function ChapterPracticeExam({ questions, chapterMeta, chapterSlu
               onBlur={handleBlurValidation}
               onOpenModal={handleOpenModal}
               onOpenReview={() => setModalMode('review')}
-              onHistory={() => navigate(`${parentPath}/attempt-history`)}
+              onHistory={() => navigate(historyPath)}
               validationErrors={validationErrors}
             />
           </motion.div>
@@ -972,7 +982,7 @@ export default function ChapterPracticeExam({ questions, chapterMeta, chapterSlu
               attempt={resultsAttempt}
               attemptNumber={attempts.indexOf(resultsAttempt) + 1}
               onRetake={handleRetake}
-              onHistory={() => navigate(`${parentPath}/attempt-history`)}
+              onHistory={() => navigate(historyPath)}
               onBackToLesson={() => navigate(parentPath)}
             />
           </motion.div>
