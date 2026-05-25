@@ -24,7 +24,7 @@ export default function ModelPaperListCard({ papers, basePath = '/plus1/english'
             key={paper.id}
             className={`flex items-center gap-2 sm:gap-3 px-4 sm:px-5 py-3.5${i > 0 ? ' border-t border-border' : ''}`}
           >
-            <span className="shrink-0 px-2.5 py-0.5 rounded-full text-xs font-bold text-white bg-brand">
+            <span className="shrink-0 px-2.5 py-0.5 rounded-full text-xs font-bold text-white bg-brand-teal">
               {paper.label}
             </span>
 
