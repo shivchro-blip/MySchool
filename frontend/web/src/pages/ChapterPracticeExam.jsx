@@ -621,7 +621,7 @@ function WrittenReviewItem({ q, qi, answered }) {
 
 // ── ResultsView ────────────────────────────────────────────────────────────
 
-function ResultsView({ questions, chapterMeta, attempt, attemptNumber, onRetake, onHistory, onBackToLesson }) {
+function ResultsView({ questions, chapterMeta, chapterSlug, attempt, attemptNumber, onRetake, onHistory, onBackToLesson }) {
   const mcqQs     = questions.filter(q => q.type === 'mcq')
   const writtenQs = questions.filter(q => q.type !== 'mcq')
   const total     = mcqQs.length
@@ -687,9 +687,11 @@ function ResultsView({ questions, chapterMeta, attempt, attemptNumber, onRetake,
 
       {/* Actions */}
       <div className="flex gap-3">
-        <Button variant="secondary" className="flex-1" onClick={onBackToLesson}>
-          <ChevronLeft size={14} /> Back to Lesson
-        </Button>
+        {!chapterSlug?.includes('model-qa') && !chapterSlug?.includes('annual') && (
+          <Button variant="secondary" className="flex-1" onClick={onBackToLesson}>
+            <ChevronLeft size={14} /> Back to Lesson
+          </Button>
+        )}
         <Button variant="secondary" className="flex-1" onClick={onHistory}>
           <History size={14} /> View Attempt History
         </Button>
@@ -937,7 +939,7 @@ export default function ChapterPracticeExam({ questions, chapterMeta, chapterSlu
     setResumeNotice(false)
   }
 
-  const sharedProps = { questions, chapterMeta }
+  const sharedProps = { questions, chapterMeta, chapterSlug }
 
   return (
     <div className="max-w-2xl mx-auto">
