@@ -358,15 +358,6 @@ function ExamView({ questions, chapterMeta, attempt, questionIdx, onPrevious, on
 
 // ── ReviewModal ────────────────────────────────────────────────────────────
 
-function LegendDot({ bg, label }) {
-  return (
-    <div className="flex items-center gap-1.5">
-      <span className={`w-3 h-3 rounded-sm shrink-0 ${bg}`} />
-      <span className="text-[10px] text-text-secondary">{label}</span>
-    </div>
-  )
-}
-
 function ReviewModal({ questions, questionIdx, answers, validationErrors, mode, onGoto, onCancel, onConfirm }) {
   let answered = 0, unanswered = 0, invalid = 0
   let firstInvalidIdx = -1
@@ -425,22 +416,22 @@ function ReviewModal({ questions, questionIdx, answers, validationErrors, mode, 
 
           {/* Summary — submit mode only */}
           {mode === 'submit' && (
-            <div className="grid grid-cols-4 gap-2">
-              <div className="bg-surface-alt rounded-lg px-2 py-2.5 text-center">
+            <div className="flex justify-around items-center w-full py-2">
+              <div className="text-center">
                 <p className="text-2xl font-bold text-text-primary leading-none">{total}</p>
-                <p className="text-xs font-bold uppercase tracking-wide text-text-tertiary mt-1">Total</p>
+                <p className="text-xs font-bold uppercase tracking-wide text-text-tertiary mt-0.5">Total</p>
               </div>
               <div className="text-center">
                 <p className="text-2xl font-bold text-brand leading-none">{answered}</p>
-                <p className="text-xs font-bold uppercase tracking-wide text-text-tertiary mt-1">Answered</p>
+                <p className="text-xs font-bold uppercase tracking-wide text-text-tertiary mt-0.5">Answered</p>
               </div>
-              <div className="bg-surface-alt rounded-lg px-2 py-2.5 text-center">
+              <div className="text-center">
                 <p className="text-2xl font-bold text-text-primary leading-none">{unanswered}</p>
-                <p className="text-xs font-bold uppercase tracking-wide text-text-tertiary mt-1">Unanswered</p>
+                <p className="text-xs font-bold uppercase tracking-wide text-text-tertiary mt-0.5">Unanswered</p>
               </div>
-              <div className="bg-surface-alt rounded-lg px-2 py-2.5 text-center">
+              <div className="text-center">
                 <p className={`text-2xl font-bold leading-none ${invalid > 0 ? 'text-amber-700 dark:text-amber-300' : 'text-text-primary'}`}>{invalid}</p>
-                <p className="text-xs font-bold uppercase tracking-wide text-text-tertiary mt-1">
+                <p className="text-xs font-bold uppercase tracking-wide text-text-tertiary mt-0.5">
                   Needs Fix
                 </p>
               </div>
@@ -457,11 +448,28 @@ function ReviewModal({ questions, questionIdx, answers, validationErrors, mode, 
           />
 
           {/* Legend */}
-          <div className="flex flex-wrap gap-x-3 gap-y-1.5">
-            <LegendDot bg="bg-brand" label="Current" />
-            <LegendDot bg="bg-brand" label="Answered" />
-            <LegendDot bg="bg-surface-alt border border-border" label="Unanswered" />
-            {mode === 'submit' && <LegendDot bg="bg-amber-100 border border-amber-400 dark:bg-amber-900/30 dark:border-amber-600" label="Needs correction" />}
+          <div className="flex items-center justify-center gap-5 py-2">
+            <div className="flex items-center gap-1.5">
+              <span className="w-3 h-3 rounded-full border-2 border-brand bg-transparent inline-block" />
+              <span className="text-xs text-text-secondary">Current</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <span className="w-3 h-3 rounded-full bg-brand inline-block" />
+              <span className="text-xs text-text-secondary">Answered</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <span className="w-3 h-3 rounded-full bg-surface-alt border border-border inline-block" />
+              <span className="text-xs text-text-secondary">Unanswered</span>
+            </div>
+            {mode === 'submit' && (
+              <div className="flex items-center gap-1.5">
+                <span
+                  className="w-3 h-3 rounded-full border-2 inline-block"
+                  style={{ borderColor: 'var(--tip-border)', background: 'var(--tip-bg)' }}
+                />
+                <span className="text-xs text-text-secondary">Needs correction</span>
+              </div>
+            )}
           </div>
 
         </div>
@@ -646,14 +654,6 @@ function ResultsView({ questions, chapterMeta, attempt, attemptNumber, onRetake,
           Attempt {attemptNumber}
           {attempt.submittedAt ? ` · Submitted ${fmtDate(attempt.submittedAt)}` : ''}
         </p>
-        <div className="h-2 bg-surface-alt rounded-full overflow-hidden">
-          <motion.div
-            className={`h-full rounded-full ${scoreColor}`}
-            initial={{ width: 0 }}
-            animate={{ width: `${percentage}%` }}
-            transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
-          />
-        </div>
         {writtenQs.length > 0 && (
           <p className="text-[11px] text-text-secondary mt-2.5">
             {writtenQs.length} written question{writtenQs.length !== 1 ? 's' : ''} below — tap model answers to compare
