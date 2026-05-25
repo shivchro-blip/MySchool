@@ -242,14 +242,18 @@ function QuickNavDots({ questions, questionIdx, answered, onGoto, validationErro
                   onClick={() => onGoto(gi)}
                   className={`w-6 h-6 rounded-md text-[9px] font-semibold transition-all shrink-0 border
                     ${current
-                      ? 'text-white'
-                      : isInvalid
-                        ? 'bg-amber-100 text-amber-700 border-amber-400 dark:bg-amber-900/30 dark:text-amber-300 dark:border-amber-600'
-                        : done
-                          ? 'bg-brand/20 text-brand border-brand'
+                      ? 'text-brand font-bold'
+                      : done
+                          ? 'text-white'
                           : 'bg-surface-alt text-text-secondary border-border'
                     }`}
-                  style={current ? { background: 'var(--brand)', borderColor: 'var(--brand)' } : undefined}
+                  style={
+                    current
+                      ? { background: 'transparent', borderColor: 'var(--brand)', borderWidth: '2px' }
+                      : done
+                        ? { background: 'var(--brand)', borderColor: 'var(--brand)' }
+                        : undefined
+                  }
                 >
                   {gi + 1}
                 </button>
@@ -445,9 +449,9 @@ function ReviewModal({ questions, questionIdx, answers, validationErrors, mode, 
                 <p className="text-2xl font-bold text-text-primary leading-none">{total}</p>
                 <p className="text-xs font-bold uppercase tracking-wide text-text-tertiary mt-1">Total</p>
               </div>
-              <div className="bg-brand rounded-xl px-4 py-2 min-w-[72px] text-center">
-                <p className="text-2xl font-bold text-white leading-none">{answered}</p>
-                <p className="text-xs font-bold uppercase tracking-wide text-white mt-1">Answered</p>
+              <div className="text-center">
+                <p className="text-2xl font-bold text-brand leading-none">{answered}</p>
+                <p className="text-xs font-bold uppercase tracking-wide text-text-tertiary mt-1">Answered</p>
               </div>
               <div className="bg-surface-alt rounded-lg px-2 py-2.5 text-center">
                 <p className="text-2xl font-bold text-text-primary leading-none">{unanswered}</p>
