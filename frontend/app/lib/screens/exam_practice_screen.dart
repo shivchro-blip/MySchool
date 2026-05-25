@@ -1242,17 +1242,19 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> with WidgetsBin
 
         Row(
           children: [
-            Expanded(
-              child: OutlinedButton.icon(
-                onPressed: () => context.go(
-                  '/rich-learn/${widget.classLevel}/${widget.subjectSlug}/${widget.chapterSlug}',
-                  extra: {'chapter': widget.chapter, 'tab': null},
+            if (!widget.chapterSlug.contains('model-qa') && !widget.chapterSlug.contains('annual')) ...[
+              Expanded(
+                child: OutlinedButton.icon(
+                  onPressed: () => context.go(
+                    '/rich-learn/${widget.classLevel}/${widget.subjectSlug}/${widget.chapterSlug}',
+                    extra: {'chapter': widget.chapter, 'tab': null},
+                  ),
+                  icon:  const Icon(Icons.chevron_left, size: 16),
+                  label: const Text('Back'),
                 ),
-                icon:  const Icon(Icons.chevron_left, size: 16),
-                label: const Text('Back'),
               ),
-            ),
-            const SizedBox(width: 8),
+              const SizedBox(width: 8),
+            ],
             Expanded(
               child: OutlinedButton.icon(
                 onPressed: () => context.go(
