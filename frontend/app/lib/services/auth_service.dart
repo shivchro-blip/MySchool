@@ -3,9 +3,10 @@ import 'dart:convert';
 import 'dart:html' as html;
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:http/http.dart' as http;
+import '../config/app_config.dart';
 
-const _supabaseUrl  = 'https://txszimvmoigkvhqermow.supabase.co';
-const _supabaseAnon = 'sb_publishable_RpGIQ7y547VGbYODMPUUpQ_yLA8LaY4';
+String get _supabaseUrl  => AppConfig.supabaseUrl;
+String get _supabaseAnon => AppConfig.supabaseAnonKey;
 
 String _authError(Map<String, dynamic> data, String fallback) {
   final candidates = [
