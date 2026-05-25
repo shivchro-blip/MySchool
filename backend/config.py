@@ -16,7 +16,7 @@ class Settings(BaseSettings):
 
     app_env: str = "development"
     secret_key: str = ""
-    allowed_origins: str = "http://localhost:5173"
+    allowed_origins: str = "http://localhost:5173,http://localhost:5174,https://yadhum.net,https://www.yadhum.net"
 
     redis_url: str = ""
     cache_ttl_seconds: int = 604800
