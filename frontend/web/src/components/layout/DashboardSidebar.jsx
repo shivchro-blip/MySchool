@@ -4,7 +4,6 @@ import {
   LayoutGrid, BookOpen, ClipboardList, TrendingUp,
   Activity, Award, MessageSquare, Settings, LogOut,
 } from 'lucide-react'
-import BrandLogo from '../ui/BrandLogo'
 import { SYLLABUS } from '../../data/syllabus'
 import { logout } from '../../api/auth'
 import { getCachedProfile } from '../../api/users'
@@ -183,8 +182,22 @@ export default function DashboardSidebar({ onClose, collapsed = false }) {
       <div style={{ flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
 
         {/* Logo */}
-        <div style={{ padding: '16px 16px 12px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-          <BrandLogo height={36} variant="compact" />
+        <div style={{ padding: '12px 16px 8px', display: 'flex', alignItems: 'center', gap: 10, flexShrink: 0 }}>
+          <img
+            src="/logo.png"
+            alt="Yadhum"
+            style={{ width: 34, height: 34, objectFit: 'contain', borderRadius: 8, flexShrink: 0 }}
+          />
+          {!collapsed && (
+            <div style={{ overflow: 'hidden' }}>
+              <div style={{ color: '#E1F5EE', fontWeight: 600, fontSize: 13, lineHeight: 1.2, whiteSpace: 'nowrap' }}>
+                Exam Coach
+              </div>
+              <div style={{ color: '#5DCAA5', fontSize: 11, lineHeight: 1.2, whiteSpace: 'nowrap' }}>
+                TN Board
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Main nav */}
