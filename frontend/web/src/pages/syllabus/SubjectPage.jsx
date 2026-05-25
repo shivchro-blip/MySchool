@@ -277,7 +277,7 @@ export default function SubjectPage() {
           </div>
         )}
 
-        <div className="flex flex-col gap-3 max-w-[680px]">
+        <div className="unit-grid">
           {subjectData.units.map(unit => (
             <UnitCard
               key={unit.id}
