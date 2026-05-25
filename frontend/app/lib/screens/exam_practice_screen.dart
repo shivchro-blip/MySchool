@@ -1257,10 +1257,16 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> with WidgetsBin
             ],
             Expanded(
               child: OutlinedButton.icon(
-                onPressed: () => context.go(
-                  '/rich-learn/${widget.classLevel}/${widget.subjectSlug}/${widget.chapterSlug}',
-                  extra: {'chapter': widget.chapter, 'tab': 'attempt-history'},
-                ),
+                onPressed: () {
+                  if (widget.chapterSlug.contains('model-qa') || widget.chapterSlug.contains('annual')) {
+                    context.go('/courses/${widget.classLevel}/${widget.subjectSlug}/final-exam-prep');
+                  } else {
+                    context.go(
+                      '/rich-learn/${widget.classLevel}/${widget.subjectSlug}/${widget.chapterSlug}',
+                      extra: {'chapter': widget.chapter, 'tab': 'attempt-history'},
+                    );
+                  }
+                },
                 icon:  const Icon(Icons.history, size: 16),
                 label: const Text('History'),
               ),
@@ -1313,10 +1319,16 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> with WidgetsBin
           IconButton(
             icon:    const Icon(Icons.history),
             tooltip: 'Attempt History',
-            onPressed: () => context.go(
-              '/rich-learn/${widget.classLevel}/${widget.subjectSlug}/${widget.chapterSlug}',
-              extra: {'chapter': widget.chapter, 'tab': 'attempt-history'},
-            ),
+            onPressed: () {
+              if (widget.chapterSlug.contains('model-qa') || widget.chapterSlug.contains('annual')) {
+                context.go('/courses/${widget.classLevel}/${widget.subjectSlug}/final-exam-prep');
+              } else {
+                context.go(
+                  '/rich-learn/${widget.classLevel}/${widget.subjectSlug}/${widget.chapterSlug}',
+                  extra: {'chapter': widget.chapter, 'tab': 'attempt-history'},
+                );
+              }
+            },
           ),
       ],
     );
