@@ -109,9 +109,10 @@ export default function LoginPage() {
                 className={`flex-1 py-1.5 rounded-lg text-sm font-medium
                             transition-all ${
                   mode === m
-                    ? 'bg-surface-alt text-text-primary shadow-sm'
+                    ? 'text-white shadow-sm'
                     : 'text-text-secondary hover:text-text-secondary'
                 }`}
+                style={mode === m ? { background: 'var(--brand)' } : undefined}
               >
                 {m === 'login' ? 'Login' : 'Sign Up'}
               </button>

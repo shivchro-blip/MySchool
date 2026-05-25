@@ -28,6 +28,7 @@ export default function Button({
         ${variants[variant] || variants.primary}
         ${className}
       `}
+      style={variant === 'primary' ? { background: 'var(--brand)' } : undefined}
       {...props}
     >
       {children}
