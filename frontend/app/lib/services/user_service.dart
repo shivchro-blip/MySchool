@@ -18,11 +18,13 @@ class UserService {
     String? classLevel,
     List<String>? subjects,
     bool? onboardingCompleted,
+    String? ageConfirmation,
   }) async {
     final body = <String, dynamic>{};
-    if (classLevel           != null) body['class_level']          = classLevel;
-    if (subjects             != null) body['subjects']              = subjects;
-    if (onboardingCompleted  != null) body['onboarding_completed']  = onboardingCompleted;
+    if (classLevel          != null) body['class_level']         = classLevel;
+    if (subjects            != null) body['subjects']             = subjects;
+    if (onboardingCompleted != null) body['onboarding_completed'] = onboardingCompleted;
+    if (ageConfirmation     != null) body['age_confirmation']     = ageConfirmation;
     final data = await _api.put('/users/me', body);
     return UserProfile.fromJson(data as Map<String, dynamic>);
   }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../services/auth_service.dart';
+import '../services/user_service.dart';
 import '../config/theme.dart';
 import '../widgets/app_button.dart';
 import '../widgets/brand_logo.dart';
@@ -49,9 +50,9 @@ class _LoginScreenState extends State<LoginScreen> {
           });
           return;
         }
-        final user = signupData['user'];
-        final userId = user is Map ? user['id'] as String? : null;
-        await _auth.createUserProfile(userId, _ageConfirmation ?? 'adult');
+        try {
+          await UserService().updateProfile(ageConfirmation: _ageConfirmation ?? 'adult');
+        } catch (_) {}
         if (mounted) context.go('/onboarding');
       } else {
         await _auth.loginWithEmail(email, password);

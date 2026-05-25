@@ -95,6 +95,7 @@ class AuthService {
     }
   }
 
+  @Deprecated('Use UserService.updateProfile(ageConfirmation: ...) instead')
   Future<void> createUserProfile(String? userId, String ageConfirmation) async {
     if (userId == null) return;
     final token = await getToken();
