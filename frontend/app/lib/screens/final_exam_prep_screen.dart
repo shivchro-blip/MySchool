@@ -193,7 +193,7 @@ class _PaperRow extends StatelessWidget {
               _OutlineActionButton(
                 icon: Icons.edit_outlined,
                 label: 'Practice',
-                onTap: () => debugPrint('TODO: practice ${paper.id}'),
+                onTap: () => context.push('/exam/$classLevel/$subjectSlug/${paper.id}'),
               ),
             ],
           ),
