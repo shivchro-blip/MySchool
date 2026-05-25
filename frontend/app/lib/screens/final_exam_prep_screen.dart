@@ -16,6 +16,9 @@ class FinalExamPrepScreen extends StatelessWidget {
   List<ExamPaper> get _papers =>
       classLevel == 'plus2' ? kPlus2EnglishExamPapers : kPlus1EnglishExamPapers;
 
+  List<ModelPaper> get _modelPapers =>
+      classLevel == 'plus2' ? kPlus2EnglishModelPapers : kPlus1EnglishModelPapers;
+
   List<PriorityLesson> get _lessons =>
       classLevel == 'plus2' ? kPlus2EnglishPriorityLessons : kPlus1EnglishPriorityLessons;
 
@@ -50,6 +53,12 @@ class FinalExamPrepScreen extends StatelessWidget {
             const SizedBox(height: 20),
             _ExamPapersCard(
               papers: _papers,
+              classLevel: classLevel,
+              subjectSlug: subjectSlug,
+            ),
+            const SizedBox(height: 16),
+            _ModelPapersCard(
+              modelPapers: _modelPapers,
               classLevel: classLevel,
               subjectSlug: subjectSlug,
             ),
@@ -242,6 +251,164 @@ class _OutlineActionButton extends StatelessWidget {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+// ── Model Exam Papers ─────────────────────────────────────────────────────────
+
+class _ModelPapersCard extends StatelessWidget {
+  final List<ModelPaper> modelPapers;
+  final String classLevel;
+  final String subjectSlug;
+  const _ModelPapersCard({
+    required this.modelPapers,
+    required this.classLevel,
+    required this.subjectSlug,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color: AppTheme.cardOf(context),
+        borderRadius: BorderRadius.circular(AppTheme.radiusCard),
+        border: Border.all(color: AppTheme.borderOf(context)),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withAlpha(10),
+            blurRadius: 6,
+            offset: const Offset(0, 2),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(16, 14, 16, 12),
+            child: Row(
+              children: [
+                const Icon(Icons.quiz_outlined, color: AppTheme.brand, size: 20),
+                const SizedBox(width: 8),
+                Text(
+                  'Model Exam Papers',
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w700,
+                    color: AppTheme.textOf(context),
+                  ),
+                ),
+                const SizedBox(width: 8),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 2),
+                  decoration: BoxDecoration(
+                    color: AppTheme.success,
+                    borderRadius: BorderRadius.circular(6),
+                  ),
+                  child: const Text(
+                    'NEW',
+                    style: TextStyle(
+                      fontSize: 10,
+                      fontWeight: FontWeight.w700,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Divider(height: 1, color: AppTheme.borderOf(context)),
+          ...modelPapers.asMap().entries.map((e) {
+            final isLast = e.key == modelPapers.length - 1;
+            return Column(
+              children: [
+                _ModelPaperRow(
+                  paper: e.value,
+                  classLevel: classLevel,
+                  subjectSlug: subjectSlug,
+                ),
+                if (!isLast) Divider(height: 1, color: AppTheme.borderOf(context)),
+              ],
+            );
+          }),
+        ],
+      ),
+    );
+  }
+}
+
+class _ModelPaperRow extends StatelessWidget {
+  final ModelPaper paper;
+  final String classLevel;
+  final String subjectSlug;
+  const _ModelPaperRow({
+    required this.paper,
+    required this.classLevel,
+    required this.subjectSlug,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                decoration: BoxDecoration(
+                  color: AppTheme.brandDark,
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Text(
+                  paper.label,
+                  style: const TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+              const SizedBox(width: 10),
+              Expanded(
+                child: Text(
+                  paper.title,
+                  style: TextStyle(
+                    fontSize: 13,
+                    fontWeight: FontWeight.w500,
+                    color: AppTheme.textOf(context),
+                  ),
+                ),
+              ),
+              Icon(Icons.chevron_right,
+                  size: 18, color: AppTheme.textMutedOf(context)),
+            ],
+          ),
+          const SizedBox(height: 8),
+          Row(
+            children: [
+              _OutlineActionButton(
+                icon: Icons.description_outlined,
+                label: 'View Paper',
+                onTap: () => context.push(
+                  '/courses/$classLevel/$subjectSlug/final-exam-prep/paper/${paper.id}',
+                ),
+              ),
+              const SizedBox(width: 8),
+              _OutlineActionButton(
+                icon: Icons.edit_outlined,
+                label: 'Practice',
+                onTap: () => context.push(
+                  '/model-exam/$classLevel/$subjectSlug/${paper.modelId}',
+                ),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
