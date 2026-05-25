@@ -86,6 +86,7 @@ function UnitCard({ unit, isOpen, onToggle, year, subject }) {
 
   return (
     <div
+      className={isOpen ? 'unit-card-expanded' : ''}
       style={{
         borderRadius: 18,
         overflow: 'hidden',
