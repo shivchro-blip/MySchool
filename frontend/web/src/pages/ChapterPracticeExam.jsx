@@ -300,8 +300,11 @@ function ExamView({ questions, chapterMeta, attempt, questionIdx, onPrevious, on
           </div>
           <div className="h-1.5 bg-surface-alt rounded-full overflow-hidden">
             <div
-              className="h-full bg-brand rounded-full transition-all duration-300"
-              style={{ width: `${totalQs ? (allAnswered / totalQs) * 100 : 0}%` }}
+              className="h-full rounded-full transition-all duration-300"
+              style={{
+                width: `${totalQs ? (allAnswered / totalQs) * 100 : 0}%`,
+                background: 'var(--brand)',
+              }}
             />
           </div>
         </div>
@@ -441,7 +444,7 @@ function ReviewModal({ questions, questionIdx, answers, validationErrors, mode, 
                 <p className="text-2xl font-bold text-text-primary leading-none">{total}</p>
                 <p className="text-xs font-bold uppercase tracking-wide text-text-tertiary mt-1">Total</p>
               </div>
-              <div className="bg-brand rounded-xl px-4 py-2 text-center">
+              <div className="bg-brand rounded-xl px-4 py-2 min-w-[72px] text-center">
                 <p className="text-2xl font-bold text-white leading-none">{answered}</p>
                 <p className="text-xs font-bold uppercase tracking-wide text-white mt-1">Answered</p>
               </div>
