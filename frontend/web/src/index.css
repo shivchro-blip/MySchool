@@ -699,29 +699,21 @@
 ::-webkit-scrollbar-thumb:hover { background: var(--ec-blue); }
 
 /* ── 2-column card grid (unit cards, subject cards, etc.) ────
-   Odd last card spans full width and centers at half-width.
    Single column on mobile. */
 .unit-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  align-items: stretch;
+  gap: 16px;
 }
 
-.unit-grid > *:last-child:nth-child(odd) {
-  grid-column: 1 / -1;
-  max-width: 50%;
-  margin: 0 auto;
-  width: 100%;
-}
-
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .unit-grid {
     grid-template-columns: 1fr;
   }
-  .unit-grid > *:last-child:nth-child(odd) {
-    max-width: 100%;
-  }
+}
+
+.unit-card-expanded {
+  grid-column: 1 / -1;
 }
 
 /* ── Mobile safe-area bottom fix ──────────────────────────────

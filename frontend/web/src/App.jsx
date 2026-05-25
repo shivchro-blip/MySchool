@@ -30,6 +30,7 @@ import ChapterPracticeExamPage  from './pages/ChapterPracticeExamPage'
 import FinalExamPrepPage        from './pages/syllabus/FinalExamPrepPage'
 import ExamPaperViewerPage      from './pages/ExamPaperViewerPage'
 import ExamPaperPracticePage    from './pages/ExamPaperPracticePage'
+import ModelExamPracticePage    from './pages/ModelExamPracticePage'
 
 function Guard({ children }) {
   const location = useLocation()
@@ -186,6 +187,16 @@ export default function App() {
         <Route path="/plus2/english/exam/:examYear" element={
           <DashShell>
             <CourseContent><ExamPaperPracticePage classLevel="plus2" /></CourseContent>
+          </DashShell>
+        } />
+        <Route path="/plus1/english/model-exam/:modelId" element={
+          <DashShell>
+            <CourseContent><ModelExamPracticePage classLevel="plus1" /></CourseContent>
+          </DashShell>
+        } />
+        <Route path="/plus2/english/model-exam/:modelId" element={
+          <DashShell>
+            <CourseContent><ModelExamPracticePage classLevel="plus2" /></CourseContent>
           </DashShell>
         } />
         <Route path="/:year/:subject/:category" element={

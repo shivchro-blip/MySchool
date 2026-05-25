@@ -240,15 +240,20 @@ function QuickNavDots({ questions, questionIdx, answered, onGoto, validationErro
                 <button
                   key={q.id}
                   onClick={() => onGoto(gi)}
-                  className={`w-6 h-6 rounded-md text-[9px] font-semibold transition-all shrink-0
+                  className={`w-6 h-6 rounded-md text-[9px] font-semibold transition-all shrink-0 border
                     ${current
-                      ? 'bg-brand text-white'
-                      : isInvalid
-                        ? 'bg-danger/10 text-danger border border-danger/30'
-                        : isMcq
-                          ? (done ? 'bg-good-soft text-good-ink' : 'bg-surface-alt text-text-secondary hover:bg-surface-alt')
-                          : (done ? 'bg-brand-teal-soft text-brand-teal' : 'bg-surface-alt text-text-secondary border border-line hover:border-brand-teal')
+                      ? 'text-brand font-bold'
+                      : done
+                          ? 'text-white'
+                          : 'bg-surface-alt text-text-secondary border-border'
                     }`}
+                  style={
+                    current
+                      ? { background: 'transparent', borderColor: 'var(--brand)', borderWidth: '2px' }
+                      : done
+                        ? { background: 'var(--brand)', borderColor: 'var(--brand)' }
+                        : undefined
+                  }
                 >
                   {gi + 1}
                 </button>
@@ -290,22 +295,6 @@ function ExamView({ questions, chapterMeta, attempt, questionIdx, onPrevious, on
           </button>
         </div>
       </div>
-
-      {/* Progress bar */}
-      {questions.length > 0 && (
-        <div className="bg-surface-alt border border-line rounded-xl px-4 py-3">
-          <div className="flex justify-between items-center mb-2">
-            <span className="text-[12px] font-semibold text-text-secondary">Q{questionIdx + 1} of {total}</span>
-            <span className="text-[11px] text-text-secondary">{allAnswered}/{totalQs} answered</span>
-          </div>
-          <div className="h-1.5 bg-surface-alt rounded-full overflow-hidden">
-            <div
-              className="h-full bg-brand rounded-full transition-all duration-300"
-              style={{ width: `${totalQs ? (allAnswered / totalQs) * 100 : 0}%` }}
-            />
-          </div>
-        </div>
-      )}
 
       {/* Question card */}
       <AnimatePresence mode="wait">
@@ -369,15 +358,6 @@ function ExamView({ questions, chapterMeta, attempt, questionIdx, onPrevious, on
 
 // ── ReviewModal ────────────────────────────────────────────────────────────
 
-function LegendDot({ bg, label }) {
-  return (
-    <div className="flex items-center gap-1.5">
-      <span className={`w-3 h-3 rounded-sm shrink-0 ${bg}`} />
-      <span className="text-[10px] text-text-secondary">{label}</span>
-    </div>
-  )
-}
-
 function ReviewModal({ questions, questionIdx, answers, validationErrors, mode, onGoto, onCancel, onConfirm }) {
   let answered = 0, unanswered = 0, invalid = 0
   let firstInvalidIdx = -1
@@ -436,22 +416,22 @@ function ReviewModal({ questions, questionIdx, answers, validationErrors, mode, 
 
           {/* Summary — submit mode only */}
           {mode === 'submit' && (
-            <div className="grid grid-cols-4 gap-2">
-              <div className="bg-surface-alt rounded-lg px-2 py-2.5 text-center">
-                <p className="text-[17px] font-bold text-text-primary leading-none">{total}</p>
-                <p className="text-[8px] font-bold uppercase tracking-wider text-text-tertiary mt-1">Total</p>
+            <div className="flex justify-around items-center w-full py-2">
+              <div className="text-center">
+                <p className="text-2xl font-bold text-text-primary leading-none">{total}</p>
+                <p className="text-xs font-bold uppercase tracking-wide text-text-tertiary mt-0.5">Total</p>
               </div>
-              <div className="bg-good-soft rounded-lg px-2 py-2.5 text-center">
-                <p className="text-[17px] font-bold text-good-ink leading-none">{answered}</p>
-                <p className="text-[8px] font-bold uppercase tracking-wider text-good-ink mt-1">Answered</p>
+              <div className="text-center">
+                <p className="text-2xl font-bold text-brand leading-none">{answered}</p>
+                <p className="text-xs font-bold uppercase tracking-wide text-text-tertiary mt-0.5">Answered</p>
               </div>
-              <div className="bg-surface-alt rounded-lg px-2 py-2.5 text-center">
-                <p className="text-[17px] font-bold text-text-secondary leading-none">{unanswered}</p>
-                <p className="text-[8px] font-bold uppercase tracking-wider text-text-tertiary mt-1">Unanswered</p>
+              <div className="text-center">
+                <p className="text-2xl font-bold text-text-primary leading-none">{unanswered}</p>
+                <p className="text-xs font-bold uppercase tracking-wide text-text-tertiary mt-0.5">Unanswered</p>
               </div>
-              <div className={`rounded-lg px-2 py-2.5 text-center ${invalid > 0 ? 'bg-danger/10' : 'bg-surface-alt'}`}>
-                <p className={`text-[17px] font-bold leading-none ${invalid > 0 ? 'text-danger' : 'text-text-secondary'}`}>{invalid}</p>
-                <p className={`text-[8px] font-bold uppercase tracking-wider mt-1 ${invalid > 0 ? 'text-danger' : 'text-text-tertiary'}`}>
+              <div className="text-center">
+                <p className={`text-2xl font-bold leading-none ${invalid > 0 ? 'text-amber-700 dark:text-amber-300' : 'text-text-primary'}`}>{invalid}</p>
+                <p className="text-xs font-bold uppercase tracking-wide text-text-tertiary mt-0.5">
                   Needs Fix
                 </p>
               </div>
@@ -468,11 +448,28 @@ function ReviewModal({ questions, questionIdx, answers, validationErrors, mode, 
           />
 
           {/* Legend */}
-          <div className="flex flex-wrap gap-x-3 gap-y-1.5">
-            <LegendDot bg="bg-brand" label="Current" />
-            <LegendDot bg="bg-good-soft" label="Answered" />
-            <LegendDot bg="bg-surface-alt border border-line" label="Unanswered" />
-            {mode === 'submit' && <LegendDot bg="bg-danger/10 border border-danger/30" label="Needs correction" />}
+          <div style={{ display:'flex', alignItems:'center', gap:16, fontSize:12, color:'var(--text-secondary)' }}>
+            <span style={{ display:'flex', alignItems:'center', gap:6 }}>
+              <span style={{ width:12, height:12, borderRadius:'50%', border:'2px solid var(--brand)', display:'inline-block', flexShrink:0 }} />
+              Current
+            </span>
+
+            <span style={{ display:'flex', alignItems:'center', gap:6 }}>
+              <span style={{ width:12, height:12, borderRadius:'50%', background:'var(--brand)', display:'inline-block', flexShrink:0 }} />
+              Answered
+            </span>
+
+            <span style={{ display:'flex', alignItems:'center', gap:6 }}>
+              <span style={{ width:12, height:12, borderRadius:'50%', border:'1.5px solid var(--border)', background:'var(--surface-alt)', display:'inline-block', flexShrink:0 }} />
+              Unanswered
+            </span>
+
+            {mode === 'submit' && (
+              <span style={{ display:'flex', alignItems:'center', gap:6 }}>
+                <span style={{ width:12, height:12, borderRadius:'50%', border:'1.5px solid var(--tip-border)', background:'var(--tip-bg)', display:'inline-block', flexShrink:0 }} />
+                Needs correction
+              </span>
+            )}
           </div>
 
         </div>
@@ -491,7 +488,12 @@ function ReviewModal({ questions, questionIdx, answers, validationErrors, mode, 
             </Button>
           )}
           {mode === 'submit' && invalid === 0 && (
-            <Button variant="accent" className="flex-1" onClick={onConfirm}>
+            <Button
+              variant="accent"
+              className="flex-1 text-white hover:opacity-90"
+              style={{ background: 'var(--brand)', borderColor: 'var(--brand)' }}
+              onClick={onConfirm}
+            >
               Submit
             </Button>
           )}
@@ -619,7 +621,7 @@ function WrittenReviewItem({ q, qi, answered }) {
 
 // ── ResultsView ────────────────────────────────────────────────────────────
 
-function ResultsView({ questions, chapterMeta, attempt, attemptNumber, onRetake, onHistory, onBackToLesson }) {
+function ResultsView({ questions, chapterMeta, chapterSlug, attempt, attemptNumber, onRetake, onHistory, onBackToLesson }) {
   const mcqQs     = questions.filter(q => q.type === 'mcq')
   const writtenQs = questions.filter(q => q.type !== 'mcq')
   const total     = mcqQs.length
@@ -652,14 +654,6 @@ function ResultsView({ questions, chapterMeta, attempt, attemptNumber, onRetake,
           Attempt {attemptNumber}
           {attempt.submittedAt ? ` · Submitted ${fmtDate(attempt.submittedAt)}` : ''}
         </p>
-        <div className="h-2 bg-surface-alt rounded-full overflow-hidden">
-          <motion.div
-            className={`h-full rounded-full ${scoreColor}`}
-            initial={{ width: 0 }}
-            animate={{ width: `${percentage}%` }}
-            transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
-          />
-        </div>
         {writtenQs.length > 0 && (
           <p className="text-[11px] text-text-secondary mt-2.5">
             {writtenQs.length} written question{writtenQs.length !== 1 ? 's' : ''} below — tap model answers to compare
@@ -693,9 +687,11 @@ function ResultsView({ questions, chapterMeta, attempt, attemptNumber, onRetake,
 
       {/* Actions */}
       <div className="flex gap-3">
-        <Button variant="secondary" className="flex-1" onClick={onBackToLesson}>
-          <ChevronLeft size={14} /> Back to Lesson
-        </Button>
+        {!chapterSlug?.includes('model-qa') && !chapterSlug?.includes('annual') && (
+          <Button variant="secondary" className="flex-1" onClick={onBackToLesson}>
+            <ChevronLeft size={14} /> Back to Lesson
+          </Button>
+        )}
         <Button variant="secondary" className="flex-1" onClick={onHistory}>
           <History size={14} /> View Attempt History
         </Button>
@@ -943,7 +939,17 @@ export default function ChapterPracticeExam({ questions, chapterMeta, chapterSlu
     setResumeNotice(false)
   }
 
-  const sharedProps = { questions, chapterMeta }
+  const historyPath = (() => {
+    if (chapterSlug?.includes('model-qa') || chapterSlug?.includes('annual')) {
+      const parts = pathname.split('/')
+      const classLevel = parts[1]
+      const subject = parts[2]
+      if (classLevel && subject) return `/${classLevel}/${subject}/final-exam-prep`
+    }
+    return `${parentPath}/attempt-history`
+  })()
+
+  const sharedProps = { questions, chapterMeta, chapterSlug }
 
   return (
     <div className="max-w-2xl mx-auto">
@@ -963,7 +969,7 @@ export default function ChapterPracticeExam({ questions, chapterMeta, chapterSlu
               onBlur={handleBlurValidation}
               onOpenModal={handleOpenModal}
               onOpenReview={() => setModalMode('review')}
-              onHistory={() => navigate(`${parentPath}/attempt-history`)}
+              onHistory={() => navigate(historyPath)}
               validationErrors={validationErrors}
             />
           </motion.div>
@@ -976,7 +982,7 @@ export default function ChapterPracticeExam({ questions, chapterMeta, chapterSlu
               attempt={resultsAttempt}
               attemptNumber={attempts.indexOf(resultsAttempt) + 1}
               onRetake={handleRetake}
-              onHistory={() => navigate(`${parentPath}/attempt-history`)}
+              onHistory={() => navigate(historyPath)}
               onBackToLesson={() => navigate(parentPath)}
             />
           </motion.div>

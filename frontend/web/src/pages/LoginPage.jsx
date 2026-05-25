@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom'
 import { loginWithEmail, signupWithEmail, resendConfirmationEmail, signInWithGoogle } from '../api/auth'
 import { recordSignupConsent } from '../api/users'
 import { Button, Input } from '../components/ui'
-import BrandLogo from '../components/ui/BrandLogo'
 
 export default function LoginPage() {
   const navigate                 = useNavigate()
@@ -64,10 +63,13 @@ export default function LoginPage() {
 
         {/* Brand header */}
         <div className="text-center mb-8">
-          <BrandLogo height={120} className="mx-auto mb-2" />
-          <p className="text-text-secondary text-sm mt-1">
-            Tamil Nadu +1 &amp; +2 Board Exam Prep
-          </p>
+          <div style={{ display:'flex', flexDirection:'column', alignItems:'center', marginBottom:8 }}>
+            <img
+              src="/logo.png"
+              alt="Yadhum — Tamil Nadu Board Exam Prep"
+              style={{ width:140, height:'auto', objectFit:'contain' }}
+            />
+          </div>
         </div>
 
         {/* Card */}
@@ -109,9 +111,10 @@ export default function LoginPage() {
                 className={`flex-1 py-1.5 rounded-lg text-sm font-medium
                             transition-all ${
                   mode === m
-                    ? 'bg-surface-alt text-text-primary shadow-sm'
+                    ? 'text-white shadow-sm'
                     : 'text-text-secondary hover:text-text-secondary'
                 }`}
+                style={mode === m ? { background: 'var(--brand)' } : undefined}
               >
                 {m === 'login' ? 'Login' : 'Sign Up'}
               </button>

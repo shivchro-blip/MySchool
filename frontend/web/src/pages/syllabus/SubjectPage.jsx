@@ -86,6 +86,7 @@ function UnitCard({ unit, isOpen, onToggle, year, subject }) {
 
   return (
     <div
+      className={isOpen ? 'unit-card-expanded' : ''}
       style={{
         borderRadius: 18,
         overflow: 'hidden',
@@ -277,7 +278,7 @@ export default function SubjectPage() {
           </div>
         )}
 
-        <div className="flex flex-col gap-3 max-w-[680px]">
+        <div className="unit-grid">
           {subjectData.units.map(unit => (
             <UnitCard
               key={unit.id}
