@@ -38,6 +38,18 @@ class UsersRepository:
         ).eq("id", user_id).execute()
         return new_count
 
+    def consume_ai_call(self, user_id: str) -> int | None:
+        result = self._db.rpc(
+            "consume_ai_call",
+            {
+                "p_user_id": user_id,
+                "p_free_daily_limit": FREE_DAILY_LIMIT,
+            },
+        ).execute()
+        if isinstance(result.data, list):
+            return result.data[0] if result.data else None
+        return result.data
+
     def update_profile(self, user_id: str, fields: dict) -> dict | None:
         self._db.table("users").update(fields).eq("id", user_id).execute()
         return self.get_by_id(user_id)

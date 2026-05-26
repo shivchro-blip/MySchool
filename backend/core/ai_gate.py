@@ -9,7 +9,7 @@ console = Console()
 class AIGate:
     """
     Single entry point for every AI call.
-    Handles in order: rate limit → cache → LLM → cache write → increment → log.
+    Handles in order: quota consume → cache → LLM → cache write → log.
     Neither rate limiting nor caching happens outside this class.
     """
 
@@ -30,7 +30,7 @@ class AIGate:
         Returns (response_text, model_used, was_cached).
         Raises RateLimitError or AIUnavailableError.
         """
-        if user_id and self._users.is_over_limit(user_id):
+        if user_id and self._users.consume_ai_call(user_id) is None:
             raise RateLimitError()
 
         cache_key = self._cache.make_key(prompt_type, cache_key_content)
@@ -65,9 +65,6 @@ class AIGate:
             response_text=response_text,
             model_used=model_used,
         )
-
-        if user_id:
-            self._users.increment_ai_calls(user_id)
 
         self._users.log_usage(
             user_id=user_id,

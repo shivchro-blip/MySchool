@@ -28,7 +28,7 @@ from .prompts import (
     IMPROVE_SYSTEM_PROMPT,
     IMPROVE_USER_PROMPT,
 )
-from .rubric import format_answer_key, format_rubric, validate_awarded_marks
+from .rubric import format_answer_key, format_rubric
 from core.llm_response import parse_llm_json
 from rich.console import Console
 
@@ -354,25 +354,53 @@ async def retry_evaluation(
 
 # ── Parser ────────────────────────────────────────────────────────────────────
 
+def _invalid_evaluation_response(message: str) -> dict:
+    return {
+        "marks_awarded":     0,
+        "strengths":         [],
+        "weaknesses":        [message],
+        "missing_points":    [],
+        "structure_comment": "Unable to evaluate structure.",
+        "grammar_comment":   "Unable to evaluate grammar.",
+        "improved_answer":   "",
+    }
+
+
 def _parse_evaluation_response(raw: str, max_marks: int) -> dict:
     parsed, _ = parse_llm_json(raw)
     if parsed is None:
         console.print("[yellow]Evaluation JSON parse failed[/yellow]")
-        return {
-            "marks_awarded":     0.0,
-            "strengths":         [],
-            "weaknesses":        ["Could not parse AI response — please retry."],
-            "missing_points":    [],
-            "structure_comment": "Unable to evaluate structure.",
-            "grammar_comment":   "Unable to evaluate grammar.",
-            "improved_answer":   "",
-        }
+        return _invalid_evaluation_response("Could not parse AI response - please retry.")
 
-    parsed["marks_awarded"] = validate_awarded_marks(
-        parsed.get("marks_awarded", 0), max_marks
-    )
-    for field in ["strengths", "weaknesses", "missing_points"]:
-        if not isinstance(parsed.get(field), list):
-            parsed[field] = []
+    required_list_fields = ["strengths", "weaknesses", "missing_points"]
+    required_text_fields = [
+        "structure_comment",
+        "grammar_comment",
+        "improved_answer",
+    ]
+
+    marks_awarded = parsed.get("marks_awarded")
+    if (
+        isinstance(marks_awarded, bool)
+        or not isinstance(marks_awarded, int)
+        or marks_awarded < 0
+        or marks_awarded > max_marks
+    ):
+        console.print("[yellow]Invalid evaluation marks_awarded[/yellow]")
+        return _invalid_evaluation_response("Invalid AI score - please retry.")
+
+    for field in required_list_fields:
+        value = parsed.get(field)
+        if (
+            not isinstance(value, list)
+            or any(not isinstance(item, str) for item in value)
+        ):
+            console.print(f"[yellow]Invalid evaluation field: {field}[/yellow]")
+            return _invalid_evaluation_response("Invalid AI feedback - please retry.")
+
+    for field in required_text_fields:
+        if not isinstance(parsed.get(field), str):
+            console.print(f"[yellow]Invalid evaluation field: {field}[/yellow]")
+            return _invalid_evaluation_response("Invalid AI feedback - please retry.")
 
     return parsed
