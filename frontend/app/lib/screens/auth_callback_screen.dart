@@ -1,5 +1,4 @@
-// ignore: avoid_web_libraries_in_flutter
-import 'dart:html' as html;
+import 'package:web/web.dart' as web;
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../config/theme.dart';
@@ -43,7 +42,7 @@ class _AuthCallbackScreenState extends State<AuthCallbackScreen> {
 
   // ── Callback logic ─────────────────────────────────────────────────────────
   Future<void> _handleCallback() async {
-    final hash = html.window.location.hash;
+    final hash = web.window.location.hash;
 
     if (hash.isEmpty) {
       _setError('Invalid authentication response. Please try again.');
@@ -279,7 +278,7 @@ class _AuthCallbackScreenState extends State<AuthCallbackScreen> {
                                 ),
                                 GestureDetector(
                                   onTap: () => context.push('/privacy'),
-                                  child: Text(
+                                  child: const Text(
                                     'Privacy Policy',
                                     style: TextStyle(
                                       fontSize:   13,
@@ -294,7 +293,7 @@ class _AuthCallbackScreenState extends State<AuthCallbackScreen> {
                                 ),
                                 GestureDetector(
                                   onTap: () => context.push('/terms'),
-                                  child: Text(
+                                  child: const Text(
                                     'Terms of Service',
                                     style: TextStyle(
                                       fontSize:   13,

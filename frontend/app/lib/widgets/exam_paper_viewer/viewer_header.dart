@@ -36,7 +36,7 @@ class ViewerHeader extends StatelessWidget {
             _sep(context),
             GestureDetector(
               onTap: () => context.go(backPath),
-              child: Text(
+              child: const Text(
                 'Final Exam Prep',
                 style: TextStyle(
                   fontSize: 11,

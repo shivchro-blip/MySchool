@@ -28,7 +28,7 @@ class GoogleSignInButton extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            _GoogleLogo(size: 20),
+            const _GoogleLogo(size: 20),
             const SizedBox(width: 10),
             Text(
               'Continue with Google',

@@ -1,6 +1,5 @@
 import 'dart:convert';
-// ignore: avoid_web_libraries_in_flutter
-import 'dart:html' as html;
+import 'package:web/web.dart' as web;
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:http/http.dart' as http;
 import '../config/app_config.dart';
@@ -170,13 +169,13 @@ class AuthService {
   // Supabase redirects to /auth/callback with tokens in the URL hash.
   // AuthCallbackScreen parses those tokens.
   void signInWithGoogle() {
-    final origin     = html.window.location.origin;
+    final origin     = web.window.location.origin;
     final redirectTo = '$origin/auth/callback';
     final oauthUrl   =
         '$_supabaseUrl/auth/v1/authorize'
         '?provider=google'
         '&redirect_to=${Uri.encodeComponent(redirectTo)}';
-    html.window.location.href = oauthUrl;
+    web.window.location.href = oauthUrl;
   }
 
   // Store a token received from an external source (e.g. OAuth callback).

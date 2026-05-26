@@ -154,7 +154,7 @@ class _ChapterInfoCard extends StatelessWidget {
                   const SizedBox(width: 5),
                   Text(
                     ch.typeLabel,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 11, fontWeight: FontWeight.w700,
                       color: AppTheme.brand,
                     ),

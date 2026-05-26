@@ -264,12 +264,12 @@ class _LoginScreenState extends State<LoginScreen> {
                           Text('I agree to the ', style: TextStyle(fontSize: 13, color: AppTheme.text2Of(context))),
                           GestureDetector(
                             onTap: () => context.push('/privacy'),
-                            child: Text('Privacy Policy', style: TextStyle(fontSize: 13, color: AppTheme.brand, decoration: TextDecoration.underline)),
+                            child: const Text('Privacy Policy', style: TextStyle(fontSize: 13, color: AppTheme.brand, decoration: TextDecoration.underline)),
                           ),
                           Text(' and ', style: TextStyle(fontSize: 13, color: AppTheme.text2Of(context))),
                           GestureDetector(
                             onTap: () => context.push('/terms'),
-                            child: Text('Terms of Service', style: TextStyle(fontSize: 13, color: AppTheme.brand, decoration: TextDecoration.underline)),
+                            child: const Text('Terms of Service', style: TextStyle(fontSize: 13, color: AppTheme.brand, decoration: TextDecoration.underline)),
                           ),
                         ],
                       ),
@@ -324,7 +324,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     color:        AppTheme.brandLightOf(context),
                     borderRadius: BorderRadius.circular(8),
                   ),
-                  child: Text(
+                  child: const Text(
                     "After signup, you'll choose your class and subjects.",
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 12, color: AppTheme.brand),
