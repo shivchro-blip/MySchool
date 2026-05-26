@@ -4,10 +4,11 @@ import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
   // ── Brand ─────────────────────────────────────────────────────────────────
-  static const Color brand      = Color(0xFF2A7B6F);
+  static const Color brand      = Color(0xFF1D9E75); // web --brand light
+  static const Color darkBrand  = Color(0xFF34C99A); // web --brand dark
   static const Color brandLight      = Color(0xFFE6F4F2);
   static const Color brandLightHover = Color(0xFFD5EBE7);
-  static const Color brandDark       = Color(0xFF1d5c53);
+  static const Color brandDark       = Color(0xFF0F6E56); // web --brand-strong
 
   // ── Light surface tokens ──────────────────────────────────────────────────
   static const Color surface    = Color(0xFFF9FAFB);
@@ -88,6 +89,8 @@ class AppTheme {
       isDark(ctx) ? darkBrandLight : brandLight;
   static Color brandLightHoverOf(BuildContext ctx) =>
       isDark(ctx) ? darkBrandLightHover : brandLightHover;
+  static Color brandOf(BuildContext ctx) =>
+      isDark(ctx) ? darkBrand : brand;
   static Color borderSoftOf(BuildContext ctx) =>
       isDark(ctx) ? darkBorderSoft : borderSoft;
 

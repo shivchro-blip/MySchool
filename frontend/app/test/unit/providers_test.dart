@@ -8,8 +8,8 @@ import 'package:mocktail/mocktail.dart';
 
 class MockUserService extends Mock implements UserService {}
 
-const _profile = UserProfile(
-    id: 'u1', fullName: 'Meena', plan: 'free', dailyAiCalls: 0);
+const _profile =
+    UserProfile(id: 'u1', fullName: 'Meena', plan: 'free', dailyAiCalls: 0);
 
 void main() {
   group('SyllabusProvider', () {
@@ -48,13 +48,21 @@ void main() {
       expect(provider.plus2Count, 2);
     });
 
+    test('course class levels expose both dashboard courses', () {
+      expect(SyllabusConfig.courseClassLevels, const ['+1', '+2']);
+      expect(SyllabusConfig.courseCount, 2);
+      expect(SyllabusConfig.subjectCountForClass('+1'), 3);
+      expect(SyllabusConfig.subjectCountForClass('+2'), 2);
+    });
+
     test('load error sets error string, loaded stays false', () async {
       await provider.load();
       expect(provider.loaded, isTrue);
       expect(provider.error, isNull);
     });
 
-    test('loadIfNeeded skips second network call when already loaded', () async {
+    test('loadIfNeeded skips second network call when already loaded',
+        () async {
       await provider.loadIfNeeded();
       await provider.loadIfNeeded();
       expect(provider.loaded, isTrue);
@@ -66,13 +74,14 @@ void main() {
     late UserProvider provider;
 
     setUp(() {
-      mockSvc  = MockUserService();
+      mockSvc = MockUserService();
       provider = UserProvider(mockSvc);
     });
 
     test('initial state: profile null, not loading', () {
       expect(provider.profile, isNull);
       expect(provider.loading, isFalse);
+      expect(provider.loaded, isFalse);
     });
 
     test('load success sets profile', () async {
@@ -80,6 +89,7 @@ void main() {
       await provider.load();
       expect(provider.profile?.fullName, 'Meena');
       expect(provider.loading, isFalse);
+      expect(provider.loaded, isTrue);
       expect(provider.error, isNull);
     });
 
@@ -87,6 +97,7 @@ void main() {
       when(() => mockSvc.getProfile()).thenThrow(Exception('auth'));
       await provider.load();
       expect(provider.profile, isNull);
+      expect(provider.loaded, isTrue);
       expect(provider.error, contains('auth'));
     });
 
@@ -102,6 +113,7 @@ void main() {
       await provider.load();
       provider.clear();
       expect(provider.profile, isNull);
+      expect(provider.loaded, isFalse);
       expect(provider.error, isNull);
     });
   });

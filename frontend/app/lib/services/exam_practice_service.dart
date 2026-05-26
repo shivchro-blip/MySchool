@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/services.dart';
 import '../models/exam_practice_model.dart';
+import '../utils/exam_paper_adapter.dart';
 
 class ExamPracticeService {
   static Future<List<ExamQuestion>> getQuestions(
@@ -16,7 +17,9 @@ class ExamPracticeService {
       final data = jsonDecode(raw) as Map<String, dynamic>;
       return _adapt(data);
     } catch (_) {
-      return [];
+      // No practice JSON — fall back to generating questions from viewer data.
+      final adapted = ExamPaperAdapter.fromPaperId(chapterSlug);
+      return adapted;
     }
   }
 
@@ -59,7 +62,7 @@ class ExamPracticeService {
                   .map((o) => o.replaceFirst(
                         RegExp(r'^[a-d]\)\s*', caseSensitive: false), ''))
                   .toList(),
-              correct: q['answer'] as int,
+              correct: q['answer'] as int?,
               hint:    q['hint']   as String?,
             ));
           }

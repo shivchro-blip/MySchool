@@ -12,15 +12,31 @@ import 'package:exam_coach/providers/user_provider.dart';
 class FakeSyllabusProvider extends SyllabusProvider {
   final List<Subject> _data;
 
-  FakeSyllabusProvider([List<Subject>? data]) : _data = data ?? _defaultSubjects;
+  FakeSyllabusProvider([List<Subject>? data])
+      : _data = data ?? _defaultSubjects;
 
   static const _defaultSubjects = [
-    Subject(id: '1', slug: 'english', code: 'ENG',
-        name: 'English', classLevel: '+1', isActive: true),
-    Subject(id: '2', slug: 'maths', code: 'MATH',
-        name: 'Maths', classLevel: '+1', isActive: true),
-    Subject(id: '3', slug: 'science', code: 'SCI',
-        name: 'Science', classLevel: '+2', isActive: true),
+    Subject(
+        id: '1',
+        slug: 'english',
+        code: 'ENG',
+        name: 'English',
+        classLevel: '+1',
+        isActive: true),
+    Subject(
+        id: '2',
+        slug: 'maths',
+        code: 'MATH',
+        name: 'Maths',
+        classLevel: '+1',
+        isActive: true),
+    Subject(
+        id: '3',
+        slug: 'science',
+        code: 'SCI',
+        name: 'Science',
+        classLevel: '+2',
+        isActive: true),
   ];
 
   @override
@@ -51,6 +67,9 @@ class FakeUserProvider extends UserProvider {
 
   @override
   bool get loading => false;
+
+  @override
+  bool get loaded => true;
 
   @override
   String? get error => null;

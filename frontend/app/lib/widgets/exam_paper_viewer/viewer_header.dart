@@ -6,8 +6,18 @@ import '../../models/exam_paper_model.dart';
 class ViewerHeader extends StatelessWidget {
   final ExamPaperData paper;
   final String backPath;
+  final String classLevel;
+  final String subjectSlug;
+  final String paperId;
 
-  const ViewerHeader({super.key, required this.paper, required this.backPath});
+  const ViewerHeader({
+    super.key,
+    required this.paper,
+    required this.backPath,
+    required this.classLevel,
+    required this.subjectSlug,
+    required this.paperId,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -87,7 +97,9 @@ class ViewerHeader extends StatelessWidget {
             SizedBox(
               width: 140,
               child: ElevatedButton(
-                onPressed: () => debugPrint('TODO: Start Practice'),
+                onPressed: () => context.push(
+                  '/exam/$classLevel/$subjectSlug/$paperId',
+                ),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppTheme.brand,
                   foregroundColor: Colors.white,

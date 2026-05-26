@@ -20,13 +20,12 @@ class _SubjectListScreenState extends State<SubjectListScreen> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
+      context.read<UserProvider>().loadIfNeeded();
       context.read<SyllabusProvider>().loadIfNeeded();
     });
   }
 
-  String get _title => widget.classLevel == '+1'
-      ? '+1 Courses'
-      : '+2 Courses';
+  String get _title => widget.classLevel == '+1' ? '+1 Courses' : '+2 Courses';
 
   // Returns true when the subject's slug or name matches an allowed slug.
   // Handles 'maths' ↔ 'mathematics' equivalence gracefully.
@@ -47,20 +46,20 @@ class _SubjectListScreenState extends State<SubjectListScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final syllabus       = context.watch<SyllabusProvider>();
-    final user           = context.watch<UserProvider>();
-    final allowedClass   = user.allowedClass;
+    final syllabus = context.watch<SyllabusProvider>();
+    final user = context.watch<UserProvider>();
+    final allowedClass = user.allowedClass;
     final allowedSubjects = user.allowedSubjects;
 
-    // Route guard: this class isn't in the user's selection.
-    final classBlocked = allowedClass != null && allowedClass != widget.classLevel;
-
-    final allSubjects    = syllabus.byClass(widget.classLevel);
-    final subjects       = classBlocked
+    final classBlocked = user.loaded &&
+        allowedClass != null &&
+        allowedClass != widget.classLevel;
+    final allSubjects = syllabus.byClass(widget.classLevel);
+    final subjects = classBlocked
         ? const <Subject>[]
-        : (allowedSubjects.isEmpty
+        : allowedSubjects.isEmpty
             ? allSubjects
-            : allSubjects.where((s) => _isAllowed(s, allowedSubjects)).toList());
+            : allSubjects.where((s) => _isAllowed(s, allowedSubjects)).toList();
 
     return Scaffold(
       appBar: AppBar(title: Text(_title)),
@@ -71,23 +70,29 @@ class _SubjectListScreenState extends State<SubjectListScreen> {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Icon(Icons.lock_outline_rounded,
-                         size: 40, color: AppTheme.textMutedOf(context)),
+                    Icon(
+                      Icons.lock_outline_rounded,
+                      size: 40,
+                      color: AppTheme.textMutedOf(context),
+                    ),
                     const SizedBox(height: 16),
                     Text(
                       'This course is not enabled for your account.',
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontSize:   15,
+                        fontSize: 15,
                         fontWeight: FontWeight.w600,
-                        color:      AppTheme.textOf(context),
+                        color: AppTheme.textOf(context),
                       ),
                     ),
                     const SizedBox(height: 8),
                     Text(
                       'Your account is set up for ${allowedClass == '+1' ? 'Class 11' : 'Class 12'}.',
                       textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 13, color: AppTheme.text2Of(context)),
+                      style: TextStyle(
+                        fontSize: 13,
+                        color: AppTheme.text2Of(context),
+                      ),
                     ),
                     const SizedBox(height: 24),
                     TextButton(
@@ -122,17 +127,20 @@ class _SubjectListScreenState extends State<SubjectListScreen> {
                         padding: const EdgeInsets.all(32),
                         child: Text(
                           'No subjects found for this class.',
-                          style: TextStyle(color: AppTheme.textMutedOf(context)),
+                          style:
+                              TextStyle(color: AppTheme.textMutedOf(context)),
                         ),
                       ),
                     ),
-                  ...subjects.map((s) => Padding(
-                    padding: const EdgeInsets.only(bottom: 12),
-                    child: _SubjectCard(
-                      subject:    s,
-                      classLevel: widget.classLevel,
+                  ...subjects.map(
+                    (s) => Padding(
+                      padding: const EdgeInsets.only(bottom: 12),
+                      child: _SubjectCard(
+                        subject: s,
+                        classLevel: widget.classLevel,
+                      ),
                     ),
-                  )),
+                  ),
                 ],
               ),
             ),
@@ -142,7 +150,7 @@ class _SubjectListScreenState extends State<SubjectListScreen> {
 
 class _SubjectCard extends StatefulWidget {
   final Subject subject;
-  final String  classLevel;
+  final String classLevel;
   const _SubjectCard({required this.subject, required this.classLevel});
 
   @override
@@ -152,8 +160,8 @@ class _SubjectCard extends StatefulWidget {
 class _SubjectCardState extends State<_SubjectCard> {
   bool _hovered = false;
 
-  Color get _color  => AppTheme.subjectColor(widget.subject.name);
-  Color get _bg     => AppTheme.subjectBg(widget.subject.name);
+  Color get _color => AppTheme.subjectColor(widget.subject.name);
+  Color get _bg => AppTheme.subjectBg(widget.subject.name);
   IconData get _icon => _iconFor(widget.subject.name);
 
   static IconData _iconFor(String name) {
@@ -179,7 +187,7 @@ class _SubjectCardState extends State<_SubjectCard> {
       ),
       child: MouseRegion(
         onEnter: (_) => setState(() => _hovered = true),
-        onExit:  (_) => setState(() => _hovered = false),
+        onExit: (_) => setState(() => _hovered = false),
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 120),
           transform: Matrix4.translationValues(0, _hovered ? -2 : 0, 0),
@@ -187,32 +195,37 @@ class _SubjectCardState extends State<_SubjectCard> {
           decoration: BoxDecoration(
             color: _hovered
                 ? _color.withAlpha(22)
-                : AppTheme.isDark(context) ? AppTheme.cardOf(context) : _bg.withAlpha(120),
+                : AppTheme.isDark(context)
+                    ? AppTheme.cardOf(context)
+                    : _bg.withAlpha(120),
             borderRadius: BorderRadius.circular(14),
             border: Border.all(
-              color: _hovered
-                  ? _color.withAlpha(100)
-                  : _color.withAlpha(50),
+              color: _hovered ? _color.withAlpha(100) : _color.withAlpha(50),
               width: 1.5,
             ),
             boxShadow: _hovered
-                ? [BoxShadow(
-                    color: _color.withAlpha(35),
-                    blurRadius: 14,
-                    offset: const Offset(0, 4),
-                  )]
-                : [const BoxShadow(
-                    color: Color(0x0A000000),
-                    blurRadius: 3,
-                    offset: Offset(0, 1),
-                  )],
+                ? [
+                    BoxShadow(
+                      color: _color.withAlpha(35),
+                      blurRadius: 14,
+                      offset: const Offset(0, 4),
+                    )
+                  ]
+                : [
+                    const BoxShadow(
+                      color: Color(0x0A000000),
+                      blurRadius: 3,
+                      offset: Offset(0, 1),
+                    )
+                  ],
           ),
           child: Row(
             children: [
               Container(
-                width: 42, height: 42,
+                width: 42,
+                height: 42,
                 decoration: BoxDecoration(
-                  color:        _bg,
+                  color: _bg,
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Icon(_icon, color: _color, size: 22),

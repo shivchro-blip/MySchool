@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
+import '../config/syllabus_config.dart';
 import '../config/theme.dart';
 import '../providers/syllabus_provider.dart';
 import '../providers/user_provider.dart';
@@ -10,8 +11,8 @@ import '../widgets/page_header.dart';
 class _ClassInfo {
   final String classLevel;
   final String fullName;
-  final Color  color;
-  final Color  bg;
+  final Color color;
+  final Color bg;
   const _ClassInfo({
     required this.classLevel,
     required this.fullName,
@@ -20,20 +21,42 @@ class _ClassInfo {
   });
 }
 
-const _kCourseClasses = [
-  _ClassInfo(
-    classLevel: '+1',
-    fullName:   'Class XI — Higher Secondary First Year',
-    color:      AppTheme.plus1,
-    bg:         AppTheme.plus1Bg,
-  ),
-  _ClassInfo(
-    classLevel: '+2',
-    fullName:   'Class XII — Higher Secondary Second Year',
-    color:      AppTheme.plus2,
-    bg:         AppTheme.plus2Bg,
-  ),
-];
+List<_ClassInfo> _courseClassesFromSyllabus() =>
+    SyllabusConfig.courseClassLevels
+        .map((classLevel) => _ClassInfo(
+              classLevel: classLevel,
+              fullName: SyllabusConfig.courseFullTitle(classLevel),
+              color: classLevel == '+1' ? AppTheme.plus1 : AppTheme.plus2,
+              bg: classLevel == '+1' ? AppTheme.plus1Bg : AppTheme.plus2Bg,
+            ))
+        .toList(growable: false);
+
+List<_ClassInfo> _filterCourseClassesForProfile(
+  List<_ClassInfo> courses,
+  String? classLevel,
+) {
+  if (classLevel == null || classLevel.isEmpty) return courses;
+  return courses.where((course) => course.classLevel == classLevel).toList();
+}
+
+void _debugAssertCoursesScreenCourseCount({
+  required List<_ClassInfo> allCourses,
+  required List<_ClassInfo> visibleCourses,
+  required String? profileClassLevel,
+  required bool profileLoaded,
+}) {
+  assert(() {
+    final expected = SyllabusConfig.courseCount;
+    debugPrint(
+      'Courses screen courses: visible=${visibleCourses.length}, '
+      'syllabus=$expected, profileLoaded=$profileLoaded, '
+      'profileClass=$profileClassLevel, '
+      'all=${allCourses.map((c) => c.classLevel).join(',')}, '
+      'visibleClasses=${visibleCourses.map((c) => c.classLevel).join(',')}',
+    );
+    return allCourses.length == expected;
+  }(), 'Courses screen list is not rendering every class from SyllabusConfig.');
+}
 
 class CoursesScreen extends StatefulWidget {
   const CoursesScreen({super.key});
@@ -47,24 +70,32 @@ class _CoursesScreenState extends State<CoursesScreen> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
+      context.read<UserProvider>().loadIfNeeded();
       context.read<SyllabusProvider>().loadIfNeeded();
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    final syllabus     = context.watch<SyllabusProvider>();
-    final allowedClass = context.watch<UserProvider>().allowedClass;
+    final syllabus = context.watch<SyllabusProvider>();
+    final user = context.watch<UserProvider>();
 
+    final allClasses = _courseClassesFromSyllabus();
+    final visibleClasses = user.loaded
+        ? _filterCourseClassesForProfile(allClasses, user.allowedClass)
+        : const <_ClassInfo>[];
     final subjectCounts = {
-      '+1': syllabus.plus1Count,
-      '+2': syllabus.plus2Count,
+      for (final course in visibleClasses)
+        course.classLevel: SyllabusConfig.subjectCountForClass(
+          course.classLevel,
+        ),
     };
-
-    // Show only the class the user selected during onboarding (if set).
-    final visibleClasses = allowedClass != null
-        ? _kCourseClasses.where((c) => c.classLevel == allowedClass).toList()
-        : _kCourseClasses;
+    _debugAssertCoursesScreenCourseCount(
+      allCourses: allClasses,
+      visibleCourses: visibleClasses,
+      profileClassLevel: user.allowedClass,
+      profileLoaded: user.loaded,
+    );
 
     return Scaffold(
       appBar: AppBar(title: const Text('My Courses')),
@@ -76,10 +107,10 @@ class _CoursesScreenState extends State<CoursesScreen> {
           children: [
             // ── Editorial header ──────────────────────────────────
             const PageHeader(
-              eyebrow:  'Tamil Nadu State Board',
-              title:    'My Courses',
+              eyebrow: 'Tamil Nadu State Board',
+              title: 'My Courses',
               subtitle: 'Select a year group to browse subjects and lessons.',
-              padding:  EdgeInsets.zero,
+              padding: EdgeInsets.zero,
             ),
             const SizedBox(height: 32),
 
@@ -97,7 +128,7 @@ class _CoursesScreenState extends State<CoursesScreen> {
             Container(
               clipBehavior: Clip.antiAlias,
               decoration: BoxDecoration(
-                border:       Border.all(color: AppTheme.borderOf(context)),
+                border: Border.all(color: AppTheme.borderOf(context)),
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Column(
@@ -105,16 +136,18 @@ class _CoursesScreenState extends State<CoursesScreen> {
                 children: [
                   for (int i = 0; i < visibleClasses.length; i++) ...[
                     _ClassRow(
-                      info:         visibleClasses[i],
-                      subjectCount: subjectCounts[visibleClasses[i].classLevel] ?? 0,
-                      loading:      !syllabus.loaded,
-                      onTap:        () => context.push('/courses/${visibleClasses[i].classLevel}'),
+                      info: visibleClasses[i],
+                      subjectCount:
+                          subjectCounts[visibleClasses[i].classLevel] ?? 0,
+                      loading: false,
+                      onTap: () => context
+                          .push('/courses/${visibleClasses[i].classLevel}'),
                     ),
                     if (i < visibleClasses.length - 1)
                       Divider(
-                        height:    1,
+                        height: 1,
                         thickness: 1,
-                        color:     AppTheme.borderOf(context),
+                        color: AppTheme.borderOf(context),
                       ),
                   ],
                 ],
@@ -130,9 +163,9 @@ class _CoursesScreenState extends State<CoursesScreen> {
 // ── Row widget for the grouped course list ────────────────────────────────────
 
 class _ClassRow extends StatefulWidget {
-  final _ClassInfo   info;
-  final int          subjectCount;
-  final bool         loading;
+  final _ClassInfo info;
+  final int subjectCount;
+  final bool loading;
   final VoidCallback onTap;
 
   const _ClassRow({
@@ -152,29 +185,32 @@ class _ClassRowState extends State<_ClassRow> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTapDown:   (_) => setState(() => _pressed = true),
-      onTapUp:     (_) { setState(() => _pressed = false); widget.onTap(); },
-      onTapCancel: ()  => setState(() => _pressed = false),
+      onTapDown: (_) => setState(() => _pressed = true),
+      onTapUp: (_) {
+        setState(() => _pressed = false);
+        widget.onTap();
+      },
+      onTapCancel: () => setState(() => _pressed = false),
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 80),
-        color:   _pressed ? AppTheme.borderOf(context) : AppTheme.cardOf(context),
+        color: _pressed ? AppTheme.borderOf(context) : AppTheme.cardOf(context),
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
         child: Row(
           children: [
             Container(
-              width:  48,
+              width: 48,
               height: 48,
               decoration: BoxDecoration(
-                color:        widget.info.bg,
+                color: widget.info.bg,
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Center(
                 child: Text(
                   widget.info.classLevel,
                   style: TextStyle(
-                    fontSize:   18,
+                    fontSize: 18,
                     fontWeight: FontWeight.w800,
-                    color:      widget.info.color,
+                    color: widget.info.color,
                   ),
                 ),
               ),
@@ -187,18 +223,18 @@ class _ClassRowState extends State<_ClassRow> {
                   Text(
                     widget.info.fullName,
                     style: TextStyle(
-                      fontSize:   14,
+                      fontSize: 14,
                       fontWeight: FontWeight.w600,
-                      color:      AppTheme.textOf(context),
+                      color: AppTheme.textOf(context),
                     ),
                   ),
                   const SizedBox(height: 3),
                   widget.loading
                       ? Container(
                           height: 11,
-                          width:  72,
+                          width: 72,
                           decoration: BoxDecoration(
-                            color:        AppTheme.borderOf(context),
+                            color: AppTheme.borderOf(context),
                             borderRadius: BorderRadius.circular(6),
                           ),
                         )
@@ -206,7 +242,7 @@ class _ClassRowState extends State<_ClassRow> {
                           '${widget.subjectCount} subject${widget.subjectCount != 1 ? 's' : ''}',
                           style: TextStyle(
                             fontSize: 12,
-                            color:    AppTheme.textMutedOf(context),
+                            color: AppTheme.textMutedOf(context),
                           ),
                         ),
                 ],
@@ -215,7 +251,7 @@ class _ClassRowState extends State<_ClassRow> {
             Icon(
               Icons.chevron_right,
               color: AppTheme.textMutedOf(context),
-              size:  20,
+              size: 20,
             ),
           ],
         ),

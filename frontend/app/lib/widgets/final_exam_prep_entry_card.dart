@@ -14,6 +14,7 @@ class FinalExamPrepEntryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final className = classLevel == '+2' ? 'Class 12' : 'Class 11';
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
@@ -63,7 +64,7 @@ class FinalExamPrepEntryCard extends StatelessWidget {
           // Body
           Text(
             'Access past annual exam papers, important question patterns, '
-            'high-priority topics and smart revision plans for Class 11 English.',
+            'high-priority topics and smart revision plans for $className English.',
             style: TextStyle(
               fontSize: 13,
               color: AppTheme.text2Of(context),

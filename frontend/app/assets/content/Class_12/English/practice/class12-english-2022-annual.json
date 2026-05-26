@@ -1,0 +1,349 @@
+{
+  "meta": {
+    "subject": "General English -- Class XII",
+    "unit": "2022 Annual Exam Paper",
+    "time": "3.00 hrs",
+    "totalMarks": 90,
+    "instructions": "Tamil Nadu State Board · Higher Secondary Second Year Examinations - May 2022"
+  },
+  "parts": [
+    {
+      "id": "p1",
+      "navLabel": "Part I -- MCQ (20×1)",
+      "title": "Part I -- Objective Type",
+      "type": "mcq",
+      "scoreMax": 20,
+      "marksPer": 1,
+      "sections": [
+        {
+          "label": "Choose the correct synonyms for the underlined words",
+          "questions": [
+            {
+              "id": "q1",
+              "html": "We watched for a few moments; then as trade <u>slackened</u> we went over.",
+              "options": ["a) reduced", "b) improved", "c) loosened", "d) ended"],
+              "answer": 0
+            },
+            {
+              "id": "q2",
+              "html": "Individual liberty would have become social <u>anarchy</u>.",
+              "options": ["a) welfare", "b) anxiety", "c) lawlessness", "d) deprivation"],
+              "answer": 2
+            },
+            {
+              "id": "q3",
+              "html": "He was a walking horror, with a <u>disfigured</u> face and long flap of skin hanging from the side of his neck to his body.",
+              "options": ["a) majestic", "b) marred", "c) dismantled", "d) diseased"],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "label": "Choose the correct antonyms for the underlined words",
+          "questions": [
+            {
+              "id": "q4",
+              "html": "In those days, they didn't have <u>sophisticated</u> heart surgery.",
+              "options": ["a) artificial", "b) painful", "c) primitive", "d) modern"],
+              "answer": 2
+            },
+            {
+              "id": "q5",
+              "html": "Our father rejected it, saying it wouldn't be <u>sturdy</u>.",
+              "options": ["a) pretty", "b) weak", "c) fashionable", "d) strong"],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "label": "Vocabulary, idiom, grammar and usage",
+          "questions": [
+            {
+              "id": "q6",
+              "html": "We have a whole kingdom in which we rule alone, can do what we choose, be wise or ..... conventional or odd.",
+              "options": ["a) unconventional", "b) inefficient", "c) insufficient", "d) unbiased"],
+              "answer": 0
+            },
+            {
+              "id": "q7",
+              "html": "Replace the underlined idiom with its suitable meaning. The examinations are <u>round the corner</u>.",
+              "options": ["a) not to be avoided", "b) not in the near future", "c) very near", "d) to be postponed"],
+              "answer": 2
+            },
+            {
+              "id": "q8",
+              "html": "Replace the underlined word with a polite form of expression. <u>Slow learners</u> are to be taught with more care and attention.",
+              "options": ["a) bright", "b) unwilling learners", "c) hyper active", "d) slow bloomers"],
+              "answer": 3
+            },
+            {
+              "id": "q9",
+              "html": "Choose the word that can be placed before the word <u>drive</u> to form a compound word.",
+              "options": ["a) pen", "b) roll", "c) rash", "d) dash"],
+              "answer": 0
+            },
+            {
+              "id": "q10",
+              "html": "Choose the correct British English equivalent for the American English word <u>Vacation</u>.",
+              "options": ["a) Weekend", "b) Holiday", "c) Tour", "d) Leave"],
+              "answer": 1
+            },
+            {
+              "id": "q11",
+              "html": "Fill in the blank with the most suitable prepositional phrase. ________ rain, take an umbrella.",
+              "options": ["a) In favour of", "b) In case of", "c) On behalf of", "d) In spite of"],
+              "answer": 1
+            },
+            {
+              "id": "q12",
+              "html": "Choose the appropriate linker and complete the sentence. ________ you book in advance, you cannot witness the show.",
+              "options": ["a) Unless", "b) If", "c) Although", "d) Otherwise"],
+              "answer": 0
+            },
+            {
+              "id": "q13",
+              "html": "Choose the correct word from the options given below and complete the sentence. It was a memorable ________.",
+              "options": ["a) accident", "b) incidence", "c) resident", "d) incident"],
+              "answer": 3
+            },
+            {
+              "id": "q14",
+              "html": "Replace the underlined word with a suitable phrasal verb. The fire was <u>extinguished</u>.",
+              "options": ["a) put up", "b) put in", "c) put out", "d) put off"],
+              "answer": 2
+            },
+            {
+              "id": "q15",
+              "html": "Choose the word with the correct spelling.",
+              "options": ["a) dysentery", "b) seperate", "c) secretery", "d) foriegn"],
+              "answer": 0
+            },
+            {
+              "id": "q16",
+              "html": "Identify the correct combination of the word <u>haircut</u>.",
+              "options": ["a) Noun+Adjective", "b) Noun+Verb", "c) Noun+Adverb", "d) Noun+Noun"],
+              "answer": 1
+            },
+            {
+              "id": "q17",
+              "html": "Form a new word by adding a suitable suffix to the underlined word and complete the sentence. The soil lost its ________ (<u>fertile</u>) due to excessive sprinkling of pesticides.",
+              "options": ["a) -ity", "b) -ness", "c) -able", "d) -ment"],
+              "answer": 0
+            },
+            {
+              "id": "q18",
+              "html": "Choose the best option that is the expansion of the abbreviation <u>TNPSC</u>.",
+              "options": ["a) Tamilnadu Public Service Commission", "b) Tamilnadu National People Service Commission", "c) Tamilnadu Pupil Service Commission", "d) Tamilnadu Public Science Council"],
+              "answer": 0
+            },
+            {
+              "id": "q19",
+              "html": "Choose the appropriate question tag and complete the sentence. Don't commit this mistake again, ________ ?",
+              "options": ["a) do you", "b) will you", "c) would you", "d) won't you"],
+              "answer": 1
+            },
+            {
+              "id": "q20",
+              "html": "Which of the following sentences is of the pattern <u>SVOA</u> ?",
+              "options": ["a) We should encourage sportspersons.", "b) I ate an apple yesterday.", "c) The pot called the kettle black.", "d) Your words make me proud."],
+              "answer": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "navLabel": "Part II -- Poetry (Any 4 sets)",
+      "title": "Part II · Section 1 -- Poetic Lines",
+      "type": "reference",
+      "scoreMax": 8,
+      "marksPer": 2,
+      "questions": [
+        {
+          "id": "q21",
+          "verse": "\"LIKE a huge Python, winding round and round\\nThe rugged trunk, indented deep with scars\".",
+          "subs": [
+            { "q": "(a) What is winding round and round?", "a": "The creeper is winding round and round." },
+            { "q": "(b) Identify the figure of speech in the first line.", "a": "Zoomorphism / Simile." }
+          ]
+        },
+        {
+          "id": "q22",
+          "verse": "\"One equal temper of heroic hearts,\\nMade weak by time and fate, but strong in will.\\nTo strive, to seek, to find and not to yield.\"",
+          "subs": [
+            { "q": "(a) Who are referred to as heroic hearts?", "a": "Ulysses and his mariners / sailors are referred to as heroic hearts." },
+            { "q": "(b) Pick out the words in alliteration in the above lines.", "a": "heroic – hearts / strive – seek / weak – will (any one pair)." }
+          ]
+        },
+        {
+          "id": "q23",
+          "verse": "\"He will be lonely enough\\nto have time for the work\\nhe knows as his own\".",
+          "subs": [
+            { "q": "(a) Who does the word 'He' refer to?", "a": "The word 'He' refers to the son / child." },
+            { "q": "(b) How does loneliness help the person?", "a": "Loneliness gives him time for his own work and helps him become creative." }
+          ]
+        },
+        {
+          "id": "q24",
+          "verse": "\"All the world's a stage\"",
+          "subs": [
+            { "q": "(a) What is the world compared with?", "a": "The world is compared with a stage." },
+            { "q": "(b) Identify the figure of speech.", "a": "Metaphor." }
+          ]
+        },
+        {
+          "id": "q25",
+          "verse": "\"O sweet companions, loved with love intense,\\nFor your sakes, shall the tree be ever dear.\"",
+          "subs": [
+            { "q": "(a) Why shall the tree remain ever dear?", "a": "The tree shall remain ever dear because it is tied to the poet's cherished childhood memories and reminiscences of her siblings." },
+            { "q": "(b) What are the alliterated words in the first line?", "a": "loved – love." }
+          ]
+        },
+        {
+          "id": "q26",
+          "verse": "\"It may be we shall touch the Happy Isles,\\nAnd see the great Achilles, whom we knew\".",
+          "subs": [
+            { "q": "(a) Which place would they travel to?", "a": "They would travel to the Happy Isles / unknown world / paradise." },
+            { "q": "(b) Whom would they meet with in the course of their voyage?", "a": "They would meet Achilles / Greek warriors." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "navLabel": "Part II -- Grammar (Any 3)",
+      "title": "Part II · Section 2 -- Do as Directed",
+      "type": "short-essay",
+      "scoreMax": 6,
+      "marksPer": 2,
+      "questions": [
+        {
+          "id": "q27",
+          "q": "Reena said, \"I am learning French\". (Change into Indirect speech.)",
+          "ans": "Reena said that she was learning French."
+        },
+        {
+          "id": "q28",
+          "q": "My request was acceded to by the authorities. (Change the Voice.)",
+          "ans": "The authorities acceded to my request."
+        },
+        {
+          "id": "q29",
+          "q": "I met a man at the party. He is the Chairman of a computer firm. (Combine into a single sentence.)",
+          "ans": "I met the chairman of a computer firm at the party. (or) I met a man at the party who is the chairman of a computer firm."
+        },
+        {
+          "id": "q30",
+          "q": "Unless we plant more trees, we cannot save our planet. (Rewrite using 'If' without changing the meaning.)",
+          "ans": "If we do not plant more trees, we cannot save our planet."
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "navLabel": "Part III -- RTC & Short Answers",
+      "title": "Part III -- Reference to Context and Short Answers",
+      "type": "short-essay",
+      "scoreMax": 30,
+      "marksPer": 3,
+      "questions": [
+        {
+          "id": "q31",
+          "q": "'Without rich wanting nothing arrives'. (Explain with reference to context.)",
+          "ans": "Poem: 'A Father to His Son'. Poet: Carl Sandburg. The father tells his son that worthy achievement does not come by accident. A strong, meaningful desire and the will to act are needed before anything valuable can be attained."
+        },
+        {
+          "id": "q32",
+          "q": "'This is my son, mine own Telemachus, / To whom I leave the sceptre and the isle'. (Explain with reference to context.)",
+          "ans": "Poem: 'Ulysses'. Poet: Alfred Lord Tennyson. Ulysses points to Telemachus as the son who will inherit his throne and rule Ithaca responsibly, while he himself longs to resume a life of adventure and discovery."
+        },
+        {
+          "id": "q33",
+          "q": "'Mayst thou be numbered when my days are done / With deathless trees - like those in Borrowdale'. (Explain with reference to context.)",
+          "ans": "Poem: 'Our Casuarina Tree'. Poet: Toru Dutt. The poet wishes that the casuarina tree may live on in fame and remembrance like the immortal trees of Borrowdale even after her own life ends."
+        },
+        {
+          "id": "q34",
+          "q": "What were the various jobs undertaken by the little boys?",
+          "ans": "The little boys hawked newspapers, polished shoes, sold fruits, worked as tourist guides and ran errands to earn money for their sister's treatment."
+        },
+        {
+          "id": "q35",
+          "q": "What happened to the visitor when he sat on the stool at the narrator's house?",
+          "ans": "The visitor fell down / toppled over / rolled over when he sat on the unsafe three-legged stool."
+        },
+        {
+          "id": "q36",
+          "q": "Define 'liberty' as perceived by A.G. Gardiner.",
+          "ans": "According to A.G. Gardiner, liberty is not merely a personal affair; it is also a social contract that must respect the rights and comfort of others."
+        },
+        {
+          "id": "q37",
+          "q": "Complete the proverbs. (a) Variety is the ________ of life. (b) Every dog has its ________. (c) Time and ________ wait for none.",
+          "ans": "(a) spice  (b) day  (c) tide"
+        },
+        {
+          "id": "q38",
+          "q": "Rearrange the following jumbled sentences correctly. (a) delayed/denied/justice/is/justice (b) spoil/and/rod/spare/the/child/the (c) time/a/nine/stitch/saves/in",
+          "ans": "(a) Justice delayed is justice denied.\n(b) Spare the rod and spoil the child.\n(c) A stitch in time saves nine."
+        },
+        {
+          "id": "q39",
+          "q": "Describe the process of making a glass of lemonade.",
+          "ans": "Take a fresh lemon and squeeze its juice into a clean glass. Add sugar and a small pinch of salt according to taste. Pour in water, stir well until the sugar dissolves, and serve chilled if desired."
+        },
+        {
+          "id": "q40",
+          "q": "Study the lending-library table and answer: (a) How many English books have been lent totally? (b) Social novels are read the most in English and Tamil — True or False? (c) On the whole, which type of books is read least?",
+          "ans": "(a) 1737 English books have been lent in total.\n(b) False — historical novels exceed social novels in English (True also accepted).\n(c) Plays are read the least on the whole."
+        }
+      ]
+    },
+    {
+      "id": "p6",
+      "navLabel": "Part IV -- Long Answers (7×5)",
+      "title": "Part IV -- Long Answer Questions",
+      "type": "long-essay",
+      "scoreMax": 35,
+      "marksPer": 5,
+      "questions": [
+        {
+          "id": "q41",
+          "q": "Q41. Answer either (a) Justify the title of the story 'Two Gentlemen of Verona'. OR (b) Describe the situation in the narrator's household before and after the chair was bought.",
+          "ans": "Option (a): The title is justified by the boys' dignity, sacrifice and selfless labour for Lucia. Option (b): The household moved from embarrassment over the unsafe three-legged stool to pride and comfort after acquiring a proper chair."
+        },
+        {
+          "id": "q42",
+          "q": "Q42. Answer either (a) What are the poet's reminiscences of the casuarina tree? OR (b) What is the father's advice to his son when he is on the threshold of manhood?",
+          "ans": "Option (a): The tree awakens the poet's memories of childhood, lost companions and enduring love. Option (b): The father advises strength, gentleness, desire, independence and creative solitude."
+        },
+        {
+          "id": "q43",
+          "q": "Q43. Answer either (a) Develop the hints about Ivan Dmitrich Aksionov. OR (b) Develop the hints about Margot and the children in Venus.",
+          "ans": "Option (a): Aksionov is falsely punished, spiritually transformed, forgives the real criminal and dies before release. Option (b): Margot is locked away during the one hour of sunshine on Venus and released only after the others realise their cruelty."
+        },
+        {
+          "id": "q44",
+          "q": "Q44. Answer either (a) Make a summary of the passage on telecommunication. OR (b) Write a paragraph on 'Value of Time'.",
+          "ans": "Option (a): Telecommunication enables global exchange of information via telegraph, telephone, wireless and satellites. Option (b): Time is precious and irreversible; using it wisely leads to success and growth."
+        },
+        {
+          "id": "q45",
+          "q": "Q45. Answer either (a) Write a letter congratulating a friend selected for a hockey tournament semi-final. OR (b) Write a letter to the Editor about rash driving.",
+          "ans": "Option (a): A personal congratulatory letter with place/date, salutation, body and subscription. Option (b): A formal letter to the Editor with address details, subject, body and subscription."
+        },
+        {
+          "id": "q46",
+          "q": "Q46. Answer either (a) Spot the errors and rewrite the sentences correctly. OR (b) Fill in the blanks appropriately.",
+          "ans": "Option (a): (i) sisters (ii) senior to (iii) Speaker (iv) consider (v) a useful. Option (b): (i) yearn, earn (ii) would (iii) has already begun (iv) who."
+        },
+        {
+          "id": "q47",
+          "q": "Q47. Answer either (a) Develop the hints into a story of about 150 words. OR (b) Read the passage on photography and answer the five questions.",
+          "ans": "Option (a): A story titled 'Tit for Tat' where the traveller outsmarts the innkeeper. Option (b): (i) From Greek — 'to draw by light'. (ii) Large, cumbersome, lengthy to focus. (iii) By removing lens cover, counting seconds. (iv) To load and prepare a sensitive glass plate. (v) Breaking the seal and loading a roll of film in daylight."
+        }
+      ]
+    }
+  ]
+}

@@ -47,10 +47,10 @@ class UnitConfig {
 }
 
 class MathsChapter {
-  final int    number;
+  final int number;
   final String title;
   final String slug;
-  final int    volume;
+  final int volume;
   const MathsChapter({
     required this.number,
     required this.title,
@@ -71,6 +71,49 @@ class SyllabusConfig {
 
   static List<Subject> getSubjects() =>
       _subjects.map((s) => s.toSubject()).toList();
+
+  static List<String> get courseClassLevels {
+    final levels = <String>[];
+    for (final subject in _subjects) {
+      if (!levels.contains(subject.classLevel)) {
+        levels.add(subject.classLevel);
+      }
+    }
+    return List.unmodifiable(levels);
+  }
+
+  static int get courseCount => courseClassLevels.length;
+
+  static int subjectCountForClass(String classLevel) =>
+      _subjects.where((s) => s.classLevel == classLevel).length;
+
+  static bool hasSubject(String classLevel, String subjectSlug) =>
+      _subjects.any((s) =>
+          s.classLevel == classLevel &&
+          s.slug.toLowerCase() == subjectSlug.toLowerCase());
+
+  static String subjectName(String classLevel, String subjectSlug) {
+    for (final subject in _subjects) {
+      if (subject.classLevel == classLevel &&
+          subject.slug.toLowerCase() == subjectSlug.toLowerCase()) {
+        return subject.name;
+      }
+    }
+    if (subjectSlug.isEmpty) return subjectSlug;
+    return subjectSlug[0].toUpperCase() + subjectSlug.substring(1);
+  }
+
+  static String courseShortTitle(String classLevel) => switch (classLevel) {
+        '+1' => 'Class XI — First Year',
+        '+2' => 'Class XII — Second Year',
+        _ => classLevel,
+      };
+
+  static String courseFullTitle(String classLevel) => switch (classLevel) {
+        '+1' => 'Class XI — Higher Secondary First Year',
+        '+2' => 'Class XII — Higher Secondary Second Year',
+        _ => classLevel,
+      };
 
   static List<Subject> getSubjectsForClass(String classLevel) => _subjects
       .where((s) => s.classLevel == classLevel)
@@ -264,13 +307,8 @@ class SyllabusConfig {
       light: Color(0xFFf2ebfc),
       lessons: [
         UnitLesson(
-            slug: 'the-summit',
-            title: 'The Summit',
-            contentType: 'prose'),
-        UnitLesson(
-            slug: 'ulysses',
-            title: 'Ulysses',
-            contentType: 'poem'),
+            slug: 'the-summit', title: 'The Summit', contentType: 'prose'),
+        UnitLesson(slug: 'ulysses', title: 'Ulysses', contentType: 'poem'),
         UnitLesson(
             slug: 'the-midnight-visitor',
             title: 'The Midnight Visitor',
@@ -283,10 +321,7 @@ class SyllabusConfig {
       color: Color(0xFFd4873a),
       light: Color(0xFFfdf3e7),
       lessons: [
-        UnitLesson(
-            slug: 'the-chair',
-            title: 'The Chair',
-            contentType: 'prose'),
+        UnitLesson(slug: 'the-chair', title: 'The Chair', contentType: 'prose'),
         UnitLesson(
             slug: 'a-father-to-his-son',
             title: 'A Father to his Son',
@@ -320,17 +355,52 @@ class SyllabusConfig {
   ];
 
   static const _plus1Maths = [
-    MathsChapter(number: 1,  title: 'Sets, Relations and Functions',                           slug: 'sets-relations-functions',              volume: 1),
-    MathsChapter(number: 2,  title: 'Basic Algebra',                                           slug: 'basic-algebra',                         volume: 1),
-    MathsChapter(number: 3,  title: 'Trigonometry',                                            slug: 'trigonometry',                          volume: 1),
-    MathsChapter(number: 4,  title: 'Combinatorics and Mathematical Induction',                slug: 'combinatorics-mathematical-induction',   volume: 1),
-    MathsChapter(number: 5,  title: 'Binomial Theorem, Sequences and Series',                  slug: 'binomial-theorem-sequences-series',      volume: 1),
-    MathsChapter(number: 6,  title: 'Two Dimensional Analytical Geometry',                     slug: 'two-dimensional-analytical-geometry',    volume: 1),
-    MathsChapter(number: 7,  title: 'Matrices and Determinants',                               slug: 'matrices-and-determinants',              volume: 2),
-    MathsChapter(number: 8,  title: 'Vector Algebra',                                          slug: 'vector-algebra',                        volume: 2),
-    MathsChapter(number: 9,  title: 'Differential Calculus – Limits and Continuity',           slug: 'differential-calculus-limits-continuity', volume: 2),
-    MathsChapter(number: 10, title: 'Differential Calculus – Differentiability and Methods',   slug: 'differential-calculus-differentiability', volume: 2),
-    MathsChapter(number: 11, title: 'Integral Calculus',                                       slug: 'integral-calculus',                     volume: 2),
+    MathsChapter(
+        number: 1,
+        title: 'Sets, Relations and Functions',
+        slug: 'sets-relations-functions',
+        volume: 1),
+    MathsChapter(
+        number: 2, title: 'Basic Algebra', slug: 'basic-algebra', volume: 1),
+    MathsChapter(
+        number: 3, title: 'Trigonometry', slug: 'trigonometry', volume: 1),
+    MathsChapter(
+        number: 4,
+        title: 'Combinatorics and Mathematical Induction',
+        slug: 'combinatorics-mathematical-induction',
+        volume: 1),
+    MathsChapter(
+        number: 5,
+        title: 'Binomial Theorem, Sequences and Series',
+        slug: 'binomial-theorem-sequences-series',
+        volume: 1),
+    MathsChapter(
+        number: 6,
+        title: 'Two Dimensional Analytical Geometry',
+        slug: 'two-dimensional-analytical-geometry',
+        volume: 1),
+    MathsChapter(
+        number: 7,
+        title: 'Matrices and Determinants',
+        slug: 'matrices-and-determinants',
+        volume: 2),
+    MathsChapter(
+        number: 8, title: 'Vector Algebra', slug: 'vector-algebra', volume: 2),
+    MathsChapter(
+        number: 9,
+        title: 'Differential Calculus – Limits and Continuity',
+        slug: 'differential-calculus-limits-continuity',
+        volume: 2),
+    MathsChapter(
+        number: 10,
+        title: 'Differential Calculus – Differentiability and Methods',
+        slug: 'differential-calculus-differentiability',
+        volume: 2),
+    MathsChapter(
+        number: 11,
+        title: 'Integral Calculus',
+        slug: 'integral-calculus',
+        volume: 2),
   ];
 
   static List<UnitConfig>? getUnits(String classLevel, String subjectSlug) {
@@ -342,7 +412,8 @@ class SyllabusConfig {
     };
   }
 
-  static List<MathsChapter>? getMathsChapters(String classLevel, String subjectSlug) {
+  static List<MathsChapter>? getMathsChapters(
+      String classLevel, String subjectSlug) {
     final key = '${classLevel.toLowerCase()}/${subjectSlug.toLowerCase()}';
     return switch (key) {
       '+1/maths' => _plus1Maths,
@@ -353,20 +424,34 @@ class SyllabusConfig {
   // Counts only subjects with full chapter content (English +1 and +2).
   static int get totalLessonCount {
     int n = 0;
-    for (final u in _plus1English) { n += u.lessons.length; }
-    for (final u in _plus2English) { n += u.lessons.length; }
+    for (final u in _plus1English) {
+      n += u.lessons.length;
+    }
+    for (final u in _plus2English) {
+      n += u.lessons.length;
+    }
     return n;
   }
 
   static int get plus1LessonCount {
     int n = 0;
-    for (final u in _plus1English) { n += u.lessons.length; }
+    for (final u in _plus1English) {
+      n += u.lessons.length;
+    }
     return n;
   }
 
   static int get plus2LessonCount {
     int n = 0;
-    for (final u in _plus2English) { n += u.lessons.length; }
+    for (final u in _plus2English) {
+      n += u.lessons.length;
+    }
     return n;
   }
+
+  static int lessonCountForClass(String classLevel) => switch (classLevel) {
+        '+1' => plus1LessonCount,
+        '+2' => plus2LessonCount,
+        _ => 0,
+      };
 }

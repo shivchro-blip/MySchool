@@ -16,12 +16,12 @@ import '../widgets/brand_logo.dart';
 import '../widgets/theme_toggle.dart';
 
 class _DashStats {
-  final int    totalSessions;
-  final int    totalQuestions;
+  final int totalSessions;
+  final int totalQuestions;
   final double bestScorePct;
   final PracticeDraft? draft;
-  final String?        draftClassLevel;
-  final String?        draftSubjectSlug;
+  final String? draftClassLevel;
+  final String? draftSubjectSlug;
 
   const _DashStats({
     required this.totalSessions,
@@ -32,14 +32,14 @@ class _DashStats {
     this.draftSubjectSlug,
   });
 
-  bool get hasStats  => totalSessions > 0;
-  bool get hasDraft  => draft != null && draftClassLevel != null;
+  bool get hasStats => totalSessions > 0;
+  bool get hasDraft => draft != null && draftClassLevel != null;
 }
 
 class _ClassInfo {
   final String classLevel;
   final String title;
-  final int    lessonCount;
+  final int lessonCount;
   const _ClassInfo({
     required this.classLevel,
     required this.title,
@@ -47,18 +47,41 @@ class _ClassInfo {
   });
 }
 
-final _kDashClasses = [
-  _ClassInfo(
-    classLevel:  '+1',
-    title:       'Class XI — First Year',
-    lessonCount: SyllabusConfig.plus1LessonCount,
-  ),
-  _ClassInfo(
-    classLevel:  '+2',
-    title:       'Class XII — Second Year',
-    lessonCount: SyllabusConfig.plus2LessonCount,
-  ),
-];
+List<_ClassInfo> _dashboardClassesFromSyllabus() =>
+    SyllabusConfig.courseClassLevels
+        .map((classLevel) => _ClassInfo(
+              classLevel: classLevel,
+              title: SyllabusConfig.courseShortTitle(classLevel),
+              lessonCount: SyllabusConfig.lessonCountForClass(classLevel),
+            ))
+        .toList(growable: false);
+
+List<_ClassInfo> _filterDashboardClassesForProfile(
+  List<_ClassInfo> courses,
+  String? classLevel,
+) {
+  if (classLevel == null || classLevel.isEmpty) return courses;
+  return courses.where((course) => course.classLevel == classLevel).toList();
+}
+
+void _debugAssertDashboardCourseCount({
+  required List<_ClassInfo> allCourses,
+  required List<_ClassInfo> visibleCourses,
+  required String? profileClassLevel,
+  required bool profileLoaded,
+}) {
+  assert(() {
+    final expected = SyllabusConfig.courseCount;
+    debugPrint(
+      'Dashboard courses: visible=${visibleCourses.length}, syllabus=$expected, '
+      'profileLoaded=$profileLoaded, profileClass=$profileClassLevel, '
+      'all=${allCourses.map((c) => c.classLevel).join(',')}, '
+      'visibleClasses=${visibleCourses.map((c) => c.classLevel).join(',')}',
+    );
+    return allCourses.length == expected;
+  }(),
+      'Dashboard course list is not rendering every class from SyllabusConfig.');
+}
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -90,14 +113,15 @@ class _DashboardScreenState extends State<DashboardScreen> {
   }
 
   Future<void> _loadDashStats() async {
-    final prefs   = await SharedPreferences.getInstance();
+    final prefs = await SharedPreferences.getInstance();
     final allKeys = prefs.getKeys();
 
-    int    totalSessions = 0;
-    int    totalQuestions = 0;
-    double bestScorePct  = 0;
+    int totalSessions = 0;
+    int totalQuestions = 0;
+    double bestScorePct = 0;
 
-    for (final key in allKeys.where((k) => k.startsWith('exam_coach_sessions_'))) {
+    for (final key
+        in allKeys.where((k) => k.startsWith('exam_coach_sessions_'))) {
       for (final item in prefs.getStringList(key) ?? []) {
         try {
           final j = jsonDecode(item) as Map<String, dynamic>;
@@ -105,17 +129,18 @@ class _DashboardScreenState extends State<DashboardScreen> {
           totalQuestions += (j['total'] as int? ?? 0);
           final score = (j['score'] as num?)?.toDouble() ?? 0;
           final total = (j['total'] as num?)?.toDouble() ?? 1;
-          final pct   = score / total * 100;
+          final pct = score / total * 100;
           if (pct > bestScorePct) bestScorePct = pct;
         } catch (_) {}
       }
     }
 
     PracticeDraft? foundDraft;
-    String?        foundClassLevel;
-    String?        foundSubjectSlug;
+    String? foundClassLevel;
+    String? foundSubjectSlug;
 
-    for (final key in allKeys.where((k) => k.startsWith('practice_draft_mobile_'))) {
+    for (final key
+        in allKeys.where((k) => k.startsWith('practice_draft_mobile_'))) {
       final raw = prefs.getString(key);
       if (raw == null || raw.isEmpty) continue;
       try {
@@ -125,9 +150,15 @@ class _DashboardScreenState extends State<DashboardScreen> {
         if (draft == null || draft.currentQuestionIndex <= 0) continue;
         final suffix = key.substring('practice_draft_mobile_'.length);
         if (suffix.startsWith('Class_11_English_')) {
-          foundDraft = draft; foundClassLevel = '+1'; foundSubjectSlug = 'english'; break;
+          foundDraft = draft;
+          foundClassLevel = '+1';
+          foundSubjectSlug = 'english';
+          break;
         } else if (suffix.startsWith('Class_12_English_')) {
-          foundDraft = draft; foundClassLevel = '+2'; foundSubjectSlug = 'english'; break;
+          foundDraft = draft;
+          foundClassLevel = '+2';
+          foundSubjectSlug = 'english';
+          break;
         }
       } catch (_) {}
     }
@@ -135,10 +166,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
     if (!mounted) return;
     setState(() {
       _dashStats = _DashStats(
-        totalSessions:  totalSessions,
+        totalSessions: totalSessions,
         totalQuestions: totalQuestions,
-        bestScorePct:   bestScorePct,
-        draft:           foundDraft,
+        bestScorePct: bestScorePct,
+        draft: foundDraft,
         draftClassLevel: foundClassLevel,
         draftSubjectSlug: foundSubjectSlug,
       );
@@ -147,20 +178,25 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final user     = context.watch<UserProvider>();
-    final syllabus = context.watch<SyllabusProvider>();
-    final name     = user.profile?.displayName ?? 'Student';
+    final user = context.watch<UserProvider>();
+    final name = user.profile?.displayName ?? 'Student';
 
+    final allClasses = _dashboardClassesFromSyllabus();
+    final visibleClasses = user.loaded
+        ? _filterDashboardClassesForProfile(allClasses, user.allowedClass)
+        : const <_ClassInfo>[];
     final subjectCounts = {
-      '+1': syllabus.plus1Count,
-      '+2': syllabus.plus2Count,
+      for (final course in visibleClasses)
+        course.classLevel: SyllabusConfig.subjectCountForClass(
+          course.classLevel,
+        ),
     };
-
-    // Show only the class the user selected during onboarding (if set).
-    final allowedClass    = user.allowedClass;
-    final visibleClasses  = allowedClass != null
-        ? _kDashClasses.where((c) => c.classLevel == allowedClass).toList()
-        : _kDashClasses;
+    _debugAssertDashboardCourseCount(
+      allCourses: allClasses,
+      visibleCourses: visibleClasses,
+      profileClassLevel: user.allowedClass,
+      profileLoaded: user.loaded,
+    );
 
     return Scaffold(
       backgroundColor: AppTheme.surfaceOf(context),
@@ -182,8 +218,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
             Text(
               'Exam Coach',
               style: TextStyle(
-                fontSize:    15,
-                fontWeight:  FontWeight.w700,
+                fontSize: 15,
+                fontWeight: FontWeight.w700,
                 letterSpacing: -0.3,
               ),
             ),
@@ -194,7 +230,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
           const ThemeToggle.pill(),
           // Logout
           IconButton(
-            icon: Icon(Icons.logout, size: 18, color: AppTheme.text2Of(context)),
+            icon:
+                Icon(Icons.logout, size: 18, color: AppTheme.text2Of(context)),
             tooltip: 'Log out',
             onPressed: () async {
               context.read<UserProvider>().clear();
@@ -212,9 +249,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
               child: Text(
                 name.isNotEmpty ? name[0].toUpperCase() : 'S',
                 style: const TextStyle(
-                  color:      Colors.white,
+                  color: Colors.white,
                   fontWeight: FontWeight.w700,
-                  fontSize:   13,
+                  fontSize: 13,
                 ),
               ),
             ),
@@ -241,16 +278,15 @@ class _DashboardScreenState extends State<DashboardScreen> {
         child: ListView(
           padding: const EdgeInsets.fromLTRB(16, 0, 16, 32),
           children: [
-
             // ── Hero ───────────────────────────────────────────
             const SizedBox(height: 28),
             PageHeader(
-              eyebrow:  'Tamil Nadu State Board',
-              title:    'Good morning, $name.',
-              subtitle: '${syllabus.subjects.length} subjects and '
+              eyebrow: 'Tamil Nadu State Board',
+              title: 'Good morning, $name.',
+              subtitle: '${SyllabusConfig.getSubjects().length} subjects and '
                   '${SyllabusConfig.totalLessonCount} lessons. '
                   'Pick up where you left off.',
-              padding:  EdgeInsets.zero,
+              padding: EdgeInsets.zero,
             ),
             const SizedBox(height: 28),
             Divider(height: 1, thickness: 1, color: AppTheme.borderOf(context)),
@@ -262,7 +298,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             Container(
               clipBehavior: Clip.antiAlias,
               decoration: BoxDecoration(
-                border:       Border.all(color: AppTheme.borderOf(context)),
+                border: Border.all(color: AppTheme.borderOf(context)),
                 borderRadius: BorderRadius.circular(AppTheme.radiusCard),
               ),
               child: Column(
@@ -270,13 +306,18 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 children: [
                   for (int i = 0; i < visibleClasses.length; i++) ...[
                     _ClassRow(
-                      info:         visibleClasses[i],
-                      subjectCount: subjectCounts[visibleClasses[i].classLevel] ?? 0,
-                      loading:      !syllabus.loaded,
-                      onTap:        () => context.push('/courses/${visibleClasses[i].classLevel}'),
+                      info: visibleClasses[i],
+                      subjectCount:
+                          subjectCounts[visibleClasses[i].classLevel] ?? 0,
+                      loading: false,
+                      onTap: () => context
+                          .push('/courses/${visibleClasses[i].classLevel}'),
                     ),
                     if (i < visibleClasses.length - 1)
-                      Divider(height: 1, thickness: 1, color: AppTheme.borderOf(context)),
+                      Divider(
+                          height: 1,
+                          thickness: 1,
+                          color: AppTheme.borderOf(context)),
                   ],
                 ],
               ),
@@ -288,8 +329,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 const Eyebrow('Continue'),
                 const SizedBox(height: 14),
                 _DashboardContinueCard(
-                  draft:       _dashStats!.draft!,
-                  classLevel:  _dashStats!.draftClassLevel!,
+                  draft: _dashStats!.draft!,
+                  classLevel: _dashStats!.draftClassLevel!,
                   subjectSlug: _dashStats!.draftSubjectSlug!,
                 ),
               ],
@@ -300,7 +341,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 _DashboardStats(stats: _dashStats!),
               ],
             ],
-
           ],
         ),
       ),
@@ -318,11 +358,17 @@ class _DashboardStats extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Expanded(child: _StatCard(label: 'Sessions',   value: '${stats.totalSessions}')),
+        Expanded(
+            child:
+                _StatCard(label: 'Sessions', value: '${stats.totalSessions}')),
         const SizedBox(width: 12),
-        Expanded(child: _StatCard(label: 'Questions',  value: '${stats.totalQuestions}')),
+        Expanded(
+            child: _StatCard(
+                label: 'Questions', value: '${stats.totalQuestions}')),
         const SizedBox(width: 12),
-        Expanded(child: _StatCard(label: 'Best Score', value: '${stats.bestScorePct.round()}%')),
+        Expanded(
+            child: _StatCard(
+                label: 'Best Score', value: '${stats.bestScorePct.round()}%')),
       ],
     );
   }
@@ -338,18 +384,21 @@ class _StatCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 12),
       decoration: BoxDecoration(
-        color:        AppTheme.cardOf(context),
+        color: AppTheme.cardOf(context),
         borderRadius: BorderRadius.circular(AppTheme.radiusCard),
-        border:       Border.all(color: AppTheme.borderOf(context)),
+        border: Border.all(color: AppTheme.borderOf(context)),
       ),
       child: Column(
         children: [
           Text(value,
               style: const TextStyle(
-                fontSize: 20, fontWeight: FontWeight.w700, color: AppTheme.brand)),
+                  fontSize: 20,
+                  fontWeight: FontWeight.w700,
+                  color: AppTheme.brand)),
           const SizedBox(height: 2),
           Text(label,
-              style: TextStyle(fontSize: 11, color: AppTheme.textMutedOf(context))),
+              style: TextStyle(
+                  fontSize: 11, color: AppTheme.textMutedOf(context))),
         ],
       ),
     );
@@ -360,8 +409,8 @@ class _StatCard extends StatelessWidget {
 
 class _DashboardContinueCard extends StatelessWidget {
   final PracticeDraft draft;
-  final String        classLevel;
-  final String        subjectSlug;
+  final String classLevel;
+  final String subjectSlug;
   const _DashboardContinueCard({
     required this.draft,
     required this.classLevel,
@@ -373,9 +422,9 @@ class _DashboardContinueCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color:        AppTheme.cardOf(context),
+        color: AppTheme.cardOf(context),
         borderRadius: BorderRadius.circular(AppTheme.radiusCard),
-        border:       Border.all(color: AppTheme.borderOf(context)),
+        border: Border.all(color: AppTheme.borderOf(context)),
       ),
       child: Row(
         children: [
@@ -385,12 +434,14 @@ class _DashboardContinueCard extends StatelessWidget {
               children: [
                 Text('Continue where you left off',
                     style: TextStyle(
-                      fontSize: 13, fontWeight: FontWeight.w600,
+                      fontSize: 13,
+                      fontWeight: FontWeight.w600,
                       color: AppTheme.textOf(context),
                     )),
                 const SizedBox(height: 4),
                 Text('${draft.lessonSlug} · Q${draft.currentQuestionIndex + 1}',
-                    style: TextStyle(fontSize: 12, color: AppTheme.textMutedOf(context)),
+                    style: TextStyle(
+                        fontSize: 12, color: AppTheme.textMutedOf(context)),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis),
               ],
@@ -404,12 +455,14 @@ class _DashboardContinueCard extends StatelessWidget {
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
               decoration: BoxDecoration(
-                color:        AppTheme.brand,
+                color: AppTheme.brand,
                 borderRadius: BorderRadius.circular(8),
               ),
               child: const Text('Continue',
                   style: TextStyle(
-                    fontSize: 13, fontWeight: FontWeight.w600, color: Colors.white)),
+                      fontSize: 13,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.white)),
             ),
           ),
         ],
@@ -421,9 +474,9 @@ class _DashboardContinueCard extends StatelessWidget {
 // ── Course row ────────────────────────────────────────────────────────────────
 
 class _ClassRow extends StatelessWidget {
-  final _ClassInfo   info;
-  final int          subjectCount;
-  final bool         loading;
+  final _ClassInfo info;
+  final int subjectCount;
+  final bool loading;
   final VoidCallback onTap;
 
   const _ClassRow({
@@ -435,9 +488,9 @@ class _ClassRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isPlus1   = info.classLevel == '+1';
-    final badgeBg   = isPlus1 ? AppTheme.plus1Bg : AppTheme.plus2Bg;
-    final badgeText = isPlus1 ? AppTheme.plus1   : AppTheme.plus2;
+    final isPlus1 = info.classLevel == '+1';
+    final badgeBg = isPlus1 ? AppTheme.plus1Bg : AppTheme.plus2Bg;
+    final badgeText = isPlus1 ? AppTheme.plus1 : AppTheme.plus2;
 
     return Material(
       color: AppTheme.cardOf(context),
@@ -449,19 +502,19 @@ class _ClassRow extends StatelessWidget {
             children: [
               // Year badge — +1 teal, +2 purple
               Container(
-                width:  46,
+                width: 46,
                 height: 46,
                 decoration: BoxDecoration(
-                  color:        badgeBg,
+                  color: badgeBg,
                   borderRadius: const BorderRadius.all(Radius.circular(10)),
                 ),
                 child: Center(
                   child: Text(
                     info.classLevel,
                     style: TextStyle(
-                      fontSize:   17,
+                      fontSize: 17,
                       fontWeight: FontWeight.w800,
-                      color:      badgeText,
+                      color: badgeText,
                     ),
                   ),
                 ),
@@ -474,17 +527,18 @@ class _ClassRow extends StatelessWidget {
                     Text(
                       info.title,
                       style: TextStyle(
-                        fontSize:   14,
+                        fontSize: 14,
                         fontWeight: FontWeight.w600,
-                        color:      AppTheme.textOf(context),
+                        color: AppTheme.textOf(context),
                       ),
                     ),
                     const SizedBox(height: 3),
                     loading
                         ? Container(
-                            height: 11, width: 80,
+                            height: 11,
+                            width: 80,
                             decoration: BoxDecoration(
-                              color:        AppTheme.borderOf(context),
+                              color: AppTheme.borderOf(context),
                               borderRadius: BorderRadius.circular(6),
                             ),
                           )
@@ -494,13 +548,14 @@ class _ClassRow extends StatelessWidget {
                             '${info.lessonCount} lesson${info.lessonCount != 1 ? 's' : ''}',
                             style: TextStyle(
                               fontSize: 12,
-                              color:    AppTheme.textMutedOf(context),
+                              color: AppTheme.textMutedOf(context),
                             ),
                           ),
                   ],
                 ),
               ),
-              Icon(Icons.chevron_right, color: AppTheme.textMutedOf(context), size: 20),
+              Icon(Icons.chevron_right,
+                  color: AppTheme.textMutedOf(context), size: 20),
             ],
           ),
         ),

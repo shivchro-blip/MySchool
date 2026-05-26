@@ -1,5 +1,5 @@
 // BRAND LOGO CONFIG — update here to change logo globally
-// Asset path: assets/images/School_Brand_Logo.png
+// Asset path: assets/images/logo.png
 // Declared in pubspec.yaml under flutter > assets > assets/images/
 import 'package:flutter/material.dart';
 
@@ -12,7 +12,7 @@ class BrandLogo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Image.asset(
-      'assets/images/School_Brand_Logo.png',
+      'assets/images/logo.png',
       height: height,
       fit: BoxFit.contain,
     );

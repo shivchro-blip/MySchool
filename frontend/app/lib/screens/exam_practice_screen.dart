@@ -682,7 +682,7 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> with WidgetsBin
     final attempt = _currentAttempt;
     var score = 0;
     for (final q in _mcqQuestions) {
-      if (attempt.answers[q.id] == q.correct) score++;
+      if (q.correct != null && attempt.answers[q.id] == q.correct) score++;
     }
     final submittedAt = DateTime.now();
     setState(() {

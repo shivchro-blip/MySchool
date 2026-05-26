@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import '../config/theme.dart';
+
 import '../config/syllabus_config.dart';
+import '../config/theme.dart';
 import '../models/syllabus_model.dart';
-import '../services/syllabus_service.dart';
-import '../widgets/error_view.dart';
 import '../widgets/final_exam_prep_entry_card.dart';
 
 class ChapterListScreen extends StatefulWidget {
-  final String   classLevel;
-  final String   subjectSlug;
+  final String classLevel;
+  final String subjectSlug;
   final Subject? subject;
 
   const ChapterListScreen({
@@ -24,57 +23,82 @@ class ChapterListScreen extends StatefulWidget {
 }
 
 class _ChapterListScreenState extends State<ChapterListScreen> {
-  final _svc = SyllabusService();
-
-  List<Chapter>              _chapters      = [];
-  Map<String, List<Chapter>> _groups        = {};
-  List<UnitConfig>?          _units;
-  List<MathsChapter>?        _mathsChapters;
-  Map<String, Chapter>       _bySlug        = {};
-  bool   _loading = true;
-  String _error   = '';
-
-  static const _typeOrder = ['Prose', 'Poetry', 'Supplementary', 'Grammar', 'Vocabulary'];
+  List<Chapter> _chapters = [];
+  List<UnitConfig>? _units;
+  List<MathsChapter>? _mathsChapters;
+  Map<String, Chapter> _bySlug = {};
 
   @override
   void initState() {
     super.initState();
-    _load();
+    _loadFromStaticSyllabus();
   }
 
-  Future<void> _load() async {
-    setState(() { _loading = true; _error = ''; });
-    try {
-      final mathsChapters = SyllabusConfig.getMathsChapters(widget.classLevel, widget.subjectSlug);
-      if (mathsChapters != null) {
-        setState(() { _mathsChapters = mathsChapters; _loading = false; });
-        return;
-      }
-      final chapters = await _svc.getChapters(widget.subjectSlug);
-      final units    = SyllabusConfig.getUnits(widget.classLevel, widget.subjectSlug);
-      setState(() {
-        _chapters = chapters;
-        _units    = units;
-        _bySlug   = { for (final c in chapters) c.slug: c };
-        _groups   = _svc.groupByType(chapters);
-        _loading  = false;
-      });
-    } catch (e) {
-      setState(() { _error = e.toString(); _loading = false; });
+  @override
+  void didUpdateWidget(covariant ChapterListScreen oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.classLevel != widget.classLevel ||
+        oldWidget.subjectSlug != widget.subjectSlug) {
+      _loadFromStaticSyllabus();
     }
   }
 
-  String get _subjectName => widget.subject?.name ?? widget.subjectSlug;
-  Color  get _color       => AppTheme.subjectColor(_subjectName);
+  void _loadFromStaticSyllabus() {
+    final mathsChapters =
+        SyllabusConfig.getMathsChapters(widget.classLevel, widget.subjectSlug);
+    final units =
+        SyllabusConfig.getUnits(widget.classLevel, widget.subjectSlug);
+    final chapters =
+        units == null ? const <Chapter>[] : _chaptersFromUnits(units);
 
-  List<MapEntry<String, List<Chapter>>> get _orderedGroups {
-    final entries = _groups.entries.toList();
-    entries.sort((a, b) {
-      final ai = _typeOrder.indexOf(a.key);
-      final bi = _typeOrder.indexOf(b.key);
-      return (ai == -1 ? 99 : ai).compareTo(bi == -1 ? 99 : bi);
+    setState(() {
+      _mathsChapters = mathsChapters;
+      _units = units;
+      _chapters = chapters;
+      _bySlug = {for (final chapter in chapters) chapter.slug: chapter};
     });
-    return entries;
+
+    assert(() {
+      debugPrint(
+        'Subject detail loaded from static SYLLABUS: '
+        'class=${widget.classLevel}, subject=${widget.subjectSlug}, '
+        'units=${units?.length ?? 0}, lessons=${chapters.length}, '
+        'mathsChapters=${mathsChapters?.length ?? 0}',
+      );
+      return true;
+    }());
+  }
+
+  List<Chapter> _chaptersFromUnits(List<UnitConfig> units) {
+    final chapters = <Chapter>[];
+    for (final unit in units) {
+      for (var index = 0; index < unit.lessons.length; index++) {
+        chapters.add(_syntheticChapter(unit.id, index, unit.lessons[index]));
+      }
+    }
+    return chapters;
+  }
+
+  Chapter _syntheticChapter(int unitId, int lessonIndex, UnitLesson lesson) {
+    return Chapter(
+      id: 'local/${widget.classLevel}/${widget.subjectSlug}/${lesson.slug}',
+      slug: lesson.slug,
+      subjectId: '${widget.classLevel}/${widget.subjectSlug}',
+      number: ((unitId - 1) * 3) + lessonIndex + 1,
+      title: lesson.title,
+      contentType: lesson.contentType,
+      isActive: true,
+    );
+  }
+
+  String get _subjectName =>
+      widget.subject?.name ?? _titleCase(widget.subjectSlug);
+
+  Color get _color => AppTheme.subjectColor(_subjectName);
+
+  String _titleCase(String value) {
+    if (value.isEmpty) return value;
+    return value[0].toUpperCase() + value.substring(1);
   }
 
   @override
@@ -83,117 +107,131 @@ class _ChapterListScreenState extends State<ChapterListScreen> {
       appBar: AppBar(title: Text(_subjectName)),
       body: RefreshIndicator(
         color: _color,
-        onRefresh: _load,
-        child: _loading
-            ? const Center(child: CircularProgressIndicator())
-            : _error.isNotEmpty
-                ? ListView(
-                    padding: const EdgeInsets.all(16),
-                    children: [ErrorView(message: _error, onRetry: _load)],
-                  )
-                : _mathsChapters != null
-                    ? _buildMathsList()
-                    : _units != null
-                        ? _buildUnitList()
-                        : _buildCategoryList(),
+        onRefresh: () async => _loadFromStaticSyllabus(),
+        child: _mathsChapters != null
+            ? _buildMathsList()
+            : _units != null
+                ? _buildUnitList()
+                : _buildEmptyStaticList(),
       ),
     );
   }
 
-  // ── Unit accordion layout (e.g. +1 English) ──────────────────────────────
-
   Widget _buildUnitList() {
+    final units = _units!;
     return ListView(
       padding: const EdgeInsets.fromLTRB(16, 16, 16, 32),
       children: [
-        if (widget.classLevel == '+1' && widget.subjectSlug == 'english') ...[
+        if (_isEnglishFinalExamSubject) ...[
           FinalExamPrepEntryCard(
-            classLevel:  widget.classLevel,
+            classLevel: widget.classLevel,
             subjectSlug: widget.subjectSlug,
           ),
           const SizedBox(height: 16),
         ],
         Text(
-          '${_units!.length} Units · ${_chapters.length} Lessons',
+          '${units.length} Units - ${_chapters.length} Lessons',
           style: TextStyle(fontSize: 12, color: AppTheme.textMutedOf(context)),
         ),
         const SizedBox(height: 12),
-        ..._units!.map((unit) => Padding(
-          padding: const EdgeInsets.only(bottom: 10),
-          child: _UnitCard(
-            unit:       unit,
-            bySlug:     _bySlug,
-            classLevel: widget.classLevel,
-            subjectSlug: widget.subjectSlug,
+        for (var index = 0; index < units.length; index++)
+          Padding(
+            padding: const EdgeInsets.only(bottom: 10),
+            child: _UnitCard(
+              unit: units[index],
+              bySlug: _bySlug,
+              classLevel: widget.classLevel,
+              subjectSlug: widget.subjectSlug,
+              initiallyOpen: index == 0,
+            ),
           ),
-        )),
       ],
     );
   }
 
-  // ── Category flat list layout (maths, science, +2 english…) ─────────────
+  bool get _isEnglishFinalExamSubject =>
+      widget.subjectSlug == 'english' &&
+      (widget.classLevel == '+1' || widget.classLevel == '+2');
 
-  Widget _buildCategoryList() {
+  Widget _buildEmptyStaticList() {
     return ListView(
       padding: const EdgeInsets.fromLTRB(16, 16, 16, 32),
       children: [
-        for (final entry in _orderedGroups) ...[
-          _SectionHeader(label: entry.key, color: _color),
-          const SizedBox(height: 8),
-          ...entry.value.map((ch) => Padding(
-            padding: const EdgeInsets.only(bottom: 8),
-            child: _ChapterTile(
-              chapter:     ch,
-              classLevel:  widget.classLevel,
-              subjectSlug: widget.subjectSlug,
-              accentColor: _color,
-            ),
-          )),
-          const SizedBox(height: 16),
-        ],
+        Container(
+          padding: const EdgeInsets.all(18),
+          decoration: BoxDecoration(
+            color: AppTheme.cardOf(context),
+            borderRadius: BorderRadius.circular(AppTheme.radiusCard),
+            border: Border.all(color: AppTheme.borderOf(context)),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                _subjectName,
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w700,
+                  color: AppTheme.textOf(context),
+                ),
+              ),
+              const SizedBox(height: 8),
+              Text(
+                'No static lessons are configured for this subject yet.',
+                style: TextStyle(
+                  fontSize: 13,
+                  color: AppTheme.text2Of(context),
+                  height: 1.4,
+                ),
+              ),
+            ],
+          ),
+        ),
       ],
     );
   }
 
-  // ── Static maths chapter list (Volume I / II) ─────────────────────────────
-
   Widget _buildMathsList() {
-    final vol1 = _mathsChapters!.where((c) => c.volume == 1).toList();
-    final vol2 = _mathsChapters!.where((c) => c.volume == 2).toList();
+    final mathsChapters = _mathsChapters!;
+    final vol1 = mathsChapters.where((chapter) => chapter.volume == 1).toList();
+    final vol2 = mathsChapters.where((chapter) => chapter.volume == 2).toList();
+
     return ListView(
       padding: const EdgeInsets.fromLTRB(16, 16, 16, 32),
       children: [
         _SectionHeader(label: 'Volume I', color: _color),
         const SizedBox(height: 8),
-        ...vol1.map((ch) => Padding(
-          padding: const EdgeInsets.only(bottom: 8),
-          child: _MathsChapterTile(chapter: ch, accentColor: _color),
-        )),
+        for (final chapter in vol1)
+          Padding(
+            padding: const EdgeInsets.only(bottom: 8),
+            child: _MathsChapterTile(chapter: chapter, accentColor: _color),
+          ),
         const SizedBox(height: 16),
         _SectionHeader(label: 'Volume II', color: _color),
         const SizedBox(height: 8),
-        ...vol2.map((ch) => Padding(
-          padding: const EdgeInsets.only(bottom: 8),
-          child: _MathsChapterTile(chapter: ch, accentColor: _color),
-        )),
+        for (final chapter in vol2)
+          Padding(
+            padding: const EdgeInsets.only(bottom: 8),
+            child: _MathsChapterTile(chapter: chapter, accentColor: _color),
+          ),
       ],
     );
   }
 }
 
-// ── Unit accordion card ───────────────────────────────────────────────────
-
 class _UnitCard extends StatefulWidget {
-  final UnitConfig         unit;
+  final UnitConfig unit;
   final Map<String, Chapter> bySlug;
-  final String             classLevel;
-  final String             subjectSlug;
+  final String classLevel;
+  final String subjectSlug;
+  final bool initiallyOpen;
 
   const _UnitCard({
     required this.unit,
     required this.bySlug,
     required this.classLevel,
     required this.subjectSlug,
+    required this.initiallyOpen,
   });
 
   @override
@@ -201,40 +239,44 @@ class _UnitCard extends StatefulWidget {
 }
 
 class _UnitCardState extends State<_UnitCard> {
-  bool _open = false;
+  late bool _open;
+
+  @override
+  void initState() {
+    super.initState();
+    _open = widget.initiallyOpen;
+  }
+
+  @override
+  void didUpdateWidget(covariant _UnitCard oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.unit.id != widget.unit.id) {
+      _open = widget.initiallyOpen;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    final unit    = widget.unit;
-    final lessons = unit.lessons
-        .asMap()
-        .entries
-        .map((e) => (
-          config: e.value,
-          chapter: widget.bySlug[e.value.slug] ?? _syntheticChapter(unit.id, e.key, e.value),
-        ))
-        .toList();
-    final loaded  = lessons.length;
+    final unit = widget.unit;
 
     return Container(
       decoration: BoxDecoration(
-        color:        AppTheme.cardOf(context),
+        color: AppTheme.cardOf(context),
         borderRadius: BorderRadius.circular(14),
-        border:       Border.all(color: unit.color.withAlpha(60)),
+        border: Border.all(color: unit.color.withAlpha(60)),
         boxShadow: [
           BoxShadow(
-            color:     unit.color.withAlpha(18),
+            color: unit.color.withAlpha(18),
             blurRadius: 8,
-            offset:    const Offset(0, 2),
+            offset: const Offset(0, 2),
           ),
         ],
       ),
       child: Column(
         children: [
-          // ── Header ────────────────────────────────────────────────
           InkWell(
             borderRadius: BorderRadius.vertical(
-              top:    const Radius.circular(14),
+              top: const Radius.circular(14),
               bottom: Radius.circular(_open ? 0 : 14),
             ),
             onTap: () => setState(() => _open = !_open),
@@ -243,9 +285,10 @@ class _UnitCardState extends State<_UnitCard> {
               child: Row(
                 children: [
                   Container(
-                    width: 44, height: 44,
+                    width: 44,
+                    height: 44,
                     decoration: BoxDecoration(
-                      color:        unit.light,
+                      color: unit.light,
                       borderRadius: BorderRadius.circular(11),
                     ),
                     child: Center(
@@ -266,38 +309,28 @@ class _UnitCardState extends State<_UnitCard> {
                       children: [
                         Text(
                           unit.title,
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontSize: 15,
                             fontWeight: FontWeight.w700,
+                            color: AppTheme.textOf(context),
                           ),
                         ),
                         const SizedBox(height: 4),
                         Wrap(
                           spacing: 6,
-                          children: unit.lessons.map((l) => _TypePill(
-                            label: _typeLabel(l.contentType),
-                            color: unit.color,
-                          )).toList(),
+                          runSpacing: 4,
+                          children: [
+                            for (final lesson in unit.lessons)
+                              _TypePill(
+                                label: _typeLabel(lesson.contentType),
+                                color: unit.color,
+                              ),
+                          ],
                         ),
                       ],
                     ),
                   ),
                   const SizedBox(width: 8),
-                  if (loaded < unit.lessons.length)
-                    Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 2),
-                      decoration: BoxDecoration(
-                        color:        AppTheme.surfaceOf(context),
-                        borderRadius: BorderRadius.circular(10),
-                        border:       Border.all(color: AppTheme.borderOf(context)),
-                      ),
-                      child: Text(
-                        '$loaded/${unit.lessons.length}',
-                        style: TextStyle(fontSize: 10,
-                            color: AppTheme.textMutedOf(context)),
-                      ),
-                    ),
-                  const SizedBox(width: 6),
                   Icon(
                     _open ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down,
                     color: unit.color,
@@ -307,48 +340,49 @@ class _UnitCardState extends State<_UnitCard> {
               ),
             ),
           ),
-
-          // ── Expanded lessons ──────────────────────────────────────
           if (_open) ...[
             Divider(height: 1, color: unit.color.withAlpha(40)),
-            ...lessons.map((l) => _LessonRow(
-              config:      l.config,
-              chapter:     l.chapter,
-              unitColor:   unit.color,
-              unitLight:   unit.light,
-              classLevel:  widget.classLevel,
-              subjectSlug: widget.subjectSlug,
-            )),
+            for (var index = 0; index < unit.lessons.length; index++)
+              _LessonRow(
+                config: unit.lessons[index],
+                chapter: widget.bySlug[unit.lessons[index].slug] ??
+                    _syntheticChapter(unit.id, index, unit.lessons[index]),
+                unitColor: unit.color,
+                unitLight: unit.light,
+                classLevel: widget.classLevel,
+                subjectSlug: widget.subjectSlug,
+              ),
           ],
         ],
       ),
     );
   }
 
-  Chapter _syntheticChapter(int unitId, int lessonIndex, UnitLesson lesson) => Chapter(
-    id:          'local/${widget.classLevel}/${widget.subjectSlug}/${lesson.slug}',
-    slug:        lesson.slug,
-    subjectId:   '${widget.classLevel}/${widget.subjectSlug}',
-    number:      ((unitId - 1) * 3) + lessonIndex + 1,
-    title:       lesson.title,
-    contentType: lesson.contentType,
-    isActive:    true,
-  );
+  Chapter _syntheticChapter(int unitId, int lessonIndex, UnitLesson lesson) {
+    return Chapter(
+      id: 'local/${widget.classLevel}/${widget.subjectSlug}/${lesson.slug}',
+      slug: lesson.slug,
+      subjectId: '${widget.classLevel}/${widget.subjectSlug}',
+      number: ((unitId - 1) * 3) + lessonIndex + 1,
+      title: lesson.title,
+      contentType: lesson.contentType,
+      isActive: true,
+    );
+  }
 
-  String _typeLabel(String ct) => switch (ct) {
-    'prose'         => 'Prose',
-    'poem'          => 'Poetry',
-    'supplementary' => 'Supp.',
-    'grammar'       => 'Grammar',
-    _               => ct,
-  };
+  String _typeLabel(String contentType) => switch (contentType) {
+        'prose' => 'Prose',
+        'poem' => 'Poetry',
+        'supplementary' => 'Supp.',
+        'grammar' => 'Grammar',
+        _ => contentType,
+      };
 }
-
-// ── Type pill badge ───────────────────────────────────────────────────────
 
 class _TypePill extends StatelessWidget {
   final String label;
-  final Color  color;
+  final Color color;
+
   const _TypePill({required this.label, required this.color});
 
   @override
@@ -356,7 +390,7 @@ class _TypePill extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 2),
       decoration: BoxDecoration(
-        color:        color.withAlpha(22),
+        color: color.withAlpha(22),
         borderRadius: BorderRadius.circular(10),
       ),
       child: Text(
@@ -371,15 +405,13 @@ class _TypePill extends StatelessWidget {
   }
 }
 
-// ── Lesson row inside open unit ───────────────────────────────────────────
-
 class _LessonRow extends StatelessWidget {
   final UnitLesson config;
-  final Chapter?   chapter;
-  final Color      unitColor;
-  final Color      unitLight;
-  final String     classLevel;
-  final String     subjectSlug;
+  final Chapter chapter;
+  final Color unitColor;
+  final Color unitLight;
+  final String classLevel;
+  final String subjectSlug;
 
   const _LessonRow({
     required this.config,
@@ -390,16 +422,15 @@ class _LessonRow extends StatelessWidget {
     required this.subjectSlug,
   });
 
-  String get _typeIcon => switch (config.contentType) {
-    'prose'         => '📖',
-    'poem'          => '🎵',
-    'supplementary' => '📝',
-    _               => '📄',
-  };
+  IconData get _typeIcon => switch (config.contentType) {
+        'prose' => Icons.menu_book_outlined,
+        'poem' => Icons.music_note_outlined,
+        'supplementary' => Icons.description_outlined,
+        _ => Icons.article_outlined,
+      };
 
   @override
   Widget build(BuildContext context) {
-    final ch = chapter;
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
       decoration: BoxDecoration(
@@ -407,7 +438,15 @@ class _LessonRow extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Text(_typeIcon, style: const TextStyle(fontSize: 18)),
+          Container(
+            width: 32,
+            height: 32,
+            decoration: BoxDecoration(
+              color: unitLight,
+              borderRadius: BorderRadius.circular(9),
+            ),
+            child: Icon(_typeIcon, color: unitColor, size: 18),
+          ),
           const SizedBox(width: 12),
           Expanded(
             child: Column(
@@ -415,62 +454,51 @@ class _LessonRow extends StatelessWidget {
               children: [
                 Text(
                   config.title,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 13,
                     fontWeight: FontWeight.w600,
+                    color: AppTheme.textOf(context),
                   ),
                 ),
-                if (ch != null)
-                  Text(
-                    'Chapter ${ch.number} · ${ch.typeLabel}',
-                    style: TextStyle(fontSize: 11,
-                        color: AppTheme.textMutedOf(context)),
+                const SizedBox(height: 2),
+                Text(
+                  'Chapter ${chapter.number} - ${chapter.typeLabel}',
+                  style: TextStyle(
+                    fontSize: 11,
+                    color: AppTheme.textMutedOf(context),
                   ),
+                ),
               ],
             ),
           ),
-          if (ch != null) ...[
-            const SizedBox(width: 8),
-            _ActionButton(
-              label: 'Learn',
-              color: unitColor,
-              onTap: () => context.push(
-                '/rich-learn/$classLevel/$subjectSlug/${ch.slug}',
-                extra: {'chapter': ch, 'tab': null},
-              ),
+          const SizedBox(width: 8),
+          _ActionButton(
+            label: 'Learn',
+            color: unitColor,
+            onTap: () => context.push(
+              '/rich-learn/$classLevel/$subjectSlug/${chapter.slug}',
+              extra: {'chapter': chapter, 'tab': null},
             ),
-            const SizedBox(width: 6),
-            _ActionButton(
-              label: 'Practice',
-              color: unitColor,
-              outline: true,
-              onTap: () => context.push('/practice/$classLevel/$subjectSlug/${ch.slug}'),
+          ),
+          const SizedBox(width: 6),
+          _ActionButton(
+            label: 'Practice',
+            color: unitColor,
+            outline: true,
+            onTap: () => context.push(
+              '/practice/$classLevel/$subjectSlug/${chapter.slug}',
             ),
-          ] else
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-              decoration: BoxDecoration(
-                color:        AppTheme.surfaceOf(context),
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: Text(
-                'Coming soon',
-                style: TextStyle(fontSize: 10,
-                    color: AppTheme.textMutedOf(context)),
-              ),
-            ),
+          ),
         ],
       ),
     );
   }
 }
 
-// ── Small action button ───────────────────────────────────────────────────
-
 class _ActionButton extends StatelessWidget {
-  final String   label;
-  final Color    color;
-  final bool     outline;
+  final String label;
+  final Color color;
+  final bool outline;
   final VoidCallback onTap;
 
   const _ActionButton({
@@ -482,14 +510,15 @@ class _ActionButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
+      borderRadius: BorderRadius.circular(8),
       onTap: onTap,
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
         decoration: BoxDecoration(
-          color:        outline ? Colors.transparent : color,
+          color: outline ? Colors.transparent : color,
           borderRadius: BorderRadius.circular(8),
-          border:       Border.all(color: color),
+          border: Border.all(color: color),
         ),
         child: Text(
           label,
@@ -504,11 +533,10 @@ class _ActionButton extends StatelessWidget {
   }
 }
 
-// ── Category section header ───────────────────────────────────────────────
-
 class _SectionHeader extends StatelessWidget {
   final String label;
-  final Color  color;
+  final Color color;
+
   const _SectionHeader({required this.label, required this.color});
 
   @override
@@ -516,9 +544,10 @@ class _SectionHeader extends StatelessWidget {
     return Row(
       children: [
         Container(
-          width: 3, height: 16,
+          width: 3,
+          height: 16,
           decoration: BoxDecoration(
-            color:        color,
+            color: color,
             borderRadius: BorderRadius.circular(2),
           ),
         ),
@@ -537,103 +566,29 @@ class _SectionHeader extends StatelessWidget {
   }
 }
 
-// ── Category chapter tile ─────────────────────────────────────────────────
-
-class _ChapterTile extends StatelessWidget {
-  final Chapter chapter;
-  final String  classLevel;
-  final String  subjectSlug;
-  final Color   accentColor;
-
-  const _ChapterTile({
-    required this.chapter,
-    required this.classLevel,
-    required this.subjectSlug,
-    required this.accentColor,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color:        AppTheme.cardOf(context),
-        borderRadius: BorderRadius.circular(12),
-        border:       Border.all(color: AppTheme.borderOf(context)),
-      ),
-      child: InkWell(
-        borderRadius: BorderRadius.circular(12),
-        onTap: () => context.push(
-          '/rich-learn/$classLevel/$subjectSlug/${chapter.slug}',
-          extra: {'chapter': chapter, 'tab': null},
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(14),
-          child: Row(
-            children: [
-              Container(
-                width: 38, height: 38,
-                decoration: BoxDecoration(
-                  color:        accentColor.withAlpha(22),
-                  borderRadius: BorderRadius.circular(9),
-                ),
-                child: Center(
-                  child: Text(chapter.typeIcon, style: const TextStyle(fontSize: 17)),
-                ),
-              ),
-              const SizedBox(width: 12),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      chapter.title,
-                      style: const TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    const SizedBox(height: 2),
-                    Text(
-                      'Chapter ${chapter.number} · ${chapter.typeLabel}',
-                      style: TextStyle(fontSize: 12,
-                          color: AppTheme.textMutedOf(context)),
-                    ),
-                  ],
-                ),
-              ),
-              Icon(Icons.chevron_right,
-                  color: AppTheme.textMutedOf(context), size: 18),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-// ── Maths chapter tile (disabled — content coming soon) ───────────────────
-
 class _MathsChapterTile extends StatelessWidget {
   final MathsChapter chapter;
-  final Color        accentColor;
+  final Color accentColor;
+
   const _MathsChapterTile({required this.chapter, required this.accentColor});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color:        AppTheme.cardOf(context),
+        color: AppTheme.cardOf(context),
         borderRadius: BorderRadius.circular(12),
-        border:       Border.all(color: AppTheme.borderOf(context)),
+        border: Border.all(color: AppTheme.borderOf(context)),
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
         child: Row(
           children: [
             Container(
-              width: 38, height: 38,
+              width: 38,
+              height: 38,
               decoration: BoxDecoration(
-                color:        accentColor.withAlpha(22),
+                color: accentColor.withAlpha(22),
                 borderRadius: BorderRadius.circular(9),
               ),
               child: Center(
@@ -651,7 +606,11 @@ class _MathsChapterTile extends StatelessWidget {
             Expanded(
               child: Text(
                 chapter.title,
-                style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
+                style: TextStyle(
+                  fontSize: 13,
+                  fontWeight: FontWeight.w600,
+                  color: AppTheme.textOf(context),
+                ),
               ),
             ),
             const SizedBox(width: 8),
@@ -667,13 +626,15 @@ class _MathsChapterTile extends StatelessWidget {
 
 class _DisabledActionButton extends StatelessWidget {
   final String label;
-  final bool   outline;
+  final bool outline;
+
   const _DisabledActionButton({required this.label, this.outline = false});
 
   @override
   Widget build(BuildContext context) {
     final muted = AppTheme.textMutedOf(context);
-    return GestureDetector(
+    return InkWell(
+      borderRadius: BorderRadius.circular(8),
       onTap: () => ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text('Coming soon'),
@@ -683,16 +644,16 @@ class _DisabledActionButton extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
         decoration: BoxDecoration(
-          color:        outline ? Colors.transparent : muted.withAlpha(30),
+          color: outline ? Colors.transparent : muted.withAlpha(30),
           borderRadius: BorderRadius.circular(8),
-          border:       Border.all(color: muted.withAlpha(80)),
+          border: Border.all(color: muted.withAlpha(80)),
         ),
         child: Text(
           label,
           style: TextStyle(
-            fontSize:   11,
+            fontSize: 11,
             fontWeight: FontWeight.w600,
-            color:      muted,
+            color: muted,
           ),
         ),
       ),

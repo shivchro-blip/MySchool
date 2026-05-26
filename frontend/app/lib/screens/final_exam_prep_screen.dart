@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../config/theme.dart';
 import '../config/final_exam_prep_config.dart';
+import '../services/model_paper_service.dart';
 
 class FinalExamPrepScreen extends StatelessWidget {
   final String classLevel;
@@ -14,13 +15,14 @@ class FinalExamPrepScreen extends StatelessWidget {
   });
 
   List<ExamPaper> get _papers =>
-      classLevel == 'plus2' ? kPlus2EnglishExamPapers : kPlus1EnglishExamPapers;
+      classLevel == '+2' ? kPlus2EnglishExamPapers : kPlus1EnglishExamPapers;
 
   List<ModelPaper> get _modelPapers =>
-      classLevel == 'plus2' ? kPlus2EnglishModelPapers : kPlus1EnglishModelPapers;
+      ModelPaperService.getPapers(classLevel, subjectSlug);
 
-  List<PriorityLesson> get _lessons =>
-      classLevel == 'plus2' ? kPlus2EnglishPriorityLessons : kPlus1EnglishPriorityLessons;
+  List<PriorityLesson> get _lessons => classLevel == '+2'
+      ? kPlus2EnglishPriorityLessons
+      : kPlus1EnglishPriorityLessons;
 
   @override
   Widget build(BuildContext context) {
@@ -133,7 +135,8 @@ class _ExamPapersCard extends StatelessWidget {
                   classLevel: classLevel,
                   subjectSlug: subjectSlug,
                 ),
-                if (!isLast) Divider(height: 1, color: AppTheme.borderOf(context)),
+                if (!isLast)
+                  Divider(height: 1, color: AppTheme.borderOf(context)),
               ],
             );
           }),
@@ -163,10 +166,11 @@ class _PaperRow extends StatelessWidget {
           Row(
             children: [
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                 decoration: BoxDecoration(
-                  color: AppTheme.brandDark,
-                  borderRadius: BorderRadius.circular(8),
+                  color: AppTheme.brandOf(context),
+                  borderRadius: BorderRadius.circular(999),
                 ),
                 child: Text(
                   paper.year,
@@ -206,7 +210,8 @@ class _PaperRow extends StatelessWidget {
               _OutlineActionButton(
                 icon: Icons.edit_outlined,
                 label: 'Practice',
-                onTap: () => context.push('/exam/$classLevel/$subjectSlug/${paper.id}'),
+                onTap: () =>
+                    context.push('/exam/$classLevel/$subjectSlug/${paper.id}'),
               ),
             ],
           ),
@@ -233,20 +238,21 @@ class _OutlineActionButton extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8),
-          border: Border.all(color: AppTheme.borderOf(context)),
+          color: AppTheme.surfaceOf(context),
+          borderRadius: BorderRadius.circular(AppTheme.radiusButton),
+          border: Border.all(color: AppTheme.brandOf(context)),
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(icon, size: 13, color: AppTheme.text2Of(context)),
+            Icon(icon, size: 13, color: AppTheme.brandOf(context)),
             const SizedBox(width: 5),
             Text(
               label,
               style: TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.w500,
-                color: AppTheme.text2Of(context),
+                fontSize: 11,
+                fontWeight: FontWeight.w700,
+                color: AppTheme.brandOf(context),
               ),
             ),
           ],
@@ -290,7 +296,8 @@ class _ModelPapersCard extends StatelessWidget {
             padding: const EdgeInsets.fromLTRB(16, 14, 16, 12),
             child: Row(
               children: [
-                const Icon(Icons.quiz_outlined, color: AppTheme.brand, size: 20),
+                const Icon(Icons.quiz_outlined,
+                    color: AppTheme.brand, size: 20),
                 const SizedBox(width: 8),
                 Text(
                   'Model Exam Papers',
@@ -302,17 +309,20 @@ class _ModelPapersCard extends StatelessWidget {
                 ),
                 const SizedBox(width: 8),
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 2),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 7, vertical: 2),
                   decoration: BoxDecoration(
-                    color: AppTheme.success,
-                    borderRadius: BorderRadius.circular(6),
+                    color: AppTheme.brandLightOf(context),
+                    borderRadius: BorderRadius.circular(AppTheme.radiusPill),
+                    border: Border.all(color: AppTheme.brandOf(context)),
                   ),
-                  child: const Text(
+                  child: Text(
                     'NEW',
                     style: TextStyle(
                       fontSize: 10,
-                      fontWeight: FontWeight.w700,
-                      color: Colors.white,
+                      fontWeight: FontWeight.w800,
+                      color: AppTheme.textOf(context),
+                      letterSpacing: 0.4,
                     ),
                   ),
                 ),
@@ -329,10 +339,35 @@ class _ModelPapersCard extends StatelessWidget {
                   classLevel: classLevel,
                   subjectSlug: subjectSlug,
                 ),
-                if (!isLast) Divider(height: 1, color: AppTheme.borderOf(context)),
+                if (!isLast)
+                  Divider(height: 1, color: AppTheme.borderOf(context)),
               ],
             );
           }),
+          Divider(height: 1, color: AppTheme.borderOf(context)),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+            child: Center(
+              child: Container(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 12, vertical: 7),
+                decoration: BoxDecoration(
+                  color: AppTheme.brandLightOf(context),
+                  borderRadius: BorderRadius.circular(AppTheme.radiusPill),
+                  border: Border.all(color: AppTheme.brand.withAlpha(65)),
+                ),
+                child: const Text(
+                  'AI-curated practice sets aligned with the latest exam pattern',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 11,
+                    fontWeight: FontWeight.w600,
+                    color: AppTheme.brand,
+                  ),
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );
@@ -359,10 +394,11 @@ class _ModelPaperRow extends StatelessWidget {
           Row(
             children: [
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                 decoration: BoxDecoration(
-                  color: AppTheme.brandDark,
-                  borderRadius: BorderRadius.circular(8),
+                  color: AppTheme.brandOf(context),
+                  borderRadius: BorderRadius.circular(999),
                 ),
                 child: Text(
                   paper.label,
@@ -389,21 +425,29 @@ class _ModelPaperRow extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 8),
-          Row(
+          Wrap(
+            spacing: 8,
+            runSpacing: 8,
             children: [
               _OutlineActionButton(
                 icon: Icons.description_outlined,
                 label: 'View Paper',
                 onTap: () => context.push(
-                  '/courses/$classLevel/$subjectSlug/final-exam-prep/paper/${paper.id}',
+                  '/model-paper/view/$classLevel/$subjectSlug/${paper.id}',
                 ),
               ),
-              const SizedBox(width: 8),
               _OutlineActionButton(
                 icon: Icons.edit_outlined,
                 label: 'Practice',
                 onTap: () => context.push(
-                  '/model-exam/$classLevel/$subjectSlug/${paper.modelId}',
+                  '/model-paper/practice/$classLevel/$subjectSlug/${paper.id}',
+                ),
+              ),
+              _OutlineActionButton(
+                icon: Icons.history,
+                label: 'History',
+                onTap: () => context.push(
+                  '/model-paper/history/$classLevel/$subjectSlug/${paper.id}',
                 ),
               ),
             ],
@@ -496,7 +540,12 @@ class _LessonRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => context.push('/rich-learn/$classLevel/$subjectSlug/${lesson.id}'),
+      onTap: () => ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Lesson content coming soon.'),
+          duration: Duration(seconds: 2),
+        ),
+      ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
         child: Row(
@@ -533,8 +582,8 @@ class _PriorityBadge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isHigh = priority == 'high';
-    final bg     = isHigh ? const Color(0xFFDC2626) : const Color(0xFFD97706);
-    final label  = isHigh ? 'High' : 'Medium';
+    final bg = isHigh ? const Color(0xFFDC2626) : const Color(0xFFD97706);
+    final label = isHigh ? 'High' : 'Medium';
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
       decoration: BoxDecoration(

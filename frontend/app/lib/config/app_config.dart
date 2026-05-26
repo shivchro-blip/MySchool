@@ -1,13 +1,14 @@
 // API_BASE_URL targets:
-//   Web / Windows desktop : http://localhost:8000/api/v1  (default)
+//   Production / shared web backend : https://api.yadhum.net/api/v1 (default)
+//   Local web / Windows desktop     : http://localhost:8000/api/v1
 //   Android emulator      : http://10.0.2.2:8000/api/v1
 //   Physical device (LAN) : http://192.168.x.x:8000/api/v1
-//   Production            : https://your-domain.com/api/v1
+// Override with --dart-define=API_BASE_URL=... for local development.
 
 class AppConfig {
   static const String apiBaseUrl = String.fromEnvironment(
     'API_BASE_URL',
-    defaultValue: 'http://localhost:8000/api/v1',
+    defaultValue: 'https://api.yadhum.net/api/v1',
   );
 
   static const String supabaseUrl = String.fromEnvironment(

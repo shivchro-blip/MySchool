@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import '../../config/exam_papers/exam_paper_registry.dart';
 import '../../models/exam_paper_model.dart';
 import '../../config/theme.dart';
@@ -76,7 +77,13 @@ class _ExamPaperViewerState extends State<ExamPaperViewer> {
             16,
             0,
           ),
-          child: ViewerHeader(paper: paper, backPath: _backPath),
+          child: ViewerHeader(
+            paper: paper,
+            backPath: _backPath,
+            classLevel: widget.classLevel,
+            subjectSlug: widget.subjectSlug,
+            paperId: widget.paperId,
+          ),
         ),
 
         // Dark flipbook area
@@ -106,7 +113,9 @@ class _ExamPaperViewerState extends State<ExamPaperViewer> {
                           child: PageSurface(
                             page: page,
                             isLast: isPageLast,
-                            onStartPractice: () => debugPrint('TODO: Start Practice'),
+                            onStartPractice: () => context.push(
+                              '/exam/${widget.classLevel}/${widget.subjectSlug}/${widget.paperId}',
+                            ),
                           ),
                         ),
                       ),
