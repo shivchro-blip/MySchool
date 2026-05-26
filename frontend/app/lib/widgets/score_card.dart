@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../config/theme.dart';
 import '../models/evaluation_model.dart';
+import '../utils/evaluation_ui_extensions.dart';
 
 class ScoreCard extends StatelessWidget {
   final EvaluationResponse result;
@@ -18,7 +19,7 @@ class ScoreCard extends StatelessWidget {
               style: TextStyle(
                 fontSize:   28,
                 fontWeight: FontWeight.w800,
-                color:      result.scoreColor,
+                color:      result.scoreColor(context),
               ),
             ),
             const SizedBox(height: 8),
@@ -28,7 +29,7 @@ class ScoreCard extends StatelessWidget {
                 value:           result.percentage / 100,
                 minHeight:       10,
                 backgroundColor: AppTheme.borderOf(context),
-                color:           result.scoreColor,
+                color:           result.scoreColor(context),
               ),
             ),
             const SizedBox(height: 8),
