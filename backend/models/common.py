@@ -3,7 +3,6 @@ from pydantic import BaseModel
 
 class HealthResponse(BaseModel):
     status: str
-    env: str
     ollama: str
     supabase: str
     chromadb: str

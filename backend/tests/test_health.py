@@ -19,12 +19,12 @@ def test_health_has_required_fields():
     response = client.get("/health")
     data = response.json()
     assert "status" in data
-    assert "env" in data
+    assert "env" not in data
     assert "ollama" in data
     assert "supabase" in data
     assert "chromadb" in data
 
 
-def test_docs_available_in_dev():
+def test_docs_disabled_by_default():
     response = client.get("/api/docs")
-    assert response.status_code == 200
+    assert response.status_code == 404

@@ -68,7 +68,6 @@ async def health_check(response: Response):
         response.status_code = 503
     return HealthResponse(
         status="degraded" if any_down else "ok",
-        env=settings.app_env,
         ollama=ollama_status,
         supabase=supabase_status,
         chromadb=chroma_status,
