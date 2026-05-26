@@ -33,6 +33,18 @@ class QuestionsRepository:
         )
         return result.data
 
+    def get_active_validated_by_id(self, question_id: str) -> dict | None:
+        result = (
+            self._db.table("questions")
+            .select("*")
+            .eq("id", question_id)
+            .eq("is_validated", True)
+            .eq("is_active", True)
+            .maybe_single()
+            .execute()
+        )
+        return result.data
+
     def get_all(
         self,
         chapter_id: str | None = None,

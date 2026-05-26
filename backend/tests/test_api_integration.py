@@ -396,6 +396,51 @@ def test_admin_pending_evaluations_returns_list(as_admin):
 
 # ── Input validation ──────────────────────────────────────────────────────────
 
+def test_admin_pipeline_rejects_path_traversal(as_admin):
+    response = client.post(
+        '/api/v1/admin/pipeline/trigger',
+        json={
+            'subject_id': '00000000-0000-0000-0000-000000000001',
+            'chapter_id': '00000000-0000-0000-0000-000000000002',
+            'json_path': '../outside.json',
+        },
+        headers={'Authorization': 'Bearer mock-admin-token'},
+    )
+
+    assert response.status_code == 400
+    assert 'content/structured' in response.json()['detail']
+
+
+def test_admin_import_html_rejects_non_html_upload(as_admin):
+    response = client.post(
+        '/api/v1/admin/questions/import-html',
+        data={'chapter_slug': 'the-last-lesson'},
+        files={'file': ('questions.txt', b'not html', 'text/plain')},
+        headers={'Authorization': 'Bearer mock-admin-token'},
+    )
+
+    assert response.status_code == 415
+
+
+def test_admin_import_html_rejects_oversized_upload(as_admin):
+    from api.v1.admin import MAX_HTML_IMPORT_BYTES
+
+    response = client.post(
+        '/api/v1/admin/questions/import-html',
+        data={'chapter_slug': 'the-last-lesson'},
+        files={
+            'file': (
+                'questions.html',
+                b'a' * (MAX_HTML_IMPORT_BYTES + 1),
+                'text/html',
+            )
+        },
+        headers={'Authorization': 'Bearer mock-admin-token'},
+    )
+
+    assert response.status_code == 413
+
+
 def test_submit_rejects_short_answer():
     response = client.post('/api/v1/evaluation/submit', json={
         'question_id':    '00000000-0000-0000-0000-000000000001',

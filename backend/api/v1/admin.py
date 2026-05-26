@@ -1,4 +1,5 @@
 import re
+from pathlib import Path
 from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, Form
 from pydantic import BaseModel, Field
 from uuid import UUID
@@ -6,6 +7,10 @@ from api.v1.deps import get_admin_user
 from db.client import get_db
 
 router = APIRouter()
+
+STRUCTURED_CONTENT_DIR = Path(__file__).resolve().parents[2] / "content" / "structured"
+MAX_HTML_IMPORT_BYTES = 5 * 1024 * 1024
+HTML_CONTENT_TYPES = {"text/html", "application/xhtml+xml"}
 
 
 # ── Pydantic models ─────────────────────────────────────────────────────────
@@ -345,7 +350,7 @@ async def import_practice_html(
     file: UploadFile = File(...),
     admin: dict = Depends(get_admin_user),
 ):
-    html = (await file.read()).decode("utf-8")
+    html = await _read_html_upload(file)
     try:
         questions = _parse_practice_html(html)
     except ValueError as e:
@@ -382,6 +387,32 @@ async def import_practice_html(
 
     result = db.table("questions").insert(rows).execute()
     return {"inserted": len(result.data), "chapter_slug": chapter_slug}
+
+
+async def _read_html_upload(file: UploadFile) -> str:
+    content_type = (file.content_type or "").split(";", 1)[0].lower()
+    if content_type not in HTML_CONTENT_TYPES:
+        raise HTTPException(status_code=415, detail="Only HTML uploads are supported")
+
+    known_size = getattr(file, "size", None)
+    if known_size is not None and known_size > MAX_HTML_IMPORT_BYTES:
+        raise HTTPException(status_code=413, detail="HTML upload is too large")
+
+    chunks: list[bytes] = []
+    total = 0
+    while True:
+        chunk = await file.read(1024 * 1024)
+        if not chunk:
+            break
+        total += len(chunk)
+        if total > MAX_HTML_IMPORT_BYTES:
+            raise HTTPException(status_code=413, detail="HTML upload is too large")
+        chunks.append(chunk)
+
+    try:
+        return b"".join(chunks).decode("utf-8")
+    except UnicodeDecodeError:
+        raise HTTPException(status_code=400, detail="HTML upload must be UTF-8")
 
 
 def _unescape_js(s: str) -> str:
@@ -483,6 +514,39 @@ def _parse_practice_html(html: str) -> list[dict]:
     return questions
 
 
+def _resolve_structured_json_path(json_path: str) -> Path:
+    base_dir = STRUCTURED_CONTENT_DIR.resolve()
+    raw_path = Path(json_path)
+
+    if raw_path.is_absolute():
+        candidate = raw_path.resolve()
+    else:
+        cwd_candidate = (Path.cwd() / raw_path).resolve()
+        if _is_relative_to(cwd_candidate, base_dir):
+            candidate = cwd_candidate
+        elif len(raw_path.parts) >= 2 and raw_path.parts[:2] == ("content", "structured"):
+            candidate = (base_dir / Path(*raw_path.parts[2:])).resolve()
+        else:
+            candidate = (base_dir / raw_path).resolve()
+
+    if candidate.suffix.lower() != ".json":
+        raise HTTPException(status_code=400, detail="json_path must point to a .json file")
+    if not _is_relative_to(candidate, base_dir):
+        raise HTTPException(
+            status_code=400,
+            detail="json_path must stay within content/structured/",
+        )
+    return candidate
+
+
+def _is_relative_to(path: Path, base: Path) -> bool:
+    try:
+        path.relative_to(base)
+    except ValueError:
+        return False
+    return True
+
+
 # ── Content pipeline trigger ─────────────────────────────────────────────────
 
 @router.post("/pipeline/trigger")
@@ -490,14 +554,13 @@ async def trigger_pipeline(
     body: TriggerPipelineRequest,
     admin: dict = Depends(get_admin_user),
 ):
-    from pathlib import Path
     from modules.content_pipeline import (
         load_structured_json,
         embed_chunks,
         load_chunks_to_db,
     )
 
-    json_path = Path(body.json_path)
+    json_path = _resolve_structured_json_path(body.json_path)
     if not json_path.exists():
         raise HTTPException(
             status_code=400,
@@ -522,5 +585,5 @@ async def trigger_pipeline(
         "status":          "ok",
         "chunks_embedded": len(chunks),
         "chunks_inserted": count,
-        "json_path":       str(json_path),
+        "json_path":       body.json_path,
     }

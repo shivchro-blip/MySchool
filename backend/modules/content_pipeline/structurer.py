@@ -101,5 +101,8 @@ def save_structured_json(chunks: list[dict], output_path: str) -> None:
 
 
 def load_structured_json(json_path: str) -> list[dict]:
-    with open(json_path, "r", encoding="utf-8") as f:
+    path = Path(json_path)
+    if path.suffix.lower() != ".json":
+        raise ValueError("Structured content path must be a .json file")
+    with open(path, "r", encoding="utf-8") as f:
         return json.load(f)

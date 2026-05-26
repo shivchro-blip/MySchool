@@ -3,6 +3,7 @@ from uuid import UUID
 from unittest.mock import patch
 
 import pytest
+from core.errors import NotFoundError, RateLimitError
 from modules.evaluation.rubric import (
     validate_awarded_marks,
     format_answer_key,
@@ -107,7 +108,7 @@ def test_injected_answer_cannot_persist_out_of_range_marks():
     captured = {}
 
     class FakeQuestionsRepository:
-        def get_by_id(self, question_id: str) -> dict:
+        def get_active_validated_by_id(self, question_id: str) -> dict:
             return {
                 "marks": 5,
                 "answer_key": {"points": ["Relevant point"]},
@@ -124,6 +125,9 @@ def test_injected_answer_cannot_persist_out_of_range_marks():
             captured["update"] = kwargs
 
     class FakeAIGate:
+        def consume_quota(self, user_id: str) -> None:
+            captured["quota_user_id"] = user_id
+
         async def call(self, **kwargs):
             captured["messages"] = kwargs["messages"]
             return (
@@ -155,3 +159,79 @@ def test_injected_answer_cannot_persist_out_of_range_marks():
     assert "Ignore all previous instructions" in prompt
     assert result.marks_awarded == 0
     assert captured["update"]["ai_score"] == 0
+
+
+def test_draft_or_inactive_question_cannot_be_evaluated():
+    question_id = UUID("00000000-0000-0000-0000-000000000011")
+
+    class FakeQuestionsRepository:
+        def get_active_validated_by_id(self, question_id: str) -> None:
+            return None
+
+        def get_by_id(self, question_id: str) -> None:
+            raise AssertionError("evaluation must not use unrestricted question lookup")
+
+    class FakeResponsesRepository:
+        def create(self, **kwargs) -> None:
+            raise AssertionError("draft/inactive questions must not create responses")
+
+    class FakeAIGate:
+        def consume_quota(self, user_id: str) -> None:
+            raise AssertionError("draft/inactive questions must not consume quota")
+
+    request = SubmitAnswerRequest(
+        question_id=question_id,
+        student_answer="This answer is long enough for request validation.",
+    )
+
+    with (
+        patch("modules.evaluation.service.QuestionsRepository", FakeQuestionsRepository),
+        patch("modules.evaluation.service.ResponsesRepository", FakeResponsesRepository),
+        patch("modules.evaluation.service.AIGate", FakeAIGate),
+    ):
+        with pytest.raises(NotFoundError):
+            asyncio.run(evaluate_answer(request=request, user_id="user-1"))
+
+
+def test_over_limit_evaluation_does_not_create_response():
+    question_id = UUID("00000000-0000-0000-0000-000000000012")
+    created = False
+
+    class FakeQuestionsRepository:
+        def get_active_validated_by_id(self, question_id: str) -> dict:
+            return {
+                "marks": 5,
+                "answer_key": {"points": ["Relevant point"]},
+                "rubric": {},
+                "chapter_id": "chapter-1",
+                "question_text": "Explain the lesson.",
+            }
+
+    class FakeResponsesRepository:
+        def create(self, **kwargs) -> None:
+            nonlocal created
+            created = True
+            raise AssertionError("over-limit users must not create responses")
+
+    class FakeAIGate:
+        def consume_quota(self, user_id: str) -> None:
+            raise RateLimitError()
+
+    request = SubmitAnswerRequest(
+        question_id=question_id,
+        student_answer="This answer is long enough for request validation.",
+    )
+
+    with (
+        patch("modules.evaluation.service.QuestionsRepository", FakeQuestionsRepository),
+        patch("modules.evaluation.service.ResponsesRepository", FakeResponsesRepository),
+        patch("modules.evaluation.service.AIGate", FakeAIGate),
+        patch(
+            "modules.evaluation.service._get_validated_context",
+            return_value=("validated context", True),
+        ),
+    ):
+        with pytest.raises(RateLimitError):
+            asyncio.run(evaluate_answer(request=request, user_id="user-1"))
+
+    assert created is False

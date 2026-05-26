@@ -155,7 +155,7 @@ async def evaluate_answer(
     gate      = AIGate()
 
     # Load question
-    question = questions.get_by_id(str(request.question_id))
+    question = questions.get_active_validated_by_id(str(request.question_id))
     if not question:
         raise NotFoundError("Question", str(request.question_id))
 
@@ -175,6 +175,8 @@ async def evaluate_answer(
             "[yellow]NOTICE[/yellow] Evaluation proceeding without validated "
             "content — answer key only. Admin should validate chapter content."
         )
+
+    gate.consume_quota(user_id)
 
     # Save answer before AI call
     saved = responses.create(
@@ -213,6 +215,7 @@ async def evaluate_answer(
         user_id=user_id,
         temperature=0.1,
         max_tokens=1500,
+        quota_consumed=True,
     )
 
     parsed        = _parse_evaluation_response(raw_response, marks)

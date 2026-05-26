@@ -25,13 +25,14 @@ class AIGate:
         user_id: str | None = None,
         temperature: float = 0.3,
         max_tokens: int = 1024,
+        quota_consumed: bool = False,
     ) -> tuple[str, str, bool]:
         """
         Returns (response_text, model_used, was_cached).
         Raises RateLimitError or AIUnavailableError.
         """
-        if user_id and self._users.consume_ai_call(user_id) is None:
-            raise RateLimitError()
+        if user_id and not quota_consumed:
+            self.consume_quota(user_id)
 
         cache_key = self._cache.make_key(prompt_type, cache_key_content)
         cached = self._cache.get(cache_key)
@@ -75,3 +76,7 @@ class AIGate:
         )
 
         return response_text, model_used, False
+
+    def consume_quota(self, user_id: str) -> None:
+        if self._users.consume_ai_call(user_id) is None:
+            raise RateLimitError()
