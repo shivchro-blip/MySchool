@@ -9,7 +9,7 @@ async def get_admin_user(
     credentials: HTTPAuthorizationCredentials | None = Depends(bearer_scheme),
 ) -> dict:
     user = await _resolve_user(credentials)
-    meta = user.user_metadata or {}
+    meta = getattr(user, "app_metadata", None) or {}
     if meta.get("role") != "admin":
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
