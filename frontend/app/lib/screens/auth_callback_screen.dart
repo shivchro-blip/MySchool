@@ -1,4 +1,4 @@
-import 'package:web/web.dart' as web;
+import 'package:app_links/app_links.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../config/theme.dart';
@@ -8,16 +8,6 @@ import '../services/api_service.dart';
 import '../widgets/app_button.dart';
 import '../widgets/brand_logo.dart';
 
-// Handles the Supabase OAuth redirect after Google sign-in.
-//
-// Supabase appends tokens to the URL hash:
-//   /auth/callback#access_token=...&token_type=bearer&...
-//
-// Flow:
-//   loading   → parse hash, store token, fetch profile
-//   consent   → new user (404) — collect age/terms, create profile, go to onboarding
-//   error     → anything unexpected — show message, back to login
-
 class AuthCallbackScreen extends StatefulWidget {
   const AuthCallbackScreen({super.key});
 
@@ -26,8 +16,7 @@ class AuthCallbackScreen extends StatefulWidget {
 }
 
 class _AuthCallbackScreenState extends State<AuthCallbackScreen> {
-  // ── State ──────────────────────────────────────────────────────────────────
-  String  _phase          = 'loading'; // 'loading' | 'consent' | 'error'
+  String  _phase          = 'loading';
   String  _error          = '';
   String? _userId;
   String? _ageConfirmation;
@@ -40,52 +29,67 @@ class _AuthCallbackScreenState extends State<AuthCallbackScreen> {
     _handleCallback();
   }
 
-  // ── Callback logic ─────────────────────────────────────────────────────────
   Future<void> _handleCallback() async {
-    final hash = web.window.location.hash;
-
-    if (hash.isEmpty) {
-      _setError('Invalid authentication response. Please try again.');
-      return;
-    }
-
-    // Strip leading '#' and parse key=value pairs.
-    final params     = Uri.splitQueryString(hash.startsWith('#') ? hash.substring(1) : hash);
-    final errorCode  = params['error'];
-    final errorDesc  = params['error_description'];
-
-    if (errorCode != null) {
-      _setError(errorDesc ?? 'Google sign-in failed. Please try again.');
-      return;
-    }
-
-    final accessToken = params['access_token'];
-    final tokenType   = params['token_type'];
-
-    if (accessToken == null || (tokenType?.toLowerCase() ?? '') != 'bearer') {
-      _setError('Invalid authentication response. Please try again.');
-      return;
-    }
-
-    await AuthService().storeToken(accessToken);
-
     try {
-      final profile = await UserService().getProfile();
-      if (!mounted) return;
-      if (profile.onboardingCompleted == true) {
-        context.go('/dashboard');
-      } else {
-        context.go('/onboarding');
+      final appLinks = AppLinks();
+      final uri = await appLinks.getInitialLink();
+
+      if (uri == null) {
+        _setError('Invalid authentication response. Please try again.');
+        return;
+      }
+
+      final fragment = uri.fragment;
+      if (fragment.isEmpty) {
+        _setError('Invalid authentication response. Please try again.');
+        return;
+      }
+
+      Map<String, String> params;
+      try {
+        params = Uri.splitQueryString(fragment);
+      } catch (_) {
+        _setError('Invalid authentication response. Please try again.');
+        return;
+      }
+
+      final errorCode = params['error'];
+      final errorDesc = params['error_description'];
+      if (errorCode != null) {
+        _setError(errorDesc ?? 'Google sign-in failed. Please try again.');
+        return;
+      }
+
+      final accessToken = params['access_token'];
+      final tokenType   = params['token_type'];
+
+      if (accessToken == null || (tokenType?.toLowerCase() ?? '') != 'bearer') {
+        _setError('Invalid authentication response. Please try again.');
+        return;
+      }
+
+      await AuthService().storeToken(accessToken);
+
+      try {
+        final profile = await UserService().getProfile();
+        if (!mounted) return;
+        if (profile.onboardingCompleted == true) {
+          context.go('/dashboard');
+        } else {
+          context.go('/onboarding');
+        }
+      } catch (e) {
+        if (!mounted) return;
+        final isNotFound = e is ApiException && e.statusCode == 404;
+        if (isNotFound) {
+          final uid = AuthService().extractUserIdFromToken(accessToken);
+          setState(() { _phase = 'consent'; _userId = uid; });
+        } else {
+          _setError('Failed to load your profile. Please try again.');
+        }
       }
     } catch (e) {
-      if (!mounted) return;
-      final isNotFound = e is ApiException && e.statusCode == 404;
-      if (isNotFound) {
-        final uid = AuthService().extractUserIdFromToken(accessToken);
-        setState(() { _phase = 'consent'; _userId = uid; });
-      } else {
-        _setError('Failed to load your profile. Please try again.');
-      }
+      _setError('Something went wrong. Please try again.');
     }
   }
 
@@ -93,7 +97,6 @@ class _AuthCallbackScreenState extends State<AuthCallbackScreen> {
     if (mounted) setState(() { _phase = 'error'; _error = msg; });
   }
 
-  // ── Consent submit ─────────────────────────────────────────────────────────
   Future<void> _submitConsent() async {
     final uid = _userId;
     final age = _ageConfirmation;
@@ -113,7 +116,6 @@ class _AuthCallbackScreenState extends State<AuthCallbackScreen> {
     }
   }
 
-  // ── Build ──────────────────────────────────────────────────────────────────
   @override
   Widget build(BuildContext context) {
     if (_phase == 'loading') return _buildLoading(context);
@@ -183,7 +185,6 @@ class _AuthCallbackScreenState extends State<AuthCallbackScreen> {
               const SizedBox(height: 16),
               const Center(child: BrandLogo(height: 100)),
               const SizedBox(height: 32),
-
               Text(
                 'One last step',
                 textAlign: TextAlign.center,
@@ -200,10 +201,9 @@ class _AuthCallbackScreenState extends State<AuthCallbackScreen> {
                 style: TextStyle(fontSize: 13, color: AppTheme.text2Of(context)),
               ),
               const SizedBox(height: 24),
-
               Container(
-                padding:     const EdgeInsets.all(16),
-                decoration:  BoxDecoration(
+                padding:    const EdgeInsets.all(16),
+                decoration: BoxDecoration(
                   color:        cardBg,
                   borderRadius: BorderRadius.circular(12),
                   border:       Border.all(color: surfaceBg),
@@ -211,7 +211,6 @@ class _AuthCallbackScreenState extends State<AuthCallbackScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-
                     Text(
                       'Age confirmation',
                       style: TextStyle(
@@ -221,10 +220,9 @@ class _AuthCallbackScreenState extends State<AuthCallbackScreen> {
                       ),
                     ),
                     const SizedBox(height: 8),
-
                     for (final (value, label) in [
                       ('adult',              'I am 18 years or older'),
-                      ('minor_with_consent', 'I am under 18, and my parent or guardian has agreed to my use of TN Exam Coach'),
+                      ('minor_with_consent', 'I am under 18, and my parent or guardian has agreed to my use of Yadhum'),
                     ])
                       InkWell(
                         onTap: () => setState(() => _ageConfirmation = value),
@@ -257,9 +255,7 @@ class _AuthCallbackScreenState extends State<AuthCallbackScreen> {
                           ),
                         ),
                       ),
-
                     const SizedBox(height: 12),
-
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -311,7 +307,6 @@ class _AuthCallbackScreenState extends State<AuthCallbackScreen> {
                   ],
                 ),
               ),
-
               if (_error.isNotEmpty) ...[
                 const SizedBox(height: 12),
                 Container(
@@ -326,7 +321,6 @@ class _AuthCallbackScreenState extends State<AuthCallbackScreen> {
                   ),
                 ),
               ],
-
               const SizedBox(height: 24),
               AppButton(
                 label:     'Continue',

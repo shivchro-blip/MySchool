@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:web/web.dart' as web;
+import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:http/http.dart' as http;
 import '../config/app_config.dart';
@@ -168,14 +168,16 @@ class AuthService {
   // This method redirects the browser to Supabase Google OAuth. After auth,
   // Supabase redirects to /auth/callback with tokens in the URL hash.
   // AuthCallbackScreen parses those tokens.
-  void signInWithGoogle() {
-    final origin     = web.window.location.origin;
-    final redirectTo = '$origin/auth/callback';
-    final oauthUrl   =
+  Future<void> signInWithGoogle() async {
+    const redirectTo = 'net.yadhum.app://auth/callback';
+    final oauthUrl =
         '$_supabaseUrl/auth/v1/authorize'
         '?provider=google'
         '&redirect_to=${Uri.encodeComponent(redirectTo)}';
-    web.window.location.href = oauthUrl;
+    final uri = Uri.parse(oauthUrl);
+    if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
+      throw Exception('Could not open sign-in page');
+    }
   }
 
   // Store a token received from an external source (e.g. OAuth callback).

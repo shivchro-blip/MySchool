@@ -26,6 +26,19 @@ class _LoginScreenState extends State<LoginScreen> {
   String? _ageConfirmation;  // 'adult' or 'minor_with_consent'
   bool    _consentChecked   = false;
 
+  Future<void> _signInWithGoogle() async {
+    setState(() { _loading = true; _error = ''; _notice = ''; });
+    try {
+      await AuthService().signInWithGoogle();
+    } catch (e) {
+      if (mounted) {
+        setState(() => _error = 'Could not open Google sign-in. Please try again.');
+      }
+    } finally {
+      if (mounted) setState(() => _loading = false);
+    }
+  }
+
   Future<void> _submit() async {
     final email    = _emailCtrl.text.trim();
     final password = _passwordCtrl.text.trim();
@@ -138,7 +151,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
               // Google sign-in
               GoogleSignInButton(
-                onPressed: _loading ? null : () => AuthService().signInWithGoogle(),
+                onPressed: _loading ? null : _signInWithGoogle,
               ),
               const SizedBox(height: 16),
               Row(

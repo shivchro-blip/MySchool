@@ -1,4 +1,4 @@
-name: exam_coach
+name: yadhum
 description: AI Exam Coach for Tamil Nadu +1 and +2 students
 version: 1.0.0+1
 
@@ -30,10 +30,10 @@ dependencies:
   # Utils
   intl: ^0.19.0
 
-  # Web platform
-  web: ^1.1.1
-  flutter_web_plugins:
-    sdk: flutter
+  # Deep links / OAuth
+  app_links: ^6.3.2
+  url_launcher: ^6.3.0
+
 
 dev_dependencies:
   flutter_test:
