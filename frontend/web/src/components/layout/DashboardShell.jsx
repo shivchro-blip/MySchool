@@ -63,13 +63,13 @@ export default function DashboardShell({ children }) {
           <div className="flex min-[900px]:hidden" style={{ alignItems: 'center', gap: 8, flexShrink: 0 }}>
             <BrandLogo height={34} variant="compact" />
             <span style={{ fontSize: 14, fontWeight: 700, color: 'var(--ink)', letterSpacing: '-0.01em' }}>
-              Exam Coach
+              Yadhum
             </span>
           </div>
 
           {/* Desktop: plain wordmark (sidebar already shows logo) */}
           <span className="hidden min-[900px]:block" style={{ fontSize: 13, fontWeight: 700, color: 'var(--ink)', letterSpacing: '-0.01em' }}>
-            Exam Coach
+            Yadhum
             <span style={{ fontWeight: 400, color: 'var(--ink-4)', marginLeft: 6, fontSize: 11 }}>TN Board</span>
           </span>
 

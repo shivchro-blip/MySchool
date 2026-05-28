@@ -154,7 +154,7 @@ export default function LoginPage() {
                   <p className="text-sm font-medium text-text-secondary mb-2">Age confirmation</p>
                   {[
                     { value: 'adult',              label: 'I am 18 years or older' },
-                    { value: 'minor_with_consent', label: 'I am under 18, and my parent or guardian has agreed to my use of TN Exam Coach' },
+                    { value: 'minor_with_consent', label: 'I am under 18, and my parent or guardian has agreed to my use of Yadhum' },
                   ].map(opt => (
                     <label key={opt.value} className="flex items-start gap-2 mb-2 cursor-pointer">
                       <input

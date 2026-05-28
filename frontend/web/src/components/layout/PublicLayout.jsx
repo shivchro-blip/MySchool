@@ -5,7 +5,7 @@ import AppFooter from './AppFooter'
 
 export default function PublicLayout({ children, title, description }) {
   useEffect(() => {
-    const base = 'TN Exam Coach'
+    const base = 'Yadhum'
     document.title = title ? `${title} · ${base}` : base
     if (description) {
       let meta = document.querySelector('meta[name="description"]')
@@ -35,7 +35,7 @@ export default function PublicLayout({ children, title, description }) {
         <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: 8, textDecoration: 'none' }}>
           <BrandLogo height={34} variant="compact" />
           <span style={{ fontSize: 14, fontWeight: 700, color: 'var(--ink)', letterSpacing: '-0.01em' }}>
-            Exam Coach
+            Yadhum
           </span>
         </Link>
       </header>

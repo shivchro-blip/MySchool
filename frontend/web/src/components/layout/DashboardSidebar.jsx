@@ -191,7 +191,7 @@ export default function DashboardSidebar({ onClose, collapsed = false }) {
           {!collapsed && (
             <div style={{ overflow: 'hidden' }}>
               <div style={{ color: '#E1F5EE', fontWeight: 600, fontSize: 13, lineHeight: 1.2, whiteSpace: 'nowrap' }}>
-                Exam Coach
+                Yadhum
               </div>
               <div style={{ color: '#5DCAA5', fontSize: 11, lineHeight: 1.2, whiteSpace: 'nowrap' }}>
                 TN Board

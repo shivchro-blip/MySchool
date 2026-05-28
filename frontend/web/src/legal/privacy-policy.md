@@ -5,7 +5,7 @@
 
 ## 1. Who we are
 
-TN Exam Coach is a free educational website operated by Sam, an individual based in Tamil Nadu, India.
+Yadhum is a free educational website operated by Sam, an individual based in Tamil Nadu, India.
 
 ## 2. What data we collect
 

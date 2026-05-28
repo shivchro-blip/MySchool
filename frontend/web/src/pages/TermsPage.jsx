@@ -7,7 +7,7 @@ export default function TermsPage() {
   return (
     <PublicLayout
       title="Terms of Service"
-      description="The terms and conditions for using TN Exam Coach."
+      description="The terms and conditions for using Yadhum."
     >
       <div style={{ color: 'var(--ink)', lineHeight: 1.7 }} className="prose-legal">
         <p style={{ fontSize: 12, color: 'var(--text-tertiary)', marginBottom: 24 }}>

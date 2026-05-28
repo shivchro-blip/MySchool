@@ -5,11 +5,11 @@
 
 ## 1. Acceptance of terms
 
-By using TN Exam Coach, you agree to these terms.
+By using Yadhum, you agree to these terms.
 
 ## 2. Service description
 
-TN Exam Coach is a free educational platform for Tamil Nadu State Board +1 and +2 students.
+Yadhum is a free educational platform for Tamil Nadu State Board +1 and +2 students.
 
 ## 3. Use of the service
 

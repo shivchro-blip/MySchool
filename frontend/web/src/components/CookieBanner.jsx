@@ -62,7 +62,7 @@ export default function CookieBanner() {
       boxShadow: '0 -4px 16px rgba(0,0,0,0.08)',
     }}>
       <p style={{ margin: 0, fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.5 }}>
-        TN Exam Coach uses a few small files (cookies and similar storage) to keep you signed in
+        Yadhum uses a few small files (cookies and similar storage) to keep you signed in
         and to understand which lessons are most helpful, so we can improve them. We do not use
         advertising cookies.
       </p>

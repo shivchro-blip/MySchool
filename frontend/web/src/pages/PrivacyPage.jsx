@@ -7,7 +7,7 @@ export default function PrivacyPage() {
   return (
     <PublicLayout
       title="Privacy Policy"
-      description="How TN Exam Coach collects, uses, and protects your personal information."
+      description="How Yadhum collects, uses, and protects your personal information."
     >
       <div style={{ color: 'var(--ink)', lineHeight: 1.7 }} className="prose-legal">
         <p style={{ fontSize: 12, color: 'var(--text-tertiary)', marginBottom: 24 }}>
