@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { ChevronRight } from 'lucide-react'
 import { SYLLABUS } from '../data/syllabus'
 import { getCachedProfile } from '../api/users'
+import { getNameFromJwt } from '../api/auth'
 import PageHeader from '../components/ui/PageHeader'
 import Eyebrow from '../components/ui/Eyebrow'
 
@@ -100,6 +101,9 @@ export default function DashboardPage() {
   const classNotFound =
     profileLoaded && profile?.class_level && filteredEntries.length === 0
 
+  const rawName = profileLoaded ? (profile?.full_name || getNameFromJwt()) : null
+  const firstName = rawName?.trim().split(/\s+/)[0] || 'Student'
+
   return (
     <div style={{ position: 'relative' }}>
       <div style={{
@@ -128,7 +132,7 @@ export default function DashboardPage() {
       <div style={{ marginBottom: 32, paddingBottom: 32, borderBottom: '1px solid var(--line)' }}>
         <PageHeader
           eyebrow="Tamil Nadu State Board"
-          title="Good morning, Student."
+          title={`Good morning, ${firstName}.`}
           subtitle={`${SUBJECT_COUNT} subjects and ${LESSON_COUNT} lessons. Pick up where you left off.`}
           className="mb-0"
         />

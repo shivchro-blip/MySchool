@@ -42,6 +42,23 @@ export function getUserIdFromToken(token) {
   }
 }
 
+// Supabase puts Google's displayName in user_metadata.full_name (or .name).
+// Returns null if no token or no name present.
+export function getNameFromJwt() {
+  const token = getToken()
+  if (!token) return null
+  try {
+    const payload = JSON.parse(
+      atob(token.split('.')[1].replace(/-/g, '+').replace(/_/g, '/'))
+    )
+    return payload?.user_metadata?.full_name
+      || payload?.user_metadata?.name
+      || null
+  } catch {
+    return null
+  }
+}
+
 function authError(data, fallback) {
   return (
     data?.error_description ||
