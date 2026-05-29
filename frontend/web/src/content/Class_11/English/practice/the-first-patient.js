@@ -1,10 +1,10 @@
-﻿export default {
+export default {
   meta: {
     subject: 'General English -- Class XI',
     unit: 'Unit 3 · Supplementary · The First Patient',
     time: '3.00 hrs',
     totalMarks: 90,
-    instructions: 'Tamil Nadu State Board · Answer all questions',
+    instructions: 'Samacheer Kalvi · Answer all questions',
   },
 
   parts: [

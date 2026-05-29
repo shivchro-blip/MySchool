@@ -1,10 +1,10 @@
-﻿export default {
+export default {
   meta: {
     subject: "General English -- Class XI",
     unit: "Unit 4 · Poem · Macavity - The Mystery Cat",
     time: "3.00 hrs",
     totalMarks: 90,
-    instructions: "Tamil Nadu State Board · Answer all questions",
+    instructions: "Samacheer Kalvi · Answer all questions",
   },
 
   parts: [

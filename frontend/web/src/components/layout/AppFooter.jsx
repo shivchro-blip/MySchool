@@ -32,7 +32,7 @@ export default function AppFooter() {
         className="app-footer-disclaimer"
       >
         {PRODUCT_NAME} is a free, independent educational website. It is not affiliated with the Government
-        of Tamil Nadu, the Tamil Nadu State Board, SCERT, DGE, or any school.
+        of Tamil Nadu, Samacheer Kalvi, SCERT, DGE, or any school.
       </p>
     </footer>
   )

@@ -2,7 +2,7 @@ import { Fragment, useState, useEffect } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import {
   LayoutGrid, BookOpen, ClipboardList, TrendingUp,
-  Activity, Award, MessageSquare, Settings, LogOut, Trash2,
+  Activity, Award, MessageSquare, Settings, LogOut,
 } from 'lucide-react'
 import { SYLLABUS } from '../../data/syllabus'
 import { logout } from '../../api/auth'
@@ -21,9 +21,8 @@ const TOP_NAV = [
 ]
 
 const BOTTOM_NAV = [
-  { id: 'settings',       label: 'Settings',       icon: Settings, to: null               },
-  { id: 'delete-account', label: 'Delete Account', icon: Trash2,   to: '/delete-account'  },
-  { id: 'logout',         label: 'Log out',        icon: LogOut,   to: '/login'           },
+  { id: 'settings', label: 'Settings', icon: Settings, to: '/settings' },
+  { id: 'logout',   label: 'Log out',  icon: LogOut,   to: '/login'   },
 ]
 
 const SIDEBAR_LEGAL_LINKS = [
@@ -169,8 +168,8 @@ export default function DashboardSidebar({ onClose, collapsed = false }) {
     return item.id === 'logout'
   }
 
-  function bottomNavDim(item) {
-    return item.id === 'settings'
+  function bottomNavDim(_item) {
+    return false
   }
 
   return (

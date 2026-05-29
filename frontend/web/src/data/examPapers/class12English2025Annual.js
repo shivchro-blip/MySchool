@@ -503,7 +503,7 @@ export const class12English2025Annual = {
     "unit": "2025 Annual Exam Paper",
     "time": "3.00 hrs",
     "totalMarks": 90,
-    "instructions": "Tamil Nadu State Board · HSE Second Year Examinations - March 2025 · Practice data aligned to the official answer key.",
+    "instructions": "Samacheer Kalvi · HSE Second Year Examinations - March 2025 · Practice data aligned to the official answer key.",
     "answerSource": "Directorate of Government Examinations - Chennai - 6, English Answer Key, March 2025"
   },
   "parts": [

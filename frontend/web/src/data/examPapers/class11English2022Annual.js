@@ -495,7 +495,7 @@ export const class11English2022Annual = {
     "unit": "2022 Annual Exam Paper",
     "time": "3.00 hrs",
     "totalMarks": 90,
-    "instructions": "Tamil Nadu State Board · HSE First Year Examinations - May 2022 · Practice data aligned to the official answer key.",
+    "instructions": "Samacheer Kalvi · HSE First Year Examinations - May 2022 · Practice data aligned to the official answer key.",
     "answerSource": "Directorate of Government Examinations - Chennai - 6, English Answer Key, May 2022"
   },
   "parts": [

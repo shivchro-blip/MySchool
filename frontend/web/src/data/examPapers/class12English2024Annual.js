@@ -506,7 +506,7 @@ export const class12English2024Annual = {
     "unit": "2024 Annual Exam Paper",
     "time": "3.00 hrs",
     "totalMarks": 90,
-    "instructions": "Tamil Nadu State Board · Higher Secondary Second Year Examination - March 2024 · Practice data aligned to the official answer key.",
+    "instructions": "Samacheer Kalvi · Higher Secondary Second Year Examination - March 2024 · Practice data aligned to the official answer key.",
     "answerSource": "Directorate of Government Examinations - Chennai - 6, English Answer Key, March 2024"
   },
   "parts": [

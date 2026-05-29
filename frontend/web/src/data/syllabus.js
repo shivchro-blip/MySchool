@@ -1,5 +1,5 @@
 /**
- * Mock syllabus data — Tamil Nadu State Board
+ * Mock syllabus data — Samacheer Kalvi
  * Structure mirrors the real TNBSE +1 and +2 English syllabus.
  *
  * When the backend is ready, replace this with API calls

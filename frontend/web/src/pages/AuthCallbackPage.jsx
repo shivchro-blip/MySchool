@@ -185,7 +185,7 @@ export default function AuthCallbackPage() {
         </div>
 
         <p className="text-center text-xs text-text-tertiary mt-6">
-          Higher Secondary · Tamil Nadu State Board
+          Higher Secondary · Samacheer Kalvi
         </p>
       </div>
     </div>

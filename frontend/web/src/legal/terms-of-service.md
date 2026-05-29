@@ -9,7 +9,7 @@ By using Yadhum, you agree to these terms.
 
 ## 2. Service description
 
-Yadhum is a free educational platform for Tamil Nadu State Board +1 and +2 students.
+Yadhum is a free educational platform for Samacheer Kalvi +1 and +2 students.
 
 ## 3. Use of the service
 

@@ -4,7 +4,7 @@ export default {
     "unit": "Unit 4 -- The Summit",
     "time": "3.00 hrs",
     "totalMarks": 90,
-    "instructions": "Tamil Nadu State Board -- Answer all questions"
+    "instructions": "Samacheer Kalvi -- Answer all questions"
   },
   "parts": [
     {

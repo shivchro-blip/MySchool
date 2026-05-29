@@ -37,7 +37,7 @@ export default function CoursesIndexPage() {
     <div style={{ maxWidth: 680, margin: '0 auto', padding: 'clamp(24px, 4vw, 48px) clamp(16px, 4vw, 32px) 96px' }}>
 
       <PageHeader
-        eyebrow="Tamil Nadu State Board"
+        eyebrow="Samacheer Kalvi"
         title="My Courses"
         subtitle="Select a year group to browse subjects and lessons."
       />

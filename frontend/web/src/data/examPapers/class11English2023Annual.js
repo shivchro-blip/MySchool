@@ -500,7 +500,7 @@ export const class11English2023Annual = {
     "unit": "2023 Annual Exam Paper",
     "time": "3.00 hrs",
     "totalMarks": 90,
-    "instructions": "Tamil Nadu State Board · HSE First Year Examinations - March 2023 · Practice data aligned to the official answer key.",
+    "instructions": "Samacheer Kalvi · HSE First Year Examinations - March 2023 · Practice data aligned to the official answer key.",
     "answerSource": "Directorate of Government Examinations - Chennai - 6, English Answer Key, March 2023"
   },
   "parts": [

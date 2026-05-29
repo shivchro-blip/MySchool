@@ -221,7 +221,7 @@ export default function LoginPage() {
         </div>
 
         <div className="text-center text-xs text-text-tertiary mt-6 space-y-1.5">
-          <p>Higher Secondary · Tamil Nadu State Board</p>
+          <p>Higher Secondary · Samacheer Kalvi</p>
           <p>
             <Link to="/privacy" className="text-brand underline">Privacy Policy</Link>
             <span className="mx-1.5 opacity-40">·</span>

@@ -4,7 +4,7 @@ export default {
     unit: 'Unit 5 · Supplementary · The Singing Lesson',
     time: '3.00 hrs',
     totalMarks: 90,
-    instructions: 'Tamil Nadu State Board · Answer all questions',
+    instructions: 'Samacheer Kalvi · Answer all questions',
   },
 
   parts: [

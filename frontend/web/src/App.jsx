@@ -17,6 +17,7 @@ import PrivacyPage        from './pages/PrivacyPage'
 import TermsPage          from './pages/TermsPage'
 import ContactPage        from './pages/ContactPage'
 import DeleteAccountPage  from './pages/DeleteAccountPage'
+import SettingsPage       from './pages/SettingsPage'
 
 import DashboardShell from './components/layout/DashboardShell'
 import CookieBanner   from './components/CookieBanner'
@@ -108,6 +109,9 @@ export default function App() {
         <Route path="/terms"          element={<TermsPage />} />
         <Route path="/contact"        element={<ContactPage />} />
         <Route path="/delete-account" element={<DeleteAccountPage />} />
+        <Route path="/settings" element={
+          <DashShell><SettingsPage /></DashShell>
+        } />
 
         <Route path="/onboarding" element={
           <Guard><OnboardingPage /></Guard>

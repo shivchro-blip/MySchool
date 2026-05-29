@@ -1,4 +1,4 @@
-﻿export const class11EnglishModelQA1 = {
+export const class11EnglishModelQA1 = {
   "paperId": "class11-english-model-qa-1",
   "title": "Model Q&A 1",
   "classLabel": "Class 11",
@@ -770,7 +770,7 @@
       "unit": "Model Q&A 1",
       "time": "3.00 hrs",
       "totalMarks": 90,
-      "instructions": "Tamil Nadu State Board · Class XI English · Original model paper for annual-exam practice, aligned to the sample annual-paper pattern.",
+      "instructions": "Samacheer Kalvi · Class XI English · Original model paper for annual-exam practice, aligned to the sample annual-paper pattern.",
       "answerSource": "Teacher-authored model answers for self-practice and revision."
     },
     "parts": [

@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { useNavigate, useLocation, Link } from 'react-router-dom'
-import { Search, LayoutGrid, BookOpen, TrendingUp, Award, Sun, Moon, LogOut, Trash2 } from 'lucide-react'
+import { useNavigate, useLocation } from 'react-router-dom'
+import { Search, LayoutGrid, BookOpen, TrendingUp, Award, Sun, Moon, LogOut } from 'lucide-react'
 import BrandLogo from '../ui/BrandLogo'
 import DashboardSidebar from './DashboardSidebar'
 import { useTheme } from '../../hooks/useTheme'
@@ -166,19 +166,6 @@ export default function DashboardShell({ children }) {
                   minWidth: 168,
                   boxShadow: '0 4px 20px rgba(0,0,0,0.15)',
                 }}>
-                  <Link
-                    to="/delete-account"
-                    onClick={() => setAcctMenuOpen(false)}
-                    style={{
-                      display: 'flex', alignItems: 'center', gap: 8,
-                      padding: '10px 14px', fontSize: 13,
-                      color: 'var(--ink-2)', textDecoration: 'none',
-                    }}
-                  >
-                    <Trash2 size={14} style={{ flexShrink: 0 }} />
-                    Delete Account
-                  </Link>
-                  <div style={{ height: 1, background: 'var(--line-soft)', margin: '4px 0' }} />
                   <button
                     onClick={() => { setAcctMenuOpen(false); handleLogout() }}
                     style={{

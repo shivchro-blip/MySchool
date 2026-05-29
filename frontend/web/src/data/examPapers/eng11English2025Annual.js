@@ -17,7 +17,7 @@ export const eng11English2025Annual = {
         {
           type: 'paper_header',
           content: 'Annual Examination 2025',
-          subContent: 'Class 11 — English | Tamil Nadu State Board',
+          subContent: 'Class 11 — English | Samacheer Kalvi',
         },
         {
           type: 'metadata_row',

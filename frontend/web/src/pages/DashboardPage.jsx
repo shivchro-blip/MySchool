@@ -131,7 +131,7 @@ export default function DashboardPage() {
       {/* ── Hero ─────────────────────────────────────────────── */}
       <div style={{ marginBottom: 32, paddingBottom: 32, borderBottom: '1px solid var(--line)' }}>
         <PageHeader
-          eyebrow="Tamil Nadu State Board"
+          eyebrow="Samacheer Kalvi"
           title={`Good morning, ${firstName}.`}
           subtitle={`${SUBJECT_COUNT} subjects and ${LESSON_COUNT} lessons. Pick up where you left off.`}
           className="mb-0"
