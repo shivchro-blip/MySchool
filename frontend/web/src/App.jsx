@@ -13,9 +13,10 @@ import ActivityPage     from './pages/ActivityPage'
 import CertificatePage  from './pages/CertificatePage'
 import AssignmentsPage  from './pages/AssignmentsPage'
 import MessagesPage     from './pages/MessagesPage'
-import PrivacyPage      from './pages/PrivacyPage'
-import TermsPage        from './pages/TermsPage'
-import ContactPage      from './pages/ContactPage'
+import PrivacyPage        from './pages/PrivacyPage'
+import TermsPage          from './pages/TermsPage'
+import ContactPage        from './pages/ContactPage'
+import DeleteAccountPage  from './pages/DeleteAccountPage'
 
 import DashboardShell from './components/layout/DashboardShell'
 import CookieBanner   from './components/CookieBanner'
@@ -103,9 +104,10 @@ export default function App() {
 
         <Route path="/login"          element={<LoginPage />} />
         <Route path="/auth/callback"  element={<AuthCallbackPage />} />
-        <Route path="/privacy" element={<PrivacyPage />} />
-        <Route path="/terms"   element={<TermsPage />} />
-        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/privacy"        element={<PrivacyPage />} />
+        <Route path="/terms"          element={<TermsPage />} />
+        <Route path="/contact"        element={<ContactPage />} />
+        <Route path="/delete-account" element={<DeleteAccountPage />} />
 
         <Route path="/onboarding" element={
           <Guard><OnboardingPage /></Guard>

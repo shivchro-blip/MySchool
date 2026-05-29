@@ -1,5 +1,7 @@
-export const OPERATOR_NAME     = 'Sam'
-export const CONTACT_EMAIL     = 'privacy@tnexamcoach.in'  // TODO: replace with real monitored inbox
-export const PRODUCT_NAME      = 'Yadhum'
-export const LEGAL_LAST_UPDATED = '2026-05-11'             // TODO: update on each policy change
-export const JURISDICTION      = 'Tamil Nadu, India'
+export const OPERATOR_NAME      = 'Yadhum Team'
+export const CONTACT_EMAIL      = 'yadhumedu@gmail.com'
+export const PRODUCT_NAME       = 'Yadhum'
+export const APP_PACKAGE        = 'net.yadhum.app'
+export const LEGAL_LAST_UPDATED = '2026-05-28'
+export const JURISDICTION       = 'Albany, New York, USA'
+export const GA_MEASUREMENT_ID  = 'G-BBETP884QB'
