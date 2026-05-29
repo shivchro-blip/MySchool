@@ -1,5 +1,6 @@
-import { useNavigate, useLocation } from 'react-router-dom'
-import { Search, LayoutGrid, BookOpen, TrendingUp, Award, Sun, Moon, LogOut } from 'lucide-react'
+import { useState } from 'react'
+import { useNavigate, useLocation, Link } from 'react-router-dom'
+import { Search, LayoutGrid, BookOpen, TrendingUp, Award, Sun, Moon, LogOut, Trash2 } from 'lucide-react'
 import BrandLogo from '../ui/BrandLogo'
 import DashboardSidebar from './DashboardSidebar'
 import { useTheme } from '../../hooks/useTheme'
@@ -17,6 +18,7 @@ const BOTTOM_TABS = [
 
 export default function DashboardShell({ children }) {
   const [dark, toggleTheme] = useTheme()
+  const [acctMenuOpen, setAcctMenuOpen] = useState(false)
   const navigate = useNavigate()
   const { pathname } = useLocation()
 
@@ -133,14 +135,66 @@ export default function DashboardShell({ children }) {
             <LogOut size={18} style={{ color: 'var(--ink-3)' }} />
           </button>
 
-          {/* Avatar */}
-          <div style={{
-            width: 32, height: 32, borderRadius: '50%',
-            background: TEAL,
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            color: 'white', fontWeight: 700, fontSize: 13,
-            cursor: 'pointer', flexShrink: 0,
-          }}>S</div>
+          {/* Avatar + account menu */}
+          <div style={{ position: 'relative', flexShrink: 0 }}>
+            <button
+              onClick={() => setAcctMenuOpen(o => !o)}
+              aria-label="Account menu"
+              style={{
+                width: 32, height: 32, borderRadius: '50%',
+                background: TEAL,
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                color: 'white', fontWeight: 700, fontSize: 13,
+                cursor: 'pointer', border: 'none', padding: 0,
+              }}
+            >S</button>
+            {acctMenuOpen && (
+              <>
+                {/* Click-outside overlay */}
+                <div
+                  onClick={() => setAcctMenuOpen(false)}
+                  style={{ position: 'fixed', inset: 0, zIndex: 39 }}
+                />
+                <div style={{
+                  position: 'absolute',
+                  top: 40, right: 0,
+                  background: 'var(--bg-2)',
+                  border: '1px solid var(--line)',
+                  borderRadius: 12,
+                  padding: '4px 0',
+                  zIndex: 40,
+                  minWidth: 168,
+                  boxShadow: '0 4px 20px rgba(0,0,0,0.15)',
+                }}>
+                  <Link
+                    to="/delete-account"
+                    onClick={() => setAcctMenuOpen(false)}
+                    style={{
+                      display: 'flex', alignItems: 'center', gap: 8,
+                      padding: '10px 14px', fontSize: 13,
+                      color: 'var(--ink-2)', textDecoration: 'none',
+                    }}
+                  >
+                    <Trash2 size={14} style={{ flexShrink: 0 }} />
+                    Delete Account
+                  </Link>
+                  <div style={{ height: 1, background: 'var(--line-soft)', margin: '4px 0' }} />
+                  <button
+                    onClick={() => { setAcctMenuOpen(false); handleLogout() }}
+                    style={{
+                      display: 'flex', alignItems: 'center', gap: 8,
+                      width: '100%', padding: '10px 14px', fontSize: 13,
+                      color: 'var(--danger)', background: 'none',
+                      border: 'none', cursor: 'pointer', textAlign: 'left',
+                    }}
+                  >
+                    <LogOut size={14} style={{ flexShrink: 0 }} />
+                    Log out
+                  </button>
+                </div>
+              </>
+            )}
+          </div>
 
         </header>
 

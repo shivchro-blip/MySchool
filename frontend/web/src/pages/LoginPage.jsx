@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { loginWithEmail, signupWithEmail, resendConfirmationEmail, signInWithGoogle } from '../api/auth'
 import { recordSignupConsent } from '../api/users'
 import { Button, Input } from '../components/ui'
@@ -220,9 +220,16 @@ export default function LoginPage() {
           </form>
         </div>
 
-        <p className="text-center text-xs text-text-tertiary mt-6">
-          Higher Secondary · Tamil Nadu State Board
-        </p>
+        <div className="text-center text-xs text-text-tertiary mt-6 space-y-1.5">
+          <p>Higher Secondary · Tamil Nadu State Board</p>
+          <p>
+            <Link to="/privacy" className="text-brand underline">Privacy Policy</Link>
+            <span className="mx-1.5 opacity-40">·</span>
+            <Link to="/terms" className="text-brand underline">Terms</Link>
+            <span className="mx-1.5 opacity-40">·</span>
+            <a href="mailto:yadhumedu@gmail.com" className="text-brand underline">Contact</a>
+          </p>
+        </div>
       </div>
     </div>
   )

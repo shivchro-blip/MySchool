@@ -25,6 +25,8 @@ export default function AppFooter() {
         <Link to="/terms" style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>Terms of Service</Link>
         <span aria-hidden="true" style={{ color: 'var(--line)' }}>&middot;</span>
         <Link to="/contact" style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>Contact</Link>
+        <span aria-hidden="true" style={{ color: 'var(--line)' }}>&middot;</span>
+        <Link to="/delete-account" style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>Delete Account</Link>
       </div>
       <p
         className="app-footer-disclaimer"
