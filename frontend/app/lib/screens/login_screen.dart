@@ -238,7 +238,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 const SizedBox(height: 8),
                 for (final (value, label) in [
                   ('adult', 'I am 18 years or older'),
-                  ('minor_with_consent', 'I am under 18, and my parent or guardian has agreed to my use of TN Exam Coach'),
+                  ('minor_with_consent', 'I am under 18, and my parent or guardian has agreed to my use of Yadhum'),
                 ])
                   InkWell(
                     onTap: () => setState(() => _ageConfirmation = value),
