@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import { useParams, Navigate } from 'react-router-dom'
 import { getPaperById } from '../data/examPapers/examPaperRegistry'
 import { adaptExamPaper } from '../utils/examPaperAdapter'
@@ -54,8 +55,19 @@ export default function ExamPaperPracticePage({ classLevel = 'plus1' }) {
 
   const classNum = classLevel === 'plus2' ? '12' : '11'
   const paperId  = `class${classNum}-english-${examYear}-annual`
-  const paper    = getPaperById(paperId)
 
+  const [paper, setPaper] = useState(undefined)
+  useEffect(() => {
+    let cancelled = false
+    getPaperById(paperId).then(p => { if (!cancelled) setPaper(p ?? null) })
+    return () => { cancelled = true }
+  }, [paperId])
+
+  if (paper === undefined) return (
+    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 40 }}>
+      <div style={{ fontSize: 13, color: 'var(--text-muted, #9CA3AF)' }}>Loading…</div>
+    </div>
+  )
   if (!paper) return <Navigate to={`/${classLevel}/english`} replace />
 
   const practiceData = paper.practice ?? adaptExamPaper(paper)

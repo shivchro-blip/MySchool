@@ -2,24 +2,31 @@ import { api } from './client'
 
 let _cachedProfile = null
 let _cacheToken    = null
+let _inflight      = null
 
 export function invalidateProfileCache() {
   _cachedProfile = null
   _cacheToken    = null
+  _inflight      = null
 }
 
 export async function getCachedProfile() {
   const token = localStorage.getItem('exam_coach_token')
   if (!token) return null
   if (_cachedProfile && _cacheToken === token) return _cachedProfile
-  try {
-    const profile = await fetchMyProfile()
-    _cachedProfile = profile
-    _cacheToken    = token
-    return profile
-  } catch {
-    return null
-  }
+  if (_inflight) return _inflight
+  _inflight = fetchMyProfile()
+    .then(profile => {
+      _cachedProfile = profile
+      _cacheToken    = token
+      _inflight      = null
+      return profile
+    })
+    .catch(() => {
+      _inflight = null
+      return null
+    })
+  return _inflight
 }
 
 export async function fetchMyProfile() {

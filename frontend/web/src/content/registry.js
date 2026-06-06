@@ -1,74 +1,52 @@
-﻿import portraitOfALady from './Class_11/English/chapters/the-portrait-of-a-lady'
-import afterTwentyYears from './Class_11/English/chapters/after-twenty-years'
-import queenOfBoxing from './Class_11/English/chapters/the-queen-of-boxing'
-import confessionsBornSpectator from './Class_11/English/chapters/confessions-of-a-born-spectator'
-import aShotInTheDark from './Class_11/English/chapters/a-shot-in-the-dark'
-import onceUponATime from './Class_11/English/chapters/once-upon-a-time'
-import forgetting from './Class_11/English/chapters/forgetting'
-import linesWrittenInEarlySpring from './Class_11/English/chapters/lines-written-in-early-spring'
-import theFirstPatient from './Class_11/English/chapters/the-first-patient'
-import tightCorners from './Class_11/English/chapters/tight-corners'
-import macavityTheMysteryCat from './Class_11/English/chapters/macavity-the-mystery-cat'
-import withThePhotographer from './Class_11/English/chapters/with-the-photographer'
-import everestIsNotTheOnlyPeak from './Class_11/English/chapters/everest-is-not-the-only-peak'
-import theConvocationAddress from './Class_11/English/chapters/the-convocation-address'
-import theSingingLesson from './Class_11/English/chapters/the-singing-lesson'
-import theAccidentalTourist from './Class_11/English/chapters/the-accidental-tourist'
-import theHollowCrown from './Class_11/English/chapters/the-hollow-crown'
-import theNeverNeverNest from './Class_11/English/chapters/the-never-never-nest'
-import twoGentlemenOfVerona from './Class_12/English/chapters/two-gentlemen-of-verona'
-import theCastle from './Class_12/English/chapters/the-castle'
-import godSeesTheTruthButWaits from './Class_12/English/chapters/god-sees-the-truth-but-waits'
-import aNiceCupOfTea from './Class_12/English/chapters/a-nice-cup-of-tea'
-import ourCasuarinaTree from './Class_12/English/chapters/our-casuarina-tree'
-import lifeOfPi from './Class_12/English/chapters/life-of-pi'
-import inCelebrationOfBeingAlive from './Class_12/English/chapters/in-celebration-of-being-alive'
-import allTheWorldsAStage from './Class_12/English/chapters/all-the-worlds-a-stage'
-import theHourOfTruth from './Class_12/English/chapters/the-hour-of-truth'
-import theSummit from './Class_12/English/chapters/the-summit'
-import ulysses from './Class_12/English/chapters/ulysses'
-import theMidnightVisitor from './Class_12/English/chapters/the-midnight-visitor'
-import theChair from './Class_12/English/chapters/the-chair'
-import aFatherToHisSon from './Class_12/English/chapters/a-father-to-his-son'
-import allSummerInADay from './Class_12/English/chapters/all-summer-in-a-day'
-import onTheRuleOfTheRoad from './Class_12/English/chapters/on-the-rule-of-the-road'
-import incidentOfTheFrenchCamp from './Class_12/English/chapters/incident-of-the-french-camp'
-import rememberCaesar from './Class_12/English/chapters/remember-caesar'
-export default {
-  'the-portrait-of-a-lady': portraitOfALady,
-  'after-twenty-years': afterTwentyYears,
-  'the-queen-of-boxing': queenOfBoxing,
-  'confessions-of-a-born-spectator': confessionsBornSpectator,
-  'a-shot-in-the-dark': aShotInTheDark,
-  'once-upon-a-time': onceUponATime,
-  'forgetting': forgetting,
-  'lines-written-in-early-spring': linesWrittenInEarlySpring,
-  'the-first-patient': theFirstPatient,
-  'tight-corners': tightCorners,
-  'macavity-the-mystery-cat': macavityTheMysteryCat,
-  'with-the-photographer': withThePhotographer,
-  'everest-is-not-the-only-peak': everestIsNotTheOnlyPeak,
-  'the-convocation-address': theConvocationAddress,
-  'the-singing-lesson': theSingingLesson,
-  'the-accidental-tourist': theAccidentalTourist,
-  'the-hollow-crown': theHollowCrown,
-  'the-never-never-nest': theNeverNeverNest,
-  'two-gentlemen-of-verona': twoGentlemenOfVerona,
-  'the-castle': theCastle,
-  'god-sees-the-truth-but-waits': godSeesTheTruthButWaits,
-  'a-nice-cup-of-tea': aNiceCupOfTea,
-  'our-casuarina-tree': ourCasuarinaTree,
-  'life-of-pi': lifeOfPi,
-  'in-celebration-of-being-alive': inCelebrationOfBeingAlive,
-  'all-the-worlds-a-stage': allTheWorldsAStage,
-  'the-hour-of-truth': theHourOfTruth,
-  'the-summit': theSummit,
-  'ulysses': ulysses,
-  'the-midnight-visitor': theMidnightVisitor,
-  'the-chair': theChair,
-  'a-father-to-his-son': aFatherToHisSon,
-  'all-summer-in-a-day': allSummerInADay,
-  'on-the-rule-of-the-road': onTheRuleOfTheRoad,
-  'incident-of-the-french-camp': incidentOfTheFrenchCamp,
-  'remember-caesar': rememberCaesar,
+// Lazy content registry — each chapter is loaded only when first visited.
+// Call registry.has(slug) to check existence, registry.load(slug) to fetch.
+const LOADERS = {
+  'the-portrait-of-a-lady':          () => import('./Class_11/English/chapters/the-portrait-of-a-lady'),
+  'after-twenty-years':              () => import('./Class_11/English/chapters/after-twenty-years'),
+  'the-queen-of-boxing':             () => import('./Class_11/English/chapters/the-queen-of-boxing'),
+  'confessions-of-a-born-spectator': () => import('./Class_11/English/chapters/confessions-of-a-born-spectator'),
+  'a-shot-in-the-dark':              () => import('./Class_11/English/chapters/a-shot-in-the-dark'),
+  'once-upon-a-time':                () => import('./Class_11/English/chapters/once-upon-a-time'),
+  'forgetting':                      () => import('./Class_11/English/chapters/forgetting'),
+  'lines-written-in-early-spring':   () => import('./Class_11/English/chapters/lines-written-in-early-spring'),
+  'the-first-patient':               () => import('./Class_11/English/chapters/the-first-patient'),
+  'tight-corners':                   () => import('./Class_11/English/chapters/tight-corners'),
+  'macavity-the-mystery-cat':        () => import('./Class_11/English/chapters/macavity-the-mystery-cat'),
+  'with-the-photographer':           () => import('./Class_11/English/chapters/with-the-photographer'),
+  'everest-is-not-the-only-peak':    () => import('./Class_11/English/chapters/everest-is-not-the-only-peak'),
+  'the-convocation-address':         () => import('./Class_11/English/chapters/the-convocation-address'),
+  'the-singing-lesson':              () => import('./Class_11/English/chapters/the-singing-lesson'),
+  'the-accidental-tourist':          () => import('./Class_11/English/chapters/the-accidental-tourist'),
+  'the-hollow-crown':                () => import('./Class_11/English/chapters/the-hollow-crown'),
+  'the-never-never-nest':            () => import('./Class_11/English/chapters/the-never-never-nest'),
+  'two-gentlemen-of-verona':         () => import('./Class_12/English/chapters/two-gentlemen-of-verona'),
+  'the-castle':                      () => import('./Class_12/English/chapters/the-castle'),
+  'god-sees-the-truth-but-waits':    () => import('./Class_12/English/chapters/god-sees-the-truth-but-waits'),
+  'a-nice-cup-of-tea':               () => import('./Class_12/English/chapters/a-nice-cup-of-tea'),
+  'our-casuarina-tree':              () => import('./Class_12/English/chapters/our-casuarina-tree'),
+  'life-of-pi':                      () => import('./Class_12/English/chapters/life-of-pi'),
+  'in-celebration-of-being-alive':   () => import('./Class_12/English/chapters/in-celebration-of-being-alive'),
+  'all-the-worlds-a-stage':          () => import('./Class_12/English/chapters/all-the-worlds-a-stage'),
+  'the-hour-of-truth':               () => import('./Class_12/English/chapters/the-hour-of-truth'),
+  'the-summit':                      () => import('./Class_12/English/chapters/the-summit'),
+  'ulysses':                         () => import('./Class_12/English/chapters/ulysses'),
+  'the-midnight-visitor':            () => import('./Class_12/English/chapters/the-midnight-visitor'),
+  'the-chair':                       () => import('./Class_12/English/chapters/the-chair'),
+  'a-father-to-his-son':             () => import('./Class_12/English/chapters/a-father-to-his-son'),
+  'all-summer-in-a-day':             () => import('./Class_12/English/chapters/all-summer-in-a-day'),
+  'on-the-rule-of-the-road':         () => import('./Class_12/English/chapters/on-the-rule-of-the-road'),
+  'incident-of-the-french-camp':     () => import('./Class_12/English/chapters/incident-of-the-french-camp'),
+  'remember-caesar':                 () => import('./Class_12/English/chapters/remember-caesar'),
 }
+
+const registry = {
+  has:  (slug) => slug in LOADERS,
+  load: async (slug) => {
+    const loader = LOADERS[slug]
+    if (!loader) return null
+    const mod = await loader()
+    return mod.default
+  },
+}
+
+export default registry

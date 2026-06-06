@@ -1,43 +1,30 @@
-import { class11English2025Annual } from './class11English2025Annual'
-import { class11English2024Annual } from './class11English2024Annual'
-import { class11English2023Annual } from './class11English2023Annual'
-import { class11English2022Annual } from './class11English2022Annual'
-import { class12English2025Annual } from './class12English2025Annual'
-import { class12English2024Annual } from './class12English2024Annual'
-import { class12English2023Annual } from './class12English2023Annual'
-import { class12English2022Annual } from './class12English2022Annual'
-import { class11EnglishModelQA1 } from './class11EnglishModelQA1'
-import { class11EnglishModelQA2 } from './class11EnglishModelQA2'
-import { class11EnglishModelQA3 } from './class11EnglishModelQA3'
-import { class11EnglishModelQA4 } from './class11EnglishModelQA4'
-import { class11EnglishModelQA5 } from './class11EnglishModelQA5'
-import { class12EnglishModelQA1 } from './class12EnglishModelQA1'
-import { class12EnglishModelQA2 } from './class12EnglishModelQA2'
-import { class12EnglishModelQA3 } from './class12EnglishModelQA3'
-import { class12EnglishModelQA4 } from './class12EnglishModelQA4'
-import { class12EnglishModelQA5 } from './class12EnglishModelQA5'
+// Lazy exam paper registry — each paper file is loaded only on demand.
+// getPaperById is async; callers must await it.
+const LOADERS = {
+  'class11-english-2022-annual': () => import('./class11English2022Annual'),
+  'class11-english-2023-annual': () => import('./class11English2023Annual'),
+  'class11-english-2024-annual': () => import('./class11English2024Annual'),
+  'class11-english-2025-annual': () => import('./class11English2025Annual'),
+  'class12-english-2022-annual': () => import('./class12English2022Annual'),
+  'class12-english-2023-annual': () => import('./class12English2023Annual'),
+  'class12-english-2024-annual': () => import('./class12English2024Annual'),
+  'class12-english-2025-annual': () => import('./class12English2025Annual'),
+  'class11-english-model-qa-1':  () => import('./class11EnglishModelQA1'),
+  'class11-english-model-qa-2':  () => import('./class11EnglishModelQA2'),
+  'class11-english-model-qa-3':  () => import('./class11EnglishModelQA3'),
+  'class11-english-model-qa-4':  () => import('./class11EnglishModelQA4'),
+  'class11-english-model-qa-5':  () => import('./class11EnglishModelQA5'),
+  'class12-english-model-qa-1':  () => import('./class12EnglishModelQA1'),
+  'class12-english-model-qa-2':  () => import('./class12EnglishModelQA2'),
+  'class12-english-model-qa-3':  () => import('./class12EnglishModelQA3'),
+  'class12-english-model-qa-4':  () => import('./class12EnglishModelQA4'),
+  'class12-english-model-qa-5':  () => import('./class12EnglishModelQA5'),
+  'eng11-annual-2025':           () => import('./eng11English2025Annual'),
+}
 
-const registry = [
-  class11English2025Annual,
-  class11English2024Annual,
-  class11English2023Annual,
-  class11English2022Annual,
-  class12English2025Annual,
-  class12English2024Annual,
-  class12English2023Annual,
-  class12English2022Annual,
-  class11EnglishModelQA1,
-  class11EnglishModelQA2,
-  class11EnglishModelQA3,
-  class11EnglishModelQA4,
-  class11EnglishModelQA5,
-  class12EnglishModelQA1,
-  class12EnglishModelQA2,
-  class12EnglishModelQA3,
-  class12EnglishModelQA4,
-  class12EnglishModelQA5,
-]
-
-export function getPaperById(paperId) {
-  return registry.find(p => p.paperId === paperId) ?? null
+export async function getPaperById(paperId) {
+  const loader = LOADERS[paperId]
+  if (!loader) return null
+  const mod = await loader()
+  return mod.default ?? Object.values(mod)[0] ?? null
 }

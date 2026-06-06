@@ -20,7 +20,6 @@ import DeleteAccountPage  from './pages/DeleteAccountPage'
 import SettingsPage       from './pages/SettingsPage'
 
 import DashboardShell from './components/layout/DashboardShell'
-import CookieBanner   from './components/CookieBanner'
 
 import YearPage         from './pages/syllabus/YearPage'
 import SubjectPage      from './pages/syllabus/SubjectPage'
@@ -33,6 +32,10 @@ import FinalExamPrepPage        from './pages/syllabus/FinalExamPrepPage'
 import ExamPaperViewerPage      from './pages/ExamPaperViewerPage'
 import ExamPaperPracticePage    from './pages/ExamPaperPracticePage'
 import ModelExamPracticePage    from './pages/ModelExamPracticePage'
+
+// Prefetch profile immediately on module load if token already exists.
+// By the time Guard's useEffect fires, the in-flight promise is already resolving.
+if (isLoggedIn()) getCachedProfile()
 
 function Guard({ children }) {
   const location = useLocation()
@@ -100,7 +103,6 @@ export default function App() {
 
   return (
     <BrowserRouter>
-      <CookieBanner />
       <Routes key={authKey}>
 
         <Route path="/login"          element={<LoginPage />} />

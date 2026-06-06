@@ -35,7 +35,13 @@ const ZOOM_MAX = 2.0
 const ZOOM_STEP = 0.1
 
 export default function ExamPaperViewer({ paperId, backPath }) {
-  const paper = getPaperById(paperId)
+  const [paper, setPaper] = useState(undefined)
+
+  useEffect(() => {
+    let cancelled = false
+    getPaperById(paperId).then(p => { if (!cancelled) setPaper(p ?? null) })
+    return () => { cancelled = true }
+  }, [paperId])
 
   const [spreadIndex,    setSpreadIndex]    = useState(0)
   const [zoomLevel,      setZoomLevel]      = useState(1.0)
@@ -116,6 +122,11 @@ export default function ExamPaperViewer({ paperId, backPath }) {
     return () => document.removeEventListener('fullscreenchange', onFsChange)
   }, [])
 
+  if (paper === undefined) return (
+    <div className="flex items-center justify-center py-20">
+      <div className="text-sm text-ink-2">Loading paper…</div>
+    </div>
+  )
   if (!paper) return <PaperNotFound />
 
   return (
