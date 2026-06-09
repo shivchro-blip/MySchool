@@ -1,5 +1,4 @@
 import asyncio
-from types import SimpleNamespace
 
 import pytest
 from fastapi import HTTPException
@@ -8,13 +7,12 @@ from core import admin_auth
 
 
 def test_user_metadata_admin_role_is_rejected(monkeypatch):
-    async def fake_resolve_user(credentials):
-        return SimpleNamespace(
-            id="00000000-0000-0000-0000-000000000099",
-            email="student@test.com",
-            user_metadata={"role": "admin"},
-            app_metadata={},
-        )
+    async def fake_resolve_user(credentials, allow_local=True):
+        return {
+            "id": "00000000-0000-0000-0000-000000000099",
+            "email": "student@test.com",
+            "app_metadata": {},
+        }
 
     monkeypatch.setattr(admin_auth, "_resolve_user", fake_resolve_user)
 
@@ -25,13 +23,12 @@ def test_user_metadata_admin_role_is_rejected(monkeypatch):
 
 
 def test_app_metadata_admin_role_is_accepted(monkeypatch):
-    async def fake_resolve_user(credentials):
-        return SimpleNamespace(
-            id="00000000-0000-0000-0000-000000000098",
-            email="admin@test.com",
-            user_metadata={},
-            app_metadata={"role": "admin"},
-        )
+    async def fake_resolve_user(credentials, allow_local=True):
+        return {
+            "id": "00000000-0000-0000-0000-000000000098",
+            "email": "admin@test.com",
+            "app_metadata": {"role": "admin"},
+        }
 
     monkeypatch.setattr(admin_auth, "_resolve_user", fake_resolve_user)
 

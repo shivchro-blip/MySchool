@@ -1,4 +1,5 @@
 from fastapi import APIRouter, Depends, HTTPException
+from fastapi.concurrency import run_in_threadpool
 from uuid import UUID
 from models import UserProfileResponse, UpdateProfileRequest, UsageStatsResponse
 from api.v1.deps import get_current_user
@@ -10,7 +11,10 @@ router = APIRouter()
 
 @router.get("/me", response_model=UserProfileResponse)
 async def get_profile(user: dict = Depends(get_current_user)):
-    data = UsersRepository().get_by_id(user["id"])
+    # The Supabase client is synchronous; run it off the event loop so this
+    # hot path (hit on every Dashboard load) doesn't serialize concurrent
+    # requests.
+    data = await run_in_threadpool(UsersRepository().get_by_id, user["id"])
     if not data:
         raise HTTPException(status_code=404, detail="User profile not found")
     return data

@@ -1,37 +1,41 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, lazy, Suspense } from 'react'
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import { isLoggedIn } from './api/auth'
 import { getCachedProfile } from './api/users'
 
+// Eager: LoginPage and the dashboard shell are on the critical path for the
+// first paint of every session, so they stay in the entry chunk. Every other
+// route is code-split via React.lazy — this keeps framer-motion and the heavy
+// syllabus/exam pages OUT of the Login bundle (they load on first visit only).
 import LoginPage        from './pages/LoginPage'
-import AuthCallbackPage from './pages/AuthCallbackPage'
-import OnboardingPage   from './pages/OnboardingPage'
-import ProgressPage     from './pages/ProgressPage'
-import DashboardPage    from './pages/DashboardPage'
-import CoursesIndexPage from './pages/CoursesIndexPage'
-import ActivityPage     from './pages/ActivityPage'
-import CertificatePage  from './pages/CertificatePage'
-import AssignmentsPage  from './pages/AssignmentsPage'
-import MessagesPage     from './pages/MessagesPage'
-import PrivacyPage        from './pages/PrivacyPage'
-import TermsPage          from './pages/TermsPage'
-import ContactPage        from './pages/ContactPage'
-import DeleteAccountPage  from './pages/DeleteAccountPage'
-import SettingsPage       from './pages/SettingsPage'
-
 import DashboardShell from './components/layout/DashboardShell'
 
-import YearPage         from './pages/syllabus/YearPage'
-import SubjectPage      from './pages/syllabus/SubjectPage'
-import LessonListPage   from './pages/syllabus/LessonListPage'
-import LessonDetailPage         from './pages/syllabus/LessonDetailPage'
-import SectionPage              from './pages/syllabus/SectionPage'
-import NotFound                 from './pages/syllabus/NotFound'
-import ChapterPracticeExamPage  from './pages/ChapterPracticeExamPage'
-import FinalExamPrepPage        from './pages/syllabus/FinalExamPrepPage'
-import ExamPaperViewerPage      from './pages/ExamPaperViewerPage'
-import ExamPaperPracticePage    from './pages/ExamPaperPracticePage'
-import ModelExamPracticePage    from './pages/ModelExamPracticePage'
+const AuthCallbackPage = lazy(() => import('./pages/AuthCallbackPage'))
+const OnboardingPage   = lazy(() => import('./pages/OnboardingPage'))
+const ProgressPage     = lazy(() => import('./pages/ProgressPage'))
+const DashboardPage    = lazy(() => import('./pages/DashboardPage'))
+const CoursesIndexPage = lazy(() => import('./pages/CoursesIndexPage'))
+const ActivityPage     = lazy(() => import('./pages/ActivityPage'))
+const CertificatePage  = lazy(() => import('./pages/CertificatePage'))
+const AssignmentsPage  = lazy(() => import('./pages/AssignmentsPage'))
+const MessagesPage     = lazy(() => import('./pages/MessagesPage'))
+const PrivacyPage        = lazy(() => import('./pages/PrivacyPage'))
+const TermsPage          = lazy(() => import('./pages/TermsPage'))
+const ContactPage        = lazy(() => import('./pages/ContactPage'))
+const DeleteAccountPage  = lazy(() => import('./pages/DeleteAccountPage'))
+const SettingsPage       = lazy(() => import('./pages/SettingsPage'))
+
+const YearPage         = lazy(() => import('./pages/syllabus/YearPage'))
+const SubjectPage      = lazy(() => import('./pages/syllabus/SubjectPage'))
+const LessonListPage   = lazy(() => import('./pages/syllabus/LessonListPage'))
+const LessonDetailPage         = lazy(() => import('./pages/syllabus/LessonDetailPage'))
+const SectionPage              = lazy(() => import('./pages/syllabus/SectionPage'))
+const NotFound                 = lazy(() => import('./pages/syllabus/NotFound'))
+const ChapterPracticeExamPage  = lazy(() => import('./pages/ChapterPracticeExamPage'))
+const FinalExamPrepPage        = lazy(() => import('./pages/syllabus/FinalExamPrepPage'))
+const ExamPaperViewerPage      = lazy(() => import('./pages/ExamPaperViewerPage'))
+const ExamPaperPracticePage    = lazy(() => import('./pages/ExamPaperPracticePage'))
+const ModelExamPracticePage    = lazy(() => import('./pages/ModelExamPracticePage'))
 
 // Prefetch profile immediately on module load if token already exists.
 // By the time Guard's useEffect fires, the in-flight promise is already resolving.
@@ -103,6 +107,11 @@ export default function App() {
 
   return (
     <BrowserRouter>
+      <Suspense fallback={
+        <div className="min-h-screen bg-bg-canvas flex items-center justify-center">
+          <div className="text-text-muted text-sm">Loading…</div>
+        </div>
+      }>
       <Routes key={authKey}>
 
         <Route path="/login"          element={<LoginPage />} />
@@ -230,6 +239,7 @@ export default function App() {
         } />
 
       </Routes>
+      </Suspense>
     </BrowserRouter>
   )
 }

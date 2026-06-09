@@ -8,11 +8,14 @@ bearer_scheme = HTTPBearer(auto_error=False)
 async def get_admin_user(
     credentials: HTTPAuthorizationCredentials | None = Depends(bearer_scheme),
 ) -> dict:
-    user = await _resolve_user(credentials)
-    meta = getattr(user, "app_metadata", None) or {}
+    # allow_local=False: the admin role lives in app_metadata, which is frozen
+    # in the JWT at issue time. Force a live GoTrue lookup so a revoked admin
+    # loses access immediately rather than after token expiry.
+    user = await _resolve_user(credentials, allow_local=False)
+    meta = user.get("app_metadata") or {}
     if meta.get("role") != "admin":
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
             detail="Admin access required",
         )
-    return {"id": str(user.id), "email": user.email, "role": "admin"}
+    return {"id": user["id"], "email": user["email"], "role": "admin"}
