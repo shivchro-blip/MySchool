@@ -14,6 +14,15 @@ export default function LoginPage() {
   const [resendStatus,    setResendStatus] = useState('')
   const [ageConfirmation, setAge]       = useState('')
   const [consentChecked,  setConsent]   = useState(false)
+  // Set by api/client.js when the backend reports SESSION_INVALIDATED.
+  const [sessionNotice] = useState(() => {
+    const wasInvalidated =
+      sessionStorage.getItem('logout_reason') === 'session_invalidated'
+    sessionStorage.removeItem('logout_reason')
+    return wasInvalidated
+      ? 'You were signed out because your account was accessed from another location.'
+      : ''
+  })
 
   async function handleSubmit(e) {
     e.preventDefault()
@@ -71,6 +80,13 @@ export default function LoginPage() {
             />
           </div>
         </div>
+
+        {sessionNotice && (
+          <div className="text-sm text-text-secondary bg-surface-alt border border-line-soft
+                          rounded-xl px-4 py-3 mb-4 text-center">
+            {sessionNotice}
+          </div>
+        )}
 
         {/* Card */}
         <div className="bg-surface-alt rounded-2xl shadow-card border border-line-soft p-6">

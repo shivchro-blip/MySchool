@@ -1,8 +1,11 @@
 from fastapi import FastAPI, Response
 from fastapi.middleware.cors import CORSMiddleware
+from slowapi import _rate_limit_exceeded_handler
+from slowapi.errors import RateLimitExceeded
 
 from config import settings
 from core.errors import register_error_handlers
+from core.rate_limit import limiter
 from api.v1.router import router as api_router
 from models.common import HealthResponse
 
@@ -15,6 +18,10 @@ app = FastAPI(
     redoc_url=None,
 )
 
+# Per-IP rate limiting (slowapi) — see core/rate_limit.py.
+app.state.limiter = limiter
+app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
+
 _origins = (
     ["*"] if settings.app_env == "development"
     else settings.allowed_origins.split(",")
@@ -23,8 +30,10 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=_origins,
     allow_credentials=_origins != ["*"],
-    allow_methods=["*"],
-    allow_headers=["*"],
+    # Tightened in security audit: only the methods/headers the API uses,
+    # instead of wildcards.
+    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allow_headers=["Authorization", "Content-Type", "X-Session-Token"],
 )
 
 register_error_handlers(app)

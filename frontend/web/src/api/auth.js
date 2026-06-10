@@ -2,6 +2,40 @@ import { invalidateProfileCache } from './users'
 
 const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL
 const SUPABASE_ANON = import.meta.env.VITE_SUPABASE_ANON_KEY
+const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL ?? '') + '/v1'
+
+// ── Single-session enforcement ────────────────────────────────────────────────
+// After every successful Supabase login the client must claim the single
+// active session slot. The backend deletes any previous session row (kicking
+// other devices) and returns a one-time raw token, sent on every API call as
+// X-Session-Token (attached in api/client.js).
+
+export async function claimSession() {
+  const token = getToken()
+  if (!token) return
+  const res = await fetch(`${API_BASE_URL}/users/session/claim`, {
+    method: 'POST',
+    headers: { 'Authorization': `Bearer ${token}` },
+  })
+  if (!res.ok) throw new Error('Could not start session')
+  const data = await res.json()
+  if (data.session_token) {
+    localStorage.setItem('exam_coach_session', data.session_token)
+  }
+}
+
+function releaseSession() {
+  const token = getToken()
+  const sessionToken = localStorage.getItem('exam_coach_session')
+  if (token && sessionToken) {
+    // Fire-and-forget: server-side row delete; local state is cleared below
+    // regardless of whether this request lands.
+    fetch(`${API_BASE_URL}/users/session`, {
+      method: 'DELETE',
+      headers: { 'Authorization': `Bearer ${token}` },
+    }).catch(() => {})
+  }
+}
 
 // ── Google OAuth ───────────────────────────────────────────────────────────────
 //
@@ -78,7 +112,10 @@ export async function loginWithEmail(email, password) {
   })
   const data = await res.json()
   if (!res.ok) throw new Error(authError(data, 'Login failed'))
-  if (data.access_token) localStorage.setItem('exam_coach_token', data.access_token)
+  if (data.access_token) {
+    localStorage.setItem('exam_coach_token', data.access_token)
+    await claimSession()
+  }
   return data
 }
 
@@ -92,6 +129,7 @@ export async function signupWithEmail(email, password) {
   if (!res.ok) throw new Error(authError(data, 'Signup failed'))
   if (data.access_token) localStorage.setItem('exam_coach_token', data.access_token)
   if (data.session?.access_token) localStorage.setItem('exam_coach_token', data.session.access_token)
+  if (getToken()) await claimSession()
   return data
 }
 
@@ -107,7 +145,9 @@ export async function resendConfirmationEmail(email) {
 }
 
 export function logout() {
+  releaseSession()
   localStorage.removeItem('exam_coach_token')
+  localStorage.removeItem('exam_coach_session')
   invalidateProfileCache()
 }
 

@@ -7,7 +7,14 @@ export default function LoginPage() {
   const [email,    setEmail]   = useState('')
   const [password, setPass]    = useState('')
   const [loading,  setLoading] = useState(false)
-  const [error,    setError]   = useState('')
+  const [error,    setError]   = useState(() => {
+    // Set by api/client.js when the backend reports SESSION_INVALIDATED.
+    if (sessionStorage.getItem('logout_reason') === 'session_invalidated') {
+      sessionStorage.removeItem('logout_reason')
+      return 'You were signed out because your account was accessed from another location.'
+    }
+    return ''
+  })
 
   async function handleLogin(e) {
     e.preventDefault()
@@ -28,6 +35,21 @@ export default function LoginPage() {
       const data = await res.json()
       if (!res.ok) throw new Error(data.error_description || 'Login failed')
       localStorage.setItem('admin_token', data.access_token)
+
+      // Single-session enforcement: claim the active session slot. The
+      // backend invalidates any other session for this account and returns
+      // the raw token sent as X-Session-Token on every admin API call.
+      const claimRes = await fetch('/api/v1/users/session/claim', {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${data.access_token}` },
+      })
+      if (claimRes.ok) {
+        const claim = await claimRes.json()
+        if (claim.session_token) {
+          localStorage.setItem('admin_session', claim.session_token)
+        }
+      }
+
       window.location.href = '/'
     } catch (err) {
       setError(err.message)

@@ -30,6 +30,11 @@ class UpdateProfileRequest(BaseModel):
     privacy_accepted_at: datetime | None = None
 
 
+class SessionClaimResponse(BaseModel):
+    """Returned once at login; the raw token is never stored server-side."""
+    session_token: str
+
+
 class UsageStatsResponse(BaseModel):
     daily_ai_calls: int
     daily_limit: int

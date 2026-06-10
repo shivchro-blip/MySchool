@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { getUserIdFromToken, createUserProfile } from '../api/auth'
+import { getUserIdFromToken, createUserProfile, claimSession } from '../api/auth'
 import { fetchMyProfile } from '../api/users'
 import { Button } from '../components/ui'
 import BrandLogo from '../components/ui/BrandLogo'
@@ -50,6 +50,13 @@ export default function AuthCallbackPage() {
       }
 
       localStorage.setItem('exam_coach_token', accessToken)
+
+      // Single-session: claim the active session slot (kicks other devices).
+      try {
+        await claimSession()
+      } catch {
+        // Non-fatal here; protected API calls will surface the problem.
+      }
 
       try {
         const profile = await fetchMyProfile()

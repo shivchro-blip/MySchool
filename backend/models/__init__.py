@@ -12,7 +12,12 @@ from .evaluation import (
     ProgressResponse,
     FeedbackDetail,
 )
-from .user import UserProfileResponse, UpdateProfileRequest, UsageStatsResponse
+from .user import (
+    UserProfileResponse,
+    UpdateProfileRequest,
+    UsageStatsResponse,
+    SessionClaimResponse,
+)
 from .common import HealthResponse, ErrorResponse, PaginatedResponse
 
 __all__ = [
@@ -30,6 +35,7 @@ __all__ = [
     "UserProfileResponse",
     "UpdateProfileRequest",
     "UsageStatsResponse",
+    "SessionClaimResponse",
     "HealthResponse",
     "ErrorResponse",
     "PaginatedResponse",

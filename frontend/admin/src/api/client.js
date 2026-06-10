@@ -4,14 +4,32 @@ function getToken() {
   return localStorage.getItem('admin_token') || ''
 }
 
-async function request(method, path, body = null) {
-  const headers = {
-    'Content-Type': 'application/json',
-    Authorization: `Bearer ${getToken()}`,
+function getSessionToken() {
+  return localStorage.getItem('admin_session') || ''
+}
+
+function authHeaders(extra = {}) {
+  const headers = { Authorization: `Bearer ${getToken()}`, ...extra }
+  const sessionToken = getSessionToken()
+  if (sessionToken) headers['X-Session-Token'] = sessionToken
+  return headers
+}
+
+function handleUnauthorized(err) {
+  localStorage.removeItem('admin_token')
+  localStorage.removeItem('admin_session')
+  if (err && err.detail === 'SESSION_INVALIDATED') {
+    sessionStorage.setItem('logout_reason', 'session_invalidated')
   }
-  const config = { method, headers }
-  if (body) config.body = JSON.stringify(body)
-  const res = await fetch(`${BASE}${path}`, config)
+  window.location.replace('/login')
+}
+
+async function handleResponse(res) {
+  if (res.status === 401) {
+    const err = await res.json().catch(() => ({}))
+    handleUnauthorized(err)
+    throw new Error('Signed out. Please log in again.')
+  }
   if (!res.ok) {
     const err = await res.json().catch(() => ({ error: 'Request failed' }))
     throw new Error(err.detail || err.error || 'Request failed')
@@ -19,17 +37,23 @@ async function request(method, path, body = null) {
   return res.json()
 }
 
+async function request(method, path, body = null) {
+  const config = {
+    method,
+    headers: authHeaders({ 'Content-Type': 'application/json' }),
+  }
+  if (body) config.body = JSON.stringify(body)
+  const res = await fetch(`${BASE}${path}`, config)
+  return handleResponse(res)
+}
+
 async function postForm(path, formData) {
   const res = await fetch(`${BASE}${path}`, {
     method: 'POST',
-    headers: { Authorization: `Bearer ${getToken()}` },
+    headers: authHeaders(),
     body: formData,
   })
-  if (!res.ok) {
-    const err = await res.json().catch(() => ({ error: 'Request failed' }))
-    throw new Error(err.detail || err.error || 'Request failed')
-  }
-  return res.json()
+  return handleResponse(res)
 }
 
 export const adminApi = {

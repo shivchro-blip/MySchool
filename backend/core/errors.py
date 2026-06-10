@@ -42,7 +42,30 @@ class AIUnavailableError(AppError):
         )
 
 
+class SessionInvalidatedError(Exception):
+    """Raised by verify_session when the presented X-Session-Token does not
+    match the single active session (signed in elsewhere, or no session
+    claimed). Gets its own handler so the response body matches the contract
+    the frontends key on: {"detail": "SESSION_INVALIDATED", "message": ...}."""
+
+    MESSAGE = (
+        "Your session was ended because you signed in from another location."
+    )
+
+
 def register_error_handlers(app: FastAPI) -> None:
+    @app.exception_handler(SessionInvalidatedError)
+    async def session_invalidated_handler(
+        request: Request, exc: SessionInvalidatedError
+    ):
+        return JSONResponse(
+            status_code=401,
+            content={
+                "detail":  "SESSION_INVALIDATED",
+                "message": SessionInvalidatedError.MESSAGE,
+            },
+        )
+
     @app.exception_handler(AppError)
     async def app_error_handler(request: Request, exc: AppError):
         return JSONResponse(

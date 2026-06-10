@@ -32,7 +32,16 @@ export default function AdminLayout({ children, title }) {
         <div className="p-3 border-t border-gray-200">
           <button
             onClick={() => {
+              const token = localStorage.getItem('admin_token')
+              if (token) {
+                // Fire-and-forget server-side session release.
+                fetch('/api/v1/users/session', {
+                  method: 'DELETE',
+                  headers: { Authorization: `Bearer ${token}` },
+                }).catch(() => {})
+              }
               localStorage.removeItem('admin_token')
+              localStorage.removeItem('admin_session')
               window.location.href = '/login'
             }}
             className="text-xs text-gray-400 hover:text-gray-600"

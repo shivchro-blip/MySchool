@@ -1,6 +1,6 @@
 import re
 from pathlib import Path
-from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, Form
+from fastapi import APIRouter, Depends, HTTPException, Query, UploadFile, File, Form
 from pydantic import BaseModel, Field
 from uuid import UUID
 from api.v1.deps import get_admin_user
@@ -32,6 +32,14 @@ class CreateQuestionRequest(BaseModel):
     source:        str  = "manual"
 
 
+class EditChunkRequest(BaseModel):
+    """Replaces the raw-dict body (security audit): unvalidated input on an
+    admin endpoint. Same whitelist, now enforced by Pydantic."""
+    content:        str | None = Field(default=None, max_length=100_000)
+    chunk_type:     str | None = Field(default=None, max_length=50)
+    section_header: str | None = Field(default=None, max_length=500)
+
+
 class UpdateQuestionRequest(BaseModel):
     question_text: str  | None = None
     answer_key:    dict | None = None
@@ -51,7 +59,7 @@ class TriggerPipelineRequest(BaseModel):
 
 @router.get("/content/pending")
 async def get_pending_content(
-    limit: int = 50,
+    limit: int = Query(default=50, ge=1, le=200),
     admin: dict = Depends(get_admin_user),
 ):
     db = get_db()
@@ -114,12 +122,11 @@ async def delete_chunk(
 @router.put("/content/{chunk_id}")
 async def edit_chunk(
     chunk_id: UUID,
-    body: dict,
+    body: EditChunkRequest,
     admin: dict = Depends(get_admin_user),
 ):
     db = get_db()
-    allowed = {k: v for k, v in body.items()
-               if k in ("content", "chunk_type", "section_header")}
+    allowed = body.model_dump(exclude_none=True)
     if not allowed:
         raise HTTPException(status_code=400, detail="No valid fields to update")
     result = (
@@ -135,7 +142,7 @@ async def edit_chunk(
 
 @router.get("/evaluations/pending")
 async def get_pending_evaluations(
-    limit: int = 50,
+    limit: int = Query(default=50, ge=1, le=200),
     admin: dict = Depends(get_admin_user),
 ):
     db = get_db()

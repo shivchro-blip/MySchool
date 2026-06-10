@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Query, Request
 from uuid import UUID
 from models import (
     SubmitAnswerRequest,
@@ -6,8 +6,9 @@ from models import (
     RetryRequest,
     ProgressResponse,
 )
-from api.v1.deps import get_current_user
+from api.v1.deps import verify_session
 from core.errors import NotFoundError, AIUnavailableError, RateLimitError
+from core.rate_limit import limiter, AI_CALL_LIMIT
 from modules.evaluation import evaluate_answer, retry_evaluation
 from db.repositories import ResponsesRepository
 
@@ -15,12 +16,14 @@ router = APIRouter()
 
 
 @router.post("/submit", response_model=EvaluationResponse)
+@limiter.limit(AI_CALL_LIMIT)
 async def submit_answer(
-    request: SubmitAnswerRequest,
-    user: dict = Depends(get_current_user),
+    request: Request,
+    body: SubmitAnswerRequest,
+    user: dict = Depends(verify_session),
 ):
     try:
-        return await evaluate_answer(request=request, user_id=user["id"])
+        return await evaluate_answer(request=body, user_id=user["id"])
     except NotFoundError as e:
         raise HTTPException(status_code=404, detail=str(e))
     except RateLimitError as e:
@@ -30,12 +33,14 @@ async def submit_answer(
 
 
 @router.post("/retry", response_model=EvaluationResponse)
+@limiter.limit(AI_CALL_LIMIT)
 async def retry_answer(
-    request: RetryRequest,
-    user: dict = Depends(get_current_user),
+    request: Request,
+    body: RetryRequest,
+    user: dict = Depends(verify_session),
 ):
     try:
-        return await retry_evaluation(request=request, user_id=user["id"])
+        return await retry_evaluation(request=body, user_id=user["id"])
     except NotFoundError as e:
         raise HTTPException(status_code=404, detail=str(e))
     except RateLimitError as e:
@@ -45,7 +50,7 @@ async def retry_answer(
 
 
 @router.get("/progress", response_model=ProgressResponse)
-async def get_progress(user: dict = Depends(get_current_user)):
+async def get_progress(user: dict = Depends(verify_session)):
     repo          = ResponsesRepository()
     all_responses = repo.get_by_user(user["id"], limit=100)
     total         = len(all_responses)
@@ -96,8 +101,9 @@ async def get_progress(user: dict = Depends(get_current_user)):
 
 @router.get("/history")
 async def get_history(
-    user: dict = Depends(get_current_user),
-    limit: int = 20,
+    user: dict = Depends(verify_session),
+    # Bounded in security audit: was an unbounded client-controlled value.
+    limit: int = Query(default=20, ge=1, le=100),
 ):
     data = ResponsesRepository().get_by_user(user["id"], limit=limit)
     return {"history": data, "total": len(data)}

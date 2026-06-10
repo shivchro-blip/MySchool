@@ -27,23 +27,30 @@ MOCK_ADMIN = {"id": "00000000-0000-0000-0000-000000000098", "email": "admin@test
 
 @pytest.fixture
 def as_student():
-    """Override get_current_user so route tests don't need a real Supabase token."""
+    """Override auth + session deps so route tests don't need a real
+    Supabase token or a claimed session row."""
     from core.auth import get_current_user
+    from core.session import verify_session
     app.dependency_overrides[get_current_user] = lambda: MOCK_USER
+    app.dependency_overrides[verify_session]   = lambda: MOCK_USER
     yield MOCK_USER
     app.dependency_overrides.pop(get_current_user, None)
+    app.dependency_overrides.pop(verify_session, None)
 
 
 @pytest.fixture
 def as_admin():
-    """Override both auth dependencies for admin route tests."""
+    """Override auth + session dependencies for admin route tests."""
     from core.auth import get_current_user
     from core.admin_auth import get_admin_user
+    from core.session import verify_session
     app.dependency_overrides[get_current_user] = lambda: MOCK_ADMIN
     app.dependency_overrides[get_admin_user]   = lambda: MOCK_ADMIN
+    app.dependency_overrides[verify_session]   = lambda: MOCK_ADMIN
     yield MOCK_ADMIN
     app.dependency_overrides.pop(get_current_user, None)
     app.dependency_overrides.pop(get_admin_user, None)
+    app.dependency_overrides.pop(verify_session, None)
 
 
 # ── Fixture data ──────────────────────────────────────────────────────────────
@@ -216,8 +223,9 @@ def test_learning_explain_rate_limit_returns_429(as_student):
     assert response.status_code == 429
 
 
-def test_learning_content_returns_chunks():
-    """GET /api/v1/learning/content/{id} returns validated content chunks."""
+def test_learning_content_returns_chunks(as_student):
+    """GET /api/v1/learning/content/{id} returns validated content chunks
+    (endpoint requires auth since the security audit)."""
     chunk = {
         'id': '00000000-0000-0000-0000-000000000020',
         'chunk_type': 'summary', 'content': 'The Last Lesson is about...',

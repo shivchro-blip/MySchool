@@ -6,9 +6,28 @@ import QuestionsPage   from './pages/QuestionsPage'
 import EvaluationsPage from './pages/EvaluationsPage'
 import PipelinePage    from './pages/PipelinePage'
 
+function isTokenValid(token) {
+  // Security audit: the guard previously only checked token PRESENCE; an
+  // expired or garbage value passed. Decode exp and require it be in the
+  // future. (Authorization is still enforced server-side per request.)
+  try {
+    const payload = JSON.parse(
+      atob(token.split('.')[1].replace(/-/g, '+').replace(/_/g, '/'))
+    )
+    return typeof payload.exp === 'number' && Date.now() < payload.exp * 1000
+  } catch {
+    return false
+  }
+}
+
 function Guard({ children }) {
   const token = localStorage.getItem('admin_token')
-  return token ? children : <Navigate to="/login" replace />
+  if (!token || !isTokenValid(token)) {
+    localStorage.removeItem('admin_token')
+    localStorage.removeItem('admin_session')
+    return <Navigate to="/login" replace />
+  }
+  return children
 }
 
 export default function App() {

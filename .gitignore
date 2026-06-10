@@ -8,8 +8,18 @@ venv/
 dist/
 build/
 
-# Environment
+# Environment — never commit env files (only .env.example is tracked)
 .env
+.env.local
+.env.*.local
+
+# Keys / certificates / signing material — never commit
+*.pem
+*.jks
+*.keystore
+*.p12
+yadhum-twa/
+migration*.patch
 
 # Content (never commit PDFs or vector store)
 content/raw/
