@@ -1,3 +1,29 @@
+import { useEffect } from 'react'
+import { adminApi } from '../api/client'
+
+// Single-session active eviction for idle admin tabs. Admin pages fetch on
+// mount (navigation already evicts), but an idle dashboard would not notice a
+// sign-out elsewhere. Poll a cheap authed endpoint; the 401 SESSION_INVALIDATED
+// handler in api/client.js does the redirect + banner.
+function useAdminHeartbeat() {
+  useEffect(() => {
+    if (!localStorage.getItem('admin_session')) return
+    const ping = () => {
+      if (!localStorage.getItem('admin_token')) return
+      adminApi.get('/stats').catch(() => {})
+    }
+    const id = setInterval(ping, 20000)
+    const onVisible = () => {
+      if (document.visibilityState === 'visible') ping()
+    }
+    document.addEventListener('visibilitychange', onVisible)
+    return () => {
+      clearInterval(id)
+      document.removeEventListener('visibilitychange', onVisible)
+    }
+  }, [])
+}
+
 const NAV = [
   { href: '/',            label: '📊 Dashboard'  },
   { href: '/content',     label: '📚 Content'     },
@@ -7,6 +33,7 @@ const NAV = [
 ]
 
 export default function AdminLayout({ children, title }) {
+  useAdminHeartbeat()
   return (
     <div className="min-h-screen flex">
       {/* Sidebar */}

@@ -4,6 +4,7 @@ import { Search, LayoutGrid, BookOpen, TrendingUp, Award, Sun, Moon, LogOut } fr
 import BrandLogo from '../ui/BrandLogo'
 import DashboardSidebar from './DashboardSidebar'
 import { useTheme } from '../../hooks/useTheme'
+import { useSessionHeartbeat } from '../../hooks/useSessionHeartbeat'
 import { logout } from '../../api/auth'
 
 // Active nav teal — no token exists in web Tailwind config for this shade
@@ -17,6 +18,7 @@ const BOTTOM_TABS = [
 ]
 
 export default function DashboardShell({ children }) {
+  useSessionHeartbeat()  // single-session active eviction across SPA navigation
   const [dark, toggleTheme] = useTheme()
   const [acctMenuOpen, setAcctMenuOpen] = useState(false)
   const navigate = useNavigate()
