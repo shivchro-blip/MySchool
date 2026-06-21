@@ -5,7 +5,7 @@ test.describe('Authentication', () => {
   test('login page loads correctly', async ({ page }) => {
     test.info().annotations.push({ type: 'component', description: COMPONENTS.LoginPage })
     await page.goto('/login')
-    await expect(page.locator('h1')).toContainText('AI Exam Coach')
+    await expect(page.getByAltText(/Yadhum/i)).toBeVisible()
     await expect(page.getByPlaceholder('your@email.com')).toBeVisible()
     await expect(page.getByPlaceholder('••••••••')).toBeVisible()
   })

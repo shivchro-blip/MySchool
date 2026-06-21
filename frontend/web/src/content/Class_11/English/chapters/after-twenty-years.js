@@ -1,5 +1,5 @@
 ﻿export default {
-  eyebrow: 'Unit 1 · Supplementary · Plus One General English',
+  eyebrow: 'Unit 1 · Supplementary · Class 11 General English',
   title: 'After Twenty Years',
   author: 'O. Henry',
   pills: ['Short Story', 'Duty vs Friendship', 'Irony', 'Police Mystery'],

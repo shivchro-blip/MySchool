@@ -1,7 +1,7 @@
 ﻿{
   "name": "Yadhum",
   "short_name": "Yadhum",
-  "description": "AI Exam Coach for Tamil Nadu State Board Plus 1 and Plus 2 English students",
+  "description": "Yadhum — AI exam coach for Samacheer Kalvi Higher Secondary English students",
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",

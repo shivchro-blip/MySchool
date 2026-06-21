@@ -19,6 +19,11 @@
 }
 
 :root {
+  /* Native form controls + UA chrome follow the app theme, not the OS.
+     Pairs with <meta name="color-scheme" content="light dark"> to stop
+     Chrome/WebView auto-dark from darkening light-mode inputs. */
+  color-scheme: light;
+
   /* ══════════════════════════════════════════════════════════
      CANONICAL DESIGN TOKENS — LIGHT
      ══════════════════════════════════════════════════════════ */
@@ -144,6 +149,8 @@
 }
 
 [data-theme="dark"] {
+  color-scheme: dark;
+
   /* ══════════════════════════════════════════════════════════
      CANONICAL DESIGN TOKENS — DARK
      ══════════════════════════════════════════════════════════ */
@@ -306,6 +313,39 @@
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Form controls — pin text, caret, background + autofill to theme tokens.
+     Fixes white-on-white typed text and an invisible caret in light mode
+     (login email/password + lesson practice answer), caused by Chrome/WebView
+     auto-dark overriding `color`/-webkit-text-fill-color. Token-scoped, so
+     [data-theme="dark"] keeps its intended light text on dark surfaces. */
+  input:not([type="radio"]):not([type="checkbox"]):not([type="range"]),
+  textarea,
+  select {
+    color: var(--text-primary);
+    -webkit-text-fill-color: var(--text-primary);
+    caret-color: var(--text-primary);
+    background-color: var(--surface-alt);
+  }
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--text-tertiary);
+    -webkit-text-fill-color: var(--text-tertiary);
+    opacity: 1;
+  }
+  /* Browser autofill (Chrome/Edge/WebView) otherwise forces its own
+     text-fill-color + background, recreating the white-on-white bug. */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  select:-webkit-autofill {
+    -webkit-text-fill-color: var(--text-primary);
+    caret-color: var(--text-primary);
+    -webkit-box-shadow: 0 0 0 1000px var(--surface-alt) inset;
+            box-shadow: 0 0 0 1000px var(--surface-alt) inset;
+    transition: background-color 9999s ease-in-out 0s;
   }
 
   h1, h2, h3, h4, h5, h6 {

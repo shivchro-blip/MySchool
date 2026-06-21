@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
-import { Search, LayoutGrid, BookOpen, TrendingUp, Award, Sun, Moon, LogOut } from 'lucide-react'
+import { LayoutGrid, BookOpen, TrendingUp, Award, Sun, Moon, LogOut } from 'lucide-react'
 import BrandLogo from '../ui/BrandLogo'
 import DashboardSidebar from './DashboardSidebar'
 import { useTheme } from '../../hooks/useTheme'
@@ -79,16 +79,6 @@ export default function DashboardShell({ children }) {
 
           {/* Spacer */}
           <div style={{ flex: 1 }} />
-
-          {/* Search — hidden on mobile */}
-          <div className="hidden min-[640px]:flex" style={{
-            alignItems: 'center', gap: 8,
-            background: 'var(--bg-sunk)', borderRadius: 10, padding: '7px 12px',
-            fontSize: 13, color: 'var(--ink-4)',
-          }}>
-            <Search size={14} style={{ color: 'var(--ink-4)' }} />
-            <span>Search...</span>
-          </div>
 
           {/* Theme toggle — neutral pill.
               Same style in both modes; only icon + label change. */}

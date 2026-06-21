@@ -26,7 +26,7 @@ test.describe('Progress Page', () => {
       { type: 'component', description: COMPONENTS.ProgressPage },
     )
     await page.goto('/progress')
-    await page.getByRole('link', { name: 'Exam Coach' }).click()
+    await page.getByRole('button', { name: /^(Home|Dashboard)$/ }).first().click()
     await expect(page).toHaveURL('/')
   })
 })

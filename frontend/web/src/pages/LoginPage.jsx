@@ -3,6 +3,7 @@ import { useNavigate, Link } from 'react-router-dom'
 import { loginWithEmail, signupWithEmail, resendConfirmationEmail, signInWithGoogle } from '../api/auth'
 import { recordSignupConsent } from '../api/users'
 import { Button, Input } from '../components/ui'
+import { Eye, EyeOff } from 'lucide-react'
 
 export default function LoginPage() {
   const navigate                 = useNavigate()
@@ -14,6 +15,7 @@ export default function LoginPage() {
   const [resendStatus,    setResendStatus] = useState('')
   const [ageConfirmation, setAge]       = useState('')
   const [consentChecked,  setConsent]   = useState(false)
+  const [showPassword,    setShowPassword] = useState(false)
   // Set by api/client.js when the backend reports SESSION_INVALIDATED.
   const [sessionNotice] = useState(() => {
     const wasInvalidated =
@@ -154,14 +156,30 @@ export default function LoginPage() {
               <label className="block text-sm font-medium text-text-secondary mb-1.5">
                 Password
               </label>
-              <Input
-                type="password"
-                value={password}
-                onChange={e => setPass(e.target.value)}
-                placeholder="••••••••"
-                required
-                minLength={6}
-              />
+              <div className="relative">
+                <Input
+                  type={showPassword ? 'text' : 'password'}
+                  value={password}
+                  onChange={e => setPass(e.target.value)}
+                  placeholder="••••••••"
+                  required
+                  minLength={6}
+                  className="pr-10"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(v => !v)}
+                  aria-label={showPassword ? 'Hide password' : 'Show password'}
+                  aria-pressed={showPassword}
+                  className="absolute inset-y-0 right-0 flex items-center pr-3 rounded
+                             text-ink-4 hover:text-ink
+                             focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                >
+                  {showPassword
+                    ? <EyeOff size={18} aria-hidden="true" />
+                    : <Eye size={18} aria-hidden="true" />}
+                </button>
+              </div>
             </div>
 
             {mode === 'signup' && (

@@ -1,5 +1,5 @@
 ﻿export default {
-  eyebrow: 'Unit 4 · Prose · Plus One General English',
+  eyebrow: 'Unit 4 · Prose · Class 11 General English',
   title: 'Tight Corners',
   author: 'Edward Verrall Lucas',
   pills: ['Humorous Essay', 'Auction Room', 'Crisis & Folly', 'Presence of Mind'],

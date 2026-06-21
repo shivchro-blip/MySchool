@@ -69,7 +69,7 @@ Yadhum does not use tracking cookies. We use:
 
 ## 5. Children's Privacy
 
-Yadhum is designed for Samacheer Kalvi Plus 1 and Plus 2 students (typically ages 16–18). The service is **not directed at children under the age of 13**. We do not knowingly collect personal information from children under 13. If we learn that we have inadvertently collected such information, we will delete it promptly. If you believe your child under 13 has provided us with personal information, please contact us at yadhumedu@gmail.com.
+Yadhum is designed for Samacheer Kalvi Class 11 and Class 12 students (typically ages 16–18). The service is **not directed at children under the age of 13**. We do not knowingly collect personal information from children under 13. If we learn that we have inadvertently collected such information, we will delete it promptly. If you believe your child under 13 has provided us with personal information, please contact us at yadhumedu@gmail.com.
 
 ---
 
