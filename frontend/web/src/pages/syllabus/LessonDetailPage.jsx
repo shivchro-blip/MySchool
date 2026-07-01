@@ -1,11 +1,13 @@
 import { useParams, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import {
-  getLesson, SYLLABUS, LESSON_SECTIONS,
+  getLesson, getSubjectChapters, SYLLABUS, LESSON_SECTIONS,
 } from '../../data/syllabus'
 import { buildBreadcrumbs } from '../../lib/nav'
 import { Card, PageHeader } from '../../components/ui'
 import { Breadcrumb } from '../../components/nav'
+import contentRegistry from '../../content/registry'
+import ContentComingSoon from './ContentComingSoon'
 import NotFound from './NotFound'
 
 const CATEGORY_EYEBROW = {
@@ -17,10 +19,20 @@ const CATEGORY_EYEBROW = {
 export default function LessonDetailPage() {
   const { year, subject, category, lesson } = useParams()
   const navigate                            = useNavigate()
+  // Resolve from categorised lessons (English) or the chapters array (Maths).
   const lessonData = getLesson(year, subject, category, lesson)
+    || getSubjectChapters(year, subject).find(c => c.slug === lesson)
+    || null
   const crumbs     = buildBreadcrumbs(year, subject, category, lesson, null, SYLLABUS)
 
   if (!lessonData) return <NotFound message={`Lesson "${lesson}" not found`} />
+
+  // No registered content module → honest "coming soon" instead of a section
+  // grid whose every tab leads to a fake skeleton. Applies to any unregistered
+  // lesson (Maths chapters, Science lessons, etc.).
+  if (!contentRegistry.has(lesson)) {
+    return <ContentComingSoon title={lessonData.title} crumbs={crumbs} />
+  }
 
   return (
     <div>

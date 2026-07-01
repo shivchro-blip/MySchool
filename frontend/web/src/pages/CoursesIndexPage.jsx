@@ -15,6 +15,7 @@ function countLessons(yearData) {
   let total = 0
   Object.values(yearData.subjects || {}).forEach(sub => {
     if (sub.units) sub.units.forEach(u => { total += u.lessons.length })
+    if (sub.chapters) total += sub.chapters.length
   })
   return total
 }

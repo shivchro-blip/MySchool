@@ -77,7 +77,7 @@ export default function LoginPage() {
           <div style={{ display:'flex', flexDirection:'column', alignItems:'center', marginBottom:8 }}>
             <img
               src="/logo.png"
-              alt="Yadhum — Tamil Nadu Board Exam Prep"
+              alt="Yadhum — Samacheer Kalvi exam preparation"
               style={{ width:140, height:'auto', objectFit:'contain' }}
             />
           </div>

@@ -25,16 +25,22 @@ export function buildBreadcrumbs(year, subject, category, lesson, section, sylla
       to:    `/${year}/${subject}`,
     })
   }
+  const subjObj = syllabus[year]?.subjects?.[subject]
   if (category) {
-    const c = syllabus[year]?.subjects?.[subject]?.categories?.[category]
-    crumbs.push({
-      label: c?.label || category,
-      to:    `/${year}/${subject}/${category}`,
-    })
+    const c = subjObj?.categories?.[category]
+    // Chapter-based subjects (e.g. Maths) use a synthetic 'chapters' segment with
+    // no real category — skip the crumb rather than show the raw slug.
+    if (c) {
+      crumbs.push({
+        label: c.label,
+        to:    `/${year}/${subject}/${category}`,
+      })
+    }
   }
   if (lesson) {
-    const lessons = syllabus[year]?.subjects?.[subject]?.categories?.[category]?.lessons || []
-    const l = lessons.find(x => x.slug === lesson)
+    const catLessons = subjObj?.categories?.[category]?.lessons || []
+    const chapters   = subjObj?.chapters || []
+    const l = catLessons.find(x => x.slug === lesson) || chapters.find(x => x.slug === lesson)
     crumbs.push({
       label: l?.title || lesson,
       to:    `/${year}/${subject}/${category}/${lesson}`,

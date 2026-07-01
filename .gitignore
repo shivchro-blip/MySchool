@@ -54,3 +54,5 @@ graphify-out/
 # Local dev artifacts (never commit)
 Dummy_files/
 .launch/
+.graphify_python
+frontend/web/test-results/

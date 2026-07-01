@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom'
 import { LayoutGrid, BookOpen, TrendingUp, Award, Sun, Moon, LogOut } from 'lucide-react'
 import BrandLogo from '../ui/BrandLogo'
 import DashboardSidebar from './DashboardSidebar'
+import ConfirmDialog from '../ui/ConfirmDialog'
 import { useTheme } from '../../hooks/useTheme'
 import { useSessionHeartbeat } from '../../hooks/useSessionHeartbeat'
 import { logout } from '../../api/auth'
@@ -21,10 +22,17 @@ export default function DashboardShell({ children }) {
   useSessionHeartbeat()  // single-session active eviction across SPA navigation
   const [dark, toggleTheme] = useTheme()
   const [acctMenuOpen, setAcctMenuOpen] = useState(false)
+  const [logoutOpen, setLogoutOpen] = useState(false)
   const navigate = useNavigate()
   const { pathname } = useLocation()
 
+  // Both mobile triggers (topbar icon + account menu) open the confirm dialog.
   function handleLogout() {
+    setLogoutOpen(true)
+  }
+
+  function confirmLogout() {
+    setLogoutOpen(false)
     logout()
     navigate('/login')
   }
@@ -74,7 +82,7 @@ export default function DashboardShell({ children }) {
           {/* Desktop: plain wordmark (sidebar already shows logo) */}
           <span className="hidden min-[900px]:block" style={{ fontSize: 13, fontWeight: 700, color: 'var(--ink)', letterSpacing: '-0.01em' }}>
             Yadhum
-            <span style={{ fontWeight: 400, color: 'var(--ink-4)', marginLeft: 6, fontSize: 11 }}>TN Board</span>
+            <span style={{ fontWeight: 400, color: 'var(--ink-4)', marginLeft: 6, fontSize: 11 }}>Samacheer Kalvi</span>
           </span>
 
           {/* Spacer */}
@@ -233,6 +241,17 @@ export default function DashboardShell({ children }) {
         </nav>
 
       </div>
+
+      <ConfirmDialog
+        open={logoutOpen}
+        title="Log out?"
+        message="You'll need to sign in again to access your courses."
+        confirmLabel="Log out"
+        cancelLabel="Cancel"
+        danger
+        onConfirm={confirmLogout}
+        onCancel={() => setLogoutOpen(false)}
+      />
     </div>
   )
 }

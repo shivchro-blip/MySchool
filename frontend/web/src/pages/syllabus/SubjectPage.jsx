@@ -294,6 +294,52 @@ export default function SubjectPage() {
     )
   }
 
+  // ── Chapter list layout (subjects authored as type:'chapters', e.g. Maths) ──
+  if (subjectData.chapters) {
+    return (
+      <div>
+        <PageHeader
+          breadcrumb={<Breadcrumb crumbs={crumbs} />}
+          title={subjectData.label}
+          subtitle="Select a chapter"
+        />
+
+        <div className="space-y-2">
+          {subjectData.chapters.map((ch, i) => (
+            <motion.div
+              key={ch.slug}
+              initial={{ opacity: 0, x: -8 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: i * 0.04 }}
+            >
+              <Card
+                interactive
+                padding="md"
+                onClick={() => navigate(`/${year}/${subject}/chapters/${ch.slug}`)}
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-surface-alt flex items-center
+                                  justify-center text-xs font-bold text-text-secondary shrink-0">
+                    {ch.number}
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-sm font-semibold text-text-primary leading-snug">
+                      {ch.title}
+                    </p>
+                    {ch.volume != null && (
+                      <p className="text-xs text-text-tertiary mt-0.5">Volume {ch.volume}</p>
+                    )}
+                  </div>
+                  <ChevronRight size={16} className="text-text-tertiary shrink-0" />
+                </div>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    )
+  }
+
   // ── Category cards layout (Maths, Science, etc.) ──
   return (
     <div>

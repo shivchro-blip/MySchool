@@ -87,8 +87,17 @@ function ClassPicker({ classLevel, setClassLevel, onNext }) {
                 className="mb-3"
                 style={{ color: sel ? cls.color : 'var(--text-muted)' }}
               />
-              <div className="font-semibold text-sm text-text-primary">{cls.label}</div>
-              <div className="text-xs text-text-secondary mt-0.5">{cls.sub}</div>
+              {/* Selected chip sits on a fixed light pastel bg → pin label to a
+                  fixed dark ink so it stays legible in dark mode (theme tokens
+                  would flip to near-white and vanish). Unselected = theme-aware. */}
+              <div
+                className="font-semibold text-sm text-text-primary"
+                style={sel ? { color: '#1E293B' } : undefined}
+              >{cls.label}</div>
+              <div
+                className="text-xs text-text-secondary mt-0.5"
+                style={sel ? { color: '#475569' } : undefined}
+              >{cls.sub}</div>
             </button>
           )
         })}
@@ -146,7 +155,7 @@ function SubjectPicker({ subjects, toggleSubject, loading, error, onBack, onFini
               </span>
               <span
                 className="flex-1 text-sm text-text-primary"
-                style={{ fontWeight: sel ? 600 : 400 }}
+                style={{ fontWeight: sel ? 600 : 400, color: sel ? '#1E293B' : undefined }}
               >
                 {subj.name}
               </span>

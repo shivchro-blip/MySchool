@@ -286,6 +286,7 @@ CSS vars also in `index.css`:
 |-----------|------|-------|
 | Badge | `Badge.jsx` | status chips |
 | BrandLogo | `BrandLogo.jsx` | app logo mark |
+| ConfirmDialog | `ConfirmDialog.jsx` | modal confirm (backdrop + card); `danger` prop for destructive actions (e.g. logout) |
 | Button | `Button.jsx` | uses `brand-*` palette for primary |
 | Card | `Card.jsx` | uses `shadow-card` + `rounded-md` |
 | Eyebrow | `Eyebrow.jsx` | small uppercase label / section eyebrow |

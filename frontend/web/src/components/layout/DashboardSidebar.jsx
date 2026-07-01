@@ -9,6 +9,7 @@ import { logout } from '../../api/auth'
 import { getCachedProfile } from '../../api/users'
 import { getAllowedYearKey, isSubjectAllowed } from '../../lib/userAccess'
 import { Link } from 'react-router-dom'
+import ConfirmDialog from '../ui/ConfirmDialog'
 
 const TOP_NAV = [
   { id: 'dashboard',   label: 'Dashboard',   icon: LayoutGrid,    to: '/'            },
@@ -130,6 +131,7 @@ export default function DashboardSidebar({ onClose, collapsed = false }) {
   const navigate    = useNavigate()
   const { pathname } = useLocation()
   const [profile, setProfile] = useState(null)
+  const [logoutOpen, setLogoutOpen] = useState(false)
 
   useEffect(() => {
     getCachedProfile().then(setProfile)
@@ -156,12 +158,17 @@ export default function DashboardSidebar({ onClose, collapsed = false }) {
 
   function handleBottomNavClick(item) {
     if (item.id === 'logout') {
-      logout()
-      navigate('/login')
-      onClose?.()
+      setLogoutOpen(true)
       return
     }
     if (item.to) go(item.to)
+  }
+
+  function confirmLogout() {
+    setLogoutOpen(false)
+    logout()
+    navigate('/login')
+    onClose?.()
   }
 
   function bottomNavDanger(item) {
@@ -202,7 +209,7 @@ export default function DashboardSidebar({ onClose, collapsed = false }) {
                 Yadhum
               </div>
               <div style={{ color: '#5DCAA5', fontSize: 11, lineHeight: 1.2, whiteSpace: 'nowrap' }}>
-                TN Board
+                Samacheer Kalvi
               </div>
             </div>
           )}
@@ -307,6 +314,16 @@ export default function DashboardSidebar({ onClose, collapsed = false }) {
         )}
       </div>
 
+      <ConfirmDialog
+        open={logoutOpen}
+        title="Log out?"
+        message="You'll need to sign in again to access your courses."
+        confirmLabel="Log out"
+        cancelLabel="Cancel"
+        danger
+        onConfirm={confirmLogout}
+        onCancel={() => setLogoutOpen(false)}
+      />
     </div>
   )
 }
