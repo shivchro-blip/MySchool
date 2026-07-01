@@ -1,7 +1,7 @@
 import { useEffect, useState, lazy, Suspense } from 'react'
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import { isLoggedIn } from './api/auth'
-import { getCachedProfile } from './api/users'
+import { getCachedProfile, getStoredProfile } from './api/users'
 
 // Eager: LoginPage and the dashboard shell are on the critical path for the
 // first paint of every session, so they stay in the entry chunk. Every other
@@ -43,13 +43,27 @@ if (isLoggedIn()) getCachedProfile()
 
 function Guard({ children }) {
   const location = useLocation()
-  const [state, setState] = useState({ loading: true, profile: null })
   const loggedIn = isLoggedIn()
+  // Paint immediately from the persisted profile when available (returning
+  // sessions); the effect below always revalidates against /users/me and
+  // reconciles — a changed onboarding flag still redirects correctly.
+  const [state, setState] = useState(() => {
+    const stored = loggedIn ? getStoredProfile() : null
+    return stored
+      ? { loading: false, profile: stored }
+      : { loading: true,  profile: null }
+  })
 
   useEffect(() => {
     if (!loggedIn) return
     getCachedProfile()
-      .then(profile => setState({ loading: false, profile }))
+      // getCachedProfile resolves null on any error; keep the last good
+      // profile so a failed revalidation can't bounce an already painted
+      // dashboard to /onboarding.
+      .then(profile => setState(s => ({ loading: false, profile: profile ?? s.profile })))
+      // getCachedProfile never rejects today; this catch guards against
+      // future refactors that remove its internal catch.
+      .catch(() => setState(s => ({ loading: false, profile: s.profile })))
   }, [loggedIn])
 
   if (!loggedIn) {

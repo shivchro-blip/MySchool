@@ -1,4 +1,4 @@
-import { invalidateProfileCache } from './users'
+import { invalidateProfileCache, getCachedProfile } from './users'
 
 const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL
 const SUPABASE_ANON = import.meta.env.VITE_SUPABASE_ANON_KEY
@@ -115,6 +115,11 @@ export async function loginWithEmail(email, password) {
   if (data.access_token) {
     localStorage.setItem('exam_coach_token', data.access_token)
     await claimSession()
+    // Start /users/me now (must come after claimSession — the endpoint
+    // requires X-Session-Token). Guard joins this in-flight promise instead
+    // of starting the fetch after its first commit. Deliberately not awaited;
+    // errors are already swallowed inside getCachedProfile.
+    getCachedProfile().catch(() => {})
   }
   return data
 }

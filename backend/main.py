@@ -1,3 +1,5 @@
+import logging
+
 from fastapi import FastAPI, Response
 from fastapi.middleware.cors import CORSMiddleware
 from slowapi import _rate_limit_exceeded_handler
@@ -38,6 +40,18 @@ app.add_middleware(
 
 register_error_handlers(app)
 app.include_router(api_router)
+
+# Startup visibility for the auth fast path: with no JWT secret, core/auth.py
+# silently skips local verification and every authenticated request pays a
+# remote GoTrue round-trip. Logged via uvicorn.error — the app configures no
+# logging of its own, and uvicorn's default config only attaches handlers to
+# its own loggers. Fires once per worker.
+if not settings.supabase_jwt_secret:
+    logging.getLogger("uvicorn.error").warning(
+        "SUPABASE_JWT_SECRET is unset — local JWT verification is disabled and "
+        "every authenticated request performs a remote GoTrue round-trip "
+        "(latency optimisation INACTIVE)."
+    )
 
 
 @app.get("/health", response_model=HealthResponse, tags=["Health"])
