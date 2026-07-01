@@ -4,10 +4,29 @@ let _cachedProfile = null
 let _cacheToken    = null
 let _inflight      = null
 
+// Stale-while-revalidate: the last good profile is persisted per token so a
+// returning session paints the dashboard without waiting for /users/me. The
+// store is keyed on the exact JWT — a rotated/re-issued token misses cleanly
+// and falls back to the network fetch.
+const PROFILE_STORE_KEY = 'exam_coach_profile_cache'
+
+export function getStoredProfile() {
+  const token = localStorage.getItem('exam_coach_token')
+  if (!token) return null
+  if (_cachedProfile && _cacheToken === token) return _cachedProfile
+  try {
+    const stored = JSON.parse(localStorage.getItem(PROFILE_STORE_KEY))
+    return stored?.token === token ? stored.profile : null
+  } catch {
+    return null
+  }
+}
+
 export function invalidateProfileCache() {
   _cachedProfile = null
   _cacheToken    = null
   _inflight      = null
+  localStorage.removeItem(PROFILE_STORE_KEY)
 }
 
 export async function getCachedProfile() {
@@ -20,6 +39,9 @@ export async function getCachedProfile() {
       _cachedProfile = profile
       _cacheToken    = token
       _inflight      = null
+      try {
+        localStorage.setItem(PROFILE_STORE_KEY, JSON.stringify({ token, profile }))
+      } catch {}
       return profile
     })
     .catch(() => {

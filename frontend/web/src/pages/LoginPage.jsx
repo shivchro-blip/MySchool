@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { loginWithEmail, signupWithEmail, resendConfirmationEmail, signInWithGoogle } from '../api/auth'
 import { recordSignupConsent } from '../api/users'
@@ -25,6 +25,17 @@ export default function LoginPage() {
       ? 'You were signed out because your account was accessed from another location.'
       : ''
   })
+
+  // Pre-warm the post-login landing pages while the user types credentials:
+  // both lazy chunks (~2 kB gzip each) enter the browser's module cache, so
+  // React.lazy in App.jsx resolves instantly after login. Chunk identity is
+  // keyed on the resolved module id, so these hit the same chunks App.jsx
+  // lazy-loads despite the different relative specifiers. A failed prefetch
+  // is harmless — React.lazy simply fetches the chunk again on render.
+  useEffect(() => {
+    import('./DashboardPage').catch(() => {})
+    import('./OnboardingPage').catch(() => {})
+  }, [])
 
   async function handleSubmit(e) {
     e.preventDefault()
