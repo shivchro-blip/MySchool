@@ -123,7 +123,7 @@ class _LoginScreenState extends State<LoginScreen> {
               const Center(child: BrandLogo(height: 140)),
               const SizedBox(height: 8),
               Text(
-                'Tamil Nadu +1 & +2 Board Exam Preparation',
+                'Board Exam Preparation, Made Simple',
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 13, color: AppTheme.text2Of(context)),
               ),
@@ -143,7 +143,7 @@ class _LoginScreenState extends State<LoginScreen> {
               Text(
                 _isLogin
                     ? 'Continue where you left off.'
-                    : 'Set up your TN Exam Coach learning space.',
+                    : 'Set up your Yadhum learning space.',
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 13, color: AppTheme.text2Of(context)),
               ),

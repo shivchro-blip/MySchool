@@ -255,7 +255,7 @@ class _IntroStep extends StatelessWidget {
           ),
           const SizedBox(height: 12),
           Text(
-            'Choose your class and subjects. TN Exam Coach will show only the courses that match your selection.',
+            'Choose your class and subjects. Yadhum will show only the courses that match your selection.',
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 14,

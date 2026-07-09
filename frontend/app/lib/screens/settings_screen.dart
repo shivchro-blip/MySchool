@@ -19,6 +19,53 @@ class SettingsScreen extends StatelessWidget {
           _legalTile(context, Icons.mail_outline,          'Contact & Support', '/contact'),
 
           const SizedBox(height: 32),
+          _sectionHeader('Danger Zone'),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Container(
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: AppTheme.cardOf(context),
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(color: AppTheme.error, width: 1.5),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      Container(
+                        width: 36, height: 36,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          color: AppTheme.errorBgOf(context),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: const Icon(Icons.delete_outline, size: 18, color: AppTheme.error),
+                      ),
+                      const SizedBox(width: 12),
+                      const Text('Delete Account', style: TextStyle(fontSize: 15, fontWeight: FontWeight.w700)),
+                    ],
+                  ),
+                  const SizedBox(height: 12),
+                  Text(
+                    'Permanently removes your name, email, learning progress, and all other '
+                    'personal data from our systems. This action cannot be undone. Deletion is '
+                    'completed within 30 days of your request.',
+                    style: TextStyle(fontSize: 13, color: AppTheme.text2Of(context), height: 1.5),
+                  ),
+                  const SizedBox(height: 14),
+                  FilledButton(
+                    onPressed: () => context.push('/delete-account'),
+                    style: FilledButton.styleFrom(backgroundColor: AppTheme.error),
+                    child: const Text('Delete Account'),
+                  ),
+                ],
+              ),
+            ),
+          ),
+
+          const SizedBox(height: 32),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Text(

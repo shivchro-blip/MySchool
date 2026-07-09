@@ -192,7 +192,7 @@ export default function AuthCallbackPage() {
         </div>
 
         <p className="text-center text-xs text-text-tertiary mt-6">
-          Higher Secondary · Samacheer Kalvi
+          Board Exam Preparation, Made Simple
         </p>
       </div>
     </div>

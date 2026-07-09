@@ -25,6 +25,7 @@ import 'screens/settings_screen.dart';
 import 'screens/privacy_screen.dart';
 import 'screens/terms_screen.dart';
 import 'screens/contact_screen.dart';
+import 'screens/delete_account_screen.dart';
 import 'widgets/shell_scaffold.dart';
 
 final router = GoRouter(
@@ -136,6 +137,10 @@ final router = GoRouter(
         GoRoute(
           path: '/contact',
           builder: (_, __) => const ContactScreen(),
+        ),
+        GoRoute(
+          path: '/delete-account',
+          builder: (_, __) => const DeleteAccountScreen(),
         ),
         GoRoute(
           path: '/learn/:classLevel/:subjectSlug/:chapterSlug',

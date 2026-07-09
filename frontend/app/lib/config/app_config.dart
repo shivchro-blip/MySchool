@@ -21,7 +21,6 @@ class AppConfig {
     defaultValue: '',
   );
 
-  static const String appName = 'AI Exam Coach';
   static const int freeAiCallsPerDay = 20;
   static const int requestTimeoutSeconds = 90;
 
@@ -30,5 +29,12 @@ class AppConfig {
         'SUPABASE_URL must be set via --dart-define=SUPABASE_URL=...');
     assert(supabaseAnonKey.isNotEmpty,
         'SUPABASE_ANON_KEY must be set via --dart-define=SUPABASE_ANON_KEY=...');
+    // The web app's config uses the shorter '/api' convention; this app
+    // expects the full versioned path. Throws (not assert) so it also
+    // fires in release builds.
+    if (!apiBaseUrl.endsWith('/v1')) {
+      throw StateError('API_BASE_URL must include /v1 — got: $apiBaseUrl. '
+          'Example: https://api.yadhum.net/api/v1');
+    }
   }
 }

@@ -28,7 +28,7 @@ class ExamCoachApp extends StatelessWidget {
       ],
       child: Consumer<ThemeProvider>(
         builder: (_, themeProvider, __) => MaterialApp.router(
-          title:          'AI Exam Coach',
+          title:          kProductName,
           theme:          AppTheme.light,
           darkTheme:      AppTheme.dark,
           themeMode:      themeProvider.mode,

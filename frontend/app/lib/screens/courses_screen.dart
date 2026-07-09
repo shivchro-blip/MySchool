@@ -107,7 +107,7 @@ class _CoursesScreenState extends State<CoursesScreen> {
           children: [
             // ── Editorial header ──────────────────────────────────
             const PageHeader(
-              eyebrow: 'Tamil Nadu State Board',
+              eyebrow: 'Samacheer Kalvi',
               title: 'My Courses',
               subtitle: 'Select a year group to browse subjects and lessons.',
               padding: EdgeInsets.zero,

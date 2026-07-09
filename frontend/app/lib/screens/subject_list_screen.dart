@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
+import '../config/syllabus_config.dart';
 import '../config/theme.dart';
 import '../models/syllabus_model.dart';
 import '../providers/syllabus_provider.dart';
@@ -25,7 +26,7 @@ class _SubjectListScreenState extends State<SubjectListScreen> {
     });
   }
 
-  String get _title => widget.classLevel == '+1' ? '+1 Courses' : '+2 Courses';
+  String get _title => SyllabusConfig.courseShortTitle(widget.classLevel);
 
   // Returns true when the subject's slug or name matches an allowed slug.
   // Handles 'maths' ↔ 'mathematics' equivalence gracefully.

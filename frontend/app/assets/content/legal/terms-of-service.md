@@ -1,27 +1,30 @@
 # Terms of Service
 
-**Last updated:** 2026-05-11
+> **Placeholder** — replace this content with your actual terms of service before launch.
+> See `docs/legal/terms-of-service.md` for the canonical source.
 
-> Placeholder — update from `docs/legal/terms-of-service.md` before launch.
+## 1. Acceptance of terms
 
-## 1. Acceptance
+By using Yadhum, you agree to these terms.
 
-By creating an account, you agree to these terms. If under 18, your parent or guardian must agree.
+## 2. Service description
 
-## 2. What the service is
+Yadhum is a free educational platform for Samacheer Kalvi Class 11 and Class 12 students.
 
-TN Exam Coach is a free educational platform for Tamil Nadu State Board +1 and +2 students.
+Yadhum is an independent study tool and is not affiliated with, endorsed by, or authorized by any government body or official examination authority.
 
-**TN Exam Coach is not affiliated with the Government of Tamil Nadu, the Tamil Nadu State Board, SCERT, DGE, or any school.**
+## 3. Use of the service
 
-## 3. Acceptable use
+_Content coming soon._
 
-Use the service only for personal educational purposes. Do not share your account.
+## 4. Intellectual property
 
-## 4. AI feedback
+_Content coming soon._
 
-AI-generated feedback may occasionally be inaccurate. It is not a substitute for a teacher's assessment.
+## 5. Limitation of liability
 
-## 5. Contact
+_Content coming soon._
 
-Questions: **privacy@tnexamcoach.in**
+## 6. Changes to these terms
+
+_Content coming soon._

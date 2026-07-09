@@ -26,13 +26,15 @@ android {
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion
         targetSdk = 34
-        versionCode = 1
-        versionName = "1.0.0"
+        versionCode = flutter.versionCode
+        versionName = flutter.versionName
     }
+
+    val keystorePath = System.getenv("KEYSTORE_PATH")
 
     signingConfigs {
         create("release") {
-            storeFile = System.getenv("KEYSTORE_PATH")?.let { file(it) }
+            storeFile = keystorePath?.let { file(it) }
             storePassword = System.getenv("KEYSTORE_PASSWORD")
             keyAlias = System.getenv("KEY_ALIAS")
             keyPassword = System.getenv("KEY_PASSWORD")
@@ -41,11 +43,28 @@ android {
 
     buildTypes {
         release {
-            signingConfig = if (System.getenv("KEYSTORE_PATH") != null)
-                signingConfigs.getByName("release")
-            else
-                signingConfigs.getByName("debug")
+            // Guard against a silent unsigned/debug-signed release lives in the
+            // taskGraph.whenReady block below — it must not fire at configuration
+            // time or it breaks debug builds too.
+            signingConfig = if (keystorePath != null) signingConfigs.getByName("release") else null
         }
+        debug {
+            signingConfig = signingConfigs.getByName("debug")
+        }
+    }
+}
+
+// Hard-fail release builds when the keystore is not configured. Runs after task
+// selection, so debug-only invocations (e.g. `flutter run` → assembleDebug) are
+// unaffected by KEYSTORE_PATH being unset.
+gradle.taskGraph.whenReady {
+    val releaseRequested = allTasks.any {
+        it.project == project && it.name.contains("Release")
+    }
+    if (releaseRequested && System.getenv("KEYSTORE_PATH") == null) {
+        throw GradleException(
+            "KEYSTORE_PATH not set — refusing to fall back to debug signing for release build"
+        )
     }
 }
 

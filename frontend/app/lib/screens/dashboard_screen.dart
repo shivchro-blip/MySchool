@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import '../config/legal_constants.dart';
 import '../config/theme.dart';
 import '../config/syllabus_config.dart';
 import '../providers/syllabus_provider.dart';
@@ -216,7 +217,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             BrandLogo(height: 34),
             SizedBox(width: 9),
             Text(
-              'Exam Coach',
+              kProductName,
               style: TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.w700,
@@ -281,7 +282,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             // ── Hero ───────────────────────────────────────────
             const SizedBox(height: 28),
             PageHeader(
-              eyebrow: 'Tamil Nadu State Board',
+              eyebrow: 'Samacheer Kalvi',
               title: 'Good morning, $name.',
               subtitle: '${SyllabusConfig.getSubjects().length} subjects and '
                   '${SyllabusConfig.totalLessonCount} lessons. '
