@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from db.client import get_db
 
 FREE_DAILY_LIMIT = 20
@@ -51,7 +53,14 @@ class UsersRepository:
         return result.data
 
     def update_profile(self, user_id: str, fields: dict) -> dict | None:
-        self._db.table("users").update(fields).eq("id", user_id).execute()
+        # The Supabase client json.dumps() the payload, which cannot encode
+        # datetime (e.g. terms_accepted_at). Send ISO 8601 strings —
+        # timestamptz columns parse them natively.
+        serialized = {
+            k: v.isoformat() if isinstance(v, datetime) else v
+            for k, v in fields.items()
+        }
+        self._db.table("users").update(serialized).eq("id", user_id).execute()
         return self.get_by_id(user_id)
 
     def is_over_limit(self, user_id: str) -> bool:
