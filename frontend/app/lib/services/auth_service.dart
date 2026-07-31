@@ -28,6 +28,58 @@ class AuthService {
 
   static const _storage = FlutterSecureStorage();
   static const _tokenKey = 'exam_coach_token';
+  // Single-session slot token. Separate key — never overwrites _tokenKey.
+  // Mirrors the web app's 'exam_coach_session' localStorage key.
+  static const _sessionKey = 'exam_coach_session';
+
+  // ── Single-session enforcement ─────────────────────────────────────────────
+  //
+  // After every successful Supabase login the client must claim the single
+  // active session slot. The backend deletes any previous session row (kicking
+  // other devices) and returns a one-time raw token, sent on every API call as
+  // X-Session-Token (attached in ApiService._headers).
+  //
+  // Mirrors frontend/web/src/api/auth.js claimSession/releaseSession.
+
+  Future<void> claimSession() async {
+    final token = await getToken();
+    if (token == null || token.isEmpty) return;
+    final res = await http.post(
+      Uri.parse('${AppConfig.apiBaseUrl}/users/session/claim'),
+      headers: {'Authorization': 'Bearer $token'},
+    );
+    if (res.statusCode < 200 || res.statusCode >= 300) {
+      throw Exception('Could not start session');
+    }
+    final data = res.body.isNotEmpty
+        ? jsonDecode(res.body) as Map<String, dynamic>
+        : <String, dynamic>{};
+    final sessionToken = data['session_token'] as String?;
+    if (sessionToken != null && sessionToken.isNotEmpty) {
+      await _storage.write(key: _sessionKey, value: sessionToken);
+    }
+  }
+
+  // Server-side row delete. Local state is cleared by the caller regardless of
+  // whether this request lands.
+  Future<void> _releaseSession() async {
+    final token = await getToken();
+    final sessionToken = await getSessionToken();
+    if (token == null || token.isEmpty) return;
+    if (sessionToken == null || sessionToken.isEmpty) return;
+    try {
+      await http.delete(
+        Uri.parse('${AppConfig.apiBaseUrl}/users/session'),
+        headers: {'Authorization': 'Bearer $token'},
+      );
+    } catch (_) {
+      // Best effort — logout must not block on an unreachable backend.
+    }
+  }
+
+  Future<String?> getSessionToken() async {
+    return _storage.read(key: _sessionKey);
+  }
 
   Future<Map<String, dynamic>> loginWithEmail(String email, String password) async {
     final res = await http.post(
@@ -48,6 +100,9 @@ class AuthService {
     final token = data['access_token'] as String?;
     if (token != null && token.isNotEmpty) {
       await _storage.write(key: _tokenKey, value: token);
+      // Must complete before any authenticated call — every protected backend
+      // route requires X-Session-Token and 401s without it.
+      await claimSession();
     }
     return data;
   }
@@ -74,6 +129,7 @@ class AuthService {
     final effectiveToken = token ?? sessionToken;
     if (effectiveToken != null && effectiveToken.isNotEmpty) {
       await _storage.write(key: _tokenKey, value: effectiveToken);
+      await claimSession();
     }
     return data;
   }
@@ -122,7 +178,16 @@ class AuthService {
   }
 
   Future<void> logout() async {
+    await _releaseSession();
+    await clearLocalSession();
+  }
+
+  // Drops local auth state without calling the backend. Used when the server
+  // has already invalidated the session (401 SESSION_INVALIDATED) — releasing
+  // it again would be a no-op against a row that no longer belongs to us.
+  Future<void> clearLocalSession() async {
     await _storage.delete(key: _tokenKey);
+    await _storage.delete(key: _sessionKey);
   }
 
   Future<String?> getToken() async {

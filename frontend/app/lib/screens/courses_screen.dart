@@ -123,6 +123,20 @@ class _CoursesScreenState extends State<CoursesScreen> {
                   onRetry: () => context.read<SyllabusProvider>().load(),
                 ),
               ),
+            // visibleClasses stays empty until the profile resolves, so a
+            // failed load used to render an empty card with no explanation.
+            if (user.error != null)
+              Padding(
+                padding: const EdgeInsets.only(bottom: 16),
+                child: ErrorView(
+                  message: user.error!,
+                  retryLabel:
+                      user.sessionInvalidated ? 'Log in again' : 'Try again',
+                  onRetry: user.sessionInvalidated
+                      ? () => context.go('/login')
+                      : () => context.read<UserProvider>().load(),
+                ),
+              ),
 
             // ── Grouped course list ───────────────────────────────
             Container(

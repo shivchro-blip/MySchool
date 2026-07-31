@@ -65,7 +65,18 @@ class _LoginScreenState extends State<LoginScreen> {
         }
         try {
           await UserService().updateProfile(ageConfirmation: _ageConfirmation ?? 'adult');
-        } catch (_) {}
+        } catch (e) {
+          // Never swallow this: it used to fail silently (the 401 also wiped
+          // the token), bouncing the user straight back to /login with no
+          // explanation at all.
+          if (mounted) {
+            setState(() {
+              _error = 'Your account was created, but saving your consent '
+                  'failed: ${e.toString().replaceFirst('Exception: ', '')}';
+            });
+          }
+          return;
+        }
         if (mounted) context.go('/onboarding');
       } else {
         await _auth.loginWithEmail(email, password);

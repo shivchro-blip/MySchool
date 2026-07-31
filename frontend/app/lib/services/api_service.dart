@@ -6,7 +6,15 @@ import '../services/auth_service.dart';
 class ApiException implements Exception {
   final String message;
   final int?   statusCode;
-  ApiException(this.message, {this.statusCode});
+  // True only for the backend's single-session invalidation contract:
+  // 401 with body {"detail": "SESSION_INVALIDATED", ...}. A generic 401
+  // (expired or absent JWT) leaves this false.
+  final bool   sessionInvalidated;
+  ApiException(
+    this.message, {
+    this.statusCode,
+    this.sessionInvalidated = false,
+  });
   @override
   String toString() => message;
 }
@@ -21,9 +29,16 @@ class ApiService {
   Future<Map<String, String>> _headers({bool auth = true}) async {
     final headers = {'Content-Type': 'application/json'};
     if (auth) {
-      final token = await AuthService().getToken();
+      final authService = AuthService();
+      final token = await authService.getToken();
       if (token != null) {
         headers['Authorization'] = 'Bearer $token';
+      }
+      // Every protected backend route depends on verify_session, which 401s
+      // when this header is missing. Mirrors web's api/client.js.
+      final sessionToken = await authService.getSessionToken();
+      if (sessionToken != null && sessionToken.isNotEmpty) {
+        headers['X-Session-Token'] = sessionToken;
       }
     }
     return headers;
@@ -36,7 +51,7 @@ class ApiService {
       final res = await http
           .get(_url(path), headers: await _headers(auth: auth))
           .timeout(_timeout);
-      return _handle(res);
+      return await _handle(res);
     } on ApiException {
       rethrow;
     } catch (e) {
@@ -57,7 +72,7 @@ class ApiService {
             body: jsonEncode(body),
           )
           .timeout(_timeout);
-      return _handle(res);
+      return await _handle(res);
     } on ApiException {
       rethrow;
     } catch (e) {
@@ -78,7 +93,7 @@ class ApiService {
             body: jsonEncode(body),
           )
           .timeout(_timeout);
-      return _handle(res);
+      return await _handle(res);
     } on ApiException {
       rethrow;
     } catch (e) {
@@ -86,7 +101,7 @@ class ApiService {
     }
   }
 
-  dynamic _handle(http.Response res) {
+  Future<dynamic> _handle(http.Response res) async {
     if (res.statusCode >= 200 && res.statusCode < 300) {
       if (res.body.isEmpty) {
         return null;
@@ -94,8 +109,34 @@ class ApiService {
       return jsonDecode(res.body);
     }
     if (res.statusCode == 401) {
-      AuthService().logout();
-      throw ApiException('Session expired. Please log in again.', statusCode: 401);
+      // Two distinct cases share this status code:
+      //   {"detail": "SESSION_INVALIDATED"} — the server dropped our session
+      //     row (signed in elsewhere). Local state is now worthless: clear it.
+      //   anything else — expired/absent JWT, or a transient auth failure.
+      //     Surface the error but keep local state; the router's exp check
+      //     already redirects genuinely-expired tokens to /login.
+      String? detail;
+      if (res.body.isNotEmpty) {
+        try {
+          final err = jsonDecode(res.body);
+          if (err is Map<String, dynamic>) detail = err['detail'] as String?;
+        } on FormatException {
+          // body is not JSON — treat as a generic 401
+        }
+      }
+      final invalidated = detail == 'SESSION_INVALIDATED';
+      if (invalidated) {
+        // Awaited, not fire-and-forget: callers react to the throw below by
+        // navigating, and the router's guard reads storage on the way.
+        await AuthService().clearLocalSession();
+      }
+      throw ApiException(
+        invalidated
+            ? 'You were signed out because your account was accessed from another location.'
+            : 'Session expired. Please log in again.',
+        statusCode: 401,
+        sessionInvalidated: invalidated,
+      );
     }
     if (res.body.isNotEmpty) {
       try {

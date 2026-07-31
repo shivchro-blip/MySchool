@@ -115,6 +115,21 @@ class _SubjectListScreenState extends State<SubjectListScreen> {
                       message: syllabus.error!,
                       onRetry: () => context.read<SyllabusProvider>().load(),
                     ),
+                  // Profile load failures were previously swallowed, leaving an
+                  // unexplained blank/unfiltered list. Surface them.
+                  if (user.error != null)
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 16),
+                      child: ErrorView(
+                        message: user.error!,
+                        retryLabel: user.sessionInvalidated
+                            ? 'Log in again'
+                            : 'Try again',
+                        onRetry: user.sessionInvalidated
+                            ? () => context.go('/login')
+                            : () => context.read<UserProvider>().load(),
+                      ),
+                    ),
                   if (!syllabus.loaded)
                     const Center(
                       child: Padding(

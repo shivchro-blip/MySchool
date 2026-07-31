@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../config/app_config.dart';
 import '../models/user_model.dart';
+import '../services/api_service.dart';
 import '../services/user_preferences_service.dart';
 import '../services/user_service.dart';
 
@@ -12,11 +13,17 @@ class UserProvider extends ChangeNotifier {
   bool _loading = false;
   bool _loaded = false;
   String? _error;
+  bool _sessionInvalidated = false;
 
   UserProfile? get profile => _profile;
   bool get loading => _loading;
   bool get loaded => _loaded;
   String? get error => _error;
+
+  // True when the last load failed with 401 SESSION_INVALIDATED — the account
+  // was signed in from another device. Screens use this to send the user back
+  // to /login rather than offering a retry that cannot succeed.
+  bool get sessionInvalidated => _sessionInvalidated;
 
   bool get onboardingCompleted => _profile?.onboardingCompleted ?? false;
   String? get allowedClass => _profile?.classLevel;
@@ -30,6 +37,7 @@ class UserProvider extends ChangeNotifier {
   Future<void> load() async {
     _loading = true;
     _error = null;
+    _sessionInvalidated = false;
     notifyListeners();
     try {
       assert(() {
@@ -49,7 +57,11 @@ class UserProvider extends ChangeNotifier {
       await UserPreferencesService.setOnboardingCompleted(
           _profile!.onboardingCompleted);
     } catch (e) {
-      _error = e.toString();
+      // Kept as a rendered message, not just a debugPrint — subject_list_screen
+      // and courses_screen surface this instead of showing a blank list.
+      _sessionInvalidated = e is ApiException && e.sessionInvalidated;
+      _error = e.toString().replaceFirst('Exception: ', '');
+      _profile = null;
       assert(() {
         debugPrint('User profile load failed: $_error');
         return true;
@@ -64,6 +76,7 @@ class UserProvider extends ChangeNotifier {
     _profile = null;
     _loaded = false;
     _error = null;
+    _sessionInvalidated = false;
     notifyListeners();
   }
 }

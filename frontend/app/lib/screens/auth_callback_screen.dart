@@ -70,6 +70,15 @@ class _AuthCallbackScreenState extends State<AuthCallbackScreen> {
 
       await AuthService().storeToken(accessToken);
 
+      // Claim the single-session slot before the first authenticated call —
+      // /users/me requires X-Session-Token and 401s without it.
+      try {
+        await AuthService().claimSession();
+      } catch (_) {
+        _setError('Could not start your session. Please try again.');
+        return;
+      }
+
       try {
         final profile = await UserService().getProfile();
         if (!mounted) return;

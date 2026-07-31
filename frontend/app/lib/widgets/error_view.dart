@@ -4,8 +4,14 @@ import '../config/theme.dart';
 class ErrorView extends StatelessWidget {
   final String   message;
   final VoidCallback? onRetry;
+  final String   retryLabel;
 
-  const ErrorView({super.key, required this.message, this.onRetry});
+  const ErrorView({
+    super.key,
+    required this.message,
+    this.onRetry,
+    this.retryLabel = 'Try again',
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +38,7 @@ class ErrorView extends StatelessWidget {
             GestureDetector(
               onTap: onRetry,
               child: Text(
-                'Try again',
+                retryLabel,
                 style: TextStyle(
                   fontSize:   13,
                   color:      fg,
