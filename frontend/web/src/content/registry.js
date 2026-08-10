@@ -37,6 +37,7 @@ const LOADERS = {
   'on-the-rule-of-the-road':         () => import('./Class_12/English/chapters/on-the-rule-of-the-road'),
   'incident-of-the-french-camp':     () => import('./Class_12/English/chapters/incident-of-the-french-camp'),
   'remember-caesar':                 () => import('./Class_12/English/chapters/remember-caesar'),
+  'chapter-01-multimedia':           () => import('./Class_12/ComputerApplications/chapters/chapter-01-multimedia'),
 }
 
 const registry = {
