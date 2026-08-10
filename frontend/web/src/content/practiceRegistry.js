@@ -1,4 +1,4 @@
-const practiceModules = import.meta.glob('./Class_*/English/practice/*.js')
+const practiceModules = import.meta.glob('./Class_*/*/practice/*.js')
 
 export default Object.fromEntries(
   Object.entries(practiceModules).map(([path, loader]) => [
