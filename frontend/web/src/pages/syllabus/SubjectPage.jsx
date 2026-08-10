@@ -294,7 +294,66 @@ export default function SubjectPage() {
     )
   }
 
-  // ── Chapter list layout (subjects authored as type:'chapters', e.g. Maths) ──
+  // ── Chapter row (Computer Applications grid) ─────────────────────────────────
+function ChapterRow({ ch, year, subject }) {
+  const navigate = useNavigate()
+  const [hov, setHov] = useState(false)
+
+  return (
+    <div
+      onMouseEnter={() => setHov(true)}
+      onMouseLeave={() => setHov(false)}
+      className="flex items-center gap-3.5 px-[18px] py-[13px]"
+      style={{
+        borderRadius: 14,
+        border: `1px solid ${UNIT_STYLE.color}33`,
+        background: hov ? UNIT_STYLE.light : 'var(--bg-2)',
+        transition: 'background 0.15s',
+      }}
+    >
+      <div
+        className="w-[46px] h-[46px] rounded-[13px] flex items-center justify-center shrink-0"
+        style={{ background: UNIT_STYLE.color }}
+      >
+        <span className="text-white font-extrabold text-[15px] tracking-tight">
+          {ch.number}
+        </span>
+      </div>
+
+      <div className="flex-1 min-w-0">
+        <p className="text-sm font-semibold text-text-primary leading-snug truncate">
+          {ch.title}
+        </p>
+        <p className="text-[12px] font-semibold tracking-[0.08em] uppercase mt-0.5 syllabus-lesson-type">
+          Theory
+        </p>
+      </div>
+
+      <div className="flex gap-1.5 shrink-0">
+        <button
+          onClick={() => navigate(`/${year}/${subject}/chapters/${ch.slug}`)}
+          className="px-3.5 py-1.5 rounded-[14px] text-white text-xs font-semibold transition-opacity"
+          style={{ background: UNIT_STYLE.color, opacity: hov ? 1 : 0.88 }}
+        >
+          Learn
+        </button>
+        <button
+          disabled
+          className="px-3.5 py-1.5 rounded-[14px] text-xs font-semibold cursor-not-allowed opacity-40"
+          style={{
+            border: `1.5px solid ${UNIT_STYLE.color}`,
+            color: UNIT_STYLE.color,
+            background: 'var(--bg-2)',
+          }}
+        >
+          Practice
+        </button>
+      </div>
+    </div>
+  )
+}
+
+// ── Chapter list layout (subjects authored as type:'chapters', e.g. Maths) ──
   if (subjectData.chapters) {
     return (
       <div>
@@ -304,7 +363,43 @@ export default function SubjectPage() {
           subtitle="Select a chapter"
         />
 
-        <div className="space-y-2">
+        <div className="max-w-[680px]">
+          {/* Final Exam Prep — placeholder */}
+          <div
+            className="flex items-center gap-4 sm:gap-6 px-5 py-4 sm:px-6 sm:py-5 mb-3 border border-border"
+            style={{ borderRadius: 18, background: 'var(--surface)' }}
+          >
+            <div className="flex-1 min-w-0">
+              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-semibold mb-2 text-text-tertiary border border-border">
+                Final Exam Prep
+              </span>
+              <p className="text-base font-bold leading-snug mb-1 text-text-tertiary">
+                Final Exam Prep — Coming Soon
+              </p>
+              <p className="text-xs leading-relaxed max-w-[440px] text-text-tertiary">
+                Past papers and smart revision plans for Class 12 Computer Applications will be available here.
+              </p>
+            </div>
+          </div>
+
+          {/* Previous Year Papers — placeholder */}
+          <div
+            className="px-5 py-4 sm:px-6 sm:py-5 mb-3 border border-border"
+            style={{ borderRadius: 18, background: 'var(--surface)' }}
+          >
+            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-semibold mb-2 text-text-tertiary border border-border">
+              Previous Year Papers
+            </span>
+            <p className="text-base font-bold leading-snug mb-1 text-text-tertiary">
+              Previous Year Papers — Coming Soon
+            </p>
+            <p className="text-xs leading-relaxed max-w-[440px] text-text-tertiary">
+              Annual exam papers for Computer Applications will be added soon.
+            </p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {subjectData.chapters.map((ch, i) => (
             <motion.div
               key={ch.slug}
@@ -312,27 +407,7 @@ export default function SubjectPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: i * 0.04 }}
             >
-              <Card
-                interactive
-                padding="md"
-                onClick={() => navigate(`/${year}/${subject}/chapters/${ch.slug}`)}
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-surface-alt flex items-center
-                                  justify-center text-xs font-bold text-text-secondary shrink-0">
-                    {ch.number}
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="text-sm font-semibold text-text-primary leading-snug">
-                      {ch.title}
-                    </p>
-                    {ch.volume != null && (
-                      <p className="text-xs text-text-tertiary mt-0.5">Volume {ch.volume}</p>
-                    )}
-                  </div>
-                  <ChevronRight size={16} className="text-text-tertiary shrink-0" />
-                </div>
-              </Card>
+              <ChapterRow ch={ch} year={year} subject={subject} />
             </motion.div>
           ))}
         </div>
