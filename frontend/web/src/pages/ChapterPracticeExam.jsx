@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { useNavigate, useLocation } from 'react-router-dom'
+import { useNavigate, useLocation, useParams } from 'react-router-dom'
 import { validateStudentAnswer } from '../utils/answerValidation'
 import {
   buildPracticeDraftKey,
@@ -711,8 +711,10 @@ export default function ChapterPracticeExam({ questions, chapterMeta, chapterSlu
   const { pathname } = useLocation()
   const parentPath = pathname.replace(/\/[^/]+$/, '')
 
+  const { year, subject } = useParams()
+  const classLevel = year === 'plus2' ? 'Class_12' : 'Class_11'
   const draftKey = chapterSlug
-    ? buildPracticeDraftKey({ classLevel: 'Class_11', subjectSlug: 'English', lessonSlug: chapterSlug })
+    ? buildPracticeDraftKey({ classLevel, subjectSlug: subject, lessonSlug: chapterSlug })
     : null
 
   const [attempts,          setAttempts]          = useState([createBlankAttempt()])

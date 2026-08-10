@@ -338,8 +338,8 @@ function ChapterRow({ ch, year, subject }) {
           Learn
         </button>
         <button
-          disabled
-          className="px-3.5 py-1.5 rounded-[14px] text-xs font-semibold cursor-not-allowed opacity-40"
+          onClick={() => navigate(`/${year}/${subject}/chapters/${ch.slug}/practice`)}
+          className="px-3.5 py-1.5 rounded-[14px] text-xs font-semibold"
           style={{
             border: `1.5px solid ${UNIT_STYLE.color}`,
             color: UNIT_STYLE.color,
