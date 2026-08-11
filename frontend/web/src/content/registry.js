@@ -40,6 +40,7 @@ const LOADERS = {
   'chapter-01-multimedia':           () => import('./Class_12/ComputerApplications/chapters/chapter-01-multimedia'),
   'chapter-02-pagemaker':            () => import('./Class_12/ComputerApplications/chapters/chapter-02-pagemaker'),
   'chapter-03-dbms':                 () => import('./Class_12/ComputerApplications/chapters/chapter-03-dbms'),
+  'chapter-04-php-intro':            () => import('./Class_12/ComputerApplications/chapters/chapter-04-php-intro'),
 }
 
 const registry = {
