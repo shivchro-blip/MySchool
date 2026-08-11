@@ -44,6 +44,8 @@ const LOADERS = {
   'chapter-05-php-functions-arrays': () => import('./Class_12/ComputerApplications/chapters/chapter-05-php-functions-arrays'),
   'chapter-06-php-conditionals':      () => import('./Class_12/ComputerApplications/chapters/chapter-06-php-conditionals'),
   'chapter-07-php-loops':             () => import('./Class_12/ComputerApplications/chapters/chapter-07-php-loops'),
+  'chapter-08-forms-files':           () => import('./Class_12/ComputerApplications/chapters/chapter-08-forms-files'),
+  'chapter-09-php-mysql':             () => import('./Class_12/ComputerApplications/chapters/chapter-09-php-mysql'),
 }
 
 const registry = {

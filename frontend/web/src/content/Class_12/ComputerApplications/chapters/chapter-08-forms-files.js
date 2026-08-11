@@ -1,0 +1,202 @@
+// frontend/web/src/content/Class_12/ComputerApplications/chapters/chapter-08-forms-files.js
+
+export default {
+  eyebrow: "Chapter 8 · Class 12 Computer Applications",
+  title: "Forms and Files",
+  author: "",
+  pills: ["Theory", "Programming", "Board Exam Important"],
+
+  tabs: [
+    {
+      id: "html-forms",
+      label: "HTML Forms",
+      blocks: [
+        {
+          type: "teacher-voice",
+          html: "<p>Every time you fill in your name on a website or click Submit — that is an HTML form at work. Forms collect data from users and send it to the server for processing. This chapter covers HTML form controls, PHP form handling, validation, and file handling — all are important for Part III and Part IV questions!</p>",
+        },
+        {
+          type: "section-head",
+          text: "8.1 HTML Forms",
+        },
+        {
+          type: "gloss-row",
+          word: "Main Objective",
+          def: "PHP and HTML form controls are used to collect data from users. Data is collected via form controls and sent to the server using server-side programming like PHP.",
+        },
+        {
+          type: "section-head",
+          text: "Basic HTML Form Controls (6 Types)",
+        },
+        {
+          type: "gloss-row",
+          word: "Text Inputs",
+          def: "Contains textbox (single line) and textarea (multi-line) controls. Used to enter names, emails, messages.",
+        },
+        {
+          type: "gloss-row",
+          word: "Radio Box",
+          def: "Similar to checkbox but only ONE value can be chosen at a time. Example: selecting gender — Male or Female.",
+        },
+        {
+          type: "gloss-row",
+          word: "Buttons",
+          def: "Contains Submit button (sends form data), Reset button (clears form), and Cancel button.",
+        },
+        {
+          type: "gloss-row",
+          word: "File Select",
+          def: "Best feature to select ONE file from the local machine to upload to the server machine at a time.",
+        },
+        {
+          type: "gloss-row",
+          word: "Checkbox",
+          def: "Important feature that allows selection of MORE THAN ONE value from the HTML form. Example: selecting multiple hobbies.",
+        },
+        {
+          type: "gloss-row",
+          word: "Form Tag",
+          def: "Used to mention the method (POST or GET) and controls the entire form. The action attribute specifies which PHP file processes the submitted data.",
+        },
+        {
+          type: "think-box",
+          label: "⭐ Exam Tip",
+          text: "Radio button = ONE value at a time. Checkbox = MULTIPLE values at a time. This difference is asked in Part III every year. Also know all 6 form controls: Text inputs, Radio box, Buttons, File Select, Checkbox, Form Tag.",
+        },
+        {
+          type: "section-head",
+          text: "8.1.1 PHP Basic Form Handling",
+        },
+        {
+          type: "gloss-row",
+          word: "How Form Submission Works",
+          def: "User fills form → clicks Submit → request goes to PHP file mentioned in the form's action attribute → all input values sent via POST or GET method → PHP variables $_POST and $_GET collect the data.",
+        },
+        {
+          type: "gloss-row",
+          word: "POST Method",
+          def: "Input data is stored in the REQUEST BODY of the HTTP request. Data is NOT visible in the URL. More secure for sensitive data like passwords.",
+        },
+        {
+          type: "gloss-row",
+          word: "GET Method",
+          def: "Input data is sent via URL address as a query string. All input data is VISIBLE in the URL after the user clicks Submit. Less secure but useful for search queries.",
+        },
+        {
+          type: "gloss-row",
+          word: "$_POST variable",
+          def: "PHP variable that collects data sent via POST method. Access: $_POST[\"fieldname\"].",
+        },
+        {
+          type: "gloss-row",
+          word: "$_GET variable",
+          def: "PHP variable that collects data sent via GET method. Access: $_GET[\"fieldname\"].",
+        },
+        {
+          type: "quote-block",
+          quote: "<form action=\"welcome.php\" method=\"post\"> Name: <input type=\"text\" name=\"name\"><br> <input type=\"submit\"> </form>",
+          context: "",
+        },
+        {
+          type: "think-box",
+          label: "⭐ Exam Tip",
+          text: "POST = data in request body, NOT visible in URL, more secure. GET = data in URL (query string), VISIBLE to user. This distinction is a Part III question every year.",
+        },
+        {
+          type: "nav",
+          next: "validation-files",
+          nextLabel: "Next: Validation & Files →",
+        },
+      ],
+    },
+
+    {
+      id: "validation-files",
+      label: "Validation & Files",
+      blocks: [
+        {
+          type: "section-head",
+          text: "8.1.2 PHP Form Validation",
+        },
+        {
+          type: "gloss-row",
+          word: "Validation",
+          def: "A process of checking the input data submitted by the user from the client machine. Important to protect forms from hackers and spammers.",
+        },
+        {
+          type: "gloss-row",
+          word: "Two Types of Validation",
+          def: "1. Client-Side Validation, 2. Server-Side Validation.",
+        },
+        {
+          type: "gloss-row",
+          word: "Client-Side Validation",
+          def: "Performed on the CLIENT machine's web browser using JavaScript or the HTML 'required' attribute. Done BEFORE data is sent to the server. Example: adding 'required' to an input tag shows \"Please fill in this field\" if left empty.",
+        },
+        {
+          type: "gloss-row",
+          word: "Server-Side Validation",
+          def: "Performed on the SERVER after data is submitted. Uses PHP, ASP, or JSP on the server machine. More secure than client-side validation.",
+        },
+        {
+          type: "gloss-row",
+          word: "Validation Rules",
+          def: "Name: must contain letters and white-spaces. Email: must contain @ and . strings. Website: must contain a valid URL. Radio/Checkbox/Dropdown: must have at least one value selected.",
+        },
+        {
+          type: "think-box",
+          label: "⭐ Exam Tip",
+          text: "2 types of validation: Client-Side (browser/JavaScript/'required' attribute) and Server-Side (PHP/ASP/JSP on server). Client-side is faster but less secure. Server-side is slower but more secure and cannot be bypassed.",
+        },
+        {
+          type: "section-head",
+          text: "8.2 File Handling in PHP",
+        },
+        {
+          type: "teacher-voice",
+          html: "<p>File handling means working with files stored on the server — opening, reading, writing, closing, and uploading them. PHP has built-in functions for all of these. Know the function names, syntax, and what they do — this is asked in Part IV questions.</p>",
+        },
+        {
+          type: "gloss-row",
+          word: "6 File Handling Tasks",
+          def: "1. Open a File (fopen), 2. Read a File (fread), 3. Close a File (fclose), 4. Write a File (fwrite), 5. Append a File, 6. Upload a File.",
+        },
+        {
+          type: "gloss-row",
+          word: "fopen() — Open a File",
+          def: "Opens a file on the server. Has 2 parameters: filename and read/write mode. Syntax: $file = fopen(\"FileName\", \"mode\") or die(\"Error!\"); Example: $myfile = fopen(\"Student.txt\", \"r\") or die(\"Unable to open file!\");",
+        },
+        {
+          type: "gloss-row",
+          word: "fread() — Read a File",
+          def: "Reads from an open file. The file object comes from fopen(). Syntax: fread($file_Object, filesize(\"FileName\")); Example: fread($myfile, filesize(\"Student.txt\"));",
+        },
+        {
+          type: "gloss-row",
+          word: "fclose() — Close a File",
+          def: "Closes an open file. Always close files after use to free server resources. Syntax: fclose($file_Object); Example: fclose($myfile);",
+        },
+        {
+          type: "gloss-row",
+          word: "fwrite() — Write to a File",
+          def: "Writes content to a file. Syntax: fwrite($myfile, $txt); The file must be opened in write mode first.",
+        },
+        {
+          type: "think-box",
+          label: "⭐ Exam Tip",
+          text: "File functions memory trick: fopen (open), fread (read), fclose (close), fwrite (write). All start with 'f'. Know the syntax for each — fopen has 2 parameters, fread has 2 parameters (file + filesize), fclose has 1 parameter.",
+        },
+        {
+          type: "think-box",
+          label: "Real-Life Example 🌍",
+          text: "File handling in PHP is like working with a notebook: fopen = open the notebook, fread = read what's written, fwrite = write new content, fclose = close the notebook when done.",
+        },
+        {
+          type: "nav",
+          back: "html-forms",
+          practice: true,
+        },
+      ],
+    },
+  ],
+}
