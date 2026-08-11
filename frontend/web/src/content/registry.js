@@ -38,6 +38,7 @@ const LOADERS = {
   'incident-of-the-french-camp':     () => import('./Class_12/English/chapters/incident-of-the-french-camp'),
   'remember-caesar':                 () => import('./Class_12/English/chapters/remember-caesar'),
   'chapter-01-multimedia':           () => import('./Class_12/ComputerApplications/chapters/chapter-01-multimedia'),
+  'chapter-02-pagemaker':            () => import('./Class_12/ComputerApplications/chapters/chapter-02-pagemaker'),
 }
 
 const registry = {
