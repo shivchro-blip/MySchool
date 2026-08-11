@@ -43,6 +43,7 @@ const LOADERS = {
   'chapter-04-php-intro':            () => import('./Class_12/ComputerApplications/chapters/chapter-04-php-intro'),
   'chapter-05-php-functions-arrays': () => import('./Class_12/ComputerApplications/chapters/chapter-05-php-functions-arrays'),
   'chapter-06-php-conditionals':      () => import('./Class_12/ComputerApplications/chapters/chapter-06-php-conditionals'),
+  'chapter-07-php-loops':             () => import('./Class_12/ComputerApplications/chapters/chapter-07-php-loops'),
 }
 
 const registry = {
