@@ -1,0 +1,287 @@
+// frontend/web/src/content/Class_12/ComputerApplications/practice/chapter-06-php-conditionals.js
+
+export default {
+  meta: {
+    subject: `Computer Applications -- Class XII`,
+    unit: `Chapter 6 -- Conditional Statements in PHP`,
+    time: `3.00 hrs`,
+    totalMarks: 47,
+    instructions: `Samacheer Kalvi -- Answer all questions`,
+  },
+
+  parts: [
+    {
+      id: `p1`,
+      navLabel: `Part I -- MCQ (20 x 1)`,
+      title: `Part I -- Objective Type`,
+      type: `mcq`,
+      scoreMax: 20,
+      marksPer: 1,
+      sections: [
+        {
+          label: `Conditional Statements`,
+          questions: [
+            {
+              id: `q1`,
+              html: `Which of the following is NOT a type of conditional statement in PHP?`,
+              options: [`a) if`, `b) if...else`, `c) if...elseif...else`, `d) while`],
+              answer: 3,
+              hint: `while is a LOOPING statement, not a conditional statement. The 4 conditional statements are: if, if...else, if...elseif...else, and switch.`,
+            },
+            {
+              id: `q2`,
+              html: `What type of statement is the if...else statement?`,
+              options: [`a) Conditional statement`, `b) Looping`, `c) Input statement`, `d) Output statement`],
+              answer: 0,
+              hint: `if...else is a conditional statement — it executes one block if the condition is true, another if false.`,
+            },
+            {
+              id: `q3`,
+              html: `What is the simplest conditional statement in PHP?`,
+              options: [`a) if-else statement`, `b) if statement`, `c) switch statement`, `d) if-elseif-else statement`],
+              answer: 1,
+              hint: `The 'if' statement is the simplest — it has only one condition and one block of code that runs when the condition is true.`,
+            },
+            {
+              id: `q4`,
+              html: `How does the if statement work in PHP?`,
+              options: [
+                `a) A block of code is executed if a certain condition is true`,
+                `b) A block of code is executed if a certain condition is false`,
+                `c) A block of code is executed if multiple conditions are true`,
+                `d) A block of code is executed if multiple conditions are false`,
+              ],
+              answer: 0,
+              hint: `The if statement executes a block of code only when the condition is TRUE. If false, the block is skipped.`,
+            },
+            {
+              id: `q5`,
+              html: `What happens if the condition in an "if" statement is false?`,
+              options: [
+                `a) The code inside the curly braces is executed`,
+                `b) The code inside the curly braces is skipped`,
+                `c) The program terminates`,
+                `d) None of the above`,
+              ],
+              answer: 1,
+              hint: `If the condition is false, the code block inside the if statement is SKIPPED (not executed, not terminated).`,
+            },
+            {
+              id: `q6`,
+              html: `What is the correct syntax for an if-else statement in PHP?`,
+              options: [
+                `a) if(condition) { //True-block; }`,
+                `b) if(condition) { //True-block; } else { //False-block; }`,
+                `c) if-else(condition) { //True-block; } else { //False-block; }`,
+                `d) if-elseif(condition) { //True-block; } else { //False-block; }`,
+              ],
+              answer: 1,
+              hint: `Correct syntax: if(condition) { true-block } else { false-block }. The condition goes inside parentheses, code blocks inside curly braces.`,
+            },
+            {
+              id: `q7`,
+              html: `Which keyword is used to specify multiple conditions in an if...elseif...else statement?`,
+              options: [`a) AND`, `b) OR`, `c) case`, `d) elseif`],
+              answer: 3,
+              hint: `elseif is used to add additional conditions after the initial if. You can have multiple elseif blocks.`,
+            },
+            {
+              id: `q8`,
+              html: `Which keyword is used to specify multiple conditions in a switch statement?`,
+              options: [`a) AND`, `b) OR`, `c) case`, `d) if`],
+              answer: 2,
+              hint: `In a switch statement, each possible value is specified using the 'case' keyword.`,
+            },
+            {
+              id: `q9`,
+              html: `What happens if none of the case values match the expression in a switch statement?`,
+              options: [
+                `a) The default case block is executed`,
+                `b) The program terminates`,
+                `c) The nearest case block is executed`,
+                `d) The first case block is executed`,
+              ],
+              answer: 0,
+              hint: `The default case is executed when no other case matches. It acts like the 'else' in an if...elseif...else statement.`,
+            },
+            {
+              id: `q10`,
+              html: `Which statement is used to terminate a case in a switch statement?`,
+              options: [`a) return`, `b) continue`, `c) goto`, `d) break`],
+              answer: 3,
+              hint: `break terminates the current case and exits the switch. Without break, execution falls through to the next case.`,
+            },
+            {
+              id: `q11`,
+              html: `The two major categories of control structures in PHP are:`,
+              options: [
+                `a) Conditional and Looping`,
+                `b) Input and Output`,
+                `c) Sequential and Parallel`,
+                `d) Static and Dynamic`,
+              ],
+              answer: 0,
+              hint: `Control structures are classified into Conditional statements (if, switch) and Looping statements (for, while, do...while, foreach).`,
+            },
+            {
+              id: `q12`,
+              html: `In an if...elseif...else statement, how many blocks of code are executed?`,
+              options: [`a) All blocks`, `b) None`, `c) Only one block`, `d) Two blocks`],
+              answer: 2,
+              hint: `Only ONE block executes — the first condition that is true. Once a matching block runs, the rest are skipped.`,
+            },
+            {
+              id: `q13`,
+              html: `What is executed in the else block of an if...elseif...else statement?`,
+              options: [
+                `a) When the first condition is true`,
+                `b) When all conditions are false`,
+                `c) When the second condition is true`,
+                `d) Always executed`,
+              ],
+              answer: 1,
+              hint: `The else block executes only when ALL preceding conditions (if and all elseif) are false.`,
+            },
+            {
+              id: `q14`,
+              html: `elseif in PHP can also be written as:`,
+              options: [`a) elif`, `b) else if`, `c) elseiff`, `d) ifelse`],
+              answer: 1,
+              hint: `elseif can also be written as two separate words: else if. Both are valid in PHP.`,
+            },
+            {
+              id: `q15`,
+              html: `What is the purpose of the default case in a switch statement?`,
+              options: [
+                `a) It executes first before any other case`,
+                `b) It executes when no case matches`,
+                `c) It replaces the break statement`,
+                `d) It is always required`,
+              ],
+              answer: 1,
+              hint: `default is optional and executes when no other case matches the expression. It is similar to the 'else' block.`,
+            },
+            {
+              id: `q16`,
+              html: `In PHP, the condition in a control statement must be enclosed in:`,
+              options: [`a) Curly braces { }`, `b) Square brackets [ ]`, `c) Parentheses ( )`, `d) Angle brackets < >`],
+              answer: 2,
+              hint: `Conditions must be enclosed in parentheses ( ). Code blocks go inside curly braces { }.`,
+            },
+            {
+              id: `q17`,
+              html: `What is the output of: $x = 10; if ($x > 5) { echo "A"; } else { echo "B"; }`,
+              options: [`a) A`, `b) B`, `c) AB`, `d) No output`],
+              answer: 0,
+              hint: `$x is 10, which is greater than 5, so the condition is true. The if block runs and outputs "A". The else block is skipped.`,
+            },
+            {
+              id: `q18`,
+              html: `What happens in a switch statement if the break statement is missing from a case?`,
+              options: [
+                `a) Only that case executes`,
+                `b) The program gives an error`,
+                `c) Execution falls through to the next case`,
+                `d) The switch statement stops`,
+              ],
+              answer: 2,
+              hint: `Without break, execution "falls through" — it continues running the next case's code even if that case doesn't match.`,
+            },
+            {
+              id: `q19`,
+              html: `A switch statement is also called a:`,
+              options: [
+                `a) Single branching statement`,
+                `b) Multiple branching statement`,
+                `c) Conditional expression`,
+                `d) Loop statement`,
+              ],
+              answer: 1,
+              hint: `switch is a multiple branching statement — it can branch to one of many possible points based on the value of the expression.`,
+            },
+            {
+              id: `q20`,
+              html: `What is the output of: $x = 12; if ($x > 20) { echo "A"; } elseif ($x > 10) { echo "B"; } else { echo "C"; }`,
+              options: [`a) A`, `b) B`, `c) C`, `d) BC`],
+              answer: 1,
+              hint: `$x = 12. First condition: 12 > 20 → false. Second condition (elseif): 12 > 10 → true. So "B" is output. else is skipped.`,
+            },
+          ],
+        },
+      ],
+    },
+
+    {
+      id: `p2`,
+      navLabel: `Part II -- Short Answers (5 x 2)`,
+      title: `Part II -- Short Answer Questions`,
+      type: `short-essay`,
+      scoreMax: 10,
+      marksPer: 2,
+      questions: [
+        {
+          q: `What are the different types of conditional statements in PHP?`,
+          ans: `There are four types of conditional statements in PHP: 1. if statement — executes a block of code only if a condition is true. 2. if...else statement — executes one block if the condition is true, another block if false. 3. if...elseif...else statement — checks multiple conditions and executes the first true block. If none are true, the else block runs. 4. switch statement — a multiple branching statement that checks one expression against many possible values using case blocks.`,
+        },
+        {
+          q: `Write the syntax for an if statement in PHP.`,
+          ans: `Syntax for the if statement in PHP:\nif (condition)\n{\n// code to be executed if condition is true;\n}\nThe condition is enclosed in parentheses ( ). The code block is enclosed in curly braces { }. The code inside the curly braces is executed only when the condition is true. If the condition is false, the code block is skipped entirely.\nExample: $x = 10; if ($x > 5) { echo "x is greater than 5"; } Output: x is greater than 5`,
+        },
+        {
+          q: `What is the purpose of the if...else statement?`,
+          ans: `The if...else statement is a conditional statement in PHP that provides two execution paths. It executes one block of code if a condition is true, and another block of code if the condition is false. This ensures that something always happens — either the true-block or the false-block is executed. Example: if ($mark >= 35) { echo "Pass"; } else { echo "Fail"; } This covers all possibilities — every student either passes or fails.`,
+        },
+        {
+          q: `Write the syntax for an if...else statement in PHP.`,
+          ans: `Syntax for the if...else statement in PHP:\nif (condition)\n{\n// True-block — code executed if condition is true;\n}\nelse\n{\n// False-block — code executed if condition is false;\n}\nIf the condition is TRUE, the True-block executes and the False-block is skipped. If the condition is FALSE, the False-block executes and the True-block is skipped. Exactly one of the two blocks always executes.`,
+        },
+        {
+          q: `What is the role of the break statement in a switch statement?`,
+          ans: `The break statement in a switch statement is used to terminate the current case and exit the switch statement. Without break, execution would "fall through" — it would continue executing the code in the next case block even if that case does not match the expression. This is usually not the desired behaviour. The break statement ensures that only the matching case's code runs. Example: case 10: echo "x is 10"; break; — after printing, break exits the switch immediately.`,
+        },
+      ],
+    },
+
+    {
+      id: `p3`,
+      navLabel: `Part III -- Brief Answers (3 x 3)`,
+      title: `Part III -- Brief Answer Questions`,
+      type: `short-essay`,
+      scoreMax: 9,
+      marksPer: 3,
+      questions: [
+        {
+          q: `Write the syntax for an if...elseif...else statement in PHP.`,
+          ans: `Syntax:\nif (condition1)\n{\n// code executed if condition1 is true;\n}\nelseif (condition2)\n{\n// code executed if condition1 is false and condition2 is true;\n}\nelseif (condition3)\n{\n// code executed if condition1 and condition2 are false and condition3 is true;\n}\nelse\n{\n// code executed if all conditions are false;\n}\nKey rules: Only ONE block executes — the first true condition wins. The else block at the end handles all remaining cases. elseif can also be written as 'else if' (two words). You can have as many elseif blocks as needed.`,
+        },
+        {
+          q: `Write the syntax for a switch statement in PHP.`,
+          ans: `Syntax:\nswitch (expression)\n{\ncase value1:\n//code executed if expression equals value1;\nbreak;\ncase value2:\n//code executed if expression equals value2;\nbreak;\n...\ndefault:\n//code executed if expression matches no case;\n}\nKey points: The expression is evaluated once. Each case checks if the expression equals its value. break terminates the case and exits the switch. default is optional — it runs when no case matches.`,
+        },
+        {
+          q: `In an if...elseif...else statement, where is the code executed if all conditions are false?`,
+          ans: `In an if...elseif...else statement, if all conditions (the initial if condition and all elseif conditions) are false, the code inside the final else block is executed. The else block is the "catch-all" — it handles every situation where none of the specified conditions are true. Example: if ($x > 20) { ... } elseif ($x > 10) { ... } else { echo "x is 10 or less"; } If $x = 5, neither condition is true, so the else block runs. The else block has no condition — it always runs when everything else fails.`,
+        },
+      ],
+    },
+
+    {
+      id: `p4`,
+      navLabel: `Part IV -- Long Essays (2 x 4)`,
+      title: `Part IV -- Detailed Answer Questions`,
+      type: `long-essay`,
+      scoreMax: 8,
+      marksPer: 4,
+      questions: [
+        {
+          q: `Explain if...elseif...else statement with an example.`,
+          ans: `The if...elseif...else statement allows checking multiple conditions and running different code based on which condition is true.\n\nSyntax:\nif (condition1) { // runs if condition1 is true }\nelseif (condition2) { // runs if condition1 false and condition2 true }\nelseif (condition3) { // runs if condition1 and condition2 false and condition3 true }\nelse { // runs if all conditions are false }\n\nKey rules:\n1. Starts with 'if', followed by one or more 'elseif', ends with 'else'.\n2. Only ONE block executes — the first condition that is true.\n3. If no condition is true, the else block runs.\n4. elseif can also be written as two words: else if.\n\nExample:\n<?php\n$x = 12;\nif ($x > 20)\n{\necho "x is greater than 20";\n}\nelseif ($x > 15)\n{\necho "x is greater than 15 but not 20";\n}\nelseif ($x > 10)\n{\necho "x is greater than 10 but not 15";\n}\nelse\n{\necho "x is not greater than 10";\n}\n?>\n\nOutput: x is greater than 10 but not greater than 15\n(Because 12 > 20 is false, 12 > 15 is false, 12 > 10 is true — so the third block runs.)`,
+        },
+        {
+          q: `Discuss in detail about switch statement with an example.`,
+          ans: `The switch statement is a multiple branching statement where, based on a condition, control transfers to one of many possible points. It is used to specify multiple conditions for one variable.\n\nSyntax:\nswitch (expression)\n{\ncase value1:\n//code if expression = value1;\nbreak;\ncase value2:\n//code if expression = value2;\nbreak;\ndefault:\n//code if no case matches;\n}\n\nHow it works:\n1. The expression is evaluated once.\n2. Each case value is compared to the expression.\n3. When a matching case is found, its code block executes.\n4. break terminates the case and exits the switch.\n5. If no case matches, the default block executes (optional).\n6. Without break, execution falls through to the next case.\n\nExample:\n<?php\n$x = 10;\nswitch ($x)\n{\ncase 5:\necho "x is equal to 5";\nbreak;\ncase 10:\necho "x is equal to 10";\nbreak;\ncase 15:\necho "x is equal to 15";\nbreak;\ndefault:\necho "x is not equal to 5, 10, or 15";\n}\n?>\n\nOutput: x is equal to 10\n(Because $x = 10 matches case 10. break exits the switch after printing.)\n\nImportance of break: Without break, after case 10 prints, case 15 would also execute. Always use break to prevent fall-through.`,
+        },
+      ],
+    },
+  ],
+}

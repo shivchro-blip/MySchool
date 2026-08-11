@@ -42,6 +42,7 @@ const LOADERS = {
   'chapter-03-dbms':                 () => import('./Class_12/ComputerApplications/chapters/chapter-03-dbms'),
   'chapter-04-php-intro':            () => import('./Class_12/ComputerApplications/chapters/chapter-04-php-intro'),
   'chapter-05-php-functions-arrays': () => import('./Class_12/ComputerApplications/chapters/chapter-05-php-functions-arrays'),
+  'chapter-06-php-conditionals':      () => import('./Class_12/ComputerApplications/chapters/chapter-06-php-conditionals'),
 }
 
 const registry = {
