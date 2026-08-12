@@ -2,189 +2,141 @@
 # ─────────────────────────────────────────────────────────────────────────────
 # HOW TO USE THIS PROMPT:
 #
-# In a new Claude project chat, upload the subject's PDF and say:
+# FIRST CHAT — always start here:
+#   Upload the subject's PDF and say:
 #   "Execute the subject master prompt for [Subject Name].
-#    Subject slug: `computer-science`, Year: `plus2`, Class: 12.
+#    Subject slug: `physics`, Year: `plus2`, Class: 12.
 #    Here is the PDF."
 #
-# Claude will read this file from the project, extract chapter information
-# from the PDF, and execute all phases automatically.
+# Claude will:
+#   1. Extract the full chapter list from the PDF
+#   2. Calculate the batch plan (4 chapters per batch)
+#   3. Execute Phase 1 (syllabus + onboarding wiring)
+#   4. Execute Batch 1 (first 4 chapters — learn + practice)
+#   5. Present all files for download and commit to git
+#   6. Print the RESUME MESSAGE for the next chat
 #
-# The following placeholders will be derived from your opening message:
-#   SUBJECT_LABEL  — human-readable name (e.g. "Computer Science")
-#   SUBJECT_SLUG   — kebab-case (e.g. "computer-science")
-#   YEAR           — plus1 or plus2
-#   CLASS_LEVEL    — Class_11 or Class_12
-#   CLASS_NUM      — 11 or 12
-#   SUBJECT_FOLDER — PascalCase (e.g. ComputerScience)
+# SUBSEQUENT CHATS — paste the resume message Claude printed, upload the PDF:
+#   "Resume subject master prompt — SUBJECT_LABEL, Batch 2 of N.
+#    Chapters 5–8. Previous batches committed at [hash].
+#    Here is the PDF."
 #
-# Before starting Phase 1, Claude will:
-#   1. Extract the full chapter list from the uploaded PDF
-#   2. Propose ICON_NAME, ICON_BG, ICON_COLOR for the onboarding picker
-#   3. Show a summary of what it found — wait for your confirmation
+# FINAL CHAT — after all chapter batches are done:
+#   "Execute Phase 4 (model papers) for SUBJECT_LABEL.
+#    Subject slug: `physics`, Year: `plus2`, Class: 12.
+#    All chapters committed. Here is the PDF."
 # ─────────────────────────────────────────────────────────────────────────────
 
 
 ## ══════════════════════════════════════════════════════════════════════════════
-## PRE-PHASE — EXTRACT FROM PDF
+## PRE-PHASE — EXTRACT + PLAN (runs only in the FIRST chat)
 ## ══════════════════════════════════════════════════════════════════════════════
 
-Before anything else:
+Only run this if this is the FIRST chat for this subject (no previous batches).
 
-1. Extract the full chapter list from the uploaded PDF. For each chapter show:
-   - Chapter number
-   - Chapter title
+1. Extract the full chapter list from the uploaded PDF:
+   - Chapter number, title, page range
    - Proposed slug (kebab-case, e.g. chapter-01-introduction)
 
-2. Propose onboarding picker values:
-   - ICON_NAME: pick the best fitting lucide-react icon
+2. Calculate the batch plan:
+   - 4 chapters per batch
+   - Last batch gets whatever remains (1–4 chapters)
+   - Example: 18 chapters → Batch 1: Ch 1–4, Batch 2: Ch 5–8, Batch 3: Ch 9–12,
+     Batch 4: Ch 13–16, Batch 5: Ch 17–18
+
+3. Propose onboarding picker values:
+   - ICON_NAME: best fitting lucide-react icon
    - ICON_BG: light tint hex color
-   - ICON_COLOR: accent hex color (used for badges + buttons)
+   - ICON_COLOR: accent hex color
 
-3. Show a summary and wait for my confirmation before Phase 0.
+4. Show the full batch plan and wait for confirmation before Phase 0.
 
 
 ## ══════════════════════════════════════════════════════════════════════════════
-## PHASE 0 — RECONNAISSANCE (read-only, no changes)
+## PHASE 0 — RECONNAISSANCE (runs only in the FIRST chat)
 ## ══════════════════════════════════════════════════════════════════════════════
 
-Before touching anything, read these files and confirm their current state.
-Do NOT make any changes in this phase.
+Only run Phase 0 in the FIRST chat. Subsequent batch chats skip straight to
+the current batch's Phase 2 + Phase 3.
+
+Read these files. Do NOT make changes.
 
 1. `frontend/web/src/data/syllabus.js`
-   - Show me the exact shape of one entry in the `chapters[]` array from the
-     plus1.maths subject (keys: number, title, slug — no volume for non-Maths)
-   - Confirm the YEAR key (plus1/plus2) exists and show its sibling subjects
+   - Shape of one chapters[] entry (number, title, slug — no volume)
+   - Confirm YEAR key exists
 
 2. `frontend/web/src/content/registry.js`
-   - Show the exact pattern used to register one Class_12 English chapter:
-     key = lesson slug, value = dynamic import arrow function
-   - Confirm it is a plain LOADERS object literal (not a Set/Map)
+   - Registration pattern: key = slug, value = dynamic import arrow fn
 
 3. `frontend/web/src/content/practiceRegistry.js`
-   - Show the current glob pattern
-   - Confirm it already uses `./Class_*/*/practice/*.js` (broadened glob)
-     If it still says `./Class_*/English/practice/*.js`, flag it — we fix it
-     in Phase 2
+   - Confirm glob = `./Class_*/*/practice/*.js`
 
 4. `frontend/web/src/pages/OnboardingPage.jsx`
-   - Show the full SUBJECTS array (slug, name, Icon, bg, color shape)
-   - Show the lucide-react import line
-   - Note the current list of subject slugs so we place the new one correctly
+   - Full SUBJECTS array and lucide-react import line
 
 5. `frontend/web/src/pages/syllabus/SubjectPage.jsx`
-   - Confirm UNIT_STYLE constant (color, light values)
-   - Confirm ChapterRow component exists (with enabled Practice button)
-   - Confirm the chapters[] branch renders ChapterRow in a 2-column grid
-   - Find the condition that controls FinalExamPrepEntryCard rendering.
-     It currently reads something like:
-       subject === 'english' || subject === 'computer-applications'
-     Show the exact current condition — we will extend it in Phase 4.
+   - FinalExamPrepEntryCard condition (current list of allowed subjects)
 
-6. One existing Class_12 content chapter file
-   (e.g. frontend/web/src/content/Class_12/ComputerApplications/chapters/chapter-01-multimedia.js)
-   - Show the exact top-level export shape:
-     export default { eyebrow, title, author, pills[], tabs[] }
-   - Show one full tab shape: { id, label, blocks[] }
-   - List every block type used and its field names:
-     teacher-voice → html (NOT text), wrapped in <p>...</p>
-     quote-block   → quote, context (both required, context can be "")
-     gloss-row     → word, def (NOT term/meaning)
-     section-head  → text
-     think-box     → label, text
-     nav           → back (tab id or omit), next (tab id or omit),
-                     nextLabel (string, required if next set),
-                     practice (bool, true on last tab only)
+6. One existing ComputerApplications chapter file
+   - Exact block shapes: teacher-voice(html), gloss-row(word/def),
+     quote-block(quote/context), section-head(text), think-box(label/text),
+     nav(back/next/nextLabel/practice)
 
-7. One existing Class_12 practice file
-   (e.g. frontend/web/src/content/Class_12/ComputerApplications/practice/chapter-01-multimedia.js)
-   - Show exact export shape:
-     export default { meta: { subject, unit, time, totalMarks, instructions },
-                      parts[] }
-   - Show one mcq part shape and one short-essay/long-essay part shape
-   - Confirm field names:
-     mcq questions:        { id, html, options[], answer, hint }
-       options are strings like "a) option text" (letter prefix included)
-       answer is 0-based integer index
-     short/long questions: { q, ans }   (field is `q` not `html`)
-     short/long parts use flat questions:[] (NO sections wrapper)
+7. One existing ComputerApplications practice file
+   - mcq shape: { id, html, options[], answer, hint }
+   - short/long shape: { q, ans } — flat questions[], no sections wrapper
 
-Report all findings. Wait for my confirmation before Phase 1.
+Report findings. Wait for confirmation before Phase 1.
 
 
 ## ══════════════════════════════════════════════════════════════════════════════
-## PHASE 1 — SYLLABUS + ONBOARDING WIRING
-## ══════════════════════════════════════════════════════════════════════════════
-## One step at a time. Show diff, wait for confirm, then apply.
+## PHASE 1 — SYLLABUS + ONBOARDING WIRING (runs only in the FIRST chat)
 ## ══════════════════════════════════════════════════════════════════════════════
 
-### STEP 1A — syllabus.js: Add subject entry
+### STEP 1A — syllabus.js
 
-Open `frontend/web/src/data/syllabus.js`.
-Inside the `YEAR:` key, after the last existing subject entry, add:
-
+Add subject entry with ALL chapters (not just Batch 1 — the full list):
 ```js
 "SUBJECT_SLUG": {
   label: "SUBJECT_LABEL",
   slug: "SUBJECT_SLUG",
   chapters: [
-    // { number: N, title: "Chapter Title", slug: "chapter-NN-slug" }
-    // No volume, no category, no color, no year fields
+    // all N chapters here
+    // { number: N, title: "...", slug: "chapter-NN-..." }
   ],
 },
 ```
 
-Rules:
-- Keys are exactly: label, slug, chapters[]
-- Each chapter: number (integer), title (string), slug (kebab-case)
-- slug at subject level must match SUBJECT_SLUG exactly
+Show diff. Wait for confirm.
 
-Show diff. Wait for confirm before Step 1B.
+### STEP 1B — OnboardingPage.jsx
 
----
-
-### STEP 1B — OnboardingPage.jsx: Add subject to picker
-
-Open `frontend/web/src/pages/OnboardingPage.jsx`.
-
-1. Add ICON_NAME to the existing lucide-react import line (if not already there)
-2. Add to SUBJECTS array after the last existing non-Science subject, before Science:
-   ```js
-   { slug: 'SUBJECT_SLUG', name: 'SUBJECT_LABEL', Icon: ICON_NAME,
-     bg: 'ICON_BG', color: 'ICON_COLOR' }
-   ```
-
-Show diff of both changes. Wait for confirm.
-
----
+Add icon import + SUBJECTS entry. Show diff. Wait for confirm.
 
 ### STEP 1C — Commit Phase 1
 
 ```
 git add -A
-git commit -m "feat: add SUBJECT_LABEL subject (YEAR) — syllabus + onboarding wiring"
+git commit -m "feat: add SUBJECT_LABEL (YEAR) — syllabus + onboarding"
 git push origin master
 ```
 
-After Cloudflare deploys, verify:
-- `yadhum.net/YEAR` → SUBJECT_LABEL card appears
-- `yadhum.net/YEAR/SUBJECT_SLUG` → flat chapter list with all chapters
-- New signup onboarding Step 2 → SUBJECT_LABEL appears as pickable subject
-
-Report screenshots. Wait for confirm before Phase 2.
+Verify on yadhum.net: subject card appears, chapter list shows all N chapters.
+Report. Wait for confirm before starting Batch 1.
 
 
 ## ══════════════════════════════════════════════════════════════════════════════
-## PHASE 2 — CHAPTER CONTENT FILES
+## PHASE 2+3 — CHAPTER BATCHES (4 chapters per batch)
 ## ══════════════════════════════════════════════════════════════════════════════
-## Build ALL chapters from the PDF, then commit all at once.
+## Each batch = learn content (Phase 2) + practice files (Phase 3) for 4 chapters.
+## All files in a batch are built, presented for download, then committed together.
 ## ══════════════════════════════════════════════════════════════════════════════
 
-For each chapter, extract content from the PDF and create a learn content file.
+### For the current batch (chapters X through Y):
 
-### Content file structure (per chapter):
+**STEP A — Build learn content files (all 4 chapters)**
 
-File path:
+For each chapter in this batch, extract content from the PDF and create:
 `frontend/web/src/content/CLASS_LEVEL/SUBJECT_FOLDER/chapters/CHAPTER_SLUG.js`
 
 Export shape:
@@ -193,66 +145,44 @@ export default {
   eyebrow: "Chapter N · CLASS_LABEL SUBJECT_LABEL",
   title: "Chapter Title",
   author: "",
-  pills: ["Theory", "Board Exam Important"],   // adjust as relevant
+  pills: ["Theory", "Board Exam Important"],
   tabs: [
     {
       id: "tab-id",
       label: "Tab Label",
-      blocks: [
-        // teacher-voice, section-head, gloss-row, think-box,
-        // quote-block, nav blocks
-      ],
+      blocks: [ /* blocks */ ],
     },
   ],
 }
 ```
 
-Block rules (CRITICAL — shapes confirmed in Phase 0):
+Block rules (CRITICAL):
 - teacher-voice: `{ type: "teacher-voice", html: "<p>...</p>" }`
 - gloss-row:     `{ type: "gloss-row", word: "Term", def: "Definition" }`
 - quote-block:   `{ type: "quote-block", quote: "...", context: "" }`
 - section-head:  `{ type: "section-head", text: "..." }`
 - think-box:     `{ type: "think-box", label: "⭐ Exam Tip", text: "..." }`
-- nav (non-last tab): `{ type: "nav", back: "prev-tab-id", next: "next-tab-id", nextLabel: "Next: Tab Name →" }`
-- nav (last tab):     `{ type: "nav", back: "prev-tab-id", practice: true }`
-- nav (first tab):    `{ type: "nav", next: "next-tab-id", nextLabel: "Next: Tab Name →" }`
+- nav first tab: `{ type: "nav", next: "next-id", nextLabel: "Next: Name →" }`
+- nav middle:    `{ type: "nav", back: "prev-id", next: "next-id", nextLabel: "Next: Name →" }`
+- nav last tab:  `{ type: "nav", back: "prev-id", practice: true }`
+- NEVER use `prev:` — the field is `back:`
+- ALWAYS include `nextLabel` when `next` is set
 
 Teaching style:
-- Use simple English with Tamil word help for difficult terms
-- Every important concept: gloss-row for definition, think-box for real-life example
-- Mark exam-important facts with ⭐ Exam Tip think-boxes
-- Mark common mistakes with ⚠️ Common Mistake think-boxes
-- Mark Tamil help with 🔤 Tamil Word Help think-boxes
+- Simple English, Tamil word help for difficult terms (🔤)
+- gloss-row for every definition
+- think-box for real-life examples (🌍), exam tips (⭐), common mistakes (⚠️)
 
-After building all chapter files, register ALL of them in registry.js:
-```js
-'CHAPTER_SLUG': () => import('./CLASS_LEVEL/SUBJECT_FOLDER/chapters/CHAPTER_SLUG'),
-```
+After building all 4 learn files — present each one for download immediately.
 
-Then commit everything at once:
-```
-git add -A
-git commit -m "feat: add SUBJECT_LABEL — all N chapters (learn content)"
-git push origin master
-```
+---
 
-After deploy, spot-check 3 chapters. Report. Wait for confirm before Phase 3.
+**STEP B — Build practice files (all 4 chapters)**
 
-
-## ══════════════════════════════════════════════════════════════════════════════
-## PHASE 3 — CHAPTER PRACTICE FILES
-## ══════════════════════════════════════════════════════════════════════════════
-## Build ALL practice files from the PDF evaluation questions, commit all at once.
-## ══════════════════════════════════════════════════════════════════════════════
-
-For each chapter, extract the textbook evaluation questions and build a practice file.
-
-### Practice file structure (per chapter):
-
-File path:
+For each chapter, extract textbook evaluation questions and create:
 `frontend/web/src/content/CLASS_LEVEL/SUBJECT_FOLDER/practice/CHAPTER_SLUG.js`
 
-IMPORTANT: filename = chapter slug exactly (no -practice suffix).
+Filename = chapter slug exactly (NO -practice suffix).
 
 Export shape:
 ```js
@@ -261,196 +191,190 @@ export default {
     subject: "SUBJECT_LABEL — CLASS_LABEL",
     unit: "Chapter N — Chapter Title",
     time: "3.00 hrs",
-    totalMarks: 47,          // must equal sum of all parts[].scoreMax
+    totalMarks: 47,   // must equal sum of all parts[].scoreMax
     instructions: "Samacheer Kalvi — Answer all questions",
   },
   parts: [
     {
-      id: "p1",
-      navLabel: "Part I — MCQ (20 x 1)",
-      title: "Part I — Objective Type",
-      type: "mcq",
-      scoreMax: 20,
-      marksPer: 1,
-      sections: [
-        {
-          label: "Section Name",
-          questions: [
-            {
-              id: "q1",
-              html: "Question text",
-              options: ["a) option", "b) option", "c) option", "d) option"],
-              answer: 0,    // 0-based integer index of correct answer
-              hint: "Explanation of why this is correct.",
-            },
-          ],
-        },
-      ],
+      id: "p1", navLabel: "Part I — MCQ (20 x 1)", title: "Part I",
+      type: "mcq", scoreMax: 20, marksPer: 1,
+      sections: [{ label: "Chapter Name", questions: [
+        { id: "q1", html: "Question?",
+          options: ["a) opt", "b) opt", "c) opt", "d) opt"],
+          answer: 0,   // 0-based index
+          hint: "Why this is correct." },
+      ]}],
     },
     {
-      id: "p2",
-      navLabel: "Part II — Short Answers (5 x 2)",
-      title: "Part II — Short Answer Questions",
-      type: "short-essay",
-      scoreMax: 10,
-      marksPer: 2,
-      questions: [          // flat array, NO sections wrapper
+      id: "p2", navLabel: "Part II — Short Answers (5 x 2)", title: "Part II",
+      type: "short-essay", scoreMax: 10, marksPer: 2,
+      questions: [    // flat array — NO sections wrapper
         { q: "Question text", ans: "Model answer." },
       ],
     },
     {
-      id: "p3",
-      navLabel: "Part III — Brief Answers (3 x 3)",
-      title: "Part III — Brief Answer Questions",
-      type: "short-essay",
-      scoreMax: 9,
-      marksPer: 3,
-      questions: [
-        { q: "Question text", ans: "Model answer." },
-      ],
+      id: "p3", navLabel: "Part III — Brief Answers (3 x 3)", title: "Part III",
+      type: "short-essay", scoreMax: 9, marksPer: 3,
+      questions: [ { q: "...", ans: "..." } ],
     },
     {
-      id: "p4",
-      navLabel: "Part IV — Long Essays (2 x 4)",
-      title: "Part IV — Detailed Answer Questions",
-      type: "long-essay",
-      scoreMax: 8,
-      marksPer: 4,
-      questions: [
-        { q: "Question text", ans: "Detailed model answer." },
-      ],
+      id: "p4", navLabel: "Part IV — Long Essays (2 x 4)", title: "Part IV",
+      type: "long-essay", scoreMax: 8, marksPer: 4,
+      questions: [ { q: "...", ans: "..." } ],
     },
   ],
 }
 ```
 
-Standard marks distribution (adjust per chapter's actual evaluation):
-- Part I MCQ: 20 questions × 1 mark = 20
-- Part II Short: 5 questions × 2 marks = 10
-- Part III Brief: 3 questions × 3 marks = 9
-- Part IV Long: 2 questions × 4 marks = 8
-- Total = 47 (adjust scoreMax values if chapter has different distribution)
+Standard distribution: 20+10+9+8 = 47 marks. Adjust if chapter has fewer questions.
 
-After building all practice files, confirm practiceRegistry glob:
-`import.meta.glob('./Class_*/*/practice/*.js')` — no change needed if already broadened.
+After building all 4 practice files — present each one for download immediately.
 
-Then commit everything at once:
+---
+
+**STEP C — Commit the batch**
+
+Give this to Claude Code:
 ```
+Create these 8 files (4 learn + 4 practice) for SUBJECT_LABEL Batch N:
+
+Learn files:
+  frontend/web/src/content/CLASS_LEVEL/SUBJECT_FOLDER/chapters/chapter-XX-slug.js
+  [repeat for all 4]
+
+Practice files:
+  frontend/web/src/content/CLASS_LEVEL/SUBJECT_FOLDER/practice/chapter-XX-slug.js
+  [repeat for all 4]
+
+Source files are at:
+  C:\Projects\TNSchool\Dummy_files\SUBJECT_LABEL\YEAR\
+
+After creating all files, register learn files in registry.js:
+  'chapter-XX-slug': () => import('./CLASS_LEVEL/SUBJECT_FOLDER/chapters/chapter-XX-slug'),
+  [repeat for all 4]
+
+Verify practiceRegistry glob = ./Class_*/*/practice/*.js (no change needed if already broadened).
+
+Then commit:
 git add -A
-git commit -m "feat: add SUBJECT_LABEL — all N chapters (practice exams)"
+git commit -m "feat: add SUBJECT_LABEL Chapters X–Y (learn + practice)"
 git push origin master
+
+Report commit hash.
 ```
 
-After deploy, spot-check 3 chapters. Report. Wait for confirm before Phase 4.
+---
+
+**STEP D — Print resume message for next chat**
+
+After the commit is confirmed, print this EXACTLY (filled in):
+
+```
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+RESUME MESSAGE FOR NEXT CHAT (copy this exactly):
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Resume subject master prompt — [SUBJECT_LABEL], Batch [N+1] of [TOTAL_BATCHES].
+Chapters [next_start]–[next_end]. Previous batches committed at [commit_hash].
+Here is the PDF.
+
+[Upload the PDF again in the next chat]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
+
+If this was the LAST chapter batch, print instead:
+
+```
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ALL CHAPTERS DONE. FINAL CHAT MESSAGE (copy this):
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Execute Phase 4 (model papers) for [SUBJECT_LABEL].
+Subject slug: `[SUBJECT_SLUG]`, Year: `[YEAR]`, Class: [CLASS_NUM].
+All [N] chapters committed at [commit_hash].
+Here is the PDF.
+
+[Upload the PDF again in the next chat]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
 
 
 ## ══════════════════════════════════════════════════════════════════════════════
-## PHASE 4 — FINAL EXAM PREP (Model Papers)
+## PHASE 4 — FINAL EXAM PREP / MODEL PAPERS
+## ══════════════════════════════════════════════════════════════════════════════
+## Runs in its own dedicated chat after all chapter batches are done.
+## Uses yadhum_model_papers_master_prompt.md from this project.
 ## ══════════════════════════════════════════════════════════════════════════════
 
-After all chapters are live, build the Final Exam Prep section.
-This uses the yadhum_model_papers_master_prompt.md in this project.
-Execute that prompt now with:
-  SUBJECT_LABEL  = SUBJECT_LABEL
-  SUBJECT_SLUG   = SUBJECT_SLUG
-  YEAR           = YEAR
-  CLASS_NUM      = CLASS_NUM
-  PAPER_SLUG_PREFIX = classXX-SUBJECT_SLUG
-  EXPORT_PREFIX     = classXXSUBJECT_FOLDER
-  TOTAL_CHAPTERS    = N
-  CHAPTER_TITLES    = [all chapter titles]
+When the opening message says "Execute Phase 4 (model papers) for [SUBJECT]":
+
+1. Read `yadhum_model_papers_master_prompt.md` from this project
+2. Fill in all placeholders from the opening message
+3. Execute that prompt's Phase 0 → Phase 1 → Phase 2 in sequence
 
 The model papers prompt will:
-1. Build 5 model paper data files covering all chapters
-2. Register them in examPaperRegistry.js
-3. Add metadata to finalExamPrepData.js
-4. Wire FinalExamPrepPage.jsx
-5. Add App.jsx routes
-6. Update SubjectPage.jsx FinalExamPrepEntryCard condition to include SUBJECT_SLUG
-7. Commit and push everything
+- Build 5 model paper data files (one per set, all chapters covered)
+- Register in examPaperRegistry.js
+- Add metadata to finalExamPrepData.js
+- Wire FinalExamPrepPage.jsx with subject lookup
+- Add App.jsx routes for final-exam-prep and model-exam
+- Extend SubjectPage.jsx FinalExamPrepEntryCard condition:
+    subject === 'english' || subject === 'computer-applications' || subject === 'SUBJECT_SLUG'
+- Commit and push everything
 
-After deploy, verify the Final Exam Prep page and practice flow work end-to-end.
-
-
-## ══════════════════════════════════════════════════════════════════════════════
-## PHASE 5 — FINAL VERIFICATION
-## ══════════════════════════════════════════════════════════════════════════════
-
-After all phases are complete:
-
-1. `yadhum.net/YEAR` → SUBJECT_LABEL card appears alongside other subjects
-2. `yadhum.net/YEAR/SUBJECT_SLUG` → all chapters in 2-column grid, Final Exam Prep card visible
-3. `yadhum.net/YEAR/SUBJECT_SLUG/final-exam-prep` → 5 model paper sets appear
-4. Click View Paper on Set 1 → paper renders correctly
-5. Click Start Practice on Set 1 → practice exam loads with MCQ questions
-6. Spot-check 3 random chapter Learn pages → tabs render
-7. Spot-check 3 random chapter Practice pages → exam loads, Review & Submit works
-8. New account signup → SUBJECT_LABEL appears in onboarding Step 2
-
-Report screenshots. Fix any issues before declaring subject complete.
+After deploy verify the full flow:
+yadhum.net/YEAR/SUBJECT_SLUG/final-exam-prep → 5 sets visible
+View Paper → paper renders
+Start Practice → exam loads with MCQ questions
 
 
 ## ══════════════════════════════════════════════════════════════════════════════
-## CONSTRAINTS (apply to every phase)
+## CONSTRAINTS (every phase, every chat)
 ## ══════════════════════════════════════════════════════════════════════════════
 
-- Do NOT modify any existing English or Computer Applications files
-- Do NOT change SubjectPage.jsx, LearnRichPage.jsx, LessonDetailPage.jsx,
-  ChapterPracticeExam.jsx rendering logic — only add data
-- Do NOT use underscores in content filenames — use hyphens (kebab-case)
-- Do NOT add volume:/year:/subject:/color:/categories: to chapters[] entry
-- Match exact code style of existing ComputerApplications files
-- git add -A (not git add -u) to capture new untracked files
-- Never skip Phase 0 reconnaissance — shapes change between sessions
+- Do NOT modify English or Computer Applications files
+- Do NOT change SubjectPage.jsx, LearnRichPage.jsx, ChapterPracticeExam.jsx logic
+- Do NOT use underscores in filenames — kebab-case only
+- Do NOT use `prev:` in nav blocks — field is `back:`
+- Do NOT omit `nextLabel` when `next` is set in a nav block
+- Do NOT add volume:/year:/color:/categories: to chapters[] entries
+- Always git add -A (not git add -u)
+- Always present files for download BEFORE giving Claude Code the commit prompt
 
 
 ## ══════════════════════════════════════════════════════════════════════════════
-## KNOWN ARCHITECTURE FACTS (do not re-investigate these)
+## KNOWN ARCHITECTURE FACTS
 ## ══════════════════════════════════════════════════════════════════════════════
 
 URL PATTERNS:
-- /:year/:subject/chapters/:chapterSlug          → LessonDetailPage
-- /:year/:subject/chapters/:chapterSlug/:section → SectionPage → LearnRichPage
-- /:year/:subject/chapters/:chapterSlug/practice → SectionPage → practice exam
-- /:year/:subject/final-exam-prep                → FinalExamPrepPage
-- /:year/:subject/final-exam-prep/paper/:id      → ExamPaperViewerPage
-- /:year/:subject/model-exam/:modelId            → ModelExamPracticePage
-- "chapters" is a hardcoded literal string as :category — do NOT add category field
+- /:year/:subject/chapters/:slug          → LessonDetailPage
+- /:year/:subject/chapters/:slug/:section → SectionPage → LearnRichPage
+- /:year/:subject/chapters/:slug/practice → SectionPage → practice exam
+- /:year/:subject/final-exam-prep         → FinalExamPrepPage
+- /:year/:subject/final-exam-prep/paper/:id → ExamPaperViewerPage
+- /:year/:subject/model-exam/:modelId     → ModelExamPracticePage
+- "chapters" is a hardcoded literal :category — never add category field
 
-REGISTRY FACTS:
+REGISTRY:
 - practiceRegistry glob = ./Class_*/*/practice/*.js (already broadened)
-- contentRegistry key = chapter slug = filename without extension
 - practice file must be named CHAPTER_SLUG.js (NOT CHAPTER_SLUG-practice.js)
-- Both registries use the same slug as the key
+- contentRegistry and practiceRegistry both use chapter slug as key
 
-ROUTING FACTS:
-- App.jsx routes are generic (/:year/:subject/...) — no new chapter routes needed
-- getSubjectChapters() in LessonDetailPage handles chapters[] automatically
-- Model exam routes ARE hardcoded per subject — must be added in App.jsx for each new subject
-- ChapterPracticeExam.jsx draft key uses useParams() year/subject dynamically (commit 8c6e903)
+ROUTING:
+- Chapter routes generic — no App.jsx changes needed for new chapters
+- Model exam routes hardcoded per subject — must be added in App.jsx (Phase 4)
+- ChapterPracticeExam.jsx draft key uses useParams() dynamically (commit 8c6e903)
 
-SUBJECT PAGE FACTS:
-- isSubjectAllowed() in userAccess.js is generic — no whitelist to update
-- YearPage.jsx subject cards are data-driven from syllabus.js — no hardcoding
-- OnboardingPage.jsx SUBJECTS array is SEPARATE from syllabus.js — must update manually
-- SubjectPage.jsx FinalExamPrepEntryCard condition currently reads:
-    subject === 'english' || subject === 'computer-applications'
-  MUST extend this for every new subject:
-    subject === 'english' || subject === 'computer-applications' || subject === 'SUBJECT_SLUG'
+SUBJECT PAGE:
+- isSubjectAllowed() generic — no whitelist to update
+- YearPage.jsx data-driven from syllabus.js — no hardcoding
+- OnboardingPage.jsx SUBJECTS separate from syllabus.js — update manually
+- FinalExamPrepEntryCard condition must be extended for each new subject
+- SubjectPage placeholder cards (Coming Soon) already render for chapters[] subjects
 
-EXAM PAPER FACTS:
-- examPaperRegistry.js key pattern for model papers: classNN-SUBJECT_SLUG-model-qa-N
-- Both named export AND default export required in each model paper file
-- "Start Practice" button in ExamPaperViewerPage derives route from paperId using
-  regex match on -model-qa-N suffix — works automatically for any subject slug
-- finalExamPrepData.js lookup key pattern: 'YEAR-SUBJECT_SLUG'
-- ModelPaperListCard basePath prop must be '/YEAR/SUBJECT_SLUG'
-- Annual papers (Previous Year Papers) — leave as Coming Soon placeholder until
-  actual past papers are available
-
-NAV BLOCK FACTS (critical — wrong shape causes broken navigation):
-- Non-last tab: { type: "nav", back: "prev-id", next: "next-id", nextLabel: "Next: Name →" }
-- First tab:    { type: "nav", next: "next-id", nextLabel: "Next: Name →" }
-- Last tab:     { type: "nav", back: "prev-id", practice: true }
-- Do NOT use `prev:` field — the field is `back:` (not `prev:`)
-- Do NOT omit nextLabel when next is set — causes broken/empty button
+EXAM PAPERS:
+- Registry key: classNN-SUBJECT_SLUG-model-qa-N
+- Named + default export both required in model paper files
+- Start Practice button derives route from paperId automatically (commit 17f7c0b)
+- finalExamPrepData.js lookup key: 'YEAR-SUBJECT_SLUG'
+- ModelPaperListCard basePath: '/YEAR/SUBJECT_SLUG'
