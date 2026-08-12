@@ -46,6 +46,9 @@ const LOADERS = {
   'chapter-07-php-loops':             () => import('./Class_12/ComputerApplications/chapters/chapter-07-php-loops'),
   'chapter-08-forms-files':           () => import('./Class_12/ComputerApplications/chapters/chapter-08-forms-files'),
   'chapter-09-php-mysql':             () => import('./Class_12/ComputerApplications/chapters/chapter-09-php-mysql'),
+  'chapter-10-networks-intro':        () => import('./Class_12/ComputerApplications/chapters/chapter-10-networks-intro'),
+  'chapter-11-network-protocols':     () => import('./Class_12/ComputerApplications/chapters/chapter-11-network-protocols'),
+  'chapter-12-dns':                   () => import('./Class_12/ComputerApplications/chapters/chapter-12-dns'),
 }
 
 const registry = {

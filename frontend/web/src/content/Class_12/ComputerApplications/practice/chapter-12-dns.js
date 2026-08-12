@@ -1,0 +1,88 @@
+// frontend/web/src/content/Class_12/ComputerApplications/practice/chapter-12-dns.js
+
+export default {
+  meta: {
+    subject: `Computer Applications -- Class XII`,
+    unit: `Chapter 12 -- Domain Name System (DNS)`,
+    time: `3.00 hrs`,
+    totalMarks: 47,
+    instructions: `Samacheer Kalvi -- Answer all questions`,
+  },
+  parts: [
+    {
+      id: `p1`,
+      navLabel: `Part I -- MCQ (20 x 1)`,
+      title: `Part I -- Objective Type`,
+      type: `mcq`,
+      scoreMax: 20,
+      marksPer: 1,
+      sections: [
+        {
+          label: `DNS`,
+          questions: [
+            { id: `q1`, html: `Which of the following is used to maintain all the directories of domain names?`, options: [`a) Domain name system`, `b) Domain name space`, `c) Name space`, `d) IP address`], answer: 0, hint: `DNS (Domain Name System) maintains all directories of domain names and helps access websites using domain names.` },
+            { id: `q2`, html: `Which notation is used to denote IPv4 addresses?`, options: [`a) Binary`, `b) Dotted-decimal`, `c) Hexadecimal`, `d) a and b`], answer: 3, hint: `IPv4 addresses can be represented in Binary notation or Dotted-decimal notation. Both are valid.` },
+            { id: `q3`, html: `How many bits are used in IPv6 addresses?`, options: [`a) 32`, `b) 64`, `c) 128`, `d) 16`], answer: 2, hint: `IPv6 uses 128 bits. IPv4 uses 32 bits. Number of IPv6 addresses = 2^128.` },
+            { id: `q4`, html: `Expansion of URL is:`, options: [`a) Uniform Resource Location`, `b) Universal Resource Location`, `c) Uniform Resource Locator`, `d) Universal Resource Locator`], answer: 2, hint: `URL = Uniform Resource Locator. It is the address of a document on the Internet.` },
+            { id: `q5`, html: `How many types are available in URL?`, options: [`a) 2`, `b) 3`, `c) 4`, `d) 5`], answer: 0, hint: `There are 2 types of URL: Absolute URL (complete address, all 4 parts) and Relative URL (partial address).` },
+            { id: `q6`, html: `Maximum characters used in the label of a node?`, options: [`a) 255`, `b) 128`, `c) 63`, `d) 32`], answer: 2, hint: `A label in DNS can have a maximum of 63 characters.` },
+            { id: `q7`, html: `In the domain name, the sequence of labels is separated by:`, options: [`a) Semicolon (;)`, `b) Dot (.)`, `c) Colon (:)`, `d) NULL`], answer: 1, hint: `In a domain name, labels are separated by dot (.). Example: challenger.atc.fhda.edu — 4 labels separated by dots.` },
+            { id: `q8`, html: `Which of the following initiates the mapping of domain name to IP address?`, options: [`a) Zone`, `b) Domain`, `c) Resolver`, `d) Name servers`], answer: 2, hint: `Resolver is the program responsible for initiating the translation (mapping) of a domain name into an IP address.` },
+            { id: `q9`, html: `Which is the contiguous area up to which the server has access?`, options: [`a) Zone`, `b) Domain`, `c) Resolver`, `d) Name servers`], answer: 0, hint: `Zone is a group of contiguous domains and sub domains — the area up to which a server has access.` },
+            { id: `q10`, html: `Root Name Servers are maintained by:`, options: [`a) IANA`, `b) ICANN`, `c) WHOIS`, `d) DNS`], answer: 1, hint: `Root Name Servers (13 of them) are maintained by ICANN (Internet Corporation for Assigned Names and Numbers).` },
+            { id: `q11`, html: `How many bits does IPv4 use?`, options: [`a) 16`, `b) 32`, `c) 64`, `d) 128`], answer: 1, hint: `IPv4 uses 32 bits. Total addresses possible = 2^32.` },
+            { id: `q12`, html: `The total number of addresses that can be formed in IPv4 is:`, options: [`a) 2^16`, `b) 2^32`, `c) 2^64`, `d) 2^128`], answer: 1, hint: `IPv4 uses 32 bits, so total addresses = 2^32.` },
+            { id: `q13`, html: `URL is made up of how many parts?`, options: [`a) 2`, `b) 3`, `c) 4`, `d) 5`], answer: 2, hint: `URL has 4 parts: Protocol, Hostname/Domain Name, Folder Name, and File Name.` },
+            { id: `q14`, html: `Which type of URL contains all four parts (protocol, domain, folder, filename)?`, options: [`a) Relative URL`, `b) Absolute URL`, `c) Dynamic URL`, `d) Static URL`], answer: 1, hint: `Absolute URL is the complete address containing all four parts. Relative URL is partial (filename or filename+folder).` },
+            { id: `q15`, html: `.edu domain is used for:`, options: [`a) Commercial organizations`, `b) Educational institutions`, `c) Government (US)`, `d) Non-profit organizations`], answer: 1, hint: `.edu = educational institutions. .com = commercial. .gov = government. .org = non-profit.` },
+            { id: `q16`, html: `Country domain for India is:`, options: [`a) .us`, `b) .uk`, `c) .in`, `d) .au`], answer: 2, hint: `.in is the country TLD for India. .us = USA, .uk = United Kingdom, .au = Australia.` },
+            { id: `q17`, html: `How many types of Name Servers are there?`, options: [`a) 2`, `b) 3`, `c) 4`, `d) 5`], answer: 1, hint: `3 types of Name Servers: Root Name Server, Primary Name Server, and Secondary Name Server.` },
+            { id: `q18`, html: `ICANN stands for:`, options: [`a) Internet Corporation for Assigned Names and Numbers`, `b) Internet Control for Assigned Names and Networks`, `c) International Corporation for Assigned Networks`, `d) Internet Corporation for All Names`], answer: 0, hint: `ICANN = Internet Corporation for Assigned Names and Numbers. Non-profit that assigns names and numbers for Internet resources.` },
+            { id: `q19`, html: `Domain names are:`, options: [`a) Case-sensitive`, `b) NOT case-sensitive`, `c) Must be uppercase only`, `d) Must be lowercase only`], answer: 1, hint: `Domain names are NOT case-sensitive. www.Google.com and www.google.com go to the same website.` },
+            { id: `q20`, html: `The domain name space tree can have a maximum of how many levels?`, options: [`a) 64`, `b) 100`, `c) 128`, `d) 255`], answer: 2, hint: `Domain name space tree has a maximum of 128 levels, from level 0 (root) to level 127.` },
+          ],
+        },
+      ],
+    },
+    {
+      id: `p2`,
+      navLabel: `Part II -- Short Answers (5 x 2)`,
+      title: `Part II -- Short Answer Questions`,
+      type: `short-essay`,
+      scoreMax: 10,
+      marksPer: 2,
+      questions: [
+        { q: `What is an IP address?`, ans: `IP address (Internet Protocol address) is a logical address in the network layer used to uniquely identify a computer over the network. Like a door number that identifies a house, the IP address identifies a host system on the entire network. There are two types: IPv4 (32-bit address, dotted-decimal notation, 2^32 total addresses, e.g., 128.143.137.144) and IPv6 (128-bit address, hexadecimal notation, 2^128 total addresses, e.g., 2001:0000:3231:DFE1:0063:0000:0000:FEFB).` },
+        { q: `What is a URL?`, ans: `URL stands for Uniform Resource Locator. It is the address of a document on the Internet. A URL is made up of four parts: 1. Protocol (e.g., http:// or https://), 2. Hostname/Domain Name (e.g., cms.tn.gov.in), 3. Folder Name (e.g., sites/default/files/press_release), 4. File Name (e.g., pr070119a.jpg). URL is classified into two types: Absolute URL (complete address with all four parts) and Relative URL (partial address with only filename or filename with folder).` },
+        { q: `What is a Zone in DNS?`, ans: `Zone is one of the four components of the Domain Name System (DNS). Zone is a group of contiguous domains and sub domains. The entire name space is divided into many different zones. If a zone has a single domain, then the zone and domain are the same. Every zone has a server which contains a database called a zone file. Using the zone file, the DNS server replies to queries about hosts in its zone. There are two copies of zone files: Master file and Slave file.` },
+        { q: `What is a Resolver in DNS?`, ans: `Resolver is one of the four components of DNS. A resolver is a program which is responsible for initiating the translation of a domain name into an IP address. Since a resolver is stored in the host computer, there is no need for any protocol to form a connection between the resolver and the user program. When the user enters a URL in the browser, the resolver initiates the DNS lookup process to find the corresponding IP address.` },
+        { q: `Write any four Generic Top Level Domains (gTLD).`, ans: `Generic Top Level Domain (gTLD) names are used for generic purposes and are maintained by IANA: 1. .com — Commercial organisations (e.g., amazon.com). 2. .edu — Educational Institutions (e.g., mit.edu). 3. .gov — Government (US) websites (e.g., nasa.gov). 4. .org — Non-profit organizations (e.g., wikipedia.org). 5. .net — Networking organizations. 6. .mil — Military groups. 7. .info — Information service providers.` },
+      ],
+    },
+    {
+      id: `p3`,
+      navLabel: `Part III -- Brief Answers (3 x 3)`,
+      title: `Part III -- Brief Answer Questions`,
+      type: `short-essay`,
+      scoreMax: 9,
+      marksPer: 3,
+      questions: [
+        { q: `Write a note on URL and its types.`, ans: `URL (Uniform Resource Locator) is the address of a document on the Internet. It is made up of four parts: Protocol (http/https), Hostname/Domain Name, Folder Name, and File Name.\n\nExample: http://cms.tn.gov.in/sites/default/files/press_release/pr070119a.jpg\n- Protocol: http\n- Domain: cms.tn.gov.in\n- Folders: sites/default/files/press_release\n- File: pr070119a.jpg\n\nTypes of URL:\n1. Absolute URL — The complete address of a document on the Internet. Contains ALL FOUR parts (protocol, domain, folder, filename). Like a full postal address — if any part is missing, the browser cannot find the file. Used when linking to a file on another server.\n\n2. Relative URL — The partial address of a document. Contains only a filename, or filename with folder name. Used when the file is on the SAME server as the current document. Shorter and easier to maintain for internal links.` },
+        { q: `Differentiate IPv4 and IPv6.`, ans: `IPv4 (Internet Protocol version 4):\n- Uses 32 bits for addressing.\n- Total addresses possible = 2^32 (approximately 4.3 billion).\n- Written in dotted-decimal notation: 4 groups of 8 bits (octets) separated by dots.\n- Example: 128.143.137.144\n- Becoming exhausted due to the rapid growth of Internet devices.\n\nIPv6 (Internet Protocol version 6):\n- Uses 128 bits for addressing.\n- Total addresses possible = 2^128 (a vastly larger number).\n- Written in hexadecimal notation: 128 bits divided into eight 16-bit blocks, each block as 4-digit hex, separated by colons (:).\n- Example: 2001:0000:3231:DFE1:0063:0000:0000:FEFB\n- Created to solve IPv4 address exhaustion.\n\nKey difference: IPv4 = 32 bits, decimal, dots. IPv6 = 128 bits, hexadecimal, colons.` },
+        { q: `Write a note on Domain Name.`, ans: `A domain name is the sequence of labels in a DNS hierarchy. Labels are separated by dot (.). The domain name is always read from the LOWER level to HIGHER level (from leaf node to root node).\n\nExample: challenger.atc.fhda.edu — read from left (lowest) to right (highest toward root).\n\nRules for Domain Names:\n1. Can contain alphabets (a-z, A-Z) and digits (0-9).\n2. Hyphens allowed but NOT as the first character.\n3. Spaces are NOT allowed.\n4. Special symbols (!, $, &, _) are NOT permitted.\n5. Maximum 253 characters total.\n6. Domain names are NOT case-sensitive.\n\nTypes of Top Level Domains:\n- gTLD: .com (commercial), .edu (educational), .gov (government), .org (non-profit)\n- cTLD: 2-character country codes — .in (India), .us (USA), .uk (United Kingdom)` },
+      ],
+    },
+    {
+      id: `p4`,
+      navLabel: `Part IV -- Long Essays (2 x 4)`,
+      title: `Part IV -- Detailed Answer Questions`,
+      type: `long-essay`,
+      scoreMax: 8,
+      marksPer: 4,
+      questions: [
+        { q: `Classify and explain the IP address and its classification.`, ans: `IP (Internet Protocol) address is a logical address used to uniquely identify a computer over the network. It is similar to a house door number — just as a door number identifies a house, an IP address identifies a host system in the whole network.\n\nClassification of IP Address:\n\n1. IPv4 (Internet Protocol version 4):\n- 32-bit unique address given to a computer on the network.\n- No two systems can have the same IP address.\n- Total addresses possible = 2^32.\n- Two ways to represent:\n  a) Binary notation: 32-bit binary value. Example: 00111001 10001001 00111000 00000111\n  b) Dotted-decimal notation: Four groups of decimal numbers separated by dots. Example: 128.143.137.144\n  Each group = 1 byte (8 bits), value 0-255.\n\n2. IPv6 (Internet Protocol version 6):\n- 128-bit unique address given to a computer on the network.\n- Total addresses possible = 2^128 (much larger than IPv4).\n- 128 bits divided into eight 16-bit blocks.\n- Each block converted to 4-digit Hexadecimal numbers separated by colons.\n- Example: 2001:0000:3231:DFE1:0063:0000:0000:FEFB\n- Created to solve IPv4 address exhaustion due to the rapid growth of Internet-connected devices.` },
+        { q: `Explain how the DNS is working.`, ans: `DNS (Domain Name System) translates domain names into IP addresses, allowing users to access websites by name rather than number.\n\nHow DNS Works — Step by Step:\n\n1. User enters a URL (e.g., www.tnscert.org) in the browser.\n\n2. The system first checks its DNS cache for the corresponding IP address. If found in cache, the information is retrieved immediately.\n\n3. If NOT in cache, the query is passed to the Resolver (provided by the Internet Service Provider — ISP).\n\n4. The Resolver checks its own cache. If found, returns the IP address.\n\n5. If NOT in Resolver cache, the query is passed to the Root Name Server.\n\n6. The Root Name Server does not know the exact IP but directs the query to the appropriate TLD (Top Level Domain) Name Server (e.g., .org server for tnscert.org).\n\n7. The TLD server directs the query to the Authoritative Name Server for that specific domain (tnscert.org).\n\n8. The Authoritative Name Server returns the IP address (e.g., 198.71.57.84) to the Resolver.\n\n9. The Resolver returns the IP address to the user's computer.\n\n10. The browser connects to the web server at that IP address and displays the website.\n\nKey components involved: Browser, Resolver, Local DNS Server, Root Server, TLD Server, Authoritative DNS Server.` },
+      ],
+    },
+  ],
+}
