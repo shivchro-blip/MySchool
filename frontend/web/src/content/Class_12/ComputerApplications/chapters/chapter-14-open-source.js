@@ -1,0 +1,133 @@
+// frontend/web/src/content/Class_12/ComputerApplications/chapters/chapter-14-open-source.js
+
+export default {
+  eyebrow: "Chapter 14 · Class 12 Computer Applications",
+  title: "Open Source Concepts",
+  author: "",
+  pills: ["Theory", "Board Exam Important"],
+
+  tabs: [
+    {
+      id: "open-source",
+      label: "Open Source",
+      blocks: [
+        {
+          type: "teacher-voice",
+          html: "<p>Have you ever used VLC Media Player or Mozilla Firefox? These are Open Source Software — anyone can view and modify their source code for free. This chapter explains what Open Source Software is, its benefits, and tools like NS2 and OpenNMS used in networking.</p>",
+        },
+        {
+          type: "section-head",
+          text: "14.1 Introduction to Open Source",
+        },
+        {
+          type: "gloss-row",
+          word: "Open Source Software (OSS)",
+          def: "Software whose source code is freely available for users or other developers to use, modify, and distribute. Unlike proprietary software, OSS allows anyone to view, edit, and improve the source code.",
+        },
+        {
+          type: "gloss-row",
+          word: "Proprietary Software",
+          def: "Software owned by an organization or individual. Source code is NOT available. Advantages: more control, support, training, security, and stability.",
+        },
+        {
+          type: "gloss-row",
+          word: "Freeware",
+          def: "Proprietary software that users can download at no cost, BUT whose source code CANNOT be changed. Different from Open Source (OSS allows modification; freeware does not).",
+        },
+        {
+          type: "gloss-row",
+          word: "BOSS",
+          def: "Bharat Operating System Solutions — an Open Source Operating System developed in India by C-DAC (Centre for Development of Advanced Computing). Supports many Indian languages.",
+        },
+        {
+          type: "gloss-row",
+          word: "NRCFOSS",
+          def: "National Resource Centre for Free and Open Source Software — an Institution of the Government of India that helps in development of FOSS in India.",
+        },
+        {
+          type: "gloss-row",
+          word: "Benefits of OSS",
+          def: "1. Free to use without restrictions. 2. Share ideas and code with a global community. 3. Learn from other programmers' techniques. 4. Problems are quickly fixed by the group. 5. Can add required features. 6. Many OSS are very user friendly.",
+        },
+        {
+          type: "gloss-row",
+          word: "Examples of OSS",
+          def: "NS2, OpenNMS, Ubuntu, MySQL, PDF Creator, Open Office, 7zip, GNUCASH, GIMP, Blender, Audacity, VLC, Mozilla Firefox, Magento, Android, PHP.",
+        },
+        {
+          type: "think-box",
+          label: "⭐ Exam Tip",
+          text: "OSS vs Freeware vs Free Software: OSS = source code open, modifiable. Freeware = free to download but source code closed. Free Software = concept by Richard Stallman (MIT, 1980s), emphasizes user freedoms. These distinctions appear in Part II questions.",
+        },
+        {
+          type: "nav",
+          next: "ns2-opennms",
+          nextLabel: "Next: NS2 & OpenNMS →",
+        },
+      ],
+    },
+    {
+      id: "ns2-opennms",
+      label: "NS2 & OpenNMS",
+      blocks: [
+        {
+          type: "section-head",
+          text: "14.2 Network Simulation Tool — NS2",
+        },
+        {
+          type: "gloss-row",
+          word: "Network Simulation",
+          def: "A method where a software program models the activities of a network by calculating communication between different network objects (routers, nodes, switches, access points, links, etc.).",
+        },
+        {
+          type: "gloss-row",
+          word: "NS2 (Network Simulator version 2)",
+          def: "An event-driven open-source network simulator. Used for exploration in network communication. Uses OTCL and C++ languages. Works on Windows and Linux. Supports wired and wireless networks. Uses command line interface.",
+        },
+        {
+          type: "gloss-row",
+          word: "Trace Files",
+          def: "A significant output of network simulation. Trace files document every incident that happened in the simulation and are used for examination.",
+        },
+        {
+          type: "section-head",
+          text: "14.3 OpenNMS",
+        },
+        {
+          type: "gloss-row",
+          word: "OpenNMS",
+          def: "Open NMS (Network Management System) — a free and open-source network monitoring and management platform. Released in 1999. Written in Java — runs on all platforms. OpenNMS is the world's first software for network monitoring and management with open-source options.",
+        },
+        {
+          type: "gloss-row",
+          word: "OpenNMS Group",
+          def: "Created in 2004. Provides services, training, and support. Two types: Meridian (stability, long-term support, best for enterprises) and Horizon (innovation, best for new technologies).",
+        },
+        {
+          type: "gloss-row",
+          word: "FCAPS",
+          def: "Fault, Configuration, Accounting, Performance, Security — the network management model that OpenNMS aims to cover.",
+        },
+        {
+          type: "section-head",
+          text: "14.4 Open Source Hardware",
+        },
+        {
+          type: "gloss-row",
+          word: "Open Source Hardware",
+          def: "In this technique, the components of hardware and its circuit diagram are made available, so that suspicious spy hardware (from rivals or hackers) can be identified and removed. Allows: Remix, Remake, Remanufacture, Redistribute, Resell, Study and Learn.",
+        },
+        {
+          type: "think-box",
+          label: "⭐ Exam Tip",
+          text: "NS2 = Network Simulator version 2. Uses C++ and OTcl. Released 1999 (OpenNMS). Father of EDI = Ed Guilbert. OpenNMS was first released in 1999. OpenNMS Group created in 2004. These specific facts are asked in MCQ.",
+        },
+        {
+          type: "nav",
+          back: "open-source",
+          practice: true,
+        },
+      ],
+    },
+  ],
+}

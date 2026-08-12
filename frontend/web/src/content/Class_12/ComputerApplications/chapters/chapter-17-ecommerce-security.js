@@ -1,0 +1,161 @@
+// frontend/web/src/content/Class_12/ComputerApplications/chapters/chapter-17-ecommerce-security.js
+
+export default {
+  eyebrow: "Chapter 17 · Class 12 Computer Applications",
+  title: "E-Commerce Security Systems",
+  author: "",
+  pills: ["Theory", "Board Exam Important"],
+
+  tabs: [
+    {
+      id: "threats",
+      label: "Threats & Dimensions",
+      blocks: [
+        {
+          type: "teacher-voice",
+          html: "<p>Online shopping is convenient, but it comes with security risks. Hackers, viruses, payment fraud, and phishing are all real threats. This chapter explains how E-Commerce is protected — through encryption, digital signatures, and security protocols.</p>",
+        },
+        {
+          type: "section-head",
+          text: "17.2 Types of E-Commerce Threats",
+        },
+        {
+          type: "gloss-row",
+          word: "1. Information Leakage",
+          def: "Trade secrets stolen by third parties. Intercepting and stealing of online documents. Two aspects: (a) transaction content stolen by third party, (b) documents illegally used by the other party.",
+        },
+        {
+          type: "gloss-row",
+          word: "2. Tampering",
+          def: "Hackers grasp data transmitted on the network, falsify it using technical means, then send it to the destination — destroying the authenticity and integrity of the data.",
+        },
+        {
+          type: "gloss-row",
+          word: "3. Payment Frauds",
+          def: "Friendly fraud (customer demands false refund), Clean fraud (stolen credit card used to purchase), Triangulation fraud (fake online shops collect credit card data).",
+        },
+        {
+          type: "gloss-row",
+          word: "4. Malicious Code Threats",
+          def: "Using malware, Cross Site Scripting (XSS), or SQL Injection to extract credit card information. Sold on black markets. Used for ATM withdrawals or fraudulent E-Commerce transactions.",
+        },
+        {
+          type: "gloss-row",
+          word: "5. DDoS Attack (Distributed Denial of Service)",
+          def: "Taking down an E-Commerce site by sending continuous overwhelming requests to its server from numerous unidentified computers using botnet. Also called network flooding. Server becomes slow and inoperative.",
+        },
+        {
+          type: "gloss-row",
+          word: "6. Cyber Squatting",
+          def: "Illegal practice of registering an Internet domain name that might be wanted by another person, intending to sell it later for profit. Registers popular trademarks before the company does.",
+        },
+        {
+          type: "gloss-row",
+          word: "7. Typopiracy",
+          def: "A variant of Cyber Squatting. Fake websites that take advantage of users' common typing errors. Examples: www.goggle.com, www.faceblook.com.",
+        },
+        {
+          type: "gloss-row",
+          word: "Phishing",
+          def: "Target contacted by e-mail, telephone, or text by someone pretending to be a genuine authority. Tricks individuals into providing sensitive data (banking details, OTP, PIN, passwords). Can lead to identity theft and financial loss.",
+        },
+        {
+          type: "gloss-row",
+          word: "Ransomware",
+          def: "A type of malware that encrypts all files in a target's computer and threatens to publish critical data unless a ransom (money) is paid.",
+        },
+        {
+          type: "section-head",
+          text: "17.3 Dimensions of E-Commerce Security",
+        },
+        {
+          type: "gloss-row",
+          word: "10 Security Dimensions",
+          def: "Authenticity (genuineness), Availability (no delay/removal), Completeness (all business info unified), Confidentiality (no unauthorized disclosure), Effectiveness (hardware/software/data handled effectively), Integrity (data not altered), Non-repudiation (no violation after deal), Privacy (personal data protected), Reliability (reliable identification), Reviewability (audit capability).",
+        },
+        {
+          type: "think-box",
+          label: "⭐ Exam Tip",
+          text: "DDoS = Distributed Denial of Service = network flooding. Phishing = tricking users into giving sensitive data. Ransomware = encrypts files, demands money. Cyber Squatting = registering someone else's domain name. Typopiracy = exploiting typing errors. These definitions are asked in Part II every year.",
+        },
+        {
+          type: "nav",
+          next: "security-tech",
+          nextLabel: "Next: Security Technologies →",
+        },
+      ],
+    },
+    {
+      id: "security-tech",
+      label: "Security Technologies",
+      blocks: [
+        {
+          type: "section-head",
+          text: "17.4 Security Technologies in E-Commerce",
+        },
+        {
+          type: "gloss-row",
+          word: "3 Security Technology Categories",
+          def: "1. Encryption technology, 2. Authentication technology, 3. Authentication protocols.",
+        },
+        {
+          type: "section-head",
+          text: "17.4.1 Encryption Technology",
+        },
+        {
+          type: "gloss-row",
+          word: "Encryption",
+          def: "Converting Plaintext into meaningless Ciphertext using an encryption algorithm and key. Ensures confidentiality of data. Decryption reverses the process.",
+        },
+        {
+          type: "gloss-row",
+          word: "Symmetric Key Encryption",
+          def: "SAME key used for both encryption and decryption. Fast. Plain text and cipher text are same size. Keys grow exponentially with number of users. Algorithms: DES, AES, RC4. Provides: confidentiality only.",
+        },
+        {
+          type: "gloss-row",
+          word: "Asymmetric Key Encryption",
+          def: "DIFFERENT keys used for encryption and decryption (public key + private key). Slower. Cipher text always larger than plain text. Keys grow linearly with users. Algorithms: RSA, ECC, DSA. Provides: confidentiality, authenticity, and non-repudiation. Invented by Whitfield Diffie and Martin Hellman in 1976.",
+        },
+        {
+          type: "section-head",
+          text: "17.4.2 Authentication Technology",
+        },
+        {
+          type: "gloss-row",
+          word: "Digital Certificate",
+          def: "An electronic document used to prove ownership of a public key. Contains: sender's identity, digital signature, and public key. Similar to passport/driving license. Issued by recognized Certification Authorities (CA). Common systems: X.509 and PGP (Pretty Good Privacy). Authorized CAs in India: NIC, Safescript, TCS, MTNL, e-Mudhra.",
+        },
+        {
+          type: "gloss-row",
+          word: "Digital Signature",
+          def: "A mechanism to verify that a digital document, message, or transaction is authentic. Provides guarantee that message was generated by the sender and has not been altered. Provides: authentication, non-repudiation, and integrity. Uses Digital Signature Standard (DSS) with SHA-1 or SHA-2 algorithm.",
+        },
+        {
+          type: "section-head",
+          text: "17.4.3 Authentication Protocols",
+        },
+        {
+          type: "gloss-row",
+          word: "SET — Secure Electronic Transaction",
+          def: "Security protocol for electronic payments with credit cards via Internet. Developed in 1996 by VISA and MasterCard (with GTE, IBM, Microsoft, Netscape). Uses digital signatures, asymmetric and symmetric encryption, and dual signatures.",
+        },
+        {
+          type: "gloss-row",
+          word: "SSL — Secure Sockets Layer",
+          def: "Most common cryptographic protocol. Hybrid encryption for securing Internet transactions. Developed by Netscape with MasterCard, Bank of America, MCI, and Silicon Graphics. Based on public key cryptography. Identified by https:// and a green padlock in the browser.",
+        },
+        {
+          type: "think-box",
+          label: "⭐ Exam Tip",
+          text: "Symmetric = same key, fast, DES/AES. Asymmetric = different keys, slow, RSA. SSL = https:// = green padlock. SET developed 1996 by VISA and MasterCard. Digital Certificate = proves ownership of public key. Digital Signature = verifies authenticity of document. Symmetric provides confidentiality. Asymmetric provides confidentiality + authenticity + non-repudiation.",
+        },
+        {
+          type: "nav",
+          back: "threats",
+          practice: true,
+        },
+      ],
+    },
+  ],
+}

@@ -49,6 +49,12 @@ const LOADERS = {
   'chapter-10-networks-intro':        () => import('./Class_12/ComputerApplications/chapters/chapter-10-networks-intro'),
   'chapter-11-network-protocols':     () => import('./Class_12/ComputerApplications/chapters/chapter-11-network-protocols'),
   'chapter-12-dns':                   () => import('./Class_12/ComputerApplications/chapters/chapter-12-dns'),
+  'chapter-13-network-cabling':       () => import('./Class_12/ComputerApplications/chapters/chapter-13-network-cabling'),
+  'chapter-14-open-source':           () => import('./Class_12/ComputerApplications/chapters/chapter-14-open-source'),
+  'chapter-15-ecommerce':             () => import('./Class_12/ComputerApplications/chapters/chapter-15-ecommerce'),
+  'chapter-16-payment-systems':       () => import('./Class_12/ComputerApplications/chapters/chapter-16-payment-systems'),
+  'chapter-17-ecommerce-security':    () => import('./Class_12/ComputerApplications/chapters/chapter-17-ecommerce-security'),
+  'chapter-18-edi':                   () => import('./Class_12/ComputerApplications/chapters/chapter-18-edi'),
 }
 
 const registry = {
