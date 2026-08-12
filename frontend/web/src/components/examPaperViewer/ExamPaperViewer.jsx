@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { getPaperById } from '../../data/examPapers/examPaperRegistry'
 import ViewerHeader           from './ViewerHeader'
 import PageSurface            from './PageSurface'
@@ -35,6 +36,7 @@ const ZOOM_MAX = 2.0
 const ZOOM_STEP = 0.1
 
 export default function ExamPaperViewer({ paperId, backPath }) {
+  const routerNavigate = useNavigate()
   const [paper, setPaper] = useState(undefined)
 
   useEffect(() => {
@@ -51,6 +53,15 @@ export default function ExamPaperViewer({ paperId, backPath }) {
 
   const goNextRef = useRef(null)
   const goPrevRef = useRef(null)
+
+  const startPracticeUrl = paper ? (() => {
+    const m = paper.paperId.match(/^class(\d+)-(.+)-model-qa-(\d+)$/)
+    if (!m) return null
+    const [, classNum, subjectSlug, setNum] = m
+    const classLevel = classNum === '12' ? 'plus2' : 'plus1'
+    return `/${classLevel}/${subjectSlug}/model-exam/model-qa-${setNum}`
+  })() : null
+  const handleStartPractice = () => { if (startPracticeUrl) routerNavigate(startPracticeUrl) }
 
   const spreads       = paper ? buildSpreads(paper.totalPages) : []
   const currentSpread = spreads[spreadIndex] ?? []
@@ -133,7 +144,7 @@ export default function ExamPaperViewer({ paperId, backPath }) {
     <div className="flex flex-col" style={{ height: 'calc(100vh - 58px)' /* 58px = DashboardShell sticky header */ }}>
       {/* White header — content unchanged; override its bottom margin without touching ViewerHeader */}
       <div className="bg-bg px-4 sm:px-10 [&>div]:mb-0 shrink-0">
-        <ViewerHeader paper={paper} backPath={backPath} />
+        <ViewerHeader paper={paper} backPath={backPath} onStartPractice={handleStartPractice} />
       </div>
 
       {/* Dark flipbook area — arrows positioned relative to this container */}
@@ -162,7 +173,7 @@ export default function ExamPaperViewer({ paperId, backPath }) {
                     page={page}
                     isLast={pageLast}
                     inSpread
-                    onStartPractice={() => console.log('TODO: Start Practice')}
+                    onStartPractice={handleStartPractice}
                   />
                 )
               })}
@@ -180,7 +191,7 @@ export default function ExamPaperViewer({ paperId, backPath }) {
                     key={pageNum}
                     page={page}
                     isLast={pageLast}
-                    onStartPractice={() => console.log('TODO: Start Practice')}
+                    onStartPractice={handleStartPractice}
                   />
                 )
               })}

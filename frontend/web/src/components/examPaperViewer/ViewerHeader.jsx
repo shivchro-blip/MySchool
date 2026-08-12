@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { ChevronRight } from 'lucide-react'
 
-export default function ViewerHeader({ paper, backPath }) {
+export default function ViewerHeader({ paper, backPath, onStartPractice }) {
   const navigate = useNavigate()
   const meta = [
     ['Time Allowed', paper.duration],
@@ -40,7 +40,7 @@ export default function ViewerHeader({ paper, backPath }) {
             ← Back to Final Exam Prep
           </button>
           <button
-            onClick={() => console.log('TODO: Start Practice')}
+            onClick={() => onStartPractice?.()}
             className="px-4 py-2 text-sm font-semibold text-white bg-brand-teal rounded-button hover:bg-brand-teal-hover transition-colors duration-fast whitespace-nowrap"
           >
             Start Practice →
