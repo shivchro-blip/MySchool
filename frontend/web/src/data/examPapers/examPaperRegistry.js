@@ -20,6 +20,11 @@ const LOADERS = {
   'class12-english-model-qa-4':  () => import('./class12EnglishModelQA4'),
   'class12-english-model-qa-5':  () => import('./class12EnglishModelQA5'),
   'eng11-annual-2025':           () => import('./eng11English2025Annual'),
+  'class12-computer-applications-model-qa-1': () => import('./class12ComputerApplicationsModelQA1'),
+  'class12-computer-applications-model-qa-2': () => import('./class12ComputerApplicationsModelQA2'),
+  'class12-computer-applications-model-qa-3': () => import('./class12ComputerApplicationsModelQA3'),
+  'class12-computer-applications-model-qa-4': () => import('./class12ComputerApplicationsModelQA4'),
+  'class12-computer-applications-model-qa-5': () => import('./class12ComputerApplicationsModelQA5'),
 }
 
 export async function getPaperById(paperId) {

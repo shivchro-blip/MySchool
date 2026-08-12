@@ -40,6 +40,7 @@ function ClipboardSVG() {
 export default function FinalExamPrepEntryCard({
   dest = '/plus1/english/final-exam-prep',
   classLabel = 'Class 11',
+  subjectLabel = 'English',
 }) {
   const navigate = useNavigate()
   const [hov, setHov] = useState(false)
@@ -83,7 +84,7 @@ export default function FinalExamPrepEntryCard({
         </p>
 
         <p className="text-xs leading-relaxed mb-3 max-w-[440px]" style={{ color: 'var(--ink-2)' }}>
-          Access past annual exam papers, important question patterns, high-priority topics and smart revision plans for {classLabel} English.
+          Access past annual exam papers, important question patterns, high-priority topics and smart revision plans for {classLabel} {subjectLabel}.
         </p>
 
         <button

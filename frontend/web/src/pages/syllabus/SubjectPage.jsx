@@ -364,23 +364,31 @@ function ChapterRow({ ch, year, subject }) {
         />
 
         <div className="max-w-[680px]">
-          {/* Final Exam Prep — placeholder */}
-          <div
-            className="flex items-center gap-4 sm:gap-6 px-5 py-4 sm:px-6 sm:py-5 mb-3 border border-border"
-            style={{ borderRadius: 18, background: 'var(--surface)' }}
-          >
-            <div className="flex-1 min-w-0">
-              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-semibold mb-2 text-text-tertiary border border-border">
-                Final Exam Prep
-              </span>
-              <p className="text-base font-bold leading-snug mb-1 text-text-tertiary">
-                Final Exam Prep — Coming Soon
-              </p>
-              <p className="text-xs leading-relaxed max-w-[440px] text-text-tertiary">
-                Past papers and smart revision plans for Class 12 Computer Applications will be available here.
-              </p>
+          {/* Final Exam Prep */}
+          {subject === 'computer-applications' && year === 'plus2' ? (
+            <FinalExamPrepEntryCard
+              dest={`/${year}/${subject}/final-exam-prep`}
+              classLabel="Class 12"
+              subjectLabel="Computer Applications"
+            />
+          ) : (
+            <div
+              className="flex items-center gap-4 sm:gap-6 px-5 py-4 sm:px-6 sm:py-5 mb-3 border border-border"
+              style={{ borderRadius: 18, background: 'var(--surface)' }}
+            >
+              <div className="flex-1 min-w-0">
+                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-semibold mb-2 text-text-tertiary border border-border">
+                  Final Exam Prep
+                </span>
+                <p className="text-base font-bold leading-snug mb-1 text-text-tertiary">
+                  Final Exam Prep — Coming Soon
+                </p>
+                <p className="text-xs leading-relaxed max-w-[440px] text-text-tertiary">
+                  Past papers and smart revision plans for {subjectData.label} will be available here.
+                </p>
+              </div>
             </div>
-          </div>
+          )}
 
           {/* Previous Year Papers — placeholder */}
           <div

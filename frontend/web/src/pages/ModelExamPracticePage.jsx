@@ -50,11 +50,11 @@ function adaptAllQuestions(practiceData) {
   return out
 }
 
-export default function ModelExamPracticePage({ classLevel = 'plus1' }) {
+export default function ModelExamPracticePage({ classLevel = 'plus1', subjectSlug = 'english' }) {
   const { modelId } = useParams()
 
   const classNum = classLevel === 'plus2' ? '12' : '11'
-  const paperId  = `class${classNum}-english-${modelId}`
+  const paperId  = `class${classNum}-${subjectSlug}-${modelId}`
 
   const [paper, setPaper] = useState(undefined)
   useEffect(() => {
@@ -68,7 +68,7 @@ export default function ModelExamPracticePage({ classLevel = 'plus1' }) {
       <div style={{ fontSize: 13, color: 'var(--text-muted, #9CA3AF)' }}>Loading…</div>
     </div>
   )
-  if (!paper) return <Navigate to={`/${classLevel}/english`} replace />
+  if (!paper) return <Navigate to={`/${classLevel}/${subjectSlug}`} replace />
 
   const practiceData = paper.practice ?? adaptExamPaper(paper)
   const questions = adaptAllQuestions(practiceData)

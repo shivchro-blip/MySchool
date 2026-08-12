@@ -10,31 +10,47 @@ import {
   finalExamPrepPapersPlus2,
   finalExamPrepModelPapers,
   finalExamPrepModelPapersPlus2,
+  finalExamPrepModelPapersComputerApplicationsPlus2,
   finalExamPrepPriorityLessons,
   finalExamPrepPriorityLessonsPlus2,
 } from '../../data/finalExamPrepData'
 
-const PAPERS_BY_CLASS       = { plus1: finalExamPrepPapers,       plus2: finalExamPrepPapersPlus2 }
-const MODEL_PAPERS_BY_CLASS = { plus1: finalExamPrepModelPapers,  plus2: finalExamPrepModelPapersPlus2 }
-const LESSONS_BY_CLASS      = { plus1: finalExamPrepPriorityLessons, plus2: finalExamPrepPriorityLessonsPlus2 }
+const PAPERS_BY_KEY = {
+  'plus1-english': finalExamPrepPapers,
+  'plus2-english': finalExamPrepPapersPlus2,
+  'plus2-computer-applications': [],
+}
+const MODEL_PAPERS_BY_KEY = {
+  'plus1-english': finalExamPrepModelPapers,
+  'plus2-english': finalExamPrepModelPapersPlus2,
+  'plus2-computer-applications': finalExamPrepModelPapersComputerApplicationsPlus2,
+}
+const LESSONS_BY_KEY = {
+  'plus1-english': finalExamPrepPriorityLessons,
+  'plus2-english': finalExamPrepPriorityLessonsPlus2,
+  'plus2-computer-applications': [],
+}
 
 export default function FinalExamPrepPage({ classLevel = 'plus1', subjectSlug = 'english' }) {
   const subjectCrumbs = buildBreadcrumbs(classLevel, subjectSlug, null, null, null, SYLLABUS)
   const crumbs = [...subjectCrumbs, { label: 'Final Exam Prep', to: null }]
-  const papers       = PAPERS_BY_CLASS[classLevel]       ?? finalExamPrepPapers
-  const modelPapers  = MODEL_PAPERS_BY_CLASS[classLevel] ?? finalExamPrepModelPapers
-  const lessons      = LESSONS_BY_CLASS[classLevel]      ?? finalExamPrepPriorityLessons
+  const key          = `${classLevel}-${subjectSlug}`
+  const papers       = PAPERS_BY_KEY[key]       ?? []
+  const modelPapers  = MODEL_PAPERS_BY_KEY[key] ?? []
+  const lessons      = LESSONS_BY_KEY[key]      ?? []
 
   return (
     <div>
       <PageHeader
         breadcrumb={<Breadcrumb crumbs={crumbs} />}
         title="Final Exam Prep"
-        subtitle="Prepare for the year-end English exam with past annual exam papers and high-priority lesson guidance."
+        subtitle="Prepare for the year-end exam with past annual exam papers and high-priority lesson guidance."
       />
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 items-start">
         <div className="flex flex-col gap-4">
-          <ExamPaperListCard papers={papers} basePath={`/${classLevel}/${subjectSlug}`} />
+          {papers.length > 0 && (
+            <ExamPaperListCard papers={papers} basePath={`/${classLevel}/${subjectSlug}`} />
+          )}
           <ModelPaperListCard papers={modelPapers} basePath={`/${classLevel}/${subjectSlug}`} />
         </div>
         <PriorityLessonsCard lessons={lessons} basePath={`/${classLevel}/${subjectSlug}`} />
