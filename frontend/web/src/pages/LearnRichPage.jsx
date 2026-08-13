@@ -52,6 +52,19 @@ function adaptAllQuestions(practiceData) {
           modelAnswer: q.ans,
         })
       }
+    } else if (part.type === 'short_answer' || part.type === 'brief_answer' || part.type === 'long_essay') {
+      // Class 11 CA format: questions nested under sections, fields html/answer
+      for (const sec of (part.sections ?? [])) {
+        for (const q of sec.questions) {
+          out.push({
+            id:          idx++,
+            type:        'written',
+            marks:       part.marksPer ?? 1,
+            html:        q.html,
+            modelAnswer: q.answer,
+          })
+        }
+      }
     }
   }
   return out

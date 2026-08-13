@@ -61,13 +61,65 @@ const LOADERS = {
   'chapter-04-theoretical-concepts-of-operating-system': () => import('./Class_11/ComputerApplications/chapters/chapter-04-theoretical-concepts-of-operating-system'),
 }
 
+// Older chapter files (Class 11 CA) predate the { eyebrow, title, author,
+// pills, tabs } shape LearnRichPage renders — they use { chapterNumber,
+// subject, classLabel, curriculum, sections: [{ id, title, content: mdString }] }.
+// Normalize here, once, so every consumer of registry.load() (LessonDetailPage,
+// SectionPage → LearnRichPage) always receives the tabs shape.
+function mdToHtml(md) {
+  if (!md) return ''
+  const boldify = s => s
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*(.+?)\*/g, '<em>$1</em>')
+  let html = ''
+  let listBuf = []
+  let paraBuf = []
+  const flushList = () => {
+    if (listBuf.length) html += `<ul>${listBuf.map(l => `<li>${boldify(l)}</li>`).join('')}</ul>`
+    listBuf = []
+  }
+  const flushPara = () => {
+    if (paraBuf.length) html += `<p>${boldify(paraBuf.join(' '))}</p>`
+    paraBuf = []
+  }
+  for (const raw of md.split('\n')) {
+    const line = raw.trim()
+    if (!line) { flushList(); flushPara(); continue }
+    if (line.startsWith('- ')) { flushPara(); listBuf.push(line.slice(2)); continue }
+    flushList()
+    paraBuf.push(line)
+  }
+  flushList()
+  flushPara()
+  return html
+}
+
+function normalizeContent(raw) {
+  if (!raw || raw.tabs) return raw
+
+  return {
+    eyebrow: [raw.classLabel, raw.subject].filter(Boolean).join(' · '),
+    title:   raw.title,
+    author:  raw.curriculum ?? '',
+    pills:   [raw.classLabel, raw.curriculum].filter(Boolean),
+    tabs: (raw.sections ?? []).map(sec => ({
+      id:    sec.id,
+      label: sec.title,
+      blocks: [
+        { type: 'section-head', text: sec.title },
+        { type: 'teacher-voice', html: mdToHtml(sec.content) },
+      ],
+    })),
+  }
+}
+
 const registry = {
   has:  (slug) => slug in LOADERS,
   load: async (slug) => {
     const loader = LOADERS[slug]
     if (!loader) return null
     const mod = await loader()
-    return mod.default
+    return normalizeContent(mod.default)
   },
 }
 
