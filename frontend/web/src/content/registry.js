@@ -55,6 +55,10 @@ const LOADERS = {
   'chapter-16-payment-systems':       () => import('./Class_12/ComputerApplications/chapters/chapter-16-payment-systems'),
   'chapter-17-ecommerce-security':    () => import('./Class_12/ComputerApplications/chapters/chapter-17-ecommerce-security'),
   'chapter-18-edi':                   () => import('./Class_12/ComputerApplications/chapters/chapter-18-edi'),
+  'chapter-01-introduction-to-computers':                () => import('./Class_11/ComputerApplications/chapters/chapter-01-introduction-to-computers'),
+  'chapter-02-number-systems':                           () => import('./Class_11/ComputerApplications/chapters/chapter-02-number-systems'),
+  'chapter-03-computer-organisation':                    () => import('./Class_11/ComputerApplications/chapters/chapter-03-computer-organisation'),
+  'chapter-04-theoretical-concepts-of-operating-system': () => import('./Class_11/ComputerApplications/chapters/chapter-04-theoretical-concepts-of-operating-system'),
 }
 
 const registry = {

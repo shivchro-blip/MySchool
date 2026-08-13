@@ -1,0 +1,263 @@
+export default {
+  "meta": {
+    "subject": "Computer Applications -- Class XI",
+    "unit": "Chapter 3 -- Computer Organisation",
+    "time": "2.30 hrs",
+    "totalMarks": 47,
+    "instructions": "Samacheer Kalvi -- Answer all questions"
+  },
+  "parts": [
+    {
+      "id": "p1",
+      "navLabel": "Part I -- MCQ (10 x 1)",
+      "title": "Part I -- Choose the Correct Answer",
+      "type": "mcq",
+      "scoreMax": 10,
+      "marksPer": 1,
+      "sections": [
+        {
+          "label": "Computer Organisation",
+          "questions": [
+            {
+              "id": "q1",
+              "html": "Which of the following is said to be the brain of a computer?",
+              "options": [
+                "a) Input devices",
+                "b) Output devices",
+                "c) Memory device",
+                "d) Microprocessor"
+              ],
+              "answer": 3,
+              "hint": "The microprocessor is called the brain of the computer as it performs all processing tasks."
+            },
+            {
+              "id": "q2",
+              "html": "Which of the following is NOT a part of a microprocessor unit?",
+              "options": [
+                "a) ALU",
+                "b) Control unit",
+                "c) Cache memory",
+                "d) Register"
+              ],
+              "answer": 2,
+              "hint": "Cache memory is external to the microprocessor. The microprocessor itself contains ALU, Control Unit, and Registers."
+            },
+            {
+              "id": "q3",
+              "html": "How many bits constitute a word?",
+              "options": [
+                "a) 8",
+                "b) 16",
+                "c) 32",
+                "d) Determined by the processor used"
+              ],
+              "answer": 3,
+              "hint": "Word size is determined by the processor. It can be 8, 16, 32, or 64 bits depending on the microprocessor."
+            },
+            {
+              "id": "q4",
+              "html": "How many memory locations are identified by a processor with an 8-bit address bus?",
+              "options": [
+                "a) 2⁸",
+                "b) 1024",
+                "c) 256",
+                "d) 8000"
+              ],
+              "answer": 0,
+              "hint": "An 8-bit address bus can address 2⁸ = 256 unique memory locations."
+            },
+            {
+              "id": "q5",
+              "html": "What is the capacity of a 12cm diameter DVD with single sided and single layer?",
+              "options": [
+                "a) 4.7 GB",
+                "b) 5.5 GB",
+                "c) 7.8 GB",
+                "d) 2.2 GB"
+              ],
+              "answer": 0,
+              "hint": "A standard single-sided, single-layer DVD holds 4.7 GB of data."
+            },
+            {
+              "id": "q6",
+              "html": "What is the smallest unit of data represented on a CD?",
+              "options": [
+                "a) Blocks",
+                "b) Sectors",
+                "c) Pits",
+                "d) Tracks"
+              ],
+              "answer": 2,
+              "hint": "CD data is encoded as tiny indentations called 'pits'. Areas between pits are called 'lands'."
+            },
+            {
+              "id": "q7",
+              "html": "Which of the following device identifies the location when an address is placed in the Memory Address Register?",
+              "options": [
+                "a) Locator",
+                "b) Encoder",
+                "c) Decoder",
+                "d) Multiplexer"
+              ],
+              "answer": 2,
+              "hint": "A decoder identifies (decodes) the memory location corresponding to the address placed in the MAR."
+            },
+            {
+              "id": "q8",
+              "html": "Which of the following is a CISC processor?",
+              "options": [
+                "a) Intel P6",
+                "b) AMD K6",
+                "c) Pentium III",
+                "d) Pentium IV"
+              ],
+              "answer": 2,
+              "hint": "Pentium III is a CISC processor. Intel P6, AMD K6, and Pentium IV are RISC processors."
+            },
+            {
+              "id": "q9",
+              "html": "Which is the fastest memory?",
+              "options": [
+                "a) Hard disk",
+                "b) Main memory",
+                "c) Cache memory",
+                "d) Blu-Ray disc"
+              ],
+              "answer": 2,
+              "hint": "Cache memory is the fastest memory, placed between the CPU and main memory to speed up data retrieval."
+            },
+            {
+              "id": "q10",
+              "html": "Display devices are connected to the computer through:",
+              "options": [
+                "a) USB port",
+                "b) PS/2 port",
+                "c) SCSI port",
+                "d) VGA connector"
+              ],
+              "answer": 3,
+              "hint": "The VGA (Video Graphics Array) connector is used to connect monitors and display devices to a computer."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "navLabel": "Part II -- Very Short (5 x 2)",
+      "title": "Part II -- Very Short Answers",
+      "type": "short_answer",
+      "scoreMax": 10,
+      "marksPer": 2,
+      "sections": [
+        {
+          "label": "Very Short Answers",
+          "questions": [
+            {
+              "id": "q11",
+              "html": "What are the parameters which influence the characteristics of a microprocessor?",
+              "answer": "The three parameters that influence the characteristics of a microprocessor are: (1) Clock Speed — the rate at which the microprocessor executes instructions, measured in MHz or GHz; (2) Instruction Set — the basic set of machine-level instructions the microprocessor is designed to execute; (3) Word Size — the number of bits the processor can process in a single instruction.",
+              "hint": "Three parameters: Clock Speed, Instruction Set, Word Size."
+            },
+            {
+              "id": "q12",
+              "html": "What is an instruction?",
+              "answer": "An instruction is a command given to a computer to perform an operation on data. The basic set of machine-level instructions that a microprocessor is designed to execute is called its instruction set. Types of operations include: data transfer, arithmetic operations, logical operations, control flow, and input/output.",
+              "hint": "An instruction = a command to the processor. The full set = instruction set."
+            },
+            {
+              "id": "q13",
+              "html": "What is a Program Counter?",
+              "answer": "A Program Counter (PC) is a special register in the CPU that always holds (keeps track of) the address of the next instruction to be executed. After each instruction is fetched, the PC is updated to point to the next instruction.",
+              "hint": "PC = special register that always holds the address of the NEXT instruction."
+            },
+            {
+              "id": "q14",
+              "html": "What is HDMI?",
+              "answer": "HDMI stands for High-Definition Multimedia Interface. It is an audio/video interface that transfers uncompressed video and audio data from a video controller to a compatible output device such as a computer monitor, LCD projector, or digital television.",
+              "hint": "HDMI = High-Definition Multimedia Interface. Transfers uncompressed audio/video."
+            },
+            {
+              "id": "q15",
+              "html": "Which source is used to erase the content of an EPROM?",
+              "answer": "The content of an EPROM (Erasable Programmable Read Only Memory) is erased using ultraviolet (UV) rays. Most EPROM chips have a transparent area on their top surface. Exposing this area to UV light clears the contents, making the chip ready to be reprogrammed.",
+              "hint": "EPROM is erased by UV (ultraviolet) light/rays."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "navLabel": "Part III -- Short (3 x 3)",
+      "title": "Part III -- Short Answers",
+      "type": "brief_answer",
+      "scoreMax": 9,
+      "marksPer": 3,
+      "sections": [
+        {
+          "label": "Short Answers",
+          "questions": [
+            {
+              "id": "q16",
+              "html": "Differentiate Computer Organisation from Computer Architecture.",
+              "answer": "Computer Architecture deals with the engineering design considerations involved in designing a computer — it is concerned with the system design from the programmer's or designer's perspective (e.g., instruction set design, addressing modes). Computer Organisation deals with the hardware components of a computer system that are transparent to the programmer — it covers how these components (CPU, memory, I/O devices) operate and how they are interconnected to implement an architectural specification.",
+              "hint": "Architecture = design/programmer view. Organisation = hardware/implementation view."
+            },
+            {
+              "id": "q17",
+              "html": "Differentiate PROM and EPROM.",
+              "answer": "PROM (Programmable ROM): Can be written (programmed) only once. After programming, data is permanent and cannot be changed. Manufactured as blank memory and programmed by the user using a PROM burner. EPROM (Erasable Programmable ROM): Like PROM, but contents can be erased using ultraviolet (UV) rays and then reprogrammed. Most EPROM chips have a transparent window on top for UV exposure. Widely used in PCs for updatable firmware. Key difference: PROM = write once; EPROM = can be erased and rewritten.",
+              "hint": "PROM = write once, permanent. EPROM = erasable with UV light, can be reprogrammed."
+            },
+            {
+              "id": "q18",
+              "html": "Differentiate CD and DVD.",
+              "answer": "CD (Compact Disc): Made of 1.2mm polycarbonate plastic with aluminium/gold coating. Data stored as pits in a spiral track. Capacity: 700 MB. Read by a standard laser. DVD (Digital Versatile Disc): Also an optical disc with similar construction. Capacity: 4.7 GB (single-sided, single-layer) — more than 6× a CD. Can have up to two sides and two layers per side. Double-layered discs are gold-coloured; single-layered are silver. Read by a red laser. Key difference: DVD has much greater storage capacity than a CD.",
+              "hint": "CD = 700 MB; DVD = 4.7 GB+. DVD supports multiple sides and layers."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "navLabel": "Part IV -- Long (4 x 4.5)",
+      "title": "Part IV -- Explain in Detail",
+      "type": "long_essay",
+      "scoreMax": 18,
+      "marksPer": 4,
+      "sections": [
+        {
+          "label": "Long Answers",
+          "questions": [
+            {
+              "id": "q19",
+              "html": "Explain the characteristics of a microprocessor.",
+              "answer": "A microprocessor's performance depends on three characteristics:\n\n1. Clock Speed: Every microprocessor has an internal clock that regulates execution speed. Measured in MHz (Mega Hertz) or GHz (Giga Hertz). Higher clock speed means faster instruction execution. One Hertz = one cycle per second. Modern processors operate in the GHz range (billions of cycles per second).\n\n2. Instruction Set: An instruction is a command to perform an operation on data. The instruction set is the complete set of machine-level instructions a processor is designed to execute. It includes: data transfer, arithmetic operations, logical operations, control flow, and I/O operations. Two categories: RISC (Reduced Instruction Set — smaller, optimised set; e.g., Pentium IV, AMD K6) and CISC (Complex Instruction Set — many complex instructions; e.g., Intel 486, Pentium III).\n\n3. Word Size: The number of bits processed by a processor in a single instruction. Determines how much RAM can be accessed. Microprocessors are classified by word size: 8-bit, 16-bit, 32-bit, and 64-bit. A 64-bit processor can handle 64-bit numbers in one operation.",
+              "hint": "Three characteristics: (1) Clock Speed (MHz/GHz), (2) Instruction Set (RISC vs CISC), (3) Word Size (8/16/32/64-bit)."
+            },
+            {
+              "id": "q20",
+              "html": "How are read and write operations performed by a processor? Explain.",
+              "answer": "The CPU communicates with memory through registers and buses:\n\nKey components:\n- MDR (Memory Data Register): Holds data being transferred between memory and CPU.\n- MAR (Memory Address Register): Holds the address of the memory location to be accessed. The ALU places the address of the memory to be fetched into the MAR.\n- A Bus: A collection of wires for communication. Binary data is represented as voltages (5V = 1, 0V = 0).\n\nRead Operation (CPU reads data FROM memory):\n1. CPU places the address of the desired memory location in the MAR.\n2. The memory system decodes the address and locates the memory word.\n3. Data from that memory word is transferred to the MDR.\n4. CPU uses the data from the MDR.\n\nWrite Operation (CPU writes data TO memory):\n1. CPU places the target address in the MAR.\n2. CPU places the data to be written in the MDR.\n3. The data from the MDR is written into the memory word at the address in the MAR.\n\nThe word size in RAM equals the size of the MDR (e.g., for an 8-bit processor like Intel 8085, both MDR and RAM words are 8 bits).",
+              "hint": "Read: MAR gets address → memory locates word → word goes to MDR. Write: MAR gets address + MDR gets data → data written to memory."
+            },
+            {
+              "id": "q21",
+              "html": "Arrange the memory devices in ascending order based on access time.",
+              "answer": "Access time is the time taken to read or write data from a memory device. Faster memory has lower access time.\n\nAscending order of access time (fastest first):\n\n1. Cache Memory — Fastest; very high speed, expensive, small size. Located between CPU and main memory. Access time in nanoseconds.\n\n2. Main Memory (RAM) — Faster than secondary storage but slower than cache. Volatile. Access time in tens of nanoseconds.\n\n3. Flash Memory (Pen drives, SSDs) — Non-volatile, fast access. Access time in microseconds.\n\n4. Hard Disk — Slower mechanical storage. Access time in milliseconds.\n\n5. CD/DVD — Optical storage; slower than hard disk. Access time in tens to hundreds of milliseconds.\n\n6. Blu-Ray Disc — Similar to DVD but with higher density.\n\nSummary (fastest → slowest): Cache → RAM → Flash Memory → Hard Disk → CD/DVD → Blu-Ray",
+              "hint": "Fastest to slowest: Cache → RAM → Flash → Hard Disk → CD/DVD → Blu-Ray."
+            },
+            {
+              "id": "q22",
+              "html": "Explain the types of ROM.",
+              "answer": "ROM (Read Only Memory) is non-volatile memory pre-recorded during manufacturing. Types:\n\n1. ROM: Contents are permanently written during manufacturing. Cannot be modified. Stores critical programs like the boot program (BIOS/POST). Retains data even when power is off.\n\n2. PROM (Programmable ROM): Manufactured blank and programmed by the user once using a PROM burner/programmer. Once written, data is permanent. Writing is called 'burning the PROM'. Differs from ROM in that it is user-programmable.\n\n3. EPROM (Erasable Programmable ROM): Can be erased using ultraviolet (UV) rays and reprogrammed. Has a transparent window on top for UV exposure. Covered by a sticker during use — if removed, sunlight (containing UV) may erase data. Widely used in PCs for updatable firmware.\n\n4. EEPROM (Electrically Erasable Programmable ROM): Erased by electrical charge — no UV light required. Non-volatile. Used where firmware must be updated without physically removing the chip. Slower than other ROM types.",
+              "hint": "Four types: ROM (factory-written), PROM (write once by user), EPROM (erased by UV), EEPROM (erased electrically)."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
