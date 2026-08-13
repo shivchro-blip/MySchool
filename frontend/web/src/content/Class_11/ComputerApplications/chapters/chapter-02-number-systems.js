@@ -11,7 +11,8 @@ export default {
       title: "Introduction",
       content: `The word *data* comes from *datum*, meaning a raw fact. Data is a fact about people, places, or objects. When data is processed, it becomes information.
 
-Computers handle all data in the form of **0** and **1** — called **binary digits** or **bits**. Any number, alphabet, or special character must be converted into 0s and 1s for the computer to understand. This is called **Machine Language**.`
+Computers handle all data in the form of **0** and **1** — called **binary digits** or **bits**. Any number, alphabet, or special character must be converted into 0s and 1s for the computer to understand. This is called **Machine Language**.`,
+      nav: { next: "data-representation", nextLabel: "Next: Data Representations →" }
     },
     {
       id: "data-representation",
@@ -32,7 +33,8 @@ Computers handle all data in the form of **0** and **1** — called **binary dig
 | Zettabyte (ZB) | 2⁷⁰ bytes |
 | Yottabyte (YB) | 2⁸⁰ bytes |
 
-**Word length** refers to the number of bits processed by a CPU in a single instruction. Modern computers use 32-bit or 64-bit word lengths. A 64-bit computer can process 64-bit numbers in one operation; a 32-bit computer must break them into smaller pieces, making it slower.`
+**Word length** refers to the number of bits processed by a CPU in a single instruction. Modern computers use 32-bit or 64-bit word lengths. A 64-bit computer can process 64-bit numbers in one operation; a 32-bit computer must break them into smaller pieces, making it slower.`,
+      nav: { back: "intro", next: "number-systems", nextLabel: "Next: Types of Number Systems →" }
     },
     {
       id: "number-systems",
@@ -54,7 +56,8 @@ Example (Decimal): (123)₁₀ = 1×10² + 2×10¹ + 3×10⁰ = 100 + 20 + 3 = 1
 
 Example (Binary): (1101)₂ = 1×2³ + 1×2² + 0×2¹ + 1×2⁰ = 8 + 4 + 0 + 1 = (13)₁₀
 
-In binary, the leftmost bit is the **Most Significant Bit (MSB)** and the rightmost is the **Least Significant Bit (LSB)**.`
+In binary, the leftmost bit is the **Most Significant Bit (MSB)** and the rightmost is the **Least Significant Bit (LSB)**.`,
+      nav: { back: "data-representation", next: "conversions", nextLabel: "Next: Number System Conversions →" }
     },
     {
       id: "conversions",
@@ -105,7 +108,8 @@ Example: (6213)₈ → 110 010 001 011 → **(110010001011)₂**
 Example: (25F)₁₆ = 2×16² + 5×16¹ + 15×16⁰ = 512+80+15 = **(607)₁₀**
 
 **Hexadecimal to Binary:** Write 4-bit binary equivalent for each hex digit.
-Example: (8BC)₁₆ → 1000 1011 1100 → **(100010111100)₂**`
+Example: (8BC)₁₆ → 1000 1011 1100 → **(100010111100)₂**`,
+      nav: { back: "number-systems", next: "signed-numbers", nextLabel: "Next: Binary Representation for Signed Numbers →" }
     },
     {
       id: "signed-numbers",
@@ -135,7 +139,8 @@ Steps:
 
 Example: 2's complement of (−24)₁₀:
 - 1's complement of 24 = 11100111
-- Add 1 → **11101000**`
+- Add 1 → **11101000**`,
+      nav: { back: "conversions", next: "binary-arithmetic", nextLabel: "Next: Binary Arithmetic →" }
     },
     {
       id: "binary-arithmetic",
@@ -170,7 +175,8 @@ Example: (−21)₁₀ + (5)₁₀
 | 1 | 0 | 1 | 0 |
 | 1 | 1 | 0 | 0 |
 
-When subtracting 1 from 0, borrow 1 from the next more significant bit that contains 1; all 0s up to that point become 1s.`
+When subtracting 1 from 0, borrow 1 from the next more significant bit that contains 1; all 0s up to that point become 1s.`,
+      nav: { back: "signed-numbers", next: "character-encoding", nextLabel: "Next: Representing Characters in Memory →" }
     },
     {
       id: "character-encoding",
@@ -189,7 +195,8 @@ When subtracting 1 from 0, borrow 1 from the next more significant bit that cont
 
 **ISCII (Indian Standard Code for Information Interchange):** 8-bit system handling 256 Indian language characters. Developed by the Department of Electronics in India (1986–88); now integrated with Unicode.
 
-**Unicode:** Modern standard used in most computers. 16-bit code → can handle 65,536 characters. Covers all universal languages including Tamil, Malayalam, Telugu, and Kannada. Represented by hexadecimal numbers.`
+**Unicode:** Modern standard used in most computers. 16-bit code → can handle 65,536 characters. Covers all universal languages including Tamil, Malayalam, Telugu, and Kannada. Represented by hexadecimal numbers.`,
+      nav: { back: "binary-arithmetic", practice: true }
     }
   ]
 }

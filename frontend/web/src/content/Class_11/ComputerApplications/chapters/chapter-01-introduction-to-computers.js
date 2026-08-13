@@ -11,7 +11,8 @@ export default {
       title: "Introduction",
       content: `Computers are present in every sphere of life — education, research, travel, weather forecasting, social networking, and e-commerce. No modern organisation can function without a computer, and many have gone completely paperless. The growth of computers started with the need for fast calculations. The first known calculating device, the Abacus, led to the development of today's high-speed portable computers.
 
-A **computer** is an electronic device that takes raw data (unprocessed) as input from the user and processes it under the control of a set of instructions (called a program), produces a result (output), and saves it for future use.`
+A **computer** is an electronic device that takes raw data (unprocessed) as input from the user and processes it under the control of a set of instructions (called a program), produces a result (output), and saves it for future use.`,
+      nav: { next: "generations", nextLabel: "Next: Generations of Computers →" }
     },
     {
       id: "generations",
@@ -44,7 +45,8 @@ A **computer** is an electronic device that takes raw data (unprocessed) as inpu
 - Uses parallel processing and superconductors; introduction of Artificial Intelligence and Expert Systems; can recognise images and graphics
 
 **Sixth Generation (Future)**
-- Parallel and distributed computing; development of robotics; Natural Language Processing (NLP); voice recognition software; computers become smarter, faster, and smaller`
+- Parallel and distributed computing; development of robotics; Natural Language Processing (NLP); voice recognition software; computers become smarter, faster, and smaller`,
+      nav: { back: "intro", next: "data-information", nextLabel: "Next: Data and Information →" }
     },
     {
       id: "data-information",
@@ -53,7 +55,8 @@ A **computer** is an electronic device that takes raw data (unprocessed) as inpu
 
 **Information** is a collection of facts from which conclusions may be drawn. It is data that has been processed to give meaningful, ordered, or structured output. For example: "Kavitha is 16 years old." This conversion of data into information is called **data processing**.
 
-The process flow is: **Input → Process → Output** (IPO Cycle). The input unit takes data, the CPU processes it, and the output unit produces the result. Memory holds data and instructions during processing.`
+The process flow is: **Input → Process → Output** (IPO Cycle). The input unit takes data, the CPU processes it, and the output unit produces the result. Memory holds data and instructions during processing.`,
+      nav: { back: "generations", next: "components", nextLabel: "Next: Components of a Computer →" }
     },
     {
       id: "components",
@@ -76,7 +79,8 @@ Any hardware component that conveys information to users in an understandable fo
 **4. Memory Unit**
 Two types:
 - **Primary Memory (RAM):** Volatile; used to temporarily store programs and data during execution. Lost when power is off.
-- **Secondary Memory (Hard Disk, CD-ROM, DVD):** Non-volatile; stores data permanently.`
+- **Secondary Memory (Hard Disk, CD-ROM, DVD):** Non-volatile; stores data permanently.`,
+      nav: { back: "data-information", next: "input-devices", nextLabel: "Next: Input Devices →" }
     },
     {
       id: "input-devices",
@@ -105,7 +109,8 @@ Two types:
 
 **Touch Screen:** Display device allowing interaction using fingers; used in smartphones, tablets, kiosks, and cash registers.
 
-**Keyer:** Hand-signalling device with a small number of switches (4–50); differs from a keyboard as keys are arranged in a cluster.`
+**Keyer:** Hand-signalling device with a small number of switches (4–50); differs from a keyboard as keys are arranged in a cluster.`,
+      nav: { back: "components", next: "output-devices", nextLabel: "Next: Output Devices →" }
     },
     {
       id: "output-devices",
@@ -126,7 +131,8 @@ Two types:
 
 **Speakers:** Produce audio output; combined with speech synthesis software, computers can provide voice output.
 
-**Multimedia Projector:** Projects computer output on a large screen; used in meeting halls and classrooms.`
+**Multimedia Projector:** Projects computer output on a large screen; used in meeting halls and classrooms.`,
+      nav: { back: "input-devices", next: "booting", nextLabel: "Next: Booting of a Computer →" }
     },
     {
       id: "booting",
@@ -139,7 +145,8 @@ If devices are ready, **BIOS (Basic Input Output System)** is executed. Then the
 
 **Cold Booting (Hard Booting):** The system starts from its initial state when the power button is pressed. Instructions are read from ROM to begin the boot process.
 
-**Warm Booting (Soft Booting):** The system restarts (Reset button pressed). Does not start from initial state, so all diagnostic tests are not repeated. There is a risk of data loss if data was not saved properly.`
+**Warm Booting (Soft Booting):** The system restarts (Reset button pressed). Does not start from initial state, so all diagnostic tests are not repeated. There is a risk of data loss if data was not saved properly.`,
+      nav: { back: "output-devices", next: "summary", nextLabel: "Next: Points to Remember →" }
     },
     {
       id: "summary",
@@ -151,7 +158,8 @@ If devices are ready, **BIOS (Basic Input Output System)** is executed. Then the
 - The CPU has three parts: ALU (arithmetic and logical operations), Control Unit (controls data flow), and Registers (internal memory).
 - Input unit feeds data; Output unit conveys results to users.
 - Memory has two types: Primary (volatile, RAM) and Secondary (non-volatile, Hard Disk, CD, DVD).
-- Booting loads the OS into memory; Cold Booting starts from power-on; Warm Booting restarts without full diagnostics.`
+- Booting loads the OS into memory; Cold Booting starts from power-on; Warm Booting restarts without full diagnostics.`,
+      nav: { back: "booting", practice: true }
     }
   ]
 }

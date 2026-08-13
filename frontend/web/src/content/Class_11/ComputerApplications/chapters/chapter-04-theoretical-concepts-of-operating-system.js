@@ -15,7 +15,8 @@ export default {
 
 **Application Software:** A set of programs to perform specific tasks for the user. Examples: MS Word (create text documents), VLC Player (play audio/video files).
 
-**System Software:** A type of computer program designed to run the computer's hardware and application programs. Examples: Operating System, Language Processor.`
+**System Software:** A type of computer program designed to run the computer's hardware and application programs. Examples: Operating System, Language Processor.`,
+      nav: { next: "os-intro", nextLabel: "Next: Introduction to Operating System →" }
     },
     {
       id: "os-intro",
@@ -35,7 +36,8 @@ Without an OS, a computer cannot effectively manage its resources. When a comput
 - Controls Input and Output devices.
 - Manages memory utilisation.
 - Provides easy interaction between user and computer.
-- Provides security to user programs.`
+- Provides security to user programs.`,
+      nav: { back: "software-types", next: "types-os", nextLabel: "Next: Types of Operating System →" }
     },
     {
       id: "types-os",
@@ -48,7 +50,8 @@ Example: **MS-DOS**
 
 **Multi-User Operating System:**
 Allows multiple users to access the same data and applications simultaneously. Users can communicate with each other.
-Examples: **Windows, Linux, UNIX**`
+Examples: **Windows, Linux, UNIX**`,
+      nav: { back: "os-intro", next: "key-features", nextLabel: "Next: Key Features of the Operating System →" }
     },
     {
       id: "key-features",
@@ -139,7 +142,8 @@ Advantages:
 - A user at one location can use resources at another location over the network.
 - Computer resources can be added easily to the network.
 - Improves interaction with customers and clients.
-- Reduces load on the host computer.`
+- Reduces load on the host computer.`,
+      nav: { back: "types-os", next: "prominent-os", nextLabel: "Next: Prominent Operating Systems →" }
     },
     {
       id: "prominent-os",
@@ -154,7 +158,8 @@ Advantages:
 
 **Android:** Popular mobile OS not linked with Apple; runs on smartphones from many manufacturers.
 
-Modern operating systems use a **GUI (Graphical User Interface)** that lets users click icons, buttons, and menus; content is displayed clearly using graphics and text.`
+Modern operating systems use a **GUI (Graphical User Interface)** that lets users click icons, buttons, and menus; content is displayed clearly using graphics and text.`,
+      nav: { back: "key-features", next: "summary", nextLabel: "Next: Points to Remember →" }
     },
     {
       id: "summary",
@@ -165,7 +170,8 @@ Modern operating systems use a **GUI (Graphical User Interface)** that lets user
 - Key OS features: User Interface, Memory Management, Process Management, Security Management, Fault Tolerance, File Management, Multi-Processing, Time-Sharing, Distributed OS.
 - Scheduling algorithms: FIFO, SJF, Round Robin, Priority-Based.
 - FAT (File Allocation Table) stores file metadata; NTFS is used in Windows; ext2 in Linux.
-- Distributed OS allows users to access resources on any machine over a network as if they were local.`
+- Distributed OS allows users to access resources on any machine over a network as if they were local.`,
+      nav: { back: "prominent-os", practice: true }
     }
   ]
 }

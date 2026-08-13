@@ -108,6 +108,7 @@ function normalizeContent(raw) {
       blocks: [
         { type: 'section-head', text: sec.title },
         { type: 'teacher-voice', html: mdToHtml(sec.content) },
+        ...(sec.nav ? [{ type: 'nav', ...sec.nav }] : []),
       ],
     })),
   }

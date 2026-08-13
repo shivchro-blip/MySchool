@@ -11,7 +11,8 @@ export default {
       title: "Introduction",
       content: `**Computer Organisation** deals with the hardware components of a computer system — Input/Output devices, the CPU, storage devices, and primary memory. It covers how these components operate and how they are interconnected.
 
-**Computer Architecture** deals with the engineering design considerations for a computer, while **Computer Organisation** focuses on hardware components transparent to the programmer. Both are related but distinct terms.`
+**Computer Architecture** deals with the engineering design considerations for a computer, while **Computer Organisation** focuses on hardware components transparent to the programmer. Both are related but distinct terms.`,
+      nav: { next: "microprocessors", nextLabel: "Next: Basics of Microprocessors →" }
     },
     {
       id: "microprocessors",
@@ -34,7 +35,8 @@ Every microprocessor has an internal clock that regulates execution speed. Measu
 A command given to a computer to perform an operation on data is an **instruction**. The **instruction set** is the basic set of machine-level instructions a microprocessor is designed to execute. Types of operations: data transfer, arithmetic, logical, control flow, input/output.
 
 **c) Word Size**
-The number of bits processed by a processor in a single instruction is its **word size**. Word size determines how much RAM the processor can access.`
+The number of bits processed by a processor in a single instruction is its **word size**. Word size determines how much RAM the processor can access.`,
+      nav: { back: "intro", next: "cpu-memory", nextLabel: "Next: Data Communication between CPU and Memory →" }
     },
     {
       id: "cpu-memory",
@@ -50,7 +52,8 @@ A **bus** is a collection of wires for communication between internal components
 - **Read operation:** Data transfers from RAM word → MDR.
 - **Write operation:** Data transfers from MDR → RAM word.
 
-Binary data is represented as voltages on buses: **5V = 1, 0V = 0**.`
+Binary data is represented as voltages on buses: **5V = 1, 0V = 0**.`,
+      nav: { back: "microprocessors", next: "types-microprocessors", nextLabel: "Next: Types of Microprocessors →" }
     },
     {
       id: "types-microprocessors",
@@ -72,7 +75,8 @@ Examples: Pentium IV, Intel P6, AMD K6, AMD K7
 
 **CISC (Complex Instruction Set Computers):**
 Uses a large set of instructions, each capable of performing complex operations.
-Examples: Intel 386, Intel 486, Pentium, Pentium II, Pentium III, Motorola 68000`
+Examples: Intel 386, Intel 486, Pentium, Pentium II, Pentium III, Motorola 68000`,
+      nav: { back: "cpu-memory", next: "memory", nextLabel: "Next: Memory Devices →" }
     },
     {
       id: "memory",
@@ -107,7 +111,8 @@ Pre-recorded memory at manufacturing time; **cannot be modified**. Stores critic
 ---
 
 **Cache Memory**
-A very high-speed, expensive memory placed between the CPU and main memory. Stores frequently accessed data so the CPU retrieves it faster (instead of always going to slower main memory). Smaller in size than main memory due to cost. Improves response time (access time = time to respond to a read/write request).`
+A very high-speed, expensive memory placed between the CPU and main memory. Stores frequently accessed data so the CPU retrieves it faster (instead of always going to slower main memory). Smaller in size than main memory due to cost. Improves response time (access time = time to respond to a read/write request).`,
+      nav: { back: "types-microprocessors", next: "secondary-storage", nextLabel: "Next: Secondary Storage Devices →" }
     },
     {
       id: "secondary-storage",
@@ -137,7 +142,8 @@ A very high-speed, expensive memory placed between the CPU and main memory. Stor
 **Blu-Ray Disc:**
 - High-density optical disc; used for PlayStation games and HD movies.
 - Double-layer capacity: **50 GB**.
-- Uses a **blue-violet laser** (shorter wavelength → more data density) vs. red laser in DVDs.`
+- Uses a **blue-violet laser** (shorter wavelength → more data density) vs. red laser in DVDs.`,
+      nav: { back: "memory", next: "ports", nextLabel: "Next: Ports and Interfaces →" }
     },
     {
       id: "ports",
@@ -162,7 +168,8 @@ A very high-speed, expensive memory placed between the CPU and main memory. Stor
 **HDMI (High-Definition Multimedia Interface):**
 An audio/video interface that transfers uncompressed video and audio data from a video controller to a compatible monitor, LCD projector, or digital TV.
 
-**Network Port:** Connects to a local area network (Ethernet).`
+**Network Port:** Connects to a local area network (Ethernet).`,
+      nav: { back: "secondary-storage", next: "summary", nextLabel: "Next: Points to Remember →" }
     },
     {
       id: "summary",
@@ -175,7 +182,8 @@ An audio/video interface that transfers uncompressed video and audio data from a
 - PROM: written once; EPROM: erased by UV light; EEPROM: erased electrically.
 - Cache memory is between CPU and RAM; speeds up data retrieval.
 - Secondary storage is non-volatile: Hard Disk (magnetic), CD (700 MB), DVD (4.7 GB), Blu-Ray (50 GB), Flash memory (1 GB–2 TB).
-- USB 3.0 transfers data at up to 5 GB/second.`
+- USB 3.0 transfers data at up to 5 GB/second.`,
+      nav: { back: "ports", practice: true }
     }
   ]
 }
