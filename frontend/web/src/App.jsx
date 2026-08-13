@@ -33,6 +33,7 @@ const SectionPage              = lazy(() => import('./pages/syllabus/SectionPage
 const NotFound                 = lazy(() => import('./pages/syllabus/NotFound'))
 const ChapterPracticeExamPage  = lazy(() => import('./pages/ChapterPracticeExamPage'))
 const ChapterSlugPracticeExamPage = lazy(() => import('./pages/syllabus/ChapterPracticeExamPage'))
+const ChapterLearnPage = lazy(() => import('./pages/syllabus/ChapterLearnPage'))
 const FinalExamPrepPage        = lazy(() => import('./pages/syllabus/FinalExamPrepPage'))
 const ExamPaperViewerPage      = lazy(() => import('./pages/ExamPaperViewerPage'))
 const ExamPaperPracticePage    = lazy(() => import('./pages/ExamPaperPracticePage'))
@@ -256,7 +257,7 @@ export default function App() {
         } />
         <Route path="/:year/:subject/chapters/:slug" element={
           <DashShell>
-            <CourseContent><LessonDetailPage /></CourseContent>
+            <CourseContent><ChapterLearnPage /></CourseContent>
           </DashShell>
         } />
         <Route path="/:year/:subject/:category/:lesson" element={
