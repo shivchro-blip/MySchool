@@ -67,6 +67,10 @@ const LOADERS = {
   'chapter-10-html-structural-tags':                     () => import('./Class_11/ComputerApplications/chapters/chapter-10-html-structural-tags'),
   'chapter-11-html-formatting-tables-lists-links':       () => import('./Class_11/ComputerApplications/chapters/chapter-11-html-formatting-tables-lists-links'),
   'chapter-12-html-multimedia-elements-and-forms':       () => import('./Class_11/ComputerApplications/chapters/chapter-12-html-multimedia-elements-and-forms'),
+  'chapter-13-css-cascading-style-sheets':               () => import('./Class_11/ComputerApplications/chapters/chapter-13-css-cascading-style-sheets'),
+  'chapter-14-introduction-to-javascript':               () => import('./Class_11/ComputerApplications/chapters/chapter-14-introduction-to-javascript'),
+  'chapter-15-control-structure-in-javascript':          () => import('./Class_11/ComputerApplications/chapters/chapter-15-control-structure-in-javascript'),
+  'chapter-16-javascript-functions':                     () => import('./Class_11/ComputerApplications/chapters/chapter-16-javascript-functions'),
 }
 
 // Older chapter files (Class 11 CA) predate the { eyebrow, title, author,

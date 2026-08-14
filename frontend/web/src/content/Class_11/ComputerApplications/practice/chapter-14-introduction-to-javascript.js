@@ -1,0 +1,299 @@
+export default {
+  "meta": {
+    "subject": "Computer Applications -- Class XI",
+    "unit": "Chapter 14 -- Introduction to JavaScript",
+    "time": "2.30 hrs",
+    "totalMarks": 47,
+    "instructions": "Samacheer Kalvi -- Answer all questions"
+  },
+  "parts": [
+    {
+      "id": "p1",
+      "navLabel": "Part I -- MCQ (14 x 1)",
+      "title": "Part I -- Choose the Correct Answer",
+      "type": "mcq",
+      "scoreMax": 14,
+      "marksPer": 1,
+      "sections": [
+        {
+          "label": "Introduction to JavaScript",
+          "questions": [
+            {
+              "id": "q1",
+              "html": "Which provides a common scripting language to web developers to design, test and deploy Internet Applications?",
+              "options": [
+                "a) C",
+                "b) C++",
+                "c) Java",
+                "d) JavaScript"
+              ],
+              "answer": 3,
+              "hint": "JavaScript was jointly introduced by Netscape and Sun Inc. on December 4, 1995 as a scripting language for web developers."
+            },
+            {
+              "id": "q2",
+              "html": "Expand CGI:",
+              "options": [
+                "a) Common Gateway Interface",
+                "b) Complex Gateway Information",
+                "c) Common Gateway Information",
+                "d) Complex Gateway Interface"
+              ],
+              "answer": 0,
+              "hint": "CGI = Common Gateway Interface. JavaScript bridges the gap between HTML and complex CGI programs on the server."
+            },
+            {
+              "id": "q3",
+              "html": "JavaScript programming language is used to develop:",
+              "options": [
+                "a) Dynamic Web Page",
+                "b) Window",
+                "c) Web Page",
+                "d) Home Page"
+              ],
+              "answer": 0,
+              "hint": "JavaScript is used to develop Dynamic Web Pages (interactive pages) unlike static HTML pages."
+            },
+            {
+              "id": "q4",
+              "html": "The Dynamic Web Page helps to save server's:",
+              "options": [
+                "a) Work",
+                "b) Route",
+                "c) Traffic",
+                "d) Path"
+              ],
+              "answer": 2,
+              "hint": "Data validation on the client side (JavaScript) saves server traffic — less load on the server."
+            },
+            {
+              "id": "q5",
+              "html": "User entered data is validated before sending it to the server. This is called:",
+              "options": [
+                "a) Server traffic",
+                "b) Dynamic Web Page",
+                "c) Server Route",
+                "d) Web server"
+              ],
+              "answer": 1,
+              "hint": "When JavaScript validates user data before sending to server, it creates a Dynamic Web Page interaction that reduces server load."
+            },
+            {
+              "id": "q6",
+              "html": "JavaScript can be implemented using which tag?",
+              "options": [
+                "a) &lt;head&gt;",
+                "b) &lt;Java&gt;",
+                "c) &lt;script&gt;",
+                "d) &lt;text&gt;"
+              ],
+              "answer": 2,
+              "hint": "JavaScript is implemented using <script>...</script> tags. It is recommended to place these in <head>."
+            },
+            {
+              "id": "q7",
+              "html": "Expand DHTML:",
+              "options": [
+                "a) Distance Hyper Text Markup Language",
+                "b) Dynamic Hyper Text Markup Language",
+                "c) Distance High Text Markup Language",
+                "d) Dynamic High Text Markup Language"
+              ],
+              "answer": 1,
+              "hint": "DHTML = Dynamic Hyper Text Markup Language. It is HTML enhanced with JavaScript for dynamic/interactive web pages."
+            },
+            {
+              "id": "q8",
+              "html": "How many attributes are specified for the &lt;script&gt; tag?",
+              "options": [
+                "a) 2",
+                "b) 3",
+                "c) 4",
+                "d) 5"
+              ],
+              "answer": 0,
+              "hint": "The <script> tag has 2 important attributes: language (specifies scripting language) and type (value: text/javascript)."
+            },
+            {
+              "id": "q9",
+              "html": "Which attribute is used to indicate the scripting language with value 'text/javascript'?",
+              "options": [
+                "a) language",
+                "b) text1",
+                "c) type",
+                "d) body"
+              ],
+              "answer": 2,
+              "hint": "The 'type' attribute indicates the scripting language. Its value should be 'text/javascript'."
+            },
+            {
+              "id": "q10",
+              "html": "The shortcut key to reload a file into the browser is:",
+              "options": [
+                "a) F2",
+                "b) F3",
+                "c) F4",
+                "d) F5"
+              ],
+              "answer": 3,
+              "hint": "F5 is the shortcut key to refresh/reload the current page in a browser."
+            },
+            {
+              "id": "q11",
+              "html": "JavaScript ignores spaces that appear between:",
+              "options": [
+                "a) Commands",
+                "b) Scripts",
+                "c) Tokens",
+                "d) Text"
+              ],
+              "answer": 2,
+              "hint": "JavaScript ignores spaces between tokens (identifiers, operators, punctuators, constants, keywords)."
+            },
+            {
+              "id": "q12",
+              "html": "A data value for a variable that appears directly in a program is called:",
+              "options": [
+                "a) Loop",
+                "b) Literal",
+                "c) Statement",
+                "d) Text"
+              ],
+              "answer": 1,
+              "hint": "A literal is a fixed value (data value) that appears directly in source code. Examples: 250, 3.14, true, 'Hello'."
+            },
+            {
+              "id": "q13",
+              "html": "Which dialog box is mostly used to give a warning message to users?",
+              "options": [
+                "a) Alert Dialog Box",
+                "b) Confirm box",
+                "c) Prompt box",
+                "d) Display box"
+              ],
+              "answer": 0,
+              "hint": "The Alert dialog box gives warning messages to users. It has only one button: OK."
+            },
+            {
+              "id": "q14",
+              "html": "In the snippet: var x = 250 + 2 - 200; the value of x is:",
+              "options": [
+                "a) 50",
+                "b) 52",
+                "c) 48",
+                "d) 42"
+              ],
+              "answer": 1,
+              "hint": "250 + 2 = 252. 252 - 200 = 52. So x = 52."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "navLabel": "Part II -- Very Short (5 x 2)",
+      "title": "Part II -- Very Short Answers",
+      "type": "short_answer",
+      "scoreMax": 10,
+      "marksPer": 2,
+      "sections": [
+        {
+          "label": "Very Short Answers",
+          "questions": [
+            {
+              "id": "q15",
+              "html": "Write the syntax of the &lt;script&gt; tag.",
+              "answer": "The <script> tag is used to embed JavaScript in an HTML page. Syntax:\n\n<script language='javascript' type='text/javascript'>\n  JavaScript code here\n</script>\n\nAttributes:\n- language: Specifies the scripting language (value: 'javascript'). Optional in recent HTML versions.\n- type: Indicates the scripting language (value: 'text/javascript').\n\nThe <script> tag can be placed anywhere in the HTML page but is recommended to be placed in the <head> section.",
+              "hint": "<script language='javascript' type='text/javascript'>JS code</script>. Two attributes: language and type. Best in <head>."
+            },
+            {
+              "id": "q16",
+              "html": "What is the scope of variables? What are the types of scope?",
+              "answer": "The scope of a variable is the lifetime of the variable — the region of source code in which it is defined and accessible.\n\nTwo types of scope:\n1. Global Scope: A global variable is declared outside any function. It can be used and accessed everywhere in the JavaScript code — both inside and outside functions.\n\n2. Local Scope: Variables declared within a function are defined only within the body of that function. They are local variables and can only be accessed inside that function. They cease to exist when the function ends.",
+              "hint": "Scope = lifetime of a variable. Global scope = accessible everywhere (declared outside functions). Local scope = only inside the function where declared."
+            },
+            {
+              "id": "q17",
+              "html": "What is conditional operator? Give a suitable example.",
+              "answer": "The conditional operator (?:) is also called the ternary operator in JavaScript because it requires three operands.\n\nSyntax: var variablename = (condition) ? value1 : value2;\n\nHow it works: The condition is evaluated first. If the condition is true, value1 is assigned to the variable. If the condition is false, value2 is assigned.\n\nExample:\nvar result = (10 > 15) ? 100 : 150;\n// Since 10 > 15 is false, result = 150\n\nvar age = 20;\nvar status = (age >= 18) ? 'Adult' : 'Minor';\n// status = 'Adult' because 20 >= 18 is true",
+              "hint": "Ternary operator: var x = (condition) ? value_if_true : value_if_false. Example: var result = (10>15) ? 100 : 150; → result = 150 (condition false)."
+            },
+            {
+              "id": "q18",
+              "html": "What are the comments in JavaScript?",
+              "answer": "Comments in JavaScript are remarks or notes in source code that are ignored by the JavaScript interpreter — they do not affect execution. Comments make code more readable.\n\nTwo types:\n1. Single-line comment: Begins with a double slash (//). Everything from // to the end of the line is ignored.\nExample: // This is a single line comment\n\n2. Multi-line comment: Begins with /* and ends with */. Everything between these is ignored, even across multiple lines.\nExample:\n/* This is a\nmulti-line comment */",
+              "hint": "Two types: Single-line (// to end of line) and Multi-line (/* ... */). Ignored by interpreter. Make code readable."
+            },
+            {
+              "id": "q19",
+              "html": "What is the use of the Prompt dialog box?",
+              "answer": "The Prompt dialog box is used when the programmer wants to pop up a text box to get user input. It enables the user to interact with the program by entering a value.\n\nSyntax: prompt('Message', 'defaultValue');\nor: window.prompt('sometext', 'defaultText');\n\nParameters: (i) A label/message to display above the text box; (ii) A default string to pre-fill in the text box.\n\nButtons: OK — returns the text entered in the box; Cancel — returns null.\n\nExample:\nvar sname = prompt('Please enter your name', 'Name');\n// Shows a text box with the message and 'Name' pre-filled",
+              "hint": "Prompt = gets user input via a text box. Two parameters: message label + default value. OK returns the entered value; Cancel returns null."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "navLabel": "Part III -- Short (3 x 3)",
+      "title": "Part III -- Short Answers",
+      "type": "brief_answer",
+      "scoreMax": 9,
+      "marksPer": 3,
+      "sections": [
+        {
+          "label": "Short Answers",
+          "questions": [
+            {
+              "id": "q20",
+              "html": "What are the advantages of JavaScript programming language?",
+              "answer": "Advantages of JavaScript:\n\n1. Dynamic Web Pages: HTML creates static web pages. JavaScript makes web pages interactive and dynamic — responding to user actions like clicks, form inputs, etc.\n\n2. Client-side Validation: User-entered data in forms can be validated before sending to the server. This saves server traffic and reduces load on the server. Example: checking that an email field contains '@'.\n\n3. Rich Interface: JavaScript provides rich UI elements such as textboxes, buttons, drag-and-drop components, sliders, and tooltips, giving site visitors an engaging experience. Example: creating a new email account interface.\n\n4. Bridging HTML and CGI: JavaScript bridges the gap between simple HTML and complex CGI server-side programs, giving web developers a common tool.\n\n5. Fast Execution: JavaScript executes on the client side (browser) — no server round-trip needed for most operations, resulting in faster response.",
+              "hint": "5 advantages: Dynamic Web Pages (interactive), client-side validation (saves server load), rich interface (textboxes/sliders), bridges HTML and CGI, fast client-side execution."
+            },
+            {
+              "id": "q21",
+              "html": "Briefly explain the basic data types in JavaScript.",
+              "answer": "JavaScript has three basic data types:\n\n1. String: A list of characters. String literals are indicated by enclosing characters in single quotes or double quotes. Strings can contain single or multiple characters, whitespace, and special characters (\\n = newline). Example: var name = 'Raman'; or var msg = \"Hello World\";\n\n2. Number: Can be integer (whole number) or floating-point (decimal) value. Numeric literals are written directly as numbers. Example: var age = 18; var pi = 3.14;\n\n3. Boolean: Can only be one of two values: true or false. Boolean literals are written as true or false directly in source code. Example: var isLoggedIn = true;\n\nJavaScript is dynamically typed (untyped) — no need to declare the data type when declaring a variable. The same variable can hold different data types at different times.",
+              "hint": "Three types: String (characters in quotes), Number (integer or float), Boolean (true/false). JavaScript is dynamically typed — no type declaration needed."
+            },
+            {
+              "id": "q22",
+              "html": "Explain the increment and decrement operators in JavaScript.",
+              "answer": "Increment and Decrement operators change the value of a variable by 1.\n\nIncrement operator (++): Adds 1 to the operand. Two forms:\n- Pre-increment (++m): Increments the operand FIRST, then returns the incremented value.\n  var m = 1, n = ++m; // m = 2, n = 2\n- Post-increment (m++): Returns the current value FIRST, then increments.\n  var m = 1, n = m++; // m = 2, n = 1\n\nDecrement operator (--): Subtracts 1 from the operand. Two forms:\n- Pre-decrement (--m): Decrements FIRST, then returns the decremented value.\n  var m = 2, n = --m; // m = 1, n = 1\n- Post-decrement (m--): Returns current value FIRST, then decrements.\n  var m = 2, n = m--; // n = 2, then m = 1\n\nKey difference: Pre = change first, then use. Post = use first, then change.",
+              "hint": "++ adds 1, -- subtracts 1. Pre-increment (++m): change first, then use. Post-increment (m++): use first, then change. Give all 4 examples with values."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "navLabel": "Part IV -- Long (2 x 7)",
+      "title": "Part IV -- Explain in Detail",
+      "type": "long_essay",
+      "scoreMax": 14,
+      "marksPer": 7,
+      "sections": [
+        {
+          "label": "Long Answers",
+          "questions": [
+            {
+              "id": "q23",
+              "html": "Explain the popup dialog boxes in JavaScript.",
+              "answer": "JavaScript supports three types of popup (dialog) boxes:\n\n1. Alert Dialog Box:\nUsed to give warning messages to users. Shows a message and provides only one button: OK. When the user clicks OK, the dialog closes and execution continues.\n\nSyntax: alert('Message'); or window.alert('Message');\n\nExample:\nvar value1 = 522;\nwindow.alert('Data1: ' + value1);\n\nUse case: Warn users that a required field is empty.\n\n2. Confirm Dialog Box:\nUsed to get the user's consent or confirmation. Shows a message with two buttons: OK (returns true) and Cancel (returns false). The return value can be used to determine what action to take.\n\nSyntax: confirm('message'); or window.confirm('message');\n\nExample:\nvar choice = confirm('Do you want to continue?');\nif (choice) { // user clicked OK }\nelse { // user clicked Cancel }\n\nUse case: Confirm a delete action before proceeding.\n\n3. Prompt Dialog Box:\nUsed to get user input via a text box. Has two parameters: (i) label text, (ii) default string. Two buttons: OK (returns entered text) and Cancel (returns null).\n\nSyntax: prompt('Message', 'defaultValue'); or window.prompt('text', 'default');\n\nExample:\nvar sname = prompt('Please enter your name', 'Name');\ndocument.write('Hello, ' + sname);\n\nUse case: Ask the user for their name or any input before processing.",
+              "hint": "3 dialog boxes: Alert (warning, OK only), Confirm (consent, OK=true/Cancel=false), Prompt (get input, OK=text/Cancel=null). For each: purpose, syntax, example, use case."
+            },
+            {
+              "id": "q24",
+              "html": "Explain the Arithmetic operators in JavaScript with suitable examples.",
+              "answer": "JavaScript supports all basic arithmetic operators:\n\n1. Addition (+): var sum = 20 + 120; // sum = 140\n\n2. Subtraction (-): var diff = 20 - 120; // diff = -100\n\n3. Multiplication (*): var prod = 10 * 100; // prod = 1000\n\n4. Division (/): var res = 100 / 522; // res = 5.22 (approximately)\n\n5. Modulus (%) - remainder: var rem = 100 % 522; // rem = 22\n\nShorthand Operators:\n+=, -=, *=, /=, %=\nExample: var sum = 120; sum += 20; // sum = 140 (same as sum = sum + 20)\n\nJavaScript Program using Arithmetic Operators:\n<script language='javascript' type='text/javascript'>\nvar value1 = 522, value2 = 10;\ndocument.write('Data1: ' + value1);\ndocument.write('<br>Data2: ' + value2);\nvar sum = value1 + value2;\nvar diff = value1 - value2;\nvar prod = value1 * value2;\nvar res = value1 / value2;\nvar rem = value1 % value2;\ndocument.write('<br>Sum: ' + sum);\ndocument.write('<br>Difference: ' + diff);\ndocument.write('<br>Product: ' + prod);\ndocument.write('<br>Division: ' + res);\ndocument.write('<br>Remainder: ' + rem);\n</script>\n\nOutput: Sum=532, Difference=512, Product=5220, Division=52.2, Remainder=2",
+              "hint": "5 operators: + (add), - (subtract), * (multiply), / (divide), % (modulus/remainder). Include shorthand (+=,-=,*=,/=,%=). Write complete JavaScript program with document.write()."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,263 @@
+export default {
+  "meta": {
+    "subject": "Computer Applications -- Class XI",
+    "unit": "Chapter 13 -- CSS: Cascading Style Sheets",
+    "time": "2.30 hrs",
+    "totalMarks": 47,
+    "instructions": "Samacheer Kalvi -- Answer all questions"
+  },
+  "parts": [
+    {
+      "id": "p1",
+      "navLabel": "Part I -- MCQ (10 x 1)",
+      "title": "Part I -- Choose the Correct Answer",
+      "type": "mcq",
+      "scoreMax": 10,
+      "marksPer": 1,
+      "sections": [
+        {
+          "label": "CSS -- Cascading Style Sheets",
+          "questions": [
+            {
+              "id": "q1",
+              "html": "Expansion of CSS:",
+              "options": [
+                "a) Cascading Style Schools",
+                "b) Cascading Style Scheme",
+                "c) Cascading Style Sheets",
+                "d) Cascading Style Shares"
+              ],
+              "answer": 2,
+              "hint": "CSS = Cascading Style Sheets. Invented by Hakon Wium Lie on October 10, 1994."
+            },
+            {
+              "id": "q2",
+              "html": "Which of the following is the page level style?",
+              "options": [
+                "a) &lt;Page&gt;",
+                "b) &lt;Style&gt;",
+                "c) &lt;Link&gt;",
+                "d) &lt;H&gt;"
+              ],
+              "answer": 1,
+              "hint": "The <style> tag defines internal (page-level) styles within the <head> section of an HTML document."
+            },
+            {
+              "id": "q3",
+              "html": "CSS is also called as:",
+              "options": [
+                "a) Sitewide Style Sheets",
+                "b) Internal Style Sheets",
+                "c) Inline Style Sheets",
+                "d) Internal Inline Sheets"
+              ],
+              "answer": 0,
+              "hint": "External CSS files (saved as .css) are called Sitewide Style Sheets because they apply to all pages in a site."
+            },
+            {
+              "id": "q4",
+              "html": "The extension of a CSS file is:",
+              "options": [
+                "a) .ssc",
+                "b) .css",
+                "c) .csc",
+                "d) .htm"
+              ],
+              "answer": 1,
+              "hint": "CSS files are saved with the .css extension (e.g., mystyle.css)."
+            },
+            {
+              "id": "q5",
+              "html": "What is a selector in CSS?",
+              "options": [
+                "a) Property",
+                "b) Value",
+                "c) HTML tag",
+                "d) Name"
+              ],
+              "answer": 2,
+              "hint": "A selector in CSS refers to the HTML tag to which you want to apply styles (e.g., p, h1, body)."
+            },
+            {
+              "id": "q6",
+              "html": "The Declaration block of CSS is surrounded by:",
+              "options": [
+                "a) ( )",
+                "b) [ ]",
+                "c) { }",
+                "d) < >"
+              ],
+              "answer": 2,
+              "hint": "CSS declaration blocks are enclosed in curly braces { }. Example: p { color: red; }"
+            },
+            {
+              "id": "q7",
+              "html": "Each CSS declaration should be terminated by:",
+              "options": [
+                "a) :",
+                "b) ;",
+                "c) .",
+                "d) ,"
+              ],
+              "answer": 1,
+              "hint": "Each CSS declaration ends with a semicolon ;. The property and value are separated by a colon :."
+            },
+            {
+              "id": "q8",
+              "html": "What is the property to set text as bold in CSS?",
+              "options": [
+                "a) font-style",
+                "b) font-weight",
+                "c) font-property",
+                "d) font-bold"
+              ],
+              "answer": 1,
+              "hint": "font-weight: bold; makes text bold. font-style: italic; makes text italic."
+            },
+            {
+              "id": "q9",
+              "html": "Which of the following indicates that the text is a comment in CSS?",
+              "options": [
+                "a) /* */",
+                "b) !* *!",
+                "c) <* *>",
+                "d) \\* *\\"
+              ],
+              "answer": 0,
+              "hint": "CSS comments are enclosed between /* and */. Example: /* This is a comment */"
+            },
+            {
+              "id": "q10",
+              "html": "Which of the following is the correct way to write a CSS rule?",
+              "options": [
+                "a) p{color:red; text-align:center};",
+                "b) p {color:red; text-align:center}",
+                "c) p {color:red; text-align:center;}",
+                "d) p (color:red;text-align:center;)"
+              ],
+              "answer": 2,
+              "hint": "Correct CSS: selector { property: value; } — curly braces, colon between property and value, semicolon after each declaration."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "navLabel": "Part II -- Very Short (5 x 2)",
+      "title": "Part II -- Very Short Answers",
+      "type": "short_answer",
+      "scoreMax": 10,
+      "marksPer": 2,
+      "sections": [
+        {
+          "label": "Very Short Answers",
+          "questions": [
+            {
+              "id": "q11",
+              "html": "What is the use of the &lt;style&gt; tag?",
+              "answer": "The <style> tag controls the presentation styles of a particular HTML document. It is placed in the <head> section and contains CSS rules that apply to the entire page. Style sheets defined using the <style> tag are called 'Page-Level Styles' or 'Internal Style Sheets'. Example: <style type='text/css'> p { color: red; } </style>",
+              "hint": "<style> tag = internal/page-level CSS. Goes in <head>. Controls presentation of the whole page."
+            },
+            {
+              "id": "q12",
+              "html": "What is CSS?",
+              "answer": "CSS stands for Cascading Style Sheets. It is used to control the presentation and appearance of HTML documents. CSS was invented by Hakon Wium Lie on October 10, 1994 and is maintained through the CSS Working Group within W3C. CSS is easy to learn but provides powerful control over HTML presentation. It is most commonly combined with HTML or XHTML. Professional web developers use external CSS files (.css extension) that can be linked to multiple web pages.",
+              "hint": "CSS = Cascading Style Sheets. Controls HTML presentation. Invented 1994 by Hakon Wium Lie. Three types: internal (<style>), external (.css file), inline (style attribute)."
+            },
+            {
+              "id": "q13",
+              "html": "Write the general format of linking CSS with HTML.",
+              "answer": "The <link> tag is used in the <head> section to connect a CSS file to an HTML document. Three attributes must always be included:\n- rel='stylesheet' (specifies the relationship)\n- type='text/css' (specifies the file type)\n- href (specifies the CSS file name/path)\n\nGeneral format:\n<link rel='stylesheet' type='text/css' href='CSS_filename.css'>\n\nExample:\n<link rel='stylesheet' type='text/css' href='mystyle.css'>\n\nThis must be placed inside the <head>...</head> block.",
+              "hint": "<link rel='stylesheet' type='text/css' href='filename.css'>. Three attributes: rel, type, href. Goes in <head>."
+            },
+            {
+              "id": "q14",
+              "html": "What is Inline Style?",
+              "answer": "Inline Style is a method of defining CSS style for a specific individual HTML tag anywhere in an HTML document. It uses the 'style' attribute directly inside the opening tag of an HTML element. Inline styles override both internal and external styles for that specific element.\n\nExample: <p style='color:blue; font-size:16px;'> This text is blue and 16px. </p>\n\nInline styles are useful for one-off formatting but are not recommended for large-scale use because they mix content and style and cannot be reused.",
+              "hint": "Inline style = style attribute inside an HTML tag for that specific element. Example: <p style='color:red;'>. One-off use only."
+            },
+            {
+              "id": "q15",
+              "html": "Write down the general format of a CSS declaration.",
+              "answer": "A CSS declaration consists of two major parts: Selector and Declaration block.\n\nGeneral format:\nSelector {\n  property1: value1;\n  property2: value2;\n}\n\nRules:\n- Selector = the HTML tag to apply styles to (e.g., p, h1, body)\n- Declaration block = enclosed in curly braces { }\n- Each property-value pair is separated by a colon (:)\n- Each declaration ends with a semicolon (;)\n- Multiple properties are separated by semicolons\n\nExample:\np {\n  font-size: 16pt;\n  color: red;\n  font-weight: bold;\n}",
+              "hint": "Format: Selector { property: value; }. Selector = HTML tag. Declaration = in { }. Property:value pairs separated by semicolons."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "navLabel": "Part III -- Short (4 x 3)",
+      "title": "Part III -- Short Answers",
+      "type": "brief_answer",
+      "scoreMax": 12,
+      "marksPer": 3,
+      "sections": [
+        {
+          "label": "Short Answers",
+          "questions": [
+            {
+              "id": "q16",
+              "html": "What are the advantages of using CSS?",
+              "answer": "Advantages of using CSS:\n\n1. Separation of Content and Presentation: CSS separates the visual design from HTML content, making the code cleaner and easier to maintain.\n\n2. Consistent Styling: One CSS file can apply uniform styles across all pages of a website. Change the CSS file and all linked pages update instantly.\n\n3. Faster Page Loading: Browsers cache external CSS files, so subsequent page loads are faster.\n\n4. Easier Maintenance: Design changes only need to be made in one CSS file rather than editing every HTML page individually.\n\n5. Better Control: CSS provides precise control over font, colour, spacing, layout, borders, backgrounds, and more — far beyond what HTML attributes alone can achieve.\n\n6. Accessibility: Proper CSS usage improves accessibility for screen readers and assistive technologies.",
+              "hint": "Advantages: separation of content/presentation, consistent styling across pages, faster loading (cached), easier maintenance (one file), better design control, accessibility."
+            },
+            {
+              "id": "q17",
+              "html": "Write a short note on the rule of CSS.",
+              "answer": "A CSS rule consists of a Selector and a Declaration block:\n\nSelector: The HTML tag (element) to which the style is applied. For example, 'p' selects all paragraph elements; 'h1' selects all level-1 headings.\n\nDeclaration Block: Enclosed in curly braces { }. Contains one or more property-value pairs, each ending with a semicolon. The property name and its value are separated by a colon.\n\nExample:\np {\n  font-size: 16pt;\n  color: red;\n  font-weight: bold;\n}\n\nThis rule applies to all <p> tags: text will be 16pt, red, and bold. If this is an internal style, it goes inside <style>...</style> in the <head>. If external, it is saved as a .css file and linked with <link>.",
+              "hint": "Rule = Selector + Declaration block { }. Selector = HTML tag. Declarations = property: value; pairs in {}. Internal = in <style>. External = .css file."
+            },
+            {
+              "id": "q18",
+              "html": "Write a CSS file to define text color and alignment to the &lt;p&gt; tag.",
+              "answer": "CSS file content (save as style.css):\n\np {\n  color: MediumSeaGreen;\n  text-align: center;\n}\n\nTo link this CSS file with an HTML document:\n\n<html>\n<head>\n  <title> CSS Demo </title>\n  <link rel='stylesheet' type='text/css' href='style.css'>\n</head>\n<body>\n  <p> This text will be green and centred. </p>\n  <p> All paragraph tags get this style automatically. </p>\n</body>\n</html>\n\nExplanation: The 'color' property sets the text colour to MediumSeaGreen. The 'text-align: center' centres all paragraph text.",
+              "hint": "p { color: MediumSeaGreen; text-align: center; }. Link with <link rel='stylesheet' type='text/css' href='style.css'>."
+            },
+            {
+              "id": "q19",
+              "html": "Write a CSS file to define font type, style and size to the &lt;h1&gt; tag.",
+              "answer": "CSS file content (save as heading_style.css):\n\nh1 {\n  font-family: \"Comic Sans MS\";\n  font-style: italic;\n  font-size: 24px;\n  font-weight: bold;\n  color: blue;\n  border: 2px solid blue;\n}\n\nTo link and use:\n\n<html>\n<head>\n  <title> Heading Style Demo </title>\n  <link rel='stylesheet' type='text/css' href='heading_style.css'>\n</head>\n<body>\n  <h1> Welcome to CSS </h1>\n</body>\n</html>\n\nExplanation: font-family sets the typeface; font-style: italic makes it italic; font-size sets the size in pixels; font-weight: bold makes it bold; the border adds a 2px solid blue border around the heading.",
+              "hint": "h1 { font-family: 'Comic Sans MS'; font-style: italic; font-size: 24px; font-weight: bold; border: 2px solid blue; }"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "navLabel": "Part IV -- Long (3 x 5)",
+      "title": "Part IV -- Explain in Detail",
+      "type": "long_essay",
+      "scoreMax": 15,
+      "marksPer": 5,
+      "sections": [
+        {
+          "label": "Long Answers",
+          "questions": [
+            {
+              "id": "q20",
+              "html": "List and explain the Font and Text element properties and values used in CSS.",
+              "answer": "CSS Font and Text Properties:\n\n1. color: Sets the colour of the text. Value: predefined colour name or hex code.\nExample: p { color: pink; }\n\n2. text-align: Sets horizontal alignment of text. Values: center, left, right, justify.\nExample: p { text-align: center; }\n\n3. font-family: Sets the typeface/font of the text. Value: font name (use quotes for multi-word names).\nExample: p { font-family: 'Times New Roman'; }\n\n4. font-style: Sets the style of the font. Values: normal, italic.\nExample: p { font-style: italic; }\n\n5. font-weight: Sets the weight (boldness) of the font. Values: normal, bold.\nExample: p { font-weight: bold; }\n\n6. font-size: Sets the size of the text in pixels.\nExample: p { font-size: 14px; }\n\n7. background-color: Sets the background colour of an element.\nExample: body { background-color: violet; }\n\n8. border: Sets a border around an element. Value: thickness style colour.\nExample: h2 { border: 2px solid red; }\n\n9. Margin properties (margin-top, margin-bottom, margin-left, margin-right): Set the margin space around an element in pixels.\nExample: p { margin-top: 50px; margin-left: 50px; }",
+              "hint": "9 properties: color (text colour), text-align (alignment), font-family (typeface), font-style (italic), font-weight (bold), font-size (px), background-color, border (thickness style colour), margin properties."
+            },
+            {
+              "id": "q21",
+              "html": "Write an HTML document to display a paragraph using CSS with Font Name: Cooper Black, Style: Bold Italics, Color: Blue.",
+              "answer": "External CSS file (save as para_style.css):\n\np {\n  font-family: 'Cooper Black';\n  font-style: italic;\n  font-weight: bold;\n  color: blue;\n  font-size: 14px;\n}\n\nHTML file:\n\n<html>\n<head>\n  <title> CSS Paragraph Demo </title>\n  <link rel='stylesheet' type='text/css' href='para_style.css'>\n</head>\n<body>\n  <p>\n  The State Institute of Education (SIE) was established in 1965 to provide\n  for systematic study of problems relating to School Education under the\n  administration of Directorate of School Education.\n  </p>\n</body>\n</html>\n\nExplanation:\n- font-family: 'Cooper Black' sets the typeface.\n- font-style: italic makes it italic.\n- font-weight: bold makes it bold.\n- color: blue sets the text colour.\nThe <link> tag in the <head> connects the CSS file to the HTML document. All <p> tags now automatically use these styles.",
+              "hint": "CSS: p { font-family: 'Cooper Black'; font-style: italic; font-weight: bold; color: blue; }. Link with <link rel='stylesheet' type='text/css' href='...'>. Include the full SIE paragraph text."
+            },
+            {
+              "id": "q22",
+              "html": "Explain the three types of style sheets with examples.",
+              "answer": "CSS has three types of style sheets:\n\n1. Internal Style Sheets (Page-Level Styles):\nDefined within the <style> tag in the <head> section. Applied to that single HTML page only.\nExample:\n<head>\n  <style type='text/css'>\n    p { color: red; font-size: 14px; }\n    h1 { border: 2px solid blue; }\n  </style>\n</head>\nProfessional web developers generally do not use internal styles.\n\n2. External Style Sheets (Sitewide Style Sheets):\nStyle definitions saved in a separate .css file. Linked to multiple HTML pages using the <link> tag. The most efficient method — change one CSS file and all linked pages update.\nCSS file (mystyle.css): p { color: green; } h1 { font-weight: bold; }\nLinked in HTML: <link rel='stylesheet' type='text/css' href='mystyle.css'>\n\n3. Inline Styles:\nDefined directly inside an individual HTML tag using the style attribute. Used for one-off formatting. Overrides both internal and external styles.\nExample: <p style='color: blue; font-size: 16px;'> This text is blue. </p>\n\nPriority: Inline > Internal > External (inline styles have highest priority).",
+              "hint": "Three types: Internal (<style> in <head>, page-level), External (.css file linked with <link>, sitewide), Inline (style attribute in tag, one-off). Priority: Inline > Internal > External."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
