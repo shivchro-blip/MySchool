@@ -10,7 +10,18 @@ import ChapterPracticeExam from './ChapterPracticeExam'
 import AttemptHistorySection from './syllabus/sections/AttemptHistorySection'
 import { stripTabLabel } from '../utils/resolveTabIcon'
 import { buildBreadcrumbs } from '../lib/nav'
+import { buildAllTabs } from '../utils/lessonTabs'
 import { SYLLABUS } from '../data/syllabus'
+
+// Decodes HTML entities (e.g. "&lt;b&gt;" -> "<b>") to their literal characters
+// without HTML-parsing the result, so encoded tag names in MCQ options display
+// as visible text instead of being interpreted as markup.
+function decodeHtmlEntities(str) {
+  if (!str) return str
+  const el = document.createElement('textarea')
+  el.innerHTML = str
+  return el.value
+}
 
 function adaptAllQuestions(practiceData) {
   if (!practiceData?.parts) return []
@@ -26,7 +37,7 @@ function adaptAllQuestions(practiceData) {
             marks:   part.marksPer ?? 1,
             section: sec.label,
             html:    q.html,
-            options: q.options.map(o => o.replace(/^[a-d]\)\s*/i, '')),
+            options: q.options.map(o => decodeHtmlEntities(o.replace(/^[a-d]\)\s*/i, ''))),
             correct: q.answer,
             hint:    q.hint,
           })
@@ -366,24 +377,7 @@ export default function LearnRichPage({ content, chapterSlug }) {
     : /\bPlay\b|\bDrama\b/i.test(content.eyebrow) ? 'drama'
     : 'prose'
 
-  // Chapters that pre-declare practice/askai tabs use them as-is.
-  // All others get them injected here so no data file needs editing.
-  const allTabs = (() => {
-    const tabs = content.tabs
-    const hasPractice = tabs.some(t => t.type === 'practice')
-    const hasAskAI    = tabs.some(t => t.type === 'askai')
-    const extra = []
-    if (!hasPractice && practiceRegistry[chapterSlug]) {
-      extra.push({ id: 'practice', label: 'Practice', type: 'practice', blocks: [] })
-    }
-    if (practiceRegistry[chapterSlug] && !tabs.some(t => t.type === 'attempt-history')) {
-      extra.push({ id: 'attempt-history', label: 'Attempt History', type: 'attempt-history', blocks: [] })
-    }
-    if (!hasAskAI) {
-      extra.push({ id: 'askai', label: 'Ask AI', type: 'askai', blocks: [] })
-    }
-    return extra.length ? [...tabs, ...extra] : tabs
-  })()
+  const allTabs = buildAllTabs(content, chapterSlug)
 
   // Load practice data asynchronously (practiceRegistry values are lazy loaders since ebb1e34)
   const [practiceContent, setPracticeContent] = useState(null)

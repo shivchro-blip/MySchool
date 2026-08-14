@@ -1,12 +1,15 @@
+import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import {
-  getLesson, getSubjectChapters, SYLLABUS, LESSON_SECTIONS,
+  getLesson, getSubjectChapters, SYLLABUS,
 } from '../../data/syllabus'
 import { buildBreadcrumbs } from '../../lib/nav'
 import { Card, PageHeader } from '../../components/ui'
 import { Breadcrumb } from '../../components/nav'
 import contentRegistry from '../../content/registry'
+import { buildAllTabs } from '../../utils/lessonTabs'
+import { stripTabLabel, resolveTabIcon } from '../../utils/resolveTabIcon'
 import ContentComingSoon from './ContentComingSoon'
 import NotFound from './NotFound'
 
@@ -25,14 +28,46 @@ export default function LessonDetailPage() {
     || null
   const crumbs     = buildBreadcrumbs(year, subject, category, lesson, null, SYLLABUS)
 
+  // undefined = loading; null = no rich content; object = rich content loaded.
+  // Tiles are built from the chapter's own tabs (real section ids), never a
+  // hardcoded list — English and CA chapters each get their own section ids.
+  const [content, setContent] = useState(
+    () => contentRegistry.has(lesson) ? undefined : null
+  )
+
+  useEffect(() => {
+    if (!contentRegistry.has(lesson)) {
+      setContent(null)
+      return
+    }
+    setContent(undefined)
+    let cancelled = false
+    contentRegistry.load(lesson).then(c => { if (!cancelled) setContent(c) })
+    return () => { cancelled = true }
+  }, [lesson])
+
   if (!lessonData) return <NotFound message={`Lesson "${lesson}" not found`} />
 
   // No registered content module → honest "coming soon" instead of a section
   // grid whose every tab leads to a fake skeleton. Applies to any unregistered
   // lesson (Maths chapters, Science lessons, etc.).
-  if (!contentRegistry.has(lesson)) {
+  if (content === null) {
     return <ContentComingSoon title={lessonData.title} crumbs={crumbs} />
   }
+
+  if (content === undefined) {
+    return (
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 40 }}>
+        <div style={{ fontSize: 13, color: 'var(--text-muted, #9CA3AF)' }}>Loading…</div>
+      </div>
+    )
+  }
+
+  const contentType = /\bPoem\b/i.test(content.eyebrow) ? 'poem'
+    : /\bPlay\b|\bDrama\b/i.test(content.eyebrow) ? 'drama'
+    : 'prose'
+
+  const tiles = buildAllTabs(content, lesson).filter(t => !t.hidden)
 
   return (
     <div>
@@ -46,9 +81,9 @@ export default function LessonDetailPage() {
       </div>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-        {LESSON_SECTIONS.map((section, i) => (
+        {tiles.map((tab, i) => (
           <motion.div
-            key={section.slug}
+            key={tab.id}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.06 }}
@@ -57,15 +92,12 @@ export default function LessonDetailPage() {
               interactive
               padding="md"
               onClick={() =>
-                navigate(`/${year}/${subject}/${category}/${lesson}/${section.slug}`)
+                navigate(`/${year}/${subject}/${category}/${lesson}/${tab.id}`)
               }
               className="h-full"
             >
-              <div className="text-2xl mb-2.5">{section.icon}</div>
-              <p className="text-sm font-bold text-text-primary">{section.label}</p>
-              <p className="text-xs text-text-tertiary mt-1 leading-snug">
-                {section.description}
-              </p>
+              <div className="text-2xl mb-2.5">{resolveTabIcon(tab.label, contentType) ?? '📄'}</div>
+              <p className="text-sm font-bold text-text-primary">{stripTabLabel(tab.label)}</p>
             </Card>
           </motion.div>
         ))}
