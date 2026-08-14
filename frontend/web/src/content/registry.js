@@ -63,6 +63,10 @@ const LOADERS = {
   'chapter-06-introduction-to-word-processor':           () => import('./Class_11/ComputerApplications/chapters/chapter-06-introduction-to-word-processor'),
   'chapter-07-working-with-openoffice-calc':             () => import('./Class_11/ComputerApplications/chapters/chapter-07-working-with-openoffice-calc'),
   'chapter-08-presentation-basics':                      () => import('./Class_11/ComputerApplications/chapters/chapter-08-presentation-basics'),
+  'chapter-09-introduction-to-internet-and-email':       () => import('./Class_11/ComputerApplications/chapters/chapter-09-introduction-to-internet-and-email'),
+  'chapter-10-html-structural-tags':                     () => import('./Class_11/ComputerApplications/chapters/chapter-10-html-structural-tags'),
+  'chapter-11-html-formatting-tables-lists-links':       () => import('./Class_11/ComputerApplications/chapters/chapter-11-html-formatting-tables-lists-links'),
+  'chapter-12-html-multimedia-elements-and-forms':       () => import('./Class_11/ComputerApplications/chapters/chapter-12-html-multimedia-elements-and-forms'),
 }
 
 // Older chapter files (Class 11 CA) predate the { eyebrow, title, author,
