@@ -59,6 +59,10 @@ const LOADERS = {
   'chapter-02-number-systems':                           () => import('./Class_11/ComputerApplications/chapters/chapter-02-number-systems'),
   'chapter-03-computer-organisation':                    () => import('./Class_11/ComputerApplications/chapters/chapter-03-computer-organisation'),
   'chapter-04-theoretical-concepts-of-operating-system': () => import('./Class_11/ComputerApplications/chapters/chapter-04-theoretical-concepts-of-operating-system'),
+  'chapter-05-working-with-windows-operating-system':    () => import('./Class_11/ComputerApplications/chapters/chapter-05-working-with-windows-operating-system'),
+  'chapter-06-introduction-to-word-processor':           () => import('./Class_11/ComputerApplications/chapters/chapter-06-introduction-to-word-processor'),
+  'chapter-07-working-with-openoffice-calc':             () => import('./Class_11/ComputerApplications/chapters/chapter-07-working-with-openoffice-calc'),
+  'chapter-08-presentation-basics':                      () => import('./Class_11/ComputerApplications/chapters/chapter-08-presentation-basics'),
 }
 
 // Older chapter files (Class 11 CA) predate the { eyebrow, title, author,

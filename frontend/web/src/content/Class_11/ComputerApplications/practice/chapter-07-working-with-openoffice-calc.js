@@ -1,0 +1,251 @@
+export default {
+  "meta": {
+    "subject": "Computer Applications -- Class XI",
+    "unit": "Chapter 7 -- Working with OpenOffice Calc",
+    "time": "2.30 hrs",
+    "totalMarks": 47,
+    "instructions": "Samacheer Kalvi -- Answer all questions"
+  },
+  "parts": [
+    {
+      "id": "p1",
+      "navLabel": "Part I -- MCQ (10 x 1)",
+      "title": "Part I -- Choose the Correct Answer",
+      "type": "mcq",
+      "scoreMax": 10,
+      "marksPer": 1,
+      "sections": [
+        {
+          "label": "OpenOffice Calc",
+          "questions": [
+            {
+              "id": "q1",
+              "html": "Which is the first electronic spreadsheet?",
+              "options": [
+                "a) Excel",
+                "b) Lotus 1-2-3",
+                "c) VisiCalc",
+                "d) OpenOffice Calc"
+              ],
+              "answer": 2,
+              "hint": "VisiCalc (1979) was the first electronic spreadsheet, created for the Apple II computer."
+            },
+            {
+              "id": "q2",
+              "html": "Which of the following applications was the parent to OpenOffice Calc?",
+              "options": [
+                "a) VisiCalc",
+                "b) LibreCalc",
+                "c) Lotus 123",
+                "d) StarOffice Calc"
+              ],
+              "answer": 3,
+              "hint": "OpenOffice Calc evolved from StarOffice Calc, which was the spreadsheet component of StarOffice (later acquired by Sun Microsystems)."
+            },
+            {
+              "id": "q3",
+              "html": "A grid of cells with a programmable calculator is called:",
+              "options": [
+                "a) Spreadsheet",
+                "b) Database",
+                "c) Word processor",
+                "d) Linux"
+              ],
+              "answer": 0,
+              "hint": "A spreadsheet is defined as a grid of cells with a programmable calculator for data organisation and calculation."
+            },
+            {
+              "id": "q4",
+              "html": "A column heading in Calc is represented using:",
+              "options": [
+                "a) Number",
+                "b) Symbol",
+                "c) Date",
+                "d) Alphabet"
+              ],
+              "answer": 3,
+              "hint": "In OpenOffice Calc, columns are labelled with alphabets (A, B, C, ... Z, AA, AB ...) and rows with numbers."
+            },
+            {
+              "id": "q5",
+              "html": "Which key is used to move the cell pointer in the forward direction within the worksheet?",
+              "options": [
+                "a) Enter",
+                "b) Tab",
+                "c) Shift + Tab",
+                "d) Delete"
+              ],
+              "answer": 1,
+              "hint": "Tab moves the cell pointer forward (to the right). Shift+Tab moves it backward (to the left)."
+            },
+            {
+              "id": "q6",
+              "html": "A formula in Calc may begin with:",
+              "options": [
+                "a) =",
+                "b) +",
+                "c) -",
+                "d) All the above"
+              ],
+              "answer": 3,
+              "hint": "In OpenOffice Calc, a formula can start with = (equals), + (plus), or - (minus). All are valid formula starters."
+            },
+            {
+              "id": "q7",
+              "html": "What will be the result from the formula +A1^B2, if A1=5 and B2=2?",
+              "options": [
+                "a) 7",
+                "b) 25",
+                "c) 10",
+                "d) 52"
+              ],
+              "answer": 1,
+              "hint": "A1^B2 = 5^2 = 5×5 = 25. The ^ operator means 'to the power of'."
+            },
+            {
+              "id": "q8",
+              "html": "What will be the result from =H1<>H2, if H1=12 and H2=12?",
+              "options": [
+                "a) True",
+                "b) False",
+                "c) 24",
+                "d) 1212"
+              ],
+              "answer": 1,
+              "hint": "<> means 'not equal to'. Since H1=H2=12, they ARE equal, so H1<>H2 is FALSE."
+            },
+            {
+              "id": "q9",
+              "html": "Which symbol is used to make a cell address an absolute reference?",
+              "options": [
+                "a) +",
+                "b) %",
+                "c) &",
+                "d) $"
+              ],
+              "answer": 3,
+              "hint": "The $ (dollar) sign makes a cell reference absolute. For example, $A$1 means column A and row 1 are both fixed."
+            },
+            {
+              "id": "q10",
+              "html": "Which key combination is used to increase the width of the current column?",
+              "options": [
+                "a) Alt + Right arrow",
+                "b) Ctrl + Right arrow",
+                "c) Alt + Left arrow",
+                "d) Ctrl + Left arrow"
+              ],
+              "answer": 0,
+              "hint": "Alt + Right arrow increases the column width in OpenOffice Calc."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "navLabel": "Part II -- Very Short (5 x 2)",
+      "title": "Part II -- Very Short Answers",
+      "type": "short_answer",
+      "scoreMax": 10,
+      "marksPer": 2,
+      "sections": [
+        {
+          "label": "Very Short Answers",
+          "questions": [
+            {
+              "id": "q11",
+              "html": "What are the types of toolbars available in OpenOffice Calc?",
+              "answer": "OpenOffice Calc has three toolbars available by default: (1) Standard Toolbar — contains shortcut icons for frequently used File, Edit, and Data menu commands (new, open, save, print, cut, copy, paste, sorting, inserting charts). (2) Formatting Toolbar — contains icons for text and cell formatting (font style, size, colour, alignment, cell format). (3) Formula Bar — the most important element; contains the Name Box (cell address), Function Wizard, Sum button, Function button, and Input Line (displays/edits cell contents).",
+              "hint": "Three toolbars: Standard (file/edit), Formatting (text/cell), Formula Bar (Name Box + Sum + Input Line)."
+            },
+            {
+              "id": "q12",
+              "html": "What is a Cell Pointer?",
+              "answer": "A cell pointer is a rectangular box that can be moved around the worksheet. The cell in which the cell pointer is currently located is known as the 'Active Cell'. When you type any content, it appears in the active cell. The address of the active cell is displayed in the Name Box/Address Box. The active cell's column heading and row number are highlighted for easy identification.",
+              "hint": "Cell pointer = movable rectangle; its location = Active Cell. Address shown in Name Box."
+            },
+            {
+              "id": "q13",
+              "html": "Write about the text operator in OpenOffice Calc.",
+              "answer": "The text operator in OpenOffice Calc is the ampersand (&) symbol. It is used to concatenate (join) two or more text strings or cell contents into one string. For example: =A1&B1 will combine the contents of cells A1 and B1. If A1 contains 'Hello' and B1 contains 'World', the result would be 'HelloWorld'. To add a space: =A1&\" \"&B1 gives 'Hello World'.",
+              "hint": "Text operator = & (ampersand). Used to join/concatenate text strings. Example: =A1&B1."
+            },
+            {
+              "id": "q14",
+              "html": "Write the general syntax of constructing a formula in Calc.",
+              "answer": "A formula in OpenOffice Calc always begins with an equal sign (=), plus (+), or minus (-). General syntax: =expression. The expression can contain: cell references (A1, B2), operators (+, -, *, /, ^, &, <>, <=, >=), values/constants, and functions. Examples: =A1+B1 (addition), =SUM(A1:A10) (function), =A1*B2-C3 (mixed). The formula bar shows the formula; the cell shows the result.",
+              "hint": "Starts with = (or + or -). Contains: cell refs, operators, constants, functions. Formula bar shows formula; cell shows result."
+            },
+            {
+              "id": "q15",
+              "html": "In cell A1=34, A2=65, A3=89. Write the formula to find the average.",
+              "answer": "To find the average of cells A1, A2, and A3, use the AVERAGE function: =AVERAGE(A1:A3). This will calculate (34+65+89)/3 = 188/3 = 62.67 (approximately). Alternatively, the formula can also be written as: =(A1+A2+A3)/3 which gives the same result.",
+              "hint": "=AVERAGE(A1:A3) or =(A1+A2+A3)/3. Result = (34+65+89)/3 = 62.67."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "navLabel": "Part III -- Short (3 x 3)",
+      "title": "Part III -- Short Answers",
+      "type": "brief_answer",
+      "scoreMax": 9,
+      "marksPer": 3,
+      "sections": [
+        {
+          "label": "Short Answers",
+          "questions": [
+            {
+              "id": "q16",
+              "html": "Write a short note on OpenOffice Calc.",
+              "answer": "OpenOffice Calc is the open-source spreadsheet component of the OpenOffice office suite. It is equivalent to Microsoft Excel. The default file extension is .ods (OpenDocument Spreadsheet).\n\nCalc provides a grid of rows and columns where data can be entered, organized, and calculated. It supports formulas, functions (SUM, AVERAGE, MAX, MIN, IF, etc.), charts, sorting, filtering, and data validation.\n\nOpenOffice Calc version 4.1.5 contains 1,024 columns (A to AMJ) and 1,048,576 rows. In comparison, Microsoft Excel 2016 has 16,384 columns and 1,048,576 rows.\n\nCalc supports multiple worksheets in a single workbook (default: Sheet1, Sheet2, Sheet3) and can save files in various formats including .ods, .xlsx, and .csv.",
+              "hint": "Open-source spreadsheet; .ods format; 1024 columns × 1,048,576 rows; formulas/functions/charts; multiple sheets."
+            },
+            {
+              "id": "q17",
+              "html": "Write about inserting columns and rows in Calc.",
+              "answer": "Inserting Rows:\n1. Click on the row number where you want to insert a row above.\n2. Right-click → select 'Insert Rows Above' or 'Insert Rows Below'.\n3. A new empty row is inserted at the chosen position.\n\nInserting Columns:\n1. Click on the column letter where you want to insert a column.\n2. Right-click → select 'Insert Columns Before' or 'Insert Columns After'.\n3. A new empty column is inserted at the chosen position.\n\nAlternatively, select Insert → Rows or Insert → Columns from the menu bar. You can also select multiple row numbers or column letters before inserting to add multiple rows/columns at once.",
+              "hint": "Rows: click row number → right-click → Insert Rows Above/Below. Columns: click column letter → right-click → Insert Columns Before/After."
+            },
+            {
+              "id": "q18",
+              "html": "Differentiate deleting data using Backspace and Delete in Calc.",
+              "answer": "In OpenOffice Calc:\n\nBackspace Key: Deletes the entire contents of the active (selected) cell immediately. No dialog appears — the cell is cleared directly.\n\nDelete Key: Opens the 'Delete Contents' dialog box. The dialog allows the user to choose what to delete from the cell: All (everything), Strings (text), Numbers, Date and Time, Formulas, Comments (notes), or Formats (cell formatting only). This gives more control over what is removed.\n\nKey difference: Backspace = immediate full clear of cell. Delete = selective clearing with a dialog.",
+              "hint": "Backspace = immediately clears entire cell content. Delete = opens dialog to choose what to delete (text, numbers, formulas, formats)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "navLabel": "Part IV -- Long (2 x 9)",
+      "title": "Part IV -- Explain in Detail",
+      "type": "long_essay",
+      "scoreMax": 18,
+      "marksPer": 9,
+      "sections": [
+        {
+          "label": "Long Answers",
+          "questions": [
+            {
+              "id": "q19",
+              "html": "Explain the parts of the OpenOffice Calc window.",
+              "answer": "The OpenOffice Calc window consists of the following parts:\n\n1. Title Bar: At the top; shows filename ('Untitled1' by default) and application name. Contains Minimize, Maximize/Restore, and Close control buttons.\n\n2. Menu Bar: Contains menus — File, Edit, View, Insert, Format, Tools, Data, Window, Help. The Data menu is unique to Calc (Sort, Filter, Subtotal, Validity).\n\n3. Standard Toolbar: Shortcut icons for File/Edit/Data commands (new, open, save, print, cut, copy, paste, sorting, inserting charts).\n\n4. Formatting Toolbar: Icons for text and cell formatting (font, size, colour, alignment, cell format).\n\n5. Formula Bar: Most important element. Contains: Name Box/Address Box (displays active cell address), Function Wizard (insert functions), Sum button (insert SUM function), Function button, and Input Line (shows and edits cell contents).\n\n6. Scroll Bars: Vertical (up/down) and Horizontal (left/right) scroll bars for navigating the spreadsheet.\n\n7. Rows, Columns, and Cells: Columns labelled A–AMJ (1024 total); rows numbered 1–1,048,576. Each cell has a unique address (column+row, e.g., B4). Active cell is where the cell pointer is located; its address appears in the Name Box.\n\n8. Worksheet Tabs: At the bottom — Sheet1, Sheet2, Sheet3 (active sheet is white). Navigate with 4 buttons (First, Previous, Next, Last). Double-click to rename a sheet.\n\n9. Status Bar: Below sheet tabs. Shows: Sheets count, Page Style, Selection Mode (STD/EXT/ADD), unsaved changes indicator (*), and Zoom level.",
+              "hint": "9 parts: Title Bar, Menu Bar (Data unique), Standard Toolbar, Formatting Toolbar, Formula Bar (Name Box+Sum+Input), Scroll Bars, Rows/Columns/Cells, Worksheet Tabs, Status Bar."
+            },
+            {
+              "id": "q20",
+              "html": "Explain the various formatting options available in OpenOffice Calc.",
+              "answer": "OpenOffice Calc provides extensive formatting options through Format → Cells (Ctrl+1):\n\n1. Numbers Tab: Set how numbers are displayed — Number (decimal places), Currency, Percentage, Date, Time, Scientific, Fraction, Text.\n\n2. Font Tab: Set font type, style (bold, italic), size, and colour.\n\n3. Font Effects Tab: Strikethrough, outline, shadow, relief effects, font colour.\n\n4. Alignment Tab: Horizontal alignment (left, centre, right, justify), vertical alignment (top, middle, bottom), Wrap Text (multi-line in one cell), Merge Cells, and text orientation/rotation.\n\n5. Borders Tab: Set line style, thickness, and colour for cell borders. Can set borders on individual sides or all sides.\n\n6. Background Tab: Set cell background colour.\n\n7. Cell Protection Tab: Lock cells or hide formulas (effective when sheet is protected).\n\nOther formatting features:\n- AutoFill: Enter first value → drag Fill Handle to auto-fill series (numbers, dates, months).\n- Row height/Column width: Drag row/column border, or Format → Rows/Columns → Height/Width.\n- Hide/Show: Format → Rows/Columns → Hide or Show.\n- AutoFormat: Format → AutoFormat → choose predefined table style.",
+              "hint": "Format Cells (Ctrl+1) has 6 tabs: Numbers, Font, Font Effects, Alignment (wrap/merge), Borders, Background. Plus: AutoFill, row height/column width, Hide/Show."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
