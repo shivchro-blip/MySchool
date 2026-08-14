@@ -35,7 +35,7 @@ When Impress opens, the **Presentation Wizard** appears to help create a new pre
 
 **Step 2 — Choose slide design:**
 - Select from Presentation Backgrounds (pre-packaged designs).
-- `<Original>` is an empty background.
+- \`<Original>\` is an empty background.
 - Select output medium: **Screen** (for computer display — most common), Projector, Paper.
 
 **Step 3 — Choose slide transition:**
