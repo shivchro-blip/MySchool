@@ -1,0 +1,152 @@
+export default {
+  "meta": {
+    "subject": "Computer Applications -- Class XI",
+    "unit": "Chapter 18 -- Tamil Computing",
+    "time": "1.30 hrs",
+    "totalMarks": 20,
+    "instructions": "Samacheer Kalvi -- Answer all questions"
+  },
+  "parts": [
+    {
+      "id": "p1",
+      "navLabel": "Part I -- MCQ (5 x 1)",
+      "title": "Part I -- Choose the Correct Answer",
+      "type": "mcq",
+      "scoreMax": 5,
+      "marksPer": 1,
+      "sections": [
+        {
+          "label": "Tamil Computing",
+          "questions": [
+            {
+              "id": "q1",
+              "html": "According to the 2017 KPMG-Google study, what percentage of Indian internet users were using the internet in Tamil?",
+              "options": [
+                "a) 32%",
+                "b) 42%",
+                "c) 52%",
+                "d) 74%"
+              ],
+              "answer": 1,
+              "hint": "The 2017 KPMG (Singapore) study with Google reported that 42% of Indian internet users were using the internet in Tamil — topping the list of regional languages."
+            },
+            {
+              "id": "q2",
+              "html": "Which search engines provide searching facilities in Tamil?",
+              "options": [
+                "a) Google and Yahoo",
+                "b) Google and Bing",
+                "c) Bing and Yahoo",
+                "d) Google and Altavista"
+              ],
+              "answer": 1,
+              "hint": "Google and Bing both provide searching facilities in Tamil. Google includes a built-in Tamil virtual keyboard."
+            },
+            {
+              "id": "q3",
+              "html": "The first Tamil programming language is:",
+              "options": [
+                "a) Python",
+                "b) Thamizpori",
+                "c) Ezhil",
+                "d) TSCII"
+              ],
+              "answer": 2,
+              "hint": "Ezhil (எழில்) is the first Tamil programming language, designed based on Python."
+            },
+            {
+              "id": "q4",
+              "html": "TSCII stands for:",
+              "options": [
+                "a) Tamil Script Code for Information Interchange",
+                "b) Tamil Standard Code for Information Interchange",
+                "c) Tamil Script Code for Internet Interchange",
+                "d) Tamil Standard Computer Information Interface"
+              ],
+              "answer": 0,
+              "hint": "TSCII = Tamil Script Code for Information Interchange. It is the first coding system designed to handle Tamil language."
+            },
+            {
+              "id": "q5",
+              "html": "Tamil Virtual Academy was established on:",
+              "options": [
+                "a) 17th February 1998",
+                "b) 17th February 2000",
+                "c) 17th February 2001",
+                "d) 17th February 2004"
+              ],
+              "answer": 2,
+              "hint": "Tamil Virtual Academy (originally Tamil Virtual University) was established on 17th February 2001 by the Government of Tamil Nadu."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "navLabel": "Part II -- Very Short (5 x 2)",
+      "title": "Part II -- Very Short Answers",
+      "type": "short_answer",
+      "scoreMax": 10,
+      "marksPer": 2,
+      "sections": [
+        {
+          "label": "Very Short Answers",
+          "questions": [
+            {
+              "id": "q6",
+              "html": "List the search engines that support the Tamil language.",
+              "answer": "The search engines that support Tamil language are Google and Bing. Both provide searching facilities in Tamil, meaning users can search for information using Tamil text. The Google search engine additionally provides an inbuilt Tamil virtual keyboard for Tamil input directly in the browser.",
+              "hint": "Google and Bing both support Tamil search. Google also has a built-in Tamil virtual keyboard."
+            },
+            {
+              "id": "q7",
+              "html": "What are the keyboard layouts used in Android smartphones for Tamil?",
+              "answer": "The familiar Tamil keyboard layouts used in Android smartphones are:\n1. Sellinam — a Tamil keyboard layout that works on the Android operating system using phonetics.\n2. Ponmadal — another Tamil keyboard layout for Android smartphones using phonetics.\n\nFor computers, NHM Writer, E-Kalappai, and Lippikar are familiar Tamil keyboard interface software that work on Tamil Unicode using phonetics.",
+              "hint": "Android Tamil keyboards: Sellinam and Ponmadal (both phonetic). Computer Tamil software: NHM Writer, E-Kalappai, Lippikar."
+            },
+            {
+              "id": "q8",
+              "html": "Write a short note about the Tamil Programming Language.",
+              "answer": "Programming languages used to develop software have traditionally been available only in English. Based on the Python programming language, the first Tamil programming language 'Ezhil' (எழில்) was designed. Ezhil allows programmers to write code using Tamil keywords and syntax, making programming accessible to Tamil speakers who are more comfortable with their native language. This is a significant step in bringing technology closer to Tamil-speaking people.",
+              "hint": "First Tamil programming language = Ezhil (எழில்). Based on Python. Allows coding in Tamil keywords. Makes programming accessible to Tamil speakers."
+            },
+            {
+              "id": "q9",
+              "html": "What is TSCII?",
+              "answer": "TSCII stands for Tamil Script Code for Information Interchange. It is the first coding system designed to handle the Tamil language on computers. Computers traditionally use ASCII encoding which handles only English. Since ASCII cannot handle Tamil characters, TSCII was created as the first Tamil-specific encoding system. TSCII was registered in IANA (Internet Assigned Numbers Authority), a unit of ICANN. Project Madurai etexts have been released in TSCII encoding since 1998.",
+              "hint": "TSCII = Tamil Script Code for Information Interchange. First coding system for Tamil. Registered with IANA (unit of ICANN). Used by Project Madurai since 1998."
+            },
+            {
+              "id": "q10",
+              "html": "Write a short note on Tamil Virtual Academy.",
+              "answer": "Tamil Virtual Academy was established on 17th February 2001 by the Government of Tamil Nadu. It was originally established as 'Tamil Virtual University' with the objective of spreading Tamil to the entire world through the internet.\n\nIt offers different courses in Tamil language, culture, and heritage from kindergarten to undergraduate level. The Academy provides online Tamil learning resources accessible from anywhere in the world.\n\nWebsite: http://www.tamilvu.org/\n\nIt also maintains a Tamil e-Library (http://www.tamilvu.org/library/) which provides access to Tamil books and resources.",
+              "hint": "Tamil Virtual Academy: established 17 Feb 2001 by TN Govt. Objective: spread Tamil globally via internet. Courses: KG to UG, Tamil language/culture/heritage. Website: tamilvu.org."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "navLabel": "Part III -- Short (1 x 5)",
+      "title": "Part III -- Short Answer",
+      "type": "brief_answer",
+      "scoreMax": 5,
+      "marksPer": 5,
+      "sections": [
+        {
+          "label": "Short Answer",
+          "questions": [
+            {
+              "id": "q11",
+              "html": "Write about the Tamil information interchange coding systems: TSCII, ISCII, and Unicode.",
+              "answer": "Three Tamil information interchange coding systems:\n\n1. TSCII (Tamil Script Code for Information Interchange):\nThe first coding system created specifically to handle the Tamil language on computers. Computers handle data in binary and use ASCII for English, which cannot represent Tamil characters. TSCII was developed as the first Tamil-specific encoding. It was registered in IANA (Internet Assigned Numbers Authority), a unit of ICANN. Project Madurai has released e-texts in TSCII since 1998.\n\n2. ISCII (Indian Script Code for Information Interchange):\nAn encoding scheme specially designed for Indian languages, including Tamil. It can represent multiple Indian scripts using a single encoding standard. ISCII has been unified with Unicode, the modern universal standard.\n\n3. Unicode:\nAn encoding system designed to handle various world languages, including Tamil. Its first version 1.0.0 was introduced in October 1991. Unicode is considered the best and most suitable encoding system to handle Tamil, as it supports all world languages in a single standard. Since 2004, Project Madurai also releases etexts in Tamil Unicode. All modern systems (Windows, Android, iOS) support Unicode for Tamil.",
+              "hint": "Three systems: TSCII (first Tamil coding, IANA registered, Project Madurai 1998), ISCII (for Indian languages, unified with Unicode), Unicode (all world languages, version 1.0.0 Oct 1991, best for Tamil, Project Madurai 2004+)."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

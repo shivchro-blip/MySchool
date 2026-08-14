@@ -71,6 +71,8 @@ const LOADERS = {
   'chapter-14-introduction-to-javascript':               () => import('./Class_11/ComputerApplications/chapters/chapter-14-introduction-to-javascript'),
   'chapter-15-control-structure-in-javascript':          () => import('./Class_11/ComputerApplications/chapters/chapter-15-control-structure-in-javascript'),
   'chapter-16-javascript-functions':                     () => import('./Class_11/ComputerApplications/chapters/chapter-16-javascript-functions'),
+  'chapter-17-computer-ethics-and-cyber-security':       () => import('./Class_11/ComputerApplications/chapters/chapter-17-computer-ethics-and-cyber-security'),
+  'chapter-18-tamil-computing':                          () => import('./Class_11/ComputerApplications/chapters/chapter-18-tamil-computing'),
 }
 
 // Older chapter files (Class 11 CA) predate the { eyebrow, title, author,
