@@ -1,13 +1,14 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
-import { ArrowLeft, GraduationCap, Check, BookOpen, Calculator, FlaskConical, Monitor } from 'lucide-react'
+import { ArrowLeft, GraduationCap, Check, BookOpen, Calculator, FlaskConical, Monitor, Code } from 'lucide-react'
 import { completeOnboarding, invalidateProfileCache } from '../api/users'
 
 const SUBJECTS = [
   { slug: 'english', name: 'English',     Icon: BookOpen,     bg: '#E6F4F2', color: '#2A7B6F' },
   { slug: 'maths',   name: 'Mathematics', Icon: Calculator,   bg: '#EEEFF9', color: '#5C6BC0' },
   { slug: 'computer-applications', name: 'Computer Applications', Icon: Monitor, bg: '#EAF1FB', color: '#1B4B82' },
+  { slug: 'computer-science', name: 'Computer Science', Icon: Code, bg: '#EDF2FB', color: '#3B5BDB' },
   { slug: 'science', name: 'Science',     Icon: FlaskConical, bg: '#FBEEE0', color: '#D97020' },
 ]
 
