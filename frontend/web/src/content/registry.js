@@ -73,6 +73,10 @@ const LOADERS = {
   'chapter-16-javascript-functions':                     () => import('./Class_11/ComputerApplications/chapters/chapter-16-javascript-functions'),
   'chapter-17-computer-ethics-and-cyber-security':       () => import('./Class_11/ComputerApplications/chapters/chapter-17-computer-ethics-and-cyber-security'),
   'chapter-18-tamil-computing':                          () => import('./Class_11/ComputerApplications/chapters/chapter-18-tamil-computing'),
+  'cs-chapter-01-introduction-to-computers':                        () => import('./Class_11/ComputerScience/chapters/cs-chapter-01-introduction-to-computers'),
+  'cs-chapter-02-number-systems':                                   () => import('./Class_11/ComputerScience/chapters/cs-chapter-02-number-systems'),
+  'cs-chapter-03-computer-organization':                            () => import('./Class_11/ComputerScience/chapters/cs-chapter-03-computer-organization'),
+  'cs-chapter-04-theoretical-concepts-of-operating-system':         () => import('./Class_11/ComputerScience/chapters/cs-chapter-04-theoretical-concepts-of-operating-system'),
 }
 
 // Older chapter files (Class 11 CA) predate the { eyebrow, title, author,

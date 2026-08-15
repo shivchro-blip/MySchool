@@ -1,0 +1,199 @@
+export default {
+  "meta": {
+    "subject": "Computer Science -- Class XI",
+    "unit": "Chapter 3 -- Computer Organization",
+    "time": "2.30 hrs",
+    "totalMarks": 47,
+    "instructions": "Samacheer Kalvi -- Answer all questions"
+  },
+  "parts": [
+    {
+      "id": "p1",
+      "navLabel": "Part I -- MCQ (8 x 1)",
+      "title": "Part I -- Choose the Correct Answer",
+      "type": "mcq",
+      "scoreMax": 8,
+      "marksPer": 1,
+      "sections": [
+        {
+          "label": "Computer Organization",
+          "questions": [
+            {
+              "id": "q1",
+              "html": "Which of the following is said to be the brain of a computer?",
+              "options": ["a) Input devices", "b) Output devices", "c) Memory device", "d) Microprocessor"],
+              "answer": 3,
+              "hint": "The microprocessor (CPU) performs all the processing — it is the computer's brain."
+            },
+            {
+              "id": "q2",
+              "html": "Which of the following is NOT part of a microprocessor unit?",
+              "options": ["a) ALU", "b) Control unit", "c) Cache memory", "d) Register"],
+              "answer": 2,
+              "hint": "The microprocessor is made of ALU, Control Unit, and Registers only — cache is a separate memory device."
+            },
+            {
+              "id": "q3",
+              "html": "How many bits constitute a word?",
+              "options": ["a) 8", "b) 16", "c) 32", "d) Determined by the processor used"],
+              "answer": 3,
+              "hint": "Word size varies with the processor — 8-bit, 16-bit, 32-bit, or 64-bit."
+            },
+            {
+              "id": "q4",
+              "html": "Which of the following is a CISC processor?",
+              "options": ["a) Intel P6", "b) AMD K6", "c) Pentium III", "d) Pentium IV"],
+              "answer": 2,
+              "hint": "Pentium III belongs to Intel's CISC (Complex Instruction Set Computer) family, unlike P6/K6/Pentium IV listed as RISC examples in the text."
+            },
+            {
+              "id": "q5",
+              "html": "Which is the fastest memory?",
+              "options": ["a) Hard disk", "b) Main memory", "c) Cache memory", "d) Blu-Ray disc"],
+              "answer": 2,
+              "hint": "Cache memory sits closest to the CPU and is the fastest, though smallest and most expensive."
+            },
+            {
+              "id": "q6",
+              "html": "How many memory locations are identified by a processor with an 8-bit address bus at a time?",
+              "options": ["a) 2^8", "b) 1024", "c) 256", "d) 8000"],
+              "answer": 2,
+              "hint": "An 8-bit address bus can address 2^8 = 256 unique memory locations."
+            },
+            {
+              "id": "q7",
+              "html": "What is the capacity of a 12cm diameter DVD with single side and single layer?",
+              "options": ["a) 4.7 GB", "b) 5.5 GB", "c) 7.8 GB", "d) 2.2 GB"],
+              "answer": 0,
+              "hint": "A single-sided, single-layer DVD stores up to 4.7 GB of data."
+            },
+            {
+              "id": "q8",
+              "html": "Display devices are connected to the computer through:",
+              "options": ["a) USB port", "b) PS/2 port", "c) SCSI port", "d) VGA connector"],
+              "answer": 3,
+              "hint": "A VGA connector is used to connect a monitor or LCD projector."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "navLabel": "Part II -- Very Short Answers (5 x 2)",
+      "title": "Part II -- Very Short Answers",
+      "type": "short_answer",
+      "scoreMax": 10,
+      "marksPer": 2,
+      "sections": [
+        {
+          "label": "Very Short Answers",
+          "questions": [
+            {
+              "id": "q9",
+              "html": "What are the parameters which influence the characteristics of a microprocessor?",
+              "answer": "The characteristics of a microprocessor are influenced by three parameters: (1) Clock Speed — the speed at which it executes instructions, measured in MHz/GHz; (2) Instruction Set — the basic machine-level commands it can execute; (3) Word Size — the number of bits processed in a single instruction.",
+              "hint": "Clock speed, instruction set, word size."
+            },
+            {
+              "id": "q10",
+              "html": "What is an instruction?",
+              "answer": "An instruction is a command given to a computer to perform an operation on data. The complete set of such basic machine-level commands a microprocessor is designed to execute is called its instruction set.",
+              "hint": "A command telling the computer to perform a specific operation on data."
+            },
+            {
+              "id": "q11",
+              "html": "What is a program counter?",
+              "answer": "The Program Counter (PC) is a special register in the CPU that always keeps the address of the next instruction to be executed, allowing the processor to fetch instructions in the correct sequence.",
+              "hint": "Register holding the address of the next instruction to be executed."
+            },
+            {
+              "id": "q12",
+              "html": "What is HDMI?",
+              "answer": "HDMI (High-Definition Multimedia Interface) is an audio/video interface that transfers uncompressed video and audio data from a video controller to a compatible display device, such as a computer monitor, LCD projector, or digital television.",
+              "hint": "Audio/video interface transferring uncompressed data to a display device."
+            },
+            {
+              "id": "q13",
+              "html": "Which source is used to erase the content of an EPROM?",
+              "answer": "The content of an EPROM (Erasable Programmable Read Only Memory) is erased by exposing it to ultraviolet (UV) light, which clears its stored contents and makes it possible to reprogram the chip.",
+              "hint": "Ultraviolet light."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "navLabel": "Part III -- Short Answers (3 x 3)",
+      "title": "Part III -- Short Answers",
+      "type": "brief_answer",
+      "scoreMax": 9,
+      "marksPer": 3,
+      "sections": [
+        {
+          "label": "Short Answers",
+          "questions": [
+            {
+              "id": "q14",
+              "html": "Write down the classifications of microprocessors based on the instruction set.",
+              "answer": "Based on the instruction set, microprocessors are classified into two types: (1) Reduced Instruction Set Computers (RISC) — examples include Pentium IV, Intel P6, AMD K6, and K7; (2) Complex Instruction Set Computers (CISC) — examples include Intel 386 & 486, Pentium, Pentium II and III, and Motorola 68000.",
+              "hint": "RISC (e.g., Pentium IV, Intel P6) vs CISC (e.g., Intel 386/486, Pentium II/III)."
+            },
+            {
+              "id": "q15",
+              "html": "Differentiate PROM and EPROM.",
+              "answer": "PROM (Programmable Read Only Memory) is a non-volatile memory that can be written to only once — once a program is burned onto it using a PROM programmer, it cannot be changed. EPROM (Erasable Programmable Read Only Memory) also holds data permanently but its contents can be erased and reprogrammed by exposing the chip to ultraviolet light, making it reusable — a key difference from the one-time-write PROM.",
+              "hint": "PROM = write once, cannot be changed; EPROM = erasable and reprogrammable via UV light."
+            },
+            {
+              "id": "q16",
+              "html": "Differentiate CD and DVD.",
+              "answer": "A CD (Compact Disc) is made from 1.2mm thick polycarbonate plastic with an aluminium/gold coating, storing data as pits in a spiral track, with a typical capacity of 700MB. A DVD (Digital Versatile Disc) is also an optical disc but can store up to 4.7GB — more than six times the capacity of a CD — and can have one or two sides with one or two layers each, allowing even greater storage; DVDs are commonly used to store movies at higher quality, while CDs are more often used for music and smaller data files.",
+              "hint": "CD ≈ 700MB; DVD up to 4.7GB (or more with double sides/layers); both read with a laser."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "navLabel": "Part IV -- Explain in Detail (4 x 5)",
+      "title": "Part IV -- Explain in Detail",
+      "type": "long_essay",
+      "scoreMax": 20,
+      "marksPer": 5,
+      "sections": [
+        {
+          "label": "Long Answers",
+          "questions": [
+            {
+              "id": "q17",
+              "html": "Explain the characteristics of a microprocessor.",
+              "answer": "A microprocessor's performance depends on three main characteristics:\n\n1. Clock Speed: Every microprocessor has an internal clock that regulates the speed of instruction execution, measured in MHz (Mega Hertz) or GHz (Giga Hertz). Higher clock speed generally means more instruction cycles performed per second.\n\n2. Instruction Set: The basic set of machine-level commands a microprocessor is designed to execute. It carries out operations such as data transfer, arithmetic operations, logical operations, control flow, and input/output. Microprocessors are classified as RISC (Reduced Instruction Set Computers) or CISC (Complex Instruction Set Computers) based on this.\n\n3. Word Size: The number of bits that can be processed by the processor in a single instruction. This determines the amount of RAM the microprocessor can access, and is used to classify microprocessors as 8-bit, 16-bit, 32-bit, or 64-bit.\n\nTogether, these three characteristics determine how fast and how much data a given microprocessor can handle.",
+              "hint": "Clock Speed (MHz/GHz), Instruction Set (RISC/CISC), Word Size (8/16/32/64-bit) — explain each with examples."
+            },
+            {
+              "id": "q18",
+              "html": "How are the read and write operations performed by a processor? Explain.",
+              "answer": "The CPU communicates with memory using the Memory Data Register (MDR) and the Memory Address Register (MAR). The ALU places the address of the memory location to be accessed into the MAR. A bus (a collection of wires) carries the binary data as voltage signals (5V = 1, 0V = 0) between the CPU and memory.\n\nRead operation: Data (bits) is transferred FROM the memory word INTO the Memory Data Register, allowing the CPU to use that data.\n\nWrite operation: Data (bits) is transferred FROM the Memory Data Register INTO the memory word, storing the CPU's output into memory.\n\nThe word in RAM has the same size as the MDR — for example, an 8-bit processor like the Intel 8085 has an 8-bit MDR, and each RAM word is also 8 bits, ensuring data transfers exactly between memory and CPU in matching-sized chunks.",
+              "hint": "Explain MAR (address), MDR (data), buses as wires carrying voltage, and define read (memory→MDR) vs write (MDR→memory)."
+            },
+            {
+              "id": "q19",
+              "html": "Arrange the memory devices in ascending order based on their access time (fastest to slowest), and explain the memory hierarchy.",
+              "answer": "In ascending order of access time (fastest first): Cache Memory → Main Memory (RAM) → Hard Disk (Secondary Storage).\n\nCache Memory is the fastest but smallest and most expensive — it sits closest to the CPU and stores frequently accessed data to reduce the time needed to fetch data from slower main memory. Main Memory (RAM) is larger than cache but slower and cheaper — it holds the OS, running applications, and data currently in use. Hard Disk (and other secondary storage) is the largest capacity, cheapest, and slowest — used for permanent, non-volatile storage of data and programs.\n\nThis arrangement — small/fast/expensive at the top (cache) to large/slow/cheap at the bottom (hard disk) — is called the memory hierarchy, and it balances speed, cost, and capacity in a computer system.",
+              "hint": "Cache (fastest) → Main Memory (RAM) → Hard Disk (slowest); explain the speed–cost–capacity trade-off."
+            },
+            {
+              "id": "q20",
+              "html": "Explain the types of ROM.",
+              "answer": "ROM (Read Only Memory) is non-volatile memory with pre-recorded data that generally cannot be modified after manufacture, storing critical boot programs. Its programmable variants are:\n\n1. PROM (Programmable ROM): Non-volatile; data can be written only once using a PROM programmer/burner (the process is called 'burning'). It is manufactured blank, unlike ROM which is programmed during manufacturing.\n\n2. EPROM (Erasable Programmable ROM): Functions like a PROM, but its contents can be erased by exposing the chip to ultraviolet (UV) light, after which it can be reprogrammed. Widely used since manufacturers can update or replace the stored program before final delivery. Most EPROM chips have a transparent window (covered with a sticker) through which UV light reaches the chip.\n\n3. EEPROM (Electrically Erasable Programmable ROM): A special type of PROM that can be erased electrically (by an electrical charge) rather than by UV light. It retains its contents when powered off, like other ROM types, but is comparatively slower in performance.\n\nAll ROM variants share the key property of being non-volatile — retaining their contents even when the computer is switched off.",
+              "hint": "ROM (fixed at manufacture) → PROM (write once) → EPROM (UV-erasable) → EEPROM (electrically erasable, slower)."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
