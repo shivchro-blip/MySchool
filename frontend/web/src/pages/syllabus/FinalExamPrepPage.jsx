@@ -19,16 +19,19 @@ const PAPERS_BY_KEY = {
   'plus1-english': finalExamPrepPapers,
   'plus2-english': finalExamPrepPapersPlus2,
   'plus2-computer-applications': [],
+  'plus1-computer-applications': [],
 }
 const MODEL_PAPERS_BY_KEY = {
   'plus1-english': finalExamPrepModelPapers,
   'plus2-english': finalExamPrepModelPapersPlus2,
   'plus2-computer-applications': finalExamPrepModelPapersComputerApplicationsPlus2,
+  'plus1-computer-applications': finalExamPrepModelPapersComputerApplicationsPlus1,
 }
 const LESSONS_BY_KEY = {
   'plus1-english': finalExamPrepPriorityLessons,
   'plus2-english': finalExamPrepPriorityLessonsPlus2,
   'plus2-computer-applications': [],
+  'plus1-computer-applications': [],
 }
 
 export default function FinalExamPrepPage({ classLevel = 'plus1', subjectSlug = 'english' }) {

@@ -223,6 +223,19 @@ export default function App() {
             <CourseContent><ModelExamPracticePage classLevel="plus2" subjectSlug="computer-applications" /></CourseContent>
           </DashShell>
         } />
+        <Route path="/plus1/computer-applications/final-exam-prep" element={
+          <DashShell>
+            <CourseContent><FinalExamPrepPage classLevel="plus1" subjectSlug="computer-applications" /></CourseContent>
+          </DashShell>
+        } />
+        <Route path="/plus1/computer-applications/final-exam-prep/paper/:paperId" element={
+          <DashShell><ExamPaperViewerPage backPath="/plus1/computer-applications/final-exam-prep" /></DashShell>
+        } />
+        <Route path="/plus1/computer-applications/model-exam/:modelId" element={
+          <DashShell>
+            <CourseContent><ModelExamPracticePage classLevel="plus1" subjectSlug="computer-applications" /></CourseContent>
+          </DashShell>
+        } />
         <Route path="/plus1/english/exam/:examYear" element={
           <DashShell>
             <CourseContent><ExamPaperPracticePage classLevel="plus1" /></CourseContent>
