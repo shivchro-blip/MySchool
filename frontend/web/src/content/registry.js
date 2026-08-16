@@ -77,6 +77,10 @@ const LOADERS = {
   'cs-chapter-02-number-systems':                                   () => import('./Class_11/ComputerScience/chapters/cs-chapter-02-number-systems'),
   'cs-chapter-03-computer-organization':                            () => import('./Class_11/ComputerScience/chapters/cs-chapter-03-computer-organization'),
   'cs-chapter-04-theoretical-concepts-of-operating-system':         () => import('./Class_11/ComputerScience/chapters/cs-chapter-04-theoretical-concepts-of-operating-system'),
+  'cs-chapter-05-working-with-windows-operating-system':            () => import('./Class_11/ComputerScience/chapters/cs-chapter-05-working-with-windows-operating-system'),
+  'cs-chapter-06-specification-and-abstraction':                    () => import('./Class_11/ComputerScience/chapters/cs-chapter-06-specification-and-abstraction'),
+  'cs-chapter-07-composition-and-decomposition':                    () => import('./Class_11/ComputerScience/chapters/cs-chapter-07-composition-and-decomposition'),
+  'cs-chapter-08-iteration-and-recursion':                          () => import('./Class_11/ComputerScience/chapters/cs-chapter-08-iteration-and-recursion'),
 }
 
 // Older chapter files (Class 11 CA) predate the { eyebrow, title, author,

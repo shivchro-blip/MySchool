@@ -1,0 +1,152 @@
+export default {
+  chapterNumber: 8,
+  title: "Iteration and Recursion",
+  subject: "Computer Science",
+  classLabel: "Class 11",
+  curriculum: "Samacheer Kalvi",
+
+  sections: [
+    {
+      id: "invariants",
+      title: "Invariants",
+      content: `There are several problems that can be solved by doing the same action repeatedly. Both **iteration** and **recursion** are algorithm design techniques to execute the same action repeatedly. Even though the action is the same each time, the *state* in which it executes changes — the state changes in such a way that the process progresses toward the desired input-output relation.
+
+**Iteration:** The loop body is repeatedly executed as long as the loop condition is true. Each time the loop body executes, the variables are updated. However, there is also a property of the variables that remains *unchanged* by the execution of the loop body — this unchanging property is called the **loop invariant**. The loop invariant is the key to constructing and reasoning about iterative algorithms.
+
+**Recursion:** Another algorithm design technique, closely related to iteration but more powerful. Using recursion, we solve a problem with a given input by solving the same problem with a part of the input, and constructing a solution to the original problem from the solution to the partial input.
+
+**8.1 Invariants**
+
+If we execute the assignment \`u, v := u+5, v-5\` with (u, v) = (20, 15): before, u+v = 20+15 = 35; after, u+v = 25+10 = 35. The assignment has NOT changed the value of u+v — we say u+v is an **invariant** of the assignment.
+
+In general, if an expression involving variables has the same value before and after an assignment, it is an **invariant** of that assignment. If P(u, v) is an expression involving u and v, and P(u,v)[u,v := e1,e2] denotes P(u,v) with u replaced by e1 and v replaced by e2 simultaneously, then P(u,v) is an invariant of the assignment u, v := e1, e2 if:
+\`\`\`
+P(u,v)[u,v := e1,e2] = P(u,v)
+\`\`\`
+
+**Example:** Show that p−c is an invariant of the assignment p, c := p+1, c+1. Let P(p,c) = p−c. Then P(p,c)[p,c := p+1,c+1] = (p+1)−(c+1) = p−c = P(p,c). Since this equals the original expression, p−c is an invariant of this assignment.
+
+**Example:** For m, n := m+3, n−1, is m+3n an invariant? Let P(m,n) = m+3n. Then P(m,n)[m,n := m+3, n−1] = (m+3) + 3(n−1) = m+3+3n−3 = m+3n = P(m,n). Yes — m+3n is an invariant of this assignment.`,
+      nav: { next: "loop-invariant", nextLabel: "Next: Loop Invariant →" }
+    },
+    {
+      id: "loop-invariant",
+      title: "Loop Invariant & Examples",
+      content: `**8.2 Loop Invariant**
+
+In a loop, if L is an invariant of the loop body B, then L is known as a **loop invariant**:
+\`\`\`
+while C
+    -- L
+    B
+-- L
+\`\`\`
+The loop invariant is true before and after the loop body, each time. Since L is true at the start of the first iteration, it is also true just before the loop; since L is true at the end of the last iteration, it is also true just after the loop. Thus, a loop invariant L is true at **four important points**:
+1. At the start of the loop (just before the loop).
+2. At the start of each iteration (before the loop body).
+3. At the end of each iteration (after the loop body).
+4. At the end of the loop (just after the loop).
+
+**To construct a loop:**
+1. Establish the loop invariant at the start of the loop.
+2. The loop body should update variables to progress toward the end, while maintaining the loop invariant.
+3. When the loop ends, the termination condition together with the loop invariant should establish the desired input-output relation.
+
+**8.3 Invariants — Examples**
+
+**Example — power(a, n):** Computes aⁿ by cumulatively multiplying a, n times.
+\`\`\`
+power(a, n)
+-- inputs: n is a positive integer
+-- outputs: p = aⁿ
+    p, i := 1, 0
+    while i ≠ n
+        -- loop invariant: p = aⁱ
+        p, i := p × a, i+1
+\`\`\`
+p = aⁱ is true at the start of the loop (p=1=a⁰) and remains true throughout — it is the loop invariant. When the loop ends, i=n, so p=aⁿ, satisfying the specification.
+
+**Example — Chocolate bar (recall Example 6.11):** With p, c := p+1, c+1 modeling each cut, and p−c=1 as the invariant (established at p=1, c=0), when the loop ends with p=n (n = number of individual squares), from p−c=1 and p=n we get c = n−1: the number of cuts is always one less than the number of squares.
+
+**Example — Sparrows on trees:** 6 equally spaced trees, 6 sparrows (one per tree). If a sparrow flies from tree i to tree i+d, another sparrow simultaneously flies the same distance d in the opposite direction. The sum S of the indices of the sparrows is invariant across each iterative step. Initially S = 1+2+3+4+5+6 = 21. If all sparrows gathered on one tree k, S would equal 6k — but 21 is not a multiple of 6, so it is **not possible** for all sparrows to gather on one tree.
+
+**Example — Chameleons of Chromeland:** With 13 red, 15 green, and 17 blue chameleons, when two different-colored chameleons meet, both change to the third color. The difference between any two type-counts changes by 0 or ±3 with each meeting — an invariant modulo 3. Since none of the pairwise differences (r−g=−2, g−b=−2, b−r=4) is a multiple of 3, it is **not possible** to make all chameleons the same color.
+
+**Example — Jar of marbles:** A jar has white and black marbles. Repeatedly take out two marbles: if same color, discard both and add one black marble back; if different colors, discard the black one and put the white one back. This changes (b, w) but the **parity of w** (whether it is odd or even) never changes — it is invariant, since w either stays the same or decreases by 2 each step. When only one marble remains (w+b=1), if w started even, w must end at 0 (since it stays even), so the last marble is black; if w started odd, the last marble is white.`,
+      nav: { back: "invariants", next: "recursion", nextLabel: "Next: Recursion →" }
+    },
+    {
+      id: "recursion",
+      title: "Recursion",
+      content: `**8.4 Recursion**
+
+Recursion is an algorithm design technique, closely related to induction, similar to iteration but more powerful. Using recursion, we solve a problem with a given input by solving instances of the same problem with a part of the input.
+
+**Example — Length of a line (Example 8.10):** To find the number of customers in a line, the counter asks customer A for the length of the line starting at A; A asks B for the length starting at B; and so on. The last customer E (with no one behind) replies 1. Then D replies 1+1=2, C replies 1+2=3, B replies 1+3=4, and A replies 1+4=5 to the counter.
+
+**8.4.1 Recursive Process**
+
+For a sequence [A,B,C,D,E], the solver **length** breaks the sequence into its *first* customer and the *rest*: first([A,B,C,D,E]) = A, rest([A,B,C,D,E]) = [B,C,D,E]. To solve recursively, length passes the reduced sequence [B,C,D,E] to a **sub-solver** (another instance of length): length[A,B,C,D,E] = 1 + length[B,C,D,E]. Each solver: (1) receives an input, (2) passes a reduced-size input to a sub-solver, (3) receives the sub-solver's solution and produces the solution for its given input.
+
+The recursion continues until the input is small enough — the last solver receives [E] (a single customer) and outputs 1 immediately, stopping the recursion. This gives: length[A,B,C,D,E] = 1 + 1 + 1 + 1 + 1 = 5.
+
+**8.4.2 Recursive Problem Solving**
+
+Each solver tests the size of its input: if small enough, it outputs the solution directly; if not, it reduces the input and calls a **sub-solver** (a **recursive call**) to solve the reduced sub-problem, then constructs the solution to the given problem from the sub-solver's result. Outline:
+\`\`\`
+solver(input)
+    if input is small enough
+        construct solution
+    else
+        find sub_problems of reduced input
+        solutions to sub_problems = solver for each sub_problem
+        construct solution to the problem from solutions to the sub_problems
+\`\`\`
+A recursive solver always has **two cases**:
+1. **Base case:** The problem size is small enough to be solved directly, outputting the solution. There must be at least one base case.
+2. **Recursion step:** The problem size is not small enough — deconstruct into a strictly smaller sub-problem, call a sub-solver, and construct the solution from the sub-solver's (assumed correct) output.
+
+**Important requirement:** In the recursion step, the input size to the recursive call must be **strictly smaller** than the given input size, and there must be at least one base case — otherwise the recursion never terminates.
+
+**8.4.3 Recursion — Examples**
+
+**Length (recursive):**
+\`\`\`
+length(s)
+-- inputs: s
+-- outputs: length of s
+    if s has one customer  -- base case
+        1
+    else
+        1 + length(tail(s))  -- recursion step
+\`\`\`
+
+**power(a, n) (recursive):** aⁿ can be defined recursively as: aⁿ = 1 if n=0; aⁿ = a × a^(n−1) otherwise.
+\`\`\`
+power(a, n)
+-- inputs: n is an integer, n ≥ 0
+-- outputs: aⁿ
+    if n = 0  -- base case
+        1
+    else  -- recursion step
+        a × power(a, n-1)
+\`\`\`
+Tracing power(2,5): = 2×power(2,4) = 2×2×power(2,3) = 2×2×2×power(2,2) = 2×2×2×2×power(2,1) = 2×2×2×2×2×power(2,0) = 2×2×2×2×2×1 = 32.
+
+**Corner-covered board (Example 8.13):** A board of 2ⁿ×2ⁿ squares with one corner covered by a tile — covered using L-shaped triominoes without overlap. Base case: n=1 (a 2×2 board), covered with a single triominoe. Recursion step: divide the 2ⁿ×2ⁿ board into 4 sub-boards of size 2ⁿ⁻¹×2ⁿ⁻¹ by drawing lines through the centre; place one triominoe at the centre so as to leave one sub-board corner-covered; then recursively tile each of the 4 sub-boards (each strictly smaller than the original problem).`,
+      nav: { back: "loop-invariant", next: "summary", nextLabel: "Next: Points to Remember →" }
+    },
+    {
+      id: "summary",
+      title: "Points to Remember",
+      content: `- Iteration repeats the two steps of evaluating a condition and executing a statement, as long as the condition is true.
+- An expression involving variables that remains unchanged by an assignment to one of these variables is called an invariant of the assignment.
+- An invariant of the loop body is known as a loop invariant. A loop invariant is true: (a) at the start of the loop, (b) at the start of each iteration, (c) at the end of each iteration, (d) at the end of the loop.
+- When a loop ends, the loop invariant is true, and the termination condition is also true — together these establish the input-output relation.
+- Recursion must have at least one base case.
+- The recursion step breaks the problem into sub-problems, assumes solutions for sub-problems are given by recursive calls (sub-solvers), and constructs the solution to the given problem from them.
+- In recursion, the size of the input to a sub-problem must be strictly smaller than the size of the given input, to guarantee the recursion terminates.`,
+      nav: { back: "recursion", practice: true }
+    }
+  ]
+}

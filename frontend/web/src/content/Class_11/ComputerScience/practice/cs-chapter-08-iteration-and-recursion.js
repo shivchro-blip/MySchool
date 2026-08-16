@@ -1,0 +1,199 @@
+export default {
+  "meta": {
+    "subject": "Computer Science -- Class XI",
+    "unit": "Chapter 8 -- Iteration and Recursion",
+    "time": "2.30 hrs",
+    "totalMarks": 47,
+    "instructions": "Samacheer Kalvi -- Answer all questions"
+  },
+  "parts": [
+    {
+      "id": "p1",
+      "navLabel": "Part I -- MCQ (8 x 1)",
+      "title": "Part I -- Choose the Correct Answer",
+      "type": "mcq",
+      "scoreMax": 8,
+      "marksPer": 1,
+      "sections": [
+        {
+          "label": "Iteration and Recursion",
+          "questions": [
+            {
+              "id": "q1",
+              "html": "A loop invariant need NOT be true:",
+              "options": ["a) At the start of the loop", "b) At the start of each iteration", "c) At the end of each iteration", "d) At the start of the algorithm"],
+              "answer": 3,
+              "hint": "The loop invariant is only guaranteed true at the four loop-related points, not necessarily at the very start of the whole algorithm before the loop is even reached."
+            },
+            {
+              "id": "q2",
+              "html": "To cover a chessboard with dominoes, letting b and w be the number of black and white squares covered so far, placing a domino can be modeled by:",
+              "options": ["a) b := b + 2", "b) w := w + 2", "c) b, w := b+1, w+1", "d) b := w"],
+              "answer": 2,
+              "hint": "Every domino covers exactly one black and one white square, so both counts increase by 1 together."
+            },
+            {
+              "id": "q3",
+              "html": "If m×a + n×b is an invariant for the assignment a, b := a+8, b+7, the values of m and n are:",
+              "options": ["a) m=8, n=7", "b) m=7, n=-8", "c) m=7, n=8", "d) m=8, n=-7"],
+              "answer": 1,
+              "hint": "For m×a+n×b to be unchanged, m×8 + n×7 must equal 0 — this holds for m=7, n=-8 (7×8 + (-8)×7 = 0)."
+            },
+            {
+              "id": "q4",
+              "html": "Which of the following is NOT an invariant of the assignment m, n := m+2, n+3?",
+              "options": ["a) m mod 2", "b) n mod 3", "c) 3×m - 2×n", "d) 2×m - 3×n"],
+              "answer": 3,
+              "hint": "2(m+2)-3(n+3) = 2m-3n-5, which is not equal to the original 2m-3n — so it changes and is not invariant."
+            },
+            {
+              "id": "q5",
+              "html": "If the Fibonacci number is defined recursively as F(0)=0, F(1)=1, F(n)=F(n-1)+F(n-2) otherwise, how many times is F() applied to evaluate F(4)?",
+              "options": ["a) 3", "b) 4", "c) 8", "d) 9"],
+              "answer": 3,
+              "hint": "Counting every recursive call in the full call tree for F(4) (including F(4) itself) gives 9 total applications of F()."
+            },
+            {
+              "id": "q6",
+              "html": "Using the recursive definition aⁿ = 1 if n=0, aⁿ = a × a^(n-1) otherwise, how many multiplications are needed to calculate a^10?",
+              "options": ["a) 11", "b) 10", "c) 9", "d) 8"],
+              "answer": 1,
+              "hint": "Each recursive step from n down to 1 performs exactly one multiplication, so a^10 requires 10 multiplications."
+            },
+            {
+              "id": "q7",
+              "html": "The termination condition of an iterative statement 'while C do S' is:",
+              "options": ["a) C", "b) not C", "c) S", "d) not S"],
+              "answer": 1,
+              "hint": "The loop keeps running while C is true and ends when C becomes false — so 'not C' is the termination condition."
+            },
+            {
+              "id": "q8",
+              "html": "Every recursive solver must have at least one:",
+              "options": ["a) Loop invariant", "b) Base case", "c) Flowchart", "d) Assignment statement"],
+              "answer": 1,
+              "hint": "Without at least one base case, a recursive solver would never stop calling itself."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "navLabel": "Part II -- Very Short Answers (5 x 2)",
+      "title": "Part II -- Very Short Answers",
+      "type": "short_answer",
+      "scoreMax": 10,
+      "marksPer": 2,
+      "sections": [
+        {
+          "label": "Very Short Answers",
+          "questions": [
+            {
+              "id": "q9",
+              "html": "What is an invariant?",
+              "answer": "An invariant is an expression involving one or more variables whose value remains unchanged before and after an assignment statement that updates those variables. Formally, P(u,v) is an invariant of the assignment u,v := e1,e2 if P(u,v)[u,v := e1,e2] equals P(u,v).",
+              "hint": "An expression whose value stays the same before and after an assignment to the variables it involves."
+            },
+            {
+              "id": "q10",
+              "html": "Define a loop invariant.",
+              "answer": "A loop invariant is an invariant of the loop body — an expression that remains true both before and after each execution of the loop body. It is true at four key points: at the start of the loop, at the start of each iteration, at the end of each iteration, and at the end of the loop.",
+              "hint": "An invariant of the loop body, true at the start/end of each iteration and at the start/end of the whole loop."
+            },
+            {
+              "id": "q11",
+              "html": "Does testing the loop condition affect the loop invariant? Why?",
+              "answer": "No, testing the loop condition does not affect the loop invariant. Testing a condition only checks its truth value (true/false) — it does not change the values of any variables. Since the loop invariant depends only on the variable values, and those values are unchanged by merely testing the condition, the loop invariant remains true whether the test result is true or false.",
+              "hint": "No — testing a condition only reads variable values, it never changes them, so the invariant is unaffected."
+            },
+            {
+              "id": "q12",
+              "html": "What is recursive problem solving?",
+              "answer": "Recursive problem solving is a technique where a solver solves a problem for a given input by calling a sub-solver (another instance of itself) to solve the same problem for a reduced (strictly smaller) version of the input, and then constructs the solution to the original problem from the sub-solver's result. Every recursive solver has a base case (solved directly) and a recursion step (reduces and delegates to a sub-solver).",
+              "hint": "Solving a problem by calling a smaller instance of the same problem (sub-solver), until a base case is reached."
+            },
+            {
+              "id": "q13",
+              "html": "Define factorial of a natural number recursively.",
+              "answer": "factorial(n) can be defined recursively as: factorial(n) = 1 if n = 0 (base case); factorial(n) = n × factorial(n-1) if n > 0 (recursion step). For example, factorial(4) = 4 × factorial(3) = 4 × 3 × factorial(2) = 4 × 3 × 2 × factorial(1) = 4 × 3 × 2 × 1 × factorial(0) = 4 × 3 × 2 × 1 × 1 = 24.",
+              "hint": "factorial(0) = 1 (base case); factorial(n) = n × factorial(n-1) for n > 0 (recursion step)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "navLabel": "Part III -- Short Answers (3 x 3)",
+      "title": "Part III -- Short Answers",
+      "type": "brief_answer",
+      "scoreMax": 9,
+      "marksPer": 3,
+      "sections": [
+        {
+          "label": "Short Answers",
+          "questions": [
+            {
+              "id": "q14",
+              "html": "There are 7 tumblers on a table, all standing upside down. You are allowed to turn any 2 tumblers simultaneously in one move. Is it possible to reach a situation when all the tumblers are right side up? (Hint: the parity of the number of upside-down tumblers is invariant.)",
+              "answer": "No, it is not possible. Each move turns exactly 2 tumblers, and each tumbler that is turned flips its orientation. Turning 2 tumblers can change the count of upside-down tumblers by -2, 0, or +2 — it always changes by an even number. This means the parity (odd/even nature) of the count of upside-down tumblers is invariant across every move. Initially, all 7 tumblers are upside down — an odd count. Since parity never changes, the count of upside-down tumblers will always remain odd, and can never reach 0 (which is even). Therefore, all tumblers being right side up is never achievable.",
+              "hint": "Each move changes the upside-down count by an even number (-2, 0, or +2), so its parity (odd/even) never changes — starts odd (7), so can never reach 0 (even)."
+            },
+            {
+              "id": "q15",
+              "html": "A knockout tournament: two players compete per game, the loser is knocked out, the winner continues. Suppose there are 1234 players. How many games are played before the tournament winner is decided?",
+              "answer": "In a knockout tournament, every game eliminates exactly one player (the loser), and the tournament ends when only one player (the winner) remains. Since we start with 1234 players and must end with exactly 1 player remaining, exactly 1234 - 1 = 1233 players must be eliminated. Since each game eliminates exactly one player, the total number of games played is 1233.",
+              "hint": "Each game eliminates exactly one player; to go from 1234 players down to 1 winner, 1233 players must be eliminated, so 1233 games are played."
+            },
+            {
+              "id": "q16",
+              "html": "King Vikramaditya's dragon: one sword cuts 19 heads but 13 grow back; the other cuts 7 heads but 22 grow back. If the dragon originally has 1000 heads, can it ever die (reach 0 heads)? (Hint: the number of heads mod 3 is invariant.)",
+              "answer": "Using the first sword: heads change by -19+13 = -6, a multiple of 3 (so heads mod 3 is unchanged). Using the second sword: heads change by -7+22 = +15, also a multiple of 3 (so heads mod 3 is unchanged again). Therefore, the value of (number of heads) mod 3 is invariant regardless of which sword is used. Initially, 1000 mod 3 = 1 (since 1000 = 333×3 + 1). For the dragon to die, its heads must reach exactly 0, and 0 mod 3 = 0. Since the invariant value is 1 and never changes, the heads count can never reach a value where heads mod 3 = 0. Therefore, the dragon can never die.",
+              "hint": "Both sword uses change heads by a multiple of 3 (-6 or +15), so heads mod 3 is invariant at 1000 mod 3 = 1 — but 0 mod 3 = 0, so 0 heads is never reachable."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "navLabel": "Part IV -- Explain in Detail (4 x 5)",
+      "title": "Part IV -- Explain in Detail",
+      "type": "long_essay",
+      "scoreMax": 20,
+      "marksPer": 5,
+      "sections": [
+        {
+          "label": "Long Answers",
+          "questions": [
+            {
+              "id": "q17",
+              "html": "Assume an 8×8 chessboard with usual coloring. A 'Recoloring' operation changes the color of all squares in a row or column. You may recolor repeatedly. The goal is to attain just one black square. Show that you cannot achieve the goal. (Hint: if a row/column has b black squares, it changes by (8-b) - b.)",
+              "answer": "In a standard 8×8 chessboard, each row (and each column) has exactly 4 black squares and 4 white squares. When we recolor a row or column with b black squares, the b black squares become white and the (8-b) white squares become black — so the new number of black squares in that row/column is (8-b), and the CHANGE in the total black square count is (8-b) - b = 8 - 2b, which is always an EVEN number for any integer b.\n\nSince every recoloring operation changes the total number of black squares on the board by an even number, the PARITY of the total black square count is invariant. Initially, the board has 32 black squares — an even number. Since parity never changes, the total number of black squares will always remain even, no matter how many recoloring operations are performed.\n\nThe goal is to reach exactly 1 black square — but 1 is odd. Since the black square count must always stay even, it can never equal 1. Therefore, it is impossible to achieve the goal of exactly one black square through any sequence of recoloring operations.",
+              "hint": "Each recolor changes black-square count by 8-2b (always even), so parity of black squares is invariant — starts at 32 (even), so 1 (odd) is unreachable."
+            },
+            {
+              "id": "q18",
+              "html": "Power can also be defined recursively as: aⁿ = 1 if n=0; aⁿ = a × a^(n-1) if n is odd; aⁿ = a^(n/2) × a^(n/2) if n is even. Construct a recursive algorithm using this definition. How many multiplications are needed to calculate a^10?",
+              "answer": "Recursive algorithm:\n\npower(a, n)\n-- inputs: n is an integer, n ≥ 0\n-- outputs: aⁿ\n    if n = 0\n        1\n    else if n is odd\n        a × power(a, n-1)\n    else\n        power(a, n/2) × power(a, n/2)\n\nTracing the sub-values needed for a^10 (computing each distinct power only once, since power(a, n/2) is the same value on both sides of the even case):\n\na^1 = a × a^0 = a × 1  (1 multiplication)\na^2 = a^1 × a^1  (1 multiplication)\na^4 = a^2 × a^2  (1 multiplication)\na^5 = a × a^4  (1 multiplication)\na^10 = a^5 × a^5  (1 multiplication)\n\nThis gives a total of 5 multiplications to compute a^10 — far fewer than the 10 multiplications needed by the simple linear recursive definition aⁿ = a × a^(n-1) used in Example 8.12. This halving approach is known as 'fast exponentiation', and its multiplication count grows proportional to log₂(n) rather than n, making it much more efficient for large exponents.",
+              "hint": "Halving-based recursion (fast exponentiation) reuses each distinct power once: a^1, a^2, a^4, a^5, a^10 — only 5 multiplications total, versus 10 for the simple linear recursive definition."
+            },
+            {
+              "id": "q19",
+              "html": "A single-square-covered board is a board of 2ⁿ×2ⁿ squares in which one square (anywhere, not necessarily a corner) is covered with a single square tile. Show that it is possible to cover this board with triominoes without overlap.",
+              "answer": "We prove this by induction/recursion on n, generalising the corner-covered board result from Example 8.13.\n\nBase case (n=1): The board is 2×2 with one square already covered. The remaining 3 squares form an exact L-shape, which is covered directly with one triominoe.\n\nRecursion step: For a 2ⁿ×2ⁿ board with any one square covered, divide the board into 4 sub-boards of size 2^(n-1)×2^(n-1) by drawing horizontal and vertical lines through the centre. The single covered square lies in exactly one of these 4 sub-boards — making that sub-board a 'corner-covered'-like board relative to its own centre-facing corner. For the OTHER 3 sub-boards (which have no square covered), place a single triominoe at the exact centre of the whole board so that it covers precisely one corner square from each of these 3 uncovered sub-boards — this converts each of those 3 sub-boards into a 'single-square-covered' board of size 2^(n-1)×2^(n-1) as well (now all 4 sub-boards have exactly one square covered).\n\nWe now have 4 sub-problems of the SAME type (single-square-covered boards) but of strictly smaller size 2^(n-1)×2^(n-1). By the recursive hypothesis, each of these 4 sub-boards can be tiled with triominoes without overlap. Combining the solutions for the 4 sub-boards, plus the one central triominoe placed in the recursion step, gives a complete triomino tiling of the original 2ⁿ×2ⁿ board with any single square covered.\n\nSince the base case holds and the recursion step reduces to strictly smaller sub-problems of the same form, by induction the result holds for all n ≥ 1 — any single-square-covered 2ⁿ×2ⁿ board can always be tiled with triominoes without overlap.",
+              "hint": "Same technique as the corner-covered board: divide into 4 sub-boards, place one triominoe at the centre to convert the other 3 uncovered sub-boards into single-square-covered boards too, then recurse on all 4."
+            },
+            {
+              "id": "q20",
+              "html": "Explain how a loop is constructed using the loop invariant technique, with reference to the power(a, n) algorithm.",
+              "answer": "Constructing a loop using the loop invariant technique involves three steps:\n\n1. Establish the loop invariant at the start of the loop: Before the loop begins, initialise the variables so that the desired invariant is trivially true. For power(a,n), we initialise p, i := 1, 0 — this makes p = aⁱ true at the start, since a⁰ = 1.\n\n2. The loop body updates variables to progress toward the goal while maintaining the invariant: Each iteration must change the variables so that the process gets closer to completion, but the invariant expression must still hold true afterward. For power(a,n), the loop body p, i := p×a, i+1 updates p and i together — if p=aⁱ was true before, then after the update p×a = aⁱ×a = a^(i+1), which equals the new value of aⁱ (since i is now i+1) — so the invariant p=aⁱ remains true.\n\n3. When the loop ends, the termination condition combined with the invariant establishes the input-output relation: The loop while i ≠ n continues until i=n (the termination condition). At that point, the invariant p=aⁱ is still true, so p=aⁿ — exactly matching the required output specification (outputs: p = aⁿ).\n\nThis three-step discipline — establish, maintain, and use at termination — is the general method for correctly constructing and reasoning about any iterative algorithm using loop invariants.",
+              "hint": "Three steps: (1) initialise so invariant holds at the start, (2) loop body updates variables while preserving the invariant, (3) invariant + termination condition together prove the output spec — illustrate each with power(a,n)'s p=aⁱ invariant."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
