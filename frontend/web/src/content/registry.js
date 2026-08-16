@@ -89,6 +89,8 @@ const LOADERS = {
   'cs-chapter-14-classes-and-objects':                                () => import('./Class_11/ComputerScience/chapters/cs-chapter-14-classes-and-objects'),
   'cs-chapter-15-polymorphism':                                       () => import('./Class_11/ComputerScience/chapters/cs-chapter-15-polymorphism'),
   'cs-chapter-16-inheritance':                                        () => import('./Class_11/ComputerScience/chapters/cs-chapter-16-inheritance'),
+  'cs-chapter-17-computer-ethics-and-cyber-security':                 () => import('./Class_11/ComputerScience/chapters/cs-chapter-17-computer-ethics-and-cyber-security'),
+  'cs-chapter-18-tamil-computing':                                    () => import('./Class_11/ComputerScience/chapters/cs-chapter-18-tamil-computing'),
 }
 
 // Older chapter files (Class 11 CA) predate the { eyebrow, title, author,
