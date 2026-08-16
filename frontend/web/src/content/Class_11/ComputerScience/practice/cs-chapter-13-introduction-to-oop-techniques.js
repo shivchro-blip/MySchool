@@ -1,0 +1,199 @@
+export default {
+  "meta": {
+    "subject": "Computer Science -- Class XI",
+    "unit": "Chapter 13 -- Introduction to Object Oriented Programming Techniques",
+    "time": "2.30 hrs",
+    "totalMarks": 47,
+    "instructions": "Samacheer Kalvi -- Answer all questions"
+  },
+  "parts": [
+    {
+      "id": "p1",
+      "navLabel": "Part I -- MCQ (8 x 1)",
+      "title": "Part I -- Choose the Correct Answer",
+      "type": "mcq",
+      "scoreMax": 8,
+      "marksPer": 1,
+      "sections": [
+        {
+          "label": "Introduction to OOP",
+          "questions": [
+            {
+              "id": "q1",
+              "html": "The term used to describe a programming approach based on classes and objects is:",
+              "options": ["a) OOP", "b) POP", "c) ADT", "d) SOP"],
+              "answer": 0,
+              "hint": "OOP = Object-Oriented Programming, based on classes and objects."
+            },
+            {
+              "id": "q2",
+              "html": "The paradigm which aims more at procedures is:",
+              "options": ["a) Object Oriented Programming", "b) Procedural programming", "c) Modular programming", "d) Structural programming"],
+              "answer": 1,
+              "hint": "Procedural programming emphasises procedures — a list of instructions telling the computer what to do."
+            },
+            {
+              "id": "q3",
+              "html": "Which of the following is a user-defined data type?",
+              "options": ["a) class", "b) float", "c) int", "d) object"],
+              "answer": 0,
+              "hint": "A class is a user-defined data type representing a group of similar objects."
+            },
+            {
+              "id": "q4",
+              "html": "The identifiable entity with some characteristics and behaviour is:",
+              "options": ["a) class", "b) object", "c) structure", "d) member"],
+              "answer": 1,
+              "hint": "An object is an identifiable entity with characteristics (data) and behaviour (functions)."
+            },
+            {
+              "id": "q5",
+              "html": "The mechanism by which data and functions are bound together into a single unit is known as:",
+              "options": ["a) Inheritance", "b) Encapsulation", "c) Polymorphism", "d) Abstraction"],
+              "answer": 1,
+              "hint": "Encapsulation binds data and functions together into a single unit (a class)."
+            },
+            {
+              "id": "q6",
+              "html": "Insulation of the data from direct access by the program is called as:",
+              "options": ["a) Data hiding", "b) Encapsulation", "c) Polymorphism", "d) Abstraction"],
+              "answer": 0,
+              "hint": "Preventing direct access to data from outside the class is specifically called data hiding."
+            },
+            {
+              "id": "q7",
+              "html": "Which of the following concepts encapsulates all the essential properties of the object that are to be created?",
+              "options": ["a) class", "b) Encapsulation", "c) Polymorphism", "d) Abstraction"],
+              "answer": 3,
+              "hint": "Abstraction defines and encapsulates the essential attributes and functions of an object, hiding background details."
+            },
+            {
+              "id": "q8",
+              "html": "Which of the following is the most important advantage of inheritance?",
+              "options": ["a) data hiding", "b) code reusability", "c) code modification", "d) accessibility"],
+              "answer": 1,
+              "hint": "Inheritance's chief benefit is reusing code from a base class in derived classes."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "navLabel": "Part II -- Very Short Answers (5 x 2)",
+      "title": "Part II -- Very Short Answers",
+      "type": "short_answer",
+      "scoreMax": 10,
+      "marksPer": 2,
+      "sections": [
+        {
+          "label": "Very Short Answers",
+          "questions": [
+            {
+              "id": "q9",
+              "html": "How is modular programming different from procedural programming paradigm?",
+              "answer": "Procedural programming organises a program as a list of instructions grouped into subroutines, with all data items global and directly accessible everywhere. Modular programming instead divides the program into independent modules, each with its own local, hidden data — data can only be changed by modifying the module itself, giving better data protection than procedural programming's fully global data.",
+              "hint": "Procedural = global data, organised as subroutines. Modular = data hidden within independent modules with their own local data."
+            },
+            {
+              "id": "q10",
+              "html": "Differentiate classes and objects.",
+              "answer": "A class is a user-defined data type — a template or blueprint that defines the properties (data members) and behaviours (member functions) shared by a group of similar entities; it does not itself occupy data-storage memory for instances. An object is an actual instance of a class, created from that blueprint — it is a real entity in memory holding specific data values for the properties defined by its class, along with access to the class's functions.",
+              "hint": "Class = the blueprint/template (definition); Object = an actual instance created from that blueprint, holding real data."
+            },
+            {
+              "id": "q11",
+              "html": "What is polymorphism?",
+              "answer": "Polymorphism is the ability of a message or function to be displayed (or to behave) in more than one form. It allows the same function name or operation to work differently depending on the context in which it is used.",
+              "hint": "The ability of a message/function to take more than one form."
+            },
+            {
+              "id": "q12",
+              "html": "How are encapsulation and abstraction interrelated?",
+              "answer": "Encapsulation is the mechanism (the 'how') that binds data and functions together into a single unit, physically implementing data hiding. Abstraction is the concept (the 'what') of showing only essential features to the user while hiding background implementation details. Encapsulation is described as the technique that IMPLEMENTS abstraction — abstraction defines what should be visible/essential, and encapsulation is the class-based mechanism that enforces and achieves that hiding in practice.",
+              "hint": "Encapsulation is the mechanism (binding data+functions, hiding details) that IMPLEMENTS the concept of abstraction (showing only essential features)."
+            },
+            {
+              "id": "q13",
+              "html": "Write the disadvantages of OOP.",
+              "answer": "The disadvantages of Object Oriented Programming are: (1) Size — OOP programs are much larger than programs written in other paradigms; (2) Effort — they require significant effort/work to create; (3) Speed — they tend to run slower than other programs, largely because of their larger size.",
+              "hint": "Size (larger programs), Effort (more work to create), Speed (slower execution due to size)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "navLabel": "Part III -- Short Answers (3 x 3)",
+      "title": "Part III -- Short Answers",
+      "type": "brief_answer",
+      "scoreMax": 9,
+      "marksPer": 3,
+      "sections": [
+        {
+          "label": "Short Answers",
+          "questions": [
+            {
+              "id": "q14",
+              "html": "What is paradigm? Mention the different types of paradigm.",
+              "answer": "A paradigm is the organising principle of a program — it is an approach or style of programming used to solve problems using a computer. There are three main types of programming paradigms: (1) Procedural Programming, (2) Modular Programming, and (3) Object Oriented Programming.",
+              "hint": "The organising principle/approach to programming; three types: Procedural, Modular, and Object Oriented."
+            },
+            {
+              "id": "q15",
+              "html": "Write a note on the features of procedural programming.",
+              "answer": "Procedural programming has the following features: programs are organised in the form of subroutines or sub-programs; all data items are global, meaning they are accessible from anywhere in the program; it is suitable mainly for small-sized software applications; and it is difficult to maintain and enhance the program code, since any change in a data type needs to be propagated to every subroutine that uses that data type, which is time-consuming. Examples of procedural languages include FORTRAN and COBOL.",
+              "hint": "Organised as subroutines; all data is global; suited to small programs; hard to maintain (changes must propagate everywhere); e.g., FORTRAN, COBOL."
+            },
+            {
+              "id": "q16",
+              "html": "List some of the features of modular programming.",
+              "answer": "Modular programming features include: emphasis on algorithm rather than data; programs are divided into individual modules; each module is independent of the others and has its own local data; and modules can work with both their own local data as well as data passed to them from outside. Examples of modular programming languages include Pascal and C.",
+              "hint": "Emphasis on algorithm; divided into independent modules with local data; modules can use their own data or passed-in data; e.g., Pascal, C."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "navLabel": "Part IV -- Explain in Detail (4 x 5)",
+      "title": "Part IV -- Explain in Detail",
+      "type": "long_essay",
+      "scoreMax": 20,
+      "marksPer": 5,
+      "sections": [
+        {
+          "label": "Long Answers",
+          "questions": [
+            {
+              "id": "q17",
+              "html": "Write the differences between Object Oriented Programming and Procedural Programming.",
+              "answer": "Procedural Programming: emphasises the algorithm/procedure rather than data; programs are organised as subroutines/sub-programs; all data items are typically global and directly accessible; it is suitable mainly for small applications; and it is difficult to maintain, since changing a data type requires updating every subroutine using it. Examples: FORTRAN, COBOL.\n\nObject Oriented Programming: emphasises data rather than algorithm; implements programs using classes and objects; introduces data abstraction alongside procedural abstraction; groups data and its associated operations into a single unit (encapsulation); designs programs around the data being operated on; and allows relationships (like inheritance) to be created between similar yet distinct data types. Examples: C++, Java, Python.\n\nIn short, procedural programming is function-centric with exposed global data, while OOP is data-centric, bundling data and behaviour together and protecting data through access control — making OOP generally more suitable for larger, more maintainable, and more secure software systems.",
+              "hint": "Procedural: algorithm-focused, global data, subroutines, hard to maintain. OOP: data-focused, encapsulated data+functions, supports inheritance/abstraction, easier to maintain and extend."
+            },
+            {
+              "id": "q18",
+              "html": "What are the advantages of OOP?",
+              "answer": "The advantages of Object Oriented Programming are:\n\n1. Re-usability: Following the principle 'write once and use it multiple times', classes allow code to be reused across a program or even across different programs, without rewriting it.\n\n2. Redundancy (reduction): Inheritance is an excellent feature for reducing data/code redundancy — if the same functionality is needed across multiple classes, a common (base) class can be written once containing that functionality, and other classes can simply inherit from it rather than duplicating the code.\n\n3. Easy Maintenance: OOP code is easy to maintain and modify, since new objects/classes can be created with only small differences from existing ones (often via inheritance), rather than rewriting everything from scratch.\n\n4. Security: Through the use of data hiding and abstraction, only the necessary data and functionality are exposed to the outside world, while internal implementation details remain protected — this maintains and improves the overall security of the program's data.",
+              "hint": "Cover all 4: Re-usability (write once, use many times), Redundancy reduction (via inheritance), Easy Maintenance (small differences via new objects), Security (data hiding/abstraction)."
+            },
+            {
+              "id": "q19",
+              "html": "Write a note on the basic concepts that support OOPs.",
+              "answer": "The main features/concepts that support Object Oriented Programming are:\n\n1. Data Abstraction: Showing only the essential features of an object while hiding background implementation details — classes define abstract attributes (data members) and functions (methods) that operate on them.\n\n2. Encapsulation: The mechanism that binds data and functions together into a single unit (a class), implementing abstraction. It prevents outside code from directly accessing an object's internal data — only the class's own member functions can access it — which is also called data hiding or information hiding.\n\n3. Modularity: Designing a system that is divided into a set of functional units (modules) which can be composed together into a larger application.\n\n4. Inheritance: The technique of building new classes (derived classes) from existing classes (base classes), whose most important advantage is code reusability — inheritance is transitive in nature.\n\n5. Polymorphism: The ability of a message or function to be displayed (or behave) in more than one form, depending on context.\n\nTogether, these five concepts allow OOP to organise software around real-world-like entities (objects), bundling their data and behaviour, protecting that data, enabling code reuse, and allowing flexible, extensible program design.",
+              "hint": "Cover all 5 concepts: Data Abstraction, Encapsulation, Modularity, Inheritance, Polymorphism — a short definition of each."
+            },
+            {
+              "id": "q20",
+              "html": "Explain the main features of Object Oriented Programming with examples.",
+              "answer": "Object Oriented Programming is built around five main features:\n\n1. Data Abstraction: For example, a 'Car' class might expose only essential operations like start(), stop(), and accelerate() to the user, while hiding the complex internal engine mechanics — the user doesn't need to know HOW the engine works to drive the car.\n\n2. Encapsulation: The Car class bundles its data (speed, fuelLevel) and functions (start(), stop()) together into one unit. The internal data (like fuelLevel) is typically kept private, accessible only through the class's own functions — this is data hiding.\n\n3. Modularity: A large vehicle-management application could be broken into separate modules/classes like Car, Engine, and Driver, each handling its own functional area, and then composed together to build the complete application.\n\n4. Inheritance: A 'SportsCar' class could be derived from the base 'Car' class, automatically inheriting all its properties and functions (start, stop, accelerate) without rewriting them, while adding new sports-car-specific features like turboBoost() — demonstrating code reusability.\n\n5. Polymorphism: The same function name, like accelerate(), could behave differently for a Car object versus a SportsCar object (e.g., different acceleration rates) — the same 'message' (function call) produces different forms of behaviour depending on the actual object type it's called on.\n\nTogether, these features let programmers model real-world entities naturally, reuse code efficiently through inheritance, and protect data integrity through encapsulation and abstraction.",
+              "hint": "Give a concrete example (e.g., a Car class hierarchy) illustrating Data Abstraction, Encapsulation, Modularity, Inheritance, and Polymorphism each in turn."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

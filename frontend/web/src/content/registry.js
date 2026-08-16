@@ -85,6 +85,8 @@ const LOADERS = {
   'cs-chapter-10-flow-of-control':                                   () => import('./Class_11/ComputerScience/chapters/cs-chapter-10-flow-of-control'),
   'cs-chapter-11-functions':                                         () => import('./Class_11/ComputerScience/chapters/cs-chapter-11-functions'),
   'cs-chapter-12-arrays-and-structures':                             () => import('./Class_11/ComputerScience/chapters/cs-chapter-12-arrays-and-structures'),
+  'cs-chapter-13-introduction-to-oop-techniques':                    () => import('./Class_11/ComputerScience/chapters/cs-chapter-13-introduction-to-oop-techniques'),
+  'cs-chapter-14-classes-and-objects':                                () => import('./Class_11/ComputerScience/chapters/cs-chapter-14-classes-and-objects'),
 }
 
 // Older chapter files (Class 11 CA) predate the { eyebrow, title, author,
