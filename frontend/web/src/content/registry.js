@@ -87,6 +87,8 @@ const LOADERS = {
   'cs-chapter-12-arrays-and-structures':                             () => import('./Class_11/ComputerScience/chapters/cs-chapter-12-arrays-and-structures'),
   'cs-chapter-13-introduction-to-oop-techniques':                    () => import('./Class_11/ComputerScience/chapters/cs-chapter-13-introduction-to-oop-techniques'),
   'cs-chapter-14-classes-and-objects':                                () => import('./Class_11/ComputerScience/chapters/cs-chapter-14-classes-and-objects'),
+  'cs-chapter-15-polymorphism':                                       () => import('./Class_11/ComputerScience/chapters/cs-chapter-15-polymorphism'),
+  'cs-chapter-16-inheritance':                                        () => import('./Class_11/ComputerScience/chapters/cs-chapter-16-inheritance'),
 }
 
 // Older chapter files (Class 11 CA) predate the { eyebrow, title, author,
