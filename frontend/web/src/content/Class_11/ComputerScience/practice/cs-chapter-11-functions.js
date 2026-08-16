@@ -1,0 +1,197 @@
+export default {
+  "meta": {
+    "subject": "Computer Science -- Class XI",
+    "unit": "Chapter 11 -- Functions",
+    "time": "2.30 hrs",
+    "totalMarks": 47,
+    "instructions": "Samacheer Kalvi -- Answer all questions"
+  },
+  "parts": [
+    {
+      "id": "p1",
+      "navLabel": "Part I -- MCQ (6 x 1)",
+      "title": "Part I -- Choose the Correct Answer",
+      "type": "mcq",
+      "scoreMax": 6,
+      "marksPer": 1,
+      "sections": [
+        {
+          "label": "Functions",
+          "questions": [
+            {
+              "id": "q1",
+              "html": "Which of the following header file defines the standard I/O predefined functions?",
+              "options": ["a) stdio.h", "b) math.h", "c) string.h", "d) ctype.h"],
+              "answer": 0,
+              "hint": "stdio.h defines standard input/output functions like getchar(), putchar(), gets(), puts()."
+            },
+            {
+              "id": "q2",
+              "html": "Which function is used to check whether a character is alphanumeric or not?",
+              "options": ["a) isalpha()", "b) isdigit()", "c) isalnum()", "d) islower()"],
+              "answer": 2,
+              "hint": "isalnum() returns non-zero if the character is a digit OR a letter (alphanumeric)."
+            },
+            {
+              "id": "q3",
+              "html": "Which function begins the program execution?",
+              "options": ["a) isalpha()", "b) isdigit()", "c) main()", "d) islower()"],
+              "answer": 2,
+              "hint": "Every C++ program must have exactly one main() function, which is where execution starts."
+            },
+            {
+              "id": "q4",
+              "html": "Which of the following is a function call with a return value and without any argument?",
+              "options": ["a) x=display(int, int)", "b) x=display()", "c) y=display(float)", "d) display(int)"],
+              "answer": 1,
+              "hint": "x=display() assigns a returned value (has return value) and has empty parentheses (no arguments)."
+            },
+            {
+              "id": "q5",
+              "html": "What is the return data type of the function prototype: add(int, int); ?",
+              "options": ["a) int", "b) float", "c) char", "d) double"],
+              "answer": 0,
+              "hint": "When no return type is explicitly written, C++ defaults the function's return type to int."
+            },
+            {
+              "id": "q6",
+              "html": "Which of the following is the scope resolution operator?",
+              "options": ["a) >", "b) &", "c) %", "d) ::"],
+              "answer": 3,
+              "hint": ":: is the scope resolution operator, used to access a global variable shadowed by a local one."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "navLabel": "Part II -- Very Short Answers (5 x 2)",
+      "title": "Part II -- Very Short Answers",
+      "type": "short_answer",
+      "scoreMax": 10,
+      "marksPer": 2,
+      "sections": [
+        {
+          "label": "Very Short Answers",
+          "questions": [
+            {
+              "id": "q7",
+              "html": "Define Functions.",
+              "answer": "A function is a self-contained sub-program (block of code) that performs a specific task within a larger program. Functions reduce the size and complexity of a program, and make it easier to understand, test, and debug. A function can optionally take input parameters and optionally return a value.",
+              "hint": "A sub-program/block performing a specific task, that can optionally take parameters and return a value."
+            },
+            {
+              "id": "q8",
+              "html": "Write about the strlen() function.",
+              "answer": "The strlen() function is a string manipulation function from the string.h header file. It takes a null-terminated string as its argument and returns its length (the number of characters), not counting the terminating null character (\\0). General form: strlen(string);",
+              "hint": "From string.h; returns the length of a string, NOT counting the null terminator \\0."
+            },
+            {
+              "id": "q9",
+              "html": "What is the importance of the void data type?",
+              "answer": "The void data type has two important purposes in C++: (1) to indicate that a function does not return any value (used as the return type of such functions), and (2) to declare a generic pointer, which can point to any data type.",
+              "hint": "Two purposes: (1) indicates a function returns nothing, (2) declares a generic pointer."
+            },
+            {
+              "id": "q10",
+              "html": "What is a Parameter and list its types?",
+              "answer": "A parameter (or argument) is a means of passing values from the calling function to the called function. There are two types: Formal parameters — the variables listed in the function DEFINITION — and Actual parameters — the constants, variables, or expressions used in the actual function CALL.",
+              "hint": "A means of passing values to a function; two types: Formal parameters (in definition) and Actual parameters (in the call)."
+            },
+            {
+              "id": "q11",
+              "html": "Write a note on Local Scope.",
+              "answer": "A local variable is defined within a block of code (delimited by curly braces { }). The scope of a local variable is limited to the block in which it is declared — it cannot be accessed from outside that block. A local variable is created when control enters its block, and is destroyed when control exits that block.",
+              "hint": "Variables declared inside a { } block; accessible only within that block; created on entry, destroyed on exit."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "navLabel": "Part III -- Short Answers (5 x 3)",
+      "title": "Part III -- Short Answers",
+      "type": "brief_answer",
+      "scoreMax": 15,
+      "marksPer": 3,
+      "sections": [
+        {
+          "label": "Short Answers",
+          "questions": [
+            {
+              "id": "q12",
+              "html": "What are Built-in functions?",
+              "answer": "Built-in functions (also called Pre-defined or Library functions) are ready-to-use functions provided by C++, already written, debugged, and compiled by the language's developers. Their definitions are grouped and stored in header files (identified by the .h extension), and a program includes the appropriate header (e.g., #include <math.h>) to make use of these functions, without needing to write or understand their internal implementation.",
+              "hint": "Ready-made functions provided by C++, already written/debugged/compiled, grouped in header files (.h)."
+            },
+            {
+              "id": "q13",
+              "html": "What is the difference between isupper() and toupper() functions?",
+              "answer": "isupper(c) is a TESTING function — it checks whether the given character c is already an uppercase letter, and returns 1 (true) if so, or 0 (false) otherwise; it does not change the character. toupper(c) is a CONVERSION function — it converts the given character to its uppercase equivalent and returns that new value (if c is already uppercase, it returns the same character unchanged).",
+              "hint": "isupper() TESTS if a character is already uppercase (returns 1/0); toupper() CONVERTS a character to uppercase (returns the converted character)."
+            },
+            {
+              "id": "q14",
+              "html": "Write about the strcmp() function.",
+              "answer": "strcmp(string1, string2) is a string manipulation function from string.h that compares the contents of two strings lexicographically (character by character, based on ASCII values). It returns: a positive value if the first differing character in string1 has a greater ASCII value than the corresponding character in string2; a negative value if it is less; and 0 if the two strings are exactly equal.",
+              "hint": "Compares two strings lexicographically; returns positive/negative/0 depending on which string is 'greater', or 0 if equal."
+            },
+            {
+              "id": "q15",
+              "html": "Write a short note on the pow() function in C++.",
+              "answer": "The pow() function, from math.h, returns the value of a base raised to the power of an exponent — that is, base^exponent. It takes two arguments: base (the base value) and exponent (the power to raise it to). Example: pow(5, 4) returns 625 (5 raised to the power 4). If any argument passed is of type long double, the return type is promoted to long double; otherwise, the return type is double.",
+              "hint": "pow(base, exponent) returns base raised to the power exponent, e.g., pow(5,4)=625; from math.h."
+            },
+            {
+              "id": "q16",
+              "html": "What information does the function prototype provide to the compiler?",
+              "answer": "A function prototype provides the compiler with three key pieces of information about a function before it is actually called: (1) the return data type of the function; (2) the name of the function; (3) the number and data types of the parameters (arguments) the function expects, in order. This allows the compiler to check that any call to the function uses the correct number and types of arguments, performing type conversion where possible, and reporting an error otherwise.",
+              "hint": "Return type, function name, and the number/types of its parameters — lets the compiler validate calls to the function."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "navLabel": "Part IV -- Explain in Detail (4 x 4)",
+      "title": "Part IV -- Explain in Detail",
+      "type": "long_essay",
+      "scoreMax": 16,
+      "marksPer": 4,
+      "sections": [
+        {
+          "label": "Long Answers",
+          "questions": [
+            {
+              "id": "q17",
+              "html": "Explain the Call by Value method with a suitable example.",
+              "answer": "In Call by Value, the VALUE of the actual parameter is copied into the formal parameter of the called function. Since only a copy is passed, any changes made to the formal parameter inside the function have NO EFFECT on the original actual parameter back in the calling function — the two are stored in entirely separate memory locations.\n\nExample:\n\nvoid display(int x)\n{\n    x = x * x;\n    cout << \"Inside function: \" << x;\n}\nint main()\n{\n    int a = 5;\n    display(a);\n    cout << \"Inside main: \" << a;\n    return 0;\n}\n\nOutput:\nInside function: 25\nInside main: 5\n\nHere, even though x is squared inside display(), the original variable a in main() remains unchanged at 5, because display() only received a COPY of a's value, not access to a itself.",
+              "hint": "Explains that only the VALUE is copied, so changes inside the function don't affect the original — illustrate with a squaring example where the original variable stays unchanged after the call."
+            },
+            {
+              "id": "q18",
+              "html": "What is Recursion? Write a program to find the factorial of a given number using recursion.",
+              "answer": "Recursion is a technique where a function calls itself, directly or indirectly, to solve a problem by breaking it down into a smaller instance of the same problem, until a 'base case' is reached that can be solved directly without further recursive calls.\n\nProgram:\n\n#include <iostream>\nusing namespace std;\nint factorial(int); // function prototype\nint main()\n{\n    int no;\n    cout << \"\\nEnter a number to find its factorial: \";\n    cin >> no;\n    cout << \"\\nFactorial of \" << no << \" = \" << factorial(no);\n    return 0;\n}\nint factorial(int m)\n{\n    if (m > 1)\n        return m * factorial(m-1);\n    else\n        return 1;\n}\n\nFor input 5: factorial(5) = 5 × factorial(4) = 5 × 4 × factorial(3) = ... = 5×4×3×2×1 = 120. The base case (m<=1, returning 1) stops the recursive chain from continuing forever, and the results multiply back up through each returning call to produce the final factorial value.",
+              "hint": "Define recursion (function calling itself, reducing to a base case); give the classic factorial(m) = m × factorial(m-1) with base case m<=1 returns 1, and trace factorial(5)=120."
+            },
+            {
+              "id": "q19",
+              "html": "What are the different forms of function return? Explain with examples.",
+              "answer": "C++ user-defined functions can be declared in four different forms, based on whether they take parameters and/or return a value:\n\n1. Without return value, without parameter: void display() { cout << \"Hello\"; } — called simply as display();\n\n2. With return value, without parameter: int display() { int s = 10+5; return s; } — called as int m = display();\n\n3. Without return value, with parameter: void display(int x, int y) { cout << x+y; } — called as display(a, b);\n\n4. With return value, with parameter: int display(int x, int y) { return x+y; } — called as int s = display(a, b);\n\nThe presence of a return type other than void tells the compiler the function will send a value back using the return statement; the presence of a parameter list tells the compiler what arguments the caller must supply. These four combinations give programmers flexibility to design functions matching exactly what data needs to flow in and out of each specific task.",
+              "hint": "Cover all 4 combinations (no-return/no-param, return/no-param, no-return/param, return/param) with a short code snippet for each."
+            },
+            {
+              "id": "q20",
+              "html": "Explain the scope of variables with examples.",
+              "answer": "Scope refers to the accessibility (visibility) of a variable within a program. C++ has four types of scope:\n\n1. Local scope: A variable declared inside a block { } — accessible only within that block. Example: if declared inside an if-block, it cannot be used outside that block; attempting to do so causes a 'was not declared in this scope' compile error.\n\n2. Function scope: A variable declared inside a function (including formal parameters) — accessible throughout that function and its sub-blocks, but not outside the function.\n\n3. File scope: A variable declared outside all functions (including main()) — also called a global variable. It is accessible throughout the entire file/program, and exists for the program's entire lifetime.\n\n4. Class scope: A variable (data member) declared inside a class — accessible only within that class (covered further in the Classes and Objects chapter).\n\nExample illustrating local vs. global with the scope resolution operator: if int x = 45; is declared globally, and int x = 10; is declared locally inside main(), then plain x inside main() refers to the local value 10, while ::x explicitly accesses the global value 45 — demonstrating how scope determines which variable a given name actually refers to at any point in the program.",
+              "hint": "Cover Local, Function, File (global), and Class scope; use the ::x vs x example to show how a local variable can shadow a global one of the same name."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

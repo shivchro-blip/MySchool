@@ -81,6 +81,10 @@ const LOADERS = {
   'cs-chapter-06-specification-and-abstraction':                    () => import('./Class_11/ComputerScience/chapters/cs-chapter-06-specification-and-abstraction'),
   'cs-chapter-07-composition-and-decomposition':                    () => import('./Class_11/ComputerScience/chapters/cs-chapter-07-composition-and-decomposition'),
   'cs-chapter-08-iteration-and-recursion':                          () => import('./Class_11/ComputerScience/chapters/cs-chapter-08-iteration-and-recursion'),
+  'cs-chapter-09-introduction-to-cpp':                               () => import('./Class_11/ComputerScience/chapters/cs-chapter-09-introduction-to-cpp'),
+  'cs-chapter-10-flow-of-control':                                   () => import('./Class_11/ComputerScience/chapters/cs-chapter-10-flow-of-control'),
+  'cs-chapter-11-functions':                                         () => import('./Class_11/ComputerScience/chapters/cs-chapter-11-functions'),
+  'cs-chapter-12-arrays-and-structures':                             () => import('./Class_11/ComputerScience/chapters/cs-chapter-12-arrays-and-structures'),
 }
 
 // Older chapter files (Class 11 CA) predate the { eyebrow, title, author,

@@ -1,0 +1,199 @@
+export default {
+  "meta": {
+    "subject": "Computer Science -- Class XI",
+    "unit": "Chapter 10 -- Flow of Control",
+    "time": "2.30 hrs",
+    "totalMarks": 47,
+    "instructions": "Samacheer Kalvi -- Answer all questions"
+  },
+  "parts": [
+    {
+      "id": "p1",
+      "navLabel": "Part I -- MCQ (8 x 1)",
+      "title": "Part I -- Choose the Correct Answer",
+      "type": "mcq",
+      "scoreMax": 8,
+      "marksPer": 1,
+      "sections": [
+        {
+          "label": "Flow of Control",
+          "questions": [
+            {
+              "id": "q1",
+              "html": "What is the alternate name of a null statement?",
+              "options": ["a) No statement", "b) Empty statement", "c) Void statement", "d) Zero statement"],
+              "answer": 1,
+              "hint": "A null statement (just a semicolon) is also called an empty statement."
+            },
+            {
+              "id": "q2",
+              "html": "In C++, a group of statements should be enclosed within:",
+              "options": ["a) { }", "b) [ ]", "c) ( )", "d) < >"],
+              "answer": 0,
+              "hint": "Curly braces {} enclose a compound statement (block) of multiple statements."
+            },
+            {
+              "id": "q3",
+              "html": "The set of statements that are executed again and again in iteration is called as:",
+              "options": ["a) Condition", "b) Loop", "c) Statement", "d) Body of loop"],
+              "answer": 3,
+              "hint": "The repeatedly executed set of statements inside a loop is called the body of the loop."
+            },
+            {
+              "id": "q4",
+              "html": "The multi-way branch statement is:",
+              "options": ["a) if", "b) if...else", "c) switch", "d) for"],
+              "answer": 2,
+              "hint": "switch dispatches execution to different code blocks based on the value of a single expression."
+            },
+            {
+              "id": "q5",
+              "html": "How many times will the following loop execute? for (int i=0; i<10; i++)",
+              "options": ["a) 0", "b) 10", "c) 9", "d) 11"],
+              "answer": 1,
+              "hint": "i runs from 0 through 9 (10 values total) before i<10 becomes false."
+            },
+            {
+              "id": "q6",
+              "html": "Which of the following is the exit-control loop?",
+              "options": ["a) for", "b) while", "c) do...while", "d) if...else"],
+              "answer": 2,
+              "hint": "do-while checks its condition AFTER executing the body at least once — an exit-controlled loop."
+            },
+            {
+              "id": "q7",
+              "html": "Identify the odd one from the keywords of jump statements:",
+              "options": ["a) break", "b) switch", "c) goto", "d) continue"],
+              "answer": 1,
+              "hint": "switch is a selection statement, not a jump statement — break, goto, and continue are the three jump statements."
+            },
+            {
+              "id": "q8",
+              "html": "Which of the following is called an entry-control loop?",
+              "options": ["a) do-while", "b) switch", "c) while", "d) if-else"],
+              "answer": 2,
+              "hint": "while checks its test-expression BEFORE executing the body — an entry-controlled loop."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "navLabel": "Part II -- Very Short Answers (5 x 2)",
+      "title": "Part II -- Very Short Answers",
+      "type": "short_answer",
+      "scoreMax": 10,
+      "marksPer": 2,
+      "sections": [
+        {
+          "label": "Very Short Answers",
+          "questions": [
+            {
+              "id": "q9",
+              "html": "What is a null statement and a compound statement?",
+              "answer": "A null statement is an empty statement containing only a semicolon (;) — it performs no action and is used as a placeholder. A compound statement (block) is a group of statements enclosed within curly braces {}, treated as a single unit that may appear anywhere in the program.",
+              "hint": "Null = just a semicolon (;), no action. Compound = a group of statements inside { } braces, treated as one unit."
+            },
+            {
+              "id": "q10",
+              "html": "What is a selection statement? Write its types.",
+              "answer": "A selection statement (decision statement) causes the program to execute a specific block of statements depending on whether a given condition is true or false. The types of selection statements in C++ are: if statement, if-else statement, nested if, if-else-if ladder, the conditional (ternary) operator (?:), and the switch statement.",
+              "hint": "Chooses which block to execute based on a condition; types: if, if-else, nested if, if-else ladder, ?: operator, switch."
+            },
+            {
+              "id": "q11",
+              "html": "Correct the following code segment: if (x=1) p= 100; else p = 10;",
+              "answer": "The error is that '=' (assignment) is used instead of '==' (equality comparison) inside the if condition. The corrected code is:\n\nif (x == 1)\n    p = 100;\nelse\n    p = 10;\n\nUsing '=' would assign 1 to x (always making the condition true) rather than comparing x to 1.",
+              "hint": "'=' should be '==' — if(x=1) assigns instead of compares; should be if(x==1)."
+            },
+            {
+              "id": "q12",
+              "html": "What will be the output of the following code for inputs (i) 2000 (ii) 2003 (iii) 2010? int year; cin >> year; if (year % 100 == 0) if (year % 400 == 0) cout << 'Leap'; else cout << 'Not Leap year';",
+              "answer": "(i) 2000: 2000 % 100 == 0 is true, and 2000 % 400 == 0 is also true, so output is 'Leap'.\n(ii) 2003: 2003 % 100 == 0 is false, so (due to the nested if with no matching else for the outer if) NOTHING is printed — the else here binds to the inner if, not the outer one, and the outer if's condition being false means neither branch of the inner if executes.\n(iii) 2010: 2010 % 100 == 0 is false, so again nothing is printed, for the same reason as 2003.\n\nThis demonstrates the 'dangling else' issue — the else always pairs with the nearest unmatched if, which here is the inner one, so years that aren't even divisible by 100 get no output at all, revealing a logic gap in this particular code (it should ideally have an outer else too for full correctness).",
+              "hint": "The else binds to the INNER if (dangling else). 2000 → 'Leap'. 2003 and 2010 → nothing printed, since year%100==0 is false for both and there's no outer else."
+            },
+            {
+              "id": "q13",
+              "html": "What is the output of the following code? for (int i=2; i<=10; i+=2) cout << i;",
+              "answer": "The loop starts at i=2, continues while i<=10, and increases i by 2 each time. So i takes the values 2, 4, 6, 8, 10 — each printed with no separator (since cout<<i has no space or endl). The output is: 246810",
+              "hint": "i goes 2,4,6,8,10 (step of 2, up to and including 10) — printed together with no spaces: 246810"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "navLabel": "Part III -- Short Answers (3 x 3)",
+      "title": "Part III -- Short Answers",
+      "type": "brief_answer",
+      "scoreMax": 9,
+      "marksPer": 3,
+      "sections": [
+        {
+          "label": "Short Answers",
+          "questions": [
+            {
+              "id": "q14",
+              "html": "Convert the following if-else to a single conditional statement: if (x >= 10) a = m + 5; else a = m;",
+              "answer": "Using the ternary (conditional) operator, this can be written as a single statement:\n\na = (x >= 10) ? m + 5 : m;\n\nThis evaluates the condition (x >= 10); if true, it assigns m+5 to a; if false, it assigns m to a — exactly matching the behaviour of the original if-else, but in one compact line.",
+              "hint": "a = (x >= 10) ? m + 5 : m;"
+            },
+            {
+              "id": "q15",
+              "html": "Rewrite the following code so that it is functional: v = 5; do; { total += v; cout << total; while v <= 10 }",
+              "answer": "The corrected, functional code is:\n\nv = 5;\ndo\n{\n    total += v;\n    cout << total;\n} while (v <= 10);\n\nThe errors fixed: (1) removed the stray semicolon right after 'do' (which made it an empty do-body); (2) the while condition must be enclosed in parentheses: while(v <= 10); (3) the closing '} while(...);' must terminate with a semicolon, matching correct do-while syntax.",
+              "hint": "Remove the semicolon after 'do'; wrap the while condition in parentheses: while(v <= 10); and end with a semicolon."
+            },
+            {
+              "id": "q16",
+              "html": "Write the syntax and purpose of the switch statement.",
+              "answer": "Syntax:\n\nswitch(expression)\n{\n    case constant1:\n        statement(s);\n        break;\n    case constant2:\n        statement(s);\n        break;\n    default:\n        statement(s);\n}\n\nPurpose: The switch statement is a multi-way branch (selection) statement that provides an easy way to dispatch execution to different parts of code depending on the value of a single expression, replacing a potentially long chain of if-else-if statements when comparing one variable against several possible constant values.",
+              "hint": "Give the switch/case/break/default syntax, and explain its purpose: multi-way branching based on one expression's value, replacing long if-else chains."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "navLabel": "Part IV -- Explain in Detail (4 x 5)",
+      "title": "Part IV -- Explain in Detail",
+      "type": "long_essay",
+      "scoreMax": 20,
+      "marksPer": 5,
+      "sections": [
+        {
+          "label": "Long Answers",
+          "questions": [
+            {
+              "id": "q17",
+              "html": "Explain control statements with a suitable example.",
+              "answer": "Control statements are statements that alter the normal sequential flow of execution in a program. There are three kinds:\n\n1. Sequence statements: Executed one after another, top to bottom, without altering flow. Example: a series of assignment statements like x=10; y=x+5;\n\n2. Selection statements: Execution depends on a condition — if true, a 'true block' runs; if false, a 'false block' runs. Example (if-else): if (marks >= 40) cout << \"Pass\"; else cout << \"Fail\"; — here the flow branches based on the value of marks.\n\n3. Iteration statements: A block of statements executed repeatedly while a condition remains true. Example (for loop): for(int i=1; i<=5; i++) cout << i; — this repeats the print statement 5 times, altering the normal one-time sequential flow into a repeated flow.\n\nAll of these — if/switch (selection) and for/while/do-while (iteration), plus goto/break/continue (jump) — are collectively called control statements because they control HOW the program's execution path proceeds, rather than simply running top-to-bottom once.",
+              "hint": "Define control statements (alter normal sequential flow); explain the 3 kinds (Sequence, Selection, Iteration) each with a short example."
+            },
+            {
+              "id": "q18",
+              "html": "What is an entry-controlled loop? Explain any one entry-controlled loop with a suitable example.",
+              "answer": "An entry-controlled loop is a loop in which the test-expression (condition) is evaluated BEFORE the loop body executes. If the condition is false right at the start, the loop body never executes even once. Both the 'for' loop and the 'while' loop are entry-controlled loops in C++.\n\nExample — while loop to sum numbers from 1 to 10:\n\nint i=1, sum=0;\nwhile(i<=10)\n{\n    sum = sum + i;\n    i++;\n}\ncout << \"The sum of 1 to 10 is \" << sum;\n\nHere, before each iteration, the condition (i<=10) is checked first. As long as i is 10 or less, the body executes (adding i to sum, then incrementing i). Once i becomes 11, the condition (11<=10) evaluates to false, and the loop terminates without executing the body again — demonstrating that the test happens at the 'entry' point of each iteration, before the body runs.",
+              "hint": "Definition: condition tested BEFORE the body runs (for/while are entry-controlled); give a full while-loop example (e.g., summing 1 to 10) and trace through it."
+            },
+            {
+              "id": "q19",
+              "html": "Write a program to find the LCM and GCD of two numbers.",
+              "answer": "#include <iostream>\nusing namespace std;\nint main()\n{\n    int a, b, num1, num2, temp, gcd, lcm;\n    cout << \"\\nEnter two numbers: \";\n    cin >> a >> b;\n    num1 = a;\n    num2 = b;\n\n    // Find GCD using Euclid's algorithm\n    while (num2 != 0)\n    {\n        temp = num2;\n        num2 = num1 % num2;\n        num1 = temp;\n    }\n    gcd = num1;\n\n    // LCM = (a * b) / GCD\n    lcm = (a * b) / gcd;\n\n    cout << \"\\nGCD of \" << a << \" and \" << b << \" is \" << gcd;\n    cout << \"\\nLCM of \" << a << \" and \" << b << \" is \" << lcm;\n    return 0;\n}\n\nExplanation: The program uses Euclid's algorithm (repeated modulus operation, implemented with a while loop) to find the GCD — repeatedly replacing the larger number with the remainder of dividing by the smaller, until the remainder becomes 0; the last non-zero value is the GCD. The LCM is then computed directly using the mathematical relationship LCM = (a × b) / GCD, since for any two numbers, the product of the LCM and GCD equals the product of the two numbers themselves.",
+              "hint": "Use a while loop implementing Euclid's algorithm (num1,num2 := num2, num1%num2 until num2=0) for GCD, then compute LCM = (a*b)/GCD."
+            },
+            {
+              "id": "q20",
+              "html": "Write a program to find the sum of the series: S = 1 + x + x^2 + ... + x^n",
+              "answer": "#include <iostream>\nusing namespace std;\nint main()\n{\n    int n, i;\n    float x, sum = 0, term = 1;\n    cout << \"\\nEnter the value of x: \";\n    cin >> x;\n    cout << \"\\nEnter the value of n: \";\n    cin >> n;\n\n    for (i = 0; i <= n; i++)\n    {\n        sum = sum + term;   // add current term (x^i) to running sum\n        term = term * x;    // build the next term (x^(i+1)) by multiplying by x\n    }\n\n    cout << \"\\nThe sum of the series S = \" << sum;\n    return 0;\n}\n\nExplanation: This program avoids recomputing x^i from scratch every time (which would require a slower nested power calculation). Instead, it starts term at 1 (which is x^0), adds it to the sum, and then updates term by multiplying it by x once per iteration — so after the i-th iteration, term correctly holds x^(i+1) ready for the next step. The for loop runs from i=0 to i=n inclusive, covering all n+1 terms of the series 1 + x + x^2 + ... + x^n.",
+              "hint": "Use a for loop from i=0 to n; maintain a running 'term' variable (starting at 1) that is multiplied by x each iteration, adding it to the sum before updating it — avoids recomputing powers from scratch."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

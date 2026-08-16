@@ -1,0 +1,183 @@
+export default {
+  chapterNumber: 11,
+  title: "Functions",
+  subject: "Computer Science",
+  classLabel: "Class 11",
+  curriculum: "Samacheer Kalvi",
+
+  sections: [
+    {
+      id: "intro-need",
+      title: "Introduction, Need & Types of Functions",
+      content: `**11.1 Introduction**
+
+A large program can be split into small sub-programs (blocks) called **functions**, where each sub-program performs some specific functionality. Functions reduce the size and complexity of a program, making it easier to understand, test, and debug. Functions available by default are called **Built-in functions**; functions users create are called **User-defined functions**.
+
+**11.2 Need for Functions**
+
+1. **Divide and Conquer:** Complicated programs can be divided into manageable sub-programs called functions. A programmer can focus on developing, debugging, and testing individual functions, and many programmers can work on different functions simultaneously.
+2. **Reusability:** Code that would otherwise be repeated in different contexts can instead be written once as a function — eliminating duplication, improving maintainability, and reducing program size. A function can be called multiple times with different inputs.
+
+**11.3 Types of Functions**
+
+1. **Pre-defined / Built-in / Library Functions:** Ready-to-use sub-programs already written, debugged, and compiled by C++, with their definitions grouped in **header files**.
+2. **User-defined Functions:** Created by the user, with the task name and required data (arguments) decided by the user.`,
+      nav: { next: "header-files", nextLabel: "Next: Header Files & Built-in Functions →" }
+    },
+    {
+      id: "header-files",
+      title: "Header Files & Built-in Functions",
+      content: `**11.4 C++ Header Files and Built-in Functions**
+
+Header files provide function prototypes and definitions for library functions, along with related data types and constants — identified by the extension **.h**. A single header file may contain multiple built-in functions.
+
+**11.4.1 Standard Input/Output (stdio.h)** — defines standard I/O functions:
+- **getchar():** gets a single character from the keyboard. **putchar():** displays it.
+- **gets():** reads a string from standard input into a character array. **puts():** prints that string on a new line.
+
+**11.4.2 Character Functions (ctype.h)** — operations on characters:
+- **isalnum(c):** returns non-zero if c is alphanumeric (digit or letter), else 0.
+- **isalpha(c):** returns 1 if c is an alphabet, else 0.
+- **isdigit(c):** returns 1 if c is a digit, else 0.
+- **islower(c):** returns non-zero if c is lowercase, else 0.
+- **isupper(c):** returns 1 if c is uppercase, else 0.
+- **toupper(c):** returns the uppercase equivalent of c (unchanged if already uppercase).
+- **tolower(c):** returns the lowercase equivalent of c (unchanged if already lowercase).
+
+**11.4.3 String Manipulation (string.h / cstring)** — functions for character-array strings:
+- **strcpy(target, source):** copies the source string (including its null terminator \\0) into target.
+- **strlen(string):** returns the string's length, not counting the null character.
+- **strcmp(string1, string2):** compares two strings lexicographically (by ASCII value) — returns positive if string1 > string2, negative if string1 < string2, and 0 if equal.
+- **strcat(target, source):** appends a copy of source to the end of target.
+- **strupr(string):** converts the string to uppercase.
+- **strlwr(string):** converts the string to lowercase.
+
+**11.4.4 Mathematical Functions (math.h)**
+- **cos(x):** cosine of x (in radians), returns a value in [-1, 1].
+- **sqrt(x):** square root of a non-negative x (a negative argument causes a domain error).
+- **sin(x):** sine of x (in radians), returns a value in [-1, 1].
+- **pow(base, exponent):** returns base raised to the power of exponent; the return type is long double if any argument is long double, otherwise double.`,
+      nav: { back: "intro-need", next: "user-defined-functions", nextLabel: "Next: User-defined Functions →" }
+    },
+    {
+      id: "user-defined-functions",
+      title: "User-defined Functions & Prototypes",
+      content: `**11.5 User-defined Functions**
+
+**11.5.1 Introduction:** Users can define new functions for specific tasks. A function can optionally take input parameters (arguments) and optionally return a value as output — useful for encapsulating common operations in a single, reusable, clearly-named block.
+
+**11.5.2 Function Definition:** A function must be defined before use. General syntax:
+\`\`\`
+Return_Data_Type Function_name(parameter list)
+{
+    Body of the function
+}
+\`\`\`
+- The **Return_Data_Type** is any valid C++ data type.
+- The **Function_name** is a user-defined identifier.
+- The **parameter list** (optional) is a list of variables preceded by data types, separated by commas.
+- The **body** contains the statements to perform the function's task.
+
+**11.5.3 Function Prototype:** A C++ program can have any number of functions, but only ONE main() function as the execution entry point. Functions can be defined in any order, but must be **declared** before use — this declaration (the prototype) can appear outside main(). Example: \`long fact(int, double)\` tells the compiler: the return type is long, the function name is fact, and it takes two arguments (int, then double).
+
+**11.5.4 Use of void:** The void keyword has two purposes: (1) to indicate a function does not return a value, and (2) to declare a generic pointer. Example: \`void fun(void);\` — the function neither receives nor returns a value.
+
+**11.5.5 Accessing a Function:** Called explicitly by name with required arguments. The compiler checks the call against the prototype; if argument types don't match exactly, it attempts type conversion — if impossible, it raises an error. Four calling patterns: \`display()\` (no return, no args), \`display(x,y)\` (no return, with args), \`x=display()\` (return, no args), \`x=display(x,y)\` (return, with args).
+
+**11.5.5.1 Formal vs Actual Parameters:** Arguments pass values from the caller to the called function. Variables used in the function *definition* are **formal parameters**; the constants/variables/expressions used in the function *call* are **actual parameters**.
+
+**11.5.5.2 Default Arguments:** Formal parameters can be given default values in the prototype, allowing arguments to be omitted when calling — the compiler uses the default for any missing argument. Default values must be assigned from **right to left** in the parameter list (you cannot have a default value followed by a non-default one). Example (valid): \`void defaultvalue(int n1, int n2=10);\` — invalid: \`void defaultvalue(int n1=10, int n2);\`.
+
+**11.5.5.3 Constant Arguments:** A parameter declared with **const** cannot be changed inside the function body — attempting to modify it (e.g., \`r=25;\` on a const parameter r) causes a compile error like "assignment of read-only parameter."`,
+      nav: { back: "header-files", next: "calling-methods", nextLabel: "Next: Methods of Calling Functions →" }
+    },
+    {
+      id: "calling-methods",
+      title: "Methods of Calling Functions & Inline Functions",
+      content: `**11.6 Methods of Calling Functions**
+
+Based on how arguments are passed, C++ supports two calling methods:
+
+**11.6.1 Call by Value:** Copies the *value* of the actual parameter into the formal parameter. Changes made to the formal parameter inside the function have **no effect** on the actual parameter (the original variable in the caller remains unchanged). Example: if \`display(int x)\` computes \`x=x*x\`, the original variable passed in from main() stays the same after the call returns.
+
+**11.6.2 Call by Reference (Address):** Copies the *address* of the actual argument into the formal parameter, using the & symbol in the parameter declaration (e.g., \`void display(int &x)\`). Since the address is passed, the formal parameter and actual parameter refer to the **same memory location** — any change made to the formal parameter inside the function IS reflected back in the actual parameter in the caller.
+
+**11.6.3 Inline Function**
+
+Normally, calling a function makes the compiler jump to the function's code (stored on the call stack) and jump back afterward, which has performance overhead. An **inline** function avoids this: the compiler inserts the function's code directly into the calling program at each call site, rather than performing an actual function call. To make a function inline, add the keyword **inline** before the function header:
+\`\`\`
+inline returntype functionname(datatype parameter1, ..., datatype parameterN)
+\`\`\`
+**Advantages:** Inline functions execute faster (no call/return overhead), but at the cost of using more memory (since the code is duplicated at every call site instead of existing once); they also reduce the complexity of using the call stack for small function definitions.`,
+      nav: { back: "user-defined-functions", next: "function-forms-return", nextLabel: "Next: Function Forms & Returning Values →" }
+    },
+    {
+      id: "function-forms-return",
+      title: "Different Forms of Functions & Returning Values",
+      content: `**11.7 Different Forms of User-defined Function Declarations** — four combinations:
+
+1. **Without return value, without parameter:** e.g., \`void display() { cout << "..."; }\` — called simply as \`display();\`.
+2. **With return value, without parameter:** e.g., \`int display() { ...; return s; }\` — called as \`int m = display();\`.
+3. **Without return value, with parameter:** e.g., \`void display(int x, int y) { ...; }\` — called as \`display(a, b);\`.
+4. **With return value, with parameter:** e.g., \`int display(int x, int y) { ...; return s; }\` — called as \`int s = display(a, b);\`.
+
+**11.8 Returning from a Function**
+
+**11.8.1 The return Statement:** Returns control from a function to its caller, terminating the function's execution immediately at that point. It is categorized as a **jump statement**. A return may or may not have an associated value — if it does, that value becomes the function's result for the calling statement. Even a void function can use a bare \`return;\` (no value) to terminate early. Syntax: \`return expression/variable;\` or simply \`return;\`.
+
+**11.8.2 Returning Values:** Functions that return nothing are declared **void**. If no return type is explicitly specified in older C++ conventions, the function's return type defaults to **int**. Functions can also return non-integer values, such as strings (e.g., a function of type \`char *\` returning a string literal like "chennai").
+
+**11.9 Recursive Function**
+
+A function that calls itself is known as a **recursive function**, and this technique is **recursion**. Example — factorial using recursion:
+\`\`\`
+int factorial(int m)
+{
+    if (m > 1)
+        return m * factorial(m-1);
+    else
+        return 1;
+}
+\`\`\`
+Here, factorial(5) computes 5 × factorial(4), which computes 4 × factorial(3), and so on, down to the base case factorial(1)=1, then the results multiply back up: 5×4×3×2×1 = 120. **Note:** the function prototype is mandatory if factorial() is defined after main() in the source file, since a function must be declared before it is used.`,
+      nav: { back: "calling-methods", next: "scope-rules", nextLabel: "Next: Scope Rules of Variables →" }
+    },
+    {
+      id: "scope-rules",
+      title: "Scope Rules of Variables",
+      content: `**11.10 Scope Rules of Variables**
+
+**Scope** refers to the accessibility of a variable. There are four types of scope in C++, based on where a variable is declared: Local scope (inside a block), Function scope (inside a function), File scope (outside all functions — global), and Class scope (inside a class).
+
+**11.10.2 Local Scope:** A local variable is defined within a block (delimited by { }). Its scope is limited to that block — it cannot be accessed from outside its declaring block. It is created upon entering the block and destroyed upon exiting it.
+
+**11.10.3 Function Scope:** The scope of a variable declared within a function extends to the entire function block and all sub-blocks within it. Its lifetime equals the lifetime of the function's execution. The scope of formal parameters is function scope.
+
+**11.10.4 File Scope:** A variable declared above/outside all blocks and functions (including main()) has file scope — also called a **global variable**. Its lifetime is the lifetime of the entire program, and it's accessible from any function in the file (unless shadowed by a local variable of the same name).
+
+**Important distinction:** A local variable declared inside an if-block (or any nested block) cannot be accessed outside that block — attempting to use it elsewhere (e.g., after the block ends, or in a different function) causes a compile error like "was not declared in this scope," since its lifetime ended when the block exited.
+
+**11.10.5 Class Scope:** A class is a way of creating a user-defined data type, packaging together data of different types. Data members (variables inside a class) have scope limited to within that class only. (Discussed further in the Classes and Objects chapter.)
+
+**11.10.6 Scope Resolution Operator (::)**
+
+Reveals the "hidden" scope of a variable — used to access a **global** variable when a **local** variable of the same name exists in the current scope. Example: if \`int x = 45;\` is global and \`int x = 10;\` is declared locally inside main(), then \`::x\` refers to the global x (45), while plain \`x\` refers to the local x (10) within that function.`,
+      nav: { back: "function-forms-return", next: "summary", nextLabel: "Next: Points to Remember →" }
+    },
+    {
+      id: "summary",
+      title: "Points to Remember",
+      content: `- A large program can typically be split into smaller-sized blocks called functions.
+- Functions are classified into Pre-defined (Built-in/Library) Functions and User-defined Functions.
+- User-defined functions are created by the user, using a return type, name, optional parameter list, and a body.
+- The void return type tells the compiler that a function returns nothing.
+- The return statement returns a value (if any) to the calling function and transfers control back to it — the default return type of a C++ function, if unspecified, is int.
+- Arguments can be passed to a function via Call by Value (copies the value; changes don't affect the original) or Call by Reference (copies the address; changes DO affect the original).
+- Inline functions insert the function's code directly at the call site, trading extra memory for faster execution.
+- A function that calls itself is a recursive function.
+- Scope refers to the accessibility of a variable — the four types are Local scope, Function scope, File scope, and Class scope.
+- The scope resolution operator (::) reveals/accesses the hidden (global) scope of a variable when a local variable shares its name.`,
+      nav: { back: "scope-rules", practice: true }
+    }
+  ]
+}
