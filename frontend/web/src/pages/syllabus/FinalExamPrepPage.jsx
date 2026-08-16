@@ -12,6 +12,7 @@ import {
   finalExamPrepModelPapersPlus2,
   finalExamPrepModelPapersComputerApplicationsPlus2,
   finalExamPrepModelPapersComputerApplicationsPlus1,
+  finalExamPrepModelPapersComputerSciencePlus1,
   finalExamPrepPriorityLessons,
   finalExamPrepPriorityLessonsPlus2,
 } from '../../data/finalExamPrepData'
@@ -21,18 +22,21 @@ const PAPERS_BY_KEY = {
   'plus2-english': finalExamPrepPapersPlus2,
   'plus2-computer-applications': [],
   'plus1-computer-applications': [],
+  'plus1-computer-science': [],
 }
 const MODEL_PAPERS_BY_KEY = {
   'plus1-english': finalExamPrepModelPapers,
   'plus2-english': finalExamPrepModelPapersPlus2,
   'plus2-computer-applications': finalExamPrepModelPapersComputerApplicationsPlus2,
   'plus1-computer-applications': finalExamPrepModelPapersComputerApplicationsPlus1,
+  'plus1-computer-science': finalExamPrepModelPapersComputerSciencePlus1,
 }
 const LESSONS_BY_KEY = {
   'plus1-english': finalExamPrepPriorityLessons,
   'plus2-english': finalExamPrepPriorityLessonsPlus2,
   'plus2-computer-applications': [],
   'plus1-computer-applications': [],
+  'plus1-computer-science': [],
 }
 
 export default function FinalExamPrepPage({ classLevel = 'plus1', subjectSlug = 'english' }) {

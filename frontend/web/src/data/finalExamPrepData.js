@@ -59,3 +59,11 @@ export const finalExamPrepModelPapersComputerApplicationsPlus1 = [
   { id: 'class11-computer-applications-model-qa-4', modelId: 'model-qa-4', label: 'Set 4', title: 'Full Syllabus Model Paper — Set 4', viewStatus: 'ready', practiceStatus: 'ready' },
   { id: 'class11-computer-applications-model-qa-5', modelId: 'model-qa-5', label: 'Set 5', title: 'Full Syllabus Model Paper — Set 5', viewStatus: 'ready', practiceStatus: 'ready' },
 ]
+
+export const finalExamPrepModelPapersComputerSciencePlus1 = [
+  { id: 'class11-computer-science-model-qa-1', modelId: 'model-qa-1', label: 'Set 1', title: 'Full Syllabus Model Paper — Set 1', viewStatus: 'ready', practiceStatus: 'ready' },
+  { id: 'class11-computer-science-model-qa-2', modelId: 'model-qa-2', label: 'Set 2', title: 'Full Syllabus Model Paper — Set 2', viewStatus: 'ready', practiceStatus: 'ready' },
+  { id: 'class11-computer-science-model-qa-3', modelId: 'model-qa-3', label: 'Set 3', title: 'Full Syllabus Model Paper — Set 3', viewStatus: 'ready', practiceStatus: 'ready' },
+  { id: 'class11-computer-science-model-qa-4', modelId: 'model-qa-4', label: 'Set 4', title: 'Full Syllabus Model Paper — Set 4', viewStatus: 'ready', practiceStatus: 'ready' },
+  { id: 'class11-computer-science-model-qa-5', modelId: 'model-qa-5', label: 'Set 5', title: 'Full Syllabus Model Paper — Set 5', viewStatus: 'ready', practiceStatus: 'ready' },
+]

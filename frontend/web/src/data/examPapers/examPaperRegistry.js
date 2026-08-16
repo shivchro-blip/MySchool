@@ -30,6 +30,11 @@ const LOADERS = {
   'class11-computer-applications-model-qa-3': () => import('./class11ComputerApplicationsModelQA3'),
   'class11-computer-applications-model-qa-4': () => import('./class11ComputerApplicationsModelQA4'),
   'class11-computer-applications-model-qa-5': () => import('./class11ComputerApplicationsModelQA5'),
+  'class11-computer-science-model-qa-1': () => import('./class11ComputerScienceModelQA1'),
+  'class11-computer-science-model-qa-2': () => import('./class11ComputerScienceModelQA2'),
+  'class11-computer-science-model-qa-3': () => import('./class11ComputerScienceModelQA3'),
+  'class11-computer-science-model-qa-4': () => import('./class11ComputerScienceModelQA4'),
+  'class11-computer-science-model-qa-5': () => import('./class11ComputerScienceModelQA5'),
 }
 
 export async function getPaperById(paperId) {
