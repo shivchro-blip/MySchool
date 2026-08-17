@@ -366,7 +366,7 @@ function ChapterRow({ ch, year, subject }) {
         <div className="max-w-[680px]">
           {/* Final Exam Prep */}
           {(subject === 'computer-applications' && (year === 'plus2' || year === 'plus1')) ||
-          (subject === 'computer-science' && year === 'plus1') ? (
+          (subject === 'computer-science' && (year === 'plus2' || year === 'plus1')) ? (
             <FinalExamPrepEntryCard
               dest={`/${year}/${subject}/final-exam-prep`}
               classLabel={year === 'plus2' ? 'Class 12' : 'Class 11'}
