@@ -1,0 +1,93 @@
+export default {
+  "meta": {
+    "subject": "Computer Science -- Class XII",
+    "unit": "Chapter 14 -- Importing C++ Programs in Python",
+    "time": "3.00 hrs",
+    "totalMarks": 49,
+    "instructions": "Samacheer Kalvi -- Answer all questions"
+  },
+  "parts": [
+    {
+      "id": "p1",
+      "navLabel": "Part I -- MCQ (10 x 1)",
+      "title": "Part I -- Choose the Correct Answer",
+      "type": "mcq",
+      "scoreMax": 10,
+      "marksPer": 1,
+      "sections": [
+        {
+          "label": "Importing C++ Programs in Python",
+          "questions": [
+            { "id": "q1", "html": "Which of the following is not a scripting language?", "options": ["a) JavaScript", "b) PHP", "c) Perl", "d) HTML"], "answer": 3, "hint": "HTML is a markup language, not a scripting language." },
+            { "id": "q2", "html": "Importing C++ program in a Python program is called", "options": ["a) wrapping", "b) Downloading", "c) Interconnecting", "d) Parsing"], "answer": 0, "hint": "This process is specifically called 'wrapping up' of C++ in Python." },
+            { "id": "q3", "html": "The expansion of API is", "options": ["a) Application Programming Interpreter", "b) Application Programming Interface", "c) Application Performing Interface", "d) Application Programming Interlink"], "answer": 1, "hint": "API stands for Application Programming Interface." },
+            { "id": "q4", "html": "A framework for interfacing Python and C++ is", "options": ["a) Ctypes", "b) SWIG", "c) Cython", "d) Boost"], "answer": 3, "hint": "Boost.Python is specifically a framework for interfacing Python and C++." },
+            { "id": "q5", "html": "Which of the following is a software design technique to split your code into separate parts?", "options": ["a) Object oriented Programming", "b) Modular programming", "c) Low Level Programming", "d) Procedure oriented Programming"], "answer": 1, "hint": "Modular programming splits code into separate, manageable parts (modules)." },
+            { "id": "q6", "html": "The module which allows you to interface with the Windows operating system is", "options": ["a) OS module", "b) sys module", "c) csv module", "d) getopt module"], "answer": 0, "hint": "The os module provides operating-system-dependent functionality." },
+            { "id": "q7", "html": "getopt() will return an empty array if there is no error in splitting strings to", "options": ["a) argv variable", "b) opt variable", "c) args variable", "d) ifile variable"], "answer": 2, "hint": "The 'args' variable returned by getopt() is empty [] when there is no parsing error." },
+            { "id": "q8", "html": "Identify the function call statement: if __name__=='__main__': main(sys.argv[1:])", "options": ["a) main(sys.argv[1:])", "b) __name__", "c) __main__", "d) argv"], "answer": 0, "hint": "main(sys.argv[1:]) is the actual function call being invoked when the condition is true." },
+            { "id": "q9", "html": "Which of the following can be used for processing text, numbers, images, and scientific data?", "options": ["a) HTML", "b) C", "c) C++", "d) PYTHON"], "answer": 3, "hint": "Python is described as usable for processing text, numbers, images, and scientific data." },
+            { "id": "q10", "html": "What does __name__ contain?", "options": ["a) c++ filename", "b) main() name", "c) python filename", "d) os module name"], "answer": 2, "hint": "__name__ stores the name of the current Python module/file (or '__main__' if run directly)." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "navLabel": "Part II -- Short Answers (5 x 2)",
+      "title": "Part II -- Short Answer Questions",
+      "type": "short-essay",
+      "scoreMax": 10,
+      "marksPer": 2,
+      "instruction": "Answer in 2-3 sentences.",
+      "questions": [
+        { "q": "What is the theoretical difference between Scripting language and other programming language?", "ans": "The theoretical difference is that scripting languages do not require a compilation step and are instead interpreted, while traditional programming languages (like C++) typically need to be compiled before running. A scripting language requires an interpreter, whereas a programming language requires a compiler." },
+        { "q": "Differentiate compiler and interpreter.", "ans": "A compiler translates the ENTIRE source code into machine code at once, before execution begins -- errors are reported only after scanning the whole program. An interpreter translates and executes code line by line (or statement by statement) as the program runs, without producing a separate machine-code file beforehand." },
+        { "q": "Write the expansion of (i) SWIG (ii) MinGW.", "ans": "(i) SWIG stands for Simplified Wrapper Interface Generator -- used for wrapping both C and C++ code for use in other languages. (ii) MinGW stands for Minimalist GNU for Windows -- a set of runtime header files for compiling and linking C, C++, and FORTRAN code on Windows." },
+        { "q": "What is the use of modules?", "ans": "Modules break down large programs into small, manageable, and organized pieces, minimizing dependencies between different parts of the code. They also provide code REUSABILITY -- a function can be defined once in a module and imported wherever needed, instead of copying its definition into multiple different programs." },
+        { "q": "What is the use of cd command? Give an example.", "ans": "The 'cd' (change directory) command is used in the command prompt to navigate to a different folder/directory. Example: to move to a folder named 'pyprg', the command 'cd pyprg' is typed at the command prompt." }
+      ]
+    },
+    {
+      "id": "p3",
+      "navLabel": "Part III -- Brief Answers (3 x 3)",
+      "title": "Part III -- Brief Answer Questions",
+      "type": "short-essay",
+      "scoreMax": 9,
+      "marksPer": 3,
+      "instruction": "Answer in 4-6 sentences.",
+      "questions": [
+        { "q": "Differentiate PYTHON and C++.", "ans": "Python is typically an interpreted language, while C++ is typically a compiled language. Python is a dynamic-typed language (no data type declaration needed for variables), while C++ is a statically typed, compiled language requiring explicit data type declarations. Python can act as both a scripting language and a general-purpose language, whereas C++ is purely a general-purpose language. Additionally, Python uses automatic garbage collection and tends to require 5 to 10 times less code than equivalent C++ programs." },
+        { "q": "What are the applications of scripting language?", "ans": "Scripting languages are used to: (1) automate certain repetitive tasks within a program; (2) extract information from a data set; (3) write less code-intensive programs compared to traditional programming languages for the same task; (4) bring new functionality to existing applications and 'glue' together complex systems written in different languages." },
+        { "q": "What is MinGW? What is its use?", "ans": "MinGW (Minimalist GNU for Windows) refers to a set of runtime header files used in compiling and linking code written in C, C++, and FORTRAN, so it can run on the Windows Operating System. Its use is to provide the g++ compiler needed to compile and execute C++ programs on Windows, and specifically, it allows a Python program to dynamically compile and execute C++ code by invoking g++ through Python's os.system() function." }
+      ]
+    },
+    {
+      "id": "p4",
+      "navLabel": "Part IV -- Explain in Detail (4 x 5)",
+      "title": "Part IV -- Long Answer Questions",
+      "type": "long-essay",
+      "scoreMax": 20,
+      "marksPer": 5,
+      "instruction": "Answer in detail.",
+      "questions": [
+        {
+          "q": "Write any 5 features of Python.",
+          "ans": "1. Automatic Garbage Collection: Python automatically frees and reclaims memory blocks no longer in use, unlike C++ which requires manual memory management.\n\n2. Dynamic Typing: Python does not require explicit data type declarations for variables -- the interpreter determines the type based on the assigned value.\n\n3. Interpreted Execution: Python code runs through an interpreter, executing line by line, rather than being fully pre-compiled like C++.\n\n4. Concise Code: Python code tends to be 5 to 10 times shorter than equivalent code written in C++, improving readability and reducing development time.\n\n5. Flexible Functions: In Python, a function can accept an argument of any type and return multiple values without prior declaration -- unlike C++, where a return statement is restricted to returning only one value, and argument types must generally be fixed."
+        },
+        {
+          "q": "Explain each word of the following command: Python <filename.py> -i <C++ filename without cpp extension>",
+          "ans": "Python: The keyword used to invoke/run a Python program from the command line, telling the operating system to use the Python interpreter.\n\n<filename.py>: The name of the Python script to be executed -- this file contains the logic (using sys, os, getopt modules) that will compile and run the specified C++ program.\n\n-i: A command-line option flag indicating 'input mode' -- signalling that the next argument is the input (C++ source) file to process.\n\n<C++ filename without cpp extension>: The name (and path, if needed) of the C++ file to be compiled and executed, given WITHOUT its .cpp extension -- the Python script itself appends '.cpp' (and later '.exe') as needed internally.\n\nTogether, this command tells the OS to run the given Python script, passing it the '-i' flag and the target C++ file's name, so the script can compile that C++ file using g++ and then execute the resulting program."
+        },
+        {
+          "q": "What is the purpose of sys, os, getopt module in Python? Explain.",
+          "ans": "sys module: Provides access to variables used or maintained by the Python interpreter, and to functions that interact with it. Its most relevant use here is sys.argv -- a list holding all command-line arguments passed to the program, letting the script know which C++ file to process.\n\nos module: Provides a way to use operating-system-dependent functionality. Its key use here is os.system(), which executes a given command string (like invoking the g++ compiler) directly in the shell/command window, allowing Python to trigger external compilation and execution of the C++ program.\n\ngetopt module: Helps parse (split) command-line options and arguments into a structured form. Its getopt() function separates the raw command-line input into 'opts' (recognized option-value pairs, like the -i flag and its file path) and 'args' (any leftover/error strings), making it easy for the script to correctly identify which file to compile and in what mode.\n\nTogether, these three modules let a Python script accept command-line input (sys), correctly interpret which flags and files were specified (getopt), and then actually invoke the C++ compiler and run the resulting program (os) -- forming the complete bridge between Python and C++."
+        },
+        {
+          "q": "Write the syntax for getopt() and explain its arguments and return values.",
+          "ans": "Syntax:\nopts, args = getopt.getopt(argv, options, [long_options])\n\nArguments:\n- argv: The list of command-line argument values to be parsed. In our program, this is typically sys.argv[1:] -- everything after the script's own name.\n- options: A string of single-letter options the program recognizes (such as 'i' for input or 'o' for output). An option letter followed by a colon (:) indicates that option requires an accompanying value (its 'mode').\n- long_options (optional): A list of strings representing long-form option names, where arguments to long options are followed by an equal sign ('=').\n\nReturn values:\n- opts: A list of (option, value) pairs successfully parsed from argv -- for example, [('-i', 'c:\\\\pyprg\\\\p4')].\n- args: Any remaining, unparsed, or error-indicating strings. If the entire command line was parsed successfully with no leftover or invalid arguments, args will be an empty list [].\n\nTogether, getopt() lets a Python script reliably extract the mode (like -i) and its associated file path from however the user typed the command, checking for and reporting any errors in the process."
+        }
+      ]
+    }
+  ]
+}

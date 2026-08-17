@@ -1,0 +1,89 @@
+export default {
+  "meta": {
+    "subject": "Computer Science -- Class XII",
+    "unit": "Chapter 4 -- Algorithmic Strategies",
+    "time": "3.00 hrs",
+    "totalMarks": 49,
+    "instructions": "Samacheer Kalvi -- Answer all questions"
+  },
+  "parts": [
+    {
+      "id": "p1",
+      "navLabel": "Part I -- MCQ (20 x 1)",
+      "title": "Part I -- Objective Type",
+      "type": "mcq",
+      "scoreMax": 20,
+      "marksPer": 1,
+      "sections": [
+        {
+          "label": "Algorithmic Strategies",
+          "questions": [
+            { "id": "q1", "html": "The word 'Algorithm' comes from the name of a Persian mathematician:", "options": ["a) Flowchart", "b) Flow", "c) Al Khowarizmi", "d) Syntax"], "answer": 2, "hint": "The term is named after Abu Ja'far Mohammed ibn Musa al Khowarizmi." },
+            { "id": "q2", "html": "Which of the following sorting algorithms needs the minimum number of swaps?", "options": ["a) Bubble sort", "b) Insertion sort", "c) Selection sort", "d) All the above"], "answer": 2, "hint": "Selection sort makes only one exchange per pass, minimizing total swaps." },
+            { "id": "q3", "html": "The two main measures for the efficiency of an algorithm are:", "options": ["a) Processor and memory", "b) Complexity and capacity", "c) Time and space", "d) Data and space"], "answer": 2, "hint": "Time complexity and space complexity are the two main efficiency measures." },
+            { "id": "q4", "html": "The algorithm that yields expected output for a valid input is called:", "options": ["a) Algorithmic solution", "b) Algorithmic outcomes", "c) Algorithmic problem", "d) Algorithmic coding"], "answer": 0, "hint": "This is called an algorithmic solution." },
+            { "id": "q5", "html": "Which of the following is used to describe the worst case of an algorithm?", "options": ["a) Big A", "b) Big S", "c) Big W", "d) Big O"], "answer": 3, "hint": "Big O describes worst-case (upper bound) complexity." },
+            { "id": "q6", "html": "Big Ω is the reverse of:", "options": ["a) Big O", "b) Big θ", "c) Big A", "d) Big S"], "answer": 0, "hint": "Big Omega is explicitly described as the reverse of Big O." },
+            { "id": "q7", "html": "Binary search is also called as:", "options": ["a) Linear search", "b) Sequential search", "c) Random search", "d) Half-interval search"], "answer": 3, "hint": "Binary search is also known as the half-interval search algorithm." },
+            { "id": "q8", "html": "The Θ notation in asymptotic evaluation represents:", "options": ["a) Base case", "b) Average case", "c) Worst case", "d) NULL case"], "answer": 1, "hint": "Θ represents the case where upper bound equals lower bound — essentially the tight/average running behaviour." },
+            { "id": "q9", "html": "If a problem can be broken into sub-problems which are reused several times, the problem possesses which property?", "options": ["a) Overlapping subproblems", "b) Optimal substructure", "c) Memoization", "d) Greedy"], "answer": 0, "hint": "Reused sub-problems is the definition of overlapping subproblems." },
+            { "id": "q10", "html": "In dynamic programming, the technique of storing previously calculated values is called:", "options": ["a) Saving value property", "b) Storing value property", "c) Memoization", "d) Mapping"], "answer": 2, "hint": "Storing and reusing previous results is called Memoization." },
+            { "id": "q11", "html": "Which characteristic ensures an algorithm must terminate after a finite number of steps?", "options": ["a) Definiteness", "b) Finiteness", "c) Effectiveness", "d) Correctness"], "answer": 1, "hint": "Finiteness requires termination after finite steps." },
+            { "id": "q12", "html": "Division by zero in an algorithm violates which characteristic?", "options": ["a) Finiteness", "b) Definiteness", "c) Feasibility", "d) Portability"], "answer": 1, "hint": "Definiteness requires all operations to be well-defined, excluding things like division by zero." },
+            { "id": "q13", "html": "The space required by an algorithm is the sum of which two components?", "options": ["a) Fixed part and variable part", "b) Time part and space part", "c) Input part and output part", "d) Best part and worst part"], "answer": 0, "hint": "Space complexity = fixed part + variable part." },
+            { "id": "q14", "html": "A priori estimate refers to:", "options": ["a) Measuring actual running time after execution", "b) A theoretical performance analysis before execution", "c) Random guessing of efficiency", "d) Testing on multiple computers only"], "answer": 1, "hint": "A Priori estimate is theoretical analysis, done before/without actual execution." },
+            { "id": "q15", "html": "The average case efficiency of a linear search on n elements is:", "options": ["a) O(1)", "b) O(log n)", "c) O(n)", "d) O(n^2)"], "answer": 2, "hint": "Average number of comparisons (n+1)/2 simplifies to O(n)." },
+            { "id": "q16", "html": "The best case efficiency of a linear search (element found first) is:", "options": ["a) O(1)", "b) O(n)", "c) O(log n)", "d) O(n^2)"], "answer": 0, "hint": "If found in one comparison, the best case is O(1)." },
+            { "id": "q17", "html": "Binary search requires the array to be:", "options": ["a) Unsorted", "b) Sorted", "c) Circular", "d) Doubly linked"], "answer": 1, "hint": "Binary search only works correctly on a sorted array." },
+            { "id": "q18", "html": "In bubble sort, elements are compared:", "options": ["a) In random order", "b) In pairs of adjacent elements", "c) Only at the two ends", "d) Only the first and last"], "answer": 1, "hint": "Bubble sort compares each pair of adjacent elements." },
+            { "id": "q19", "html": "Selection sort improves on bubble sort by:", "options": ["a) Making more exchanges per pass", "b) Making only one exchange per pass", "c) Never exchanging elements", "d) Sorting in reverse only"], "answer": 1, "hint": "Selection sort makes just one swap per pass, unlike bubble sort's multiple swaps." },
+            { "id": "q20", "html": "The Fibonacci series satisfies the relation:", "options": ["a) Fibn = Fibn-1 * Fibn-2", "b) Fibn = Fibn-1 + Fibn-2", "c) Fibn = Fibn-1 - Fibn-2", "d) Fibn = Fibn-1 / Fibn-2"], "answer": 1, "hint": "Each Fibonacci number is the sum of the two preceding numbers." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "navLabel": "Part II -- Short Answers (5 x 2)",
+      "title": "Part II -- Short Answer Questions",
+      "type": "short-essay",
+      "scoreMax": 10,
+      "marksPer": 2,
+      "instruction": "Answer all of the following in two or three sentences.",
+      "questions": [
+        { "q": "What is an Algorithm?", "ans": "An algorithm is a finite set of instructions to accomplish a particular task — a step-by-step procedure for solving a given problem, which can be implemented in any suitable programming language." },
+        { "q": "Write the phases of performance evaluation of an algorithm.", "ans": "The two phases are: (1) A Priori estimates — a theoretical performance analysis assuming external factors; (2) A Posteriori testing — performance measurement, collecting actual statistics like running time from executing the algorithm." },
+        { "q": "What is Insertion sort?", "ans": "Insertion sort is a simple sorting algorithm that takes elements from the list one by one and inserts each into its correct position in a new sorted sub-list, building the final sorted array using n-1 passes." },
+        { "q": "What is Sorting?", "ans": "Sorting is the process of arranging the elements of a list or array in a particular order, such as ascending or descending, using algorithms like bubble sort, selection sort, or insertion sort." },
+        { "q": "What is searching? Write its types.", "ans": "Searching is the process of finding a particular value or element within a data structure like an array or list. Its two main types discussed are: Linear (Sequential) Search and Binary Search." }
+      ]
+    },
+    {
+      "id": "p3",
+      "navLabel": "Part III -- Brief Answers (3 x 3)",
+      "title": "Part III -- Brief Answer Questions",
+      "type": "short-essay",
+      "scoreMax": 9,
+      "marksPer": 3,
+      "instruction": "Answer all of the following in about 50-75 words.",
+      "questions": [
+        { "q": "List the characteristics of an algorithm.", "ans": "An algorithm should have: Input (zero or more supplied quantities), Output (at least one quantity produced), Finiteness (must terminate after finite steps), Definiteness (well-defined operations), Effectiveness (every instruction carried out effectively), Correctness (error free), Simplicity (easy to implement), be Unambiguous (clear, single-meaning steps), Feasibility (achievable with available resources), be Portable, and Independent of any specific programming code." },
+        { "q": "Discuss about Algorithmic complexity and its types.", "ans": "Algorithmic complexity f(n) gives the running time and/or storage space required by an algorithm, in terms of n, the size of the input data. There are two types: Time Complexity — the number of steps taken by the algorithm to complete the process; and Space Complexity — the amount of memory required, comprising a fixed part (constants/simple variables) and a variable part (whose size depends on the problem/iteration, e.g., recursion)." },
+        { "q": "What do you understand by Dynamic programming?", "ans": "Dynamic programming is an algorithmic design method used when a problem's solution can be viewed as a sequence of decisions. The given problem is divided into smaller, overlapping sub-problems; results of these sub-problems are reused (via memoization) to build an optimum solution, rather than recomputing them each time — similar in spirit to divide-and-conquer, but with sub-problem reuse." }
+      ]
+    },
+    {
+      "id": "p4",
+      "navLabel": "Part IV -- Long Essays (2 x 5)",
+      "title": "Part IV -- Long Essay Questions",
+      "type": "long-essay",
+      "scoreMax": 10,
+      "marksPer": 5,
+      "instruction": "Answer all of the following in about 100-150 words.",
+      "questions": [
+        { "q": "What is Binary search? Discuss with an example.", "ans": "Binary search (also called half-interval search) finds the position of a search element within a SORTED array, using a divide-and-conquer approach that executes in logarithmic time.\n\nProcedure: (1) Find the middle element using mid = low + (high-low)/2. (2) If the search element equals the middle element, return its index. (3) If the search element is greater, search the right half (set low=mid+1); if smaller, search the left half (set high=mid-1). (4) Repeat until found, or the search space is exhausted (unsuccessful).\n\nExample: Searching for 60 in the sorted array [10,20,30,40,50,60,70,80,90,99] (indices 0-9): mid=4 (value 50) — 60>50, so search right half. New mid=7 (value 80) — 60<80, so search left of that. New mid=5 (value 60) — MATCH! The element 60 is found at index 5, after just 3 comparisons rather than checking every element sequentially." },
+        { "q": "Explain the Bubble sort algorithm with an example.", "ans": "Bubble sort is a simple comparison-based sorting algorithm. It compares each pair of adjacent elements in the array and swaps them if they are in the wrong (unsorted) order. This process repeats in passes until no swaps are needed, indicating the array is fully sorted. Smaller elements gradually 'bubble' toward the top of the list with each pass.\n\nProcedure: (1) Start at index 0, compare the current element with the next. (2) If the current element is greater, swap them. (3) If not, move to the next pair. (4) Repeat until the end of the array, then repeat the entire pass again until a full pass makes no swaps.\n\nExample: Array {15,11,16,12,14,13}. Pass 1: 15>11→swap→[11,15,16,12,14,13]; 15<16→no swap; 16>12→swap→[11,15,12,16,14,13]; 16>14→swap→[11,15,12,14,16,13]; 16>13→swap→[11,15,12,14,13,16]. After all iterations, the final sorted array is [11,12,13,14,15,16]. Though simple, bubble sort is slower than insertion or selection sort for larger lists." }
+      ]
+    }
+  ]
+}

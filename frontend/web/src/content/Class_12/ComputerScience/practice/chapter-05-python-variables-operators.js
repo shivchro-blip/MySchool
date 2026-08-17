@@ -1,0 +1,89 @@
+export default {
+  "meta": {
+    "subject": "Computer Science -- Class XII",
+    "unit": "Chapter 5 -- Python - Variables and Operators",
+    "time": "3.00 hrs",
+    "totalMarks": 44,
+    "instructions": "Samacheer Kalvi -- Answer all questions"
+  },
+  "parts": [
+    {
+      "id": "p1",
+      "navLabel": "Part I -- MCQ (10 x 1)",
+      "title": "Part I -- Choose the Correct Answer",
+      "type": "mcq",
+      "scoreMax": 10,
+      "marksPer": 1,
+      "sections": [
+        {
+          "label": "Python - Variables and Operators",
+          "questions": [
+            { "id": "q1", "html": "Who developed Python?", "options": ["a) Ritche", "b) Guido Van Rossum", "c) Bill Gates", "d) Sundar Pichai"], "answer": 1, "hint": "Python was created by Guido Van Rossum, released in 1991." },
+            { "id": "q2", "html": "The Python prompt indicates that Interpreter is ready to accept instruction.", "options": ["a) >>>", "b) <<<", "c) #", "d) <<"], "answer": 0, "hint": "The >>> prompt shows the interactive interpreter is ready." },
+            { "id": "q3", "html": "Which of the following shortcut is used to create new Python Program?", "options": ["a) Ctrl + C", "b) Ctrl + F", "c) Ctrl + B", "d) Ctrl + N"], "answer": 3, "hint": "Ctrl+N creates a new script file in the Python IDLE editor." },
+            { "id": "q4", "html": "Which of the following character is used to give comments in Python Program?", "options": ["a) #", "b) &", "c) @", "d) $"], "answer": 0, "hint": "Comments in Python begin with the hash symbol (#)." },
+            { "id": "q5", "html": "This symbol is used to print more than one item on a single line.", "options": ["a) Semicolon(;)", "b) Dollar($)", "c) comma(,)", "d) Colon(:)"], "answer": 2, "hint": "Comma (,) separates multiple items in a print() statement." },
+            { "id": "q6", "html": "Which of the following is not a token?", "options": ["a) Interpreter", "b) Identifiers", "c) Keyword", "d) Operators"], "answer": 0, "hint": "The interpreter is a program, not a lexical token type." },
+            { "id": "q7", "html": "Which of the following is not a Keyword in Python?", "options": ["a) break", "b) while", "c) continue", "d) operators"], "answer": 3, "hint": "'operators' is not a reserved keyword in Python." },
+            { "id": "q8", "html": "Which operator is also called as Comparative operator?", "options": ["a) Arithmetic", "b) Relational", "c) Logical", "d) Assignment"], "answer": 1, "hint": "Relational operators compare two operands, hence also called Comparative operators." },
+            { "id": "q9", "html": "Which of the following is not Logical operator?", "options": ["a) and", "b) or", "c) not", "d) Assignment"], "answer": 3, "hint": "and, or, not are logical operators; Assignment (=) is a different category." },
+            { "id": "q10", "html": "Which operator is also called as Conditional operator?", "options": ["a) Ternary", "b) Relational", "c) Logical", "d) Assignment"], "answer": 0, "hint": "The Ternary operator (if...else in one line) is also called the Conditional operator." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "navLabel": "Part II -- Short Answers (5 x 2)",
+      "title": "Part II -- Short Answer Questions",
+      "type": "short-essay",
+      "scoreMax": 10,
+      "marksPer": 2,
+      "instruction": "Answer in 2-3 sentences.",
+      "questions": [
+        { "q": "What are the different modes that can be used to test Python Program?", "ans": "Python programs can be written in two modes: Interactive mode, where code is typed directly at the Python command prompt (>>>) and results appear immediately, and Script mode, where programs are written and stored as separate .py files and executed as a whole." },
+        { "q": "Write short notes on Tokens.", "ans": "Tokens are the smallest elementary lexical components a Python program is broken into by the interpreter. There are five types: Identifiers, Keywords, Operators, Delimiters, and Literals. Whitespace separation is necessary between tokens." },
+        { "q": "What are the different operators that can be used in Python?", "ans": "Python supports Arithmetic operators (+, -, *, /, %, **, //), Relational/Comparative operators (==, >, <, >=, <=, !=), Logical operators (and, or, not), Assignment operators (=, +=, -=, *=, /=, %=, **=, //=), and the Conditional (Ternary) operator." },
+        { "q": "What is a literal? Explain the types of literals.", "ans": "A literal is raw data given to a variable or constant. Python has three types of literals: Numeric Literals (Integer, Float, Complex), String Literals (sequences of characters in quotes), and Boolean Literals (True or False)." },
+        { "q": "Write short notes on Exponent data.", "ans": "Exponent data is a form of floating point number containing a decimal digit part, a decimal point, and an exponent part followed by one or more digits, written using 'e' or 'E'. Example: 12.E04 and 24.e04 represent floating point values expressed in exponential form." }
+      ]
+    },
+    {
+      "id": "p3",
+      "navLabel": "Part III -- Brief Answers (3 x 3)",
+      "title": "Part III -- Brief Answer Questions",
+      "type": "short-essay",
+      "scoreMax": 9,
+      "marksPer": 3,
+      "instruction": "Answer in 4-6 sentences.",
+      "questions": [
+        { "q": "Write short notes on Arithmetic operator with examples.", "ans": "Arithmetic operators perform mathematical calculations on two operands. Python supports + (addition), - (subtraction), * (multiplication), / (division, gives float), % (modulus/remainder), ** (exponent), and // (floor division). For example, if a=100 and b=10: a+b=110, a-b=90, a*b=1000, a/b=10.0, a%30=10, a**2=10000, and a//30=3." },
+        { "q": "What are the assignment operators that can be used in Python?", "ans": "The basic assignment operator is = (assigns the right-side value to the left-side variable, e.g., a,b=5,10). Python also supports compound assignment operators: += (add and assign), -= (subtract and assign), *= (multiply and assign), /= (divide and assign), %= (modulus and assign), **= (exponent and assign), and //= (floor divide and assign) — each combines an arithmetic operation with assignment in one step." },
+        { "q": "Explain Ternary operator with examples.", "ans": "The Ternary (Conditional) operator evaluates a value based on a condition being true or false, replacing a multi-line if-else with a single compact line. Syntax: Variable = [on_true] if [Test expression] else [on_false]. Example: min = 49 if 49<50 else 50 assigns 49 to min. Another example: a,b=30,20; min = a if a<b else b assigns 20 to min (since a is not less than b)." }
+      ]
+    },
+    {
+      "id": "p4",
+      "navLabel": "Part IV -- Explain in Detail (3 x 5)",
+      "title": "Part IV -- Long Answer Questions",
+      "type": "long-essay",
+      "scoreMax": 15,
+      "marksPer": 5,
+      "instruction": "Answer in detail.",
+      "questions": [
+        {
+          "q": "Describe in detail the procedure for Script mode programming.",
+          "ans": "Script mode is used to create and edit Python source files (extension .py) that can be executed repeatedly.\n\n1. Creating: Choose File -> New File (or Ctrl+N) in the Python shell window, which opens an untitled blank script editor. Type the code (e.g., a=100; b=350; c=a+b; print(\"The Sum=\",c)).\n\n2. Saving: Choose File -> Save (or Ctrl+S), the Save As dialog appears -- select the location, type a file name, and Python automatically appends the .py extension. Click Save.\n\n3. Executing: Choose Run -> Run Module (or press F5). If the code has errors, they are shown in red in the IDLE window, describing the error type -- go back to the editor, fix it, save again (Ctrl+S), and re-run. For error-free code, the output appears in the IDLE output window."
+        },
+        {
+          "q": "Explain input() and print() functions with examples.",
+          "ans": "print() function: Displays results on the screen. Syntax: print(\"string\"), print(variable), print(\"string\", variable), etc. Example: print(\"The sum = \", z) where z=11 outputs 'The sum =  11'. print() evaluates the expression before printing, and comma (,) separates multiple items in one print statement.\n\ninput() function: Accepts data as input at run time. Syntax: Variable = input(\"prompt string\"). The prompt string tells the user what to enter. Example: city=input(\"Enter Your City: \") followed by print(\"I am from \", city) -- if the user types 'Madurai', it prints 'I am from  Madurai'.\n\nImportant note: input() always returns data as a STRING, even if numbers are typed. To use it as a number, explicit conversion is needed, e.g., x=int(input(\"Enter Number 1: \")). Without a prompt string, input() gives no indication to the user of what to type, making the program less interactive."
+        },
+        {
+          "q": "Discuss in detail about Tokens in Python.",
+          "ans": "Python breaks each logical line into a sequence of elementary lexical components known as Tokens. There are five token types:\n\n1. Identifiers: Names used to identify a variable, function, class, module, or object. Must start with a letter or underscore, may contain digits, are case-sensitive, cannot be a keyword, and cannot contain special characters like %, $, @.\n\n2. Keywords: Special reserved words (like if, while, def, class, True, False, None) that have specific meaning to the interpreter and cannot be used as identifiers.\n\n3. Operators: Special symbols representing computations or comparisons -- Arithmetic, Relational, Logical, Assignment, and Conditional operators.\n\n4. Delimiters: Sequences of characters marking boundaries between regions in code, such as (), [], {}, comma, colon, and semicolon.\n\n5. Literals: Raw data assigned to a variable or constant -- Numeric, String, and Boolean literals.\n\nWhitespace separation is necessary between tokens, ensuring the interpreter can correctly identify where one token ends and the next begins."
+        }
+      ]
+    }
+  ]
+}

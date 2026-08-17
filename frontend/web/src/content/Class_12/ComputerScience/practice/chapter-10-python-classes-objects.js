@@ -1,0 +1,93 @@
+export default {
+  "meta": {
+    "subject": "Computer Science -- Class XII",
+    "unit": "Chapter 10 -- Python Classes and Objects",
+    "time": "3.00 hrs",
+    "totalMarks": 49,
+    "instructions": "Samacheer Kalvi -- Answer all questions"
+  },
+  "parts": [
+    {
+      "id": "p1",
+      "navLabel": "Part I -- MCQ (10 x 1)",
+      "title": "Part I -- Choose the Correct Answer",
+      "type": "mcq",
+      "scoreMax": 10,
+      "marksPer": 1,
+      "sections": [
+        {
+          "label": "Python Classes and Objects",
+          "questions": [
+            { "id": "q1", "html": "Which of the following are the key features of an Object Oriented Programming language?", "options": ["a) Constructor and Classes", "b) Constructor and Object", "c) Classes and Objects", "d) Constructor and Destructor"], "answer": 2, "hint": "Classes and Objects are the key OOP features (constructor/destructor are special methods within a class)." },
+            { "id": "q2", "html": "Functions defined inside a class:", "options": ["a) Functions", "b) Module", "c) Methods", "d) section"], "answer": 2, "hint": "Functions defined inside a class are called Methods." },
+            { "id": "q3", "html": "Class members are accessed through which operator?", "options": ["a) &", "b) .", "c) #", "d) %"], "answer": 1, "hint": "The dot (.) operator accesses class members via an object." },
+            { "id": "q4", "html": "Which of the following method is automatically executed when an object is created?", "options": ["a) __object__()", "b) __del__()", "c) __func__()", "d) __init__()"], "answer": 3, "hint": "__init__() is the constructor, automatically called on object creation." },
+            { "id": "q5", "html": "A private class variable is prefixed with", "options": ["a) __", "b) &&", "c) ##", "d) **"], "answer": 0, "hint": "A double underscore (__) prefix makes a class variable private." },
+            { "id": "q6", "html": "Which of the following method is used as destructor?", "options": ["a) __init__()", "b) __dest__()", "c) __rem__()", "d) __del__()"], "answer": 3, "hint": "__del__() is Python's destructor method." },
+            { "id": "q7", "html": "Which of the following class declaration is correct?", "options": ["a) class class_name", "b) class class_name<>", "c) class class_name:", "d) class class_name[ ]"], "answer": 2, "hint": "A class declaration needs a colon after the name: class class_name:" },
+            { "id": "q8", "html": "What is the output of: class Student: def __init__(self, name): self.name=name; print(self.name) — S=Student(\"Tamil\")", "options": ["a) Error", "b) Tamil", "c) name", "d) self"], "answer": 1, "hint": "The constructor prints self.name, which was set to 'Tamil', so it prints 'Tamil'." },
+            { "id": "q9", "html": "Which of the following is the private class variable?", "options": ["a) __num", "b) ##num", "c) $$num", "d) &&num"], "answer": 0, "hint": "A double underscore prefix (__num) denotes a private class variable in Python." },
+            { "id": "q10", "html": "The process of creating an object is called as:", "options": ["a) Constructor", "b) Destructor", "c) Initialize", "d) Instantiation"], "answer": 3, "hint": "Creating an object from a class is called Class Instantiation." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "navLabel": "Part II -- Short Answers (5 x 2)",
+      "title": "Part II -- Short Answer Questions",
+      "type": "short-essay",
+      "scoreMax": 10,
+      "marksPer": 2,
+      "instruction": "Answer in 2-3 sentences.",
+      "questions": [
+        { "q": "What is class?", "ans": "A class is a template or blueprint for an object -- the main building block in Python. It groups together class variables (data) and methods (functions), and objects (instances) are created from it to actually use those members." },
+        { "q": "What is instantiation?", "ans": "Instantiation is the process of creating an object (instance) of a class. It is done using the syntax Object_name = class_name(), which uses function-call notation with the class name." },
+        { "q": "What is the output of the following program? class Sample: __num=10; def disp(self): print(self.__num); S=Sample(); S.disp(); print(S.__num)", "ans": "The output will be: 10, followed by an AttributeError. S.disp() successfully prints 10, since __num is accessed from WITHIN the class via self. But print(S.__num) tries to access the private variable from OUTSIDE the class directly, which raises: AttributeError: 'Sample' object has no attribute '__num'." },
+        { "q": "How will you create constructor in Python?", "ans": "A constructor is created by defining a special method named __init__ (with double underscores on both sides) inside the class, with self as its first parameter, optionally followed by other parameters. It executes automatically whenever an object of the class is created, and is commonly used to initialize instance variables." },
+        { "q": "What is the purpose of Destructor?", "ans": "The purpose of a destructor is to perform cleanup actions when an object is destroyed or goes out of scope -- it is the opposite of a constructor. In Python, the __del__() method serves as the destructor, called automatically when an object reference is deleted using the del statement." }
+      ]
+    },
+    {
+      "id": "p3",
+      "navLabel": "Part III -- Brief Answers (3 x 3)",
+      "title": "Part III -- Brief Answer Questions",
+      "type": "short-essay",
+      "scoreMax": 9,
+      "marksPer": 3,
+      "instruction": "Answer in 4-6 sentences.",
+      "questions": [
+        { "q": "What are class members? How do you define it?", "ans": "Class members are the variables and functions defined inside a class -- variables are called Class Variables, and functions are called Methods. They are defined simply by writing statements (variable assignments or def blocks) inside the indented body of a class definition, and are accessed from outside the class using an object followed by the dot (.) operator." },
+        { "q": "Write a class with two private class variables and print the sum using a method.", "ans": "class Numbers:\n    __a = 15\n    __b = 25\n    def total(self):\n        print(\"Sum =\", self.__a + self.__b)\n\nN = Numbers()\nN.total()\n\nHere, __a and __b are private class variables (accessible only within the class due to the double-underscore prefix). The method total(), defined inside the class, can access both private variables using self and prints their sum -- calling N.total() from outside works fine, since the access happens through the class's own method." },
+        { "q": "Find the error in the following program: class Fruits: ... F=Fruits('Apple','Mango'); del F.display; F.display()", "ans": "The error occurs because 'del F.display' deletes the display method itself from the object F (or attempts to remove that attribute reference), so the subsequent call F.display() fails with an AttributeError, since 'display' no longer exists as a callable method on F. The fix is to remove the 'del F.display' line entirely -- simply calling F.display() directly after creating the object F would correctly produce the expected output 'Fruit 1 = Apple, Fruit 2 = Mango'." }
+      ]
+    },
+    {
+      "id": "p4",
+      "navLabel": "Part IV -- Explain in Detail (4 x 5)",
+      "title": "Part IV -- Long Answer Questions",
+      "type": "long-essay",
+      "scoreMax": 20,
+      "marksPer": 5,
+      "instruction": "Answer in detail.",
+      "questions": [
+        {
+          "q": "Explain about constructor and destructor with suitable example.",
+          "ans": "Constructor: A special function automatically executed when an object of a class is created. In Python, __init__() serves as the constructor -- it must begin and end with double underscores, and is used to initialize class/instance variables. It can be defined with or without extra arguments (besides self).\n\nclass Sample:\n    def __init__(self, num):\n        print(\"Constructor of class Sample...\")\n        self.num = num\n        print(\"The value is :\", num)\nS = Sample(10)\n# Output: Constructor of class Sample...\n#         The value is : 10\n\nDestructor: A special method that destroys an object, the OPPOSITE of a constructor. In Python, __del__() serves as the destructor, called automatically when an object reference is removed using del.\n\nclass Sample:\n    def __init__(self, var):\n        self.var = var\n        print(\"Object created:\", self.var)\n    def __del__(self):\n        print(\"Object destroyed:\", self.var)\nS = Sample(15)\ndel S\n# Output: Object created: 15\n#         Object destroyed: 15\n\nTogether, the constructor sets up an object's initial state when it comes into existence, and the destructor performs any needed cleanup when the object is removed."
+        },
+        {
+          "q": "Explain class methods and the role of the self keyword.",
+          "ans": "A class method in Python is very similar to an ordinary function, with one crucial difference: its FIRST parameter must always be named 'self'. When calling the method, you do NOT pass a value for self explicitly -- Python supplies it automatically, referring to the specific object the method was called on. Even a method that logically takes no other arguments must still declare self as its sole parameter.\n\nExample:\nclass Student:\n    mark1, mark2, mark3 = 45, 91, 71\n    def process(self):\n        total = Student.mark1 + Student.mark2 + Student.mark3\n        print(\"Total Marks =\", total)\nS = Student()\nS.process()   # self is passed automatically as S\n\nThe self keyword lets a method access the specific object's own instance variables and other members (via self.variable_name), distinguishing one object's data from another's when a class is used to create multiple objects. Without self, a method would have no way to know which particular object's data to work with when several objects of the same class exist simultaneously."
+        },
+        {
+          "q": "Explain public and private data members with suitable examples.",
+          "ans": "In Python, variables defined inside a class are PUBLIC by default -- they can be freely accessed from anywhere in the program using the object name and dot operator. A variable prefixed with a DOUBLE UNDERSCORE (__) becomes PRIVATE -- it can only be accessed from WITHIN the class itself (typically through a method defined inside that class).\n\nExample:\nclass Sample:\n    n1 = 12          # public\n    __n2 = 14        # private\n    def display(self):\n        print(self.n1)     # works -- called from within the class\n        print(self.__n2)   # works -- called from within the class\n\nS = Sample()\nS.display()          # both values print successfully\nprint(S.n1)          # works -- n1 is public\nprint(S.__n2)        # FAILS -- AttributeError, since __n2 is private\n\nThis demonstrates Python's approach to encapsulation: while Python doesn't enforce strict access control like some other languages, the double-underscore naming convention effectively hides private variables from direct outside access, protecting a class's internal data and encouraging users to interact with it only through its public methods."
+        },
+        {
+          "q": "Write a Python program using a class to accept a string and count the number of uppercase, lowercase, vowels, consonants and spaces in it. Explain the program.",
+          "ans": "class StringInfo:\n    def __init__(self):\n        self.upper = 0\n        self.lower = 0\n        self.vowel = 0\n        self.consonant = 0\n        self.space = 0\n        self.string = \"\"\n\n    def getstr(self):\n        self.string = str(input(\"Enter a String: \"))\n\n    def count(self):\n        for ch in self.string:\n            if ch.isupper():\n                self.upper += 1\n            if ch.islower():\n                self.lower += 1\n            if ch in 'AEIOUaeiou':\n                self.vowel += 1\n            if ch.isspace():\n                self.space += 1\n        self.consonant = self.upper + self.lower - self.vowel\n\n    def display(self):\n        print(\"Uppercase:\", self.upper)\n        print(\"Lowercase:\", self.lower)\n        print(\"Vowels:\", self.vowel)\n        print(\"Consonants:\", self.consonant)\n        print(\"Spaces:\", self.space)\n\nS = StringInfo()\nS.getstr()\nS.count()\nS.display()\n\nExplanation: The __init__() constructor initializes all counters to 0 and the string to empty when an object is created. getstr() reads the input string via a separate method. count() iterates through every character of the string, checking each character with built-in string methods (isupper(), islower(), isspace()) and membership in the vowel string, incrementing the appropriate counter -- consonants are calculated afterward as (uppercase+lowercase-vowels), since every alphabetic character is either a vowel or a consonant. Finally, display() prints all five counted totals. This program demonstrates using a class to bundle related data (the counts) with the methods that operate on that data (getstr, count, display), keeping the whole task neatly organized."
+        }
+      ]
+    }
+  ]
+}

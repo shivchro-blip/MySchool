@@ -1,0 +1,242 @@
+export default {
+  chapterNumber: 4,
+  title: "Algorithmic Strategies",
+  subject: "Computer Science",
+  classLabel: "Class 12",
+  curriculum: "Samacheer Kalvi",
+
+  sections: [
+    {
+      id: "intro-characteristics",
+      title: "Introduction & Characteristics of an Algorithm",
+      content: `**4.1 Introduction to Algorithmic Strategies**
+
+An **algorithm** is a finite set of instructions to accomplish a particular task — a step-by-step procedure for solving a given problem. It can be implemented in any suitable programming language. Algorithms must have input and output, and should satisfy the characteristics of definiteness, correctness, and effectiveness. Data is maintained and manipulated effectively through **data structures**; algorithms can be developed to store, manipulate, and retrieve data from such structures (arrays, structures, lists, tuples, dictionaries, etc.).
+
+The word **Algorithm** comes from the name of a Persian author, Abu Ja'far Mohammed ibn Musa al Khowarizmi (c. 825 AD/CE), who wrote a textbook on mathematics — the word has come to refer to a method for solving a problem.
+
+**4.1.1 Characteristics of an Algorithm**
+
+| Characteristic | Description |
+|---|---|
+| Input | Zero or more quantities to be supplied |
+| Output | At least one quantity is produced |
+| Finiteness | Algorithms must terminate after a finite number of steps |
+| Definiteness | All operations should be well defined (e.g., division by zero or square root of a negative number is unacceptable) |
+| Effectiveness | Every instruction must be carried out effectively |
+| Correctness | The algorithm should be error free |
+| Simplicity | Easy to implement |
+| Unambiguous | Clear steps; each step's input/output should lead to only one meaning |
+| Feasibility | Should be feasible with available resources |
+| Portable | Generic, independent of any programming language/OS, handling all range of inputs |
+| Independent | Step-by-step directions independent of any programming code |
+
+**4.1.2 Writing an Algorithm**
+
+Algorithms are generic, not limited to computers alone — used in daily activities like packing a bag, finding a shortest path, or scheduling activities. A typical algorithm follows the pattern: **Input → Process → Output**.
+
+**Example — Coffee Preparation:** Ingredients (Water, milk, coffee powder, sugar) are the INPUTS; preparing coffee is the PROCESS; the resulting coffee is the OUTPUT. Procedure: (1) Take a bowl with coffee powder; (2) Boil water and pour it in; (3) Filter it; (4) Boil milk; (5) Mix sugar and filtered coffee with boiled milk; (6) Pour into the cup to serve.
+
+**Example — Square of a Number:**
+\`\`\`
+Step 1 – start the process
+Step 2 – get the input x
+Step 3 – calculate the square: square ← x*x
+Step 4 – display the result square
+Step 5 – stop
+\`\`\`
+An algorithm that yields expected output for a valid input is called an **algorithmic solution**.
+
+**Algorithm vs Program:**
+
+| Algorithm | Program |
+|---|---|
+| Helps solve a problem logically; contrasted with the program | Expression of the algorithm in a programming language |
+| Can be categorized based on implementation methods, design techniques etc. | Can be implemented via structured or object-oriented programming |
+| No specific rules for writing, but guidelines should be followed | Should be written for a selected language with specific syntax |
+| Resembles pseudo code implementable in any language | More specific to a particular programming language |`,
+      nav: { next: "complexity-analysis", nextLabel: "Next: Complexity & Efficiency of an Algorithm →" }
+    },
+    {
+      id: "complexity-analysis",
+      title: "Complexity & Efficiency of an Algorithm",
+      content: `**4.1.3 Analysis of Algorithm**
+
+Computer resources are limited. Efficiency of an algorithm is defined by the utilization of time and space complexity. Analysis of an algorithm usually deals with the running/execution time of various operations involved — the running time is calculated as how many programming instructions execute per operation.
+
+Analysis and performance evaluation has two phases: (1) **A Priori estimates** — a theoretical performance analysis, assuming external factors; (2) **A Posteriori testing** — performance measurement, collecting actual statistics like running time.
+
+An estimation of the time and space complexities of an algorithm for varying input sizes is called **algorithm analysis**.
+
+**4.2 Complexity of an Algorithm**
+
+If A is an algorithm and n is the size of input data, the time and space used by A are its two main efficiency factors. **Time Factor** is measured by counting the number of key operations (like comparisons in a sort). **Space Factor** is measured by the maximum memory space required. The complexity of an algorithm f(n) gives the running time and/or storage space required in terms of n, the size of the input data.
+
+**4.2.1 Time Complexity:** Given by the number of steps taken by the algorithm to complete the process.
+
+**4.2.2 Space Complexity:** The amount of memory required to run to completion — the sum of two components: a **fixed part** (total space for certain data/variables, like simple variables/constants) and a **variable part** (total space required by variables whose size depends on the problem and its iteration, e.g., recursion for calculating factorial).
+
+**4.3 Efficiency of an Algorithm**
+
+The efficiency of an algorithm is defined as the number of computational resources used by it — it must be analyzed to determine its resource usage. We wish to minimize resource usage; time and space complexity cannot be compared directly, so they're considered separately for algorithmic efficiency.
+
+**4.3.1 Method for Determining Efficiency:** Depends on how efficiently it uses time and memory. Time efficiency can be measured by writing a program, executing it, and measuring total run time — but this depends on speed of machine, compiler, OS, programming language, and volume of data. To truly determine efficiency, we need laws describing efficiency in terms of the underlying algorithm's nature.
+
+**Note:** A way of designing an algorithm is called an **algorithmic strategy**.
+
+**4.3.2 Space-Time Tradeoff:** A space-time (or time-memory) tradeoff solves a problem in less time by using more storage space, or in very little space by spending more time. Many different algorithms may solve a given problem — some extremely time-efficient, others extremely space-efficient. This refers to a situation where you reduce memory use at the cost of slower execution, or reduce running time at the cost of increased memory usage. **The best algorithm** requires less space and takes less time to execute.
+
+**4.3.3 Asymptotic Notations**
+
+Asymptotic Notations are languages that use meaningful statements about time and space complexity. Three notations mostly used to represent time complexity:
+
+- **(i) Big O:** Often used to describe the **worst-case** of an algorithm (upper bound).
+- **(ii) Big Ω (Omega):** The reverse of Big O — used to describe the **lower bound** (best-case).
+- **(iii) Big Θ (Theta):** When an algorithm's complexity has lower bound = upper bound — e.g., O(n log n) and Ω(n log n) — it's actually Θ(n log n), meaning the running time always falls in n log n in both best-case and worst-case.
+
+**4.3.4 Best, Worst, and Average Case Efficiency**
+
+Consider searching for a key element in a list of n values by comparing sequentially. The **best case** would be if the first element matches — efficiency O(1) (one comparison enough). The **worst case** is if the entire list is searched, found only at the end (or not found) — efficiency O(n) (n comparisons needed).
+
+**Average case:** Minimum comparisons=1, Maximum comparisons=n (if found), or n (if not found, maximum is also n). Average number of comparisons = (n+1)/2. Hence the average case efficiency is expressed as **O(n)**.`,
+      nav: { back: "intro-characteristics", next: "searching", nextLabel: "Next: Searching Techniques →" }
+    },
+    {
+      id: "searching",
+      title: "Searching Techniques: Linear & Binary Search",
+      content: `**4.4 Algorithm for Searching Techniques**
+
+**4.4.1 Linear Search**
+
+Also called **sequential search** — a sequential method for finding a particular value in a list. Checks the search element against each element in sequence until found, or the list is exhausted. The list need NOT be ordered.
+
+**Procedure:**
+1. Traverse the array using a for loop.
+2. In every iteration, compare the target search key value with the current value of the list.
+   - If the values match, display the current index and value.
+   - If not, move to the next array element.
+3. If no match is found, display "search element not found."
+
+**Example:** To search for 25 in \`values = [10, 12, 20, 25, 30]\` (indices 0-4), linear search proceeds step by step from index 0; 25 is found at index 3.
+
+**Example 1:** Input: values[] = {5, 34, 65, 12, 77, 35}, target=77 → Output: 4
+**Example 2:** Input: values[] = {101, 392, 1, 54, 32, 22, 90, 93}, target=200 → Output: -1 (not found)
+
+**4.4.2 Binary Search**
+
+Also called **half-interval search algorithm**. Finds the position of a search element within a **sorted** array, using a divide-and-conquer approach, executing in logarithmic time.
+
+**Procedure:**
+1. Start with the middle element: mid = number of elements/2. If the search element equals the middle element, return that index.
+2. Otherwise compare: if the search element is greater than the middle, select elements to the RIGHT and repeat Step-1; if less, select elements to the LEFT and repeat Step-1.
+3. When a match is found, display success with the index. If no match after all comparisons, display unsuccessful message.
+
+**Working — Example:** Array must be sorted first: \`[10,20,30,40,50,60,70,80,90,99]\` (indices 0-9). Searching for 60:
+
+mid = low + (high-low)/2 = 0 + (9-0)/2 = 4 (fractional part ignored). Value at index 4 is 50 — not a match; since 60>50, search the right half. low = mid+1 = 5; mid = 5+(9-5)/2 = 7. Value at index 7 is 80 — not a match; since 60<80, search the lower part. high = mid-1 = 6; mid = 5+(6-5)/2 = 5. Value at index 5 is 60 — **match found!** The search element 60 is found at index 5.
+
+If the search element were 95, binary search would return an unsuccessful result (95 doesn't exist in the array).`,
+      nav: { back: "complexity-analysis", next: "sorting", nextLabel: "Next: Sorting Techniques →" }
+    },
+    {
+      id: "sorting",
+      title: "Sorting Techniques: Bubble, Selection & Insertion Sort",
+      content: `**4.5 Sorting Techniques**
+
+**4.5.1 Bubble Sort Algorithm**
+
+A simple sorting algorithm. Starts at the beginning of the list, compares each pair of adjacent elements, and swaps them if in the wrong (unsorted) order. This continues (passes) until no swaps are needed, indicating the list is sorted. It's a comparison sort, named for how smaller elements "bubble" to the top. Simple, but slower/less efficient compared to insertion sort and other methods.
+
+**Procedure:**
+1. Start with the first element (index 0), compare with the next element.
+2. If the current element is greater than the next, swap them.
+3. If less, move to the next element. Repeat from Step 1 until the end of the index is reached.
+
+**Example:** Array {15, 11, 16, 12, 14, 13}. Iteration 1: 15>11 → swap → [11,15,16,12,14,13]; 15<16 → no swap; 16>12 → swap → [11,15,12,16,14,13]; 16>14 → swap → [11,15,12,14,16,13]; 16>13 → swap → [11,15,12,14,13,16]. After all iterations complete: **[11,12,13,14,15,16]** (fully sorted).
+
+**4.5.2 Selection Sort**
+
+Improves on bubble sort by making only ONE exchange per pass. Finds the smallest element in the array and swaps it with the element in the first position; then finds the second smallest and swaps with the second position; continues until the array is fully sorted. It repeatedly selects the next-smallest element and swaps it into place — hence "selection sort."
+
+**Procedure:**
+1. Start at index 0; search for the smallest element in the array, and swap with the first position.
+2. Move to the second position; find the smallest element in the sub-array (from that index to the end).
+3. Swap that second-smallest element into the second position.
+4. Repeat until the array is completely sorted.
+
+**Example:** Array {13,16,11,18,14,15}. Pass 1: smallest is 11 → swapped to position 1 → [11,16,13,18,14,15]. Pass 2: next smallest (13) → position 2 → [11,13,16,18,14,15]. Continuing similarly, final sorted array: **[11,13,14,15,16,18]**.
+
+**4.5.3 Insertion Sort**
+
+A simple sorting algorithm — takes elements from the list one by one, inserting each into its correct position in a new sorted sub-list. Builds the final sorted array progressively, using n-1 passes.
+
+**Procedure:**
+1. If it is the first element, it is already sorted.
+2. Pick the next element.
+3. Compare with all elements in the sorted sub-list.
+4. Shift all elements in the sorted sub-list that are greater than the value to be sorted.
+5. Insert the value.
+6. Repeat until the list is sorted.
+
+**Example:** Array {44,16,83,07,67,21,34,45,10}. Assume 44 is a sorted list of 1 item; insert 16 → [16,44,...]; insert 83 → [16,44,83,...]; insert 07 → [07,16,44,83,...]; insert 67 → [07,16,44,67,83,...]; insert 21 → [07,16,21,44,67,83,...]; insert 34 → [07,16,21,34,44,67,83,...]; insert 45 → [07,16,21,34,44,45,67,83,...]; insert 10 → final sorted output: **[07,10,16,21,34,44,45,67,83]**.`,
+      nav: { back: "searching", next: "dynamic-programming", nextLabel: "Next: Dynamic Programming →" }
+    },
+    {
+      id: "dynamic-programming",
+      title: "Dynamic Programming",
+      content: `**4.6 Dynamic Programming**
+
+**Dynamic programming** is an algorithmic design method used when the solution to a problem can be viewed as the result of a sequence of decisions. It's similar to divide and conquer — the given problem is divided into smaller and yet smaller possible sub-problems.
+
+Used whenever problems can be divided into similar sub-problems, so their results can be re-used to complete the process. Dynamic programming approaches find the solution in an optimized way — for every inner sub-problem, the algorithm checks the results of previously solved sub-problems, and combines the solutions of overlapped sub-problems to get a better solution.
+
+**Steps to Do Dynamic Programming:**
+1. The given problem is divided into smaller overlapping sub-problems.
+2. An optimum solution is achieved by using the result of the smaller sub-problem.
+3. Dynamic algorithms use **Memoization**.
+
+**Note:** Memoization (or memoisation) is an optimization technique used primarily to speed up computer programs by storing the results of previous function calls and returning the cached result when the same inputs occur again.
+
+**4.6.1 Fibonacci Series — An Example**
+
+The Fibonacci series generates each subsequent number by adding the two previous numbers, starting from Fib0 and Fib1, with initial values 0 and 1. It satisfies: **Fibₙ = Fibₙ₋₁ + Fibₙ₋₂**.
+
+For n=8: Fib8 = 0 1 1 2 3 5 8 13.
+
+**4.6.2 Fibonacci Iterative Algorithm with Dynamic Programming Approach**
+
+\`\`\`
+Initialize f0=0, f1=1
+
+step-1: Print the initial values of Fibonacci f0 and f1
+step-2: Calculate fibonacci fib ← f0 + f1
+step-3: Assign f0 ← f1, f1 ← fib
+step-4: Print the next consecutive value of fibonacci fib
+step-5: Goto step-2 and repeat until the specified number of terms generated
+\`\`\`
+For example, generating the Fibonacci series up to 10 digits:
+\`\`\`
+The Fibonacci series is: 0 1 1 2 3 5 8 13 21 34 55
+\`\`\`
+This iterative approach applies dynamic programming's core idea — reusing previously computed values (f0, f1) rather than recomputing the whole series from scratch each time.`,
+      nav: { back: "sorting", next: "summary", nextLabel: "Next: Points to Remember →" }
+    },
+    {
+      id: "summary",
+      title: "Points to Remember",
+      content: `- An algorithm is a finite set of instructions to accomplish a particular task, consisting of step-by-step instructions.
+- A program is an expression of an algorithm in a programming language.
+- Algorithm analysis deals with the execution/running time of various operations involved.
+- Space complexity is the amount of memory required to run to completion; Time complexity is given by the number of steps taken.
+- Big O describes the worst-case (upper bound); Big Ω describes the best-case (lower bound); Big Θ applies when upper bound = lower bound.
+- The efficiency of an algorithm is defined as the number of computational resources used by it.
+- A way of designing an algorithm is called an algorithmic strategy.
+- A space-time (time-memory) tradeoff solves a problem in less time using more storage space, or vice versa.
+- Asymptotic Notations are languages that use meaningful statements about time and space complexity.
+- Bubble sort compares each pair of adjacent items and swaps them if unsorted; Selection sort improves on it by making only one exchange per pass; Insertion sort builds the final sorted list one item at a time.
+- Dynamic programming is used when a problem's solution can be viewed as the result of a sequence of decisions, reusing overlapping sub-problem solutions via memoization.
+- Linear search checks elements sequentially (list need not be sorted); Binary search requires a sorted array and works via divide-and-conquer in logarithmic time.`,
+      nav: { back: "dynamic-programming", practice: true }
+    }
+  ]
+}

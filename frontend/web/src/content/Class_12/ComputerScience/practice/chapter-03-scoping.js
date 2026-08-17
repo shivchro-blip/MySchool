@@ -1,0 +1,89 @@
+export default {
+  "meta": {
+    "subject": "Computer Science -- Class XII",
+    "unit": "Chapter 3 -- Scoping",
+    "time": "3.00 hrs",
+    "totalMarks": 49,
+    "instructions": "Samacheer Kalvi -- Answer all questions"
+  },
+  "parts": [
+    {
+      "id": "p1",
+      "navLabel": "Part I -- MCQ (20 x 1)",
+      "title": "Part I -- Objective Type",
+      "type": "mcq",
+      "scoreMax": 20,
+      "marksPer": 1,
+      "sections": [
+        {
+          "label": "Scoping",
+          "questions": [
+            { "id": "q1", "html": "Which of the following refers to the visibility of variables in one part of a program to another part of the same program?", "options": ["a) Scope", "b) Memory", "c) Address", "d) Accessibility"], "answer": 0, "hint": "This is the exact definition of Scope." },
+            { "id": "q2", "html": "The process of binding a variable name with an object is called:", "options": ["a) Scope", "b) Mapping", "c) late binding", "d) early binding"], "answer": 1, "hint": "Binding a variable name to an object is called mapping." },
+            { "id": "q3", "html": "Which of the following is used in programming languages to map the variable and object?", "options": ["a) ::", "b) :=", "c) =", "d) =="], "answer": 2, "hint": "The chapter states the equal (=) sign is used for mapping." },
+            { "id": "q4", "html": "Containers for mapping names of variables to objects is called:", "options": ["a) Scope", "b) Mapping", "c) Binding", "d) Namespaces"], "answer": 3, "hint": "Namespaces are the containers for these mappings." },
+            { "id": "q5", "html": "Which scope refers to variables defined in the current function?", "options": ["a) Local Scope", "b) Global scope", "c) Module scope", "d) Function Scope"], "answer": 0, "hint": "Variables defined in the current function belong to Local scope." },
+            { "id": "q6", "html": "The process of subdividing a computer program into separate sub-programs is called:", "options": ["a) Procedural Programming", "b) Modular programming", "c) Event Driven Programming", "d) Object oriented Programming"], "answer": 1, "hint": "Subdividing a program into sub-programs is Modular programming." },
+            { "id": "q7", "html": "Which of the following is a security technique that regulates who can use resources in a computing environment?", "options": ["a) Password", "b) Authentication", "c) Access control", "d) Certification"], "answer": 2, "hint": "Access control regulates who/what can view or use resources." },
+            { "id": "q8", "html": "Which of the following members of a class can be handled only from within the class?", "options": ["a) Public members", "b) Protected members", "c) Secured members", "d) Private members"], "answer": 3, "hint": "Private members cannot be accessed from outside the class at all." },
+            { "id": "q9", "html": "Which members are accessible from outside the class?", "options": ["a) Public members", "b) Protected members", "c) Secured members", "d) Private members"], "answer": 0, "hint": "Public members are accessible from outside the class." },
+            { "id": "q10", "html": "The members that are accessible from within the class and are also available to its sub-classes is called:", "options": ["a) Public members", "b) Protected members", "c) Secured members", "d) Private members"], "answer": 1, "hint": "Protected members extend accessibility to sub-classes as well." },
+            { "id": "q11", "html": "The LEGB rule stands for:", "options": ["a) Local, Enclosed, Global, Built-in", "b) Local, External, Global, Basic", "c) Linked, Enclosed, Global, Built-in", "d) Local, Enclosed, General, Basic"], "answer": 0, "hint": "LEGB = Local, Enclosed, Global, Built-in." },
+            { "id": "q12", "html": "In the LEGB hierarchy, which scope is searched FIRST?", "options": ["a) Built-in", "b) Global", "c) Enclosed", "d) Local"], "answer": 3, "hint": "Local scope is checked first, being the narrowest/innermost scope." },
+            { "id": "q13", "html": "A function (method) within another function is called a:", "options": ["a) Global function", "b) Nested function", "c) Built-in function", "d) Static function"], "answer": 1, "hint": "A function defined inside another function is a nested function." },
+            { "id": "q14", "html": "The scope where an inner function can access a variable of its containing outer function is called:", "options": ["a) Local scope", "b) Global scope", "c) Enclosed scope", "d) Built-in scope"], "answer": 2, "hint": "This describes enclosed scope exactly." },
+            { "id": "q15", "html": "Names pre-loaded into the program scope when the interpreter starts belong to:", "options": ["a) Local scope", "b) Global scope", "c) Enclosed scope", "d) Built-in scope"], "answer": 3, "hint": "Built-in scope has all names pre-loaded at interpreter startup." },
+            { "id": "q16", "html": "By default, all members in a Python class are:", "options": ["a) Private", "b) Protected", "c) Public", "d) Hidden"], "answer": 2, "hint": "Python class members are public by default, unlike C++/Java." },
+            { "id": "q17", "html": "By default, class members in C++ and Java are:", "options": ["a) Public", "b) Private", "c) Protected", "d) Global"], "answer": 1, "hint": "C++ and Java class members default to private access." },
+            { "id": "q18", "html": "Python emulates protected/private access using:", "options": ["a) Special keywords like private/protected", "b) A naming convention with underscore prefixes", "c) No mechanism at all", "d) A separate access.py file"], "answer": 1, "hint": "Python uses a single/double underscore prefix convention, not strict keywords." },
+            { "id": "q19", "html": "A module can be characterised by which of the following?", "options": ["a) Cannot be compiled separately", "b) Contains instructions, processing logic, and data", "c) Cannot be reused", "d) Must always be a single statement"], "answer": 1, "hint": "Modules contain instructions, processing logic, and data, per the chapter's characteristics list." },
+            { "id": "q20", "html": "Which of the following is NOT listed as a benefit of modular programming?", "options": ["a) Less code to be written", "b) Errors are harder to localize", "c) Many programmers can collaborate", "d) Code is short and easy to understand"], "answer": 1, "hint": "Modular programming actually makes errors EASIER to localize, not harder — this option is the false statement." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "navLabel": "Part II -- Short Answers (5 x 2)",
+      "title": "Part II -- Short Answer Questions",
+      "type": "short-essay",
+      "scoreMax": 10,
+      "marksPer": 2,
+      "instruction": "Answer all of the following in two or three sentences.",
+      "questions": [
+        { "q": "What is a scope?", "ans": "Scope refers to the accessibility (visibility) of a variable within one part of a program to another part of the same program. It defines where in the code a particular variable can be referenced." },
+        { "q": "Why should scope be used for a variable? State the reason.", "ans": "Scope helps control which parts of a program can access and modify a variable, preventing naming conflicts between variables in different parts of a program. It also helps manage memory efficiently, since variables limited to a local scope are released once that scope ends." },
+        { "q": "What is Mapping?", "ans": "Mapping is the process of binding a variable name with an object in memory. When you assign a variable using := (or =) to an instance, you are binding (mapping) that variable name to that particular object." },
+        { "q": "What do you mean by Namespaces?", "ans": "Namespaces are containers for mapping names of variables to objects, similar to a dictionary containing words and their meanings. Programming languages use namespaces to keep track of all variable-to-object mappings, allowing access to objects via the names assigned to them." },
+        { "q": "How does Python represent the private and protected Access specifiers?", "ans": "Python doesn't have a strict mechanism to enforce private/protected access. Instead, it uses a naming CONVENTION — prefixing a variable or method name with a single underscore (_name) to suggest 'protected', or a double underscore (__name) to suggest 'private' — to emulate this behaviour." }
+      ]
+    },
+    {
+      "id": "p3",
+      "navLabel": "Part III -- Brief Answers (3 x 3)",
+      "title": "Part III -- Brief Answer Questions",
+      "type": "short-essay",
+      "scoreMax": 9,
+      "marksPer": 3,
+      "instruction": "Answer all of the following in about 50-75 words.",
+      "questions": [
+        { "q": "Define Local scope with an example.", "ans": "Local scope refers to variables defined within the current function — a function always looks up a variable name in its local scope first. Example: Disp(): a:=7; print a — calling Disp() outputs 7, because 'a' is defined and available locally within Disp(). Outside Disp(), 'a' is not accessible at all." },
+        { "q": "Define Global scope with an example.", "ans": "A variable declared outside all functions in a program is a global variable, and can be accessed both inside and outside all functions. Example: a:=10; Disp(): a:=7; print a; Disp(); print a — this outputs 7 (from inside Disp(), where a local 'a' shadows the global one), then 10 (the outer, global 'a', printed after Disp() returns)." },
+        { "q": "Define Enclosed scope with an example.", "ans": "Enclosed scope occurs when a variable declared inside an outer function is accessed by an inner (nested) function defined within it. Example: Disp(): a:=10; Disp1(): print a; Disp1(); print a; Disp() — Disp1() is nested inside Disp(), and can access Disp()'s variable 'a' (printing 10), since 'a' is a member of the enclosing function Disp()." }
+      ]
+    },
+    {
+      "id": "p4",
+      "navLabel": "Part IV -- Long Essays (2 x 5)",
+      "title": "Part IV -- Long Essay Questions",
+      "type": "long-essay",
+      "scoreMax": 10,
+      "marksPer": 5,
+      "instruction": "Answer all of the following in about 100-150 words.",
+      "questions": [
+        { "q": "Explain the types of scopes for variables (the LEGB rule) with examples.", "ans": "The LEGB rule decides the order in which scopes are searched for scope resolution, from highest to lowest priority:\n\n1. Local (L): Variables defined inside the current function/class. Example: Disp(): a:=7; print a — outputs 7, using the locally-defined a.\n\n2. Enclosed (E): Variables defined inside an enclosing (outer) function, accessible to a nested inner function. Example: Disp(): a:=10; Disp1(): print a; Disp1() — Disp1() accesses Disp()'s 'a' (outputs 10).\n\n3. Global (G): Variables defined at the uppermost level of the program, accessible everywhere. Example: a:=10 (outside any function) is accessible both inside and outside all functions, unless shadowed locally.\n\n4. Built-in (B): Names pre-loaded into scope when the interpreter starts, or loaded via imported library modules — the widest scope of all.\n\nWhen resolving a variable name, the interpreter checks Local first, then Enclosed, then Global, then Built-in — stopping at the first scope where a matching name is found." },
+        { "q": "Write any five characteristics of Modules, and any five benefits of using modular programming.", "ans": "Five Characteristics of Modules:\n1. Modules contain instructions, processing logic, and data.\n2. Modules can be separately compiled and stored in a library.\n3. Modules can be included in a program.\n4. Module segments can be used by invoking a name and some parameters.\n5. Module segments can be used by other modules.\n\nFive Benefits of Modular Programming:\n1. Less code needs to be written, since procedures can be reused instead of retyped.\n2. Programs can be designed more easily, as a small team deals with only a small part of the entire code.\n3. Many programmers can collaborate on the same application simultaneously.\n4. Code is short, simple, and easy to understand, since each module handles a focused task.\n5. Errors can easily be identified, as they are localized to a specific subroutine or function, rather than being spread throughout the whole program." }
+      ]
+    }
+  ]
+}
