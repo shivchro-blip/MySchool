@@ -14,6 +14,7 @@ import 'screens/chapter_list_screen.dart';
 import 'screens/chapter_detail_screen.dart';
 import 'screens/learn_screen.dart';
 import 'screens/rich_learn_screen.dart';
+import 'screens/sectioned_learn_screen.dart';
 import 'screens/exam_practice_screen.dart';
 import 'screens/final_exam_prep_screen.dart';
 import 'screens/exam_paper_viewer_screen.dart';
@@ -161,6 +162,19 @@ final router = GoRouter(
               chapterSlug: state.pathParameters['chapterSlug']!,
               chapter: extra?['chapter'] as Chapter?,
               initialTabId: extra?['tab'] as String?,
+            );
+          },
+        ),
+        GoRoute(
+          path: '/sectioned-learn/:classLevel/:subjectSlug/:chapterSlug',
+          builder: (_, state) {
+            final extra = state.extra as Map<String, dynamic>?;
+            return SectionedLearnScreen(
+              classLevel: state.pathParameters['classLevel']!,
+              subjectSlug: state.pathParameters['subjectSlug']!,
+              chapterSlug: state.pathParameters['chapterSlug']!,
+              chapter: extra?['chapter'] as Chapter?,
+              initialSectionId: extra?['section'] as String?,
             );
           },
         ),
