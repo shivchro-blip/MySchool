@@ -267,7 +267,7 @@ class _SubjectCardState extends State<_SubjectCard> {
                     ),
                     const SizedBox(height: 2),
                     Text(
-                      widget.subject.classLevel,
+                      widget.subject.classLevel == '+1' ? 'Class 11' : 'Class 12',
                       style: TextStyle(
                         fontSize: 12,
                         color: _color.withAlpha(160),

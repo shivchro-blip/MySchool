@@ -84,6 +84,22 @@ static List<ExamQuestion> _adapt(Map<String, dynamic> data) {
             modelAnswer: q['ans'] as String,
           ));
         }
+      } else if (type == 'short_answer' || type == 'brief_answer' || type == 'long_essay') {
+        // Underscore variants (Class 11 CS/CA) wrap questions in sections[],
+        // same as mcq, with html/answer keys instead of flat q/ans.
+        for (final rawSec in (part['sections'] as List<dynamic>)) {
+          final sec = rawSec as Map<String, dynamic>;
+          for (final rawQ in (sec['questions'] as List<dynamic>)) {
+            final q = rawQ as Map<String, dynamic>;
+            result.add(ExamQuestion(
+              id:          idx++,
+              type:        ExamQuestionType.written,
+              marks:       marks,
+              html:        q['html']   as String,
+              modelAnswer: q['answer'] as String,
+            ));
+          }
+        }
       }
     }
 
