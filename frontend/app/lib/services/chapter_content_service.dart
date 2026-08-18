@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'package:flutter/services.dart';
 import '../models/chapter_content_model.dart';
+import '../models/sectioned_chapter_content.dart';
+import '../utils/asset_folder.dart';
 
 class ChapterContentService {
   static final ChapterContentService _instance = ChapterContentService._();
@@ -8,6 +10,7 @@ class ChapterContentService {
   ChapterContentService._();
 
   final Map<String, ChapterContent?> _cache = {};
+  final Map<String, SectionedChapterContent?> _sectionedCache = {};
 
   Future<ChapterContent?> loadContent(
     String classLevel,
@@ -19,7 +22,7 @@ class ChapterContentService {
       return _cache[cacheKey];
     }
     try {
-      final folder = _toAssetFolder(classLevel, subjectSlug);
+      final folder = AssetFolder.toFolder(classLevel, subjectSlug);
       final raw = await rootBundle.loadString(
         'assets/content/$folder/chapters/$chapterSlug.json',
       );
@@ -33,20 +36,32 @@ class ChapterContentService {
     }
   }
 
+  Future<SectionedChapterContent?> loadSectionedContent(
+    String classLevel,
+    String subjectSlug,
+    String chapterSlug,
+  ) async {
+    final cacheKey = '$classLevel/$subjectSlug/$chapterSlug';
+    if (_sectionedCache.containsKey(cacheKey)) {
+      return _sectionedCache[cacheKey];
+    }
+    try {
+      final folder = AssetFolder.toFolder(classLevel, subjectSlug);
+      final raw = await rootBundle.loadString(
+        'assets/content/$folder/chapters/$chapterSlug.json',
+      );
+      final data = jsonDecode(raw) as Map<String, dynamic>;
+      final content = SectionedChapterContent.fromJson(data);
+      _sectionedCache[cacheKey] = content;
+      return content;
+    } catch (_) {
+      _sectionedCache[cacheKey] = null;
+      return null;
+    }
+  }
+
   bool hasContent(String classLevel, String subjectSlug, String chapterSlug) {
     final key = '$classLevel/$subjectSlug/$chapterSlug';
     return _cache.containsKey(key) ? _cache[key] != null : false;
-  }
-
-  static String _toAssetFolder(String classLevel, String subjectSlug) {
-    final cl = switch (classLevel.toLowerCase()) {
-      '+1' => 'Class_11',
-      '+2' => 'Class_12',
-      _ => classLevel,
-    };
-    final sub = subjectSlug.isEmpty
-        ? subjectSlug
-        : subjectSlug[0].toUpperCase() + subjectSlug.substring(1);
-    return '$cl/$sub';
   }
 }

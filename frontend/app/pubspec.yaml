@@ -50,5 +50,13 @@ flutter:
     - assets/content/Class_11/English/practice/
     - assets/content/Class_12/English/chapters/
     - assets/content/Class_12/English/practice/
+    - assets/content/Class_11/ComputerApplications/chapters/
+    - assets/content/Class_11/ComputerApplications/practice/
+    - assets/content/Class_11/ComputerScience/chapters/
+    - assets/content/Class_11/ComputerScience/practice/
+    - assets/content/Class_12/ComputerApplications/chapters/
+    - assets/content/Class_12/ComputerApplications/practice/
+    - assets/content/Class_12/ComputerScience/chapters/
+    - assets/content/Class_12/ComputerScience/practice/
     - assets/content/legal/
     - assets/model_papers/

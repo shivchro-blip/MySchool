@@ -28,8 +28,10 @@ class _SubjectListScreenState extends State<SubjectListScreen> {
 
   String get _title => SyllabusConfig.courseShortTitle(widget.classLevel);
 
-  // Returns true when the subject's slug or name matches an allowed slug.
-  // Handles 'maths' ↔ 'mathematics' equivalence gracefully.
+  // Returns true when the subject's slug or name exactly matches an allowed
+  // entry. Handles 'maths' ↔ 'mathematics' equivalence gracefully.
+  // Exact matching only — substring matching previously let 'computer-science'
+  // leak into a 'science'-only filter, since 'computer-science'.contains('science').
   bool _isAllowed(Subject subject, List<String> allowed) {
     if (allowed.isEmpty) return true;
     final slug = subject.slug.toLowerCase();
@@ -37,10 +39,8 @@ class _SubjectListScreenState extends State<SubjectListScreen> {
     for (final a in allowed) {
       final al = a.toLowerCase();
       if (slug == al) return true;
-      if (slug.contains(al) || al.contains(slug)) return true;
-      // Normalise 'maths' → 'math' for name comparison.
-      final norm = al == 'maths' ? 'math' : al;
-      if (name.contains(norm)) return true;
+      final norm = al == 'maths' ? 'mathematics' : al;
+      if (name == norm) return true;
     }
     return false;
   }
@@ -187,6 +187,12 @@ class _SubjectCardState extends State<_SubjectCard> {
     }
     if (n.contains('math')) {
       return Icons.calculate_outlined;
+    }
+    if (n.contains('computer application')) {
+      return Icons.desktop_windows_outlined;
+    }
+    if (n.contains('computer science')) {
+      return Icons.code_rounded;
     }
     if (n.contains('science')) {
       return Icons.science_outlined;

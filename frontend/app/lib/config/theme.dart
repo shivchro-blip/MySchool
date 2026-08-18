@@ -57,6 +57,10 @@ class AppTheme {
   static const Color mathsBg    = Color(0xFFEEEFF9);
   static const Color science    = Color(0xFFD97020);
   static const Color scienceBg  = Color(0xFFFBEEE0);
+  static const Color computerApplications   = Color(0xFF0EA5E9);
+  static const Color computerApplicationsBg = Color(0xFFE0F2FE);
+  static const Color computerScience        = Color(0xFF7C3AED);
+  static const Color computerScienceBg      = Color(0xFFF1EAFE);
 
   static const Color plus1      = Color(0xFF2EC4B6);
   static const Color plus1Bg    = Color(0xFFE7FAFA);
@@ -120,6 +124,8 @@ class AppTheme {
     final n = name.toLowerCase();
     if (n.contains('english')) return english;
     if (n.contains('math'))    return maths;
+    if (n.contains('computer application')) return computerApplications;
+    if (n.contains('computer science'))      return computerScience;
     if (n.contains('science')) return science;
     return const Color(0xFF6B7280);
   }
@@ -128,6 +134,8 @@ class AppTheme {
     final n = name.toLowerCase();
     if (n.contains('english')) return englishBg;
     if (n.contains('math'))    return mathsBg;
+    if (n.contains('computer application')) return computerApplicationsBg;
+    if (n.contains('computer science'))      return computerScienceBg;
     if (n.contains('science')) return scienceBg;
     return const Color(0xFFF3F4F6);
   }
