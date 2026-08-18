@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../config/theme.dart';
 import '../config/final_exam_prep_config.dart';
+import '../config/syllabus_config.dart';
 import '../services/model_paper_service.dart';
 
 class FinalExamPrepScreen extends StatelessWidget {
@@ -14,15 +15,24 @@ class FinalExamPrepScreen extends StatelessWidget {
     required this.subjectSlug,
   });
 
-  List<ExamPaper> get _papers =>
-      classLevel == '+2' ? kPlus2EnglishExamPapers : kPlus1EnglishExamPapers;
+  // Only English has past annual exam papers today. CS/CA get an empty list,
+  // which hides the card below (mirrors web's FinalExamPrepPage PAPERS_BY_KEY).
+  List<ExamPaper> get _papers {
+    if (subjectSlug != 'english') return const <ExamPaper>[];
+    return classLevel == '+2' ? kPlus2EnglishExamPapers : kPlus1EnglishExamPapers;
+  }
 
   List<ModelPaper> get _modelPapers =>
       ModelPaperService.getPapers(classLevel, subjectSlug);
 
-  List<PriorityLesson> get _lessons => classLevel == '+2'
-      ? kPlus2EnglishPriorityLessons
-      : kPlus1EnglishPriorityLessons;
+  // Only English has curated priority-lesson guidance today; CS/CA get none
+  // (mirrors web's FinalExamPrepPage LESSONS_BY_KEY).
+  List<PriorityLesson> get _lessons {
+    if (subjectSlug != 'english') return const <PriorityLesson>[];
+    return classLevel == '+2'
+        ? kPlus2EnglishPriorityLessons
+        : kPlus1EnglishPriorityLessons;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,8 +54,8 @@ class FinalExamPrepScreen extends StatelessWidget {
             ),
             const SizedBox(height: 6),
             Text(
-              'Prepare for the year-end English exam with past annual exam papers '
-              'and high-priority lesson guidance.',
+              'Prepare for the year-end ${SyllabusConfig.subjectName(classLevel, subjectSlug)} exam '
+              'with model exam papers and revision guidance.',
               style: TextStyle(
                 fontSize: 13,
                 color: AppTheme.text2Of(context),
@@ -53,23 +63,27 @@ class FinalExamPrepScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
-            _ExamPapersCard(
-              papers: _papers,
-              classLevel: classLevel,
-              subjectSlug: subjectSlug,
-            ),
-            const SizedBox(height: 16),
+            if (_papers.isNotEmpty) ...[
+              _ExamPapersCard(
+                papers: _papers,
+                classLevel: classLevel,
+                subjectSlug: subjectSlug,
+              ),
+              const SizedBox(height: 16),
+            ],
             _ModelPapersCard(
               modelPapers: _modelPapers,
               classLevel: classLevel,
               subjectSlug: subjectSlug,
             ),
-            const SizedBox(height: 16),
-            _PriorityLessonsCard(
-              lessons: _lessons,
-              classLevel: classLevel,
-              subjectSlug: subjectSlug,
-            ),
+            if (_lessons.isNotEmpty) ...[
+              const SizedBox(height: 16),
+              _PriorityLessonsCard(
+                lessons: _lessons,
+                classLevel: classLevel,
+                subjectSlug: subjectSlug,
+              ),
+            ],
           ],
         ),
       ),

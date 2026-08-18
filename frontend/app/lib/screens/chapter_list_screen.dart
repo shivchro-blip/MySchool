@@ -129,7 +129,7 @@ class _ChapterListScreenState extends State<ChapterListScreen> {
     return ListView(
       padding: const EdgeInsets.fromLTRB(16, 16, 16, 32),
       children: [
-        if (_isEnglishFinalExamSubject) ...[
+        if (_showsFinalExamPrep) ...[
           FinalExamPrepEntryCard(
             classLevel: widget.classLevel,
             subjectSlug: widget.subjectSlug,
@@ -156,8 +156,10 @@ class _ChapterListScreenState extends State<ChapterListScreen> {
     );
   }
 
-  bool get _isEnglishFinalExamSubject =>
-      widget.subjectSlug == 'english' &&
+  bool get _showsFinalExamPrep =>
+      (widget.subjectSlug == 'english' ||
+          widget.subjectSlug == 'computer-applications' ||
+          widget.subjectSlug == 'computer-science') &&
       (widget.classLevel == '+1' || widget.classLevel == '+2');
 
   Widget _buildEmptyStaticList() {
@@ -230,6 +232,13 @@ class _ChapterListScreenState extends State<ChapterListScreen> {
     return ListView(
       padding: const EdgeInsets.fromLTRB(16, 16, 16, 32),
       children: [
+        if (_showsFinalExamPrep) ...[
+          FinalExamPrepEntryCard(
+            classLevel: widget.classLevel,
+            subjectSlug: widget.subjectSlug,
+          ),
+          const SizedBox(height: 16),
+        ],
         Text(
           '${chapters.length} Chapters',
           style: TextStyle(fontSize: 12, color: AppTheme.textMutedOf(context)),

@@ -1,0 +1,846 @@
+export const class12ComputerApplicationsModelQA3 = {
+  "paperId": "class12-computer-applications-model-qa-3",
+  "title": "Model Q&A 3",
+  "classLabel": "Class 12",
+  "subject": "Computer Applications",
+  "duration": "3.00 Hours",
+  "maximumMarks": 90,
+  "totalPages": 6,
+  "pages": [
+    {
+      "pageNumber": 1,
+      "blocks": [
+        {
+          "type": "paper_header",
+          "content": "CLASS XII — COMPUTER APPLICATIONS\nMODEL QUESTION PAPER — SET 3"
+        },
+        {
+          "type": "metadata_row",
+          "duration": "3.00 Hours",
+          "maximumMarks": 90,
+          "totalPages": 6
+        },
+        {
+          "type": "instructions",
+          "content": "Answer all questions. Figures in the margin indicate full marks."
+        },
+        {
+          "type": "part_heading",
+          "content": "PART - I"
+        },
+        {
+          "type": "section_heading",
+          "content": "Choose the correct answer (20 × 1 = 20)"
+        },
+        {
+          "type": "mcq_question",
+          "questionId": "1",
+          "marks": 1,
+          "content": "MP3 is compressed to approximately _________ of WAV size.",
+          "options": [
+            "One-half",
+            "One-quarter",
+            "One-tenth",
+            "One-fifth"
+          ]
+        },
+        {
+          "type": "mcq_question",
+          "questionId": "2",
+          "marks": 1,
+          "content": "Which PageMaker tool is used for trimming imported graphics?",
+          "options": [
+            "Pointer Tool",
+            "Text Tool",
+            "Cropping Tool",
+            "Zoom Tool"
+          ]
+        },
+        {
+          "type": "mcq_question",
+          "questionId": "3",
+          "marks": 1,
+          "content": "COMMIT command belongs to which SQL category?",
+          "options": [
+            "DDL",
+            "DML",
+            "DQL",
+            "TCL"
+          ]
+        },
+        {
+          "type": "mcq_question",
+          "questionId": "4",
+          "marks": 1,
+          "content": "PHP default opening tag is:",
+          "options": [
+            "<?php",
+            "<php",
+            "<php?",
+            "<:?"
+          ]
+        },
+        {
+          "type": "mcq_question",
+          "questionId": "5",
+          "marks": 1,
+          "content": "Which operator returns the remainder after division?",
+          "options": [
+            "+",
+            "-",
+            "*",
+            "%"
+          ]
+        },
+        {
+          "type": "mcq_question",
+          "questionId": "6",
+          "marks": 1,
+          "content": "Which PHP loop is used specifically for arrays?",
+          "options": [
+            "for loop",
+            "while loop",
+            "do...while loop",
+            "foreach loop"
+          ]
+        },
+        {
+          "type": "mcq_question",
+          "questionId": "7",
+          "marks": 1,
+          "content": "The radio button allows selection of:",
+          "options": [
+            "Multiple values",
+            "Only one value at a time",
+            "No values",
+            "All values"
+          ]
+        },
+        {
+          "type": "mcq_question",
+          "questionId": "8",
+          "marks": 1,
+          "content": "MySQLi extension was introduced in PHP version:",
+          "options": [
+            "Version 2.0",
+            "Version 3.0",
+            "Version 4.0",
+            "Version 5.0"
+          ]
+        },
+        {
+          "type": "mcq_question",
+          "questionId": "9",
+          "marks": 1,
+          "content": "Flame wars are:",
+          "options": [
+            "Computer viruses",
+            "Lengthy exchanges of angry messages in online forums",
+            "A type of hacking",
+            "Network flooding attacks"
+          ]
+        },
+        {
+          "type": "mcq_question",
+          "questionId": "10",
+          "marks": 1,
+          "content": "SMTP provides:",
+          "options": [
+            "File transfer",
+            "E-mail services",
+            "Web browsing",
+            "Domain resolution"
+          ]
+        },
+        {
+          "type": "mcq_question",
+          "questionId": "11",
+          "marks": 1,
+          "content": "IPv4 uses how many bits?",
+          "options": [
+            "16",
+            "32",
+            "64",
+            "128"
+          ]
+        },
+        {
+          "type": "mcq_question",
+          "questionId": "12",
+          "marks": 1,
+          "content": "Root Name Servers are maintained by:",
+          "options": [
+            "IANA",
+            "ICANN",
+            "WHOIS",
+            "DNS"
+          ]
+        },
+        {
+          "type": "mcq_question",
+          "questionId": "13",
+          "marks": 1,
+          "content": "Coaxial cable transfers data at:",
+          "options": [
+            "1 Mbps",
+            "5 Mbps",
+            "10 Mbps",
+            "100 Mbps"
+          ]
+        },
+        {
+          "type": "mcq_question",
+          "questionId": "14",
+          "marks": 1,
+          "content": "BOSS stands for:",
+          "options": [
+            "Bharat Operating System Solutions",
+            "Basic Open Source Software",
+            "Bharat Open Source System",
+            "Basic Operating System Solutions"
+          ]
+        },
+        {
+          "type": "mcq_question",
+          "questionId": "15",
+          "marks": 1,
+          "content": "Off-shoring means:",
+          "options": [
+            "Work outsourced to branch of own company",
+            "Work outsourced to new employees",
+            "Work outsourced to third party locally",
+            "Work outsourced to third party in another country"
+          ]
+        },
+        {
+          "type": "mcq_question",
+          "questionId": "16",
+          "marks": 1,
+          "content": "UPI was developed by:",
+          "options": [
+            "RBI",
+            "NPCI",
+            "SBI",
+            "SEBI"
+          ]
+        },
+        {
+          "type": "mcq_question",
+          "questionId": "17",
+          "marks": 1,
+          "content": "SET protocol for credit cards was developed in:",
+          "options": [
+            "1993",
+            "1996",
+            "1999",
+            "2002"
+          ]
+        },
+        {
+          "type": "mcq_question",
+          "questionId": "18",
+          "marks": 1,
+          "content": "Asymmetric encryption uses:",
+          "options": [
+            "Same key for both",
+            "Different keys for encryption/decryption",
+            "No keys",
+            "Public key only"
+          ]
+        },
+        {
+          "type": "mcq_question",
+          "questionId": "19",
+          "marks": 1,
+          "content": "EDI = Paperless Trade. EFT = ________.",
+          "options": [
+            "Paperless Banking",
+            "Paperless Payment",
+            "Paperless Commerce",
+            "Paperless Trade"
+          ]
+        },
+        {
+          "type": "mcq_question",
+          "questionId": "20",
+          "marks": 1,
+          "content": "EDIFACT syntax was approved as ISO standard in:",
+          "options": [
+            "1975",
+            "1985",
+            "1987",
+            "1999"
+          ]
+        },
+        {
+          "type": "footer_note",
+          "content": "[ Turn over"
+        }
+      ]
+    },
+    {
+      "pageNumber": 2,
+      "blocks": [
+        {
+          "type": "part_heading",
+          "content": "PART - II"
+        },
+        {
+          "type": "section_heading",
+          "content": "Short Answer Questions (5 × 2 = 10)"
+        },
+        {
+          "type": "question",
+          "questionId": "21",
+          "marks": 2,
+          "content": "Define Animation. What is the minimum frame rate needed for smooth animation?"
+        },
+        {
+          "type": "question",
+          "questionId": "22",
+          "marks": 2,
+          "content": "What is the Master Page in PageMaker?"
+        },
+        {
+          "type": "question",
+          "questionId": "23",
+          "marks": 2,
+          "content": "What are the differences between SQL and MySQL?"
+        },
+        {
+          "type": "question",
+          "questionId": "24",
+          "marks": 2,
+          "content": "List the three types of PHP tags."
+        },
+        {
+          "type": "question",
+          "questionId": "25",
+          "marks": 2,
+          "content": "What is Wi-Fi? List two benefits."
+        },
+        {
+          "type": "part_heading",
+          "content": "PART - III"
+        },
+        {
+          "type": "section_heading",
+          "content": "Brief Answer Questions (5 × 3 = 15)"
+        },
+        {
+          "type": "question",
+          "questionId": "26",
+          "marks": 3,
+          "content": "List the audio file formats in Multimedia and state the key feature of each."
+        },
+        {
+          "type": "question",
+          "questionId": "27",
+          "marks": 3,
+          "content": "Write a PHP program to print numbers 1 to 10 in ascending order using a for loop."
+        },
+        {
+          "type": "question",
+          "questionId": "28",
+          "marks": 3,
+          "content": "Write a note on URL and its types (Absolute and Relative)."
+        },
+        {
+          "type": "question",
+          "questionId": "29",
+          "marks": 3,
+          "content": "Explain the three Ethernet cable wiring techniques."
+        },
+        {
+          "type": "or_question",
+          "questionId": "30",
+          "marks": 3,
+          "optionA": {
+            "content": "Write a note on OpenNMS."
+          },
+          "optionB": {
+            "content": "Explain the Dotcom Bubble and Dotcom Burst."
+          }
+        },
+        {
+          "type": "part_heading",
+          "content": "PART - IV"
+        },
+        {
+          "type": "section_heading",
+          "content": "Long Essay Questions (5 × 9 = 45)"
+        },
+        {
+          "type": "question",
+          "questionId": "31",
+          "marks": 9,
+          "content": "Explain the applications of Multimedia in education, entertainment, business, medical, public places, and conferencing."
+        },
+        {
+          "type": "or_question",
+          "questionId": "31",
+          "marks": 9,
+          "optionA": {
+            "content": "Explain Master Pages in PageMaker and how to insert page numbers."
+          },
+          "optionB": {
+            "content": "Explain the 12 steps in Multimedia Production."
+          }
+        },
+        {
+          "type": "question",
+          "questionId": "32",
+          "marks": 9,
+          "content": "Explain the four database models: Hierarchical, Network, Relational, Object-Oriented."
+        },
+        {
+          "type": "or_question",
+          "questionId": "32",
+          "marks": 9,
+          "optionA": {
+            "content": "Explain the PHP operators: arithmetic, comparison, logical, increment/decrement, string."
+          },
+          "optionB": {
+            "content": "Explain SELECT, INSERT, UPDATE, DELETE SQL commands with syntax and examples."
+          }
+        },
+        {
+          "type": "question",
+          "questionId": "33",
+          "marks": 9,
+          "content": "Explain the three types of arrays in PHP with examples."
+        },
+        {
+          "type": "or_question",
+          "questionId": "33",
+          "marks": 9,
+          "optionA": {
+            "content": "Explain PHP form validation: two types of validation and validation rules."
+          },
+          "optionB": {
+            "content": "Explain MySQLi queries with a complete PHP+MySQL program example."
+          }
+        },
+        {
+          "type": "question",
+          "questionId": "34",
+          "marks": 9,
+          "content": "Explain the TCP/IP model with its four layers and common protocols."
+        },
+        {
+          "type": "or_question",
+          "questionId": "34",
+          "marks": 9,
+          "optionA": {
+            "content": "Explain IP address classification: IPv4 and IPv6 with notation examples."
+          },
+          "optionB": {
+            "content": "Explain the components used in Ethernet cabling."
+          }
+        },
+        {
+          "type": "question",
+          "questionId": "35",
+          "marks": 9,
+          "content": "Explain the advantages and disadvantages of E-Commerce for consumers."
+        },
+        {
+          "type": "or_question",
+          "questionId": "35",
+          "marks": 9,
+          "optionA": {
+            "content": "Explain Micro and Macro electronic payment systems."
+          },
+          "optionB": {
+            "content": "Explain the types of EDI in detail."
+          }
+        },
+        {
+          "type": "footer_note",
+          "content": "- o O o -"
+        }
+      ]
+    }
+  ],
+  "practice": {
+    "meta": {
+      "subject": "Computer Applications — Class XII",
+      "unit": "Model Q&A 3 — Full Syllabus",
+      "time": "3.00 hrs",
+      "totalMarks": 90,
+      "instructions": "Answer all questions",
+      "answerSource": "Model answers from Samacheer Kalvi Class 12 Computer Applications textbook (2024 Edition)."
+    },
+    "parts": [
+      {
+        "id": "p1",
+        "navLabel": "Part I — MCQ (20 × 1)",
+        "title": "Part I",
+        "type": "mcq",
+        "scoreMax": 20,
+        "marksPer": 1,
+        "instruction": "Choose the correct answer.",
+        "sections": [
+          {
+            "label": "All Chapters",
+            "questions": [
+              {
+                "id": "q1",
+                "html": "MP3 is compressed to approximately _________ of WAV size.",
+                "options": [
+                  "a) One-half",
+                  "b) One-quarter",
+                  "c) One-tenth",
+                  "d) One-fifth"
+                ],
+                "answer": 2,
+                "officialKey": "c"
+              },
+              {
+                "id": "q2",
+                "html": "Which PageMaker tool is used for trimming imported graphics?",
+                "options": [
+                  "a) Pointer Tool",
+                  "b) Text Tool",
+                  "c) Cropping Tool",
+                  "d) Zoom Tool"
+                ],
+                "answer": 2,
+                "officialKey": "c"
+              },
+              {
+                "id": "q3",
+                "html": "COMMIT command belongs to which SQL category?",
+                "options": [
+                  "a) DDL",
+                  "b) DML",
+                  "c) DQL",
+                  "d) TCL"
+                ],
+                "answer": 3,
+                "officialKey": "d"
+              },
+              {
+                "id": "q4",
+                "html": "PHP default opening tag is:",
+                "options": [
+                  "a) <?php",
+                  "b) <php",
+                  "c) <php?",
+                  "d) <:?"
+                ],
+                "answer": 0,
+                "officialKey": "a"
+              },
+              {
+                "id": "q5",
+                "html": "Which operator returns the remainder after division?",
+                "options": [
+                  "a) +",
+                  "b) -",
+                  "c) *",
+                  "d) %"
+                ],
+                "answer": 3,
+                "officialKey": "d"
+              },
+              {
+                "id": "q6",
+                "html": "Which PHP loop is used specifically for arrays?",
+                "options": [
+                  "a) for loop",
+                  "b) while loop",
+                  "c) do...while loop",
+                  "d) foreach loop"
+                ],
+                "answer": 3,
+                "officialKey": "d"
+              },
+              {
+                "id": "q7",
+                "html": "The radio button allows selection of:",
+                "options": [
+                  "a) Multiple values",
+                  "b) Only one value at a time",
+                  "c) No values",
+                  "d) All values"
+                ],
+                "answer": 1,
+                "officialKey": "b"
+              },
+              {
+                "id": "q8",
+                "html": "MySQLi extension was introduced in PHP version:",
+                "options": [
+                  "a) Version 2.0",
+                  "b) Version 3.0",
+                  "c) Version 4.0",
+                  "d) Version 5.0"
+                ],
+                "answer": 3,
+                "officialKey": "d"
+              },
+              {
+                "id": "q9",
+                "html": "Flame wars are:",
+                "options": [
+                  "a) Computer viruses",
+                  "b) Lengthy exchanges of angry messages in online forums",
+                  "c) A type of hacking",
+                  "d) Network flooding attacks"
+                ],
+                "answer": 1,
+                "officialKey": "b"
+              },
+              {
+                "id": "q10",
+                "html": "SMTP provides:",
+                "options": [
+                  "a) File transfer",
+                  "b) E-mail services",
+                  "c) Web browsing",
+                  "d) Domain resolution"
+                ],
+                "answer": 1,
+                "officialKey": "b"
+              },
+              {
+                "id": "q11",
+                "html": "IPv4 uses how many bits?",
+                "options": [
+                  "a) 16",
+                  "b) 32",
+                  "c) 64",
+                  "d) 128"
+                ],
+                "answer": 1,
+                "officialKey": "b"
+              },
+              {
+                "id": "q12",
+                "html": "Root Name Servers are maintained by:",
+                "options": [
+                  "a) IANA",
+                  "b) ICANN",
+                  "c) WHOIS",
+                  "d) DNS"
+                ],
+                "answer": 1,
+                "officialKey": "b"
+              },
+              {
+                "id": "q13",
+                "html": "Coaxial cable transfers data at:",
+                "options": [
+                  "a) 1 Mbps",
+                  "b) 5 Mbps",
+                  "c) 10 Mbps",
+                  "d) 100 Mbps"
+                ],
+                "answer": 2,
+                "officialKey": "c"
+              },
+              {
+                "id": "q14",
+                "html": "BOSS stands for:",
+                "options": [
+                  "a) Bharat Operating System Solutions",
+                  "b) Basic Open Source Software",
+                  "c) Bharat Open Source System",
+                  "d) Basic Operating System Solutions"
+                ],
+                "answer": 0,
+                "officialKey": "a"
+              },
+              {
+                "id": "q15",
+                "html": "Off-shoring means:",
+                "options": [
+                  "a) Work outsourced to branch of own company",
+                  "b) Work outsourced to new employees",
+                  "c) Work outsourced locally",
+                  "d) Work outsourced to another country"
+                ],
+                "answer": 3,
+                "officialKey": "d"
+              },
+              {
+                "id": "q16",
+                "html": "UPI was developed by:",
+                "options": [
+                  "a) RBI",
+                  "b) NPCI",
+                  "c) SBI",
+                  "d) SEBI"
+                ],
+                "answer": 1,
+                "officialKey": "b"
+              },
+              {
+                "id": "q17",
+                "html": "SET protocol was developed in:",
+                "options": [
+                  "a) 1993",
+                  "b) 1996",
+                  "c) 1999",
+                  "d) 2002"
+                ],
+                "answer": 1,
+                "officialKey": "b"
+              },
+              {
+                "id": "q18",
+                "html": "Asymmetric encryption uses:",
+                "options": [
+                  "a) Same key for both",
+                  "b) Different keys for encryption/decryption",
+                  "c) No keys",
+                  "d) Public key only"
+                ],
+                "answer": 1,
+                "officialKey": "b"
+              },
+              {
+                "id": "q19",
+                "html": "EFT = ________.",
+                "options": [
+                  "a) Paperless Banking",
+                  "b) Paperless Payment",
+                  "c) Paperless Commerce",
+                  "d) Paperless Trade"
+                ],
+                "answer": 1,
+                "officialKey": "b"
+              },
+              {
+                "id": "q20",
+                "html": "EDIFACT syntax was approved as ISO standard in:",
+                "options": [
+                  "a) 1975",
+                  "b) 1985",
+                  "c) 1987",
+                  "d) 1999"
+                ],
+                "answer": 2,
+                "officialKey": "c"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "navLabel": "Part II — Short Answers (5 × 2)",
+        "title": "Part II",
+        "type": "short-essay",
+        "scoreMax": 10,
+        "marksPer": 2,
+        "instruction": "Answer briefly.",
+        "questions": [
+          {
+            "q": "Define Animation. What is the minimum frame rate needed for smooth animation?",
+            "ans": "Animation is the process of displaying still images so quickly that they give the impression of continuous movement. Like a flipbook. Minimum 16 fps gives impression of movement; 25 fps gives natural look.",
+            "officialKey": "Chapter 1"
+          },
+          {
+            "q": "What is the Master Page in PageMaker?",
+            "ans": "Any text or object placed on the Master Page appears on ALL document pages to which the master is applied. Used for repeating elements like logos, headers, footers, and page numbers. A master item cannot be selected on a document page — must be edited from the master page.",
+            "officialKey": "Chapter 2"
+          },
+          {
+            "q": "What are the differences between SQL and MySQL?",
+            "ans": "SQL is a standardized LANGUAGE for accessing databases (not software). MySQL is a RDBMS SOFTWARE that uses SQL. SQL was standardized by ANSI (1986) and ISO (1987). MySQL is open-source software running on Windows, Linux, macOS.",
+            "officialKey": "Chapter 3"
+          },
+          {
+            "q": "List the three types of PHP tags.",
+            "ans": "1. Default Tags: <?php ... ?> — standard, always supported. 2. Short Open Tags: <? ... ?> — shorthand alternative. 3. HTML Script Embed Tags: <script language='php'> ... </script>.",
+            "officialKey": "Chapter 4"
+          },
+          {
+            "q": "What is Wi-Fi? List two benefits.",
+            "ans": "Wi-Fi stands for Wireless Fidelity — a wireless network technology that allows devices to connect to each other and the Internet without wires. Technical code: 802.11. Benefits: (1) Provides mobility, (2) Low cost and high benefits.",
+            "officialKey": "Chapter 11"
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "navLabel": "Part III — Brief Answers (5 × 3)",
+        "title": "Part III",
+        "type": "short-essay",
+        "scoreMax": 15,
+        "marksPer": 3,
+        "instruction": "Answer in brief.",
+        "questions": [
+          {
+            "q": "List the audio file formats in Multimedia and state the key feature of each.",
+            "ans": "WAV — most popular Windows audio, uncompressed. MP3 — most popular for music, 1/10th size of WAV. OGG — free and open source. AIFF — developed by Apple Inc. WMA — Microsoft format, Windows Media Player. RA — Real Audio, designed for internet streaming.",
+            "officialKey": "Chapter 1"
+          },
+          {
+            "q": "Write a PHP program to print numbers 1 to 10 using a for loop.",
+            "ans": "<?php\nfor ($i = 1; $i <= 10; $i++) {\n  echo $i . '<br>';\n}\n?>\nOutput: 1, 2, 3, ..., 10 (each on a new line). Initialization: $i=1. Condition: $i<=10. Increment: $i++.",
+            "officialKey": "Chapter 7"
+          },
+          {
+            "q": "Write a note on URL and its types (Absolute and Relative).",
+            "ans": "URL (Uniform Resource Locator) is the address of a document on the Internet. Made of 4 parts: Protocol, Hostname, Folder Name, File Name. Absolute URL = complete address with all 4 parts (like a full postal address). Relative URL = partial address (filename or filename+folder), used when the file is on the same server.",
+            "officialKey": "Chapter 12"
+          },
+          {
+            "q": "Explain the three Ethernet cable wiring techniques.",
+            "ans": "1. Straight-through — same wire sequence both ends, used for PC to hub. 2. Cross-over — TX/RX lines crossed, used for PC to PC directly (also called Null modem). 3. Roll-over — wires in opposite sequence (pin 1 to 8, 2 to 7...), used as Console cable for device programming.",
+            "officialKey": "Chapter 13"
+          },
+          {
+            "q": "Explain the Dotcom Bubble and Dotcom Burst.",
+            "ans": "Dotcom Bubble: rapid rise in US equity markets for Internet companies (1995-2000). NASDAQ rose from under 1000 to over 5000 points. Dotcom Burst: NASDAQ fell from 5046.86 to 1114.11, began March 11, 2000, lasted until October 9, 2002. Companies like Pets.com shut down. Amazon declined but recovered.",
+            "officialKey": "Chapter 15"
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "navLabel": "Part IV — Long Essays (5 × 9)",
+        "title": "Part IV",
+        "type": "long-essay",
+        "scoreMax": 45,
+        "marksPer": 9,
+        "instruction": "Answer in detail.",
+        "questions": [
+          {
+            "id": "l1",
+            "q": "Explain the applications of Multimedia.",
+            "ans": "1. Education: e-learning, distance learning, virtual learning. EDUSAT (India's Education Satellite) for virtual classrooms. MODULO at GMU Germany for web-based learning.\n2. Entertainment: radio, TV, online gaming, VOD (Video on Demand) — movies stored on central server, set-top box converts to analog.\n3. Business: presentations, training, marketing animations, boardroom projectors, e-banking.\n4. Medical Services: surgery simulation for students, tiny digital cameras inserted in body for diagnosis without surgery.\n5. Public Places: kiosks in libraries, malls, airports, banks, museums — provide information via animation, video, maps. ATMs are multimedia kiosks.\n6. Multimedia Conferencing: video-conferencing (Zoom, Google Meet) — face-to-face interaction across distances.",
+            "officialKey": "Chapter 1"
+          },
+          {
+            "id": "l2",
+            "q": "Explain the four database models.",
+            "ans": "1. Hierarchical Model: Parent/child tree structure. Famous example: IMS by IBM. Advantages: less redundancy, efficient search, data integrity. Limitations: complex, difficulty with many-to-many.\n2. Network Model: Each member can have MORE THAN ONE owner. First: IDS at Honeywell. Components: Network Schema, Sub Schema, Language. Advantages: handles more relationships, easy access. Limitations: difficult design/maintenance.\n3. Relational Model: Tables of rows and columns. Examples: MySQL, Oracle, DB2. Instance=table, Schema=structure. RDBMS is the basis for SQL. Most widely used today.\n4. Object-Oriented Model: Combines OOP with database. Uses Objects stored in database. Efficiently manages many data types and complex behaviors.",
+            "officialKey": "Chapter 3"
+          },
+          {
+            "id": "l3",
+            "q": "Explain the three types of arrays in PHP with examples.",
+            "ans": "1. Indexed Array: uses numeric index starting from 0. Creation: $fruits=['apple','banana','orange']; or array('apple','banana','orange'). Access: $fruits[0]='apple', $fruits[1]='banana'. Index starts at 0.\n\n2. Associative Array: stores key-value pairs. Keys are strings (labels). Creation: $student=['Name'=>'Ram','Age'=>25]; or array('Name'=>'Ram','Age'=>25). Access: $student['Name']='Ram', $student['Age']=25.\n\n3. Multidimensional Array: array containing arrays (nested). Also called nested array. Example: $arr=array(array(1,2,3),array(4,5,6),array(7,8,9)); Access using two brackets: $arr[1][2]=6 (row 1, column 2). Used for matrix/table structures.",
+            "officialKey": "Chapter 5"
+          },
+          {
+            "id": "l4",
+            "q": "Explain the TCP/IP model with its four layers and common protocols.",
+            "ans": "TCP/IP (Transmission Control Protocol/Internet Protocol) — set of protocols governing all Internet communications. Tells how information is packaged, sent, and received.\n\n4 Layers:\n1. Network Access Layer — builds packets, physical transmission on network hardware.\n2. Internet Layer — describes how packets are delivered using IP addresses.\n3. Transport Layer — ensures proper data transmission between applications. TCP (reliable) and UDP (unreliable).\n4. Application Layer — application network processes. Includes FTP (file transfer), HTTP (web), SMTP (email), DNS (domain names).\n\nFrequent protocols: HTTP (non-secure web), HTTPS (secure web), FTP (file transfer), SMTP (email), DNS (name to IP resolution).",
+            "officialKey": "Chapter 11"
+          },
+          {
+            "id": "l5",
+            "q": "Explain the advantages and disadvantages of E-Commerce for consumers.",
+            "ans": "Advantages:\n1. 24×7 operation — buy anytime, anywhere.\n2. Speed — messages reach worldwide instantly, no catalogue delays.\n3. Easy comparison shopping — compare prices across many websites.\n4. Reduced costs — bypass wholesalers, buy directly from manufacturers.\n5. Wide global choice — the whole world becomes your shop.\n6. Shop from home — no waiting for salesman, pay online.\n\nDisadvantages:\n1. Delivery delay — physical goods take time and cost money to transport.\n2. Returns are difficult — doubts about return periods, refunds, postage.\n3. Privacy issues — companies may misuse personal information collected.\n4. Physical product disputes — cannot inspect products before purchase, only see seller's chosen photos.\n5. Perishable goods — refrigerated transport is expensive, makes E-Commerce impractical for perishables.\n6. Delivery ambiguity — uncertain whether distant businesses are genuine.",
+            "officialKey": "Chapter 15"
+          }
+        ]
+      }
+    ]
+  }
+};

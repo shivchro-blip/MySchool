@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import '../config/syllabus_config.dart';
 import '../config/theme.dart';
 
 class FinalExamPrepEntryCard extends StatelessWidget {
@@ -15,6 +16,7 @@ class FinalExamPrepEntryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final className = classLevel == '+2' ? 'Class 12' : 'Class 11';
+    final subjectName = SyllabusConfig.subjectName(classLevel, subjectSlug);
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
@@ -63,8 +65,8 @@ class FinalExamPrepEntryCard extends StatelessWidget {
           const SizedBox(height: 6),
           // Body
           Text(
-            'Access past annual exam papers, important question patterns, '
-            'high-priority topics and smart revision plans for $className English.',
+            'Access model exam papers, important question patterns, '
+            'high-priority topics and smart revision plans for $className $subjectName.',
             style: TextStyle(
               fontSize: 13,
               color: AppTheme.text2Of(context),
