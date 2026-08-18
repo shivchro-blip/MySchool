@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 import '../models/exam_practice_model.dart';
 import '../utils/exam_paper_adapter.dart';
+import '../utils/asset_folder.dart';
 
 class ExamPracticeService {
   static Future<List<ExamQuestion>> getQuestions(
@@ -10,7 +11,7 @@ class ExamPracticeService {
     String chapterSlug,
   ) async {
     try {
-      final folder = _toAssetFolder(classLevel, subjectSlug);
+      final folder = AssetFolder.toFolder(classLevel, subjectSlug);
       final raw = await rootBundle.loadString(
         'assets/content/$folder/practice/$chapterSlug.json',
       );
@@ -23,19 +24,7 @@ class ExamPracticeService {
     }
   }
 
-  static String _toAssetFolder(String classLevel, String subjectSlug) {
-    final cl = switch (classLevel.toLowerCase()) {
-      '+1' => 'Class_11',
-      '+2' => 'Class_12',
-      _ => classLevel,
-    };
-    final sub = subjectSlug.isEmpty
-        ? subjectSlug
-        : subjectSlug[0].toUpperCase() + subjectSlug.substring(1);
-    return '$cl/$sub';
-  }
-
-  static List<ExamQuestion> _adapt(Map<String, dynamic> data) {
+static List<ExamQuestion> _adapt(Map<String, dynamic> data) {
     final parts  = data['parts'] as List<dynamic>;
     var   idx    = 1;
     final result = <ExamQuestion>[];
