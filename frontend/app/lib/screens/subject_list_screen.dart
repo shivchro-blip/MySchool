@@ -188,6 +188,12 @@ class _SubjectCardState extends State<_SubjectCard> {
     if (n.contains('math')) {
       return Icons.calculate_outlined;
     }
+    if (n.contains('computer application')) {
+      return Icons.desktop_windows_outlined;
+    }
+    if (n.contains('computer science')) {
+      return Icons.code_rounded;
+    }
     if (n.contains('science')) {
       return Icons.science_outlined;
     }
