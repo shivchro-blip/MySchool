@@ -59,14 +59,29 @@ class MathsChapter {
   });
 }
 
+class FlatChapter {
+  final int    number;
+  final String title;
+  final String slug;
+  const FlatChapter({
+    required this.number,
+    required this.title,
+    required this.slug,
+  });
+}
+
 class SyllabusConfig {
   // Mirrors web/src/data/syllabus.js — single source of truth for subject list
   static const _subjects = [
     SubjectConfig(slug: 'english', name: 'English', classLevel: '+1'),
     SubjectConfig(slug: 'maths', name: 'Mathematics', classLevel: '+1'),
     SubjectConfig(slug: 'science', name: 'Science', classLevel: '+1'),
+    SubjectConfig(slug: 'computer-applications', name: 'Computer Applications', classLevel: '+1'),
+    SubjectConfig(slug: 'computer-science', name: 'Computer Science', classLevel: '+1'),
     SubjectConfig(slug: 'english', name: 'English', classLevel: '+2'),
     SubjectConfig(slug: 'maths', name: 'Mathematics', classLevel: '+2'),
+    SubjectConfig(slug: 'computer-applications', name: 'Computer Applications', classLevel: '+2'),
+    SubjectConfig(slug: 'computer-science', name: 'Computer Science', classLevel: '+2'),
   ];
 
   static List<Subject> getSubjects() =>
@@ -403,6 +418,88 @@ class SyllabusConfig {
         volume: 2),
   ];
 
+  static const _plus1ComputerApplications = [
+    FlatChapter(number: 1, title: 'Introduction to Computers', slug: 'chapter-01-introduction-to-computers'),
+    FlatChapter(number: 2, title: 'Number Systems', slug: 'chapter-02-number-systems'),
+    FlatChapter(number: 3, title: 'Computer Organisation', slug: 'chapter-03-computer-organisation'),
+    FlatChapter(number: 4, title: 'Theoretical Concepts of Operating System', slug: 'chapter-04-theoretical-concepts-of-operating-system'),
+    FlatChapter(number: 5, title: 'Working with Windows Operating System', slug: 'chapter-05-working-with-windows-operating-system'),
+    FlatChapter(number: 6, title: 'Introduction to Word Processor', slug: 'chapter-06-introduction-to-word-processor'),
+    FlatChapter(number: 7, title: 'Working with OpenOffice Calc', slug: 'chapter-07-working-with-openoffice-calc'),
+    FlatChapter(number: 8, title: 'Presentation Basics', slug: 'chapter-08-presentation-basics'),
+    FlatChapter(number: 9, title: 'Introduction to Internet and Email', slug: 'chapter-09-introduction-to-internet-and-email'),
+    FlatChapter(number: 10, title: 'HTML — Structural Tags', slug: 'chapter-10-html-structural-tags'),
+    FlatChapter(number: 11, title: 'HTML — Formatting Text, Tables, Lists and Links', slug: 'chapter-11-html-formatting-tables-lists-links'),
+    FlatChapter(number: 12, title: 'HTML — Multimedia Elements and Forms', slug: 'chapter-12-html-multimedia-elements-and-forms'),
+    FlatChapter(number: 13, title: 'CSS — Cascading Style Sheets', slug: 'chapter-13-css-cascading-style-sheets'),
+    FlatChapter(number: 14, title: 'Introduction to JavaScript', slug: 'chapter-14-introduction-to-javascript'),
+    FlatChapter(number: 15, title: 'Control Structure in JavaScript', slug: 'chapter-15-control-structure-in-javascript'),
+    FlatChapter(number: 16, title: 'JavaScript Functions', slug: 'chapter-16-javascript-functions'),
+    FlatChapter(number: 17, title: 'Computer Ethics and Cyber Security', slug: 'chapter-17-computer-ethics-and-cyber-security'),
+    FlatChapter(number: 18, title: 'Tamil Computing', slug: 'chapter-18-tamil-computing'),
+  ];
+
+  static const _plus1ComputerScience = [
+    FlatChapter(number: 1, title: 'Introduction to Computers', slug: 'cs-chapter-01-introduction-to-computers'),
+    FlatChapter(number: 2, title: 'Number Systems', slug: 'cs-chapter-02-number-systems'),
+    FlatChapter(number: 3, title: 'Computer Organization', slug: 'cs-chapter-03-computer-organization'),
+    FlatChapter(number: 4, title: 'Theoretical Concepts of Operating System', slug: 'cs-chapter-04-theoretical-concepts-of-operating-system'),
+    FlatChapter(number: 5, title: 'Working with Windows Operating System', slug: 'cs-chapter-05-working-with-windows-operating-system'),
+    FlatChapter(number: 6, title: 'Specification and Abstraction', slug: 'cs-chapter-06-specification-and-abstraction'),
+    FlatChapter(number: 7, title: 'Composition and Decomposition', slug: 'cs-chapter-07-composition-and-decomposition'),
+    FlatChapter(number: 8, title: 'Iteration and Recursion', slug: 'cs-chapter-08-iteration-and-recursion'),
+    FlatChapter(number: 9, title: 'Introduction to C++', slug: 'cs-chapter-09-introduction-to-cpp'),
+    FlatChapter(number: 10, title: 'Flow of Control', slug: 'cs-chapter-10-flow-of-control'),
+    FlatChapter(number: 11, title: 'Functions', slug: 'cs-chapter-11-functions'),
+    FlatChapter(number: 12, title: 'Arrays and Structures', slug: 'cs-chapter-12-arrays-and-structures'),
+    FlatChapter(number: 13, title: 'Introduction to Object Oriented Programming Techniques', slug: 'cs-chapter-13-introduction-to-oop-techniques'),
+    FlatChapter(number: 14, title: 'Classes and Objects', slug: 'cs-chapter-14-classes-and-objects'),
+    FlatChapter(number: 15, title: 'Polymorphism', slug: 'cs-chapter-15-polymorphism'),
+    FlatChapter(number: 16, title: 'Inheritance', slug: 'cs-chapter-16-inheritance'),
+    FlatChapter(number: 17, title: 'Computer Ethics and Cyber Security', slug: 'cs-chapter-17-computer-ethics-and-cyber-security'),
+    FlatChapter(number: 18, title: 'Tamil Computing', slug: 'cs-chapter-18-tamil-computing'),
+  ];
+
+  static const _plus2ComputerApplications = [
+    FlatChapter(number: 1, title: 'Multimedia', slug: 'chapter-01-multimedia'),
+    FlatChapter(number: 2, title: 'An Introduction to Adobe PageMaker', slug: 'chapter-02-pagemaker'),
+    FlatChapter(number: 3, title: 'Introduction to Database Management System', slug: 'chapter-03-dbms'),
+    FlatChapter(number: 4, title: 'PHP: Hypertext Preprocessor', slug: 'chapter-04-php-intro'),
+    FlatChapter(number: 5, title: 'Functions and Arrays in PHP', slug: 'chapter-05-php-functions-arrays'),
+    FlatChapter(number: 6, title: 'Conditional Statements in PHP', slug: 'chapter-06-php-conditionals'),
+    FlatChapter(number: 7, title: 'Loops in PHP', slug: 'chapter-07-php-loops'),
+    FlatChapter(number: 8, title: 'Forms and Files', slug: 'chapter-08-forms-files'),
+    FlatChapter(number: 9, title: 'Connecting PHP and MySQL', slug: 'chapter-09-php-mysql'),
+    FlatChapter(number: 10, title: 'Introduction to Computer Networks', slug: 'chapter-10-networks-intro'),
+    FlatChapter(number: 11, title: 'Network Examples and Protocols', slug: 'chapter-11-network-protocols'),
+    FlatChapter(number: 12, title: 'Domain Name System (DNS)', slug: 'chapter-12-dns'),
+    FlatChapter(number: 13, title: 'Network Cabling', slug: 'chapter-13-network-cabling'),
+    FlatChapter(number: 14, title: 'Open Source Concepts', slug: 'chapter-14-open-source'),
+    FlatChapter(number: 15, title: 'E-Commerce', slug: 'chapter-15-ecommerce'),
+    FlatChapter(number: 16, title: 'Electronic Payment Systems', slug: 'chapter-16-payment-systems'),
+    FlatChapter(number: 17, title: 'E-Commerce Security Systems', slug: 'chapter-17-ecommerce-security'),
+    FlatChapter(number: 18, title: 'Electronic Data Interchange (EDI)', slug: 'chapter-18-edi'),
+  ];
+
+  static const _plus2ComputerScience = [
+    FlatChapter(number: 1, title: 'Function', slug: 'chapter-01-functions'),
+    FlatChapter(number: 2, title: 'Data Abstraction', slug: 'chapter-02-data-abstraction'),
+    FlatChapter(number: 3, title: 'Scoping', slug: 'chapter-03-scoping'),
+    FlatChapter(number: 4, title: 'Algorithmic Strategies', slug: 'chapter-04-algorithmic-strategies'),
+    FlatChapter(number: 5, title: 'Python - Variables and Operators', slug: 'chapter-05-python-variables-operators'),
+    FlatChapter(number: 6, title: 'Control Structures', slug: 'chapter-06-control-structures'),
+    FlatChapter(number: 7, title: 'Python Functions', slug: 'chapter-07-python-functions'),
+    FlatChapter(number: 8, title: 'Strings and String Manipulation', slug: 'chapter-08-strings-manipulation'),
+    FlatChapter(number: 9, title: 'Lists, Tuples, Sets and Dictionary', slug: 'chapter-09-lists-tuples-sets-dictionary'),
+    FlatChapter(number: 10, title: 'Python Classes and Objects', slug: 'chapter-10-python-classes-objects'),
+    FlatChapter(number: 11, title: 'Database Concepts', slug: 'chapter-11-database-concepts'),
+    FlatChapter(number: 12, title: 'Structured Query Language (SQL)', slug: 'chapter-12-sql'),
+    FlatChapter(number: 13, title: 'Python and CSV Files', slug: 'chapter-13-python-csv-files'),
+    FlatChapter(number: 14, title: 'Importing C++ Programs in Python', slug: 'chapter-14-importing-cpp-in-python'),
+    FlatChapter(number: 15, title: 'Data Manipulation through SQL', slug: 'chapter-15-data-manipulation-sql'),
+    FlatChapter(number: 16, title: 'Data Visualization using pyplot', slug: 'chapter-16-data-visualization-pyplot'),
+  ];
+
   static List<UnitConfig>? getUnits(String classLevel, String subjectSlug) {
     final key = '${classLevel.toLowerCase()}/${subjectSlug.toLowerCase()}';
     return switch (key) {
@@ -417,6 +514,18 @@ class SyllabusConfig {
     final key = '${classLevel.toLowerCase()}/${subjectSlug.toLowerCase()}';
     return switch (key) {
       '+1/maths' => _plus1Maths,
+      _ => null,
+    };
+  }
+
+  static List<FlatChapter>? getFlatChapters(
+      String classLevel, String subjectSlug) {
+    final key = '${classLevel.toLowerCase()}/${subjectSlug.toLowerCase()}';
+    return switch (key) {
+      '+1/computer-applications' => _plus1ComputerApplications,
+      '+1/computer-science' => _plus1ComputerScience,
+      '+2/computer-applications' => _plus2ComputerApplications,
+      '+2/computer-science' => _plus2ComputerScience,
       _ => null,
     };
   }
