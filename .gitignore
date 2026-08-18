@@ -51,6 +51,9 @@ tmp/
 # Graphify analysis output (never commit)
 graphify-out/
 
+# Local git worktrees (superpowers subagent-driven-development scratch)
+.worktrees/
+
 # Local dev artifacts (never commit)
 Dummy_files/
 .launch/
