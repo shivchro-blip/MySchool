@@ -26,6 +26,7 @@ class _ChapterListScreenState extends State<ChapterListScreen> {
   List<Chapter> _chapters = [];
   List<UnitConfig>? _units;
   List<MathsChapter>? _mathsChapters;
+  List<FlatChapter>? _flatChapters;
   Map<String, Chapter> _bySlug = {};
 
   @override
@@ -48,12 +49,15 @@ class _ChapterListScreenState extends State<ChapterListScreen> {
         SyllabusConfig.getMathsChapters(widget.classLevel, widget.subjectSlug);
     final units =
         SyllabusConfig.getUnits(widget.classLevel, widget.subjectSlug);
+    final flatChapters =
+        SyllabusConfig.getFlatChapters(widget.classLevel, widget.subjectSlug);
     final chapters =
         units == null ? const <Chapter>[] : _chaptersFromUnits(units);
 
     setState(() {
       _mathsChapters = mathsChapters;
       _units = units;
+      _flatChapters = flatChapters;
       _chapters = chapters;
       _bySlug = {for (final chapter in chapters) chapter.slug: chapter};
     });
@@ -63,7 +67,8 @@ class _ChapterListScreenState extends State<ChapterListScreen> {
         'Subject detail loaded from static SYLLABUS: '
         'class=${widget.classLevel}, subject=${widget.subjectSlug}, '
         'units=${units?.length ?? 0}, lessons=${chapters.length}, '
-        'mathsChapters=${mathsChapters?.length ?? 0}',
+        'mathsChapters=${mathsChapters?.length ?? 0}, '
+        'flatChapters=${flatChapters?.length ?? 0}',
       );
       return true;
     }());
@@ -112,7 +117,9 @@ class _ChapterListScreenState extends State<ChapterListScreen> {
             ? _buildMathsList()
             : _units != null
                 ? _buildUnitList()
-                : _buildEmptyStaticList(),
+                : _flatChapters != null
+                    ? _buildFlatChapterList()
+                    : _buildEmptyStaticList(),
       ),
     );
   }
@@ -213,6 +220,30 @@ class _ChapterListScreenState extends State<ChapterListScreen> {
           Padding(
             padding: const EdgeInsets.only(bottom: 8),
             child: _MathsChapterTile(chapter: chapter, accentColor: _color),
+          ),
+      ],
+    );
+  }
+
+  Widget _buildFlatChapterList() {
+    final chapters = _flatChapters!;
+    return ListView(
+      padding: const EdgeInsets.fromLTRB(16, 16, 16, 32),
+      children: [
+        Text(
+          '${chapters.length} Chapters',
+          style: TextStyle(fontSize: 12, color: AppTheme.textMutedOf(context)),
+        ),
+        const SizedBox(height: 12),
+        for (final chapter in chapters)
+          Padding(
+            padding: const EdgeInsets.only(bottom: 8),
+            child: _FlatChapterTile(
+              chapter: chapter,
+              accentColor: _color,
+              classLevel: widget.classLevel,
+              subjectSlug: widget.subjectSlug,
+            ),
           ),
       ],
     );
@@ -617,6 +648,96 @@ class _MathsChapterTile extends StatelessWidget {
             const _DisabledActionButton(label: 'Learn'),
             const SizedBox(width: 6),
             const _DisabledActionButton(label: 'Practice', outline: true),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _FlatChapterTile extends StatelessWidget {
+  final FlatChapter chapter;
+  final Color accentColor;
+  final String classLevel;
+  final String subjectSlug;
+
+  const _FlatChapterTile({
+    required this.chapter,
+    required this.accentColor,
+    required this.classLevel,
+    required this.subjectSlug,
+  });
+
+  Chapter get _asChapter => Chapter(
+        id: 'local/$classLevel/$subjectSlug/${chapter.slug}',
+        slug: chapter.slug,
+        subjectId: '$classLevel/$subjectSlug',
+        number: chapter.number,
+        title: chapter.title,
+        contentType: 'lesson',
+        isActive: true,
+      );
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color: AppTheme.cardOf(context),
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: AppTheme.borderOf(context)),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+        child: Row(
+          children: [
+            Container(
+              width: 38,
+              height: 38,
+              decoration: BoxDecoration(
+                color: accentColor.withAlpha(22),
+                borderRadius: BorderRadius.circular(9),
+              ),
+              child: Center(
+                child: Text(
+                  '${chapter.number}',
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w700,
+                    color: accentColor,
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Text(
+                chapter.title,
+                style: TextStyle(
+                  fontSize: 13,
+                  fontWeight: FontWeight.w600,
+                  color: AppTheme.textOf(context),
+                ),
+              ),
+            ),
+            const SizedBox(width: 8),
+            _ActionButton(
+              label: 'Learn',
+              color: accentColor,
+              onTap: () => context.push(
+                '/sectioned-learn/$classLevel/$subjectSlug/${chapter.slug}',
+                extra: {'chapter': _asChapter, 'section': null},
+              ),
+            ),
+            const SizedBox(width: 6),
+            _ActionButton(
+              label: 'Practice',
+              color: accentColor,
+              outline: true,
+              onTap: () => context.push(
+                '/practice/$classLevel/$subjectSlug/${chapter.slug}',
+                extra: _asChapter,
+              ),
+            ),
           ],
         ),
       ),
