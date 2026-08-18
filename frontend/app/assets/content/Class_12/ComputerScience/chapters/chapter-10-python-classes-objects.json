@@ -1,0 +1,67 @@
+{
+  "chapterNumber": 10,
+  "title": "Python Classes and Objects",
+  "subject": "Computer Science",
+  "classLabel": "Class 12",
+  "curriculum": "Samacheer Kalvi",
+  "sections": [
+    {
+      "id": "intro-defining-classes",
+      "title": "Introduction & Defining Classes",
+      "content": "**10.1 Introduction**\n\nPython is an Object Oriented Programming language. **Classes** and **Objects** are the key features of OOP. Theoretical concepts of classes and objects are similar to C++, but creation and implementation is much simpler in Python.\n\nClass is the main building block in Python. An **object** is a collection of data and functions that act on that data. A **class** is a template for the object. Objects are also called **instances** of a class. In Python, everything is an object — every integer variable is an object of class int, every string variable is an object of class string.\n\n**10.2 Defining Classes**\n\nA class is defined using the keyword **class**, followed by a unique name and a colon (:).\n\nSyntax:\n```\nclass class_name:\n    statement_1\n    statement_2\n    ...\n    statement_n\n```\nA statement in a class definition may be a variable declaration, decision control, loop, or function definition. Variables defined inside a class are called **Class Variables**; functions are called **Methods**. Class variables and methods together are the **members** of the class — accessed through objects (instances) of the class. A class can be defined anywhere in a Python program.\n\nExample:\n```\nclass Sample:\n    x, y = 10, 20   # class variables\n```\nTo access the values defined inside a class, you need an object (instance) of the class.",
+      "nav": {
+        "next": "creating-accessing-objects",
+        "nextLabel": "Next: Creating Objects & Accessing Members →"
+      }
+    },
+    {
+      "id": "creating-accessing-objects",
+      "title": "Creating Objects & Accessing Class Members",
+      "content": "**10.3 Creating Objects**\n\nOnce a class is created, an object (instance) of that class must be created — this process is called **Class Instantiation**.\n\nSyntax:\n```\nObject_name = class_name()\n```\nNote: class instantiation uses function notation — class_name followed by ().\n\n**10.4 Accessing Class Members**\n\nAny class member (variable or method) is accessed using the object with a **dot (.) operator**.\n\nSyntax:\n```\nObject_name.class_member\n```\nExample:\n```\nclass Sample:\n    x, y = 10, 20   # class variables\n\nS = Sample()        # class instantiation\nprint(\"Value of x = \", S.x)\nprint(\"Value of y = \", S.y)\nprint(\"Value of x and y = \", S.x + S.y)\n```\nOutput:\n```\nValue of x = 10\nValue of y = 20\nValue of x and y = 30\n```\nHere, Sample's class variables x and y are accessed via the object S using dot notation.",
+      "nav": {
+        "back": "intro-defining-classes",
+        "next": "class-methods",
+        "nextLabel": "Next: Class Methods →"
+      }
+    },
+    {
+      "id": "class-methods",
+      "title": "Class Methods",
+      "content": "**10.5 Class Methods**\n\nA Python class method is very similar to an ordinary function, with one key difference — the method's FIRST parameter must be named **self**. You do NOT need to pass a value for self when calling the method — Python provides it automatically. Even a method that takes no other arguments must still be defined with self as its first parameter. If a method is defined to accept only one additional parameter, it will actually take TWO arguments: self, and the defined parameter.\n\nWhen accessing a class variable WITHIN the class, the class name and dot operator should prefix it.\n\n**Note:**\n- Statements inside a class must be properly indented.\n- Parameters are the variables in the function definition; arguments are the values passed to it.\n\nExample — total and average marks using a class:\n```\nclass Student:\n    mark1, mark2, mark3 = 45, 91, 71   # class variable\n\n    def process(self):                 # class method\n        sum = Student.mark1 + Student.mark2 + Student.mark3\n        avg = sum/3\n        print(\"Total Marks = \", sum)\n        print(\"Average Marks = \", avg)\n        return\n\nS = Student()\nS.process()\n```\nOutput:\n```\nTotal Marks = 207\nAverage Marks = 69.0\n```\n\nExample — checking odd/even using a class:\n```\nclass Odd_Even:\n    def check(self, num):\n        if num%2==0:\n            print(num, \" is Even number\")\n        else:\n            print(num, \" is Odd number\")\n\nn = Odd_Even()\nx = int(input(\"Enter a value: \"))\nn.check(x)\n```\nWhen executed, Python accepts the user's value and passes it to the check() method through the object n.",
+      "nav": {
+        "back": "creating-accessing-objects",
+        "next": "constructor-destructor",
+        "nextLabel": "Next: Constructor & Destructor →"
+      }
+    },
+    {
+      "id": "constructor-destructor",
+      "title": "Constructor and Destructor in Python",
+      "content": "**10.6 Constructor and Destructor in Python**\n\nA **Constructor** is a special function automatically executed when an object of a class is created. In Python, the special function **\\_\\_init\\_\\_** acts as the constructor — it must begin and end with double underscores. It works like an ordinary function, except it executes automatically upon object creation. It can be defined with or without arguments, and is used to **initialize class variables**.\n\nGeneral format:\n```\ndef __init__(self, [args...]):\n    <statements>\n```\nExample:\n```\nclass Sample:\n    def __init__(self, num):\n        print(\"Constructor of class Sample...\")\n        self.num = num          # instance variable\n        print(\"The value is :\", num)\n\nS = Sample(10)\n```\nOutput:\n```\nConstructor of class Sample...\nThe value is : 10\n```\nThe constructor executes automatically when object S is created with argument 10.\n\n**Note:** **Instance variables** are variables whose value varies from object to object — every object gets its own separate copy. Instance variables are declared inside a method using the **self** keyword (commonly inside the constructor).\n\n**Example — class variable to count number of objects created:**\n```\nclass Sample:\n    num = 0                     # class variable\n    def __init__(self, var):\n        Sample.num += 1\n        self.var = var          # instance variable\n        print(\"The object value is = \", self.var)\n        print(\"The count of object created = \", Sample.num)\n\nS1 = Sample(15)\nS2 = Sample(35)\nS3 = Sample(45)\n```\nSince num is SHARED by all objects, incrementing it via one object is reflected for all — the count increases with each new object: 1, 2, 3.\n\n**Destructor** — a special method used to destroy objects, opposite to the constructor. In Python, **\\_\\_del\\_\\_()** is used as the destructor.\n```\nclass Sample:\n    num = 0\n    def __init__(self, var):\n        Sample.num += 1\n        self.var = var\n        print(\"The object value is = \", self.var)\n    def __del__(self):\n        Sample.num -= 1\n        print(\"Object with value %d is exit from the scope\" % self.var)\n\nS1 = Sample(15)\nS2 = Sample(35)\nS3 = Sample(45)\ndel S1, S2, S3\n```\n**Note:** The \\_\\_del\\_\\_ method is called automatically when an object reference is deleted using del.",
+      "nav": {
+        "back": "class-methods",
+        "next": "public-private",
+        "nextLabel": "Next: Public & Private Data Members →"
+      }
+    },
+    {
+      "id": "public-private",
+      "title": "Public and Private Data Members",
+      "content": "**10.7 Public and Private Data Members**\n\nVariables defined inside a class are **public by default** — they can be accessed anywhere in the program using the dot operator. A variable prefixed with a **double underscore (\\_\\_)** becomes **private** in nature — it can only be accessed WITHIN the class.\n\nExample:\n```\nclass Sample:\n    n1 = 12\n    __n2 = 14\n    def display(self):\n        print(\"Class variable 1 = \", self.n1)\n        print(\"Class variable 2 = \", self.__n2)\n\nS = Sample()\nS.display()\nprint(\"Value 1 = \", S.n1)\nprint(\"Value 2 = \", S.__n2)   # This line causes an error\n```\nHere, n1 is public and n2 (\\_\\_n2) is private. The display() method (defined INSIDE the class) can successfully access both n1 and n2. But directly accessing S.\\_\\_n2 from OUTSIDE the class raises an error, since private variables cannot be accessed from outside the class.\n\nOutput:\n```\nClass variable 1 = 12\nClass variable 2 = 14\nValue 1 = 12\nAttributeError: 'Sample' object has no attribute '__n2'\n```\n\n**Sample program — area and circumference of a circle:**\n```\nclass Circle:\n    pi = 3.14\n    def __init__(self, radius):\n        self.radius = radius\n    def area(self):\n        return Circle.pi * (self.radius**2)\n    def circumference(self):\n        return 2 * Circle.pi * self.radius\n\nr = int(input(\"Enter Radius: \"))\nC = Circle(r)\nprint(\"The Area =\", C.area())\nprint(\"The Circumference =\", C.circumference())\n```",
+      "nav": {
+        "back": "constructor-destructor",
+        "next": "summary",
+        "nextLabel": "Next: Points to Remember →"
+      }
+    },
+    {
+      "id": "summary",
+      "title": "Points to Remember",
+      "content": "- Python is an Object Oriented Programming language; Classes and Objects are the key features of OOP.\n- A class is defined using the keyword class; variables inside a class are \"Class Variables\", functions are \"Methods\".\n- The process of creating an object is called \"Class Instantiation\" — syntax: Object_name = class_name().\n- Class members are accessed via an object using the dot (.) operator.\n- Every class method's first parameter must be self — Python supplies its value automatically.\n- A Constructor is a special function automatically executed when an object is created; in Python, the special function __init__() is used as the Constructor, used to initialize class variables.\n- Instance variables have a value that varies from object to object — each object gets its own separate copy, typically declared using self inside the constructor.\n- A Destructor is a special method executed automatically when an object exits scope; in Python, __del__() is used as the destructor.\n- A variable prefixed with a double underscore (__) becomes private, accessible only within the class; variables without this prefix are public by default.",
+      "nav": {
+        "back": "public-private",
+        "practice": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,341 @@
+{
+  "meta": {
+    "subject": "Computer Applications -- Class XII",
+    "unit": "Chapter 2 -- An Introduction to Adobe PageMaker",
+    "time": "3.00 hrs",
+    "totalMarks": 47,
+    "instructions": "Samacheer Kalvi -- Answer all questions"
+  },
+  "parts": [
+    {
+      "id": "p1",
+      "navLabel": "Part I -- MCQ (20 x 1)",
+      "title": "Part I -- Objective Type",
+      "type": "mcq",
+      "scoreMax": 20,
+      "marksPer": 1,
+      "sections": [
+        {
+          "label": "DTP and PageMaker Basics",
+          "questions": [
+            {
+              "id": "q1",
+              "html": "DTP stands for ______________",
+              "options": [
+                "a) Desktop Publishing",
+                "b) Desktop Publication",
+                "c) Doctor To Patient",
+                "d) Desktop Printer"
+              ],
+              "answer": 0,
+              "hint": "DTP = Desktop Publishing — the creation of page layouts for documents using DTP software."
+            },
+            {
+              "id": "q2",
+              "html": "____________ is a DTP software.",
+              "options": [
+                "a) Lotus 1-2-3",
+                "b) PageMaker",
+                "c) Maya",
+                "d) Flash"
+              ],
+              "answer": 1,
+              "hint": "Adobe PageMaker is a page layout/DTP software. Lotus 1-2-3 is a spreadsheet, Maya is 3D animation software, Flash is animation software."
+            },
+            {
+              "id": "q3",
+              "html": "Which menu contains the New option?",
+              "options": [
+                "a) File menu",
+                "b) Edit menu",
+                "c) Layout menu",
+                "d) Type menu"
+              ],
+              "answer": 0,
+              "hint": "File > New (or Ctrl + N) creates a new document. File menu contains all document operations."
+            },
+            {
+              "id": "q4",
+              "html": "In PageMaker Window, the area outside of the dark border is referred to as _________.",
+              "options": [
+                "a) Page",
+                "b) Pasteboard",
+                "c) Blackboard",
+                "d) Dashboard"
+              ],
+              "answer": 1,
+              "hint": "Pasteboard is the area outside the dark border. Items placed completely on the pasteboard are NOT printed."
+            },
+            {
+              "id": "q5",
+              "html": "Shortcut to close a document in PageMaker is ______________",
+              "options": [
+                "a) Ctrl + A",
+                "b) Ctrl + B",
+                "c) Ctrl + C",
+                "d) Ctrl + W"
+              ],
+              "answer": 3,
+              "hint": "Ctrl + W closes the document. Ctrl + A = Select All, Ctrl + C = Copy."
+            },
+            {
+              "id": "q6",
+              "html": "A __________ tool is used for magnifying the particular portion of the area.",
+              "options": [
+                "a) Text tool",
+                "b) Line tool",
+                "c) Zoom tool",
+                "d) Hand tool"
+              ],
+              "answer": 2,
+              "hint": "Zoom tool magnifies or reduces an area of the page. Hand tool scrolls the page."
+            },
+            {
+              "id": "q7",
+              "html": "_________ tool is used for drawing boxes.",
+              "options": [
+                "a) Line",
+                "b) Ellipse",
+                "c) Rectangle",
+                "d) Text"
+              ],
+              "answer": 2,
+              "hint": "Rectangle tool draws squares and rectangles (boxes). Ellipse draws circles and ovals."
+            },
+            {
+              "id": "q8",
+              "html": "Place option is present in _____________ menu.",
+              "options": [
+                "a) File",
+                "b) Edit",
+                "c) Layout",
+                "d) Window"
+              ],
+              "answer": 0,
+              "hint": "File > Place is used to import text from other software like MS-Word into a PageMaker document."
+            },
+            {
+              "id": "q9",
+              "html": "To select an entire document using the keyboard, press ___________",
+              "options": [
+                "a) Ctrl + A",
+                "b) Ctrl + B",
+                "c) Ctrl + C",
+                "d) Ctrl + D"
+              ],
+              "answer": 0,
+              "hint": "Ctrl + A selects the entire document. Ctrl + C = Copy, Ctrl + B is not a standard PageMaker shortcut."
+            },
+            {
+              "id": "q10",
+              "html": "Character formatting consists of which of the following text properties?",
+              "options": [
+                "a) Bold",
+                "b) Italic",
+                "c) Underline",
+                "d) All of these"
+              ],
+              "answer": 3,
+              "hint": "Character formatting includes Bold, Italic, Underline, font type, font size, font color — so \"All of these\" is correct."
+            },
+            {
+              "id": "q11",
+              "html": "Which tool lets you edit text?",
+              "options": [
+                "a) Text tool",
+                "b) Type tool",
+                "c) Crop tool",
+                "d) Hand tool"
+              ],
+              "answer": 0,
+              "hint": "Text tool (keyboard shortcut: Shift + Alt + F1) is used to type, select, and edit text. The cursor becomes an I-beam."
+            },
+            {
+              "id": "q12",
+              "html": "Shortcut to print a document in PageMaker is ___________",
+              "options": [
+                "a) Ctrl + A",
+                "b) Ctrl + P",
+                "c) Ctrl + C",
+                "d) Ctrl + V"
+              ],
+              "answer": 1,
+              "hint": "Ctrl + P prints the document. Ctrl + C = Copy, Ctrl + V = Paste, Ctrl + A = Select All."
+            }
+          ]
+        },
+        {
+          "label": "Tools, Threading and Master Pages",
+          "questions": [
+            {
+              "id": "q13",
+              "html": "The keyboard shortcut for the Pointer Tool in PageMaker is:",
+              "options": [
+                "a) F1",
+                "b) F5",
+                "c) F9",
+                "d) F12"
+              ],
+              "answer": 2,
+              "hint": "Pointer Tool = F9. It is used to select, move, and resize text objects and graphics."
+            },
+            {
+              "id": "q14",
+              "html": "A red triangle in the bottom windowshade of a text block means:",
+              "options": [
+                "a) The text block is empty",
+                "b) There is more text than is visible — hidden text remains",
+                "c) The text block is locked",
+                "d) The text block is linked to a frame"
+              ],
+              "answer": 1,
+              "hint": "Red triangle = overflow indicator. Drag the windowshade handle down to reveal the hidden text."
+            },
+            {
+              "id": "q15",
+              "html": "Text that flows through one or more threaded text blocks is called a:",
+              "options": [
+                "a) Frame",
+                "b) Story",
+                "c) Column",
+                "d) Thread"
+              ],
+              "answer": 1,
+              "hint": "A story is text that flows through one or more threaded text blocks — similar to a newspaper article continuing on another page."
+            },
+            {
+              "id": "q16",
+              "html": "Which of the following identifies a threaded text block?",
+              "options": [
+                "a) Red triangle in the handle",
+                "b) Plus sign (+) in the top and/or bottom handles",
+                "c) Yellow dot on the border",
+                "d) Arrow symbol at the top"
+              ],
+              "answer": 1,
+              "hint": "Threaded blocks have a plus sign (+) in their handles. Unthreaded blocks have empty handles."
+            },
+            {
+              "id": "q17",
+              "html": "To insert page numbers on every page, which shortcut is pressed on the Master Page?",
+              "options": [
+                "a) Ctrl + P",
+                "b) Ctrl + N",
+                "c) Ctrl + Alt + P",
+                "d) Shift + Ctrl + P"
+              ],
+              "answer": 2,
+              "hint": "Ctrl + Alt + P inserts page numbers on the Master Page. 'LM' appears on left master page, 'RM' on right — actual page numbers show on document pages."
+            },
+            {
+              "id": "q18",
+              "html": "Any text or object placed on the Master Page will appear on:",
+              "options": [
+                "a) Only the first page",
+                "b) Only the last page",
+                "c) All document pages to which the master is applied",
+                "d) Only odd-numbered pages"
+              ],
+              "answer": 2,
+              "hint": "Master page objects appear on ALL pages to which the master is applied — that's the whole point of master pages (logos, headers, footers, page numbers)."
+            },
+            {
+              "id": "q19",
+              "html": "To enable automatic text flow when importing text, which option must be selected first?",
+              "options": [
+                "a) File > Autoflow",
+                "b) Layout > Autoflow",
+                "c) Edit > Autoflow",
+                "d) Window > Autoflow"
+              ],
+              "answer": 1,
+              "hint": "Layout > Autoflow must be selected BEFORE importing text. Then the loaded text icon shows a squiggly arrow, and text flows automatically to new pages."
+            },
+            {
+              "id": "q20",
+              "html": "To draw a star in PageMaker, which menu option is used after drawing the polygon?",
+              "options": [
+                "a) File > Polygon Settings",
+                "b) Edit > Polygon Settings",
+                "c) Element > Polygon Settings",
+                "d) Layout > Polygon Settings"
+              ],
+              "answer": 2,
+              "hint": "Element > Polygon Settings → set Number of sides and Star inset percentage → click OK. Star Inset bends lines inward to form a star shape."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "navLabel": "Part II -- Short Answers (5 x 2)",
+      "title": "Part II -- Short Answer Questions",
+      "type": "short-essay",
+      "scoreMax": 10,
+      "marksPer": 2,
+      "questions": [
+        {
+          "q": "What is desktop publishing?",
+          "ans": "Desktop Publishing (DTP) is the creation of page layouts for documents using DTP software. Popular DTP software include Adobe PageMaker, Adobe InDesign, and QuarkXPress. PageMaker is a page layout software used to design and produce documents that can be printed — from a simple business card to a large book."
+        },
+        {
+          "q": "What is a Pasteboard in PageMaker?",
+          "ans": "The Pasteboard is the area outside the dark border of the document page in PageMaker. Items placed completely on the pasteboard are NOT visible or printed when you print the document. It is used as a temporary storage area to hold elements while designing the document."
+        },
+        {
+          "q": "What is threading text blocks?",
+          "ans": "Threading text blocks is the process of connecting text blocks so that text flows from one block into another. Text blocks connected in this way are called threaded text blocks. They can be identified by a plus sign (+) in their top and/or bottom handles. Text that flows through one or more threaded blocks is called a story."
+        },
+        {
+          "q": "What is text editing?",
+          "ans": "Text editing means making changes to the text in a document. When you edit a document, you revise the text. Editing may include inserting and deleting words and phrases, correcting errors, and moving and copying text to different places in the document."
+        },
+        {
+          "q": "How do you insert a page in PageMaker?",
+          "ans": "To insert pages in PageMaker: 1. Go to the page immediately before where you want to insert. 2. Choose Layout > Insert Pages in the menu bar. 3. The Insert Pages dialog box appears. 4. Type the number of pages to insert. 5. Choose Before or After from the pop-up menu. 6. Click the Insert button. PageMaker automatically renumbers all pages."
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "navLabel": "Part III -- Brief Answers (3 x 3)",
+      "title": "Part III -- Brief Answer Questions",
+      "type": "short-essay",
+      "scoreMax": 9,
+      "marksPer": 3,
+      "questions": [
+        {
+          "q": "What is PageMaker? Explain its uses.",
+          "ans": "Adobe PageMaker is a page layout software used to design and produce documents that can be printed. Uses: 1. Create documents ranging from simple business cards to large books. 2. Position text and graphics on document pages anywhere — next to each other, on top, or beside each other. 3. Create newsletters with articles and pictures on each page. 4. Design professional publications like magazines, brochures, and flyers."
+        },
+        {
+          "q": "How do you rejoin split text blocks?",
+          "ans": "To rejoin split text blocks in PageMaker: 1. Place the cursor on the bottom handle of the SECOND text block. 2. Click and drag the bottom handle all the way up to the top. 3. Then place the cursor on the bottom handle of the FIRST text block. 4. Click and drag the bottom handle down if necessary. The two blocks are now rejoined."
+        },
+        {
+          "q": "What is the use of Master Page?",
+          "ans": "Master Pages in PageMaker serve these purposes: 1. Any text or object placed on the master page appears on all document pages to which the master is applied. 2. Saves time — you don't have to recreate the same elements on every page. 3. Master Pages commonly contain: repeating logos, page numbers, headers, footers, and non-printing layout guides (column guides, ruler guides, margin guides). 4. A master item cannot be selected on a document page — it must be edited from the master page itself."
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "navLabel": "Part IV -- Long Essays (2 x 4)",
+      "title": "Part IV -- Detailed Answer Questions",
+      "type": "long-essay",
+      "scoreMax": 8,
+      "marksPer": 4,
+      "questions": [
+        {
+          "q": "Explain the tools in PageMaker toolbox.",
+          "ans": "The PageMaker toolbox contains 14 tools:\n\n1. Pointer Tool (F9) — Selects, moves, and resizes text objects and graphics.\n2. Text Tool (Shift+Alt+F1) — Types, selects, and edits text. Cursor becomes an I-beam.\n3. Rotating Tool (Shift+F2) — Selects and rotates objects.\n4. Cropping Tool (Shift+Alt+F2) — Trims imported graphics.\n5. Line Tool (Shift+F3) — Draws straight lines in any direction.\n6. Constrained Line Tool (Shift+Alt+F3) — Draws only vertical or horizontal lines.\n7. Rectangle Tool (Shift+F4) — Draws squares and rectangles.\n8. Rectangle Frame Tool (Shift+Alt+F4) — Creates rectangular placeholders for text and graphics.\n9. Ellipse Tool (Shift+F5) — Draws circles and ellipses.\n10. Ellipse Frame Tool — Creates elliptical placeholders for text and graphics.\n11. Polygon Tool (Shift+F6) — Draws polygons.\n12. Polygon Frame Tool — Creates polygonal placeholders for text and graphics.\n13. Hand Tool (Shift+Alt+Drag) — Scrolls the page (alternative to scroll bars).\n14. Zoom Tool — Magnifies or reduces an area of the page.\n\nTo show/hide toolbox: Window > Show Tools / Hide Tools."
+        },
+        {
+          "q": "Write the steps to draw a star using the Polygon tool.",
+          "ans": "Steps to draw a star using the Polygon tool in PageMaker:\n\n1. Click on the Polygon tool from the toolbox. The cursor changes to a crosshair.\n2. Click and drag anywhere on the screen. As you drag, a polygon appears.\n3. Release the mouse button when the polygon is of the desired size.\n4. Choose Element > Polygon Settings in the menu bar. The Polygon Settings dialog box appears.\n5. Type 5 in the Number of sides text box (for a 5-pointed star).\n6. Type 50% in the Star inset text box.\n7. Click OK. The required star shape now appears on the screen.\n\nNote: Star Inset percentage bends the polygon lines inwards to form a star shape. Different inset and side values give different star shapes — e.g. 15 sides with 50% inset, or 25 sides with 25% inset."
+        }
+      ]
+    }
+  ]
+}

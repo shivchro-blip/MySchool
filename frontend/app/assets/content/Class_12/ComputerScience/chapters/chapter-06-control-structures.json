@@ -1,0 +1,67 @@
+{
+  "chapterNumber": 6,
+  "title": "Control Structures",
+  "subject": "Computer Science",
+  "classLabel": "Class 12",
+  "curriculum": "Samacheer Kalvi",
+  "sections": [
+    {
+      "id": "intro-sequential",
+      "title": "Introduction & Sequential Statements",
+      "content": "**6.1 Introduction**\n\nPrograms contain sets of statements — executable segments that yield results. Generally, statements execute **sequentially**, one after another. Sometimes we need to skip a segment and execute another based on a condition — called **alternative or branching**. We may also need to execute a set of statements multiple times — called **iteration or looping**.\n\n**6.2 Control Structures**\n\nA program statement that causes a jump of control from one part of a program to another is called a **control structure** or **control statement** — compound statements used to alter the control flow of a process depending on its state.\n\nThere are three important control structures:\n- **Sequential**\n- **Alternative or Branching**\n- **Iterative or Looping**\n\n**6.2.1 Sequential Statement**\n\nComposed of a sequence of statements executed one after another. Example:\n```\n# Program to print your name and address - example for sequential statement\nprint(\"Hello! This is Shyam\")\nprint(\"43, Second Lane, North Car Street, TN\")\n```\nOutput:\n```\nHello! This is Shyam\n43, Second Lane, North Car Street, TN\n```",
+      "nav": {
+        "next": "if-statements",
+        "nextLabel": "Next: if, if-else & elif Statements →"
+      }
+    },
+    {
+      "id": "if-statements",
+      "title": "Alternative (Branching) Statements",
+      "content": "**6.2.2 Alternative or Branching Statement**\n\nPython provides three types: **Simple if**, **if..else**, and **if..elif**.\n\n**(i) Simple if Statement**\n\nSyntax:\n```\nif <condition>:\n    statements-block1\n```\nIf the condition is true, statements-block1 executes.\n```\nx = int(input(\"Enter your age :\"))\nif x >= 18:\n    print(\"You are eligible for voting\")\n```\nIf age < 18, nothing is printed — the program does not check any alternative when the condition fails.\n\n**(ii) if..else Statement**\n\nSyntax:\n```\nif <condition>:\n    statements-block 1\nelse:\n    statements-block 2\n```\nProvides two possibilities — the condition determines which block executes.\n```\na = int(input(\"Enter any number :\"))\nif a % 2 == 0:\n    print(a, \" is an even number\")\nelse:\n    print(a, \" is an odd number\")\n```\n\n**Alternate (single-line) if..else:**\n```\nvariable = variable1 if condition else variable2\n```\nIf the condition is true, variable1's value is stored; otherwise variable2's value is used.\n```\na = int(input(\"Enter any number :\"))\nx = \"even\" if a%2==0 else \"odd\"\nprint(a, \" is \", x)\n```\n\n**(iii) Nested if..elif..else Statement**\n\nWhen constructing a chain of if statements, use **elif** instead of nested if..else.\n\nSyntax:\n```\nif <condition-1>:\n    statements-block 1\nelif <condition-2>:\n    statements-block 2\nelse:\n    statements-block n\n```\ncondition-1 is tested; if true, statements-block1 executes. Otherwise condition-2 is checked; if true, statements-block2 executes. If all fail, the else block executes. Multiple if..else statements can be combined into one if..elif..else. There is no limit on the number of elif clauses, but an else clause (if used) must be placed at the end.\n\n**Example — grading:**\n```\nm1 = int(input(\"Enter mark in first subject : \"))\nm2 = int(input(\"Enter mark in second subject : \"))\navg = (m1+m2)/2\nif avg >= 80:\n    print(\"Grade : A\")\nelif avg >= 70 and avg < 80:\n    print(\"Grade : B\")\nelif avg >= 60 and avg < 70:\n    print(\"Grade : C\")\nelif avg >= 50 and avg < 60:\n    print(\"Grade : D\")\nelse:\n    print(\"Grade : E\")\n```\n\n**Note:** In Python, indentation (typically 4 spaces) is REQUIRED to indicate which block of code a statement belongs to — unlike other languages where indentation is merely cosmetic.\n\n**Using 'in' and 'not in' in if statements:**\n```\nch = input(\"Enter a character :\")\nif ch in ('a', 'A', 'e', 'E', 'i', 'I', 'o', 'O', 'u', 'U'):\n    print(ch, ' is a vowel')\nif ch not in ('a', 'b', 'c'):\n    print(ch, ' the letter is not a/b/c')\n```",
+      "nav": {
+        "back": "intro-sequential",
+        "next": "while-loop",
+        "nextLabel": "Next: while Loop →"
+      }
+    },
+    {
+      "id": "while-loop",
+      "title": "Iteration: the while Loop",
+      "content": "**6.2.3 Iteration or Looping Constructs**\n\nLoops execute a block of code multiple times, or until a condition is satisfied. Python provides two looping constructs: **while loop** and **for loop**.\n\n**(i) while Loop**\n\nSyntax:\n```\nwhile <condition>:\n    statements block 1\n[else:\n    statements block2]\n```\nThe condition is any valid Boolean expression. statements-block1 executes as long as the condition is True. The **else** part is optional, and executes when the condition tests False. The while loop is an **entry-check** loop — it is not executed even once if the condition is False at the start.\n\n**Example — print numbers 10 to 15:**\n```\ni = 10                    # initializing the control variable\nwhile (i <= 15):          # test condition\n    print(i, end='\\t')   # statements-block 1\n    i = i + 1              # update the control variable\n```\nOutput: `10 11 12 13 14 15`\n\n**Note:** print() supports `end` and `sep` as parameters — `end` can hold escape sequences like '\\t' (tab) or '\\n' (newline); `sep` can specify separators like comma or semicolon between values.\n\n**Example — with else part:**\n```\ni = 10\nwhile (i <= 15):\n    print(i, end='\\t')\n    i = i + 1\nelse:\n    print(\"\\nValue of i when the loop exit \", i)\n```\nOutput: `10 11 12 13 14 15` then `Value of i when the loop exit 16`",
+      "nav": {
+        "back": "if-statements",
+        "next": "for-loop",
+        "nextLabel": "Next: for Loop & Nested Loops →"
+      }
+    },
+    {
+      "id": "for-loop",
+      "title": "Iteration: the for Loop & Nested Loops",
+      "content": "**(ii) for Loop**\n\nThe for loop is known as a **definite loop**, since the number of iterations is known in advance.\n\nSyntax:\n```\nfor counter_variable in sequence:\n    statements-block 1\n[else:                     # optional\n    statements-block 2]\n```\nThe `for...in` statement iterates over a sequence of objects — the control variable accesses each item until it reaches the last item.\n\n```\nfor x in \"Hello World\":\n    print(x, end=' ')\n# Output: H e l l o   W o r l d (each character)\n\nfor x in (1,2,3,4,5):\n    print(\"Hello World\")\n# Output: Hello World printed 5 times\n```\n\n**range() function** — generates a series of values between two numeric intervals.\n```\nrange(start, stop, [step])\n```\n- start: initial value; stop: final value (range works till stop−1); step: increment (optional).\n\nExamples:\n- `range(1,30,1)` → 1 to 29\n- `range(2,30,2)` → 2 to 28\n- `range(30,3,-3)` → 30 down to 6\n- `range(20)` → 0 to 19 (stop as upper limit, start defaults to 0)\n\n**Example — even single-digit numbers:**\n```\nfor i in range(2,10,2):\n    print(i, end=' ')\n# Output: 2 4 6 8\n```\n\n**Example — with else part:**\n```\nfor i in range(2,10,2):\n    print(i, end=' ')\nelse:\n    print(\"\\nEnd of the loop\")\n```\n\n**Example — sum of 1 to 100:**\n```\nn = 100\nsum = 0\nfor counter in range(1, n+1):\n    sum = sum + counter\nprint(\"Sum of 1 until %d: %d\" % (n, sum))\n# Output: Sum of 1 until 100: 5050\n```\nNote: the for loop iterates from 1 to n+1−1 = n, so range(1,n+1) is used to include n itself.\n\n**for loop with strings:**\n```\nfor word in 'Computer':\n    print(word, end=' ')\nelse:\n    print(\"\\nEnd of the loop\")\n```\n\n**(iii) Nested Loop Structure**\n\nA loop placed within another loop is called a **nested loop**. One can nest while within while, for within for, for within while, or while within for.\n\n**Example — for within while, printing a triangular pattern:**\n```\ni = 1\nwhile (i <= 6):\n    for j in range(1, i):\n        print(j, end='\\t')\n    print(end='\\n')\n    i += 1\n```\nOutput:\n```\n1\n1  2\n1  2  3\n1  2  3  4\n1  2  3  4  5\n```",
+      "nav": {
+        "back": "while-loop",
+        "next": "jump-statements",
+        "nextLabel": "Next: Jump Statements →"
+      }
+    },
+    {
+      "id": "jump-statements",
+      "title": "Jump Statements: break, continue & pass",
+      "content": "**6.2.4 Jump Statements in Python**\n\nJump statements unconditionally transfer control from one part of the program to another. Python has three keywords: **break**, **continue**, **pass**.\n\n**(i) break Statement**\n\nTerminates the loop containing it; control transfers to the statement right after the loop's body. If inside a nested loop, break terminates only the **innermost** loop.\n\nSyntax: `break`\n\n```\nfor word in \"Jump Statement\":\n    if word == \"e\":\n        break\n    print(word, end=' ')\n# Output: Jump Stat\n```\n**Important:** if a loop is exited via break, the loop's **else** part is NOT executed.\n```\nfor word in \"Jump Statement\":\n    if word == \"e\":\n        break\n    print(word, end=' ')\nelse:\n    print(\"End of the loop\")\nprint(\"\\n End of the program\")\n# Output: Jump Stat\n#         End of the program   (else part skipped)\n```\n\n**(ii) continue Statement**\n\nUnlike break, continue skips the remaining part of the current iteration and moves to the **next** iteration.\n\nSyntax: `continue`\n\n```\nfor word in \"Jump Statement\":\n    if word == \"e\":\n        continue\n    print(word, end=' ')\nprint(\"\\n End of the program\")\n# Output: Jump Statmnt   (all letters except 'e')\n#         End of the program\n```\n\n**(iii) pass Statement**\n\nA **null statement** — when executed, it is completely ignored; nothing happens (no operation). Used in an if clause or loop when no statements should execute in that block.\n\nSyntax: `pass`\n\n```\na = int(input(\"Enter any number :\"))\nif (a==0):\n    pass\nelse:\n    print(\"non zero value is accepted\")\n```\n**Note:** pass is generally used as a **placeholder** — when a loop or function is to be implemented later but can't have an empty body (which would raise an interpreter error), pass fills that gap.\n```\nfor val in \"Computer\":\n    pass\nprint(\"End of the loop, loop structure will be built in future\")\n```",
+      "nav": {
+        "back": "for-loop",
+        "next": "summary",
+        "nextLabel": "Next: Points to Remember →"
+      }
+    },
+    {
+      "id": "summary",
+      "title": "Points to Remember",
+      "content": "- Programs consist of statements executed in sequence; control statements alter this flow.\n- A program statement that causes a jump of control from one part of the program to another is called a control structure or control statement.\n- Three types of flow of control: Sequencing, Branching (Alternative), and Iteration.\n- In Python, branching is done using various forms of 'if' structures (simple if, if..else, if..elif..else).\n- Indentation plays a vital role in Python programming — it is the indentation that groups statements, with no need for {}. The interpreter throws an error for indentation mistakes.\n- To accept input at runtime, modern Python versions use input().\n- print() supports escape sequences to format output.\n- range() is used to supply a range of values in a for loop.\n- break, continue, pass act as jump statements in Python — break terminates the innermost loop entirely; continue skips to the next iteration; pass is a null statement, generally used as a placeholder.",
+      "nav": {
+        "back": "jump-statements",
+        "practice": true
+      }
+    }
+  ]
+}

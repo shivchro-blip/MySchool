@@ -1,0 +1,27 @@
+{
+  "chapterNumber": 15,
+  "title": "Control Structure in JavaScript",
+  "subject": "Computer Applications",
+  "classLabel": "Class 11",
+  "curriculum": "Samacheer Kalvi",
+  "sections": [
+    {
+      "id": "branching",
+      "title": "Branching Statements",
+      "content": "**Control Structures** alter the normal sequence of execution. Two types:\n- **Branching / Selection:** Execute different code based on a condition.\n- **Looping / Repetitive:** Execute code multiple times.\n\n---\n\n**Branching Statements:**\nA branch transfers control from the current statement to another. Types: `if`, `if...else`, `else if`, `switch`.\n\n---\n\n**if Statement:**\nExecutes a block only if the condition is true.\n```\nif (condition) {\n  // true block\n}\n```\nExample: Check voting eligibility\n```\nvar age = prompt(\"Please enter your Age:\", \"0\");\nif (age >= 16) {\n  alert(\"You Are Eligible to Vote....\");\n}\n```\n\n---\n\n**if...else Statement:**\nExecutes one block if true, another if false.\n```\nif (expression) {\n  // statements if true\n} else {\n  // statements if false\n}\n```\nExample: Driving licence eligibility\n```\nvar age = prompt(\"Please enter your Age:\", \"0\");\nif (age >= 18) {\n  alert(\"You Are Eligible to get Driving Licence..\");\n} else {\n  alert(\"You Are Not Eligible to get Driving Licence..\");\n}\n```\n\n---\n\n**else if Statement:**\nTests multiple conditions in sequence. When the first condition is false, the next `else if` is checked.\n```\nif (marks > 90) {\n  document.write(\"Your Grade is Outstanding..\");\n} else if ((marks > 70) && (marks <= 90)) {\n  document.write(\"Your Grade is Excellent..\");\n} else if ((marks > 50) && (marks <= 70)) {\n  document.write(\"Your Grade is Good..\");\n} else if ((marks > 40) && (marks <= 50)) {\n  document.write(\"Your Grade is Satisfactory..\");\n} else {\n  document.write(\"Your Grade is Poor and have to re-appear Exam..\");\n}\n```\n\n---\n\n**switch Statement:**\nAn alternative to `if...else` when testing all possible results of an expression.\n```\nswitch (expression) {\n  case label1:\n    statements1;\n    break;\n  case label2:\n    statements2;\n    break;\n  default:\n    statements;\n}\n```\n\n**break** exits the switch once a matching case executes. Without break, execution falls through to the next case.\n\n**default** executes when no case label matches the expression.",
+      "nav": {
+        "next": "looping",
+        "nextLabel": "Looping Statements →"
+      }
+    },
+    {
+      "id": "looping",
+      "title": "Looping Statements",
+      "content": "Loops execute the same portion of code repeatedly with slightly different values. JavaScript supports three loop types: `for`, `while`, `do...while`.\n\n---\n\n**for Loop:**\nA rigid, flexible structure that loops a pre-set number of times.\n```\nfor (initialization; condition; increment/decrement) {\n  // body of the loop\n}\n```\n\nThree parts (separated by semicolons):\n1. **Initialization:** Declare and initialise the control variable.\n2. **Condition:** Determines how many times the loop iterates.\n3. **Increment/Decrement:** Changes the control variable each iteration.\n\nExample: Print multiplication table\n```\nvar no1 = prompt(\"Please enter Table You want:\", \"0\");\nfor (var no2 = 0; no2 <= 10; no2++) {\n  document.write(no1 + \" x \" + no2 + \" = \" + no1 * no2 + \"<br>\");\n}\n```\n\n---\n\n**break Statement:** Terminates the loop early when a condition is met.\n```\nfor (var n = 0; n <= 10; n++) {\n  if (n == 5) { break; }\n  document.write(n + \" \");\n}\n// Output: 0 1 2 3 4\n```\n\n**continue Statement:** Skips the current iteration and continues with the next.\n```\nfor (var n = 0; n <= 10; n++) {\n  if (n == 5) { continue; }\n  document.write(n + \" \");\n}\n// Output: 0 1 2 3 4 6 7 8 9 10 (5 is skipped)\n```\n\n---\n\n**while Loop:**\nExecutes a block repeatedly as long as a condition is true. Condition is evaluated **before** each iteration.\n```\nwhile (condition) {\n  // body of the loop\n}\n```\nExample:\n```\nvar no2 = 0;\nwhile (no2 <= 5) {\n  document.write(no2 + \" \");\n  no2 = no2 + 1;\n}\n// Output: 0 1 2 3 4 5\n```\n\n---\n\n**do...while Loop:**\nLike `while`, but the condition is evaluated **after** each iteration. The body always executes **at least once**.\n```\ndo {\n  // body of the loop\n} while (expression);\n```\nExample:\n```\nvar no2 = 0;\ndo {\n  document.write(no2 + \" \");\n  no2 = no2 + 2;\n} while (no2 <= 10);\n// Output: 0 2 4 6 8 10\n```\n\n**Key difference:** In `while`, if the condition is false initially, the body never runs. In `do...while`, the body always runs at least once before the condition is checked.",
+      "nav": {
+        "back": "branching",
+        "practice": true
+      }
+    }
+  ]
+}

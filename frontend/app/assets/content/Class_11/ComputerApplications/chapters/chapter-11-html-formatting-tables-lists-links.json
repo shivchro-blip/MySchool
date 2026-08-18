@@ -1,0 +1,47 @@
+{
+  "chapterNumber": 11,
+  "title": "HTML — Formatting Text, Tables, Lists and Links",
+  "subject": "Computer Applications",
+  "classLabel": "Class 11",
+  "curriculum": "Samacheer Kalvi",
+  "sections": [
+    {
+      "id": "text-formatting",
+      "title": "Text Formatting Tags",
+      "content": "**Physical Style Tags** (apply visual formatting directly):\n\n| Tag | Closing | Effect |\n|-----|---------|--------|\n| `<b>` | `</b>` | Bold text |\n| `<i>` | `</i>` | Italic text |\n| `<u>` | `</u>` | Underlined text |\n| `<tt>` | `</tt>` | Fixed-width typewriter font |\n\nAll are container tags.\n\n**Semantic Tags** (carry meaning, not just style):\n- `<strong>` — Defines important text; displays as bold (same look as `<b>` but means \"important\").\n- `<em>` — Emphasised text; displays as italic (same look as `<i>` but means \"emphasis\").\n\n**Size Tags:**\n- `<big>` — Text larger than normal size.\n- `<small>` — Text smaller than normal size.\n\n**Highlighting:** `<mark>` — Highlights text in default yellow. Example: `A <mark>computer</mark> is an electronic device.`\n\n**Subscript and Superscript:**\n- `<sub>` — Displays text below the normal line. Example: H`<sub>2</sub>`O → H₂O\n- `<sup>` — Displays text above the normal line. Example: (a+b)`<sup>2</sup>` → (a+b)²\n\n**Inserted and Deleted Text:**\n- `<ins>` — Shows text as underlined (marked as inserted).\n- `<del>` — Shows text as strikethrough (marked as deleted).\n- `<s>` — Strikethrough (to mark wrong/incorrect text).\n\n**Comparison of similar tags:**\n\n| Tag | Usage | Equivalent | Final Look |\n|-----|-------|-----------|------------|\n| `<b>` | Show text bold | `<strong>` (important) | Bold |\n| `<i>` | Show text italic | `<em>` (emphasis) | Italic |\n| `<u>` | Underline | `<ins>` (inserted text) | Underline |\n| `<s>` | Wrong text | `<del>` (deleted text) | Strikethrough |\n\nUse the appropriate tag based on its semantic meaning.\n\n**Center Tag:** `<center>` — Centres non-paragraph text content. Container tag.\n\n**Font Tag:** `<font face=\"name\" size=value color=color>` — Changes style, size, and colour of text.\n- **face:** Font name (use double quotes for multi-word names).\n- **size:** Virtual size 1–7 (each size is ~20% larger than previous; 3 is default).\n- **color:** Colour name or hexadecimal code.\n- Multiple fonts: `<font face=\"Arial, Times New Roman\">` — browser tries each in order.\n- Note: `<font>` tag is not supported in HTML5.\n\n**Section Break — `<hr>` (Horizontal Rule):** Separates sections with a horizontal line. Empty tag.\n\nAttributes: `<hr size=value width=value noshade color=color>`\n- **size:** Thickness in pixels (default: 3px; 72px = 1 inch).\n- **width:** Width as pixels or percentage (default: 100%).\n- **noshade:** Turns off 3D appearance, shows flat 2D line (Boolean attribute).\n- **color:** Line colour (default: gray).\n- Note: All `<hr>` attributes are not supported in HTML5.",
+      "nav": {
+        "next": "tables",
+        "nextLabel": "Tables in HTML →"
+      }
+    },
+    {
+      "id": "tables",
+      "title": "Tables in HTML",
+      "content": "Tables (officially introduced in HTML 3.2) are grids of rows and columns used to display tabular data.\n\n**Core Table Tags (all container tags):**\n\n| Tag | Purpose |\n|-----|---------|\n| `<table>` | Creates the table |\n| `<tr>` | Defines a table row |\n| `<th>` | Defines a column heading (bold + centred by default) |\n| `<td>` | Specifies data in a cell |\n| `<caption>` | Defines a title for the table |\n| `<tbody>`, `<thead>`, `<tfoot>` | Define and control table sections |\n\n**Basic Table Structure:**\n```\n<table border=1>\n  <caption> Title </caption>\n  <tr>\n    <th> Heading 1 </th>\n    <th> Heading 2 </th>\n  </tr>\n  <tr>\n    <td> Data 1 </td>\n    <td> Data 2 </td>\n  </tr>\n</table>\n```\n\n**Attributes of `<table>`:**\n\n| Attribute | Description |\n|-----------|-------------|\n| `border` | Thickness of border lines in pixels (0 = no border, default) |\n| `cellspacing` | Space between cells in pixels |\n| `cellpadding` | Space between cell content and its border in pixels |\n| `bordercolor` | Colour of the border lines |\n| `align` | Position of table: left (default), right, center |\n| `bgcolor` | Background colour of the table |\n| `height`, `width` | Table dimensions in pixels or percentage |\n\n**Attributes of `<td>`, `<th>`, `<tr>`:**\n\n| Attribute | Description |\n|-----------|-------------|\n| `align` | Horizontal alignment: left (default), right, center |\n| `valign` | Vertical alignment: bottom (default), top, middle |\n| `width` | Cell width in pixels or percentage |\n| `bgcolor` | Background colour of a cell |\n| `background` | Background image for a cell |\n| `rowspan` | Merge cells vertically across rows |\n| `colspan` | Merge cells horizontally across columns |",
+      "nav": {
+        "back": "text-formatting",
+        "next": "lists",
+        "nextLabel": "Lists in HTML →"
+      }
+    },
+    {
+      "id": "lists",
+      "title": "Lists in HTML",
+      "content": "HTML supports three types of lists:\n\n**1. Ordered List (Numbered List) — `<ol>`...`</ol>`**\nItems are numbered or lettered in sequence. Each item uses the `<li>` tag (closing `</li>` is usually omitted).\n\nAttributes of `<ol>`:\n- **type** — Numbering style:\n\n| Type | Style |\n|------|-------|\n| `1` | 1, 2, 3, 4 ... (default) |\n| `a` | a, b, c, d ... |\n| `A` | A, B, C, D ... |\n| `i` | i, ii, iii, iv ... |\n| `I` | I, II, III, IV ... |\n\n- **start** — Starting point (decimal number regardless of type). Default: 1.\n\nExample: `<ol type=i start=5>` starts from v, vi, vii...\n\n**2. Unordered List (Bulleted List) — `<ul>`...`</ul>`**\nItems are prefixed with bullet symbols. Each item uses the `<li>` tag.\n\nAttributes of `<ul>`:\n- **type** — Bullet style:\n\n| Type | Symbol |\n|------|--------|\n| `disc` | Solid circle (default) |\n| `square` | Solid square |\n| `circle` | Unfilled circle |\n\n**3. Definition List — `<dl>`...`</dl>`**\nNo bullets or numbers. Each item has two parts:\n- `<dt>`...`</dt>` — Definition Term (left-aligned)\n- `<dd>`...`</dd>` — Definition Description (indented below the term)\n\n**Nested Lists:** A list block defined inside another list.\nExample: An ordered list with an unordered list inside each item.",
+      "nav": {
+        "back": "tables",
+        "next": "links",
+        "nextLabel": "Links in HTML →"
+      }
+    },
+    {
+      "id": "links",
+      "title": "Links in HTML",
+      "content": "A **link (hyperlink)** connects web resources — HTML documents, external webpages, or multimedia content (images, video, audio).\n\nTwo things needed to create a link:\n1. The file path or URL to link to.\n2. The clickable text (anchor text).\n\n**The Anchor Tag `<a>`:** Used with the **href** attribute (Hypertext Reference).\n\nSyntax: `<a href=\"URL or path\"> Clickable Text </a>`\n\n---\n\n**Internal Links:** Link to a particular section of the same document.\n\nSteps:\n1. Create a named anchor at the target section: `<a name=\"sectionID\"> Section Heading </a>`\n2. Create the link pointing to it: `<a href=\"#sectionID\"> Go to Section </a>`\n\nThe `#` symbol indicates an internal target.\n\n---\n\n**External Links:** Link to an external webpage.\n\nSyntax: `<a href=\"http://www.tnscert.org\"> SCERT </a>`\n\nWhen clicked, the browser opens that URL.\n\n---\n\n**Linking Multiple Pages:** Create a master page with links to other HTML files.\n\n`<a href=\"writer.htm\"> OpenOffice Writer </a>`\n\nOn the linked page, provide a back link: `<a href=\"master.htm\"> Back to Home </a>`\n\n---\n\n**HTML Link Colours (default):**\n- Unvisited link: underlined and blue\n- Visited link: underlined and purple\n- Active link (being clicked): underlined and red\n\nThese defaults can be changed using CSS.",
+      "nav": {
+        "back": "lists",
+        "practice": true
+      }
+    }
+  ]
+}

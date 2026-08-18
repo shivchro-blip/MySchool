@@ -1,0 +1,191 @@
+{
+  "eyebrow": "Chapter 11 · Class 12 Computer Applications",
+  "title": "Network Examples and Protocols",
+  "author": "",
+  "pills": [
+    "Theory",
+    "Networks",
+    "Board Exam Important"
+  ],
+  "tabs": [
+    {
+      "id": "internet-intranet",
+      "label": "Internet / Intranet / Extranet",
+      "blocks": [
+        {
+          "type": "teacher-voice",
+          "html": "<p>Internet, Intranet, and Extranet are three network types that sound similar but serve very different purposes. Understanding the difference between them — and knowing protocol names like HTTP, FTP, SMTP — is essential for Part I and Part III questions.</p>"
+        },
+        {
+          "type": "section-head",
+          "text": "11.2 Internet, Intranet and Extranet"
+        },
+        {
+          "type": "gloss-row",
+          "word": "Internet",
+          "def": "A worldwide system of computer networks — a network of networks. Comprises private, public, business, academic, and government networks connected by guided, wireless, and fiber-optic technologies. Developed by ARPA (Advanced Research Projects Agency) of the U.S. government in 1969 — first recognized as ARPANet."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Intranet",
+          "def": "A PRIVATE network within an enterprise to share company data and computing resources among employees. May consist of many interlinked LANs. Includes connections through gateway computers to the outside Internet. Applications: sharing company policies, employee database, circulars, product/customer data."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Extranet",
+          "def": "A private network that uses Internet technology and the public telecommunication system to securely share business information with suppliers, vendors, partners, customers, or other businesses. Applications: customer communications, online education, account status enquiry, supply-chain management, order status."
+        },
+        {
+          "type": "think-box",
+          "label": "⭐ Exam Tip",
+          "text": "Internet = worldwide (public). Intranet = within ONE company (private). Extranet = between a company and its EXTERNAL partners (private, uses Internet technology). This 3-way comparison is a Part III question every year."
+        },
+        {
+          "type": "section-head",
+          "text": "11.3 Mobile Networks"
+        },
+        {
+          "type": "gloss-row",
+          "word": "Mobile Network / Cellular Network",
+          "def": "Made up of a large number of signal areas called CELLS. Cells join to form a large coverage area. Each cell has a base station that sends and receives mobile signals."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Generations of Mobile Networks",
+          "def": "1G (1981) — NMT launch, analog transmission. 2G (1991) — GSM launch, digital, SIM cards. 2.5G (2000) — GPRS launch. 3G (2003) — multimedia, up to 2Mbit/s. 4G (2007) — adhoc networking, IPv6. 5G (2019+) — high data rate, low latency."
+        },
+        {
+          "type": "think-box",
+          "label": "Tamil Word Help 🔤",
+          "text": "GSM = Global System for Mobile communication (2G-ன் தரநிலை). SIM = Subscriber Identity Module (பயனர் அடையாள அட்டை). GPRS = General Packet Radio Service (2.5G). CDMA = Code Division Multiple Access."
+        },
+        {
+          "type": "nav",
+          "next": "protocols",
+          "nextLabel": "Next: Protocols & OSI →"
+        }
+      ]
+    },
+    {
+      "id": "protocols",
+      "label": "Protocols & OSI",
+      "blocks": [
+        {
+          "type": "section-head",
+          "text": "11.1 Network Protocols"
+        },
+        {
+          "type": "gloss-row",
+          "word": "Network Protocol",
+          "def": "A set of rules that determine how data is transmitted between different devices in the same network. Allows connected devices to communicate regardless of differences in their internal processes, structure, or design."
+        },
+        {
+          "type": "gloss-row",
+          "word": "3 Types of Network Protocols",
+          "def": "1. Network Communication Protocols — basic data communication. Includes HTTP, TCP/IP. 2. Network Security Protocols — confirms security. Includes HTTPS, SFTP, SSL. 3. Network Management Protocols — governance and maintenance. Includes ICMP, SNMP."
+        },
+        {
+          "type": "section-head",
+          "text": "11.4 Wi-Fi"
+        },
+        {
+          "type": "gloss-row",
+          "word": "Wi-Fi",
+          "def": "Stands for Wireless Fidelity. A wireless network technology that permits computers and devices to connect to each other and to the internet without wires. Also called WLAN (Wireless Local Area Network). Technical code: 802.11."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Benefits of Wi-Fi",
+          "def": "Provides mobility, Internet connection, flexibility of LAN, ensures connectivity, low cost and high benefits."
+        },
+        {
+          "type": "section-head",
+          "text": "11.5.1 OSI Model (7 Layers)"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>OSI = Open System Interconnection. Founded in 1934. A general framework for network communication. Memory trick for layer order (bottom to top): <strong>All Persons Should Try New Diet Plan</strong> — Physical, Data Link, Network, Transport, Session, Presentation, Application.</p>"
+        },
+        {
+          "type": "gloss-row",
+          "word": "Layer 1 — Physical Layer",
+          "def": "Defines electrical and physical specifications for devices."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Layer 2 — Data Link Layer",
+          "def": "Guarantees data transmitted are free of errors. Protocols: 802.3 (Ethernet), 802.11 (Wi-Fi)."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Layer 3 — Network Layer",
+          "def": "Determines the path of data packets. Responsible for routing using IP addressing."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Layer 4 — Transport Layer",
+          "def": "Guarantees successful transportation of data. Includes error checking. (Asked in MCQ: 'Which layer checks for errors?')"
+        },
+        {
+          "type": "gloss-row",
+          "word": "Layer 5 — Session Layer",
+          "def": "Identifies established system sessions between network entities. Controls dialogues between computers."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Layer 6 — Presentation Layer",
+          "def": "Translates data and prepares it for the application layer. Encryption and decryption occur here (e.g. SSL — Secure Socket Layer)."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Layer 7 — Application Layer",
+          "def": "Acts as the user interface platform comprising software within the system."
+        },
+        {
+          "type": "section-head",
+          "text": "11.5.2 TCP/IP Protocols"
+        },
+        {
+          "type": "gloss-row",
+          "word": "TCP/IP",
+          "def": "Transmission Control Protocol/Internet Protocol. A set of protocols governing communications among all computers on the Internet. Tells how information should be packaged, sent, received, and delivered."
+        },
+        {
+          "type": "gloss-row",
+          "word": "HTTP",
+          "def": "HyperText Transfer Protocol. Used between web client and server. Non-secure data transmission. Core protocol of the World Wide Web."
+        },
+        {
+          "type": "gloss-row",
+          "word": "HTTPS",
+          "def": "HyperText Transfer Protocol Secure. Used between web client and server. Ensures SECURE data transmission."
+        },
+        {
+          "type": "gloss-row",
+          "word": "FTP",
+          "def": "File Transfer Protocol. Used between computers for sending and receiving files. Enables client to send and receive complete files from a server."
+        },
+        {
+          "type": "gloss-row",
+          "word": "SMTP",
+          "def": "Simple Mail Transfer Protocol. Provides e-mail services."
+        },
+        {
+          "type": "gloss-row",
+          "word": "DNS",
+          "def": "Domain Name System. Refers to host computers by names rather than numbers (IP addresses)."
+        },
+        {
+          "type": "think-box",
+          "label": "⭐ Exam Tip",
+          "text": "Protocol expansion MCQ: HTTP = HyperText Transfer Protocol (non-secure). HTTPS = HyperText Transfer Protocol Secure. FTP = File Transfer Protocol (file sending). SMTP = Simple Mail Transfer Protocol (email). DNS = Domain Name System. TCP = Transmission Control Protocol. These expansions and their uses are asked every year."
+        },
+        {
+          "type": "nav",
+          "back": "internet-intranet",
+          "practice": true
+        }
+      ]
+    }
+  ]
+}

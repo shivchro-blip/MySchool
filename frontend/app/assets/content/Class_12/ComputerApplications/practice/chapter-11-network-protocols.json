@@ -1,0 +1,332 @@
+{
+  "meta": {
+    "subject": "Computer Applications -- Class XII",
+    "unit": "Chapter 11 -- Network Examples and Protocols",
+    "time": "3.00 hrs",
+    "totalMarks": 47,
+    "instructions": "Samacheer Kalvi -- Answer all questions"
+  },
+  "parts": [
+    {
+      "id": "p1",
+      "navLabel": "Part I -- MCQ (20 x 1)",
+      "title": "Part I -- Objective Type",
+      "type": "mcq",
+      "scoreMax": 20,
+      "marksPer": 1,
+      "sections": [
+        {
+          "label": "Network Examples and Protocols",
+          "questions": [
+            {
+              "id": "q1",
+              "html": "Which of the following system securely shares business information with suppliers, vendors, partners and customers?",
+              "options": [
+                "a) Extranet",
+                "b) Intranet",
+                "c) ARPANET",
+                "d) ARCNET"
+              ],
+              "answer": 0,
+              "hint": "Extranet is a private network that uses Internet technology to securely share business information with external parties (suppliers, vendors, partners, customers)."
+            },
+            {
+              "id": "q2",
+              "html": "HTTP — the core protocol of the World Wide Web. FTP — enables a client to send and receive complete files from a server. SMTP — provides e-mail services. DNS — refers to other host computers by using names rather than numbers. Which match is correct?",
+              "options": [
+                "a) i, ii, iii, iv",
+                "b) ii, iii, iv, i",
+                "c) iii, iv, i, ii",
+                "d) iv, iii, ii, i"
+              ],
+              "answer": 0,
+              "hint": "All four matches are correct: HTTP=WWW core, FTP=file transfer, SMTP=email, DNS=names to numbers."
+            },
+            {
+              "id": "q3",
+              "html": "Communication over __________ is made up of voice, data, images and text messages.",
+              "options": [
+                "a) Social media",
+                "b) Mobile network",
+                "c) WhatsApp",
+                "d) Software"
+              ],
+              "answer": 1,
+              "hint": "Communication over mobile networks is made up of voice, data, images, and text messages."
+            },
+            {
+              "id": "q4",
+              "html": "Wi-Fi stands for:",
+              "options": [
+                "a) Wireless Fidelity",
+                "b) Wired fidelity",
+                "c) Wired optic fibre",
+                "d) Wireless optic fibre"
+              ],
+              "answer": 0,
+              "hint": "Wi-Fi stands for Wireless Fidelity. Technical protocol code: 802.11."
+            },
+            {
+              "id": "q5",
+              "html": "A TCP/IP network with access restricted to members of an organization is called:",
+              "options": [
+                "a) LAN",
+                "b) MAN",
+                "c) WAN",
+                "d) Intranet"
+              ],
+              "answer": 3,
+              "hint": "Intranet is a private TCP/IP network restricted to members (employees) of an organization."
+            },
+            {
+              "id": "q6",
+              "html": "RFID stands for:",
+              "options": [
+                "a) Radio Free Identification",
+                "b) Real Frequency Identity",
+                "c) Radio Frequency Indicators",
+                "d) Radio Frequency Identification"
+              ],
+              "answer": 3,
+              "hint": "RFID = Radio Frequency Identification. Uses radio waves to read and capture information stored on a tag."
+            },
+            {
+              "id": "q7",
+              "html": "It guarantees the sending of data is successful and checks error operations. Which OSI layer is this?",
+              "options": [
+                "a) Application layer",
+                "b) Network layer",
+                "c) Transport Layer",
+                "d) Physical layer"
+              ],
+              "answer": 2,
+              "hint": "Transport Layer (Layer 4) guarantees successful transportation of data and includes error checking operations."
+            },
+            {
+              "id": "q8",
+              "html": "Which one of the following will secure data on transmissions?",
+              "options": [
+                "a) HTTPS",
+                "b) HTTP",
+                "c) FTP",
+                "d) SMTP"
+              ],
+              "answer": 0,
+              "hint": "HTTPS (HyperText Transfer Protocol Secure) ensures secure data transmission. HTTP is non-secure."
+            },
+            {
+              "id": "q9",
+              "html": "Which protocol provides e-mail service?",
+              "options": [
+                "a) DNS",
+                "b) TCP",
+                "c) FTP",
+                "d) SMTP"
+              ],
+              "answer": 3,
+              "hint": "SMTP = Simple Mail Transfer Protocol — provides e-mail services."
+            },
+            {
+              "id": "q10",
+              "html": "Which protocol refers to other host computers by using names rather than numbers?",
+              "options": [
+                "a) DNS",
+                "b) TCP",
+                "c) FTP",
+                "d) SMTP"
+              ],
+              "answer": 0,
+              "hint": "DNS = Domain Name System — refers to host computers by names (like google.com) rather than IP numbers."
+            },
+            {
+              "id": "q11",
+              "html": "ARPANET was developed in:",
+              "options": [
+                "a) 1962",
+                "b) 1969",
+                "c) 1972",
+                "d) 1984"
+              ],
+              "answer": 1,
+              "hint": "ARPANET was developed by ARPA (Advanced Research Projects Agency) of the U.S. government in 1969."
+            },
+            {
+              "id": "q12",
+              "html": "What does 'Intranet' refer to?",
+              "options": [
+                "a) A worldwide public network",
+                "b) A private network within an enterprise",
+                "c) A network connecting business partners",
+                "d) A network for mobile devices only"
+              ],
+              "answer": 1,
+              "hint": "Intranet is a PRIVATE network within an enterprise to share company data and computing resources between employees."
+            },
+            {
+              "id": "q13",
+              "html": "OSI stands for:",
+              "options": [
+                "a) Open System Interface",
+                "b) Open Source Interconnection",
+                "c) Open System Interconnection",
+                "d) Online System Interface"
+              ],
+              "answer": 2,
+              "hint": "OSI = Open System Interconnection. It is a general framework enabling network protocols to be developed based on universal guidelines."
+            },
+            {
+              "id": "q14",
+              "html": "How many layers are in the OSI model?",
+              "options": [
+                "a) 4",
+                "b) 5",
+                "c) 6",
+                "d) 7"
+              ],
+              "answer": 3,
+              "hint": "The OSI model has 7 layers: Physical, Data Link, Network, Transport, Session, Presentation, Application."
+            },
+            {
+              "id": "q15",
+              "html": "Which OSI layer is responsible for routing of data packets using IP addressing?",
+              "options": [
+                "a) Physical Layer",
+                "b) Data Link Layer",
+                "c) Network Layer",
+                "d) Transport Layer"
+              ],
+              "answer": 2,
+              "hint": "Network Layer (Layer 3) determines the path of data packets and is responsible for routing using IP addressing."
+            },
+            {
+              "id": "q16",
+              "html": "Encryption and decryption of data occurs in which OSI layer?",
+              "options": [
+                "a) Session Layer",
+                "b) Presentation Layer",
+                "c) Application Layer",
+                "d) Transport Layer"
+              ],
+              "answer": 1,
+              "hint": "Presentation Layer (Layer 6) handles encryption and decryption protocols such as SSL (Secure Socket Layer)."
+            },
+            {
+              "id": "q17",
+              "html": "Which generation of mobile networks introduced digital transmission with GSM?",
+              "options": [
+                "a) 1G",
+                "b) 2G",
+                "c) 3G",
+                "d) 4G"
+              ],
+              "answer": 1,
+              "hint": "2G (1991) introduced digital transmission with GSM (Global System for Mobile communication) using SIM technology."
+            },
+            {
+              "id": "q18",
+              "html": "GPRS stands for:",
+              "options": [
+                "a) General Packet Radio System",
+                "b) General Packet Radio Service",
+                "c) Global Packet Radio System",
+                "d) Global Protocol Radio Service"
+              ],
+              "answer": 1,
+              "hint": "GPRS = General Packet Radio Service. Introduced in 2.5G (2000 bridge between 2G and 3G)."
+            },
+            {
+              "id": "q19",
+              "html": "FTP stands for:",
+              "options": [
+                "a) File Transfer Protocol",
+                "b) Fast Transfer Protocol",
+                "c) File Transmission Protocol",
+                "d) Fast Transmission Protocol"
+              ],
+              "answer": 0,
+              "hint": "FTP = File Transfer Protocol. Used between computers for sending and receiving complete files."
+            },
+            {
+              "id": "q20",
+              "html": "Which layer of OSI acts as the user interface platform comprising of software within the system?",
+              "options": [
+                "a) Physical Layer",
+                "b) Network Layer",
+                "c) Session Layer",
+                "d) Application Layer"
+              ],
+              "answer": 3,
+              "hint": "Application Layer (Layer 7) acts as the user interface platform comprising software within the system."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "navLabel": "Part II -- Short Answers (4 x 2)",
+      "title": "Part II -- Short Answer Questions",
+      "type": "short-essay",
+      "scoreMax": 8,
+      "marksPer": 2,
+      "questions": [
+        {
+          "q": "Define Intranet.",
+          "ans": "Intranet is a private network within an enterprise to share company data and computing resources between employees. It may consist of many interlinked local area networks (LANs). It includes connections through one or more gateway computers (protocol convertor that connects two networks using different protocols) to the outside Internet. Applications include: sharing company policies/rules, accessing employee database, distributing circulars, accessing product/customer data, and corporate telephone directories."
+        },
+        {
+          "q": "What are the uses of mobile networks?",
+          "ans": "Mobile networks are used for: 1. Voice communication — making and receiving phone calls wirelessly. 2. Data transmission — sending and receiving digital data. 3. Images — sharing photos. 4. Text messages (SMS) — sending short text. Mobile networks support voice and data communication over both circuit-switched networks and packet-switched networks. Common applications: mobile phones, tablets, pagers, laptops with mobile broadband. Technology ranges from 1G (analog) to 5G (high-speed, low-latency)."
+        },
+        {
+          "q": "List out the benefits of Wi-Fi.",
+          "ans": "Benefits of Wi-Fi (Wireless Fidelity): 1. Provides mobility — devices can move around freely without being tied to a cable. 2. Provides connection to Internet — any Wi-Fi enabled device can connect to Internet wirelessly. 3. Flexibility of LAN — creates a wireless local area network without physical cables. 4. Ensures connectivity — multiple devices can connect simultaneously. 5. Low cost, high benefits — eliminates cabling costs while providing high-speed connectivity."
+        },
+        {
+          "q": "Expand HTTP, HTTPS, FTP.",
+          "ans": "HTTP = HyperText Transfer Protocol. Used between a web client and server for non-secure data transmission. Core protocol of the World Wide Web. HTTPS = HyperText Transfer Protocol Secure. Used between a web client and server for SECURE data transmission. Uses SSL/TLS encryption. FTP = File Transfer Protocol. Used between computers for sending and receiving complete files from a server."
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "navLabel": "Part III -- Brief Answers (3 x 3)",
+      "title": "Part III -- Brief Answer Questions",
+      "type": "short-essay",
+      "scoreMax": 9,
+      "marksPer": 3,
+      "questions": [
+        {
+          "q": "Compare Internet, Intranet and Extranet.",
+          "ans": "Internet: A worldwide system of computer networks — a network of networks. Public access by anyone. Comprises private, public, business, academic, and government networks connected by guided, wireless, and fiber-optic technologies. Developed by ARPA in 1969 (ARPANet). Applications: email, e-banking, social media, e-commerce, e-governance.\n\nIntranet: A PRIVATE network within an enterprise to share company data between employees only. May consist of many interlinked LANs. Includes gateway connections to the Internet. Applications: sharing company policies, employee database, circulars, and corporate directories.\n\nExtranet: A private network using Internet technology and public telecommunication to securely share business information with external parties (suppliers, vendors, partners, customers). Applications: customer communications, online education, account status inquiry, supply-chain management.\n\nKey differences: Internet = public. Intranet = private within one company. Extranet = private between a company and its external partners."
+        },
+        {
+          "q": "Write short notes on HTTP, HTTPS, FTP.",
+          "ans": "HTTP (HyperText Transfer Protocol): Used between a web client and a web server. Guarantees non-secure data transmission. It is the core protocol of the World Wide Web. When you type http:// in a browser, HTTP is used. Data transmitted can be intercepted.\n\nHTTPS (HyperText Transfer Protocol Secure): Used between a web client and a web server. Ensures SECURE data transmission using SSL/TLS encryption. Used for online banking, shopping, and any sensitive data. URLs start with https://.\n\nFTP (File Transfer Protocol): Used between computers for sending and receiving files. Enables a client to send and receive complete files from a server. Used for uploading website files and downloading large files from servers."
+        },
+        {
+          "q": "What are the layers available in TCP/IP Reference Model?",
+          "ans": "TCP/IP (Transmission Control Protocol/Internet Protocol) has FOUR layers:\n\n1. Network Access Layer — concerned with building packets. Deals with physical transmission of data on the network hardware.\n\n2. Internet Layer — describes how packets are to be delivered. Uses IP addresses to route packets from source to destination. Includes IP (Internet Protocol) for routing.\n\n3. Transport Layer — ensures proper transmission of data between applications. Includes TCP (reliable, connection-oriented) and UDP (unreliable, connectionless).\n\n4. Application Layer — handles application network processes. Includes FTP (file transfer), HTTP (web), SMTP (email), DNS (domain names), and Telnet."
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "navLabel": "Part IV -- Long Essays (2 x 5)",
+      "title": "Part IV -- Detailed Answer Questions",
+      "type": "long-essay",
+      "scoreMax": 10,
+      "marksPer": 5,
+      "questions": [
+        {
+          "q": "Explain about Internet, Intranet and Extranet.",
+          "ans": "Internet:\nThe Internet is a worldwide system of computer networks — a network of networks. Users at any computer can get information from any other computer. It comprises private, public, business, academic, and government networks connected by guided, wireless, and fiber-optic technologies. Developed by ARPA of the U.S. government in 1969 (first recognized as ARPANet). Note: Internet and World Wide Web are NOT the same — Internet is the global communication system (infrastructure and hardware), while the Web is one of the services running over the Internet.\nApplications: Download files, social media, e-mail, e-banking, audio/video conferencing, e-commerce, e-governance, information browsing, chatting.\n\nIntranet:\nIntranet is a private network within an enterprise to share company data and computing resources between employees. May consist of many interlinked LANs and connects through gateway computers to the outside Internet.\nApplications: Sharing company policies/rules, accessing employee database, distributing circulars, accessing product and customer data, sharing information of common interest, launching departmental home pages, submission of reports, corporate telephone directories.\n\nExtranet:\nExtranet is a private network that uses Internet technology and the public telecommunication system to securely share business information with suppliers, vendors, partners, customers, or other businesses.\nApplications: Customer communications, online education/training, account status inquiry, inventory inquiry, online discussion, supply-chain management, order status inquiry, warranty registration, claims, distributor promotions."
+        },
+        {
+          "q": "Discuss about OSI model with its layers.",
+          "ans": "OSI (Open System Interconnection) model was founded in 1934. It is a general framework enabling network protocols, software, and systems to be developed based on universal guidelines. It describes standards for inter-computer communication. Memory tip for layers (bottom to top): All Persons Should Try New Diet Plan.\n\n7 Layers of OSI Model:\n\n1. Physical Layer — Defines electrical and physical specifications for devices. Deals with raw bit transmission over physical medium.\n\n2. Data Link Layer — Guarantees data transmitted is free of errors. Protocols include 802.3 (Ethernet) and 802.11 (Wi-Fi).\n\n3. Network Layer — Determines the path of data packets. Responsible for routing using IP addressing.\n\n4. Transport Layer — Guarantees successful transportation of data. Includes error checking operations. Most important for data reliability.\n\n5. Session Layer — Identifies established system sessions between network entities. Controls dialogues between computers (e.g., remote access sessions).\n\n6. Presentation Layer — Does the translation of data for the Application Layer. Encryption and decryption protocols occur here (e.g., SSL — Secure Socket Layer).\n\n7. Application Layer — Acts as the user interface platform comprising software within the system. Includes applications like web browsers, email clients.\n\nMemory trick (top to bottom): All Persons Should Try New Diet Plan = Application, Presentation, Session, Transport, Network, Data Link, Physical."
+        }
+      ]
+    }
+  ]
+}

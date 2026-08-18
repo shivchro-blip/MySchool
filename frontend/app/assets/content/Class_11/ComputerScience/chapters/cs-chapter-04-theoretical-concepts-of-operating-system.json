@@ -1,0 +1,67 @@
+{
+  "chapterNumber": 4,
+  "title": "Theoretical Concepts of Operating System",
+  "subject": "Computer Science",
+  "classLabel": "Class 11",
+  "curriculum": "Samacheer Kalvi",
+  "sections": [
+    {
+      "id": "intro-software",
+      "title": "Introduction to Software",
+      "content": "**4.1 Introduction to Software**\n\nA software is a set of instructions that perform a specific task. It interacts basically with the hardware to generate the desired output.\n\n**4.1.1 Types of Software**\n\nSoftware is classified into two types:\n\n**1. Application Software** — a set of programs to perform a specific task. For example, MS-Word is application software used to create text documents, and VLC Player is familiar application software used to play audio and video files.\n\n**2. System Software** — a type of computer program designed to run the computer's hardware and application programs. Examples: Operating System and compiler. This controls input, output, and other peripheral devices such as disk drives, printers, and electronic gadgets. The functions of an Operating System include file management, memory management, process management, device management, and more.",
+      "nav": {
+        "next": "intro-os",
+        "nextLabel": "Next: Introduction to Operating System →"
+      }
+    },
+    {
+      "id": "intro-os",
+      "title": "Introduction to Operating System (OS)",
+      "content": "**4.2 Introduction to Operating System (OS)**\n\nAn **Operating System (OS)** is a system software which serves as an interface between a user and a computer. Without an Operating System, a computer cannot effectively manage all its resources. When a computer is switched on, the operating system is loaded into memory automatically.\n\nSome popular Operating Systems used in personal computers and laptops are Windows, UNIX, and Linux. Mobile devices mostly use Android and iOS as mobile operating systems.\n\n**Uses of Operating Systems:**\n- The main use of the OS is to ensure that a computer can be used to extract what the user wants it to do.\n- Easy interaction between the users and computers.\n- Starting computer operation automatically when power is turned on (Booting).\n- Controlling Input and Output Devices.\n- Managing the utilisation of main memory.\n- Providing security to user programs.\n\nThe interaction flows: **User ↔ Operating System ↔ Application Software ↔ Hardware.**",
+      "nav": {
+        "back": "intro-software",
+        "next": "types-of-os",
+        "nextLabel": "Next: Types of Operating System →"
+      }
+    },
+    {
+      "id": "types-of-os",
+      "title": "Types of Operating System",
+      "content": "**4.3 Types of Operating System**\n\nOperating Systems are classified into the following types, depending on their processing capabilities:\n\n**4.3.1 Single User Operating Systems**\nAn operating system that allows only a single user to perform a task at a time — called a single-user, single-task Operating System. MS-DOS is an example of a single-user, single-task Operating System. Linux distributions are also now available with a GUI (Graphical User Interface) — a window-based system with a pointing device to direct I/O, choose from menus, make selections, and a keyboard to enter text.\n\n**4.3.2 Multi-user Operating Systems**\nUsed in computers and laptops that allow the same data and applications to be accessed by multiple users at the same time; the users can also communicate with each other. Windows, Linux, and UNIX are examples of multi-user Operating Systems.",
+      "nav": {
+        "back": "intro-os",
+        "next": "key-features",
+        "nextLabel": "Next: Key Features of the Operating System →"
+      }
+    },
+    {
+      "id": "key-features",
+      "title": "Key Features of the Operating System",
+      "content": "**4.4 Key Features of the Operating System**\n\n**4.4.1 User Interface (UI)**\nThe only way a user can interact with a computer. This is a main reason for the success of the GUI (Graphical User Interface) — a window-based system with a pointing device to direct I/O, choose menus, make selections, and a keyboard to enter text. A good user interface should: retain the user's expertise over time, satisfy the customer's needs, save the user's time, and reduce the number of errors committed by the user.\n\n**4.4.2 Memory Management**\nThe process of controlling and coordinating a computer's main memory, and assigning memory blocks (space) to various running programs to optimise overall computer performance. Its objective is to improve CPU utilisation and the computer's response speed. The OS is responsible for: keeping track of which portions of memory are currently used and by whom; determining which processes (or parts) and data move in and out of memory; and allocation/de-allocation of memory blocks as needed (garbage collection).\n\n**4.4.3 Process Management**\nIncludes creating and deleting processes (programs) and providing mechanisms for processes to communicate and synchronise with each other. A system task, such as sending output to a printer or screen, can also be called a process. Processes fall into two categories: **Operating System processes** (executed by system code) and **User Processes** (executed by user code). All processes can potentially execute concurrently on a single CPU.\n\nThe following algorithms allocate jobs (processes) to the processor:\n- **FIFO (First In First Out) Scheduling:** Based on a queuing technique — the process that enters the queue first is executed first, followed by the next, and so on (like a queue for a report card).\n- **SJF (Shortest Job First) Scheduling:** Based on the size of the job. For jobs A (6KB) and B (9KB), job A is assigned to the processor before job B.\n- **Round Robin (RR) Scheduling:** Designed for time-sharing systems. Jobs are assigned processor time in a circular manner — for jobs A, B, C, the order is A, B, C, then A, B, C again, and so on.\n- **Based on Priority:** The job with a higher priority is assigned first. For jobs A (priority 5) and B (priority 7), Job B is assigned before Job A.\n\n**4.4.4 Security Management**\nThe major challenge for the OS is protecting a user's legitimate data from hackers. The OS provides three levels of security: (1) **File access level** — permission granted by the file's creator or the system administrator; (2) **System level** — offered by password protection in a multi-user environment (both Windows and Linux offer this); (3) **Network level** — an indefinable, ongoing area of security research worldwide. All these security levels are provided only by the Operating System.\n\n**4.4.5 Fault Tolerance**\nThe OS should be robust — when a fault occurs, it should not crash; instead, it should have fault tolerance capabilities and retain the existing state of the system.\n\n**4.4.6 File Management**\nHandles data storage techniques — the OS manages files, folders, and directory systems. The **FAT (File Allocation Table)** stores general information about files, like filename, type (text/binary), size, starting address, and access mode. The file manager helps create, edit, copy, allocate memory to files, and updates the FAT. Other file management techniques include NTFS (New Technology File System) and ext2 (used by Linux).\n\n**4.4.7 Multi-Processing**\nA feature where two or more processors work on a single running process (job); this parallel execution is called parallel processing, used for high-speed execution that increases computing power.\n\n**4.4.8 Time-sharing**\nAllows execution of multiple tasks or processes concurrently, with a fixed time allocated for each task — this division of time is called Time-sharing. The processor switches rapidly between processes after the allocated time elapses or the process completes. For example, if processes P1, P2, P3 are allocated 30, 40, 50 minutes respectively — if P1 completes within 20 minutes, the processor moves to P2; if P2 doesn't complete within 40 minutes, it is paused and the processor switches to P3.\n\n**4.4.9 Distributed Operating Systems**\nUsed to access shared data and files that reside on any machine around the world, using the internet/intranet — users can access remote resources as if they were on their own computer. Advantages: a user at one location can use resources available at another location over the network; more computer resources can be easily added to the network; improves interaction with customers and clients; reduces the load on the host computer.",
+      "nav": {
+        "back": "types-of-os",
+        "next": "prominent-os",
+        "nextLabel": "Next: Prominent Operating Systems →"
+      }
+    },
+    {
+      "id": "prominent-os",
+      "title": "Prominent Operating Systems",
+      "content": "**4.5 Prominent Operating Systems**\n\nThe prominent Operating Systems in use today are:\n- UNIX\n- Microsoft Windows\n- Linux\n- iOS\n- Android\n\nModern operating systems use a **Graphical User Interface (GUI)**. A GUI lets users click icons, buttons, and menus using a mouse, clearly displayed on the screen using a combination of graphics and text elements.\n\n- **Windows** is the most popular GUI Operating System for personal computers, and is commercially licensed.\n- **Linux** is an example of Open Source software development and is available as a Free Operating System, with a command-line and GUI-based operating system, popular in universities, companies, and big enterprises.\n- **Android** is a popular Operating System for mobile phone technology, not linked with Apple products.\n- **iOS** is designed to be used for the Apple iPhone.\n- **UNIX** works well with cloud computing and is used with Apple computers.",
+      "nav": {
+        "back": "key-features",
+        "next": "summary",
+        "nextLabel": "Next: Summary →"
+      }
+    },
+    {
+      "id": "summary",
+      "title": "Points to Remember",
+      "content": "- Software is classified into Application Software (performs specific tasks) and System Software (runs hardware and application programs, e.g., OS, compilers).\n- An Operating System (OS) is system software that serves as an interface between a user and a computer.\n- Operating Systems are of two main types by user capacity: Single-user (e.g., MS-DOS) and Multi-user (e.g., Windows, Linux, UNIX).\n- Key OS features: User Interface, Memory Management, Process Management (with FIFO, SJF, Round Robin, and Priority scheduling algorithms), Security Management (File access, System, Network levels), Fault Tolerance, File Management (FAT, NTFS, ext2), Multi-Processing, Time-sharing, and Distributed Operating Systems.\n- Prominent OS: UNIX, Windows, Linux, iOS, Android — most modern OS use a Graphical User Interface (GUI).",
+      "nav": {
+        "back": "prominent-os",
+        "practice": true
+      }
+    }
+  ]
+}

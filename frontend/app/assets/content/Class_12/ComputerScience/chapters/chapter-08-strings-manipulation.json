@@ -1,0 +1,77 @@
+{
+  "chapterNumber": 8,
+  "title": "Strings and String Manipulation",
+  "subject": "Computer Science",
+  "classLabel": "Class 12",
+  "curriculum": "Samacheer Kalvi",
+  "sections": [
+    {
+      "id": "intro-creating",
+      "title": "Introduction & Creating Strings",
+      "content": "**8.1 Introduction**\n\nA **string** is a data type in Python used to handle an array of characters — a sequence of Unicode characters (letters, numbers, or special symbols) enclosed within single, double, or triple quotes.\n```\n'Welcome to learning Python'\n\"Welcome to learning Python\"\n'''Welcome to learning Python'''\n```\nIn Python, strings are **immutable** — once defined, a string cannot be changed during execution.\n\n**8.2 Creating Strings**\n\nA string can be created using single, double, or triple quotes. A string in single quotes cannot hold another single-quoted string inside it (the interpreter can't tell where it starts/ends) — use double quotes to overcome this. Strings containing double quotes should be defined within triple quotes, which also allow creation of multi-line strings.\n\n```\n>>> print('Greater Chennai Corporation')\nGreater Chennai Corporation\n\n>>> print('Greater Chennai Corporation's student')\nSyntaxError: invalid syntax\n\n>>> print(\"Computer Science\")\nComputer Science\n\n>>> print(''' \"Computer Science\" ''')\n\"Computer Science\"\n\n>>> print(''' \"Strings are immutable in 'Python',\n      which means you can't make any changes\n      once you declared\" ''')\n\"Strings are immutable in 'Python', which means you can't make any changes once you declared\"\n```",
+      "nav": {
+        "next": "accessing-modifying",
+        "nextLabel": "Next: Accessing, Modifying & Deleting Strings →"
+      }
+    },
+    {
+      "id": "accessing-modifying",
+      "title": "Accessing, Modifying & Deleting Strings",
+      "content": "**8.3 Accessing Characters in a String**\n\nPython allocates an index value (**subscript**) for each character — positive or negative. Positive subscript 0 is the first character, and n-1 is the last (n = string length). Negative index starts from -1 for the last character, going backward.\n\nExample — \"SCHOOL\":\n| String | S | C | H | O | O | L |\n|---|---|---|---|---|---|---|\n| Positive subscript | 0 | 1 | 2 | 3 | 4 | 5 |\n| Negative subscript | -6 | -5 | -4 | -3 | -2 | -1 |\n\n**Accessing with positive subscript:**\n```\nstr1 = input(\"Enter a string: \")\nindex = 0\nfor i in str1:\n    print(\"Subscript[\", index, \"] : \", i)\n    index += 1\n```\n\n**Accessing with negative subscript:**\n```\nstr1 = input(\"Enter a string: \")\nindex = -1\nwhile index >= -(len(str1)):\n    print(\"Subscript[\", index, \"] : \" + str1[index])\n    index += -1\n```\n\n**8.4 Modifying and Deleting Strings**\n\nSince strings are immutable, modification or deletion of individual characters is NOT allowed:\n```\n>>> str1 = \"How are you\"\n>>> str1[0] = \"A\"\nTypeError: 'str' object does not support item assignment\n```\nTo \"modify\" a string, you must reassign a completely new string to the variable:\n```\n>>> str1 = \"How are you\"\n>>> str1 = \"How about you\"\n```\n\nThe **replace()** function temporarily changes all occurrences of a character (without affecting the original string):\n```\nreplace(\"char1\", \"char2\")\n>>> str1 = \"How are you\"\n>>> print(str1.replace(\"o\", \"e\"))\nHew are yeu\n```\n\nDeleting a single character is not allowed:\n```\n>>> str1 = \"How are you\"\n>>> del str1[2]\nTypeError: 'str' object doesn't support item deletion\n```\nBut an entire string variable CAN be deleted using **del**:\n```\n>>> str1 = \"How about you\"\n>>> del str1\n>>> print(str1)\nNameError: name 'str1' is not defined\n```",
+      "nav": {
+        "back": "intro-creating",
+        "next": "string-operators",
+        "nextLabel": "Next: String Operators & Slicing →"
+      }
+    },
+    {
+      "id": "string-operators",
+      "title": "String Operators & Slicing",
+      "content": "**8.5 String Operators**\n\n**(i) Concatenation (+)** — joining two or more strings:\n```\n>>> \"welcome\" + \"Python\"\n'welcomePython'\n```\n\n**(ii) Append (+=)** — adding more strings at the end of an existing string:\n```\n>>> str1 = \"Welcome to \"\n>>> str1 += \"Learn Python\"\n>>> print(str1)\nWelcome to Learn Python\n```\n\n**(iii) Repeating (*)** — displays a string multiple times:\n```\n>>> str1 = \"Welcome \"\n>>> print(str1*4)\nWelcome Welcome Welcome Welcome\n```\n\n**(iv) String Slicing** — a slice is a substring taken from the original string using the [ ] (slicing) operator with index/subscript values.\n\nGeneral format: `str[start:end]` — start is the beginning index, end is one past the last index desired (Python considers only up to end−1).\n```\nstr1 = \"THIRUKKURAL\"\nprint(str1[0])       # T (single character)\nprint(str1[0:5])     # THIRU (indices 0 to 4)\nprint(str1[:5])      # THIRU (start omitted, defaults to 0)\nprint(str1[6:])      # KURAL (end omitted, goes to the end)\n```\n\n**(v) Stride when slicing** — a third argument specifying how many characters to skip forward after retrieving the first. Default stride is 1.\n```\nstr1 = \"Welcome to learn Python\"\nprint(str1[10:16])      # learn\nprint(str1[10:16:4])    # r  (every 4th character within range)\nprint(str1[10:16:2])    # er\nprint(str1[::3])        # Wceoenyo (whole string, every 3rd char)\n```\nA negative stride reverses the direction, printing in reverse order:\n```\nprint(str1[::-2])   # nhy re teolW\n```",
+      "nav": {
+        "back": "accessing-modifying",
+        "next": "formatting",
+        "nextLabel": "Next: Formatting Strings →"
+      }
+    },
+    {
+      "id": "formatting",
+      "title": "String Formatting Operators & the format() Function",
+      "content": "**8.6 String Formatting Operators**\n\nThe formatting operator **%** constructs strings, replacing parts with data stored in variables.\n\nSyntax:\n```\n(\"String to display with %val1 and %val2\" % (val1, val2))\n```\nExample:\n```\nname = \"Rajarajan\"\nmark = 98\nprint(\"Name: %s and Marks: %d\" % (name, mark))\n# Output: Name: Rajarajan and Marks: 98\n```\n\n**8.7 Formatting Characters**\n\n| Character | Usage |\n|---|---|\n| %c | Character |\n| %d or %i | Signed decimal integer |\n| %s | String |\n| %u | Unsigned decimal integer |\n| %o | Octal integer |\n| %x or %X | Hexadecimal integer (x=a-f, X=A-F) |\n| %e or %E | Exponential notation |\n| %f | Floating point numbers |\n| %g or %G | Short numbers in float/exponential notation |\n\n**Escape sequences** start with a backslash and are interpreted specially — single quotes inside single-quoted strings, and double quotes inside double-quoted strings, must be escaped.\n```\n>>> print('''They said, \"What's there?\"''')\nThey said, \"What's there?\"\n>>> print('They said, \"What\\'s there?\"')\nThey said, \"What's there?\"\n```\n\n| Escape Sequence | Description |\n|---|---|\n| \\\\newline | Backslash and newline ignored |\n| \\\\\\\\ | Backslash |\n| \\\\' | Single quote |\n| \\\\\" | Double quote |\n| \\\\a | ASCII Bell |\n| \\\\b | ASCII Backspace |\n| \\\\f | ASCII Form feed |\n| \\\\n | ASCII Linefeed |\n| \\\\r | ASCII Carriage Return |\n| \\\\t | ASCII Horizontal Tab |\n| \\\\v | ASCII Vertical Tab |\n| \\\\ooo | Character with octal value ooo |\n| \\\\xHH | Character with hexadecimal value HH |\n\n**8.8 The format() Function**\n\nA versatile, powerful function for formatting strings. Curly braces {} act as placeholders/replacement fields.\n```\nnum1 = int(input(\"Number 1: \"))\nnum2 = int(input(\"Number 2: \"))\nprint(\"The sum of { } and { } is { }\".format(num1, num2, (num1+num2)))\n# Output: The sum of 34 and 54 is 88\n```",
+      "nav": {
+        "back": "string-operators",
+        "next": "builtin-functions",
+        "nextLabel": "Next: Built-in String Functions →"
+      }
+    },
+    {
+      "id": "builtin-functions",
+      "title": "Built-in String Functions",
+      "content": "**8.9 Built-in String Functions**\n\n| Function | Description | Example |\n|---|---|---|\n| len(str) | Length of the string | len(\"Corporation\") → 11 |\n| capitalize() | Capitalizes first character | \"chennai\".capitalize() → \"Chennai\" |\n| center(width, fillchar) | Centers the string within a width, padding with fillchar | \"Welcome\".center(15,'*') → \"****Welcome****\" |\n| find(sub[,start[,end]]) | Returns index of first occurrence, or -1 if not found | \"mammals\".find('ma') → 0 |\n| isalnum() | True if string contains only letters and digits | \"Save1Earth\".isalnum() → True |\n| isalpha() | True if string contains only letters | \"python\".isalpha() → True |\n| isdigit() | True if string contains only numbers | \"Save Earth\".isdigit() → False |\n| lower() | Returns copy in lowercase | \"SAVE EARTH\".lower() → \"save earth\" |\n| islower() | True if string is entirely lowercase | \"welcome\".islower() → True |\n| isupper() | True if string is entirely uppercase | \"welcome\".isupper() → False |\n| upper() | Returns copy in uppercase | \"welcome\".upper() → \"WELCOME\" |\n| title() | Returns string in title case | \"education department\".title() → \"Education Department\" |\n| swapcase() | Swaps upper/lowercase of every character | \"tAmiL NaDu\".swapcase() → \"TaMIl nAdU\" |\n| count(str,beg,end) | Number of occurrences of a substring in a range | \"Raja Raja Chozhan\".count('Raja') → 2 |\n| ord(char) | ASCII code of a character | ord('A') → 65 |\n| chr(ASCII) | Character for an ASCII value | chr(97) → 'a' |\n\n**8.10 Membership Operators**\n\nThe **in** and **not in** operators determine whether a string is present within another string — called **Membership Operators**.\n```\nstr1 = input(\"Enter a string: \")\nstr2 = \"chennai\"\nif str2 in str1:\n    print(\"Found\")\nelse:\n    print(\"Not Found\")\n```",
+      "nav": {
+        "back": "formatting",
+        "next": "example-programs",
+        "nextLabel": "Next: Example String Programs →"
+      }
+    },
+    {
+      "id": "example-programs",
+      "title": "Example Programs Using Strings",
+      "content": "**8.11 Programs Using Strings**\n\n**Check if a string is a palindrome:**\n```\nstr1 = input(\"Enter a string: \")\nstr2 = ' '\nindex = -1\nfor i in str1:\n    str2 += str1[index]\n    index -= 1\nprint(\"The given string = { } \\n The Reversed string = { }\".format(str1, str2))\nif (str1 == str2):\n    print(\"Hence, the given string is Palindrome\")\nelse:\n    print(\"Hence, the given is not a palindrome\")\n```\n\n**Print a triangular pattern of asterisks:**\n```\nstr1 = ' * '\ni = 1\nwhile i <= 5:\n    print(str1*i)\n    i += 1\n```\n\n**Count vowels and consonants:**\n```\nstr1 = input(\"Enter a string: \")\nstr2 = \"aAeEiIoOuU\"\nv, c = 0, 0\nfor i in str1:\n    if i in str2:\n        v += 1\n    elif i.isalpha():\n        c += 1\nprint(\"The given string contains { } vowels and { } consonants\".format(v, c))\n```\n\n**Abecedarian series** (elements in alphabetical order):\n```\nstr1 = \"ABCDEFGH\"\nstr2 = \"ate\"\nfor i in str1:\n    print((i+str2), end='\\t')\n# Output: Aate  Bate  Cate  Date  Eate  Fate  Gate  Hate\n```\n\n**Remove vowels from a string:**\n```\ndef rem_vowels(s):\n    temp_str = ''\n    for i in s:\n        if i in \"aAeEiIoOuU\":\n            pass\n        else:\n            temp_str += i\n    print(\"The string without vowels: \", temp_str)\nstr1 = input(\"Enter a String: \")\nrem_vowels(str1)\n```\n\n**Count occurrences of a character:**\n```\ndef count(s, c):\n    c1 = 0\n    for i in s:\n        if i == c:\n            c1 += 1\n    return c1\nstr1 = input(\"Enter a String: \")\nch = input(\"Enter a character to be searched: \")\ncnt = count(str1, ch)\nprint(\"The given character {} occurs {} times in the given string\".format(ch, cnt))\n```",
+      "nav": {
+        "back": "builtin-functions",
+        "next": "summary",
+        "nextLabel": "Next: Points to Remember →"
+      }
+    },
+    {
+      "id": "summary",
+      "title": "Points to Remember",
+      "content": "- String is a data type in Python used to handle a sequence of Unicode characters.\n- Strings are immutable — once defined, they cannot be changed during execution.\n- Defining strings within triple quotes allows creation of multiline strings.\n- Python allocates an index value (subscript) for each character in a string — positive or negative.\n- Slice is a substring of a main string, extracted using the [ ] slicing operator; stride is the optional third argument in a slice.\n- Escape sequences start with a backslash and are interpreted specially.\n- The format() function is a versatile, powerful function for formatting strings, using {} as placeholders.\n- The 'in' and 'not in' operators (Membership Operators) determine whether a string is present within another string.",
+      "nav": {
+        "back": "example-programs",
+        "practice": true
+      }
+    }
+  ]
+}

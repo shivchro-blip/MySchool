@@ -1,0 +1,37 @@
+{
+  "chapterNumber": 13,
+  "title": "CSS — Cascading Style Sheets",
+  "subject": "Computer Applications",
+  "classLabel": "Class 11",
+  "curriculum": "Samacheer Kalvi",
+  "sections": [
+    {
+      "id": "intro",
+      "title": "Introduction to CSS",
+      "content": "**CSS (Cascading Style Sheets)** is used to control the presentation and appearance of HTML documents. CSS was invented by **Hakon Wium Lie on October 10, 1994** and is maintained through the **CSS Working Group** within the W3C.\n\nCSS is easy to learn but provides powerful control over the presentation of HTML documents. It is most commonly combined with HTML or XHTML.\n\n**Types of Style Sheets:**\n\n**1. Internal Style Sheets (Page-Level Styles):**\nDefined within the `<style>` tag in the `<head>` section of an HTML document. The `<style>` tag controls the presentation styles of that particular document. Professional web developers generally do not use internal styles.\n\n```\n<head>\n  <style type=\"text/css\">\n    p { color: red; font-size: 14px; }\n  </style>\n</head>\n```\n\n**2. External Style Sheets (Sitewide Style Sheets / CSS files):**\nStyle definitions saved in a separate file with a **.css extension**. Used across multiple web pages — change the CSS file and all linked pages update. The `<link>` tag in the `<head>` section connects the CSS file to the HTML document.\n\nGeneral format of `<link>` tag:\n`<link rel=\"stylesheet\" type=\"text/css\" href=\"CSS_filename.css\">`\n\n**3. Inline Styles:**\nStyle defined for a specific tag anywhere in the HTML document using the `style` attribute. Used for one-off formatting.\n`<p style=\"color:blue; font-size:16px;\">Text</p>`\n\n**CSS Comments:** `/* This is a CSS comment */`",
+      "nav": {
+        "next": "syntax",
+        "nextLabel": "CSS Syntax and Properties →"
+      }
+    },
+    {
+      "id": "syntax",
+      "title": "CSS Syntax and Declaration",
+      "content": "A CSS style declaration has two major parts: **Selector** and **Declaration**.\n\n- **Selector:** Refers to the HTML tag in which you want to apply styles.\n- **Declaration:** A block of code containing style definitions, surrounded by **curly braces `{ }`**.\n- Each property is separated by a **semicolon `;`**\n- Property name and value are separated by a **colon `:`**\n\n```\nSelector {\n  property: value;\n  property: value;\n}\n```\n\nExample:\n```\np {\n  font-size: 16pt;\n  color: red;\n  font-weight: bold;\n}\n```\n\nThis applies the style to every `<p>` tag. Each declaration must end with a semicolon.\n\n**Creating a CSS file:**\n1. Open Notepad.\n2. Type the style properties and values.\n3. Save with a **.css** extension (e.g., mystyle.css).\n\n**Linking CSS to HTML:**\n```\n<link rel=\"stylesheet\" type=\"text/css\" href=\"mystyle.css\">\n```\n\nPlace this in the `<head>` section. The attributes `rel=\"stylesheet\"` and `type=\"text/css\"` must always be included. The `href` attribute points to the CSS file name.",
+      "nav": {
+        "back": "intro",
+        "next": "properties",
+        "nextLabel": "CSS Properties →"
+      }
+    },
+    {
+      "id": "properties",
+      "title": "CSS Text and Background Properties",
+      "content": "**CSS Text Formatting Properties:**\n\n| Formatting | Property | Values | Example |\n|-----------|----------|--------|---------|\n| Text Colour | `color` | Colour name | `p { color: pink; }` |\n| Text Alignment | `text-align` | center / left / right / justify | `p { text-align: center; }` |\n| Font Type | `font-family` | Font name | `p { font-family: \"Times New Roman\"; }` |\n| Font Style | `font-style` | normal / italic | `p { font-style: italic; }` |\n| Font Weight (Bold) | `font-weight` | normal / bold | `p { font-weight: bold; }` |\n| Font Size | `font-size` | size in pixels (px) | `p { font-size: 14px; }` |\n| Background Colour | `background-color` | Colour name | `body { background-color: violet; }` |\n| Border | `border` | thickness style colour | `h2 { border: 2px solid red; }` |\n\nHTML supports nearly **140 colour names**.\n\n**Background Image Properties:**\n\n| Property | Values | Description |\n|----------|--------|-------------|\n| `background-image` | url(\"image.gif\") | Sets background image |\n| `background-repeat` | norepeat | Prevents image from tiling |\n| `background-position` | direction (e.g., right top) | Positions the image |\n\nExample:\n```\nbody {\n  background-image: url(\"Flower.gif\");\n  background-repeat: norepeat;\n  background-position: right top;\n}\n```\n\n**Margin Properties:**\n`margin-top`, `margin-bottom`, `margin-left`, `margin-right` — all take values in pixels.\n\nExample:\n```\np {\n  margin-top: 50px;\n  margin-left: 50px;\n}\n```",
+      "nav": {
+        "back": "syntax",
+        "practice": true
+      }
+    }
+  ]
+}

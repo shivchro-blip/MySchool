@@ -1,0 +1,341 @@
+{
+  "meta": {
+    "subject": "Computer Applications -- Class XII",
+    "unit": "Chapter 3 -- Introduction to Database Management System",
+    "time": "3.00 hrs",
+    "totalMarks": 47,
+    "instructions": "Samacheer Kalvi -- Answer all questions"
+  },
+  "parts": [
+    {
+      "id": "p1",
+      "navLabel": "Part I -- MCQ (20 x 1)",
+      "title": "Part I -- Objective Type",
+      "type": "mcq",
+      "scoreMax": 20,
+      "marksPer": 1,
+      "sections": [
+        {
+          "label": "DBMS Basics and Models",
+          "questions": [
+            {
+              "id": "q1",
+              "html": "Which language is used to request information from a Database?",
+              "options": [
+                "a) Relational",
+                "b) Structural",
+                "c) Query",
+                "d) Compiler"
+              ],
+              "answer": 2,
+              "hint": "SQL (Structured Query Language) is used to request (query) information from a database."
+            },
+            {
+              "id": "q2",
+              "html": "The __________ diagram gives a logical structure of the database graphically.",
+              "options": [
+                "a) Entity-Relationship",
+                "b) Entity",
+                "c) Architectural Representation",
+                "d) Database"
+              ],
+              "answer": 0,
+              "hint": "The Entity-Relationship (ER) diagram gives a logical structure of the database graphically."
+            },
+            {
+              "id": "q3",
+              "html": "An entity set that does not have enough attributes to form a primary key is known as",
+              "options": [
+                "a) Strong entity set",
+                "b) Weak entity set",
+                "c) Identity set",
+                "d) Owner set"
+              ],
+              "answer": 1,
+              "hint": "A Weak entity does not have its own primary key and depends on another (strong) entity."
+            },
+            {
+              "id": "q4",
+              "html": "__________ Command is used to delete a database.",
+              "options": [
+                "a) Delete database database_name",
+                "b) Delete database_name",
+                "c) drop database database_name",
+                "d) drop database_name"
+              ],
+              "answer": 2,
+              "hint": "DROP DATABASE database_name is the correct SQL syntax. DELETE is a DML command used for rows, not databases."
+            },
+            {
+              "id": "q5",
+              "html": "MySQL belongs to which category of DBMS?",
+              "options": [
+                "a) Object Oriented",
+                "b) Hierarchical",
+                "c) Relational",
+                "d) Network"
+              ],
+              "answer": 2,
+              "hint": "MySQL is a Relational Database Management System (RDBMS). It is the most popular open source RDBMS."
+            },
+            {
+              "id": "q6",
+              "html": "MySQL is freely available and is open source.",
+              "options": [
+                "a) True",
+                "b) False",
+                "c) Partially true",
+                "d) Depends on version"
+              ],
+              "answer": 0,
+              "hint": "MySQL is open source software — the source code is available for anyone to view and modify freely."
+            },
+            {
+              "id": "q7",
+              "html": "__________ represents a \"tuple\" in a relational database.",
+              "options": [
+                "a) Table",
+                "b) Row",
+                "c) Column",
+                "d) Object"
+              ],
+              "answer": 1,
+              "hint": "A tuple is a Row (Record) in a relational database table. Column = Attribute, Table = Relation."
+            },
+            {
+              "id": "q8",
+              "html": "Communication is established with MySQL using",
+              "options": [
+                "a) SQL",
+                "b) Network calls",
+                "c) Java",
+                "d) APIs"
+              ],
+              "answer": 0,
+              "hint": "Communication with MySQL is established using SQL (Structured Query Language)."
+            },
+            {
+              "id": "q9",
+              "html": "Which is the MySQL instance responsible for data processing?",
+              "options": [
+                "a) MySQL Client",
+                "b) MySQL Server",
+                "c) SQL",
+                "d) Server Daemon Program"
+              ],
+              "answer": 1,
+              "hint": "MySQL Server is responsible for data processing — it receives queries from clients and processes them."
+            },
+            {
+              "id": "q10",
+              "html": "The structure representing the organizational view of entire database is known as ________ in MySQL.",
+              "options": [
+                "a) Schema",
+                "b) View",
+                "c) Instance",
+                "d) Table"
+              ],
+              "answer": 0,
+              "hint": "Schema specifies the overall structure of the database — name and type of each column and the relationships between tables."
+            }
+          ]
+        },
+        {
+          "label": "SQL Commands and Concepts",
+          "questions": [
+            {
+              "id": "q11",
+              "html": "Which SQL command permanently saves changes made by a transaction?",
+              "options": [
+                "a) SAVEPOINT",
+                "b) ROLLBACK",
+                "c) COMMIT",
+                "d) SET TRANSACTION"
+              ],
+              "answer": 2,
+              "hint": "COMMIT permanently saves all changes made during a transaction into the database."
+            },
+            {
+              "id": "q12",
+              "html": "The ACID property that follows the \"All or Nothing\" rule is:",
+              "options": [
+                "a) Consistency",
+                "b) Isolation",
+                "c) Durability",
+                "d) Atomicity"
+              ],
+              "answer": 3,
+              "hint": "Atomicity = \"All or Nothing\". A transaction either fully commits (all changes saved) or fully aborts (no changes saved)."
+            },
+            {
+              "id": "q13",
+              "html": "Which SQL command is used to retrieve data from a table?",
+              "options": [
+                "a) INSERT",
+                "b) UPDATE",
+                "c) SELECT",
+                "d) FETCH"
+              ],
+              "answer": 2,
+              "hint": "SELECT is the DQL (Data Query Language) command used to retrieve/fetch data from database tables."
+            },
+            {
+              "id": "q14",
+              "html": "The first network database model developed was:",
+              "options": [
+                "a) IMS by IBM",
+                "b) IDS at Honeywell",
+                "c) Oracle",
+                "d) MySQL"
+              ],
+              "answer": 1,
+              "hint": "IDS (Integrated Data Store) at Honeywell was the first developed network database model. IMS (IBM) was the first hierarchical model."
+            },
+            {
+              "id": "q15",
+              "html": "Which command lists all databases available on the MySQL server?",
+              "options": [
+                "a) LIST databases",
+                "b) SHOW databases",
+                "c) DISPLAY databases",
+                "d) VIEW databases"
+              ],
+              "answer": 1,
+              "hint": "SHOW databases; lists all available databases on the MySQL server."
+            },
+            {
+              "id": "q16",
+              "html": "A key with more than one attribute used to identify rows uniquely is called:",
+              "options": [
+                "a) Foreign Key",
+                "b) Super Key",
+                "c) Composite Key",
+                "d) Primary Key"
+              ],
+              "answer": 2,
+              "hint": "Composite Key (also called Compound Key) uses more than one attribute to uniquely identify rows in a table."
+            },
+            {
+              "id": "q17",
+              "html": "Which SQL clause is used to sort query results in descending order?",
+              "options": [
+                "a) ORDER BY columnname ASC",
+                "b) GROUP BY columnname DESC",
+                "c) ORDER BY columnname DESC",
+                "d) SORT BY columnname DESC"
+              ],
+              "answer": 2,
+              "hint": "ORDER BY columnname DESC sorts in descending order. ORDER BY without DESC sorts ascending (default)."
+            },
+            {
+              "id": "q18",
+              "html": "GRANT and REVOKE commands belong to which category of SQL?",
+              "options": [
+                "a) DDL",
+                "b) DML",
+                "c) TCL",
+                "d) DCL"
+              ],
+              "answer": 3,
+              "hint": "GRANT and REVOKE are DCL (Data Control Language) commands — they control access and security on database objects."
+            },
+            {
+              "id": "q19",
+              "html": "A multi-valued attribute in an ER diagram is represented by:",
+              "options": [
+                "a) Single ellipse",
+                "b) Double ellipse",
+                "c) Single rectangle",
+                "d) Double rectangle"
+              ],
+              "answer": 1,
+              "hint": "Multi-valued attribute = double ellipse. Single ellipse = simple attribute. Double rectangle = weak entity."
+            },
+            {
+              "id": "q20",
+              "html": "Which MySQL command is executed after creating a new user account to update privileges without restarting the server?",
+              "options": [
+                "a) RELOAD PRIVILEGES",
+                "b) FLUSH PRIVILEGES",
+                "c) UPDATE PRIVILEGES",
+                "d) REFRESH PRIVILEGES"
+              ],
+              "answer": 1,
+              "hint": "FLUSH PRIVILEGES; is executed after creating a new account. It updates the privilege tables without manually rebooting the MySQL server."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "navLabel": "Part II -- Short Answers (5 x 2)",
+      "title": "Part II -- Short Answer Questions",
+      "type": "short-essay",
+      "scoreMax": 10,
+      "marksPer": 2,
+      "questions": [
+        {
+          "q": "What are the ACID properties?",
+          "ans": "ACID stands for: 1. Atomicity — \"All or Nothing\" rule. A transaction either fully commits or fully aborts. 2. Consistency — Ensures data value changes remain constant and valid at any given moment. 3. Isolation — When multiple users access the same data concurrently, each transaction is isolated from others to prevent conflicts. Also known as Degree of Consistency. 4. Durability — The system's ability to recover all committed transactions after a storage failure or system crash."
+        },
+        {
+          "q": "List few disadvantages of file processing system.",
+          "ans": "The major disadvantages of file processing systems are: 1. Data Duplication — Same data is stored in multiple files by different users/resources, creating multiple copies and wasting storage space. 2. High Maintenance — Access control and verifying data consistency requires high maintenance cost. 3. Poor Security — File systems provide less security to the data compared to DBMS. These limitations led to the development of database management systems."
+        },
+        {
+          "q": "What is Relationship? List its types.",
+          "ans": "In ER Model, a relationship exists between two entities. Three types of relationships: 1. One-to-One (1:1) — 0 or 1 instance of entity A is associated with 0 or 1 instance of entity B. Example: Person drives Vehicle. 2. One-to-Many (1:N) — 1 instance of A is associated with many instances of B. Example: Customer places many Orders. 3. Many-to-Many (M:N) — Many instances of A are associated with many instances of B. Example: Students register many Courses."
+        },
+        {
+          "q": "Which command is used to make permanent changes done by a transaction?",
+          "ans": "The COMMIT command is used to permanently save changes made by a transaction into the database. Once COMMIT is executed, the changes are permanent and cannot be undone by ROLLBACK."
+        },
+        {
+          "q": "Write the difference between SQL and MySQL.",
+          "ans": "SQL (Structured Query Language): A standardized language used to access and manipulate databases. It is not a database itself — it is a language. Declared as standard by ANSI (1986) and ISO (1987). MySQL: An open source Relational Database Management System (RDBMS) that uses SQL. It is software — a database server. Runs on Windows, Linux, macOS. Created by combining \"My\" (founder's daughter's name) + \"SQL\". MySQL uses SQL as its query language."
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "navLabel": "Part III -- Brief Answers (3 x 3)",
+      "title": "Part III -- Brief Answer Questions",
+      "type": "short-essay",
+      "scoreMax": 9,
+      "marksPer": 3,
+      "questions": [
+        {
+          "q": "Explain the Evolution of DBMS.",
+          "ans": "The concept of storing data started more than 40 years ago. Evolution stages: 1. Punched Cards — The earliest method used to store data. 2. File Systems — Data stored in files. Known as predecessor of database systems. Access methods: indexed, random, and sequential. Limitations: data duplication, high maintenance, poor security. 3. Database Systems — Created to overcome file system limitations. DBMS provides organised, secure, and efficient data management. Popular DBMS: MySQL, Oracle. 4. Modern RDBMS — Relational databases (MySQL, Oracle, MS SQL) became the standard. Based on relational model with tables, rows, and columns. SQL became the universal query language."
+        },
+        {
+          "q": "Discuss on Cardinality in DBMS.",
+          "ans": "Cardinality is defined as the number of entities in one set that are mapped with the number of entities of another set via a relationship. Three types: 1. One-to-One (1:1) — One entity in set A is related to at most one entity in set B. Example: A Person drives one Vehicle. 2. One-to-Many (1:N) — One entity in set A is related to many entities in set B. Example: A Customer places many Orders. The order relates to only one customer. 3. Many-to-Many (M:N) — Many entities in A are related to many entities in B. Example: Students register for many Courses; each Course is taken by many Students. In relational databases, M:N relationships are converted into 1:N using a junction table."
+        },
+        {
+          "q": "Write few commands used by DBA to control the entire database.",
+          "ans": "Database Administrators (DBAs) use the following MySQL administrative commands: 1. USE database — Selects a database for use. Syntax: mysql > use test; 2. SHOW databases — Lists all databases available on the server. 3. SHOW tables — Lists all tables in the current database. 4. SHOW COLUMNS FROM tablename — Lists all attributes, their types, null permission and key information for a given table. 5. SHOW INDEX FROM tablename — Shows all indexes for the given table. 6. SHOW TABLE STATUS LIKE tablename\\G — Provides a detailed performance report on the table. 7. FLUSH PRIVILEGES — Executed after creating a new user to update privileges without rebooting the server."
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "navLabel": "Part IV -- Long Essays (2 x 4)",
+      "title": "Part IV -- Detailed Answer Questions",
+      "type": "long-essay",
+      "scoreMax": 8,
+      "marksPer": 4,
+      "questions": [
+        {
+          "q": "Discuss on various database models available in DBMS.",
+          "ans": "Four major database models:\n\n1. Hierarchical Database Model:\nThe famous example is IMS (Information Management System) by IBM. Records have parent/child relationships like a tree structure. Collection of records = record types (equivalent to tables). Individual records = rows.\nAdvantages: Less redundant data, efficient search, data integrity and security.\nLimitations: Complex to implement, difficulty in handling many-to-many relationships.\n\n2. Network Model:\nFirst developed was IDS (Integrated Data Store) at Honeywell. Similar to Hierarchical but each member can have MORE THAN ONE owner. Handles many-to-many relationships better. Three components: Network Schema, Sub Schema, Language.\nAdvantages: Handles more relationship types, easy data access, data integrity and independence.\nLimitations: Difficulty in design and maintenance.\n\n3. Relational Model:\nExamples: MySQL, Oracle, DB2. Defined with Instance (table of rows and columns) and Schema (structure). A relation consists of unique attributes (columns) and tuples (rows). RDBMS is the basis for SQL.\n\n4. Object-Oriented Database Model:\nCombines OOP concepts with database technologies. Uses reusable software units called Objects. Efficiently manages large numbers of different data types and complex behaviours using OOP concepts."
+        },
+        {
+          "q": "Explain the DDL commands and their functions in SQL.",
+          "ans": "DDL (Data Definition Language) commands are used to define and modify the structure of database objects. All DDL commands end with a semicolon (;).\n\n1. CREATE — Used to create new databases or tables.\nSyntax: CREATE database databasename;\nExample: mysql>create database studentDB;\nAlso used to create tables: CREATE TABLE tablename (column definitions);\n\n2. ALTER — Modifies the existing structure of a database or table. Used to add, delete, or modify columns in an existing table.\nSyntax: ALTER TABLE tablename ADD/DROP/MODIFY column_definition;\n\n3. DROP — Deletes an entire database or table permanently.\nSyntax: DROP database databasename;\nExample: mysql>DROP database studentDB;\nWARNING: Once dropped, all data is permanently lost.\n\n4. RENAME — Used to rename an existing database object.\nSyntax: RENAME TABLE old_name TO new_name;\n\n5. TRUNCATE — Deletes ALL records from a table but keeps the table structure intact. Faster than DELETE for removing all rows.\nSyntax: TRUNCATE TABLE tablename;\n\nKey difference: DROP removes the entire table structure, TRUNCATE removes only the data (structure remains)."
+        }
+      ]
+    }
+  ]
+}

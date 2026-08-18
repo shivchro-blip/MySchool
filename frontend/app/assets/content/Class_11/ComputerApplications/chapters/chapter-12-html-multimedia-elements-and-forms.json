@@ -1,0 +1,37 @@
+{
+  "chapterNumber": 12,
+  "title": "HTML — Adding Multimedia Elements and Forms",
+  "subject": "Computer Applications",
+  "classLabel": "Class 11",
+  "curriculum": "Samacheer Kalvi",
+  "sections": [
+    {
+      "id": "images",
+      "title": "Inserting Images",
+      "content": "Images make web pages more attractive and help depict complex concepts simply. Images displayed on web pages must be in universally supported formats.\n\n**Familiar Image Formats:**\n\n| Format | Full Name | Best For |\n|--------|-----------|---------|\n| **GIF** | Graphical Interchange Format | Animated images, logos, icons, line art. Max 256 colours. No sound/playback control. Developed by CompuServe. |\n| **JPEG** | Joint Photographic Experts Group | Photographic images. Supports unlimited colours. Most popular format. Supported by all browsers. |\n| **PNG** | Portable Network Graphics | Replacement for GIF. Supported by all browsers. |\n| **SVG** | Scalable Vector Graphics | Web graphics. Standardised by W3C in 2001. Supported by current browsers. |\n\nImages can be converted between formats using applications like Photoshop, Picasa, or GIMP.\n\n**Inserting an Image — `<img>` tag:**\n\nThe `<img>` tag with the **src** (Source) attribute is used to insert images. `<img>` is an **empty tag** (no closing tag).\n\nGeneral format:\n```\n<img src=\"image_name.gif\">\n```\n\nIf the image is in a different folder, specify the full path:\n```\n<img src=\"D:\\images\\animals\\cat.jpeg\">\n```\n\n**Attributes of `<img>` tag:**\n\n| Attribute | Description |\n|-----------|-------------|\n| `src` | Source — file name/path/URL of the image (required) |\n| `alt` | Alternative text — shown if image cannot be loaded |\n| `height` | Height of image in pixels or percentage |\n| `width` | Width of image in pixels or percentage |\n| `align` | Alignment relative to surrounding text |\n\n**Align values:**\n- **bottom** — Aligns bottom of image with text baseline (default).\n- **middle** — Aligns middle of image with text baseline.\n- **top** — Aligns top of image with text baseline.\n- **left** — Image floats to the left; text wraps around the right.\n- **right** — Image floats to the right; text wraps around the left.",
+      "nav": {
+        "next": "multimedia",
+        "nextLabel": "Multimedia — Marquee, Video, Audio →"
+      }
+    },
+    {
+      "id": "multimedia",
+      "title": "Marquee, Video and Audio",
+      "content": "**Scrolling Text — `<marquee>`:**\nText or images can be made to move horizontally or vertically using `<marquee>`. Container tag.\n\nGeneral format: `<marquee> Text or image </marquee>`\n\nAttributes of `<marquee>`:\n\n| Attribute | Description |\n|-----------|-------------|\n| `height`, `width` | Size of the marquee area (pixels or %) |\n| `direction` | Movement direction: **left** (default), right, up, down |\n| `behavior` | Scrolling type: **scroll** (default), slide, alternate |\n| `scrolldelay` | Time delay between each jump (in seconds) |\n| `scrollamount` | Speed of the scroll |\n| `loop` | How many times to repeat. Default: infinite |\n| `bgcolor` | Background colour of the marquee |\n| `hspace`, `vspace` | Horizontal/vertical space around the marquee |\n\n---\n\n**Adding Video — `<embed>` tag:**\nThe `<embed>` tag attaches audio or video files to a webpage. Includes playback controls automatically. Empty tag.\n\n- **Inline:** Media file is part of the page — plays when the page is visible.\n- **External:** Link to external audio/video URL.\n\nGeneral format: `<embed src=\"video_file.mp4\" width=50% height=50%> </embed>`\n\nThe `<noembed>` tag provides fallback content if the browser does not support `<embed>`.\n\nPrimary attribute: **src** — specifies the media file name and location.\nOther attributes (same as `<img>`): alt, height, width, align.\n\n---\n\n**Background Music — `<bgsound>`:**\nPlays audio in the background while the page is viewed (inline sound).\n\nGeneral format: `<bgsound src=\"music.mp3\" loop=infinite>`\n\n- **src:** Location of the audio file.\n- **volume:** Adjusts volume control.\n- **loop:** Duration of play. `infinite` = plays as long as the page is in view.",
+      "nav": {
+        "back": "images",
+        "next": "forms",
+        "nextLabel": "HTML Forms →"
+      }
+    },
+    {
+      "id": "forms",
+      "title": "HTML Forms",
+      "content": "**Forms** are used to receive information from the user — for registration, login, orders, feedback, and search.\n\nThe `<form>` tag creates a form. Forms contain controls: text boxes, radio buttons, checkboxes, buttons, and drop-down lists.\n\n**General format:**\n```\n<form method=get/post action=\"server_script\">\n  form elements\n</form>\n```\n\n**Attributes of `<form>`:**\n\n| Attribute | Description |\n|-----------|-------------|\n| `method` | How data is sent: **get** (appends to URL) or **post** (sends as packets) |\n| `action` | Server-side program (CGI script — Perl, JavaScript, PHP, ASP) that processes the form |\n\nEach form element is assigned a **name** attribute. Users enter/select values; these are sent to the server with the element's name.\n\n---\n\n**Form Controls — `<input>` tag:**\nMost form controls use `<input>`. It is an **empty tag**.\n\nThe **type** attribute determines the control type:\n\n| Type value | Control Created |\n|------------|----------------|\n| `text` | Text box — for name, address, etc. |\n| `password` | Password box — characters appear as dots/asterisks |\n| `radio` | Radio button — select one from a group |\n| `checkbox` | Checkbox — select one or more options |\n| `submit` | Submit button — sends form data to server |\n| `reset` | Reset button — clears all form fields |\n| `button` | Custom button |\n\n**Other attributes of `<input>`:**\n- **name:** Identifies the field; sent to server with its value.\n- **value:** Default text in the field or button label.\n- **size:** Visible width of text/password box.\n- **maxlength:** Maximum characters allowed.\n- **checked:** Pre-selects a radio button or checkbox.\n\n**Text Area — `<textarea>`:**\nMulti-line text input area (for comments, feedback).\n```\n<textarea name=\"comments\" rows=5 cols=40> </textarea>\n```\n\n**Select Box (Drop-down List) — `<select>` + `<option>`:**\n```\n<select name=\"city\">\n  <option> Chennai </option>\n  <option> Madurai </option>\n</select>\n```\n\n**Submit and Reset Buttons:**\n```\n<input type=submit value=\"Submit\">\n<input type=reset value=\"Clear\">\n```\n- **Submit:** Sends all form data to the server program specified in `action`.\n- **Reset:** Clears all form fields to their default values.",
+      "nav": {
+        "back": "multimedia",
+        "practice": true
+      }
+    }
+  ]
+}

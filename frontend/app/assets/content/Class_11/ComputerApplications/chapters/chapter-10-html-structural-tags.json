@@ -1,0 +1,47 @@
+{
+  "chapterNumber": 10,
+  "title": "HTML — Structural Tags",
+  "subject": "Computer Applications",
+  "classLabel": "Class 11",
+  "curriculum": "Samacheer Kalvi",
+  "sections": [
+    {
+      "id": "intro",
+      "title": "Introduction to HTML",
+      "content": "**HTML (Hyper Text Markup Language)** is a special markup language used to create web pages. It tells browsers how to display text, images, animations, and other content, and how to make a document interactive through hyperlinks.\n\nHTML is **not** a word processing tool or a programming language. It is a markup (page layout and hyperlink specification) language that describes the structure of a document.\n\nHTML was originally derived from SGML (Standard Generalized Markup Language). To learn HTML, knowledge of SGML is not required.\n\n**HTML is made up of:**\n- **Tags (Elements):** HTML keywords that indicate how content should be formatted and displayed. Tags are specified within angle brackets: **< >**. HTML is **not case-sensitive** — `<HTML>` and `<html>` are identical.\n- **Attributes:** Special words inside a tag that provide additional information (e.g., colour, alignment). Attributes improve the appearance of an HTML document. You cannot create your own tags.\n\n**Types of Tags:**\n- **Container Elements:** Require both an opening and closing tag. Example: `<html>.....</html>`, `<p>...</p>`\n- **Empty Elements:** Only an opening tag — no closing tag. Example: `<br>`",
+      "nav": {
+        "next": "structure",
+        "nextLabel": "HTML Document Structure →"
+      }
+    },
+    {
+      "id": "structure",
+      "title": "HTML Document Structure and Structural Tags",
+      "content": "Every HTML document must follow this general format:\n\n```\n<html>\n<head>\n  <title> My First Web Page </title>\n</head>\n<body>\n  This is my First Web Page\n</body>\n</html>\n```\n\n**How tags work:** Opening tags turn ON a feature (e.g., `<h1>`); closing tags (same name preceded by /) turn it OFF (e.g., `</h1>`). Every HTML document is bounded within `<html>` and `</html>`.\n\nEvery web document has two sections:\n- **Head Section:** Contains the title of the page (shown in the browser's title bar/tab). Begins with `<head>` and ends with `</head>`. The `<title>` tag specifies the page title.\n- **Body Section:** Contains the main content displayed in the browser window. Enclosed within `<body>` and `</body>`.\n\n**The Four Structural Tags:**\n\n| Tag | Closing Tag | Description |\n|-----|-------------|-------------|\n| `<html>` | `</html>` | Identifies the document as HTML. All documents begin and end with this tag. |\n| `<head>` | `</head>` | Contains document information — title, scripts, style definitions. |\n| `<title>` | `</title>` | Contains the page title; shown in browser title bar/tab. Must be inside `<head>`. |\n| `<body>` | `</body>` | Encloses all content displayed on the web page. Placed below `</head>`. |\n\n**HTML Writing Tools:** A text editor (Notepad for Windows; Getit for Linux) and a browser are all that is needed — no web server or internet connection required.\n\n**Creating a Webpage:**\n1. Open Notepad (Start → All Programs → Accessories → Notepad).\n2. Type the HTML code.\n3. Save: File → Save → type filename with **.htm** or **.html** extension → select \"All Files\" from \"Save as type\" → Save.\n\n**Viewing in a Browser:**\n- File → Open File (Ctrl+O) → browse to the HTML file → Open.\n\n**Viewing Source File:** View → Page Source (Firefox/Chrome) or View → Source (IE) or press **Ctrl+U** in any browser.\n\n**Editing Source File:** Right-click the HTML file → Open With → Notepad → edit → save (Ctrl+S). Then refresh the browser with **Ctrl+R** or **F5** to see changes.",
+      "nav": {
+        "back": "intro",
+        "next": "attributes",
+        "nextLabel": "HTML Attributes →"
+      }
+    },
+    {
+      "id": "attributes",
+      "title": "HTML Attributes and Body Tag",
+      "content": "Attributes are special words placed **inside the opening tag** to specify additional information. Multiple attributes in a tag are separated by spaces.\n\n**Attributes of `<html>` tag:**\n\n| Attribute | Values | Description |\n|-----------|--------|-------------|\n| `dir` | `ltr` (default) / `rtl` | Text direction: left-to-right or right-to-left (rtl for Arabic). Global attribute. |\n| `lang` | `en`, `ta`, `ml`, `hi`, `fr`, etc. | Language of the document. |\n\n**Attributes of `<body>` tag:**\n\n**(i) Background Colour — `bgcolor`:**\nDefault background is white. Change with: `<body bgcolor=color_name/color_code>`\n\nColours in HTML are represented as **6-digit hexadecimal values (RGB)**: first 2 digits = Red, next 2 = Green, last 2 = Blue. Range: 00–FF.\n- #000000 = Black, #FFFFFF = White, #FF0000 = Red, #0000FF = Blue, #FFFF00 = Yellow\n- Modern browsers support ~140 colour names. Hexadecimal values must be prefixed with **#**.\n- Example: `<body bgcolor=yellow>` or `<body bgcolor=#FFFF00>`\n\n**(ii) Body Text Colour — `text`:**\nDefault text colour is black. Change with: `<body text=color_name/color_code>`\n\n**(iii) Background Image — `background`:**\nApply an image as background: `<body background=\"image_name.gif\">`\n- If the image is small, the browser repeats it to fill the window.\n- If the HTML file and image are in different folders, specify the full path.\n\n**(iv) Margins — `leftmargin` and `topmargin`:**\nSet blank space from left or top edge: `<body leftmargin=50 topmargin=50>`\n- Value is in **pixels** (72 pixels = 1 inch).\n\n**Combined example:**\n`<body bgcolor=Lime text=blue leftmargin=72 topmargin=72>`",
+      "nav": {
+        "back": "structure",
+        "next": "headings-paragraphs",
+        "nextLabel": "Headings and Paragraphs →"
+      }
+    },
+    {
+      "id": "headings-paragraphs",
+      "title": "Headings, Paragraphs, Comments and Tags",
+      "content": "**Headings:** HTML has six levels: `<h1>` to `<h6>`. `<h1>` is largest/boldest; `<h6>` is smallest. All are container tags.\n\nSyntax: `<h#> Heading text </h#>`\n\n**Align attribute for headings:** `<h# align=center/right/justify>`\nLeft is default (not supported in latest HTML). Justify is not supported by older browsers.\n\n---\n\n**Line Breaks and Paragraphs:**\n\nBrowsers ignore multiple spaces, tabs, and line returns — all text appears on one line. Use HTML tags to control layout:\n\n- **`<br>` (Line Break):** Empty tag; no closing tag or attributes. Placed at the end of a line to force a new line.\n- **`<p>` (Paragraph):** Container tag. Content between `<p>` and `</p>` is displayed as a paragraph with spacing. Browsers do not recognise the Enter key as a paragraph break.\n\n**Paragraph alignment:** `<p align=right/center/justify>` (left is default).\n\n---\n\n**Comments:** Used to describe the page or indicate its status. Not displayed by the browser.\n\nSyntax: `<! comment text >`\n\nComments can be placed anywhere in an HTML document.\n\n---\n\n**Summary of Key Tags:**\n\n| Tag | Type | Function | Attributes |\n|-----|------|----------|------------|\n| `<html>` | Container | Identifies HTML document | dir, lang |\n| `<head>` | Container | Document header | — |\n| `<title>` | Container | Document title in browser bar | — |\n| `<body>` | Container | Main content area | bgcolor, text, background, leftmargin, topmargin |\n| `<h1>`–`<h6>` | Container | Six levels of headings | align |\n| `<p>` | Container | Paragraph of text | align |\n| `<br>` | Empty | Line break | — |",
+      "nav": {
+        "back": "attributes",
+        "practice": true
+      }
+    }
+  ]
+}

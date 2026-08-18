@@ -1,0 +1,332 @@
+{
+  "meta": {
+    "subject": "Computer Applications -- Class XII",
+    "unit": "Chapter 18 -- Electronic Data Interchange (EDI)",
+    "time": "3.00 hrs",
+    "totalMarks": 47,
+    "instructions": "Samacheer Kalvi -- Answer all questions"
+  },
+  "parts": [
+    {
+      "id": "p1",
+      "navLabel": "Part I -- MCQ (20 x 1)",
+      "title": "Part I",
+      "type": "mcq",
+      "scoreMax": 20,
+      "marksPer": 1,
+      "sections": [
+        {
+          "label": "EDI",
+          "questions": [
+            {
+              "id": "q1",
+              "html": "EDI stands for:",
+              "options": [
+                "a) Electronic Details Information",
+                "b) Electronic Data Information",
+                "c) Electronic Data Interchange",
+                "d) Electronic Details Interchange"
+              ],
+              "answer": 2,
+              "hint": "EDI = Electronic Data Interchange. The exchange of business documents between trade partners electronically."
+            },
+            {
+              "id": "q2",
+              "html": "Which of the following is an internationally recognized standard format for EDI?",
+              "options": [
+                "a) TSLFACT",
+                "b) SETFACT",
+                "c) FTPFACT",
+                "d) EDIFACT"
+              ],
+              "answer": 3,
+              "hint": "EDIFACT = United Nations / Electronic Data Interchange for Administration, Commerce and Transport. Created by UN in 1985."
+            },
+            {
+              "id": "q3",
+              "html": "Which is the first industry-specific EDI standard?",
+              "options": [
+                "a) TDCC",
+                "b) VISA",
+                "c) Master",
+                "d) ANSI"
+              ],
+              "answer": 0,
+              "hint": "TDCC (Transportation Data Coordinating Committee) published the first industry-specific EDI standard in 1975."
+            },
+            {
+              "id": "q4",
+              "html": "Which of the following is a type of EDI?",
+              "options": [
+                "a) Direct EDI",
+                "b) Indirect EDI",
+                "c) Collective EDI",
+                "d) Unique EDI"
+              ],
+              "answer": 0,
+              "hint": "Direct EDI (Point-to-Point) is one of the 5 EDI types. Indirect, Collective, and Unique are not EDI types."
+            },
+            {
+              "id": "q5",
+              "html": "Who is called as the father of EDI?",
+              "options": [
+                "a) Charles Babbage",
+                "b) Ed Guilbert",
+                "c) Pascal",
+                "d) None of the above"
+              ],
+              "answer": 1,
+              "hint": "Ed Guilbert is called the father of EDI. He developed standardized formats for business documents during the 1948 Berlin Airlift."
+            },
+            {
+              "id": "q6",
+              "html": "EDI is also called:",
+              "options": [
+                "a) Paperless Payment",
+                "b) Paperless Trade",
+                "c) Electronic Commerce",
+                "d) Digital Commerce"
+              ],
+              "answer": 1,
+              "hint": "EDI = Paperless Trade. EFT (Electronic Transfer) = Paperless Payment."
+            },
+            {
+              "id": "q7",
+              "html": "The first EDI message was sent in:",
+              "options": [
+                "a) 1948",
+                "b) 1965",
+                "c) 1968",
+                "d) 1975"
+              ],
+              "answer": 1,
+              "hint": "The first EDI message was sent in 1965 from the Holland-American steamship line to Trans-Atlantic shipping company using telex."
+            },
+            {
+              "id": "q8",
+              "html": "TDCC was renamed as EDIA in:",
+              "options": [
+                "a) 1975",
+                "b) 1977",
+                "c) 1978",
+                "d) 1985"
+              ],
+              "answer": 2,
+              "hint": "TDCC was renamed as EDIA (Electronic Data Interchange Association) in 1978. Then taken over by ANSI as the ANSI X12 committee."
+            },
+            {
+              "id": "q9",
+              "html": "UN created EDIFACT in:",
+              "options": [
+                "a) 1975",
+                "b) 1978",
+                "c) 1985",
+                "d) 1987"
+              ],
+              "answer": 2,
+              "hint": "UN created EDIFACT in 1985. EDIFACT syntax rules were approved as ISO 9735 in 1987."
+            },
+            {
+              "id": "q10",
+              "html": "Direct EDI is also called as:",
+              "options": [
+                "a) Web EDI",
+                "b) Mobile EDI",
+                "c) Point-to-Point EDI",
+                "d) VAN EDI"
+              ],
+              "answer": 2,
+              "hint": "Direct EDI = Point-to-Point EDI. Establishes direct connection between business stakeholders. Suits larger businesses."
+            },
+            {
+              "id": "q11",
+              "html": "VAN in EDI stands for:",
+              "options": [
+                "a) Virtual Area Network",
+                "b) Value Added Network",
+                "c) Virtual Added Network",
+                "d) Value Area Network"
+              ],
+              "answer": 1,
+              "hint": "VAN = Value Added Network. A third-party network service provider that transfers EDI documents between trading partners."
+            },
+            {
+              "id": "q12",
+              "html": "Web EDI is best suited for:",
+              "options": [
+                "a) Large businesses with heavy transactions",
+                "b) Banks and financial institutions",
+                "c) Small and medium organizations",
+                "d) Government organizations only"
+              ],
+              "answer": 2,
+              "hint": "Web EDI uses a web browser via Internet. It is easy and convenient for SMALL AND MEDIUM organizations."
+            },
+            {
+              "id": "q13",
+              "html": "How many layers are in the EDI architecture?",
+              "options": [
+                "a) 3",
+                "b) 4",
+                "c) 5",
+                "d) 7"
+              ],
+              "answer": 1,
+              "hint": "EDI has 4 layers: Semantic layer, Standard Translation layer, Transport layer, and Physical layer."
+            },
+            {
+              "id": "q14",
+              "html": "The Semantic layer in EDI architecture is the:",
+              "options": [
+                "a) Lowest level",
+                "b) Second level from bottom",
+                "c) Third level from bottom",
+                "d) Highest level"
+              ],
+              "answer": 3,
+              "hint": "Semantic layer is the HIGHEST level (application level services). Physical layer is the LOWEST level."
+            },
+            {
+              "id": "q15",
+              "html": "EDIFACT syntax rules were approved as ISO standard in:",
+              "options": [
+                "a) 1975",
+                "b) 1985",
+                "c) 1987",
+                "d) 1999"
+              ],
+              "answer": 2,
+              "hint": "EDIFACT syntax rules were approved as ISO: ISO9735 standard in 1987 by the International Organization for Standardization."
+            },
+            {
+              "id": "q16",
+              "html": "TDCC stands for:",
+              "options": [
+                "a) Transportation Data Coordinating Committee",
+                "b) Transportation Data Computing Committee",
+                "c) Technology Data Coordinating Committee",
+                "d) Transport Data Communication Committee"
+              ],
+              "answer": 0,
+              "hint": "TDCC = Transportation Data Coordinating Committee. Formed in 1968 by US shipping, rail, airline and truck companies."
+            },
+            {
+              "id": "q17",
+              "html": "Every EDI message consists of how many uppercase English alphabets?",
+              "options": [
+                "a) 3",
+                "b) 4",
+                "c) 5",
+                "d) 6"
+              ],
+              "answer": 3,
+              "hint": "Every EDI message consists of 6 uppercase English alphabets."
+            },
+            {
+              "id": "q18",
+              "html": "Which EDI type uses smartphones or handheld devices?",
+              "options": [
+                "a) Web EDI",
+                "b) Direct EDI",
+                "c) Mobile EDI",
+                "d) EDI via VAN"
+              ],
+              "answer": 2,
+              "hint": "Mobile EDI uses smartphones or other handheld devices to transfer EDI documents. Increases speed of EDI transactions."
+            },
+            {
+              "id": "q19",
+              "html": "The Transport layer in EDI includes:",
+              "options": [
+                "a) EDIFACT business form standards",
+                "b) Application level services",
+                "c) HTTP, FTP, TELNET",
+                "d) Dial-up line and Internet"
+              ],
+              "answer": 2,
+              "hint": "Transport layer includes: Electronic mail (X.435, MIME), Point-to-point (FTP, TELNET), World Wide Web (HTTP). Physical layer = dial-up/Internet."
+            },
+            {
+              "id": "q20",
+              "html": "ANSI X12 committee is responsible for:",
+              "options": [
+                "a) Global network protocols",
+                "b) Publication of EDI standards",
+                "c) Internet governance",
+                "d) Email standards"
+              ],
+              "answer": 1,
+              "hint": "ANSI X12 committee (formed when EDIA was taken over by ANSI in 1978) is responsible for the publication of EDI standards."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "navLabel": "Part II -- Short Answers (5 x 2)",
+      "title": "Part II",
+      "type": "short-essay",
+      "scoreMax": 10,
+      "marksPer": 2,
+      "questions": [
+        {
+          "q": "Define EDI.",
+          "ans": "EDI (Electronic Data Interchange) is the exchange of business documents between one trade partner and another electronically. Documents are transferred through a dedicated channel or through the Internet in a predefined format without much human intervention. According to the National Institute of Standards and Technology, EDI is \"the computer-to-computer interchange of strictly formatted messages that represent documents other than monetary instruments.\" EDI is called \"Paperless Trade\" (while EFT is \"Paperless Payment\"). Before Internet-based E-Commerce, EDI was a major E-Commerce model."
+        },
+        {
+          "q": "List few types of business documents that are transmitted through EDI.",
+          "ans": "Business documents transmitted through EDI include: 1. Delivery notes — confirming delivery of goods. 2. Invoices — billing documents sent from seller to buyer. 3. Purchase orders — documents sent from buyer to seller to order goods. 4. Advance Ship Notice (ASN) — notification of an upcoming delivery. 5. Functional acknowledgements — confirmation that an EDI document was received. These documents are transferred directly from the computer of the issuing company to that of the receiving company, saving time and avoiding errors of traditional paper communications."
+        },
+        {
+          "q": "Write any two EDI Standards.",
+          "ans": "1. EDIFACT (United Nations / Electronic Data Interchange for Administration, Commerce and Transport): The most widely used international EDI standard. Created by the UN in 1985. Syntax rules approved as ISO 9735 in 1987. A cross-industry standard data format for electronic commercial transactions. Maintained by UN/CEFACT.\n\n2. ANSI X12: The second most widely used EDI message standard. Developed by the American National Standards Institute. The ANSI X12 committee (formed in 1978 when EDIA was taken over by ANSI) is responsible for publication of EDI standards. Widely used in North America for inter-industry EDI transactions."
+        },
+        {
+          "q": "Write a short note on EDI via VAN.",
+          "ans": "EDI via VAN (Value Added Network) is where EDI documents are transferred with the support of third-party network service providers. A Value Added Network (VAN) is a company that offers EDI services to other businesses based on its own network. VAN acts as an intermediary between trading partners. The principle operations of value-added networks are: allocation of access rights and providing high data security. Many businesses prefer VAN model to protect themselves from the complexity of managing ongoing network technology updates. VAN is especially useful for medium-sized businesses that want EDI benefits without managing the technical complexity."
+        },
+        {
+          "q": "List the various layers of EDI.",
+          "ans": "EDI architecture specifies four different layers:\n1. Semantic Layer — The HIGHEST level. Provides application level services. This is where business logic resides.\n2. Standard Translation Layer — Contains EDIFACT business form standards and ANSI X12 business form standards. Translates business data into standard EDI format.\n3. Transport Layer — Handles data transport. Includes: Electronic mail (X.435, MIME), Point-to-point (FTP, TELNET), and World Wide Web (HTTP).\n4. Physical Layer — The LOWEST level. Includes the physical transmission medium: dial-up line, Internet, I-way.\nThese EDI layers describe how data flows from one computer to another."
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "navLabel": "Part III -- Brief Answers (3 x 3)",
+      "title": "Part III",
+      "type": "short-essay",
+      "scoreMax": 9,
+      "marksPer": 3,
+      "questions": [
+        {
+          "q": "Write a note on UN/EDIFACT.",
+          "ans": "UN/EDIFACT stands for United Nations / Electronic Data Interchange for Administration, Commerce and Transport. It is an international EDI standard developed under the supervision of the United Nations.\n\nKey facts:\n- Created by the UN in 1985 to assist with global reach of E-Commerce technology.\n- In 1987, the UN/EDIFACT syntax rules were approved as ISO: ISO9735 standard by the International Organization for Standardization.\n- It is a cross-industry standard data format for electronic data in commercial transactions.\n- Maintenance and further development goes through UN/CEFACT (United Nations Centre for Trade Facilitation and Electronic Business), affiliated to UN Economic Commission for Europe (UNECE).\n- EDIFACT is the MOST WIDELY USED EDI standard globally.\n- Message structure has 7 hierarchical levels: Interchange, Functional Groups, Messages, Segment Groups, Segments, Composite Elements, Simple Data Elements."
+        },
+        {
+          "q": "Briefly explain types of EDI.",
+          "ans": "There are 5 major types of EDI based on the medium used for transmitting EDI documents:\n\n1. Direct EDI (Point-to-Point) — Establishes a direct connection between business partners individually. Suits larger businesses with heavy daily transactions.\n\n2. EDI via VAN (Value Added Network) — EDI documents transferred through third-party network service providers. VAN acts as intermediary. Good for managing security and network complexity.\n\n3. EDI via FTP/VPN, SFTP, FTPS — EDI documents exchanged through Internet or Intranet using secure file transfer protocols.\n\n4. Web EDI — Uses a web browser via Internet. Easy and convenient for small and medium organizations.\n\n5. Mobile EDI — Uses smartphones or handheld devices. Considerably increases transaction speed."
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "navLabel": "Part IV -- Long Essays (2 x 4)",
+      "title": "Part IV",
+      "type": "long-essay",
+      "scoreMax": 8,
+      "marksPer": 4,
+      "questions": [
+        {
+          "q": "Briefly explain types of EDI in detail.",
+          "ans": "The types of EDI are constructed based on how EDI communication connections and conversions are organized. There are 5 major EDI types:\n\n1. Direct EDI (Point-to-Point):\nEstablishes a DIRECT connection between various business stakeholders and partners individually, without any intermediary. This type of EDI suits larger businesses with many day-to-day business transactions. Both parties need compatible EDI software and direct network connections.\n\n2. EDI via VAN (Value Added Network):\nEDI documents are transferred with the support of THIRD-PARTY network service providers (VANs). A VAN is a company that offers EDI services based on its own network and acts as an intermediary between trading partners. Principal VAN operations: allocation of access rights and providing high data security. Many businesses prefer VAN to avoid managing ongoing network technology complexity.\n\n3. EDI via FTP/VPN, SFTP, FTPS:\nWhen protocols like FTP/VPN, SFTP (Secure FTP) and FTPS (FTP over SSL) are used for exchanging EDI documents through the Internet or Intranet. Provides secured file transfer.\n\n4. Web EDI:\nConducts EDI using a WEB BROWSER via the Internet. Businesses can use any browser to transfer data to their partners. Web EDI is easy and convenient, making it best for small and medium organizations that cannot afford complex EDI infrastructure.\n\n5. Mobile EDI:\nWhen SMARTPHONES or other handheld devices are used to transfer EDI documents. Mobile EDI applications considerably increase the speed of EDI transactions. Enables real-time transactions from anywhere."
+        },
+        {
+          "q": "What are the advantages of EDI?",
+          "ans": "EDI was developed to solve problems inherent in paper-based transaction processing. Implementing EDI gives a company greater control over its supply chain and allows more effective trading. It increases productivity and promotes operational efficiency.\n\nAdvantages of EDI:\n\n1. Improving service to end users — Faster and more accurate transactions improve customer satisfaction.\n\n2. Increasing productivity — Automated document exchange eliminates manual data entry, freeing staff for more valuable tasks.\n\n3. Minimizing errors — Computer-to-computer exchange in standardized format eliminates human entry errors common in paper documents.\n\n4. Slashing response times — EDI transactions happen in seconds compared to days for paper-based processes.\n\n5. Automation of operations — Business processes like ordering, invoicing, and shipping confirmation are automated.\n\n6. Cutting costs — Eliminates paper, printing, postage, storage, and manual processing costs.\n\n7. Integrating all business and trading partners — Creates seamless connectivity across the entire supply chain.\n\n8. Providing information on process status — Real-time visibility of order status, delivery confirmations, and payment processing.\n\n9. Optimizing financial ratios — Faster payments and reduced processing costs improve financial performance.\n\nAdditionally, EDI has made ordering and shipping faster, more organized, and less expensive. It is called Paperless Trade — eliminating the need for physical paper documents."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,203 @@
+{
+  "meta": {
+    "subject": "Computer Applications -- Class XI",
+    "unit": "Chapter 6 -- Introduction to Word Processor",
+    "time": "2.30 hrs",
+    "totalMarks": 47,
+    "instructions": "Samacheer Kalvi -- Answer all questions"
+  },
+  "parts": [
+    {
+      "id": "p1",
+      "navLabel": "Part I -- MCQ (5 x 1)",
+      "title": "Part I -- Choose the Correct Answer",
+      "type": "mcq",
+      "scoreMax": 5,
+      "marksPer": 1,
+      "sections": [
+        {
+          "label": "Word Processor",
+          "questions": [
+            {
+              "id": "q1",
+              "html": "Which of the following is an open-source word processing software?",
+              "options": [
+                "a) Microsoft Word",
+                "b) WPS Word",
+                "c) OpenOffice Writer",
+                "d) WordPro"
+              ],
+              "answer": 2,
+              "hint": "OpenOffice Writer (by Apache) is open-source and free. Microsoft Word and WPS Word are proprietary."
+            },
+            {
+              "id": "q2",
+              "html": "The shortcut key to Bold text in OpenOffice Writer is:",
+              "options": [
+                "a) Ctrl+I",
+                "b) Ctrl+U",
+                "c) Ctrl+B",
+                "d) Ctrl+A"
+              ],
+              "answer": 2,
+              "hint": "Ctrl+B = Bold. Ctrl+I = Italic. Ctrl+U = Underline."
+            },
+            {
+              "id": "q3",
+              "html": "Which alignment makes text even on both the left and right margins?",
+              "options": [
+                "a) Left alignment",
+                "b) Right alignment",
+                "c) Centre alignment",
+                "d) Justify alignment"
+              ],
+              "answer": 3,
+              "hint": "Justify alignment (Ctrl+J) aligns text evenly on both left and right margins by inserting extra spaces between words."
+            },
+            {
+              "id": "q4",
+              "html": "Which key is used to perform a spelling check in OpenOffice Writer?",
+              "options": [
+                "a) F5",
+                "b) F7",
+                "c) F9",
+                "d) F11"
+              ],
+              "answer": 1,
+              "hint": "F7 opens the Spelling and Grammar check dialog in OpenOffice Writer."
+            },
+            {
+              "id": "q5",
+              "html": "To insert a table quickly, which keyboard shortcut is used in OpenOffice Writer?",
+              "options": [
+                "a) Ctrl+T",
+                "b) Ctrl+F5",
+                "c) Ctrl+F12",
+                "d) Ctrl+Insert"
+              ],
+              "answer": 2,
+              "hint": "Ctrl+F12 opens the Insert Table dialog box in OpenOffice Writer."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "navLabel": "Part II -- Very Short (6 x 2)",
+      "title": "Part II -- Very Short Answers",
+      "type": "short_answer",
+      "scoreMax": 12,
+      "marksPer": 2,
+      "sections": [
+        {
+          "label": "Very Short Answers",
+          "questions": [
+            {
+              "id": "q6",
+              "html": "What is a word processor?",
+              "answer": "A word processor is computer software used to create, edit, manipulate, transmit, store, and retrieve text documents. The activities performed using a word processor are collectively called 'Word Processing'. Examples include OpenOffice Writer and Microsoft Word.",
+              "hint": "Word processor = software for creating/editing text documents. Word Processing = the activity."
+            },
+            {
+              "id": "q7",
+              "html": "What is Word Wrap?",
+              "answer": "Word Wrap is a feature in word processors that automatically moves a word to the next line when it reaches the end of the current line. The user does not need to press the Enter key at the end of each line — it only needs to be pressed at the end of a paragraph or to insert a blank line.",
+              "hint": "Word Wrap = automatic line continuation. No need to press Enter at end of each line."
+            },
+            {
+              "id": "q8",
+              "html": "What is the difference between Insert Mode and Type Over Mode?",
+              "answer": "Insert Mode: Newly typed text is inserted at the insertion pointer position; existing text moves to the right to accommodate the new text. Type Over Mode: Newly typed text overwrites (replaces) the existing text at the cursor position. Press the Insert key to toggle between the two modes.",
+              "hint": "Insert mode = text pushes existing content. Type over = new text replaces existing text. Toggle with Insert key."
+            },
+            {
+              "id": "q9",
+              "html": "What is DDE (Dynamic Data Exchange)?",
+              "answer": "DDE stands for Dynamic Data Exchange. It is a mechanism used in Paste Special operations whereby the source data is pasted into the destination document as a linked, 'live' copy. Any changes made to the source data are automatically reflected in the destination document that contains the DDE-linked copy.",
+              "hint": "DDE = pasted copy stays linked to source. Changes in source → automatic update in destination."
+            },
+            {
+              "id": "q10",
+              "html": "What is AutoCorrect in OpenOffice Writer?",
+              "answer": "AutoCorrect is a feature in OpenOffice Writer that automatically corrects common misspellings and typing errors as you type. For example, 'hte' is automatically changed to 'the'. Custom entries can be added via Tools → AutoCorrect → Replace tab (enter misspelt word and correct word → click New). AutoCorrect can be turned off via Format → AutoCorrect → While Typing.",
+              "hint": "AutoCorrect = auto-fixes common typos as you type. Add custom entries via Tools → AutoCorrect."
+            },
+            {
+              "id": "q11",
+              "html": "What is AutoText in OpenOffice Writer?",
+              "answer": "AutoText allows users to assign frequently used text, tables, graphics, or other items to a keyboard shortcut. For example, instead of typing 'TamilNadu' every time, you can assign it to 'tn' and press F3 to insert it. To create AutoText: type and select text → Edit → AutoText (Ctrl+F3) → enter a name → click AutoText button → New (text only) → Close.",
+              "hint": "AutoText = assign long/repeated text to a shortcut key. Press shortcut + F3 to insert."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "navLabel": "Part III -- Short (3 x 3)",
+      "title": "Part III -- Short Answers",
+      "type": "brief_answer",
+      "scoreMax": 9,
+      "marksPer": 3,
+      "sections": [
+        {
+          "label": "Short Answers",
+          "questions": [
+            {
+              "id": "q12",
+              "html": "Explain the different types of indentation in OpenOffice Writer.",
+              "answer": "Indentation is the distance from the left or right margin of a paragraph. There are four types:\n\n1. Left Indent: Moves the entire paragraph away from the left margin. Applied by clicking the Increase Indent icon or via Format → Paragraph → Indents & Spacing → 'Before text' value.\n\n2. Right Indent: Moves the entire paragraph away from the right margin. Applied via Format → Paragraph → 'After text' value.\n\n3. First Line Indent: Only the first line of the paragraph is indented; the most common way to start a new paragraph. Applied via Format → Paragraph → First Line option → enter a positive value.\n\n4. Hanging Indent: The first line hangs outside (is not indented) while the rest of the paragraph is indented. Applied by entering a negative value in the 'First line' option.",
+              "hint": "Four types: Left (whole paragraph), Right (from right), First Line (only first line), Hanging (first line sticks out)."
+            },
+            {
+              "id": "q13",
+              "html": "Write the steps to use Find and Replace in OpenOffice Writer.",
+              "answer": "Find and Replace is used to locate text and replace it with another word.\n\nSteps:\n1. Click Edit → Find & Replace (or press Ctrl+F). The Find & Replace dialog box opens.\n2. In the 'Search for' box, type the text to find (e.g., 'Bombay').\n3. In the 'Replace with' box, type the replacement text (e.g., 'Mumbai').\n4. Click 'Find' to locate and highlight the first occurrence.\n5. Click 'Replace' to replace the highlighted word, or 'Replace All' to replace all occurrences at once.\n6. Click 'Find All' to select all instances of the search text in the document.\n\nAdditional options:\n- Match Case: Distinguishes uppercase and lowercase.\n- Whole Words Only: Finds exact whole word matches only (e.g., 'Image' won't find 'Images').",
+              "hint": "Ctrl+F → Search for → Replace with → Find → Replace/Replace All. Options: Match Case, Whole Words Only."
+            },
+            {
+              "id": "q14",
+              "html": "How do you insert and delete rows and columns in a table in OpenOffice Writer?",
+              "answer": "Inserting rows/columns:\n1. Place the insertion pointer in the row or column where you want to add.\n2. Right-click → Row → Insert (to add a row) or Column → Insert (to add a column).\n3. A dialog box appears where you select the number of rows/columns and the position (Before or After).\n\nDeleting rows/columns:\n1. Place the insertion pointer in the row or column to be deleted.\n2. Right-click → Row → Delete (to delete the row) or Column → Delete (to delete the column).\n3. The selected row or column is removed.",
+              "hint": "Insert: right-click → Row/Column → Insert → choose count and position. Delete: right-click → Row/Column → Delete."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "navLabel": "Part IV -- Long (3 x 7)",
+      "title": "Part IV -- Explain in Detail",
+      "type": "long_essay",
+      "scoreMax": 21,
+      "marksPer": 7,
+      "sections": [
+        {
+          "label": "Long Answers",
+          "questions": [
+            {
+              "id": "q15",
+              "html": "Explain the parts of the OpenOffice Writer window.",
+              "answer": "The OpenOffice Writer window consists of the following parts:\n\n1. Title Bar: At the top; displays the document name and application name. Default name is 'Untitled1'. Contains three control buttons: Minimize (shrinks to taskbar), Maximize/Restore (full screen/original size), and Close (exits application).\n\n2. Menu Bar: Below the title bar. Contains menus — File (save, print), Edit (cut, copy, paste, undo), View (toolbars, layout), Insert (pictures, tables, headers), Format (font, paragraph, page), Table (create/manage tables), Tools (spell check, AutoCorrect), Window, and Help.\n\n3. Standard Toolbar: Below the menu bar. Contains shortcut icons for frequently used commands (new, open, save, cut, copy, paste, undo).\n\n4. Formatting Toolbar: Below Standard toolbar. Contains icons for text formatting (Bold, Italic, Underline, Font type, Font size, Font colour, Alignment).\n\n5. Ruler: Scale below the Formatting toolbar showing margins. Horizontal ruler: left/right margins. Vertical ruler: top/bottom margins.\n\n6. Work Space: The large blank area where text is typed. Contains the Insertion Pointer (flashing vertical bar).\n\n7. Status Bar: At the bottom of the window; shows current page number, total pages, language, and document statistics.",
+              "hint": "7 parts: Title Bar (control buttons), Menu Bar (9 menus), Standard Toolbar, Formatting Toolbar, Ruler (H+V), Work Space (insertion pointer), Status Bar."
+            },
+            {
+              "id": "q16",
+              "html": "Explain page formatting options in OpenOffice Writer.",
+              "answer": "Page formatting controls how the document looks when printed. Key options:\n\n1. Page Size: Default is 8.5×11\" (A4). Change via Format → Page → Page Tab → select format (A4, Legal) or enter custom width/height.\n\n2. Page Margins: White space around the document. Change using: (a) Ruler — drag the gray/white boundary. (b) Page Style dialog — right-click → Page → Margins group → enter values for Left, Right, Top, Bottom.\n\n3. Page Orientation: Portrait (height > width, default — books, newspapers) or Landscape (width > height — photos, tables). Change via Format → Page → Orientation group.\n\n4. Page Colour and Borders: Format → Page → Background tab (select colour or graphic). Borders tab: set line style, colour, and border area.\n\n5. Headers and Footers: Header appears in the top margin (title, chapter name). Footer appears in the bottom margin (page number, date). Insert via Insert → Header/Footer → Default → type text or Insert → Fields for page number/date.\n\n6. Page Numbers: Insert → Fields → Page Number (in header/footer area). Change numbering style via Format → Page → Layout Settings → Format dropdown.",
+              "hint": "6 options: Page Size, Margins (Ruler or dialog), Orientation (Portrait/Landscape), Colour/Borders, Headers/Footers, Page Numbers."
+            },
+            {
+              "id": "q17",
+              "html": "Explain the steps to insert a table and format it in OpenOffice Writer.",
+              "answer": "Inserting a Table:\n\nMethod 1 (Table Icon): Click the Table icon's down-arrow on the Standard toolbar → drag over the grid to select the number of rows and columns → release to insert.\n\nMethod 2 (Insert Table Dialog — Ctrl+F12): Table → Insert → Table. In the dialog box:\n- Set number of Rows and Columns.\n- Give a Name to the table.\n- Check 'Heading' for a header row; 'Repeat heading' to repeat on multiple pages.\n- Check 'Don't split table' to keep the table on one page.\n- Check 'Border' for a visible grid.\n- Click AutoFormat to choose a predefined style → OK.\n\nFormatting a Table:\n1. Inserting rows/columns: Right-click → Row → Insert / Column → Insert → set count and position.\n2. Deleting rows/columns: Right-click → Row → Delete / Column → Delete.\n3. Merging cells: Select cells → right-click → Cell → Merge (or Table → Merge Cells).\n4. Splitting a cell: Click inside cell → right-click → Cell → Split → choose horizontal (rows) or vertical (columns) and number of parts.\n5. Borders and background: Use the Table Formatting toolbar or Table menu to set border style, width, and cell background colour.",
+              "hint": "Insert: Icon method (drag grid) or Ctrl+F12 dialog (rows, columns, heading, border). Format: insert/delete rows/columns, merge, split, borders."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

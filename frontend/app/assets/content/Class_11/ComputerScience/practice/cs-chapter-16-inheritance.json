@@ -1,0 +1,239 @@
+{
+  "meta": {
+    "subject": "Computer Science -- Class XI",
+    "unit": "Chapter 16 -- Inheritance",
+    "time": "2.30 hrs",
+    "totalMarks": 47,
+    "instructions": "Samacheer Kalvi -- Answer all questions"
+  },
+  "parts": [
+    {
+      "id": "p1",
+      "navLabel": "Part I -- MCQ (8 x 1)",
+      "title": "Part I -- Choose the Correct Answer",
+      "type": "mcq",
+      "scoreMax": 8,
+      "marksPer": 1,
+      "sections": [
+        {
+          "label": "Inheritance",
+          "questions": [
+            {
+              "id": "q1",
+              "html": "Which of the following is the process of creating new classes from an existing class?",
+              "options": [
+                "a) Polymorphism",
+                "b) Inheritance",
+                "c) Encapsulation",
+                "d) Super class"
+              ],
+              "answer": 1,
+              "hint": "Inheritance is exactly the process of deriving new classes from existing ones."
+            },
+            {
+              "id": "q2",
+              "html": "Which of the following derives a class student from the base class school?",
+              "options": [
+                "a) school : student",
+                "b) class student : public school",
+                "c) student : public school",
+                "d) class school : public student"
+              ],
+              "answer": 1,
+              "hint": "A valid derivation needs the keyword 'class', the derived class name, ':', visibility mode, then the base class name."
+            },
+            {
+              "id": "q3",
+              "html": "The type of inheritance that reflects the transitive nature is:",
+              "options": [
+                "a) Single Inheritance",
+                "b) Multiple Inheritance",
+                "c) Multilevel Inheritance",
+                "d) Hybrid Inheritance"
+              ],
+              "answer": 2,
+              "hint": "Multilevel inheritance (class derived from a class which is itself derived) reflects transitivity."
+            },
+            {
+              "id": "q4",
+              "html": "Which visibility mode should be used when you want features of the base class available to the derived class but NOT to classes further derived from it?",
+              "options": [
+                "a) Private",
+                "b) Public",
+                "c) Protected",
+                "d) All of these"
+              ],
+              "answer": 0,
+              "hint": "Private inheritance stops the features from being passed further down to a grandchild class."
+            },
+            {
+              "id": "q5",
+              "html": "Inheritance is a process of creating a new class from:",
+              "options": [
+                "a) Base class",
+                "b) Abstract",
+                "c) Derived class",
+                "d) Function"
+              ],
+              "answer": 0,
+              "hint": "A new (derived) class is created FROM an existing base class."
+            },
+            {
+              "id": "q6",
+              "html": "A class is derived from a class which is itself a derived class — this is referred to as:",
+              "options": [
+                "a) Multiple inheritance",
+                "b) Multilevel inheritance",
+                "c) Single inheritance",
+                "d) Double inheritance"
+              ],
+              "answer": 1,
+              "hint": "A chain of derivation (class from a class from a class) is multilevel inheritance."
+            },
+            {
+              "id": "q7",
+              "html": "Which of the following is executed in the order of inheritance (base to derived)?",
+              "options": [
+                "a) Destructor",
+                "b) Member function",
+                "c) Constructor",
+                "d) Object"
+              ],
+              "answer": 2,
+              "hint": "Constructors run base-class-first, then derived-class — following the order of inheritance."
+            },
+            {
+              "id": "q8",
+              "html": "Which of the following is TRUE with respect to inheritance?",
+              "options": [
+                "a) Private members of base class are inherited to the derived class with private accessibility",
+                "b) Private members of base class are not inherited to the derived class with private accessibility",
+                "c) Public members of base class are inherited but not visible to the derived class",
+                "d) Protected members of base class are inherited but not visible to the outside class"
+              ],
+              "answer": 1,
+              "hint": "Private members of the base class are NEVER inherited by a derived class, regardless of visibility mode."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "navLabel": "Part II -- Very Short Answers (5 x 2)",
+      "title": "Part II -- Very Short Answers",
+      "type": "short_answer",
+      "scoreMax": 10,
+      "marksPer": 2,
+      "sections": [
+        {
+          "label": "Very Short Answers",
+          "questions": [
+            {
+              "id": "q9",
+              "html": "What is inheritance?",
+              "answer": "Inheritance is a feature of Object Oriented Programming that enables a new class (derived class) to take on the properties of an existing class (base class). It allows the derived class to reuse all the non-private code of the base class, while also adding its own additional attributes and methods.",
+              "hint": "A mechanism where a new (derived) class acquires the properties/code of an existing (base) class."
+            },
+            {
+              "id": "q10",
+              "html": "What is a base class?",
+              "answer": "A base class (also called a superclass or parent class) is the existing class from which a new class (derived class) is created through inheritance. It provides the properties and methods that the derived class inherits and can further extend.",
+              "hint": "Also called superclass/parent class — the existing class that other classes inherit FROM."
+            },
+            {
+              "id": "q11",
+              "html": "Why is the derived class called a power-packed class?",
+              "answer": "A derived class is called a 'power-packed' class because it not only inherits all the (non-private) properties and functions of its base class, but can also add its own additional attributes and methods on top of that — effectively enhancing its functionality beyond what the base class alone provides.",
+              "hint": "It inherits the base class's features AND adds its own new attributes/methods, enhancing functionality."
+            },
+            {
+              "id": "q12",
+              "html": "In what way do multilevel and multiple inheritance differ, though both contain many base classes?",
+              "answer": "In multilevel inheritance, the base classes form a CHAIN — each class is derived from exactly one other class, which is itself derived from another, and so on (e.g., A → B → C). In multiple inheritance, a single derived class inherits DIRECTLY from more than one base class at the SAME level simultaneously (e.g., a class D inherits directly from both A and B at once), rather than through a chain.",
+              "hint": "Multilevel = a chain (A→B→C, one base per level); Multiple = one class inherits directly from several base classes at the same level."
+            },
+            {
+              "id": "q13",
+              "html": "What is the difference between public and private visibility mode?",
+              "answer": "In PUBLIC visibility mode, the base class's protected members remain protected, and its public members remain public in the derived class — both are accessible from the derived class and (for public members) from outside as well. In PRIVATE visibility mode, both the base class's public AND protected members become PRIVATE members of the derived class — accessible only within the derived class itself, not from outside or from any further-derived classes.",
+              "hint": "Public: base's protected stays protected, public stays public. Private: base's public AND protected both become private in the derived class."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "navLabel": "Part III -- Short Answers (3 x 3)",
+      "title": "Part III -- Short Answers",
+      "type": "brief_answer",
+      "scoreMax": 9,
+      "marksPer": 3,
+      "sections": [
+        {
+          "label": "Short Answers",
+          "questions": [
+            {
+              "id": "q14",
+              "html": "What are the points to be noted while deriving a new class?",
+              "answer": "While defining a derived class, the following points must be observed: (1) The keyword 'class' must be used; (2) The name of the derived class is given right after the keyword class; (3) A single colon (:) follows the derived class name; (4) The type of derivation (visibility mode — private, public, or protected) is specified; if omitted, it defaults to private; (5) The name of the base class (or classes, separated by commas if more than one) follows the visibility mode.",
+              "hint": "class keyword, derived class name, colon (:), visibility mode (default private), then base class name(s)."
+            },
+            {
+              "id": "q15",
+              "html": "What is the difference between the members present in the private visibility mode and the members present in the public visibility mode?",
+              "answer": "When a base class is inherited in PRIVATE visibility mode, its public AND protected members both become PRIVATE members of the derived class — accessible only within the derived class itself, and hidden from any class further derived from it. When inherited in PUBLIC visibility mode, the base class's public members remain PUBLIC, and its protected members remain PROTECTED in the derived class — so public members stay accessible both within the derived class and from outside code, exactly as they were in the base class.",
+              "hint": "Private mode: base's public+protected → both become private in derived class. Public mode: base's public stays public, protected stays protected — access levels are preserved."
+            },
+            {
+              "id": "q16",
+              "html": "What is the difference between polymorphism and inheritance, though both are used for reusability of code?",
+              "answer": "Inheritance achieves reusability by letting a derived class directly acquire and reuse the code (data members and member functions) of an existing base class, building a hierarchy of related classes. Polymorphism achieves a different kind of flexibility — it allows the SAME function name or operator to behave differently depending on context (through function overloading, operator overloading, or overriding), letting one interface serve multiple related but distinct purposes, rather than reusing an entire class's structure. In short: inheritance reuses and extends a class's STRUCTURE, while polymorphism reuses a NAME/interface across multiple different behaviours.",
+              "hint": "Inheritance reuses a base class's actual code/structure across a hierarchy; Polymorphism reuses a single NAME (function/operator) to behave differently in different contexts."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "navLabel": "Part IV -- Explain in Detail (4 x 5)",
+      "title": "Part IV -- Explain in Detail",
+      "type": "long_essay",
+      "scoreMax": 20,
+      "marksPer": 5,
+      "sections": [
+        {
+          "label": "Long Answers",
+          "questions": [
+            {
+              "id": "q17",
+              "html": "Explain the different types of inheritance.",
+              "answer": "C++ supports five types of inheritance:\n\n1. Single Inheritance: A derived class inherits from only ONE base class. Example: class B : public A {}; (a simple A→B relationship).\n\n2. Multiple Inheritance: A derived class inherits from MORE THAN ONE base class simultaneously. Example: class C : public A, public B {}; (C directly inherits from both A and B).\n\n3. Hierarchical Inheritance: MORE THAN ONE derived class is created from a SINGLE base class. Example: classes B, C, and D are all separately derived from the same base class A.\n\n4. Multilevel Inheritance: A class is derived from a class which is itself a derived class — forming a chain (A→B→C). This reflects the transitive nature of inheritance, similar to a grandfather-father-child relationship, and can extend to any number of levels.\n\n5. Hybrid Inheritance: A combination of more than one type of inheritance in the same class hierarchy — for example, combining Multilevel and Multiple inheritance, or Hierarchical and Multilevel inheritance, or all three together.\n\nEach type addresses different real-world relationship structures, giving programmers flexibility to model complex class hierarchies as needed.",
+              "hint": "Cover all 5 with a one-line definition + simple example structure for each: Single, Multiple, Hierarchical, Multilevel, Hybrid."
+            },
+            {
+              "id": "q18",
+              "html": "Explain the different visibility modes with a description of how base class members are affected in each case.",
+              "answer": "There are three visibility modes controlling how a derived class inherits members from its base class:\n\n1. Private Visibility Mode: When a base class is inherited privately, its PUBLIC and PROTECTED members both become PRIVATE members of the derived class. This means the derived class itself can use these members internally, but any class further derived from THIS derived class cannot access them at all — the chain of inheritance for these members effectively stops here.\n\n2. Protected Visibility Mode: When inherited with protected visibility, the base class's PROTECTED and PUBLIC members both become PROTECTED members of the derived class. This makes them accessible within the derived class and any further-derived classes, but still not accessible from outside the class hierarchy entirely.\n\n3. Public Visibility Mode: When inherited publicly, the base class's PROTECTED members remain PROTECTED, and its PUBLIC members remain PUBLIC in the derived class — preserving their original accessibility levels exactly. This means public members stay usable both within the class hierarchy and by outside code using an object of the derived class.\n\nIn ALL three visibility modes, the base class's PRIVATE members are NEVER inherited (they are not directly accessible by the derived class in any mode) — they continue to exist as part of the object's memory layout, but only the base class's own member functions can access them.",
+              "hint": "Private mode: base's public+protected → private. Protected mode: base's public+protected → protected. Public mode: base's public stays public, protected stays protected. Private members are NEVER inherited in any mode."
+            },
+            {
+              "id": "q19",
+              "html": "Given: class Personal {...}; class Marks: private Personal {...}; class Result: public Marks {...}; (Personal has protected Name; Marks privately inherits Personal and has protected Grade; Result publicly inherits Marks). Answer: (a) What type of inheritance is shown? (b) Specify the visibility mode of each base class relationship. (c) Give the constructor invocation order when a Result object is created. (d) Name the base and derived classes.",
+              "answer": "(a) Type of inheritance shown: MULTILEVEL INHERITANCE — Result is derived from Marks, which is itself derived from Personal, forming a chain (Personal → Marks → Result).\n\n(b) Visibility modes: Marks inherits from Personal using PRIVATE visibility mode (class Marks: private Personal). Result inherits from Marks using PUBLIC visibility mode (class Result: public Marks).\n\n(c) Constructor invocation order when a Result object is created: Personal's constructor is called FIRST, then Marks' constructor, and finally Result's own constructor — following the base-to-derived order of inheritance (Personal → Marks → Result).\n\n(d) Base and derived classes: Personal is the ultimate base class (has no base class of its own). Marks is derived from Personal (making Marks both a derived class of Personal AND a base class for Result). Result is the final derived class, derived from Marks (and transitively from Personal).",
+              "hint": "(a) Multilevel inheritance (Personal→Marks→Result). (b) Marks:private Personal; Result:public Marks. (c) Personal→Marks→Result constructor order. (d) Personal=base, Marks=derived from Personal & base for Result, Result=final derived class."
+            },
+            {
+              "id": "q20",
+              "html": "Trace the output of the following program: class A { protected: int x; public: void show(){cout<<\"x = \"<<x<<endl;} A(){cout<<endl<<\" I am class A \"<<endl;} ~A(){cout<<endl<<\" Bye \";} }; class B : public A { protected: int y; public: B(int x1,int y1){x=x1; y=y1;} B(){cout<<endl<<\" I am class B \"<<endl;} ~B(){cout<<endl<<\" Bye \";} void show(){cout<<\"x = \"<<x<<endl; cout<<\"y = \"<<y<<endl;} }; int main(){A objA; B objB(30,20); objB.show(); return 0;}",
+              "answer": "The output will be:\n\n I am class A \n\n I am class A \nx = 30\ny = 20\n\n Bye  Bye  Bye \n\nExplanation (traced step by step):\n\n1. 'A objA;' creates an object of A using A's default constructor, printing ' I am class A '.\n\n2. 'B objB(30,20);' calls B's parameterized constructor B(int x1,int y1). Since this constructor does NOT explicitly call a specific base constructor in an initializer list, C++ automatically invokes A's DEFAULT constructor A() first (because it takes no arguments and is available) — this prints ' I am class A ' a second time. Only then does B(int,int)'s own body run, silently assigning x=x1 and y=y1 (this constructor has no cout statement of its own).\n\n3. 'objB.show();' calls B's own show() function, which SHADOWS (hides) A's show() of the same name — so it prints 'x = 30' and 'y = 20' using B's version, not A's.\n\n4. When main() ends, the local objects are destroyed in REVERSE order of creation: objB is destroyed first, then objA. Destroying objB runs B's destructor (prints ' Bye '), and since a B object contains an A sub-object, A's destructor runs immediately after (prints ' Bye ' again) — that's 2 'Bye's for objB. Then objA is destroyed, running A's destructor once more (a 3rd ' Bye ').\n\nThis demonstrates two key inheritance rules: (1) if a derived class constructor doesn't explicitly specify which base constructor to call, the base class's default (no-argument) constructor is invoked automatically; and (2) destructors run in the exact reverse order of construction, with a derived object's own destructor always running before its base class's destructor.",
+              "hint": "objA: A's default ctor prints once. objB(30,20): A's default ctor is implicitly called first (no explicit base-init given), printing again, THEN B's body silently sets x,y. objB.show() uses B's own show(). At the end: objB destroyed first (B's dtor then A's dtor = 2 Byes), then objA destroyed (1 more Bye) = 3 Byes total."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "chapterNumber": 18,
+  "title": "Tamil Computing",
+  "subject": "Computer Science",
+  "classLabel": "Class 11",
+  "curriculum": "Samacheer Kalvi",
+  "sections": [
+    {
+      "id": "intro-tamil-internet",
+      "title": "Introduction & Tamil on the Internet",
+      "content": "**18.1 Introduction**\n\nHuman civilization developed rapidly with the innovation of computers in the twentieth century — from an early calculating tool to an essential ingredient for the growth of human life. Any language becomes outdated if it cannot adapt to changing technology. Tamil is a living language for thousands of years — the growth of modern technology does not affect classical Tamil, since it readily adopts technological changes. Tamil is not just a language — it is an identity, a life, a sense of belonging for its speakers.\n\n**18.2 Tamil in Internet**\n\nThe internet plays a vital role in everyone's life today, serving as one of the best information technology tools available. In 2017, a study by KPMG (a Singapore-based organization) along with Google reported that **Tamil topped the list** among the most widely used languages in India, with **42%** of users accessing the internet in Tamil. As per the study, by 2021, **74%** of people in India were projected to access the internet using Tamil, placing it among the top languages used online in India. These statistics help improve internet services in Tamil.\n\n**18.3 Search Engines in Tamil**\n\n**Search engines** are used to search for information in cyberspace. Among the top ten search engines, **Google, Bing, and Yahoo** take the first three places respectively. Both Google and Bing provide searching facilities in Tamil — meaning you can search everything through Tamil. The Google search engine even provides an inbuilt Tamil virtual keyboard for typing search queries directly in Tamil.",
+      "nav": {
+        "next": "e-governance-library",
+        "nextLabel": "Next: e-Governance & e-Library →"
+      }
+    },
+    {
+      "id": "e-governance-library",
+      "title": "e-Governance & e-Library in Tamil",
+      "content": "**18.4 e-Governance**\n\nGetting government services through the internet is known as **e-Governance**. The Government of Tamil Nadu provides its services through the internet, allowing anyone to communicate with the Government from anywhere in the world, and access important announcements, government orders, and welfare schemes through its web portal.\n\nSelected e-Governance websites (in Tamil):\n- Official Website of Govt. of Tamilnadu — tn.gov.in/ta\n- Department of Agricultural Engineering, Department of Environment, Directorate of Govt. Examinations, Tamilnadu Health Department, and several other departments each maintain Tamil-language portals.\n- Outside India, the **Government of Sri Lanka** also provides its services through an official website in Tamil.\n\n**18.5 e-Library**\n\n**e-Libraries** are portals/websites offering collections of e-books. Tamil e-Library services provide thousands of Tamil books as e-books, mostly free of cost — an extremely useful service for Tamil people living far from their homeland.\n\nNotable Tamil e-Libraries include:\n- **Tamil Virtual Academy** — tamilvu.org\n- **Connemara Public Library**, **Tamil Digital Library**, **Chennai Library**, **Thamizhagam**\n- **Project Madurai** — an open, voluntary initiative to collect and publish free electronic editions of ancient Tamil literary classics (launched 1998); early e-texts used TSCII encoding, with Tamil Unicode e-texts released since 2004.\n- **Noolaham**, **Anna Centenary Library**, and collections of Old Books and Manuscripts.",
+      "nav": {
+        "back": "intro-tamil-internet",
+        "next": "typing-office-translation",
+        "nextLabel": "Next: Typing, Office Applications & Translation →"
+      }
+    },
+    {
+      "id": "typing-office-translation",
+      "title": "Tamil Typing, Office Automation & Translation",
+      "content": "**18.6 Tamil Typing and Interface Software**\n\nTamil is widely used to type documents in word processors and search information online. Typing Tamil using **Tamil interface software** is a familiar and simple method, usable on both computers and smartphones.\n\n**18.6.1 Familiar Tamil Keyboard Interfaces:**\n- **NHM Writer, E-Kalappai, and Lippikar** — familiar Tamil keyboard interface software used for Tamil typing, working on Tamil Unicode using phonetics (typing English letters that phonetically sound like Tamil).\n- **Sellinam and Ponmadal** — familiar Tamil keyboard layouts that work on the Android operating system for smartphones, also using phonetics.\n\n**18.7 Tamil Office Automation Applications**\n\nWell-known office automation software like **Microsoft Office** and **Open Office** provide complete Tamil interface facilities. Once downloaded and installed, the entire office automation environment (menu bars, icon names, dialog boxes) changes to Tamil — you can even save files and create folders with Tamil names.\n\nOther software working exclusively for Tamil: **Tamil Libra Office, Tamil Open Office, Azhagi Unicode Editor, Ponmozhi, Menthamiz, Kamban, Vani** — enabling users to work completely in Tamil.\n\n**18.8 Tamil Translation Applications**\n\n**Thamizpori (தமிழ்பொறி)** is a Tamil translation application containing more than 30,000 Tamil words equivalent to English words — used to translate small English sentences into Tamil. **Google** also offers an online translation facility for translating between Tamil and virtually any other language, in both directions.\n\n**18.9 Tamil Programming Language**\n\nProgramming languages to develop software for computers and smartphones have traditionally been available only in English. Efforts are now being made to develop programming languages in Tamil. Based on the Python programming language, the first Tamil programming language, **\"Ezhil\" (எழில்)**, has been designed — allowing simple programs to be written directly in Tamil.",
+      "nav": {
+        "back": "e-governance-library",
+        "next": "encoding-os-organizations",
+        "nextLabel": "Next: Encoding Systems, OS & Organizations →"
+      }
+    },
+    {
+      "id": "encoding-os-organizations",
+      "title": "Encoding Systems, Tamil OS & Development Organizations",
+      "content": "**18.10 Tamil Information Interchange Coding Systems**\n\nComputers handle data and information as binary — every piece of data must be converted to binary before being processed. Computers traditionally used the **ASCII** encoding system, which applies only to the English language. Therefore, dedicated encoding systems were developed for Tamil:\n\n- **TSCII (Tamil Script Code for Information Interchange):** The first coding system designed specifically to handle the Tamil language in an encoding scheme easily processed by electronic devices, including non-English computers. Registered with **IANA** (Internet Assigned Numbers Authority), a unit of ICANN.\n- **ISCII (Indian Script Code for Information Interchange):** An encoding scheme specially designed for Indian languages, including Tamil — it was later unified with Unicode.\n- **Unicode:** An encoding system designed to handle various world languages, including Tamil. Its first version (1.0.0) was introduced in October 1991, initially handling nearly 23 languages including Tamil. Among all encoding schemes, Unicode is the **best suited** to handle Tamil today.\n\n**18.11 Tamil Operating System**\n\nAn operating system is needed to access electronic systems like computers and smartphones. Microsoft Windows and Linux are popular operating systems — for ease of use, all major operating systems used on computers and smartphones now offer a **Tamil environment**. The **Windows Tamil Environment interface** can be downloaded and installed from the internet, displaying all window elements (Taskbar, desktop elements, icon names, commands) in Tamil.\n\n**18.12 Organisations and Projects to Develop Tamil**\n\n- **Tamil Virtual Academy:** Established as Tamil Virtual University on 17th February 2001 by the Govt. of Tamil Nadu, with the objective of spreading Tamil worldwide through the internet. Now known as Tamil Virtual Academy, it offers courses in Tamil language, culture, and heritage from kindergarten through undergraduate level. (tamilvu.org)\n- **Tamil Language Council, Singapore:** Formed in 2001 by Singapore's Ministry of Information, Communications and Arts, to promote awareness and greater use of Tamil among Singaporeans — known as \"வளர்தமிழ் இயக்கம்\" (tamil.org.sg).\n- **Project Madurai:** An open, voluntary initiative (since 1998) collecting and publishing free electronic editions of ancient Tamil literary classics, by typing-in or scanning old books for accessible digital archiving.\n- **Tamil Wikipedia:** An open-source encyclopedia (part of Wikipedia) where anyone can write articles on any subject — Tamil Wikipedia has more than one lakh (100,000) articles.\n\nIt is the duty of every Tamil speaker to actively use Tamil in the development of technology, in order to keep Tamil a living, thriving language in the digital age.",
+      "nav": {
+        "back": "typing-office-translation",
+        "next": "summary",
+        "nextLabel": "Next: Points to Remember →"
+      }
+    },
+    {
+      "id": "summary",
+      "title": "Points to Remember",
+      "content": "- Tamil topped the list of most widely used regional languages in India by the end of 2016, with 42% of users accessing the internet in Tamil.\n- Google and Bing provide searching facilities in Tamil, including a built-in Tamil virtual keyboard on Google.\n- Getting Government services through the internet is known as e-Governance; Tamil Nadu and Sri Lanka both offer Tamil-language government web portals.\n- Tamil e-Library services provide thousands of Tamil books as e-books, mostly free of cost.\n- Thamizpori (தமிழ்பொறி) is a Tamil translation application with 30,000+ word equivalents; Google also offers online translation.\n- The first Tamil programming language is \"Ezhil\" (எழில்), based on Python.\n- Encoding systems for Tamil include TSCII (the first dedicated Tamil encoding), ISCII (for Indian languages, now unified with Unicode), and Unicode (the best-suited modern standard for Tamil).\n- Windows Tamil Environment interface must be downloaded and installed from the internet to display the OS in Tamil.\n- Key organizations developing Tamil computing include Tamil Virtual Academy, Tamil Language Council (Singapore), Project Madurai, and Tamil Wikipedia.",
+      "nav": {
+        "back": "encoding-os-organizations",
+        "practice": true
+      }
+    }
+  ]
+}

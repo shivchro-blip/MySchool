@@ -1,0 +1,87 @@
+{
+  "chapterNumber": 5,
+  "title": "Python - Variables and Operators",
+  "subject": "Computer Science",
+  "classLabel": "Class 12",
+  "curriculum": "Samacheer Kalvi",
+  "sections": [
+    {
+      "id": "intro-python",
+      "title": "Introduction & Key Features of Python",
+      "content": "**5.1 Introduction**\n\nPython is a general purpose programming language created by **Guido Van Rossum** from CWI (Centrum Wiskunde & Informatica), a National Research Institute for Mathematics and Computer Science in the Netherlands. The language was released in **1991**. Python got its name from a BBC comedy series from the seventies — \"Monty Python's Flying Circus\". Python supports both **Procedural** and **Object Oriented** programming approaches.\n\n**5.2 Key Features of Python**\n- It is a general purpose programming language that can be used for both scientific and non-scientific programming.\n- It is a platform independent programming language.\n- Programs written in Python are easily readable and understandable.\n\nThe version 3.x of **Python IDLE** (Integrated Development Learning Environment) is used to develop and run Python code. It can be downloaded from www.python.org.",
+      "nav": {
+        "next": "programming-modes",
+        "nextLabel": "Next: Interactive & Script Mode →"
+      }
+    },
+    {
+      "id": "programming-modes",
+      "title": "Interactive Mode & Script Mode",
+      "content": "**5.3 Programming in Python**\n\nIn Python, programs can be written in two ways: **Interactive mode** and **Script mode**.\n\n**5.3.1 Interactive Mode Programming**\n\nInteractive mode allows writing code directly in the Python command prompt (`>>>`), and the interpreter displays results immediately — it can also be used as a simple calculator.\n\n**Invoking Python IDLE (Windows):** Start → All Programs → Python 3.x → IDLE (Python 3.x), or click the Python icon on the Desktop. The prompt `>>>` indicates the interpreter is ready to accept instructions.\n\nExamples as a calculator:\n```\n>>> 5 + 10\n15\n>>> 5 + 50 * 10\n505\n>>> 5 ** 2\n25\n>>> print(\"Python Programming Language\")\nPython Programming Language\n>>> x = 10\n>>> y = 20\n>>> z = x + y\n>>> print(\"The Sum\", z)\nThe Sum = 30\n```\n\n**5.3.2 Script Mode Programming**\n\nA **script** is a text file containing Python statements. Python scripts are reusable code — once created, they can be executed repeatedly without retyping, and are editable.\n\n**Creating a script:** File → New File (or Ctrl+N) → type code in the script editor:\n```\na = 100\nb = 350\nc = a + b\nprint(\"The Sum=\", c)\n```\n\n**Saving:** File → Save (or Ctrl+S) → in the Save As dialog, choose a location and file name; Python files are saved with the **.py** extension by default (no need to type the extension yourself).\n\n**Executing:** Run → Run Module (or press **F5**). Errors appear in red in the IDLE window with a description of the error type — correct them in the editor, save (Ctrl+S), and run again. Error-free code shows its output in the IDLE window.",
+      "nav": {
+        "back": "intro-python",
+        "next": "io-functions",
+        "nextLabel": "Next: Input & Output Functions →"
+      }
+    },
+    {
+      "id": "io-functions",
+      "title": "Input and Output Functions",
+      "content": "**5.4 Input and Output Functions**\n\nA program needs to interact with the user — achieved using Input-Output functions. The **input()** function enters data at run time; the **print()** function displays results on the screen.\n\n**5.4.1 The print() function**\n\nSyntax:\n```\nprint(\"string to be displayed as output\")\nprint(variable)\nprint(\"String to be displayed as output\", variable)\nprint(\"String1\", variable, \"String2\", variable, \"String3\" ...)\n```\nExample:\n```\n>>> print(\"Welcome to Python Programming\")\nWelcome to Python Programming\n>>> x = 5\n>>> y = 6\n>>> z = x + y\n>>> print(z)\n11\n>>> print(\"The sum = \", z)\nThe sum =  11\n>>> print(\"The sum of \", x, \" and \", y, \" is \", z)\nThe sum of  5  and  6  is  11\n```\nprint() evaluates the expression before printing it. Comma (,) is used as a separator in print() to print more than one item.\n\n**5.4.2 input() function**\n\nSyntax:\n```\nVariable = input(\"prompt string\")\n```\nThe prompt string is a message telling the user what input to give. If given, it's displayed on the monitor; the user then provides data. If no prompt string is given, no message is displayed, so the user won't know what to type.\n\n**Example with prompt string:**\n```\n>>> city = input(\"Enter Your City: \")\nEnter Your City: Madurai\n>>> print(\"I am from \", city)\nI am from  Madurai\n```\n**Example without prompt string:**\n```\n>>> city = input()\nRajarajan\n>>> print(\"I am from\", city)\nI am from Rajarajan\n```\nWithout a prompt string, the user won't know what's expected — leading to unexpected input, so always provide a prompt string to make programs more interactive.\n\n**Important:** input() accepts all data as **string**, not as numbers. If a numeric value is needed, it must be explicitly converted using the **int()** function (or similar).\n```\nx = int(input(\"Enter Number 1: \"))\ny = int(input(\"Enter Number 2: \"))\nprint(\"The sum = \", x+y)\n```\nOutput: Enter Number 1: 34, Enter Number 2: 56, The sum = 90\n\n**Alternate method (multiple assignment):**\n```\nx, y = int(input(\"Enter Number 1 :\")), int(input(\"Enter Number 2:\"))\nprint(\"X = \", x, \" Y = \", y)\n```",
+      "nav": {
+        "back": "programming-modes",
+        "next": "comments-tokens",
+        "nextLabel": "Next: Comments, Indentation & Tokens →"
+      }
+    },
+    {
+      "id": "comments-tokens",
+      "title": "Comments, Indentation, Identifiers & Keywords",
+      "content": "**5.5 Comments in Python**\n\nComments begin with a hash symbol (**#**). Lines beginning with # are ignored by the interpreter. Comments may be single-line, or multi-line (enclosed within triple quotes `''' '''`):\n```\n# It is a single line comment\n''' It is a multiline comment\nwhich contains more than one line '''\n```\n\n**5.6 Indentation**\n\nPython uses whitespace (spaces and tabs) to define program blocks, whereas languages like C, C++, and Java use curly braces {}. The number of whitespaces in indentation is not fixed, but ALL statements within a block must be indented with the SAME amount of spaces.\n\n**5.7 Tokens**\n\nPython breaks each logical line into a sequence of elementary lexical components called **Tokens**. The normal token types are: (1) Identifiers, (2) Keywords, (3) Operators, (4) Delimiters, (5) Literals. Whitespace separation is necessary between tokens.\n\n**5.7.1 Identifiers**\n\nAn identifier is a name used to identify a variable, function, class, module, or object.\n- Must start with an alphabet (A-Z, a-z) or underscore (_).\n- May contain digits (0-9).\n- Are case-sensitive — uppercase and lowercase are distinct.\n- Must not be a Python keyword.\n- Cannot contain punctuation characters like %, $, @, etc.\n\nValid: Sum, total_marks, regno, num1\nInvalid: 12Name, name$, total-mark, continue (a keyword)\n\n**5.7.2 Keywords**\n\nKeywords are special reserved words used by the Python interpreter to recognize the structure of a program — they cannot be used for any other purpose (e.g., as identifiers).\n\nPython's Keywords: False, None, True, and, as, assert, break, class, continue, def, del, elif, else, except, finally, for, from, global, if, import, in, is, lambda, nonlocal, not, or, pass, raise, return, try, while, with, yield.",
+      "nav": {
+        "back": "io-functions",
+        "next": "operators",
+        "nextLabel": "Next: Operators →"
+      }
+    },
+    {
+      "id": "operators",
+      "title": "Operators",
+      "content": "**5.7.3 Operators**\n\nOperators are special symbols representing computations, conditional matching, etc. The values used with an operator are called **operands**. Operators are categorized as Arithmetic, Relational, Logical, Assignment, and Conditional (Ternary).\n\n**(i) Arithmetic Operators** (assume a=100, b=10):\n\n| Operator | Operation | Example | Result |\n|---|---|---|---|\n| + | Addition | a + b | 110 |\n| - | Subtraction | a - b | 90 |\n| * | Multiplication | a * b | 1000 |\n| / | Division | a / b | 10.0 |\n| % | Modulus | a % 30 | 10 |\n| ** | Exponent | a ** 2 | 10000 |\n| // | Floor Division | a // 30 | 3 |\n\n**(ii) Relational (Comparative) Operators** — check the relationship between two operands, returning True or False (assume a=100, b=35):\n\n| Operator | Operation | Example | Result |\n|---|---|---|---|\n| == | Equal | a == b | False |\n| > | Greater than | a > b | True |\n| < | Less than | a < b | False |\n| >= | Greater or equal | a >= b | True |\n| <= | Less or equal | a <= b | False |\n| != | Not equal | a != b | True |\n\n**(iii) Logical Operators** — used on relational expressions: **and**, **or**, **not** (assume a=97, b=35):\n\n| Operator | Example | Result |\n|---|---|---|\n| or | a>b or a==b | True |\n| and | a>b and a==b | False |\n| not | not a>b | False (i.e., Not True) |\n\n**(iv) Assignment Operators** — `=` assigns the right operand to the left variable, e.g., `a, b = 5, 10` assigns 5 to a and 10 to b. Compound assignment operators: **+=, -=, *=, /=, %=, **=, //=** — each combines an operation with assignment (e.g., `x += 20` means `x = x + 20`).\n\n**(v) Conditional Operator (Ternary)** — evaluates something based on a condition, replacing a multi-line if-else with a compact single line.\n\nSyntax:\n```\nVariable Name = [on_true] if [Test expression] else [on_false]\n```\nExample:\n```\nmin = 49 if 49<50 else 50   # min = 49\na, b = 30, 20\nmin = a if a < b else b\nprint(\"The Minimum of A and B is \", min)   # Output: 20\n```",
+      "nav": {
+        "back": "comments-tokens",
+        "next": "delimiters-literals",
+        "nextLabel": "Next: Delimiters & Literals →"
+      }
+    },
+    {
+      "id": "delimiters-literals",
+      "title": "Delimiters & Literals",
+      "content": "**5.7.4 Delimiters**\n\nDelimiters are sequences of one or more characters used to specify the boundary between separate, independent regions in text or data streams. Python uses these as delimiters in expressions, lists, dictionaries, and strings:\n```\n(  )  [  ]  {  }  ,  :  .  '  =  ;\n```\n\n**5.7.5 Literals**\n\nA literal is raw data given to a variable or constant. Python has three types: Numeric, String, and Boolean.\n\n**(i) Numeric Literals** — digits, immutable, belonging to Integer, Float, or Complex types.\n```\na = 0b1010    # Binary Literal\nb = 100       # Decimal Literal\nc = 0o310     # Octal Literal\nd = 0x12c     # Hexadecimal Literal\nfloat_1 = 10.5\nfloat_2 = 1.5e2\nx = 1 + 3.14j  # Complex Literal — x.imag=3.14, x.real=1.0\n```\n\n**(ii) String Literals** — a sequence of characters surrounded by quotes; Python supports single, double, and triple quotes. A character literal is a single character in single/double quotes. Triple quotes (`''' '''`) give a multi-line string literal.\n```\nstrings = \"This is Python\"\nchar = \"C\"\nmultiline_str = '''This is a multiline string with more than one line code.'''\n```\n\n**(iii) Boolean Literals** — either **True** or **False**.\n```\nboolean_1 = True\nboolean_2 = False\n```\n\n**(iv) Escape Sequences** — the backslash `\\` is the \"escape\" character, used for special whitespace characters: `\\t` (tab), `\\n` (newline), `\\r` (carriage return). Example: `print(\"It\\'s raining\")` outputs `It's raining`. Other escape sequences: `\\\\` (backslash), `\\'` (single quote), `\\\"` (double quote).",
+      "nav": {
+        "back": "operators",
+        "next": "data-types",
+        "nextLabel": "Next: Python Data Types →"
+      }
+    },
+    {
+      "id": "data-types",
+      "title": "Python Data Types",
+      "content": "**5.8 Python Data Types**\n\nAll data values in Python are objects, and each object has a type. Python has Built-in/Fundamental data types: Number, String, Boolean, tuples, lists, sets, and dictionaries.\n\n**5.8.1 Number Data Type**\n\nBuilt-in number objects support integers, floating point numbers, and complex numbers.\n- Integer data can be decimal, octal, or hexadecimal. Octal uses 0 followed by 'o'; hexadecimal uses 0X (or 0x); L (uppercase) denotes long integers.\n```\n102, 4567, 567      # Decimal integers\n0o102, 0o876        # Octal integers\n0X102, 0X876        # Hexadecimal integers\n34L, 523L           # Long decimal integers\n```\n- A floating point number includes a decimal point; an exponent has a decimal digit part, decimal point, exponent part, and digits.\n```\n123.34, 456.23      # Floating point data\n12.E04, 24.e04      # Exponent data\n```\n- A complex number is made up of two floating point values — one each for the real and imaginary parts.\n\n**5.8.2 Boolean Data Type** — can have any of two values: **True** or **False**.\n```\nBool_var1 = True\nBool_var2 = False\n```\n\n**5.8.3 String Data Type** — enclosed in single, double, or triple quotes.\n```\nChar_data = 'A'\nString_data = \"Computer Science\"\nMultiline_data = \"\"\"String data can be enclosed in single quotes or\ndouble quotes or triple quotes.\"\"\"\n```",
+      "nav": {
+        "back": "delimiters-literals",
+        "next": "summary",
+        "nextLabel": "Next: Points to Remember →"
+      }
+    },
+    {
+      "id": "summary",
+      "title": "Points to Remember",
+      "content": "- Python is a general purpose programming language created by Guido Van Rossum.\n- Python shell can be used in two ways: Interactive mode and Script mode.\n- Python uses whitespace (spaces and tabs) to define program blocks.\n- Whitespace separation is necessary between tokens, identifiers, or keywords.\n- Input-Output functions (input(), print()) let a program interact with the user.\n- Python breaks each logical line into a sequence of elementary lexical components known as Tokens.\n- Keywords are special words used by the Python interpreter to recognize program structure.\n- Operators (Arithmetic, Relational, Logical, Assignment, Conditional/Ternary) act on operands to compute results.\n- Literals are raw data assigned to variables — Numeric, String, and Boolean are the three types in Python.",
+      "nav": {
+        "back": "data-types",
+        "practice": true
+      }
+    }
+  ]
+}

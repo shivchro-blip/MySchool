@@ -1,0 +1,239 @@
+{
+  "meta": {
+    "subject": "Computer Science -- Class XI",
+    "unit": "Chapter 9 -- Introduction to C++",
+    "time": "2.30 hrs",
+    "totalMarks": 47,
+    "instructions": "Samacheer Kalvi -- Answer all questions"
+  },
+  "parts": [
+    {
+      "id": "p1",
+      "navLabel": "Part I -- MCQ (8 x 1)",
+      "title": "Part I -- Choose the Correct Answer",
+      "type": "mcq",
+      "scoreMax": 8,
+      "marksPer": 1,
+      "sections": [
+        {
+          "label": "Introduction to C++",
+          "questions": [
+            {
+              "id": "q1",
+              "html": "Who developed C++?",
+              "options": [
+                "a) Charles Babbage",
+                "b) Bjarne Stroustrup",
+                "c) Bill Gates",
+                "d) Sundar Pichai"
+              ],
+              "answer": 1,
+              "hint": "C++ was developed by Bjarne Stroustrup at AT&T Bell Labs in 1979."
+            },
+            {
+              "id": "q2",
+              "html": "The smallest individual unit in a program is:",
+              "options": [
+                "a) Program",
+                "b) Algorithm",
+                "c) Flowchart",
+                "d) Tokens"
+              ],
+              "answer": 3,
+              "hint": "Tokens (keywords, identifiers, literals, operators, punctuators) are the smallest lexical units."
+            },
+            {
+              "id": "q3",
+              "html": "Which of the following operator is the extraction operator in C++?",
+              "options": [
+                "a) >>",
+                "b) <<",
+                "c) <>",
+                "d) ^^"
+              ],
+              "answer": 0,
+              "hint": ">> is the stream extraction (get from) operator, used with cin."
+            },
+            {
+              "id": "q4",
+              "html": "Which of the following is a valid string literal?",
+              "options": [
+                "a) 'A'",
+                "b) 'Welcome'",
+                "c) 1232",
+                "d) \"1232\""
+              ],
+              "answer": 3,
+              "hint": "String literals must be enclosed in double quotes — \"1232\" is valid; single-quoted values are character constants, not strings."
+            },
+            {
+              "id": "q5",
+              "html": "How many categories of data types are available in C++?",
+              "options": [
+                "a) 5",
+                "b) 4",
+                "c) 3",
+                "d) 2"
+              ],
+              "answer": 2,
+              "hint": "Fundamental, User-defined, and Derived — three categories."
+            },
+            {
+              "id": "q6",
+              "html": "What will be the output of: char ch = 'B'; cout << (int) ch;",
+              "options": [
+                "a) B",
+                "b) b",
+                "c) 65",
+                "d) 66"
+              ],
+              "answer": 3,
+              "hint": "The ASCII value of 'B' is 66; explicit conversion to int displays its numeric code."
+            },
+            {
+              "id": "q7",
+              "html": "Which character is used as a suffix to indicate a floating point value?",
+              "options": [
+                "a) F",
+                "b) C",
+                "c) L",
+                "d) D"
+              ],
+              "answer": 0,
+              "hint": "The suffix F (or f) forces a numeric literal to be treated as a float, e.g., 3.14F."
+            },
+            {
+              "id": "q8",
+              "html": "Which of the following operator returns the size of the data type?",
+              "options": [
+                "a) sizeof()",
+                "b) int()",
+                "c) long()",
+                "d) double()"
+              ],
+              "answer": 0,
+              "hint": "sizeof() is a compile-time operator that returns the size (in bytes) of a data type or variable."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "navLabel": "Part II -- Very Short Answers (5 x 2)",
+      "title": "Part II -- Very Short Answers",
+      "type": "short_answer",
+      "scoreMax": 10,
+      "marksPer": 2,
+      "sections": [
+        {
+          "label": "Very Short Answers",
+          "questions": [
+            {
+              "id": "q9",
+              "html": "What is meant by a token? Name the tokens available in C++.",
+              "answer": "A token (or lexical unit) is the smallest individual unit in a C++ program. C++ has five kinds of tokens: Keywords, Identifiers, Literals, Operators, and Punctuators.",
+              "hint": "Smallest individual unit of a program; five kinds: Keywords, Identifiers, Literals, Operators, Punctuators."
+            },
+            {
+              "id": "q10",
+              "html": "What are keywords? Can keywords be used as identifiers?",
+              "answer": "Keywords are reserved words that convey specific meaning to the C++ compiler, essential for constructing programs (e.g., int, if, while, class). No, keywords cannot be used as identifier names — they are reserved exclusively for their defined purpose in the language.",
+              "hint": "Reserved words with fixed meaning to the compiler; NO, they cannot be used as identifiers."
+            },
+            {
+              "id": "q11",
+              "html": "Assume n = 10. What will be the result of n++ and --n?",
+              "answer": "n++ (postfix increment) uses the current value of n (10) in the expression first, and then increments n to 11. --n (prefix decrement) first decrements n before use — if applied to the original n=10, it changes n to 9 and that new value (9) is used immediately.",
+              "hint": "n++ uses 10 then becomes 11 (post-increment); --n becomes 9 first then is used (pre-decrement)."
+            },
+            {
+              "id": "q12",
+              "html": "What is the use of setw() format manipulator?",
+              "answer": "setw(n) sets the field width for the next output value, specifying the minimum number of characters to be written. The value is right-aligned within that field width. It requires including the iomanip header file.",
+              "hint": "Sets the minimum character width for the next output item, right-aligning it within that field."
+            },
+            {
+              "id": "q13",
+              "html": "Why is char often treated as an integer data type?",
+              "answer": "The char data type is often treated as an integer type because every character is internally represented in memory by its associated ASCII code (a number). This allows arithmetic operations to be performed on char variables — for example, if ch = 'A' (ASCII 65), then ch + 1 gives 'B' (ASCII 66).",
+              "hint": "Characters are stored internally as their numeric ASCII codes, allowing arithmetic operations on them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "navLabel": "Part III -- Short Answers (3 x 3)",
+      "title": "Part III -- Short Answers",
+      "type": "brief_answer",
+      "scoreMax": 9,
+      "marksPer": 3,
+      "sections": [
+        {
+          "label": "Short Answers",
+          "questions": [
+            {
+              "id": "q14",
+              "html": "Describe the differences between keywords and identifiers.",
+              "answer": "Keywords are reserved words predefined by the C++ language that convey a specific, fixed meaning to the compiler (e.g., int, if, class) — they must be written in lowercase and cannot be redefined or used as identifier names. Identifiers, on the other hand, are user-defined names chosen by the programmer to name variables, functions, arrays, classes, and other program elements — they follow specific naming rules (starting with a letter/underscore, containing only letters/digits/underscore) but their actual names are entirely up to the programmer, unlike the fixed vocabulary of keywords.",
+              "hint": "Keywords = fixed, reserved, predefined meaning; Identifiers = user-chosen names following naming rules."
+            },
+            {
+              "id": "q15",
+              "html": "Is C++ case sensitive? What is meant by the term 'case sensitive'?",
+              "answer": "Yes, C++ is a case-sensitive language. 'Case sensitive' means that the compiler treats uppercase and lowercase letters as distinct and different characters. This means identifiers like 'Num', 'NUM', and 'num' would all be treated as three completely different, separate identifiers/variables in a C++ program, even though they look similar.",
+              "hint": "Yes; case sensitive means uppercase and lowercase letters are treated as different — e.g., 'Num' ≠ 'num'."
+            },
+            {
+              "id": "q16",
+              "html": "Differentiate '=' and '=='.",
+              "answer": "The single equals sign (=) is the assignment operator — it stores/copies the value on its right-hand side into the variable on its left-hand side (e.g., a = 5 stores 5 in a). The double equals sign (==) is the equality relational operator — it compares two values and returns a boolean result (1 for true, 0 for false) indicating whether they are equal, without changing either value (e.g., a == 5 checks if a currently equals 5).",
+              "hint": "= assigns a value to a variable (changes it); == compares two values for equality (returns true/false, changes nothing)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "navLabel": "Part IV -- Explain in Detail (4 x 5)",
+      "title": "Part IV -- Explain in Detail",
+      "type": "long_essay",
+      "scoreMax": 20,
+      "marksPer": 5,
+      "sections": [
+        {
+          "label": "Long Answers",
+          "questions": [
+            {
+              "id": "q17",
+              "html": "Write about Binary operators used in C++.",
+              "answer": "Binary operators require exactly two operands. C++'s main binary operator categories are:\n\n1. Arithmetic Operators: +, -, *, / (division/quotient), % (modulus/remainder) — perform basic math, e.g., 10+5=15, 10%3=1.\n\n2. Relational Operators: >, <, >=, <=, ==, != — compare two operands and return a boolean result (1=true, 0=false), e.g., a>b.\n\n3. Logical Operators: && (AND) and || (OR) are binary (! NOT is unary) — combine or evaluate relational expressions, returning a boolean result. && returns true only if both sides are true; || returns true if either side is true.\n\n4. Assignment Operators: = is the basic assignment; shorthand versions like +=, -=, *=, /=, %= combine an arithmetic operation with assignment in one step (e.g., c += 5 means c = c+5).\n\n5. Comma operator (,): strings together multiple expressions, evaluated left to right.\n\nAll of these require two operands to function, distinguishing them from unary operators (like ++, --, !) which act on a single operand, and the ternary conditional operator (?:) which requires three.",
+              "hint": "Cover Arithmetic, Relational, Logical (&&,||), Assignment (=, +=,-=,*=,/=,%=), and note they all need exactly two operands."
+            },
+            {
+              "id": "q18",
+              "html": "What are the types of Errors in C++?",
+              "answer": "There are three main types of errors in C++ programs:\n\n1. Syntax Error: Occurs when the grammatical rules of C++ are violated — every language has strict rules for how statements must be constructed. For example, forgetting to end a statement with a semicolon causes a syntax error, since the compiler cannot parse the statement correctly.\n\n2. Semantic Error (Logic Error): The program is grammatically correct (compiles successfully) but does not produce the expected result. This happens due to incorrect use of variables, operators, or wrong order of execution — the program 'runs' but computes the wrong answer, so this is also called a logic error.\n\n3. Run-time Error: Occurs while the program is actually executing, caused by some illegal operation being attempted during execution — for example, trying to open a file that does not exist, or dividing by zero. Unlike syntax errors, these are not caught at compile time; they only appear when the specific problematic operation is actually reached during a program run.\n\nUnderstanding these distinctions helps programmers debug effectively — syntax errors are caught immediately by the compiler, while semantic and run-time errors require careful testing and tracing to identify.",
+              "hint": "Syntax Error (grammar violation, caught at compile time), Semantic/Logic Error (wrong result despite valid grammar), Run-time Error (illegal operation during execution)."
+            },
+            {
+              "id": "q19",
+              "html": "Explain implicit and explicit type conversion with examples.",
+              "answer": "Type conversion is the process of converting one fundamental data type into another. C++ supports two kinds:\n\n1. Implicit Type Conversion (Automatic Conversion): Performed automatically by the compiler, without any instruction from the programmer, whenever different data types are mixed in an expression. The compiler converts the 'smaller' (narrower) type to the 'wider' type — called Type Promotion. Example: if int a=6 and float b=3.14, then the expression a+b implicitly converts a to a float before adding (since float is wider than int), producing the result 9.14.\n\n2. Explicit Type Conversion (Type Casting): The programmer manually converts a variable or expression to a specific type using the syntax (type-name) expression. Example: if float varf=78.685, then (int) varf explicitly truncates it to 78, discarding the fractional part.\n\nA key difference in consequence: converting to a wider type (e.g., int to float) causes no data loss, but converting to a narrower type (e.g., double to float, float to int, or long to short) can cause loss of precision or loss of the fractional part, and if the original value is out of the target type's range, the result becomes undefined.",
+              "hint": "Implicit = compiler auto-converts smaller→wider type (Type Promotion); Explicit = programmer uses (type-name) casting, which can lose data when narrowing."
+            },
+            {
+              "id": "q20",
+              "html": "Explain the memory allocation and modifiers used for fundamental data types in C++.",
+              "answer": "C++ allocates a fixed amount of memory to each fundamental data type, determining the range of values it can store. Typical allocations (Turbo C++/Dev C++ may differ slightly): char = 1 byte (8 bits), range -128 to 127; int = 2 bytes in Turbo C++ but 4 bytes in Dev C++ (16/32 bits); float = 4 bytes (32 bits); double = 8 bytes (64 bits), offering greater precision than float. The sizeof() operator can be used to check the exact size allocated by a given compiler.\n\nData Type Modifiers (Qualifiers) adjust this default memory allocation and range. There are four modifiers: signed, unsigned, long, and short — usable with fundamental types (except void).\n\n- short: reduces storage (e.g., short int uses fewer bytes than a plain int on some systems).\n- unsigned: removes the sign bit, so the type can represent a wider range of positive values only (e.g., unsigned int: 0 to 65,535 instead of -32,768 to 32,767).\n- signed: explicitly allows both positive and negative values (this is the default behavior for most types).\n- long: doubles the storage compared to the base type (e.g., long int typically uses 4 bytes, double that of a plain 2-byte int), allowing much larger integer values to be stored.\n\nThese modifiers let programmers fine-tune memory usage and value range based on the specific needs of their program — using 'short' or 'unsigned' to save memory when appropriate, or 'long' when larger numbers must be represented.",
+              "hint": "Cover default byte allocations per type (char=1, int=2/4, float=4, double=8), then explain each modifier (signed, unsigned, long, short) and its effect on range/size."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

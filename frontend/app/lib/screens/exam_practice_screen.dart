@@ -256,6 +256,27 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> with WidgetsBin
   ExamAttempt get _currentAttempt =>
       _attempts.firstWhere((a) => a.id == _currentAttemptId);
 
+  // Class 12 Computer Applications content is authored in the tabs/blocks
+  // shape (same as English) — route to rich_learn. All other CS/CA combos
+  // use the sections shape — route to sectioned_learn.
+  void _goToLearn(String? tabOrSectionId) {
+    final isCsCa = widget.subjectSlug == 'computer-applications' ||
+        widget.subjectSlug == 'computer-science';
+    final useSectioned =
+        isCsCa && !(widget.classLevel == '+2' && widget.subjectSlug == 'computer-applications');
+    if (useSectioned) {
+      context.go(
+        '/sectioned-learn/${widget.classLevel}/${widget.subjectSlug}/${widget.chapterSlug}',
+        extra: {'chapter': widget.chapter, 'section': tabOrSectionId},
+      );
+    } else {
+      context.go(
+        '/rich-learn/${widget.classLevel}/${widget.subjectSlug}/${widget.chapterSlug}',
+        extra: {'chapter': widget.chapter, 'tab': tabOrSectionId},
+      );
+    }
+  }
+
   ExamAttempt? get _resultsAttempt {
     if (_viewingAttemptId != null) {
       return _attempts.firstWhere((a) => a.id == _viewingAttemptId);
@@ -1245,10 +1266,7 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> with WidgetsBin
             if (!widget.chapterSlug.contains('model-qa') && !widget.chapterSlug.contains('annual')) ...[
               Expanded(
                 child: OutlinedButton.icon(
-                  onPressed: () => context.go(
-                    '/rich-learn/${widget.classLevel}/${widget.subjectSlug}/${widget.chapterSlug}',
-                    extra: {'chapter': widget.chapter, 'tab': null},
-                  ),
+                  onPressed: () => _goToLearn(null),
                   icon:  const Icon(Icons.chevron_left, size: 16),
                   label: const Text('Back'),
                 ),
@@ -1261,10 +1279,7 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> with WidgetsBin
                   if (widget.chapterSlug.contains('model-qa') || widget.chapterSlug.contains('annual')) {
                     context.go('/courses/${widget.classLevel}/${widget.subjectSlug}/final-exam-prep');
                   } else {
-                    context.go(
-                      '/rich-learn/${widget.classLevel}/${widget.subjectSlug}/${widget.chapterSlug}',
-                      extra: {'chapter': widget.chapter, 'tab': 'attempt-history'},
-                    );
+                    _goToLearn('attempt-history');
                   }
                 },
                 icon:  const Icon(Icons.history, size: 16),
@@ -1323,10 +1338,7 @@ class _ExamPracticeScreenState extends State<ExamPracticeScreen> with WidgetsBin
               if (widget.chapterSlug.contains('model-qa') || widget.chapterSlug.contains('annual')) {
                 context.go('/courses/${widget.classLevel}/${widget.subjectSlug}/final-exam-prep');
               } else {
-                context.go(
-                  '/rich-learn/${widget.classLevel}/${widget.subjectSlug}/${widget.chapterSlug}',
-                  extra: {'chapter': widget.chapter, 'tab': 'attempt-history'},
-                );
+                _goToLearn('attempt-history');
               }
             },
           ),

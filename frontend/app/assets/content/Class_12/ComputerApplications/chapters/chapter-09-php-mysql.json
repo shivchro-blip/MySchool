@@ -1,0 +1,171 @@
+{
+  "eyebrow": "Chapter 9 · Class 12 Computer Applications",
+  "title": "Connecting PHP and MySQL",
+  "author": "",
+  "pills": [
+    "Theory",
+    "Programming",
+    "Board Exam Important"
+  ],
+  "tabs": [
+    {
+      "id": "mysqli-functions",
+      "label": "MySQLi Functions",
+      "blocks": [
+        {
+          "type": "teacher-voice",
+          "html": "<p>PHP is great for building web pages, and MySQL is great for storing data. This chapter is about connecting the two — making PHP talk to MySQL. This combination powers about 70% of all websites! The MySQLi functions and their syntax are asked in Part I, III, and IV questions.</p>"
+        },
+        {
+          "type": "section-head",
+          "text": "9.1 MySQL Functions in PHP"
+        },
+        {
+          "type": "gloss-row",
+          "word": "MySQLi",
+          "def": "An extension in PHP scripting language that gives access to the MySQL database. MySQLi = MySQL Improved. Introduced in PHP version 5.0.0."
+        },
+        {
+          "type": "gloss-row",
+          "word": "3 Important MySQLi Functions",
+          "def": "1. mysqli_connect() — establishes connection. 2. mysqli_query() — executes SQL queries. 3. mysqli_close() — closes connection."
+        },
+        {
+          "type": "section-head",
+          "text": "9.1.1 mysqli_connect() — Database Connection"
+        },
+        {
+          "type": "gloss-row",
+          "word": "mysqli_connect()",
+          "def": "Used to connect to the MySQL database server from PHP. Requires FOUR parameters: Server Name, User Name, Password, and Database Name."
+        },
+        {
+          "type": "quote-block",
+          "quote": "mysqli_connect(\"Server Name\", \"User Name\", \"Password\", \"DB Name\");",
+          "context": ""
+        },
+        {
+          "type": "gloss-row",
+          "word": "Connection Variables",
+          "def": "$servername = \"localhost\" (Server IP address), $username = \"username\" (DB username), $password = \"password\" (DB password), $DB_name = \"School_DB\" (Database name)."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Connection Example",
+          "def": "$conn = mysqli_connect($servername, $username, $password, $DB_name); if (!$conn) { die(\"Connection failed: \" . mysqli_connect_error()); } echo \"Connected successfully\";"
+        },
+        {
+          "type": "think-box",
+          "label": "⭐ Exam Tip",
+          "text": "mysqli_connect() takes FOUR parameters: Server Name, User Name, Password, DB Name. This is asked every year in MCQ. Also: MySQLi was introduced in PHP version 5.0.0."
+        },
+        {
+          "type": "section-head",
+          "text": "9.1.3 mysqli_query() — Executing Queries"
+        },
+        {
+          "type": "gloss-row",
+          "word": "mysqli_query()",
+          "def": "Used to execute SQL query statements in PHP. Requires TWO parameters: Connection Object and SQL Query string."
+        },
+        {
+          "type": "quote-block",
+          "quote": "mysqli_query(\"Connection Object\", \"SQL Query\");",
+          "context": ""
+        },
+        {
+          "type": "gloss-row",
+          "word": "Example",
+          "def": "$con = mysqli_connect(\"localhost\", \"my_user\", \"my_password\", \"Student_DB\"); $sql = \"SELECT student_name, student_age FROM student\"; mysqli_query($con, $sql);"
+        },
+        {
+          "type": "section-head",
+          "text": "9.1.4 mysqli_close() — Closing Connection"
+        },
+        {
+          "type": "gloss-row",
+          "word": "mysqli_close()",
+          "def": "Closes an existing open database connection between PHP and MySQL server. Requires ONE parameter: the Connection Object."
+        },
+        {
+          "type": "quote-block",
+          "quote": "mysqli_close(\"Connection Object\");",
+          "context": ""
+        },
+        {
+          "type": "think-box",
+          "label": "⭐ Exam Tip",
+          "text": "Parameter count for MySQLi functions — MCQ favourite: mysqli_connect() = 4 parameters. mysqli_query() = 2 parameters. mysqli_close() = 1 parameter."
+        },
+        {
+          "type": "nav",
+          "next": "full-example",
+          "nextLabel": "Next: Full PHP-MySQL Example →"
+        }
+      ]
+    },
+    {
+      "id": "full-example",
+      "label": "Full Example",
+      "blocks": [
+        {
+          "type": "section-head",
+          "text": "Complete PHP + MySQL Program"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>Here is a complete example showing all 3 MySQLi functions working together to connect, query, display results, and close the connection. This full flow is asked in Part IV questions.</p>"
+        },
+        {
+          "type": "quote-block",
+          "quote": "<?php $servername = \"localhost\"; $username = \"username\"; $password = \"password\"; $dbname = \"school_DB\"; $connection = mysqli_connect($servername, $username, $password, $dbname); if (mysqli_connect_errno()) { echo \"Failed to connect: \" . mysqli_connect_error(); } $sql_stmt = \"SELECT * FROM my_contacts\"; $result = mysqli_query($connection, $sql_stmt); $rows = mysqli_num_rows($result); if ($rows) { while ($row = mysqli_fetch_array($result)) { echo 'ID: ' . $row['id'] . '<br>'; echo 'Full Names: ' . $row['full_names'] . '<br>'; } } mysqli_close($connection); ?>",
+          "context": ""
+        },
+        {
+          "type": "gloss-row",
+          "word": "mysqli_connect_errno()",
+          "def": "Returns an error code if the connection failed. Used to check whether connection succeeded."
+        },
+        {
+          "type": "gloss-row",
+          "word": "mysqli_num_rows()",
+          "def": "Returns the number of rows returned by a SELECT query."
+        },
+        {
+          "type": "gloss-row",
+          "word": "mysqli_fetch_array()",
+          "def": "Fetches one row at a time from the result set as an array. Used inside a while loop to process all rows."
+        },
+        {
+          "type": "section-head",
+          "text": "PHP & MySQL — Key Facts"
+        },
+        {
+          "type": "gloss-row",
+          "word": "PHP + MySQL Popularity",
+          "def": "Approximately 544 million websites used PHP stack as of January 2018. The PHP and MySQL combination has become the most popular server-side web scripting language on the Internet."
+        },
+        {
+          "type": "gloss-row",
+          "word": "PHP Frameworks",
+          "def": "PHP has attracted many software frameworks: PRADO, CakePHP, Symfony, CodeIgniter, Laravel, Yii, Phalcon, Zend Framework."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Facebook & PHP",
+          "def": "Facebook was originally built in PHP. Facebook created its own compiler (HipHop HPHP'c) to convert PHP code into C++ for better performance."
+        },
+        {
+          "type": "think-box",
+          "label": "⭐ Master Checklist",
+          "text": "MySQLi = MySQL Improved extension in PHP (version 5.0.0+). 3 functions: mysqli_connect (4 params), mysqli_query (2 params), mysqli_close (1 param). 4 connection variables: servername, username, password, DB_name. Steps: connect → query → fetch rows → close. PHP is open source, server-side, supports MySQL, embeds in HTML."
+        },
+        {
+          "type": "nav",
+          "back": "mysqli-functions",
+          "practice": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "chapterNumber": 17,
+  "title": "Computer Ethics and Cyber Security",
+  "subject": "Computer Applications",
+  "classLabel": "Class 11",
+  "curriculum": "Samacheer Kalvi",
+  "sections": [
+    {
+      "id": "ethics",
+      "title": "Ethics and Ethical Issues",
+      "content": "**Ethics** is a set of moral principles that govern the behaviour of an individual in a society. **Computer Ethics** is a set of moral principles that regulate the use of computers by users.\n\n**Guidelines of Ethics for computer users:**\n1. **Honesty:** Users should be truthful while using the internet.\n2. **Confidentiality:** Users should not share any important information with unauthorised people.\n3. **Respect:** Each user should respect the privacy of other users.\n4. **Responsibility:** Each user should take ownership and responsibility for their actions.\n\n**Ethical Issues** are problems that require a person or organisation to choose between alternatives evaluated as right (ethical) or wrong (unethical). They must be addressed to have a positive influence in society.\n\n**Common Ethical Issues:**\n- Cyber crime\n- Software Piracy\n- Hacking\n- Use of computers to commit fraud\n- Sabotage in the form of viruses\n- Making false claims using computers\n\n---\n\n**Cyber Crime:** An intellectual, white-collar crime. Those who commit such crimes manipulate computer systems in an intelligent manner. Example: illegal money transfer via the internet.\n\n**Computer Crimes Table:**\n\n| Crime | Function |\n|-------|----------|\n| **Malware** | Malicious programs that monitor user's computer activity without permission. |\n| **Harvesting** | A person or program collects login/password information from a legitimate user to illegally access others' accounts. |\n| **Spam** | Distributing unwanted email to a large number of internet users. |\n\n---\n\n**Software Piracy:** \"Unauthorised copying of software.\" Duplicating and selling copyrighted programs, or downloading software illegally through a network.\n\n**Shareware:** Publishers encourage users to share copies with friends but ask regular users to pay a registration fee.\n\n**Warez:** Commercial programs made available to the public illegally.\n\n---\n\n**Hacking:** Intruding into a computer system to steal personal data without the owner's permission or knowledge. Also: gaining unauthorised access and altering contents. Can be criminal or a hobby.\n- To prevent: Firewalls, Intrusion Detection Systems (IDS), Virus and Content Scanners, Patches and Hot fixes.\n\n**Cracking:** Editing a program source so the code can be exploited or modified. A cracker (black hat / dark side hacker) is a malicious or criminal hacker. Bypasses passwords or licenses in computer programs.",
+      "nav": {
+        "next": "cyber-security",
+        "nextLabel": "Cyber Security and Threats →"
+      }
+    },
+    {
+      "id": "cyber-security",
+      "title": "Cyber Security and Threats",
+      "content": "**Cyber Security** is a collection of technologies, processes, and measures that reduce the risk of cyber attacks and protect organisations and individuals from computer-based threats.\n\n**Types of Cyber Attacks:**\n\n| Cyber Attack | Function |\n|-------------|----------|\n| **Virus** | A small piece of computer code that repeats itself and spreads by attaching to another file. A **Trojan virus** appears to perform one function but actually performs malicious activity when executed. |\n| **Worms** | Self-repeating; do not require a computer program to attach themselves. Continually look for vulnerabilities and report back to their author. |\n| **Spyware** | Installed automatically when attachments are opened, links clicked, or infected software downloaded. |\n| **Ransomware** | Demands payment after launching a cyber attack. Costs organisations millions each year. |\n\n**Cyber Security Threats:**\n\n**Phishing:** A type of computer crime that attacks and steals user data (login name, password, credit card numbers) through emails. The email may look like it came from a legitimate bank or official institution.\n\n**Pharming:** Malicious code is installed on a personal computer or server, misdirecting users to fraudulent websites without their knowledge. Called \"phishing without a trap.\" It is a cyber attack intended to redirect a website's traffic to a fake site.\n\n**Cookies:** A small piece of data sent from a website and stored on the user's computer (hard drive) by the web browser while browsing.\n- Websites use cookies to: collect demographic information about visitors, and track how often visitors come to the site and how long they stay.\n\n**Firewall:** A computer network security system that monitors and controls incoming and outgoing network traffic based on predefined security rules. Establishes a block between a trusted internal network and untrusted external networks.\n\n**Proxy Server:** Acts as an intermediary between end users and a web server. Examines the request, checks authenticity, and grants the request.\n\n**Encryption and Decryption:**\n- **Encryption:** Translating plain text data (plaintext) into random, scrambled data called **cipher-text**. Done by cryptography.\n- **Decryption:** The reverse process — converting cipher-text back to plain text.\n- A **key** in cryptography is a piece of information (parameter) that determines the functional output of a cryptographic algorithm.\n- Used to protect data in: internet communications, e-commerce, mobile phones, wireless systems, Bluetooth devices, ATMs.\n\n**Prevention Tips:**\n- Set complex passwords for secured surfing.\n- Disconnect internet when not in use.\n- Do NOT open spam mail or emails from unfamiliar senders.\n- Keep anti-virus software up-to-date.",
+      "nav": {
+        "back": "ethics",
+        "next": "it-act",
+        "nextLabel": "IT Act 2000 →"
+      }
+    },
+    {
+      "id": "it-act",
+      "title": "Information Technology Act 2000",
+      "content": "In the 21st century, the e-revolution has changed the lifestyle of people. Alongside the positive side, there is also a negative side — criminals using ICT for cyber crimes. To tackle cyber crimes, Cyber Laws were introduced.\n\n**In India:** Cyber Law and **IT Act 2000** (modified in 2008) were enacted.\n\n**IT Act 2000** is an act to provide legal recognition for transactions carried out by means of **Electronic Data Interchange (EDI)** and other means of electronic communication.\n\n- It is the **primary law in India** dealing with cybercrime and electronic commerce (e-commerce).\n- **e-Commerce** = electronic data exchange or electronic filing of information.\n- 25% of cyber crimes remain unsolved.\n\n**Glossary:**\n\n| Term | Meaning |\n|------|---------|\n| Authenticity | The quality of being real or true. |\n| Computer Crime | Intellectual crime to manipulate a computer system. |\n| Ethics | Moral principles that govern a person's behaviour. |\n| Hacking | Gaining unauthorised access to a computer system. |\n| Perpetrator | A person who carries out a harmful, illegal, or immoral act. |\n| Software Piracy | Copyright violation of software — illegally used by someone else. |",
+      "nav": {
+        "back": "cyber-security",
+        "practice": true
+      }
+    }
+  ]
+}

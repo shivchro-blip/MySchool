@@ -1,0 +1,47 @@
+{
+  "chapterNumber": 14,
+  "title": "Introduction to JavaScript",
+  "subject": "Computer Applications",
+  "classLabel": "Class 11",
+  "curriculum": "Samacheer Kalvi",
+  "sections": [
+    {
+      "id": "intro",
+      "title": "Introduction and Advantages",
+      "content": "**JavaScript** was jointly introduced by **Netscape and Sun Inc. on December 4, 1995** as JavaScript 1.0. It bridged the gap between the simple world of HTML and complex CGI (Common Gateway Interface) programs on the server.\n\nJavaScript provides a common scripting language for web developers to **design, test, and deploy Internet applications**.\n\n**Advantages of JavaScript:**\n- Develops **Dynamic Web Pages** (interactive pages) — static HTML pages are not interactive.\n- **Data validation** — user-entered data in a form can be validated before sending to the server, reducing server load.\n- **Rich Interface** — includes Textboxes, Buttons, drag-and-drop components and sliders.\n\n**Using JavaScript in HTML — `<script>` tag:**\nJavaScript is implemented using `<script>.....</script>` tags. Best placed in `<head>`.\n\n```\n<script language=\"javascript\" type=\"text/javascript\">\n  JavaScript code here\n</script>\n```\n\n**Two attributes of `<script>`:**\n- `language` — specifies the scripting language (value: \"javascript\"). Optional in modern HTML.\n- `type` — indicates the scripting language (value: \"text/javascript\").\n\n**Steps to write a JavaScript program:**\n1. Open a text editor and enter HTML + JavaScript code.\n2. Save the file.\n3. Open in any browser (Internet Explorer, Chrome, etc.).\n4. To reload: use Refresh or press **F5**.\n\n**First JavaScript Program:**\n```\n<Html>\n<Head>\n  <Title>My First JavaScript Program</Title>\n  <script language=\"javascript\" type=\"text/javascript\">\n    document.write(\"Hello World!\")\n  </script>\n</Head>\n<Body></Body>\n</Html>\n```\n\n**DHTML** = Dynamic Hyper Text Markup Language — JavaScript embedded in HTML.",
+      "nav": {
+        "next": "variables",
+        "nextLabel": "Variables and Data Types →"
+      }
+    },
+    {
+      "id": "variables",
+      "title": "Variables, Data Types and Literals",
+      "content": "**Lexical Structure of JavaScript:**\n- JavaScript is **case-sensitive**. Good practice: type commands in lowercase.\n- **Ignores spaces** between tokens.\n- **Single-line comments:** `// comment`\n- **Multi-line comments:** `/* comment */`\n- Statements separated by **semicolons `;`**\n- **Literal:** A data value that appears directly in a program.\n- **Identifier:** A name for variables, functions, or loop labels.\n- **Reserved words** cannot be used as identifiers.\n\n---\n\n**Variables:** A variable is a memory location where a value can be stored. Declared using the **`var`** keyword.\n\n```\nvar no;\nvar no1, no2;\nvar no1=50, no2=5065;\n```\n\n**Rules for naming variables:**\n1. First character must be a **letter or underscore (_)**. Not a number.\n2. Rest can include letters, numbers, or underscore. No spaces, symbols, or punctuation.\n3. Variable names are **case-sensitive** (RegisterNumber ≠ registernumber).\n4. No limit on length.\n5. **Reserved words** cannot be variable names.\n\n**Scope of Variables:**\n- **Global variable:** Defined outside functions; accessible everywhere in the code.\n- **Local variable:** Declared inside a function; only accessible within that function.\n\n---\n\n**Basic Data Types:**\n- **String:** A list of characters in single or double quotes. Can contain whitespace, special characters (\\n = newline).\n- **Number:** Integer or floating-point value.\n- **Boolean:** Only two values: `true` or `false`.\n\nJavaScript variables are **untyped (dynamically typed)** — no need to declare the data type. You can assign a number then later assign a string to the same variable.\n\n**Literals:**\n```\nvar int_const = 250;        // Integer\nvar float_const = 250.85;   // Float\nvar char_const = 'A';       // Character\nvar string_const = \"Raman\"; // String\nvar boolean_const = true;   // Boolean\n```\n\n**Assigning values:**\n```\nvar numericData1 = 522;\nvar stringData = \"JavaScript has strings\";\nvar booleanData = true;\n```\n\n**document.write() syntax:**\n`document.write(\"string \" + variable);`\n\n**Type Casting:** Converting one data type to another (also called casting).\n- **Implicit:** Automatically by JavaScript when the data type changes.\n- **Explicit:** Manual conversion using functions like `parseInt()`, `parseFloat()`.",
+      "nav": {
+        "back": "intro",
+        "next": "operators",
+        "nextLabel": "Operators →"
+      }
+    },
+    {
+      "id": "operators",
+      "title": "Operators and Expressions",
+      "content": "An **operator** combines values of operands and evaluates to a new value. An **expression** is a code fragment that evaluates to some data type.\n\n**Three types of expressions:** Arithmetic, Relational, Logical.\n\n---\n\n**Arithmetic Operators:**\n\n| Operator | Meaning | Example | Result |\n|----------|---------|---------|--------|\n| `+` | Addition | 20 + 120 | 140 |\n| `-` | Subtraction | 20 – 120 | -100 |\n| `*` | Multiplication | 10 * 100 | 1000 |\n| `/` | Division | 100/522 | 5.22 |\n| `%` | Modulus (remainder) | 100 % 522 | 22 |\n\n**Shorthand Arithmetic Operators:** `+=`, `-=`, `*=`, `/=`, `%=`\nExample: `sum += 20;` is same as `sum = sum + 20;`\n\n---\n\n**Assignment Operator `=`:** Assigns a value to a variable.\n```\nvar number1 = 10;\nvar m = n = z = 25; // all three set to 25\nvar x = 102 + 5 - 50; // x = 57\n```\n\n---\n\n**Relational (Comparison) Operators:** Compare two values; result is true or false.\n\n| Operator | Meaning | Example (x=10, y=20) | Result |\n|----------|---------|----------------------|--------|\n| `==` | Equality | x==y | false |\n| `!=` | Inequality | x!=y | true |\n| `<` | Less than | x<y | true |\n| `>` | Greater than | x>y | false |\n| `<=` | Less than or equal | x<=y | true |\n| `>=` | Greater than or equal | x>=y | false |\n\n---\n\n**Logical Operators:** Combine or invert boolean values.\n\n| Operator | Meaning | Result |\n|----------|---------|--------|\n| `&&` | Logical AND | true if both operands true |\n| `||` | Logical OR | true if either operand true |\n| `!` | Logical NOT | true if operand is false |\n\n---\n\n**String Operator (`+`):** The `+` operator also serves as **string concatenation**. If any operand is a string, `+` concatenates instead of adds.\n`var String3 = \"Java\" + \"Script\";` → \"JavaScript\"\n\n---\n\n**Increment and Decrement Operators:**\n- `++` (increment): Adds 1 to the operand.\n  - **Pre-increment (`++m`):** Increments first, then evaluates.\n  - **Post-increment (`m++`):** Evaluates first, then increments.\n- `--` (decrement): Subtracts 1 from the operand.\n\n```\nvar m = 1, n = ++m; // m = 2, n = 2 (pre-increment)\nvar m = 1, n = m++; // m = 2, n = 1 (post-increment)\n```\n\n---\n\n**typeof Operator:** Returns the data type of a variable as a string.\nReturns: \"number\", \"boolean\", \"string\", \"function\", \"undefined\".\n`document.write(typeof(value1));`\n\n---\n\n**Conditional (Ternary) Operator `?:`:** Requires three operands.\n`var variablename = (condition) ? value1 : value2;`\nIf condition is true → value1; if false → value2.\n`var result = (10 > 15) ? 100 : 150;` → result = 150 (condition false)",
+      "nav": {
+        "back": "variables",
+        "next": "dialogs",
+        "nextLabel": "Dialog Boxes and Comments →"
+      }
+    },
+    {
+      "id": "dialogs",
+      "title": "Dialog Boxes and Comments",
+      "content": "**JavaScript Popup (Dialog) Boxes:** Three types, also called popup boxes.\n\n**1. Alert Dialog Box:**\nGives a **warning message** to users. Only one button: **OK**.\n```\nalert(\"Name is compulsory entry\");\n// or\nwindow.alert(\"Name is compulsory entry\");\n```\n\n**2. Confirm Dialog Box:**\nTakes user's **consent**. Has two buttons: **OK** (returns true) and **Cancel** (returns false).\n```\nconfirm(\"Do you want to continue?\");\n// or\nwindow.confirm(\"Do you want to continue?\");\n```\n\n**3. Prompt Dialog Box:**\n**Gets user input** — pops up a text box. User fills in text and clicks OK. Has two parameters: (i) label to display, (ii) default string in text box. Returns entered value on OK; returns null on Cancel.\n```\nprompt(\"Enter Your Name:\", \"Name\");\n// or\nwindow.prompt(\"Enter Your Name:\", \"Name\");\n```\n\n---\n\n**Comments in JavaScript:**\nComments are ignored by the JavaScript interpreter. Two types:\n\n- **Single-line comment:** Begins with `//` — ignores everything to end of line.\n`// This is a single line comment`\n\n- **Multi-line comment:** Begins with `/*` and ends with `*/`.\n`/* This is a\nmulti-line comment */`",
+      "nav": {
+        "back": "operators",
+        "practice": true
+      }
+    }
+  ]
+}

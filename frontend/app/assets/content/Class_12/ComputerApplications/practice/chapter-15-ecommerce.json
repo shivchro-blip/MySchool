@@ -1,0 +1,336 @@
+{
+  "meta": {
+    "subject": "Computer Applications -- Class XII",
+    "unit": "Chapter 15 -- E-Commerce",
+    "time": "3.00 hrs",
+    "totalMarks": 47,
+    "instructions": "Samacheer Kalvi -- Answer all questions"
+  },
+  "parts": [
+    {
+      "id": "p1",
+      "navLabel": "Part I -- MCQ (20 x 1)",
+      "title": "Part I",
+      "type": "mcq",
+      "scoreMax": 20,
+      "marksPer": 1,
+      "sections": [
+        {
+          "label": "E-Commerce",
+          "questions": [
+            {
+              "id": "q1",
+              "html": "A company can be called E-Business if it:",
+              "options": [
+                "a) Has many branches across the world",
+                "b) Conducts business electronically over the Internet",
+                "c) Sells commodities to a foreign country",
+                "d) Has many employees"
+              ],
+              "answer": 1,
+              "hint": "E-Business = conducting business electronically over Internet. Having branches or employees alone doesn't make it E-Business."
+            },
+            {
+              "id": "q2",
+              "html": "Which of the following is NOT a tangible good?",
+              "options": [
+                "a) Mobile Phone",
+                "b) Mobile Apps",
+                "c) Medicine",
+                "d) Flower bouquet"
+              ],
+              "answer": 1,
+              "hint": "Tangible = physical goods (mobile phone, medicine, flower bouquet). Intangible = digital goods (mobile apps, music files, e-books)."
+            },
+            {
+              "id": "q3",
+              "html": "SME stands for:",
+              "options": [
+                "a) Small and medium sized enterprises",
+                "b) Simple and medium enterprises",
+                "c) Sound messaging enterprises",
+                "d) Short messaging enterprises"
+              ],
+              "answer": 0,
+              "hint": "SME = Small and Medium-sized Enterprises. The Internet provided entry points for SMEs into E-Commerce."
+            },
+            {
+              "id": "q4",
+              "html": "The dotcom phenomenon deals with:",
+              "options": [
+                "a) Textile industries",
+                "b) Mobile phone companies",
+                "c) Internet based companies",
+                "d) All the above"
+              ],
+              "answer": 2,
+              "hint": "Dotcom phenomenon = rapid rise and fall of Internet-based companies (1995-2002)."
+            },
+            {
+              "id": "q5",
+              "html": "Which is NOT correctly matched?",
+              "options": [
+                "a) First Wave of E-Commerce: 1985-1990",
+                "b) Second Wave of E-Commerce: 2004-2009",
+                "c) Third Wave of E-Commerce: 2010-Present",
+                "d) Dotcom burst: 2000-2002"
+              ],
+              "answer": 0,
+              "hint": "First Wave = 1995-2003 (NOT 1985-1990). All other matches are correct."
+            },
+            {
+              "id": "q6",
+              "html": "The websites of first wave dotcom companies were only in English because the dotcom companies of first wave are mostly American companies. Both statements are:",
+              "options": [
+                "a) Both correct, R is correct explanation",
+                "b) Both correct, R is NOT correct explanation",
+                "c) A is true, R is false",
+                "d) A is false, R is true"
+              ],
+              "answer": 0,
+              "hint": "Both are correct and R explains A — first wave companies were American, so their websites were English only."
+            },
+            {
+              "id": "q7",
+              "html": "Off-shoring means:",
+              "options": [
+                "a) Work outsourced to a branch of its own company",
+                "b) Work outsourced to new employees",
+                "c) Work outsourced to a third party locally",
+                "d) Work outsourced to a third party outside its own country"
+              ],
+              "answer": 3,
+              "hint": "Off-shoring = outsourced to a company in ANOTHER COUNTRY. Outsourcing = hiring another company (same country). Both are associated with B2B E-Commerce."
+            },
+            {
+              "id": "q8",
+              "html": "G2G systems are classified into:",
+              "options": [
+                "a) Internal facing and External facing",
+                "b) Internet and Extranet",
+                "c) First wave and Second wave",
+                "d) Left facing and Right facing"
+              ],
+              "answer": 0,
+              "hint": "G2G systems: Internal facing (local level, single government's bureaucracy) and External facing (international level, multiple governments)."
+            },
+            {
+              "id": "q9",
+              "html": "Which type of website hosts e-books on their websites?",
+              "options": [
+                "a) Bulk-buying websites",
+                "b) Community websites",
+                "c) Digital publishing websites",
+                "d) Licensing websites"
+              ],
+              "answer": 2,
+              "hint": "Digital publishing sites host e-books or magazines on the web. They make profits through advertising and selling."
+            },
+            {
+              "id": "q10",
+              "html": "Which is a characteristic of E-Commerce?",
+              "options": [
+                "a) Products can be inspected physically before purchase",
+                "b) Goods are delivered instantly",
+                "c) Resource focus is supply side",
+                "d) Scope of business is global"
+              ],
+              "answer": 3,
+              "hint": "E-Commerce: scope is GLOBAL, demand-side focus, goods take time to deliver, products cannot be inspected physically. Traditional commerce = supply side, physical inspection, instant delivery."
+            },
+            {
+              "id": "q11",
+              "html": "In C2B E-Commerce, who originates the transaction?",
+              "options": [
+                "a) Business",
+                "b) Consumer",
+                "c) Government",
+                "d) Bank"
+              ],
+              "answer": 1,
+              "hint": "C2B = Consumer to Business. The consumer originates the transaction, often called reverse auction model."
+            },
+            {
+              "id": "q12",
+              "html": "Which E-Commerce model works as a retail store over the Internet?",
+              "options": [
+                "a) B2B",
+                "b) B2C",
+                "c) C2C",
+                "d) G2B"
+              ],
+              "answer": 1,
+              "hint": "B2C (Business to Consumer) works as a 'retail store' over the Internet — direct trade between companies and end-consumers."
+            },
+            {
+              "id": "q13",
+              "html": "The first true E-Commerce transaction occurred on:",
+              "options": [
+                "a) August 11, 1991",
+                "b) August 11, 1994",
+                "c) August 11, 1995",
+                "d) August 11, 2000"
+              ],
+              "answer": 1,
+              "hint": "First true E-Commerce transaction: August 11, 1994 — Phil Brandenberger bought Sting's CD online for $12.48 using credit card."
+            },
+            {
+              "id": "q14",
+              "html": "IBM coined the term E-Business in:",
+              "options": [
+                "a) 1994",
+                "b) 1996",
+                "c) 1998",
+                "d) 2000"
+              ],
+              "answer": 1,
+              "hint": "IBM coined the term E-Business in 1996."
+            },
+            {
+              "id": "q15",
+              "html": "Web 1.0 is characterized as:",
+              "options": [
+                "a) Read-Write Web",
+                "b) Read-only Web",
+                "c) Read-Write-Execute Web",
+                "d) Social Media Web"
+              ],
+              "answer": 1,
+              "hint": "Web 1.0 = Read-only web (early, text/images/hyperlinks, only search and read). Web 2.0 = Read-Write (social media). Web 3.0 = Read-Write-Execute (AI, semantic)."
+            },
+            {
+              "id": "q16",
+              "html": "Which website type takes a percentage commission from auction sales?",
+              "options": [
+                "a) Affiliate website",
+                "b) Bulk-buying website",
+                "c) Auction website",
+                "d) Licensing website"
+              ],
+              "answer": 2,
+              "hint": "Auction websites (e.g., eBay) auction items and levy commission from sales."
+            },
+            {
+              "id": "q17",
+              "html": "C2C E-Commerce typically works as:",
+              "options": [
+                "a) C2G",
+                "b) B2C",
+                "c) C2B2C",
+                "d) G2B"
+              ],
+              "answer": 2,
+              "hint": "C2C typically works as C2B2C (Consumer to Business to Consumer) — a consumer contacts a business to find another suitable consumer."
+            },
+            {
+              "id": "q18",
+              "html": "The Dotcom Bubble occurred between approximately:",
+              "options": [
+                "a) 1985-1990",
+                "b) 1991-1994",
+                "c) 1995-2000",
+                "d) 2004-2009"
+              ],
+              "answer": 2,
+              "hint": "Dotcom Bubble = approximately 1995-2000. NASDAQ rose from under 1000 to over 5000 points."
+            },
+            {
+              "id": "q19",
+              "html": "Which of the following is an advantage of E-Commerce?",
+              "options": [
+                "a) Products can be inspected physically before purchase",
+                "b) Goods are delivered instantly",
+                "c) Available 24 x 7 all year",
+                "d) Face-to-face identification of merchant"
+              ],
+              "answer": 2,
+              "hint": "E-Commerce advantages: 24×7 operation, global reach, easy comparison shopping. Disadvantages: can't inspect products, takes time to deliver."
+            },
+            {
+              "id": "q20",
+              "html": "In B2B E-Commerce, the value per transaction is high because of:",
+              "options": [
+                "a) Individual purchases",
+                "b) Bulk purchase",
+                "c) Government contracts",
+                "d) Consumer demand"
+              ],
+              "answer": 1,
+              "hint": "B2B transactions involve bulk purchases, which makes the value per transaction high. Companies may also get discounts on bulk purchases."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "navLabel": "Part II -- Short Answers (5 x 2)",
+      "title": "Part II",
+      "type": "short-essay",
+      "scoreMax": 10,
+      "marksPer": 2,
+      "questions": [
+        {
+          "q": "Define E-Commerce.",
+          "ans": "E-Commerce (Electronic Commerce) can be described as the process of buying or selling products, services, or information via computer networks (Internet). The 'e' stands for electronic. E-Commerce allows consumers to exchange goods and services with no barrier of time or distance. It is currently one of the most important aspects of the Internet era. Electronic commerce has expanded rapidly and allows buying and selling 24 hours a day, 7 days a week. It could be a consumer-based retail site, auction site, or trade between large business organizations."
+        },
+        {
+          "q": "Distinguish between E-Business and E-Commerce.",
+          "ans": "E-Business: Term coined by IBM in 1996. Broader than E-Commerce — covers ALL activities of a company using the Internet. Includes procurement, marketing, finance, manufacturing, selling, and negotiation. E-Business is grounded on Network Infrastructure, Multimedia content, Messaging & Information distribution, and Common business service infrastructure.\n\nE-Commerce: A subset of E-Business. Limited to MONETARY TRANSACTIONS using Internet. The process of buying or selling products, services, or information via computer networks.\n\nKey difference: E-Commerce = just buying and selling. E-Business = everything a company does using the Internet."
+        },
+        {
+          "q": "Differentiate tangible goods and intangible goods with examples.",
+          "ans": "Tangible Goods: Physical goods that can be physically touched, held, and inspected before purchase. They are delivered physically. Examples: Printed books, CDs and DVDs, mobile phones, medicine, clothes, flower bouquets.\n\nIntangible Goods (Digital Products): Goods that cannot be physically touched. They are delivered electronically — downloaded or streamed. Examples: Downloaded video games, music files, movies (Netflix streaming), software applications, mobile apps, e-books.\n\nKey difference: Tangible = physical, can touch. Intangible = digital, cannot touch."
+        },
+        {
+          "q": "What is the dotcom bubble and dotcom burst?",
+          "ans": "Dotcom Bubble: A historic excessive growth (excessive assumption) of economy that occurred roughly between 1995 and 2000. It was also a period of extreme growth in the usage and adaptation of the Internet. The NASDAQ Composite Index of US stock market rose from under 1000 points to more than 5000 points during this period.\n\nDotcom Burst: The NASDAQ-Composite stock market index fell from 5046.86 to 1114.11 — known as the Dotcom Crash or Dotcom Burst. Began on March 11, 2000 and lasted until October 9, 2002. During the crash, thousands of online shopping companies like Pets.com failed and shut down. Some companies like Amazon declined in value but recovered quickly."
+        },
+        {
+          "q": "Write a short note on out-sourcing.",
+          "ans": "Outsourcing is the practice of hiring a third-party company to handle certain business functions or services on behalf of a company. If a company's work is hired to another company, it is termed as outsourcing. Out-sourcing and off-shoring are generally associated with B2B E-Commerce. Off-shoring is a subset of outsourcing where the work is outsourced to a company outside its own country. Through Internet and E-Commerce, outsourcing has become easier and more global, allowing companies to access specialized skills and reduce costs by working with partners in different countries."
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "navLabel": "Part III -- Brief Answers (3 x 3)",
+      "title": "Part III",
+      "type": "short-essay",
+      "scoreMax": 9,
+      "marksPer": 3,
+      "questions": [
+        {
+          "q": "Explain B2B module in E-Commerce.",
+          "ans": "B2B (Business to Business) E-Commerce refers to commercial transactions that take place between different business organizations through the Internet.\n\nKey characteristics:\n1. High value per transaction — due to bulk purchases between businesses.\n2. Companies may get discounts on bulk purchases.\n3. Associated with outsourcing (hiring another company for work) and off-shoring (hiring company in another country).\n\nExample: A cycle company buying tyres from a tyre manufacturing company through an online portal. The tyre company (seller) and cycle company (buyer) are both businesses.\n\nTypes of products/services in B2B: raw materials, manufacturing components, professional services, software solutions.\n\nB2B is the largest E-Commerce model by transaction value."
+        },
+        {
+          "q": "Write a short note on the third wave of E-Commerce.",
+          "ans": "The Third Wave of Electronic Commerce (2010 – Present) is brought on by mobile technologies. It connects users for real-time and on-demand transactions via mobile technologies.\n\nKey features:\n1. Mobile commerce — transactions via smartphones and tablets.\n2. Web 3.0 — summarizes future Internet characteristics including: Artificial Intelligence, Semantic Web (intelligent search), Generic Database, Augmented Reality, Gesture Technology, Avatar representations, Wearable Technology, Smart Personal Assistants, 3D Portals.\n3. Real-time transactions — users can buy/sell instantly from anywhere.\n4. Much higher data rates — 2Mbit/s to 10-100Mbit/s.\n5. Number of users: 1 billion+.\n\nThe third wave has brought voice assistants (Alexa, Siri), AR shopping, and AI-driven recommendations."
+        },
+        {
+          "q": "Write a note on physical product dispute of E-Commerce.",
+          "ans": "Physical product dispute is one of the major disadvantages of E-Commerce. In E-Commerce, purchases are often made on TRUST — because we do not have physical access to the product before buying.\n\nProblems:\n1. Though Internet is an effective channel for visual and auditory information, it does not allow full scope for our senses. We can see pictures of perfumes but cannot smell their fragrance. We can see pictures of cloth but cannot feel its quality.\n2. In online shopping, we see only the pictures the seller chose for us — not an unbiased view.\n3. When we buy something from a physical store, we immediately have the product, know what it is and how it looks. With E-Commerce, we must wait for delivery.\n4. Returning goods is difficult — doubts about return periods, refunds, exchanges, and postage.\n5. People are more comfortable buying generic goods (they have seen or experienced before) online rather than unique or complex items."
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "navLabel": "Part IV -- Long Essays (2 x 4)",
+      "title": "Part IV",
+      "type": "long-essay",
+      "scoreMax": 8,
+      "marksPer": 4,
+      "questions": [
+        {
+          "q": "List all E-Commerce business models and explain any four briefly.",
+          "ans": "E-Commerce has 9 business models based on who is buying and who is selling (B=Business, C=Consumer, G=Government):\n1. B2B (Business to Business), 2. B2C (Business to Consumer), 3. B2G (Business to Government), 4. C2B (Consumer to Business), 5. C2C (Consumer to Consumer), 6. C2G (Consumer to Government), 7. G2B (Government to Business), 8. G2C (Government to Consumer), 9. G2G (Government to Government)\n\nFour models explained:\n\nB2B: Commercial transactions between different businesses. High value per transaction due to bulk purchase. Associated with outsourcing/off-shoring. Example: A cycle company buying tyres from another company.\n\nB2C: Direct trade between companies and end-consumers via Internet. Works like a retail store online. Example: Amazon selling books to individual customers.\n\nC2B (Reverse Auction): Consumer originates the transaction and fixes price or requirement. Businesses match it. Example: Travel website (yatra.com) where consumer specifies dates and gets options.\n\nC2C: Trading between consumers via Internet. Website acts as platform. Typically C2B2C. Example: Property classified websites where one consumer sells to another."
+        },
+        {
+          "q": "How would you differentiate traditional commerce and E-Commerce?",
+          "ans": "Traditional Commerce vs E-Commerce:\n\n1. Definition: Traditional commerce = buying/selling physically. E-Commerce = transactions electronically via Internet.\n\n2. Identity: Traditional = customer can face-to-face identify and authenticate the merchant. E-Commerce = neither customer nor merchant see each other.\n\n3. Availability: Traditional = physical stores not feasible to be open all times. E-Commerce = always available 24×7, all days of the year.\n\n4. Product Inspection: Traditional = products can be inspected physically before purchase. E-Commerce = products cannot be physically inspected before purchase.\n\n5. Scope: Traditional = limited to a particular area. E-Commerce = global scope; vendors can expand worldwide.\n\n6. Resource Focus: Traditional = supply side. E-Commerce = demand side.\n\n7. Business Relationship: Traditional = linear. E-Commerce = end-to-end.\n\n8. Marketing: Traditional = one-way marketing. E-Commerce = one-to-one marketing.\n\n9. Payment: Traditional = cash, cheque, cards. E-Commerce = mostly credit card, debit card, fund transfer.\n\n10. Delivery: Traditional = most goods delivered instantly. E-Commerce = takes time to transport goods."
+        }
+      ]
+    }
+  ]
+}

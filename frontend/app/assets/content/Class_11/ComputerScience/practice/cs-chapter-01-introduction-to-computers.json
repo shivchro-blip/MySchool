@@ -1,0 +1,275 @@
+{
+  "meta": {
+    "subject": "Computer Science -- Class XI",
+    "unit": "Chapter 1 -- Introduction to Computers",
+    "time": "2.30 hrs",
+    "totalMarks": 47,
+    "instructions": "Samacheer Kalvi -- Answer all questions"
+  },
+  "parts": [
+    {
+      "id": "p1",
+      "navLabel": "Part I -- MCQ (10 x 1)",
+      "title": "Part I -- Choose the Correct Answer",
+      "type": "mcq",
+      "scoreMax": 10,
+      "marksPer": 1,
+      "sections": [
+        {
+          "label": "Introduction to Computers",
+          "questions": [
+            {
+              "id": "q1",
+              "html": "First generation computers used ________.",
+              "options": [
+                "a) Vacuum tubes",
+                "b) Transistors",
+                "c) Integrated circuits",
+                "d) Microprocessors"
+              ],
+              "answer": 0,
+              "hint": "First generation computers (1940–1956) used vacuum tubes as their main electronic component."
+            },
+            {
+              "id": "q2",
+              "html": "Name the volatile memory.",
+              "options": [
+                "a) ROM",
+                "b) PROM",
+                "c) RAM",
+                "d) EPROM"
+              ],
+              "answer": 2,
+              "hint": "RAM (Random Access Memory) loses its content when power is switched off — it is volatile."
+            },
+            {
+              "id": "q3",
+              "html": "Identify the output device.",
+              "options": [
+                "a) Keyboard",
+                "b) Memory",
+                "c) Monitor",
+                "d) Mouse"
+              ],
+              "answer": 2,
+              "hint": "A monitor displays information to the user — it is an output device."
+            },
+            {
+              "id": "q4",
+              "html": "Identify the input device.",
+              "options": [
+                "a) Printer",
+                "b) Mouse",
+                "c) Plotter",
+                "d) Projector"
+              ],
+              "answer": 1,
+              "hint": "A mouse feeds pointing/selection data into the computer — it is an input device."
+            },
+            {
+              "id": "q5",
+              "html": "________ output device is used for printing building plans.",
+              "options": [
+                "a) Thermal printer",
+                "b) Plotter",
+                "c) Dot matrix",
+                "d) Inkjet printer"
+              ],
+              "answer": 1,
+              "hint": "A plotter draws graphical output such as architectural and building plans using pens."
+            },
+            {
+              "id": "q6",
+              "html": "Which one of the following is used in ATM machines?",
+              "options": [
+                "a) Touch Screen",
+                "b) Speaker",
+                "c) Monitor",
+                "d) Printer"
+              ],
+              "answer": 0,
+              "hint": "ATMs let users interact directly with the screen using their finger — a touch screen."
+            },
+            {
+              "id": "q7",
+              "html": "When a system restarts, which type of booting is used?",
+              "options": [
+                "a) Warm booting",
+                "b) Cold booting",
+                "c) Touch boot",
+                "d) Real boot"
+              ],
+              "answer": 0,
+              "hint": "Restarting an already-running system (Reset) is Warm Booting; power-on from off is Cold Booting."
+            },
+            {
+              "id": "q8",
+              "html": "Expand POST.",
+              "options": [
+                "a) Post on self Test",
+                "b) Power on Software Test",
+                "c) Power on Self Test",
+                "d) Power on Self Text"
+              ],
+              "answer": 2,
+              "hint": "POST checks that devices like RAM and keyboard are connected properly during booting."
+            },
+            {
+              "id": "q9",
+              "html": "Which one of the following is the main memory?",
+              "options": [
+                "a) ROM",
+                "b) RAM",
+                "c) Flash drive",
+                "d) Hard disk"
+              ],
+              "answer": 1,
+              "hint": "RAM is used as the computer's main (primary) memory during processing."
+            },
+            {
+              "id": "q10",
+              "html": "Which generation of computer used ICs?",
+              "options": [
+                "a) First",
+                "b) Second",
+                "c) Third",
+                "d) Fourth"
+              ],
+              "answer": 2,
+              "hint": "Third Generation computers (1964–1971) used Integrated Circuits."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "navLabel": "Part II -- Very Short Answers (8 x 2)",
+      "title": "Part II -- Very Short Answers",
+      "type": "short_answer",
+      "scoreMax": 16,
+      "marksPer": 2,
+      "sections": [
+        {
+          "label": "Very Short Answers",
+          "questions": [
+            {
+              "id": "q11",
+              "html": "What is a computer?",
+              "answer": "A computer is an electronic device that takes raw data (unprocessed) as input from the user and processes it under the control of a set of instructions (called a program), produces a result (output), and saves it for future use.",
+              "hint": "Recall the IPO cycle — Input, Process, Output."
+            },
+            {
+              "id": "q12",
+              "html": "Distinguish between data and information.",
+              "answer": "Data is an unprocessed collection of raw facts suitable for communication or processing — for example, 16, 'Kavitha'. It conveys no meaningful message on its own. Information is a collection of facts from which conclusions may be drawn — data that has been processed to give a meaningful, ordered output, such as 'Kavitha is 16 years old'. The conversion of data into information is called data processing.",
+              "hint": "Data = raw facts; Information = processed, meaningful output."
+            },
+            {
+              "id": "q13",
+              "html": "What are the components of a CPU?",
+              "answer": "The CPU has three components: (1) Arithmetic and Logic Unit (ALU) — performs arithmetic and logical operations; (2) Control Unit — controls the flow of data between the CPU, memory, and I/O devices; (3) Memory Unit (Registers) — internal memory used during instruction execution.",
+              "hint": "ALU, Control Unit, Memory Unit (Registers)."
+            },
+            {
+              "id": "q14",
+              "html": "What is the function of an ALU?",
+              "answer": "The Arithmetic and Logic Unit (ALU) performs arithmetic operations such as addition, subtraction, multiplication, and division, as well as logical operations. The result of an operation is stored in the CPU's internal memory. The logical operations of the ALU give the computer its decision-making ability.",
+              "hint": "Arithmetic operations + logical operations + decision-making."
+            },
+            {
+              "id": "q15",
+              "html": "Write the functions of the control unit.",
+              "answer": "The control unit controls the flow of data between the CPU, memory, and I/O devices. It also controls the entire operation of a computer, directing how instructions are fetched, decoded, and executed.",
+              "hint": "Controls data flow and overall computer operation."
+            },
+            {
+              "id": "q16",
+              "html": "What is the function of memory?",
+              "answer": "The Memory Unit stores data and instructions used during processing. Primary memory (like RAM) temporarily stores programs and data while instructions execute, and is volatile. Secondary memory (like a hard disk) stores data permanently and is non-volatile.",
+              "hint": "Holds data/instructions — primary (volatile) and secondary (non-volatile)."
+            },
+            {
+              "id": "q17",
+              "html": "Differentiate Input and Output units.",
+              "answer": "An Input Unit is used to feed any form of data into the computer for storage and processing — examples are keyboard and mouse. An Output Unit is any hardware component that conveys information to the user in an understandable form — examples are a monitor and a printer.",
+              "hint": "Input feeds data in; Output conveys results out."
+            },
+            {
+              "id": "q18",
+              "html": "Distinguish Primary and Secondary memory.",
+              "answer": "Primary memory (e.g., RAM) is volatile — its content is lost when power is switched off, and it is used to temporarily hold programs and data during execution. Secondary memory (e.g., Hard Disk, CD-ROM, DVD) is non-volatile — its content remains even after power is switched off, and it is used to store data permanently.",
+              "hint": "Primary = volatile, temporary; Secondary = non-volatile, permanent."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "navLabel": "Part III -- Short Answers (3 x 3)",
+      "title": "Part III -- Short Answers",
+      "type": "brief_answer",
+      "scoreMax": 9,
+      "marksPer": 3,
+      "sections": [
+        {
+          "label": "Short Answers",
+          "questions": [
+            {
+              "id": "q19",
+              "html": "Write a short note on impact printers.",
+              "answer": "Impact printers print by striking hammers or pins against a ribbon onto paper, so they can print multi-part forms using carbon paper by applying mechanical pressure. Dot Matrix printers use a fixed number of pins/wires, with each dot produced by a tiny metal rod, printing one line of text at a time at speeds of 30–1550 CPS (Characters Per Second). Line Matrix printers use a fixed print head to print a whole page-wide line of dots at once, achieving speeds over 1000 Lines Per Minute.",
+              "hint": "Striking mechanism + carbon paper; Dot Matrix vs Line Matrix."
+            },
+            {
+              "id": "q20",
+              "html": "Write the characteristics of sixth generation computers.",
+              "answer": "Sixth Generation computers (the future) are characterised by parallel and distributed computing, making them smarter, faster, and smaller. Key developments include robotics, Natural Language Processing (NLP) — a component of AI that lets programs understand human language — and voice recognition software. This generation is considered the era of intelligent computers based on Artificial Neural Networks, with an explosive expected growth in Wide Area Networking.",
+              "hint": "Parallel/distributed computing, robotics, NLP, voice recognition."
+            },
+            {
+              "id": "q21",
+              "html": "Write the significant features of a monitor.",
+              "answer": "A monitor is the most commonly used output device and displays information much like a TV. Pictures on a monitor are formed with picture elements called pixels. Monitors may be monochrome (black and white) or colour. Common types are CRT (Cathode Ray Tube), LCD (Liquid Crystal Display), and LED (Light Emitting Diodes). The monitor works with a VGA (Video Graphics Array) card that acts as the interface between the computer and the display, and most modern motherboards have built-in video cards.",
+              "hint": "Pixels; CRT/LCD/LED types; works with a VGA card."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "navLabel": "Part IV -- Explain in Detail (3 x 4)",
+      "title": "Part IV -- Explain in Detail",
+      "type": "long_essay",
+      "scoreMax": 12,
+      "marksPer": 4,
+      "sections": [
+        {
+          "label": "Long Answers",
+          "questions": [
+            {
+              "id": "q22",
+              "html": "Explain the basic components of a computer.",
+              "answer": "A computer is a combination of hardware and software, and every task follows the Input–Process–Output (IPO) cycle.\n\n1. Input Unit: Feeds any form of data into the computer for storage and processing. Examples: keyboard, mouse, scanner.\n\n2. Central Processing Unit (CPU): The major component that interprets and executes instructions, and controls the operation of all other units. It has three parts:\n   - Arithmetic and Logic Unit (ALU): performs arithmetic operations (add, subtract, multiply, divide) and logical operations that give the computer its decision-making ability.\n   - Control Unit: controls the flow of data between the CPU, memory, and I/O devices, and controls the entire operation of the computer.\n   - Memory Unit (Registers): internal memory used during instruction execution.\n\n3. Output Unit: Any hardware component that conveys information to the user in an understandable form. Examples: monitor, printer.\n\n4. Memory Unit: Of two types — Primary Memory (RAM), which is volatile and temporarily holds programs/data during execution, and Secondary Memory (Hard Disk, CD-ROM, DVD), which is non-volatile and stores data permanently.\n\nTogether, these units work in the sequence Input → CPU (processing) → Output, with the Memory Unit supporting data and instruction storage throughout.",
+              "hint": "Input Unit → CPU (ALU + Control Unit + Registers) → Output Unit, supported by Memory Unit."
+            },
+            {
+              "id": "q23",
+              "html": "Discuss the various generations of computers.",
+              "answer": "Computers are classified into generations based on the technology used:\n\nFirst Generation (1940–1956): Used Vacuum tubes. Big in size, consumed more power, prone to malfunction from overheating. Machine Language was used. Examples: ENIAC, EDVAC, UNIVAC 1.\n\nSecond Generation (1956–1964): Used Transistors. Smaller, generated less heat, consumed less power. Punched cards were used, and the first operating system (Batch Processing / Multiprogramming) was developed. Machine and Assembly language were used. Examples: IBM 1401, UNIVAC 1108.\n\nThird Generation (1964–1971): Used Integrated Circuits (ICs). Computers became smaller, faster, and more reliable, consuming less power. High Level Languages were used. Examples: IBM 360 series, Honeywell 6000 series.\n\nFourth Generation (1971–1980): Used Microprocessors / VLSI. Smaller and faster; portable computers were introduced. Examples: IBM and Apple microcomputer series.\n\nFifth Generation (1980–present): Uses Ultra Large Scale Integration (ULSI). Introduced parallel processing, superconductors, Artificial Intelligence, and Expert Systems; computers can recognise images and graphics and solve complex problems involving decision-making.\n\nSixth Generation (Future): Parallel and distributed computing; development of robotics, Natural Language Processing, and voice recognition software, making computers smarter, faster, and smaller.",
+              "hint": "Generation → Main component → Key features/examples, in chronological order."
+            },
+            {
+              "id": "q24",
+              "html": "Explain the following: (a) Inkjet Printer  (b) Multimedia Projector  (c) Bar Code / QR Code Reader",
+              "answer": "(a) Inkjet Printer: A non-impact printer that uses colour cartridges combining Magenta, Yellow, and Cyan inks (with a separate black cartridge for monochrome output) to create colour tones. It works by spraying ionised ink onto paper — either by heating the ink so it explodes towards the paper in bubbles, or by using piezoelectricity, where tiny electric currents spread ink at jet speed. Speed generally ranges from 1–20 Pages Per Minute (PPM).\n\n(b) Multimedia Projector: An output device used to produce computer output on a large screen. It is commonly used to display presentations in meeting halls and classrooms, allowing large groups to view the same content simultaneously.\n\n(c) Bar Code / QR Code Reader: A bar code is a pattern printed as lines of different thickness. A bar code reader scans this pattern and transmits the information to the computer for further processing, giving fast, error-free data entry. A QR (Quick Response) Code is a two-dimensional bar code that can be read by a camera and processed to interpret the encoded image — used widely for links, payments, and information retrieval.",
+              "hint": "(a) Inkjet = fires ink, CMYK, 1–20 PPM. (b) Projector = large-screen output. (c) Bar code = 1D lines; QR code = 2D pattern, camera-read."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,675 @@
+{
+  "eyebrow": "Chapter 2 · Class 12 Computer Applications",
+  "title": "An Introduction to Adobe PageMaker",
+  "author": "",
+  "pills": [
+    "Theory",
+    "Practical",
+    "Board Exam Important"
+  ],
+  "tabs": [
+    {
+      "id": "intro",
+      "label": "DTP & PageMaker",
+      "blocks": [
+        {
+          "type": "teacher-voice",
+          "html": "<p>Have you ever seen a school magazine, a wedding invitation card, or a newspaper? All of these are made using Desktop Publishing software. In this chapter, we learn Adobe PageMaker — one of the most popular DTP tools. Don't worry, we will go step by step!</p>"
+        },
+        {
+          "type": "section-head",
+          "text": "2.1 Desktop Publishing (DTP)"
+        },
+        {
+          "type": "gloss-row",
+          "word": "Desktop Publishing (DTP)",
+          "def": "The creation of page layouts for documents using DTP software. Abbreviated as DTP."
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>Popular DTP software: Adobe PageMaker, Adobe InDesign, QuarkXPress. All these tools help you arrange text and pictures on a page exactly where you want them.</p>"
+        },
+        {
+          "type": "think-box",
+          "label": "Real-Life Example 🌍",
+          "text": "Think of how your school magazine is designed — articles, photos, headings placed neatly on each page. That is desktop publishing!"
+        },
+        {
+          "type": "section-head",
+          "text": "2.2 Introduction to Adobe PageMaker"
+        },
+        {
+          "type": "gloss-row",
+          "word": "Adobe PageMaker",
+          "def": "A page layout software used to design and produce documents that can be printed. You can create anything from a simple business card to a large book."
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>PageMaker includes tools that allow you to position text and graphics anywhere on the page — next to each other, on top, or beside each other, wherever you want.</p>"
+        },
+        {
+          "type": "section-head",
+          "text": "2.3 Opening PageMaker"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>To open Adobe PageMaker in Windows 7, follow this path:</p>"
+        },
+        {
+          "type": "quote-block",
+          "quote": "Start → All Programs → Adobe → PageMaker 7.0 → Adobe PageMaker 7.0",
+          "context": ""
+        },
+        {
+          "type": "section-head",
+          "text": "2.4 Creating a New Document"
+        },
+        {
+          "type": "gloss-row",
+          "word": "Creating a New Document",
+          "def": "Choose File > New (or press Ctrl + N). The Document Setup dialog box appears. Enter settings and click OK. A new document called Untitled-1 opens."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Pasteboard",
+          "def": "The area outside the dark border of the document page. Items placed completely on the pasteboard are NOT printed. It is used to temporarily hold elements while designing."
+        },
+        {
+          "type": "think-box",
+          "label": "⭐ Exam Tip",
+          "text": "Pasteboard is a very common MCQ topic. Remember: it is the area OUTSIDE the dark border — items there are NOT visible when printed."
+        },
+        {
+          "type": "section-head",
+          "text": "2.5 Components of the PageMaker Window"
+        },
+        {
+          "type": "gloss-row",
+          "word": "Title Bar",
+          "def": "Topmost part of the window. Shows software name (Adobe PageMaker 7.0) and document name (Untitled-1). Contains Minimize, Maximize, and Close buttons."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Menu Bar",
+          "def": "Contains menus: File, Edit, Layout, Type, Element, Utilities, View, Window, Help. Clicking a menu shows a pull-down menu with options."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Toolbar",
+          "def": "Contains shortcut buttons. Hovering the mouse over a button shows a Tool Tip — a short text description of the button."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Rulers",
+          "def": "Two ruler bars — one at the top, one at the left. Show/hide rulers: View > Show Rulers / Hide Rulers."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Scroll Bars",
+          "def": "Two scroll bars — Vertical (up/down) and Horizontal (left/right). Used for scrolling through the document."
+        },
+        {
+          "type": "nav",
+          "next": "toolbox",
+          "nextLabel": "Next: Toolbox →"
+        }
+      ]
+    },
+    {
+      "id": "toolbox",
+      "label": "Toolbox",
+      "blocks": [
+        {
+          "type": "teacher-voice",
+          "html": "<p>The Toolbox is like a painter's brush set. Each tool does a specific job. You must know what every tool does and its keyboard shortcut — these are asked in Part I (MCQ) and Part III (brief answer) every year.</p>"
+        },
+        {
+          "type": "section-head",
+          "text": "2.4 Toolbox — Tools and Their Uses"
+        },
+        {
+          "type": "gloss-row",
+          "word": "Pointer Tool (F9)",
+          "def": "Used to select, move, and resize text objects and graphics."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Text Tool (Shift + Alt + F1)",
+          "def": "Used to type, select, and edit text. The cursor becomes an I-beam."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Rotating Tool (Shift + F2)",
+          "def": "Used to select and rotate objects."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Cropping Tool (Shift + Alt + F2)",
+          "def": "Used to trim imported graphics."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Line Tool (Shift + F3)",
+          "def": "Used to draw straight lines in any direction."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Constrained Line Tool (Shift + Alt + F3)",
+          "def": "Used to draw only vertical or horizontal lines."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Rectangle Tool (Shift + F4)",
+          "def": "Used to draw squares and rectangles."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Rectangle Frame Tool (Shift + Alt + F4)",
+          "def": "Used to create rectangular placeholders for text and graphics."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Ellipse Tool (Shift + F5)",
+          "def": "Used to draw circles and ellipses."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Ellipse Frame Tool",
+          "def": "Used to create elliptical placeholders for text and graphics."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Polygon Tool (Shift + F6)",
+          "def": "Used to draw polygons."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Polygon Frame Tool",
+          "def": "Used to create polygonal placeholders for text and graphics."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Hand Tool (Shift + Alt + Drag Left mouse button)",
+          "def": "Used to scroll the page — an alternative to using scroll bars."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Zoom Tool",
+          "def": "Used to magnify or reduce an area of the page. Shows a plus sign (zoom in) or minus sign (zoom out) in the magnifying glass cursor."
+        },
+        {
+          "type": "think-box",
+          "label": "⭐ Exam Tip",
+          "text": "Difference between tool and frame tool: Rectangle Tool draws rectangles. Rectangle Frame Tool creates a placeholder (container) for text or graphics. Same difference applies to Ellipse and Polygon pairs."
+        },
+        {
+          "type": "think-box",
+          "label": "⚠️ Common Mistake",
+          "text": "Students confuse the Zoom tool with the Hand tool. Zoom = magnify/reduce. Hand = scroll the page (like dragging the page with your hand)."
+        },
+        {
+          "type": "section-head",
+          "text": "Show / Hide Toolbox"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>To show the toolbox: Window > Show Tools. To hide it: Window > Hide Tools.</p>"
+        },
+        {
+          "type": "nav",
+          "back": "intro",
+          "next": "text-editing",
+          "nextLabel": "Next: Text Editing →"
+        }
+      ]
+    },
+    {
+      "id": "text-editing",
+      "label": "Text Editing",
+      "blocks": [
+        {
+          "type": "teacher-voice",
+          "html": "<p>In PageMaker, all text lives inside a text block. Think of it like a text box in MS Word, but more flexible. You can create, move, resize, split, and join text blocks.</p>"
+        },
+        {
+          "type": "section-head",
+          "text": "2.5 Entering Text"
+        },
+        {
+          "type": "gloss-row",
+          "word": "Text Block",
+          "def": "A container for text in PageMaker. You cannot see its borders until you select it with the Pointer tool. Text automatically wraps to the next line — do NOT press Enter at the end of each line. Press Enter only at the end of a paragraph."
+        },
+        {
+          "type": "gloss-row",
+          "word": "I-beam / Insertion Point",
+          "def": "The flashing vertical bar that shows where your next typed character will appear. It moves to the right as you type."
+        },
+        {
+          "type": "section-head",
+          "text": "2.6 Editing Text"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>Editing means making changes to text — inserting, deleting, moving, or copying words and phrases.</p>"
+        },
+        {
+          "type": "gloss-row",
+          "word": "Select a Word",
+          "def": "Double-click with the I-beam."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Select a Paragraph",
+          "def": "Triple-click with the I-beam."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Select Entire Document",
+          "def": "Ctrl + A"
+        },
+        {
+          "type": "gloss-row",
+          "word": "Delete a character (forward)",
+          "def": "Position cursor to the LEFT of the character → press Delete."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Delete a character (backward)",
+          "def": "Position cursor to the RIGHT of the character → press Backspace."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Undo",
+          "def": "Edit > Undo (or Ctrl + Z) — reverses the last command."
+        },
+        {
+          "type": "section-head",
+          "text": "Cut, Copy, Paste Shortcuts"
+        },
+        {
+          "type": "gloss-row",
+          "word": "Cut",
+          "def": "Ctrl + X — removes selected text from original position."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Copy",
+          "def": "Ctrl + C — creates a duplicate of selected text (original unchanged)."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Paste",
+          "def": "Ctrl + V — places cut or copied text at the insertion point."
+        },
+        {
+          "type": "think-box",
+          "label": "⭐ Exam Tip",
+          "text": "Keyboard shortcuts are asked every year in MCQ: New = Ctrl+N, Save = Ctrl+S, Print = Ctrl+P, Close = Ctrl+W, Undo = Ctrl+Z, Cut = Ctrl+X, Copy = Ctrl+C, Paste = Ctrl+V, Select All = Ctrl+A."
+        },
+        {
+          "type": "section-head",
+          "text": "2.7 Text Block Operations"
+        },
+        {
+          "type": "gloss-row",
+          "word": "Creating a Text Block",
+          "def": "Select Text Tool → click or drag on the page → type your text. OR click a loaded text icon in an empty column or page."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Moving a Text Block",
+          "def": "Place cursor inside the block → click and drag to the required position."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Resizing a Text Block",
+          "def": "Click Pointer Tool → click the text block → drag the corner handles (called Windowshades). A red triangle in the bottom windowshade means there is more hidden text — drag it down to show more."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Windowshades",
+          "def": "The handles (dark squares) that appear above and below a selected text block. Used to resize the text block."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Splitting a Text Block",
+          "def": "Drag the bottom handle upward → a red triangle appears → click it → loaded text icon appears → click elsewhere to create the second block."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Rejoining Split Blocks",
+          "def": "Drag the bottom handle of the second block all the way up → then drag the first block's bottom handle down if needed."
+        },
+        {
+          "type": "nav",
+          "back": "toolbox",
+          "next": "threading-frames",
+          "nextLabel": "Next: Threading & Frames →"
+        }
+      ]
+    },
+    {
+      "id": "threading-frames",
+      "label": "Threading & Frames",
+      "blocks": [
+        {
+          "type": "teacher-voice",
+          "html": "<p>PageMaker allows you to import text from MS-Word and connect (thread) text blocks together so that long text flows from one block to the next. This section is very important for Part III and Part IV exam questions.</p>"
+        },
+        {
+          "type": "section-head",
+          "text": "2.7.6 Placing (Importing) Text"
+        },
+        {
+          "type": "gloss-row",
+          "word": "Placing Text",
+          "def": "File > Place → choose the MS-Word file → click Open → cursor becomes a loaded text icon → click on page to place text."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Manual Text Flow",
+          "def": "Position the loaded text icon → drag to define a text block → release mouse. If text doesn't fit, a red triangle appears → click it → loaded icon reappears → create another text block. Repeat until all text is placed."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Automatic Text Flow",
+          "def": "Before importing: Layout > Autoflow in menu bar. The loaded text icon shows a squiggly arrow. Click at top of page → text automatically flows onto succeeding pages, creating new pages if necessary."
+        },
+        {
+          "type": "section-head",
+          "text": "2.8 & 2.9 Stories and Threading"
+        },
+        {
+          "type": "gloss-row",
+          "word": "Story",
+          "def": "Text that flows through one or more threaded text blocks. Similar to a newspaper article that continues on another page."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Threading Text",
+          "def": "The process of connecting text blocks so that text flows from one block into another."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Threaded Text Blocks",
+          "def": "Text blocks connected together. Identified by a plus sign (+) in the top and/or bottom handles."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Unthreaded Text Block",
+          "def": "A text block that stands alone — not connected to any other block. Its top and bottom handles are empty (no plus sign)."
+        },
+        {
+          "type": "think-box",
+          "label": "⭐ Exam Tip",
+          "text": "Threading vs Unthreaded: Threaded = plus sign in handles = text flows to another block. Unthreaded = empty handles = standalone. This distinction appears in MCQ every year."
+        },
+        {
+          "type": "section-head",
+          "text": "2.9.1 Unthreading a Block"
+        },
+        {
+          "type": "gloss-row",
+          "word": "Unthread Method 1",
+          "def": "Select block with Pointer → Edit > Cut → Edit > Paste. Block reappears in same position but is now unthreaded. WARNING: if it was the middle block of three, the first and third blocks are now threaded directly."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Unthread Method 2",
+          "def": "Select block with Pointer → switch to Text tool → select all text → Edit > Cut → click inside an existing threaded block → Edit > Paste. Text is added to that block."
+        },
+        {
+          "type": "section-head",
+          "text": "2.10 Frames"
+        },
+        {
+          "type": "gloss-row",
+          "word": "Frame",
+          "def": "A container (placeholder) for text or graphics. Unlike text blocks, frames have visible borders even when not selected. Created using Rectangle Frame Tool, Ellipse Frame Tool, or Polygon Frame Tool."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Placing Text in a Frame",
+          "def": "Select a Frame tool → draw a frame → File > Place → select file → click Open → click inside the frame to place text."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Linking Frames",
+          "def": "Draw first frame → place text → if red triangle appears → click it (loaded icon) → click second frame → text flows into second frame."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Converting Text Block to Frame",
+          "def": "Draw a frame → select the text block → Shift+click the frame (both selected) → Element > Frame > Attach Content."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Separating Text from Frame",
+          "def": "Click frame with Pointer → Element > Frame > Separate Content. Text separates from the frame."
+        },
+        {
+          "type": "think-box",
+          "label": "Tamil Word Help 🔤",
+          "text": "Frame = சட்டகம் (a container/border). Threading = நூல் போடுவது (like threading a needle — connecting things in a sequence)."
+        },
+        {
+          "type": "nav",
+          "back": "text-editing",
+          "next": "formatting-drawing",
+          "nextLabel": "Next: Formatting & Drawing →"
+        }
+      ]
+    },
+    {
+      "id": "formatting-drawing",
+      "label": "Formatting & Drawing",
+      "blocks": [
+        {
+          "type": "teacher-voice",
+          "html": "<p>After placing text, you can make it look beautiful using formatting tools. PageMaker also has drawing tools to create shapes. This section covers saving, printing, master pages, and drawing — all common in Part II and Part IV questions.</p>"
+        },
+        {
+          "type": "section-head",
+          "text": "2.11 Saving, Closing and Opening"
+        },
+        {
+          "type": "gloss-row",
+          "word": "Save (first time)",
+          "def": "File > Save (or Ctrl + S or click Save icon in toolbar) → Save Publication dialog box → enter file name → click Save. File name appears in title bar."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Save As",
+          "def": "File > Save As (or Shift + Ctrl + S) → Save Publication dialog box → enter new name or new location → click Save. Creates a separate copy — two versions exist independently."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Close",
+          "def": "File > Close (or Ctrl + W). Closes the document but not PageMaker itself."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Open",
+          "def": "File > Open (or Ctrl + O or click Open icon) → Open Publication dialog box → select file name → click Open."
+        },
+        {
+          "type": "section-head",
+          "text": "2.17 Formatting Text"
+        },
+        {
+          "type": "gloss-row",
+          "word": "Formatting",
+          "def": "The process of changing the appearance of text using fonts, font colors, and font styles. A font is a set of letters, numbers or symbols in a certain style."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Character Formatting (Dialog Box)",
+          "def": "Select text → Type > Character (or Ctrl + T) → Character Specifications dialog box → change Font, Font Size, Font Color, Bold/Italic/Underline → click OK."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Character Formatting (Control Palette)",
+          "def": "Window > Show Control Palette (or Ctrl + ') → select text → make changes directly in the Control Palette. Useful for lots of formatting."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Changing Text Colour",
+          "def": "Select text → Window > Show Colors → Colors palette appears → click required colour."
+        },
+        {
+          "type": "section-head",
+          "text": "2.18 Drawing Tools"
+        },
+        {
+          "type": "gloss-row",
+          "word": "Drawing a Line",
+          "def": "Select Line tool → cursor becomes crosshair → click and drag → release mouse. Resize by dragging the handles at either end."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Drawing a Dotted Line",
+          "def": "Double-click Line tool → Custom Stroke dialog box → select Stroke style → click OK → drag to draw."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Drawing Rectangle/Ellipse",
+          "def": "Select Rectangle or Ellipse tool → click and drag → release mouse. Hold Shift while dragging to make a perfect square or circle."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Drawing a Star (using Polygon tool)",
+          "def": "Click Polygon tool → drag to draw → release → Element > Polygon Settings → set Number of sides = 5, Star inset = 50% → click OK. Star Inset bends polygon lines inward to form a star."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Filling with Colour",
+          "def": "Draw shape → select it → Window > Show Colors (Ctrl + J) → click required colour from Colors Palette."
+        },
+        {
+          "type": "think-box",
+          "label": "⭐ Exam Tip",
+          "text": "Star drawing steps are asked in Part IV (detail). Remember: Element > Polygon Settings → Number of sides → Star inset percentage → OK."
+        },
+        {
+          "type": "nav",
+          "back": "threading-frames",
+          "next": "master-pages",
+          "nextLabel": "Next: Master Pages & Print →"
+        }
+      ]
+    },
+    {
+      "id": "master-pages",
+      "label": "Master Pages & Print",
+      "blocks": [
+        {
+          "type": "section-head",
+          "text": "2.19 Working with Pages"
+        },
+        {
+          "type": "gloss-row",
+          "word": "Go to Specific Page — Method 1",
+          "def": "Page Up / Page Down keys on keyboard."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Go to Specific Page — Method 2",
+          "def": "Click the page icon at the lower left corner of the document window."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Go to Specific Page — Method 3",
+          "def": "Layout > Go to Page (or Alt + Ctrl + G) → type page number → click OK."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Insert Pages",
+          "def": "Go to page before where you want to insert → Layout > Insert Pages → type number of pages → choose Before/After → click Insert."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Remove Pages",
+          "def": "Layout > Remove Pages → Remove Pages dialog box → type page range → click OK."
+        },
+        {
+          "type": "section-head",
+          "text": "2.20 Master Pages"
+        },
+        {
+          "type": "gloss-row",
+          "word": "Master Page",
+          "def": "Any text or object placed on the master page appears on ALL document pages to which the master is applied. Saves time — you don't have to repeat the same elements on every page."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Master Page contents",
+          "def": "Commonly contain: repeating logos, page numbers, headers, footers, non-printing layout guides (column guides, ruler guides, margin guides)."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Master Item rule",
+          "def": "A master item CANNOT be selected on a document page. You must go to the master page itself to edit it."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Master Page Icon",
+          "def": "Located at the lower left corner of the document window. Letters L and R represent left and right master pages for facing pages. Single-sided publication shows only R."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Inserting Page Numbers in Master Pages",
+          "def": "Click Master Pages icon → select Text Tool → click on left master page → press Ctrl + Alt + P → 'LM' appears. Repeat on right master page → 'RM' appears. These display correct page numbers on actual pages."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Hiding Master Items",
+          "def": "Switch to the required page → View > Display Master Items (untick it). Master items become invisible on that page."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Show Master Page Palette",
+          "def": "Window > Show Master Pages. Palette organizes all Master Page commands."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Creating a New Master Page",
+          "def": "Click New Master Page icon in Master Pages palette → enter name → set margins and column guides → click OK."
+        },
+        {
+          "type": "think-box",
+          "label": "⭐ Exam Tip",
+          "text": "Master Pages shortcut for page numbers = Ctrl + Alt + P. This is asked in MCQ. Also remember: Master items cannot be selected on document pages — you must edit from the master page itself."
+        },
+        {
+          "type": "section-head",
+          "text": "2.21 Printing a Document"
+        },
+        {
+          "type": "gloss-row",
+          "word": "Print",
+          "def": "File > Print (or Ctrl + P) → Print Document dialog box → select printer → choose pages (All / Ranges) → set copies → choose Collate option → click Print."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Collate",
+          "def": "If Collate is ON: prints complete sets one at a time (pages 1-5, then 1-5 again). If Collate is OFF: prints all copies of page 1 first, then all of page 2, etc."
+        },
+        {
+          "type": "section-head",
+          "text": "Chapter Recap — Key Points for Board Exam"
+        },
+        {
+          "type": "think-box",
+          "label": "⭐ Master Checklist",
+          "text": "DTP = Desktop Publishing. Popular DTP: PageMaker, InDesign, QuarkXPress. Pasteboard = outside dark border = NOT printed. Toolbox has 14 tools — know each tool's use and shortcut. Text Block: press Enter only at end of paragraph, not each line. Windowshades = handles of a text block. Red triangle = hidden text remains. Threading = connecting text blocks so text flows. Story = text flowing through threaded blocks. Threaded block = plus sign in handles. Frame tools create placeholders. Placing text: File > Place. Auto text flow: Layout > Autoflow first. Master page: objects appear on ALL pages. Ctrl+Alt+P = insert page number on master page. Ctrl+P = Print, Ctrl+S = Save, Ctrl+W = Close."
+        },
+        {
+          "type": "nav",
+          "back": "formatting-drawing",
+          "practice": true
+        }
+      ]
+    }
+  ]
+}

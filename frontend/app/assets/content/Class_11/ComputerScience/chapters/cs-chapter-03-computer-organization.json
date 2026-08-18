@@ -1,0 +1,77 @@
+{
+  "chapterNumber": 3,
+  "title": "Computer Organization",
+  "subject": "Computer Science",
+  "classLabel": "Class 11",
+  "curriculum": "Samacheer Kalvi",
+  "sections": [
+    {
+      "id": "intro-microprocessors",
+      "title": "Introduction & Basics of Microprocessors",
+      "content": "**3.1 Introduction**\n\nComputer organisation deals with the hardware components of a computer system — the Input/Output devices, the Central Processing Unit, storage devices, and primary memory. It is concerned with how the various hardware components operate and how they are interconnected to implement an architectural specification. The term looks similar to \"computer architecture,\" but architecture deals with the engineering considerations involved in *designing* a computer, while Computer Organisation deals with the hardware components that are transparent to the programmer.\n\n**3.2 Basics of Microprocessors**\n\nThe CPU is the major component of a computer that performs all tasks — this is realised by the **microprocessor**, an Integrated Circuit. Microprocessors were first introduced in the early 1970s; the first general-purpose microprocessor, the 4004, was developed by Intel Inc.\n\nThe microprocessor is a programmable multipurpose silicon chip, driven by clock pulses. It accepts binary input data, and after processing, provides output data as per the instructions stored in memory.\n\nThe microprocessor is made up of three main units:\n- **Arithmetic and Logic Unit (ALU):** performs arithmetic and logical instructions based on computer instructions.\n- **Control Unit:** controls the overall operations of the computer through signals.\n- **Registers (Internal Memory):** hold the instruction and data for the execution of the processor.\n\n**Characteristics of Microprocessors** — a microprocessor's performance depends on:\n- **(a) Clock Speed:** Every microprocessor has an internal clock that regulates the speed at which it executes instructions — measured in MHz (Mega Hertz) or GHz (Giga Hertz). (Hertz = cycles per second; modern CPUs perform millions/billions of instructions per second.)\n- **(b) Instruction Set:** A command given to a computer to perform an operation on data is called an instruction. The basic set of machine-level instructions a microprocessor can execute is its instruction set, carrying out operations such as data transfer, arithmetic operations, logical operations, control flow, and input/output.\n- **(c) Word Size:** The number of bits that can be processed by a processor in a single instruction is its word size, which determines the amount of RAM that can be accessed by the microprocessor.",
+      "nav": {
+        "next": "cpu-memory-communication",
+        "nextLabel": "Next: Data Communication Between CPU and Memory →"
+      }
+    },
+    {
+      "id": "cpu-memory-communication",
+      "title": "Data Communication Between CPU and Memory",
+      "content": "**3.3 Data Communication Between CPU and Memory**\n\nThe CPU has a **Memory Data Register (MDR)** and a **Memory Address Register (MAR)**. The MDR keeps the data that is transferred between the Memory and the CPU. The **Program Counter (PC)** is a special register in the CPU that always keeps the address of the next instruction to be executed. The ALU of the CPU places the address of the memory location to be fetched into the Memory Address Register.\n\nA **bus** is a collection of wires used for communication between the internal components of a computer. The word in RAM has the same size (number of bits) as the Memory Data Register. If the processor is an 8-bit processor (like the Intel 8085), its MDR and the RAM word both have 8 bits.\n\n- The **read** operation transfers data (bits) from a memory word to the Memory Data Register.\n- The **write** operation transfers data (bits) from the Memory Data Register to a memory word.\n\n**Note:** If 5V is applied at one end of a wire, the other end also receives 5V. Similarly, buses are wires, and binary data are represented as voltages (5V as 1, 0V as 0) — the buses simply pass this data as voltages from one end to the other.",
+      "nav": {
+        "back": "intro-microprocessors",
+        "next": "microprocessor-types",
+        "nextLabel": "Next: Types of Microprocessors →"
+      }
+    },
+    {
+      "id": "microprocessor-types",
+      "title": "Types of Microprocessors",
+      "content": "**3.4 Types of Microprocessors**\n\nMicroprocessors can be classified based on two criteria: the width of data that can be processed, and the instruction set.\n\n**3.4.1 Classification Based on Data Width**\n\nDepending on the data width, microprocessors are classified as:\n- 8-bit microprocessor\n- 16-bit microprocessor\n- 32-bit microprocessor\n- 64-bit microprocessor\n\n**3.4.2 Classification Based on Instruction Set**\n\nThe size of the instruction set is an important consideration in categorising microprocessors:\n- **Reduced Instruction Set Computers (RISC):** examples are Pentium IV, Intel P6, AMD K6, and K7.\n- **Complex Instruction Set Computers (CISC):** examples are Intel 386 & 486, Pentium, Pentium II and III, and Motorola 68000.",
+      "nav": {
+        "back": "cpu-memory-communication",
+        "next": "memory-devices",
+        "nextLabel": "Next: Memory Devices →"
+      }
+    },
+    {
+      "id": "memory-devices",
+      "title": "Memory Devices",
+      "content": "**3.5 Memory Devices**\n\nMemory is like a human brain — it stores data and instructions. Computer memory is the storage space where data and instructions are kept. There are two access methods: **sequential access** (memory accessed in order from start to end) and **random access** (any byte can be accessed directly without navigating through previous bytes). Memory devices are arranged in a hierarchy by capacity, speed, and cost — from smallest/fastest/most expensive (Cache Memory) through Main Memory to largest/slowest/cheapest (Hard Disk).\n\n**3.5.1 Random-Access Memory (RAM)**\nThe main memory, available as Integrated Circuits (ICs). It is where the Operating System, Application Programs, and data in current use are temporarily kept for access by the processor. The smallest unit of storable information is a bit; a collection of 8 bits is a byte. RAM is **volatile** — its information is lost when power is turned off. It allows both read and write operations.\n\n**3.5.2 Types of RAM**\n- **Dynamic RAM (DRAM):** needs to be refreshed frequently — a common, less expensive type.\n- **Static RAM (SRAM):** needs to be refreshed less often, making it faster, but more expensive than DRAM.\n\n**3.5.3 Read Only Memory (ROM)**\nSpecial memory with pre-recorded data at manufacturing time that cannot be modified. Stores critical programs, such as the program that boots the computer. Once written, ROM data cannot be modified or removed, only read. ROM retains its contents even when the computer is off, so it is **non-volatile**.\n\n- **3.5.3.1 PROM (Programmable ROM):** Non-volatile; data can be written only once. A PROM programmer/burner is used to write data (\"burning\" the PROM). PROM is manufactured blank, unlike ROM which is programmed during manufacturing.\n- **3.5.3.2 EPROM (Erasable Programmable ROM):** Serves as a PROM but its contents can be erased using ultraviolet rays, allowing reprogramming. Widely used in personal computers as manufacturers can update or erase contents before delivery. Most EPROM chips have a transparent area (covered by a sticker) — if exposed to sunlight, UV light may erase the contents.\n- **3.5.3.3 EEPROM (Electrically Erasable Programmable ROM):** A special type of PROM erasable by exposing it to an electrical charge. Like other ROM types, it retains contents even when powered off, but is slower in performance compared to other ROM types.\n\n**3.5.4 Cache Memory**\nA very high-speed and expensive memory used to speed up memory retrieval. Due to its high cost, cache is smaller than main memory. Without cache, every CPU data request would have to go to the (slower) main memory. Cache stores frequently accessed data to achieve faster response time (**Access Time** = how quickly memory responds to a read/write request). Arrangement: CPU ↔ (fast) Cache ↔ (slow) Main Memory.",
+      "nav": {
+        "back": "microprocessor-types",
+        "next": "secondary-storage",
+        "nextLabel": "Next: Secondary Storage Devices →"
+      }
+    },
+    {
+      "id": "secondary-storage",
+      "title": "Secondary Storage Devices",
+      "content": "**3.6 Secondary Storage Devices**\n\nMain memory is limited, expensive, and volatile, so **secondary storage devices** are used to store data and programs permanently. They are non-volatile and serve as backup storage.\n\n**3.6.1 Hard Disks** — Magnetic disks with a stacked arrangement of disks, accessed by a pair of heads per disk, available as single- or double-sided disks.\n\n**3.6.2 Compact Disc (CD)** — Made from 1.2mm thick polycarbonate plastic with a thin layer of aluminium or gold applied. Data is stored as tiny indentations (\"pits\") in a spiral track; areas between pits are \"lands.\" A motor rotates the disk for reading. Capacity of an ordinary CD-ROM is 700MB.\n\n**3.6.3 Digital Versatile Disc (DVD)** — An optical disc storing up to 4.7 GB — more than six times a CD's capacity — often used for movies at better quality, read with a laser like CDs. A DVD can have one or two sides and one or two layers per side; double-layered sides are usually gold-coloured, single-layered are silver.\n\n**3.6.4 Flash Memory Devices** — Electronic (solid-state) non-volatile storage that can be electrically erased and reprogrammed; either EEPROM or EPROM type. Examples: pendrives, memory cards. Used in PCs, PDAs, digital audio players, digital cameras, and mobile phones. Offers fast **access time** (time to read/write a character). Capacity ranges from 1 GB to 2 TB.\n\n**3.6.5 Blu-Ray Disc** — A high-density optical disc similar to a DVD, used for PlayStation games and High-Definition (HD) movies. A double-layer Blu-Ray disc stores up to 50 GB. DVD uses a red laser; Blu-Ray uses a blue-violet laser to write — hence the name \"Blu-Ray.\"",
+      "nav": {
+        "back": "memory-devices",
+        "next": "ports-interfaces",
+        "nextLabel": "Next: Ports and Interfaces →"
+      }
+    },
+    {
+      "id": "ports-interfaces",
+      "title": "Ports and Interfaces",
+      "content": "**3.7 Ports and Interfaces**\n\nThe motherboard has many I/O sockets connected to the ports and interfaces on the rear of the computer, allowing external devices to be connected. The various types of ports:\n\n- **Serial Port:** Connects external devices; found in old computers.\n- **Parallel Port:** Connects printers; found in old computers.\n- **USB Ports:** Connect external devices like cameras, scanners, mobile phones, external hard disks, and printers. USB 3.0 is the third major version of the Universal Serial Bus standard and can transfer data up to 5 GB/second. USB 3.1 and USB 3.2 are also released.\n- **VGA Connector:** Connects a monitor or display device like an LCD projector.\n- **Audio Plugs:** Connect sound speakers, microphones, and headphones.\n- **PS/2 Port:** Connects a mouse and keyboard to a PC.\n- **SCSI Port:** Connects hard disk drives and network connectors.\n- **HDMI (High Definition Multimedia Interface):** An audio/video interface that transfers uncompressed video and audio data from a video controller to a compatible monitor, LCD projector, or digital television. Variants include Micro HDMI and standard HDMI.",
+      "nav": {
+        "back": "secondary-storage",
+        "next": "summary",
+        "nextLabel": "Next: Points to Remember →"
+      }
+    },
+    {
+      "id": "summary",
+      "title": "Points to Remember",
+      "content": "- Computer Organisation deals with the hardware components of a computer and how they interconnect; Computer Architecture deals with the engineering considerations of designing a computer.\n- The microprocessor is made up of the ALU, Control Unit, and Registers.\n- Microprocessor performance depends on Clock Speed, Instruction Set, and Word Size.\n- MDR keeps data transferred between memory and CPU; MAR holds the memory address to be accessed; PC keeps the address of the next instruction.\n- Microprocessors are classified by data width (8/16/32/64-bit) and by instruction set (RISC/CISC).\n- RAM is volatile main memory (Dynamic RAM and Static RAM); ROM is non-volatile (PROM, EPROM, EEPROM are its programmable variants).\n- Cache memory is small, fast, and expensive, sitting between the CPU and main memory to speed up access.\n- Secondary storage devices (Hard Disk, CD, DVD, Flash Memory, Blu-Ray) are non-volatile and used for permanent storage.\n- Ports and interfaces (Serial, Parallel, USB, VGA, Audio, PS/2, SCSI, HDMI) connect external devices to the computer.",
+      "nav": {
+        "back": "ports-interfaces",
+        "practice": true
+      }
+    }
+  ]
+}

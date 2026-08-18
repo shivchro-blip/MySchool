@@ -1,0 +1,47 @@
+{
+  "chapterNumber": 8,
+  "title": "Presentation Basics",
+  "subject": "Computer Applications",
+  "classLabel": "Class 11",
+  "curriculum": "Samacheer Kalvi",
+  "sections": [
+    {
+      "id": "intro",
+      "title": "Introduction to Presentations",
+      "content": "A **presentation** is a collection of slides displayed in sequence to communicate information visually. Presentations are used in meetings, classrooms, conferences, and training sessions.\n\n**OpenOffice Impress** is the open-source presentation software in the OpenOffice suite. It is equivalent to Microsoft PowerPoint. The default file format is **.odp** (OpenDocument Presentation).\n\n**Starting Impress:**\n1. Start → All Programs → OpenOffice → OpenOffice Impress.\n2. Click the triangle next to the New icon on the main toolbar → select Presentation.\n3. File → New → Presentation.\n\nWhen Impress opens, the **Presentation Wizard** appears to help create a new presentation.\n\n**Tip:** Leave the Preview checkbox selected so templates, slide designs, and slide transitions appear in the preview box as you choose them. If you do not want the wizard every time, select \"Do not show this wizard again.\"",
+      "nav": {
+        "next": "creating",
+        "nextLabel": "Creating a Presentation →"
+      }
+    },
+    {
+      "id": "creating",
+      "title": "Creating a Presentation",
+      "content": "**Presentation Wizard (3 steps):**\n\n**Step 1 — Choose type:**\n- **Blank Presentation:** Start from scratch.\n- **From Template:** Use a pre-designed template (e.g., \"Introducing a New Product\", \"Recommendation of a Strategy\").\n- **Open existing presentation:** Continue working on a previously saved file.\n\n**Step 2 — Choose slide design:**\n- Select from Presentation Backgrounds (pre-packaged designs).\n- `<Original>` is an empty background.\n- Select output medium: **Screen** (for computer display — most common), Projector, Paper.\n\n**Step 3 — Choose slide transition:**\n- **Effect:** Type of transition between slides.\n- **Speed:** Slow, Medium (recommended), Fast.\n- Click **Create** to generate the new presentation.\n\n**Using a Template:** Wizard shows a list of available templates. Choose one → it opens with pre-designed slides and formatting.\n\n**Opening Existing Presentation:** Wizard shows previously saved files → select → Open.",
+      "nav": {
+        "back": "intro",
+        "next": "impress-window",
+        "nextLabel": "Impress Window →"
+      }
+    },
+    {
+      "id": "impress-window",
+      "title": "Parts of the Impress Window",
+      "content": "The main Impress window has **three main parts**: Slides pane, Workspace, and Task pane.\n\n---\n\n**1. Slides Pane (left panel)**\nContains thumbnail pictures of all slides in order of insertion. Operations available:\n- Click a slide to select it and display it in the Workspace.\n- Change the sequence (rearrange) slides.\n- Add new slides.\n- Mark a slide as hidden (won't appear in slide show).\n- Delete a slide.\n- Rename a slide.\n- Copy or move slide contents.\n- Change slide transition, design, or layout for selected slides.\n\nTo hide/show: View → Slide Pane.\n\n---\n\n**2. Task Pane (right panel)**\nHas five sections:\n\n**a) Master Pages:** Define the page/background style for your presentation. Impress has pre-packaged master pages (slide masters) — one blank, others with specific backgrounds.\n\n**b) Layout:** Pre-packaged layouts for slide content arrangement. Choose and apply to current slide. Custom layouts cannot be created.\n\n**c) Table Design:** Standard table styles for tables inserted in slides.\n\n**d) Custom Animation:** Add, modify, or remove animations for individual elements on a slide.\n\n**e) Slide Transition:** Set transitions between slides. Options: transition type, speed (slow/medium/fast), automatic or manual transition, duration.\n\nTo hide/show Task Pane: View → Task Pane/Side bar.\n\n---\n\n**3. Workspace (centre)**\nThe main editing area. Has five **View Buttons** (tabs):\n\n| View | Purpose |\n|------|---------|\n| **Normal** | Main view for creating/editing individual slides. Add text, graphics, animations. |\n| **Outline** | Shows slide titles and bullet points in outline format. Rearrange slides, edit headings. |\n| **Notes** | Add speaker notes to each slide (not visible during slide show). |\n| **Slide Sorter** | Thumbnail view of all slides. Rearrange order, set timings, add transitions. |\n| **Handout** | Layout for printing slides as handouts (1, 2, 3, 4, or 6 slides per page). |\n\n---\n\n**Window Elements (same as Writer):**\n- **Title Bar:** File name and application.\n- **Menu Bar:** File, Edit, View, Insert, Format, Tools, Slide Show, Window, Help.\n- **Toolbar:** Standard and Formatting toolbars.\n- **Ruler Bar:** Horizontal and vertical rulers.\n- **Scroll Bar:** Scroll through slides.\n- **Status Bar:** Information about the current file (view with View → Status Bar).\n- **Navigator (Ctrl+Shift+F5):** Lists all objects in the presentation; helps navigate and rename objects.",
+      "nav": {
+        "back": "creating",
+        "next": "working-slides",
+        "nextLabel": "Working with Slides →"
+      }
+    },
+    {
+      "id": "working-slides",
+      "title": "Working with Slides",
+      "content": "**Creating the First Slide:**\n1. In Normal view, click \"Click to add title\" → type the title.\n2. Press F11 to adjust title formatting (right-click → Modify).\n3. If using Title Slide layout, click \"Click to add text\" to add a subtitle.\n\n**Inserting Additional Slides:**\n- Insert → Slide.\n- Right-click on current slide → Slide → New Slide.\n- Right-click in empty space after the last slide → New Slide.\n- Click the Slide icon in the Presentation toolbar.\n\nAfter inserting: select a layout from the Task Pane → modify elements (remove unneeded items, add pictures, insert text).\n\n**Best Practice:** Insert all slides first, then add special effects (animation, transitions).\n\n**Deleting a Slide:**\n- Select the slide → Edit → Delete Slide.\n- Or right-click the slide → Delete Slide.\n- Can also be done in Slide Sorter view (delete multiple slides at once).\n\n**Rearranging Slides:**\n- Select slide → drag to desired position → release.\n- Can also be done in Slide Sorter view.\n\n**Running the Slide Show:**\n- Slide Show → Slide Show from menu bar.\n- Click the Slide Show button on the Presentation toolbar.\n- Press **F5** (from beginning) or **F9**.\n- If transition is \"Automatically after x seconds\" — the show runs automatically.\n- If transition is \"On mouse click\" — click to advance each slide.\n- Press **Esc** to exit the slide show.",
+      "nav": {
+        "back": "impress-window",
+        "practice": true
+      }
+    }
+  ]
+}

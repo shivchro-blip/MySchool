@@ -1,0 +1,239 @@
+{
+  "meta": {
+    "subject": "Computer Science -- Class XI",
+    "unit": "Chapter 17 -- Computer Ethics and Cyber Security",
+    "time": "2.30 hrs",
+    "totalMarks": 47,
+    "instructions": "Samacheer Kalvi -- Answer all questions"
+  },
+  "parts": [
+    {
+      "id": "p1",
+      "navLabel": "Part I -- MCQ (8 x 1)",
+      "title": "Part I -- Choose the Correct Answer",
+      "type": "mcq",
+      "scoreMax": 8,
+      "marksPer": 1,
+      "sections": [
+        {
+          "label": "Computer Ethics and Cyber Security",
+          "questions": [
+            {
+              "id": "q1",
+              "html": "Which of the following deals with procedures, practices and values?",
+              "options": [
+                "a) piracy",
+                "b) programs",
+                "c) virus",
+                "d) computer ethics"
+              ],
+              "answer": 3,
+              "hint": "Computer ethics deals with the procedures, values, and practices governing the use of computer technology."
+            },
+            {
+              "id": "q2",
+              "html": "Commercial programs made available to the public illegally are known as:",
+              "options": [
+                "a) freeware",
+                "b) warez",
+                "c) free software",
+                "d) software"
+              ],
+              "answer": 1,
+              "hint": "Illegally distributed commercial programs are commonly called Warez."
+            },
+            {
+              "id": "q3",
+              "html": "Which one of the following is self-repeating and does not require a program to attach itself to?",
+              "options": [
+                "a) viruses",
+                "b) worms",
+                "c) spyware",
+                "d) Trojans"
+              ],
+              "answer": 1,
+              "hint": "Worms are self-repeating/self-replicating and spread independently, unlike viruses which need to attach to a host program."
+            },
+            {
+              "id": "q4",
+              "html": "Which one of the following tracks the websites a user visits?",
+              "options": [
+                "a) spyware",
+                "b) cookies",
+                "c) worms",
+                "d) Trojans"
+              ],
+              "answer": 1,
+              "hint": "Cookies are small data files that record browsing activity and site visits."
+            },
+            {
+              "id": "q5",
+              "html": "A computer network security system that monitors and controls incoming/outgoing traffic is a:",
+              "options": [
+                "a) Cookie",
+                "b) Virus",
+                "c) Firewall",
+                "d) Worm"
+              ],
+              "answer": 2,
+              "hint": "A firewall monitors and controls network traffic based on predefined security rules."
+            },
+            {
+              "id": "q6",
+              "html": "The process of converting cipher text to plain text is called:",
+              "options": [
+                "a) Encryption",
+                "b) Decryption",
+                "c) Key",
+                "d) Proxy server"
+              ],
+              "answer": 1,
+              "hint": "Decryption is the reverse of encryption — converting cipher-text back into readable plaintext."
+            },
+            {
+              "id": "q7",
+              "html": "Distributing unwanted e-mail to others is called:",
+              "options": [
+                "a) scam",
+                "b) spam",
+                "c) fraud",
+                "d) spoofing"
+              ],
+              "answer": 1,
+              "hint": "Sending unwanted bulk e-mail to internet users is called spam."
+            },
+            {
+              "id": "q8",
+              "html": "Legal recognition for transactions carried out by electronic means is provided by:",
+              "options": [
+                "a) Electronic Data Interchange",
+                "b) Electronic Data Exchange",
+                "c) Electronic Data Transfer",
+                "d) Electrical Data Interchange"
+              ],
+              "answer": 0,
+              "hint": "The IT Act 2000 provides legal recognition for transactions carried out via Electronic Data Interchange (EDI)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "navLabel": "Part II -- Very Short Answers (5 x 2)",
+      "title": "Part II -- Very Short Answers",
+      "type": "short_answer",
+      "scoreMax": 10,
+      "marksPer": 2,
+      "sections": [
+        {
+          "label": "Very Short Answers",
+          "questions": [
+            {
+              "id": "q9",
+              "html": "What is harvesting?",
+              "answer": "Harvesting is a cyber crime where a person or program collects login and password information from a legitimate user in order to illegally gain access to that person's account(s).",
+              "hint": "Collecting login/password info from a legitimate user to illegally access their account(s)."
+            },
+            {
+              "id": "q10",
+              "html": "What are Warez?",
+              "answer": "Warez is the term used for commercial programs that are made available to the public illegally, in violation of the software's copyright.",
+              "hint": "Illegally distributed commercial software."
+            },
+            {
+              "id": "q11",
+              "html": "Write a short note on cracking.",
+              "answer": "Cracking is where someone edits a program's source so that its code can be exploited or modified, in order to get into computer systems to steal, corrupt, or illegitimately view data. A cracker (also called a black hat or dark side hacker) is a malicious/criminal hacker who breaks into someone else's computer system, often bypassing passwords or software licenses.",
+              "hint": "Editing/exploiting program code to break into systems and steal/corrupt/view data illegitimately; done by a 'cracker' (malicious hacker)."
+            },
+            {
+              "id": "q12",
+              "html": "Write two types of cyber attacks.",
+              "answer": "Two types of cyber attacks are: (1) Phishing — attacking to steal user data like login names, passwords, and credit card numbers by tricking victims into opening malicious emails/links; (2) Pharming — a scamming practice that installs malicious code to redirect users to fraudulent websites without their knowledge.",
+              "hint": "Any two of: Phishing (steals login/data via deceptive emails), Pharming (redirects to fake sites), Man-In-The-Middle attack."
+            },
+            {
+              "id": "q13",
+              "html": "What is a Cookie?",
+              "answer": "A cookie is a small piece of data sent from a website and stored on a user's computer by their web browser while browsing the internet. It is designed to remember stateful information (like shopping cart items) or record browsing activity. Cookies are not inherently malicious — they are simple text files that can be deleted, and cannot spread viruses or access the hard drive directly.",
+              "hint": "Small data file stored by a browser to remember stateful info/browsing activity — not malicious by itself, but can hold personal data."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "navLabel": "Part III -- Short Answers (3 x 3)",
+      "title": "Part III -- Short Answers",
+      "type": "brief_answer",
+      "scoreMax": 9,
+      "marksPer": 3,
+      "sections": [
+        {
+          "label": "Short Answers",
+          "questions": [
+            {
+              "id": "q14",
+              "html": "What is the role of firewalls?",
+              "answer": "A firewall is a computer network security system that monitors and controls incoming and outgoing network traffic, based on predefined security rules. Its role is to establish a block/barrier between a trusted internal computer network and an untrusted external network (such as the internet) — permitting requests from trusted users while denying unauthorized or suspicious requests, thereby protecting the internal network from external threats.",
+              "hint": "Monitors and controls network traffic using security rules; blocks untrusted external access while permitting trusted internal traffic."
+            },
+            {
+              "id": "q15",
+              "html": "Write about encryption and decryption.",
+              "answer": "Encryption and decryption are processes that ensure confidentiality — only authorized persons can access the information. Encryption is the process of translating plain text data (plaintext) into random, unreadable data called cipher-text. Decryption is the reverse process, converting cipher-text back into readable plaintext. Both are performed through cryptography, using a 'key' — a piece of information that determines the functional output of the cryptographic algorithm. Encryption is widely used to protect data transmitted across networks, such as the internet, mobile communications, and bank ATMs.",
+              "hint": "Encryption: plaintext→cipher-text (unreadable). Decryption: cipher-text→plaintext. Both use cryptography and a 'key'; ensures confidentiality."
+            },
+            {
+              "id": "q16",
+              "html": "Explain about proxy server.",
+              "answer": "A proxy server acts as an intermediary between end users and a web server. A client connects to the proxy server requesting some service — such as a file, connection, web page, or other resource from a different server. The proxy server examines the request, checks its authenticity, and grants the request based on that check. Proxy servers typically keep frequently visited site addresses in their cache, which leads to improved response times for users.",
+              "hint": "Intermediary between client and web server — checks/forwards requests, caches frequently visited sites for faster response."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "navLabel": "Part IV -- Explain in Detail (4 x 5)",
+      "title": "Part IV -- Explain in Detail",
+      "type": "long_essay",
+      "scoreMax": 20,
+      "marksPer": 5,
+      "sections": [
+        {
+          "label": "Long Answers",
+          "questions": [
+            {
+              "id": "q17",
+              "html": "What are the various crimes happening using computers?",
+              "answer": "Various computer crimes include:\n\n1. Cyber Terrorism: Hacking, threats, and blackmailing towards a business or a person.\n2. Cyber Stalking: Harassing another person through online means.\n3. Malware: Malicious programs that steal, encrypt, or delete sensitive data, hijack core computing functions, or monitor a user's activity without permission.\n4. Denial of Service Attack: Overloading a system with fake requests so it cannot serve normal, legitimate requests.\n5. Fraud: Manipulating data — e.g., altering banking records to transfer money to an unauthorized account.\n6. Harvesting: Collecting login and password information from a legitimate user to illegally access their account(s).\n7. Identity Theft: Impersonating individuals, usually for financial gain.\n8. Intellectual Property Theft: Stealing practical or conceptual information developed by another person or company.\n9. Salami Slicing: Stealing tiny amounts of money from each of many transactions.\n10. Scam: Tricking people into believing something that is not true.\n11. Spam: Distributing unwanted e-mail to a large number of internet users.\n12. Spoofing: Sending communication from an unknown source disguised as a source known to the receiver.\n\nThese crimes collectively threaten the integrity, safety, and survival of individuals and business systems relying on computers and the internet.",
+              "hint": "List and briefly describe as many as possible: Cyber Terrorism, Cyber Stalking, Malware, DoS attack, Fraud, Harvesting, Identity Theft, IP Theft, Salami Slicing, Scam, Spam, Spoofing."
+            },
+            {
+              "id": "q18",
+              "html": "What is piracy? Mention the types of piracy. How can it be prevented?",
+              "answer": "Software Piracy is the copyright violation of software created originally by an individual or institution — it includes stealing codes/programs and other information illegally, and creating duplicate copies by unauthorized means for personal benefit or commercial profit. In simple words, it is 'unauthorized copying of software.'\n\nTypes/forms include: duplicating and selling copyrighted programs, and downloading software illegally through a network.\n\nAn alternative honesty-based model is Shareware, where publishers allow free sharing of copies but ask regular users to pay a registration fee directly to the program's author. Illegally distributed commercial programs are called Warez.\n\nPrevention: Software piracy can be prevented/reduced using tools like Firewalls, Intrusion Detection Systems (IDS), Virus and Content Scanners, and applying regular Patches and Hot fixes to close security vulnerabilities that pirates might otherwise exploit.",
+              "hint": "Definition: unauthorized copying of copyrighted software. Types: duplicating/selling copies, illegal downloading. Prevention: Firewalls, IDS, virus/content scanners, patches/hot fixes."
+            },
+            {
+              "id": "q19",
+              "html": "Write about the different types of cyber attacks.",
+              "answer": "The different types of cyber attacks/threats include:\n\n1. Phishing: A crime that attacks and steals user data (login names, passwords, credit card numbers) by tricking a victim into opening a malicious email or instant message containing harmful links or attachments that extract sensitive credentials. Can lead to fraud or identity theft — users should always be cautious opening emails/attachments.\n\n2. Pharming: A scamming practice where malicious code is installed on a computer or server, misdirecting users to fraudulent websites without their knowledge or permission — called 'phishing without a trap.' It redirects a website's traffic to a fake site, and can also lead to fraud or identity theft.\n\n3. Man-In-The-Middle (MITM) Attack: The attacker secretly relays and possibly alters communication between two parties who believe they are directly communicating with each other. For example, if Alice wants to communicate with Bob, an attacker (Mallory) intercepts the conversation to overhear it and optionally deliver a false message to Bob.\n\n4. Malware: Software designed to let criminals gain illegal access to systems and cause damage — a broad category covering many malicious program types.\n\nEach of these threats requires specific countermeasures (like being cautious with emails, verifying website authenticity, and using encryption for sensitive communications) to reduce their risk.",
+              "hint": "Cover Phishing, Pharming, Man-In-The-Middle (MITM) attack, and Malware — a definition plus a short example/consequence for each."
+            },
+            {
+              "id": "q20",
+              "html": "Explain encryption, decryption, and their importance in cyber security.",
+              "answer": "Encryption is the process of translating plain, readable text (plaintext) into random, unreadable data called cipher-text, so that unauthorized parties cannot understand it if intercepted. Decryption is the reverse process — converting the cipher-text back into its original readable plaintext form, but only by authorized parties who possess the correct decryption key. Both processes are carried out through cryptography, where a 'key' is a piece of information (a parameter) that determines the specific output of the cryptographic algorithm used.\n\nImportance in cyber security: Encryption ensures CONFIDENTIALITY, guaranteeing that only authorized persons can access sensitive information, even if data is intercepted during transmission. It has historically been used by militaries and governments for secret communication, and is now widely used in civilian systems to protect data transferred across networks (like the Internet and e-commerce transactions), mobile telephones, wireless microphones, wireless intercom systems, Bluetooth devices, and bank ATMs. Given numerous reports of intercepted communications in recent years, encrypting data during network transmission is essential to protect against unauthorized users monitoring network traffic — making encryption and decryption fundamental tools for maintaining privacy and security in the digital world.",
+              "hint": "Encryption = plaintext→cipher-text; Decryption = reverse, using a key via cryptography. Importance: ensures confidentiality, protects data across networks/mobile/ATMs from interception by unauthorized users."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,339 @@
+{
+  "meta": {
+    "subject": "Computer Science -- Class XII",
+    "unit": "Chapter 2 -- Data Abstraction",
+    "time": "3.00 hrs",
+    "totalMarks": 49,
+    "instructions": "Samacheer Kalvi -- Answer all questions"
+  },
+  "parts": [
+    {
+      "id": "p1",
+      "navLabel": "Part I -- MCQ (20 x 1)",
+      "title": "Part I -- Objective Type",
+      "type": "mcq",
+      "scoreMax": 20,
+      "marksPer": 1,
+      "sections": [
+        {
+          "label": "Data Abstraction",
+          "questions": [
+            {
+              "id": "q1",
+              "html": "Which of the following functions build the abstract data type?",
+              "options": [
+                "a) Constructors",
+                "b) Destructors",
+                "c) Recursive",
+                "d) Nested"
+              ],
+              "answer": 0,
+              "hint": "Constructors build/create the abstract data type."
+            },
+            {
+              "id": "q2",
+              "html": "Which of the following functions retrieve information from the data type?",
+              "options": [
+                "a) Constructors",
+                "b) Selectors",
+                "c) Recursive",
+                "d) Nested"
+              ],
+              "answer": 1,
+              "hint": "Selectors extract/retrieve information from a data type."
+            },
+            {
+              "id": "q3",
+              "html": "The data structure which is a mutable ordered sequence of elements is called:",
+              "options": [
+                "a) Built in",
+                "b) List",
+                "c) Tuple",
+                "d) Derived data"
+              ],
+              "answer": 1,
+              "hint": "A List is mutable — its elements can be changed."
+            },
+            {
+              "id": "q4",
+              "html": "A sequence of immutable objects is called:",
+              "options": [
+                "a) Built in",
+                "b) List",
+                "c) Tuple",
+                "d) Derived data"
+              ],
+              "answer": 2,
+              "hint": "A Tuple's elements cannot be changed once assigned."
+            },
+            {
+              "id": "q5",
+              "html": "The data type whose representation is known is called:",
+              "options": [
+                "a) Built in datatype",
+                "b) Derived datatype",
+                "c) Concrete datatype",
+                "d) Abstract datatype"
+              ],
+              "answer": 2,
+              "hint": "A concrete data type has a known representation."
+            },
+            {
+              "id": "q6",
+              "html": "The data type whose representation is unknown is called:",
+              "options": [
+                "a) Built in datatype",
+                "b) Derived datatype",
+                "c) Concrete datatype",
+                "d) Abstract datatype"
+              ],
+              "answer": 3,
+              "hint": "An abstract data type's representation is unknown/hidden."
+            },
+            {
+              "id": "q7",
+              "html": "Which of the following is a compound structure?",
+              "options": [
+                "a) Pair",
+                "b) Triplet",
+                "c) single",
+                "d) quadrat"
+              ],
+              "answer": 0,
+              "hint": "A Pair is the compound structure discussed, made up of List or Tuple."
+            },
+            {
+              "id": "q8",
+              "html": "Bundling two values together into one can be considered as:",
+              "options": [
+                "a) Pair",
+                "b) Triplet",
+                "c) single",
+                "d) quadrat"
+              ],
+              "answer": 0,
+              "hint": "This is exactly the definition of a pair."
+            },
+            {
+              "id": "q9",
+              "html": "Which of the following allows naming the various parts of a multi-item object?",
+              "options": [
+                "a) Tuples",
+                "b) Lists",
+                "c) Classes",
+                "d) quadrats"
+              ],
+              "answer": 2,
+              "hint": "Classes (structures) allow named fields, unlike lists/tuples which rely on index position."
+            },
+            {
+              "id": "q10",
+              "html": "Which of the following is constructed by placing expressions within square brackets?",
+              "options": [
+                "a) Tuples",
+                "b) Lists",
+                "c) Classes",
+                "d) quadrats"
+              ],
+              "answer": 1,
+              "hint": "Lists use square brackets [ ]."
+            },
+            {
+              "id": "q11",
+              "html": "In city := makecity(name, lat, lon), makecity() is a:",
+              "options": [
+                "a) Selector",
+                "b) Constructor",
+                "c) Destructor",
+                "d) Modifier"
+              ],
+              "answer": 1,
+              "hint": "makecity() builds/creates the city object — a constructor."
+            },
+            {
+              "id": "q12",
+              "html": "getlat(city) and getlon(city) are examples of:",
+              "options": [
+                "a) Constructors",
+                "b) Selectors",
+                "c) Modifiers",
+                "d) Destructors"
+              ],
+              "answer": 1,
+              "hint": "These functions extract information from the city object — selectors."
+            },
+            {
+              "id": "q13",
+              "html": "A rational number like 8/3 is exactly represented using:",
+              "options": [
+                "a) A single float variable",
+                "b) Numerator and denominator combined",
+                "c) Only the numerator",
+                "d) Only the denominator"
+              ],
+              "answer": 1,
+              "hint": "Combining numerator and denominator preserves exact precision, unlike direct float division."
+            },
+            {
+              "id": "q14",
+              "html": "'Wishful thinking' in program design refers to:",
+              "options": [
+                "a) Ignoring the problem entirely",
+                "b) Assuming constructors/selectors exist before defining their implementation",
+                "c) Testing code randomly",
+                "d) Writing code without any plan"
+              ],
+              "answer": 1,
+              "hint": "Wishful thinking lets you start programming productively assuming parts you haven't implemented yet already work."
+            },
+            {
+              "id": "q15",
+              "html": "In Python, the compound structure called Pair is implemented using:",
+              "options": [
+                "a) Only Dictionaries",
+                "b) List or Tuple",
+                "c) Only Sets",
+                "d) Only Strings"
+              ],
+              "answer": 1,
+              "hint": "Pairs can be implemented via List or Tuple constructs."
+            },
+            {
+              "id": "q16",
+              "html": "lst := [10, 20]; x, y := lst — after this, x and y are:",
+              "options": [
+                "a) x=20, y=10",
+                "b) x=10, y=20",
+                "c) x=y=10",
+                "d) x=y=20"
+              ],
+              "answer": 1,
+              "hint": "Multiple assignment unpacks the list in order: x=10, y=20."
+            },
+            {
+              "id": "q17",
+              "html": "The class construct in pseudo code is equivalent to which construct in OOP languages?",
+              "options": [
+                "a) Function construct",
+                "b) Class construct",
+                "c) Loop construct",
+                "d) Array construct"
+              ],
+              "answer": 1,
+              "hint": "The pseudo-code 'structure' construct maps directly to the 'class' construct in OOP languages."
+            },
+            {
+              "id": "q18",
+              "html": "An instance of a class (like p1 for class Person) is also referred to as a(n):",
+              "options": [
+                "a) Type",
+                "b) Object",
+                "c) Interface",
+                "d) Selector"
+              ],
+              "answer": 1,
+              "hint": "An instance of a class is called an object."
+            },
+            {
+              "id": "q19",
+              "html": "A class can be defined as:",
+              "options": [
+                "a) Only functions, no data",
+                "b) Bundled data and the functions that work on that data",
+                "c) Only data, no functions",
+                "d) A single variable"
+              ],
+              "answer": 1,
+              "hint": "A class bundles data together with the functions that operate on it."
+            },
+            {
+              "id": "q20",
+              "html": "colour = ('red', 'blue', 'Green') is an example of a:",
+              "options": [
+                "a) List",
+                "b) Tuple",
+                "c) Dictionary",
+                "d) Set"
+              ],
+              "answer": 1,
+              "hint": "Values in parentheses, comma-separated, form a Tuple."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "navLabel": "Part II -- Short Answers (5 x 2)",
+      "title": "Part II -- Short Answer Questions",
+      "type": "short-essay",
+      "scoreMax": 10,
+      "marksPer": 2,
+      "instruction": "Answer all of the following in two or three sentences.",
+      "questions": [
+        {
+          "q": "What is abstract data type?",
+          "ans": "An Abstract Data Type (ADT) is a type for objects whose behaviour is defined by a set of values and a set of operations. It only specifies WHAT operations are performed, not HOW they are implemented, giving an implementation-independent view."
+        },
+        {
+          "q": "Differentiate constructors and selectors.",
+          "ans": "Constructors are functions that build the abstract data type, bundling together different pieces of information into an object. Selectors are functions that retrieve information from that data type, extracting individual pieces of information from the object."
+        },
+        {
+          "q": "What is a Pair? Give an example.",
+          "ans": "A Pair is a compound data type that holds two other pieces of data — any way of bundling two values together into one can be considered a pair. Example: nums := (1, 2) is a pair represented as a tuple, where nums[0]=1 and nums[1]=2."
+        },
+        {
+          "q": "What is a List? Give an example.",
+          "ans": "A List is constructed by placing expressions within square brackets, separated by commas — it can store multiple values of any type, and elements can be changed after creation. Example: lst := [10, 20]."
+        },
+        {
+          "q": "What is a Tuple? Give an example.",
+          "ans": "A Tuple is a comma-separated sequence of values surrounded with parentheses, similar to a list, but its elements CANNOT be changed once assigned. Example: colour = ('red', 'blue', 'Green')."
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "navLabel": "Part III -- Brief Answers (3 x 3)",
+      "title": "Part III -- Brief Answer Questions",
+      "type": "short-essay",
+      "scoreMax": 9,
+      "marksPer": 3,
+      "instruction": "Answer all of the following in about 50-75 words.",
+      "questions": [
+        {
+          "q": "Differentiate Concrete data type and Abstract data type.",
+          "ans": "A Concrete data type (CDT) is a data type whose representation is known — it is a direct implementation of a relatively simple concept, specifying exactly how data is organised in memory. An Abstract data type (ADT), in contrast, has an unknown/hidden representation — it offers a high-level view of a concept independent of its implementation, specifying only what operations can be performed, not how they work internally."
+        },
+        {
+          "q": "Which strategy is used for program designing? Define that strategy.",
+          "ans": "The strategy used is 'Wishful Thinking' — the formation of beliefs and decisions according to what might be pleasing to imagine, rather than by appealing to strict present reality. In program design, this means assuming you already have working constructors and selectors (or other components) before you've actually implemented them, allowing you to start programming productively on the higher-level logic first."
+        },
+        {
+          "q": "What are the different ways to access the elements of a list? Give an example.",
+          "ans": "There are two ways: (1) Multiple assignment — unpacks a list into its elements, binding each to a different name, e.g., lst:=[10,20]; x,y:=lst gives x=10, y=20. (2) Element selection operator — a square-bracket expression directly after another expression selects a specific element by index, e.g., lst[0] gives 10, lst[1] gives 20."
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "navLabel": "Part IV -- Long Essays (2 x 5)",
+      "title": "Part IV -- Long Essay Questions",
+      "type": "long-essay",
+      "scoreMax": 10,
+      "marksPer": 5,
+      "instruction": "Answer all of the following in about 100-150 words.",
+      "questions": [
+        {
+          "q": "How will you facilitate data abstraction? Explain with a suitable example.",
+          "ans": "Data abstraction is facilitated by creating two types of functions: constructors (which build the abstract data type) and selectors (which retrieve information from it). This allows the rest of the program to operate on abstract data without needing to know how it's actually represented internally.\n\nExample — City ADT: A constructor city := makecity(name, lat, lon) creates a city object bundling its name, latitude, and longitude. Selectors getname(city), getlat(city), and getlon(city) then extract each piece of information as needed. A function like distance(city1, city2) can then be written purely in terms of these constructor/selector calls — using getlat() and getlon() to retrieve coordinates — without ever needing to know HOW a city object is actually stored in memory. This separation is the essence of data abstraction: the 'wishful thinking' strategy lets us write distance() before even deciding how makecity() itself will be implemented."
+        },
+        {
+          "q": "What is a List? Why can a List be called a Pair? Explain with a suitable example.",
+          "ans": "A List is constructed by placing expressions within square brackets, separated by commas — such an expression is called a list literal. A list can store multiple values of any type (even other lists), and its elements can be modified after creation.\n\nA List can be called a Pair because any way of bundling two (or more) values together into one unit can be considered a pair, and lists are a common way to achieve exactly this bundling. For example, lst := [10, 20] bundles the two values 10 and 20 together as a single list — this list can be used to represent a pair, just as a tuple could. Applying this idea, a rational number (numerator, denominator) can be represented as a pair using a list: rational(n,d): return [n,d]; numer(x): return x[0]; denom(x): return x[1] — here the list [n,d] IS the pair holding both parts of the rational number together."
+        }
+      ]
+    }
+  ]
+}

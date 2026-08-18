@@ -1,0 +1,208 @@
+{
+  "meta": {
+    "subject": "Computer Applications -- Class XII",
+    "unit": "Chapter 14 -- Open Source Concepts",
+    "time": "3.00 hrs",
+    "totalMarks": 38,
+    "instructions": "Samacheer Kalvi -- Answer all questions"
+  },
+  "parts": [
+    {
+      "id": "p1",
+      "navLabel": "Part I -- MCQ (10 x 1)",
+      "title": "Part I",
+      "type": "mcq",
+      "scoreMax": 10,
+      "marksPer": 1,
+      "sections": [
+        {
+          "label": "Open Source",
+          "questions": [
+            {
+              "id": "q1",
+              "html": "If the source code of a software is freely accessible by the public, then it is known as:",
+              "options": [
+                "a) Freeware",
+                "b) Firmware",
+                "c) Open source",
+                "d) Public source"
+              ],
+              "answer": 2,
+              "hint": "Open source software = source code freely available for users or developers to use and modify."
+            },
+            {
+              "id": "q2",
+              "html": "Which of the following is a software program that replicates the functioning of a computer network?",
+              "options": [
+                "a) Network software",
+                "b) Network simulation",
+                "c) Network testing",
+                "d) Network calculator"
+              ],
+              "answer": 1,
+              "hint": "Network simulation is a method where a software program replicates the functioning of a computer network."
+            },
+            {
+              "id": "q3",
+              "html": "Which of the following can document every incident that happened in the simulation?",
+              "options": [
+                "a) Net Exam",
+                "b) Network hardware",
+                "c) Trace file",
+                "d) Net document"
+              ],
+              "answer": 2,
+              "hint": "Trace files document every incident that happened in the simulation and are used for examination."
+            },
+            {
+              "id": "q4",
+              "html": "Which is an example of a network simulator?",
+              "options": [
+                "a) Simulator",
+                "b) TCL",
+                "c) NS2",
+                "d) C++"
+              ],
+              "answer": 2,
+              "hint": "NS2 (Network Simulator version 2) is an event-driven open-source network simulator."
+            },
+            {
+              "id": "q5",
+              "html": "Which languages are used to build NS2?",
+              "options": [
+                "a) UNIX & TCL",
+                "b) UNIX & C++",
+                "c) C++ & OTcl",
+                "d) C++ & NS2"
+              ],
+              "answer": 2,
+              "hint": "NS2 uses C++ and OTcl (Object-oriented Tool Command Language). They are linked using TclCL."
+            },
+            {
+              "id": "q6",
+              "html": "Which of the following is NOT a network simulation software?",
+              "options": [
+                "a) NS2",
+                "b) OPNET",
+                "c) SSFNet",
+                "d) C++"
+              ],
+              "answer": 3,
+              "hint": "C++ is a programming language, not a network simulation software. NS2, OPNET, and SSFNet are all simulators."
+            },
+            {
+              "id": "q7",
+              "html": "Which of the following is open source network monitoring software?",
+              "options": [
+                "a) C++",
+                "b) OPNET",
+                "c) OpenNMS",
+                "d) OMNet++"
+              ],
+              "answer": 2,
+              "hint": "OpenNMS is the world's first open-source network management and monitoring software."
+            },
+            {
+              "id": "q8",
+              "html": "OpenNMS was released in:",
+              "options": [
+                "a) 1999",
+                "b) 2000",
+                "c) 2003",
+                "d) 2004"
+              ],
+              "answer": 0,
+              "hint": "OpenNMS was first released in 1999. OpenNMS Group was created in 2004."
+            },
+            {
+              "id": "q9",
+              "html": "BOSS stands for:",
+              "options": [
+                "a) Bharat Operating System Solutions",
+                "b) Basic Open Source Software",
+                "c) Bharat Open Source System",
+                "d) Basic Operating System Solutions"
+              ],
+              "answer": 0,
+              "hint": "BOSS = Bharat Operating System Solutions, developed by C-DAC in India. Supports many Indian languages."
+            },
+            {
+              "id": "q10",
+              "html": "The term Open Source was developed by the Open Source Initiative, which was founded:",
+              "options": [
+                "a) A decade before Free Software",
+                "b) A decade after Free Software",
+                "c) At the same time as Free Software",
+                "d) In 1975"
+              ],
+              "answer": 1,
+              "hint": "Free Software concept = 1980s by Richard Stallman. Open Source Initiative = a decade later (1990s). OSS places more emphasis on modification and licensing."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "navLabel": "Part II -- Short Answers (4 x 2)",
+      "title": "Part II",
+      "type": "short-essay",
+      "scoreMax": 8,
+      "marksPer": 2,
+      "questions": [
+        {
+          "q": "What is Open Source Software?",
+          "ans": "Open Source Software (OSS) refers to software whose source code is freely available for users or other developers to use, modify, and make changes to the original repository (or fork it to build a new one). OSS is usually created and updated by many programmers around the world and made freely accessible. Unlike proprietary software (owned by an organization, source code not shared), OSS allows anyone to view, modify, and distribute the source code."
+        },
+        {
+          "q": "What is meant by a network simulator?",
+          "ans": "A network simulator is a software program that replicates the functioning of a computer network. In simulators, the computer network is typically demonstrated with devices, traffic, etc., and performance is evaluated. Users can adapt the simulator to accomplish their analysis needs. The network parameters that define the state of the network (node placement, existing links) and events (data transmissions, link failures) are specified. A significant output of simulation is trace files — documents that record every incident that happened in the simulation."
+        },
+        {
+          "q": "What is a trace file?",
+          "ans": "A trace file is a significant output of network simulation. Trace files can document every incident that happened in the simulation and are used for examination and analysis. Trace files record: packet transmissions, link failures, node movements, and all network events that occurred during the simulation. They help researchers and engineers analyze network behaviour, identify problems, and optimize network performance."
+        },
+        {
+          "q": "Write short notes on NS2.",
+          "ans": "NS2 stands for Network Simulator version 2. It was designed explicitly for exploration in network communication. NS2 is an event-driven open-source network simulator. Languages used: OTCL (Object-oriented Tool Command Language) and C++. NS2 works on Windows and Linux platforms. It supports both wired and wireless networks. Uses command line interface as a user interface. API is a pure event-based software tool with super simulation design. It has many models to help users get desired output easily. Its important output is trace files."
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "navLabel": "Part III -- Brief Answers (2 x 3)",
+      "title": "Part III",
+      "type": "short-essay",
+      "scoreMax": 6,
+      "marksPer": 3,
+      "questions": [
+        {
+          "q": "List the Popular Open Source Software.",
+          "ans": "Popular Open Source Software:\n1. Operating Systems: Ubuntu, Android, Linux\n2. Network Tools: NS2 (network simulator), OpenNMS (network monitoring)\n3. Database: MySQL\n4. Office Applications: Open Office, LibreOffice\n5. File Management: 7zip, PDF Creator\n6. Accounting: GNUCASH\n7. Graphics: GIMP, Blender\n8. Audio: Audacity\n9. Media Player: VLC Media Player\n10. Web Browser: Mozilla Firefox\n11. E-Commerce: Magento\n12. Programming: PHP\nAll these are freely available, and their source code can be viewed, modified, and distributed."
+        },
+        {
+          "q": "What are the uses of Open Source Network Software?",
+          "ans": "Open Source Network Software is needed because in a network, especially when many systems are connected, it is not easy to find problems. Network complexity increases with more systems. We need Network Software to:\n1. Control the server and systems.\n2. Analyse the server performance.\n3. Monitor protocol, network, and traffic flow.\n4. Generate reports about ups and downs of network parts.\n5. Network monitoring software sends notifications to the administrator about errors, allowing them to be fixed quickly.\n6. OpenNMS is an example — it monitors thousands of devices from a single server and provides Event Management, Discovery & Provisioning, Service Monitoring, and Data Collection."
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "navLabel": "Part IV -- Long Essays (2 x 7)",
+      "title": "Part IV",
+      "type": "long-essay",
+      "scoreMax": 14,
+      "marksPer": 7,
+      "questions": [
+        {
+          "q": "Differentiate Proprietary and Open Source Software.",
+          "ans": "Open Source Software (OSS):\n- Source code is freely available for anyone to view, modify, and distribute.\n- Created and updated by many programmers worldwide.\n- Free to use without restrictions.\n- Users can share ideas and code with the community.\n- Problems quickly fixed by group effort.\n- Can add required features.\n- Examples: Ubuntu, VLC, Mozilla Firefox, MySQL, LibreOffice.\n- Disadvantages: Can be difficult for beginners, hardware compatibility issues, sometimes lack of responsibility/service.\n\nProprietary Software:\n- Owned by an organization or individual.\n- Source code is NOT made available to users or developers.\n- Makers have not allowed users to view or edit source code.\n- Advantages: More control, better support, training, security, and stability for users.\n- Examples: Microsoft Windows, Adobe Photoshop, Microsoft Office.\n\nKey Differences:\n- OSS = source code open = free to use/modify. Proprietary = closed source = need license.\n- OSS = community-driven development. Proprietary = company-controlled.\n- OSS = free. Proprietary = usually paid.\n- Freeware ≠ Open Source. Freeware = free to download but cannot modify source code."
+        },
+        {
+          "q": "List out the Benefits of Open Source Software.",
+          "ans": "Benefits of Open Source Software:\n\n1. Free Access — The complete options of the software can be used without any cost and restrictions. No license fees.\n\n2. Code Sharing — We can share our ideas with the team, write the required code, and share it with many developers worldwide.\n\n3. Learning Opportunities — OSS projects are collaboration opportunities that improve skills and build connections in the field. We can learn from other programmers' coding techniques.\n\n4. Quick Bug Fixes — As many enthusiastic members work on the code, if we report problems they are quickly fixed by the group's collective effort.\n\n5. Feature Addition — We can make changes to add the most required features to the software.\n\n6. User Friendly — Many Open Source Software are very user friendly.\n\n7. Wide Selection — There are many Open Source Softwares available, so we can select and use any software that suits our needs.\n\n8. Contribution Domains — Communication tools, Distributed revision control systems, Bug trackers and task lists, Testing and debugging tools.\n\n9. OSS is developed, maintained, and updated by a global community, ensuring continuous improvement.\n\nProblems with OSS: Difficult for beginners, file exchange issues with other software, sometimes lack of responsibility, hardware compatibility problems."
+        }
+      ]
+    }
+  ]
+}

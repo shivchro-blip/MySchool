@@ -1,0 +1,257 @@
+{
+  "meta": {
+    "subject": "Computer Applications -- Class XI",
+    "unit": "Chapter 17 -- Computer Ethics and Cyber Security",
+    "time": "2.30 hrs",
+    "totalMarks": 47,
+    "instructions": "Samacheer Kalvi -- Answer all questions"
+  },
+  "parts": [
+    {
+      "id": "p1",
+      "navLabel": "Part I -- MCQ (10 x 1)",
+      "title": "Part I -- Choose the Correct Answer",
+      "type": "mcq",
+      "scoreMax": 10,
+      "marksPer": 1,
+      "sections": [
+        {
+          "label": "Computer Ethics and Cyber Security",
+          "questions": [
+            {
+              "id": "q1",
+              "html": "Which of the following is a set of moral principles that regulate the use of computers?",
+              "options": [
+                "a) Piracy",
+                "b) Programs",
+                "c) Virus",
+                "d) Computer Ethics"
+              ],
+              "answer": 3,
+              "hint": "Computer Ethics is a set of moral principles that regulate the use of computers by users."
+            },
+            {
+              "id": "q2",
+              "html": "Commercial programs made available to the public illegally are known as:",
+              "options": [
+                "a) Freeware",
+                "b) Warez",
+                "c) Free software",
+                "d) Shareware"
+              ],
+              "answer": 1,
+              "hint": "Warez = commercial programs made available to the public illegally. Shareware = programs shared legally with a request to pay registration."
+            },
+            {
+              "id": "q3",
+              "html": "Which one of the following is self-repeating and does not require a computer program to attach itself?",
+              "options": [
+                "a) Viruses",
+                "b) Worms",
+                "c) Spyware",
+                "d) Trojans"
+              ],
+              "answer": 1,
+              "hint": "Worms are self-repeating and do not require a computer program to attach themselves. They continually look for vulnerabilities."
+            },
+            {
+              "id": "q4",
+              "html": "Which one of the following tracks a user's visits to a website?",
+              "options": [
+                "a) Spyware",
+                "b) Cookies",
+                "c) Worms",
+                "d) Trojans"
+              ],
+              "answer": 1,
+              "hint": "Cookies are small pieces of data stored on the user's computer by a website's browser to track visits, duration, and demographic data."
+            },
+            {
+              "id": "q5",
+              "html": "Which of the following is NOT a malicious program on computer systems?",
+              "options": [
+                "a) Worms",
+                "b) Trojans",
+                "c) Spyware",
+                "d) Cookies"
+              ],
+              "answer": 3,
+              "hint": "Cookies are not malicious — they are small data files used by websites for tracking visits. Worms, Trojans, and Spyware are all malicious."
+            },
+            {
+              "id": "q6",
+              "html": "A computer network security system that monitors and controls incoming and outgoing traffic is:",
+              "options": [
+                "a) Cookies",
+                "b) Virus",
+                "c) Firewall",
+                "d) Worms"
+              ],
+              "answer": 2,
+              "hint": "A Firewall monitors and controls incoming and outgoing network traffic based on predefined security rules."
+            },
+            {
+              "id": "q7",
+              "html": "The process of converting cipher-text to plain text is called:",
+              "options": [
+                "a) Encryption",
+                "b) Decryption",
+                "c) Key",
+                "d) Proxy server"
+              ],
+              "answer": 1,
+              "hint": "Decryption is the reverse of encryption — converting cipher-text back to readable plain text."
+            },
+            {
+              "id": "q8",
+              "html": "E-commerce means:",
+              "options": [
+                "a) Electronic commerce",
+                "b) Electronic data exchange",
+                "c) Electric data exchange",
+                "d) Electronic commercialisation"
+              ],
+              "answer": 1,
+              "hint": "E-Commerce = electronic data exchange or electronic filing of information. IT Act 2000 provides legal recognition for such electronic transactions."
+            },
+            {
+              "id": "q9",
+              "html": "Distributing unwanted e-mail to others is called:",
+              "options": [
+                "a) Scam",
+                "b) Spam",
+                "c) Fraud",
+                "d) Spoofing"
+              ],
+              "answer": 1,
+              "hint": "Spam = distributing unwanted emails to a large number of internet users."
+            },
+            {
+              "id": "q10",
+              "html": "Legal recognition for electronic transactions is carried out by:",
+              "options": [
+                "a) Electronic Data Interchange",
+                "b) Electronic Data Exchange",
+                "c) Electronic Data Transfer",
+                "d) Electrical Data Interchange"
+              ],
+              "answer": 0,
+              "hint": "IT Act 2000 provides legal recognition for transactions carried out by means of Electronic Data Interchange (EDI)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "navLabel": "Part II -- Very Short (5 x 2)",
+      "title": "Part II -- Very Short Answers",
+      "type": "short_answer",
+      "scoreMax": 10,
+      "marksPer": 2,
+      "sections": [
+        {
+          "label": "Very Short Answers",
+          "questions": [
+            {
+              "id": "q11",
+              "html": "What is Harvesting?",
+              "answer": "Harvesting is a type of computer crime where a person or program collects login and password information from a legitimate user to illegally gain access to others' accounts. This stolen information is then used to impersonate the victim and access their accounts without authorisation.",
+              "hint": "Harvesting = collecting login/password info from legitimate users to illegally access their accounts."
+            },
+            {
+              "id": "q12",
+              "html": "What are Warez?",
+              "answer": "Warez are commercial programs (software) that are made available to the public illegally. They are copyrighted software that has been pirated — that is, duplicated and distributed without the permission of the software's creator or publisher. Distributing or using Warez is a form of software piracy and is illegal.",
+              "hint": "Warez = commercial/copyrighted programs distributed illegally to the public. A form of software piracy."
+            },
+            {
+              "id": "q13",
+              "html": "Write a short note on cracking.",
+              "answer": "Cracking is where someone edits a program's source code so the code can be exploited or modified. A cracker (also called a black hat or dark side hacker) is a malicious or criminal hacker. 'Cracking' means trying to get into computer systems in order to steal, corrupt, or illegitimately view data. A cracker bypasses passwords or licenses in computer programs to break into someone else's computer system, often on a network.",
+              "hint": "Cracking = editing program source code to exploit or bypass protections. Cracker = black hat/dark side hacker. Goal: steal, corrupt, or view data illegally."
+            },
+            {
+              "id": "q14",
+              "html": "Write two types of cyber attacks.",
+              "answer": "Two types of cyber attacks:\n\n1. Phishing: A type of computer crime used to steal user data — including login names, passwords, and credit card numbers — through fraudulent emails. The phishing email may look like it came from a legitimate bank or official institution, tricking the user into revealing personal information.\n\n2. Ransomware: A type of malicious program that demands payment after launching a cyber attack on a computer system. Once installed, it encrypts the victim's data and demands a ransom to restore access. It costs organisations millions each year.",
+              "hint": "Any two from: Virus, Worms, Spyware, Ransomware, Phishing, Pharming. Include brief description of each."
+            },
+            {
+              "id": "q15",
+              "html": "What is a Cookie?",
+              "answer": "A cookie is a small piece of data sent from a website and stored on the user's computer (hard drive) by the user's web browser while the user is browsing the internet.\n\nWebsites typically use cookies for the following reasons:\n1. To collect demographic information about who has visited the website.\n2. To track how often visitors come to the site and how long they remain on the site.\n\nCookies are not malicious programs — they are used by websites to remember user preferences and track behaviour.",
+              "hint": "Cookie = small data file from website stored on user's computer. Used to collect demographics and track visit frequency and duration. Not malicious."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "navLabel": "Part III -- Short (3 x 3)",
+      "title": "Part III -- Short Answers",
+      "type": "brief_answer",
+      "scoreMax": 9,
+      "marksPer": 3,
+      "sections": [
+        {
+          "label": "Short Answers",
+          "questions": [
+            {
+              "id": "q16",
+              "html": "What is the role of firewalls?",
+              "answer": "A firewall is a computer network security system that monitors and controls incoming and outgoing network traffic based on predefined security rules.\n\nRole of a Firewall:\n1. Traffic monitoring: It continuously monitors all network data entering and leaving a computer or network.\n2. Access control: It blocks unauthorised access attempts while allowing legitimate traffic through.\n3. Network protection: It establishes a barrier between a trusted internal computer network and untrusted external networks (such as the internet).\n4. Preventing hacking: Firewalls are one of the primary tools used to prevent hackers from gaining unauthorised access to a computer system.\n5. Rule enforcement: It applies predefined security rules to decide which traffic to allow or block.\n\nFirewalls are used along with other tools like Intrusion Detection Systems (IDS), Virus Scanners, Patches, and Hot fixes to prevent unauthorised access.",
+              "hint": "Firewall = monitors and controls incoming/outgoing network traffic based on security rules. Role: monitors traffic, controls access, separates trusted/untrusted networks, prevents hacking, enforces rules."
+            },
+            {
+              "id": "q17",
+              "html": "Write about encryption and decryption.",
+              "answer": "Encryption and decryption are processes that ensure confidentiality — only authorised persons can access the information.\n\nEncryption: The process of translating plain text data (plaintext) into random, scrambled data called cipher-text. Encryption makes data unreadable to unauthorised people.\n\nDecryption: The reverse process — converting cipher-text back to readable plain text. Only authorised parties with the correct key can decrypt the data.\n\nCryptography: Both encryption and decryption are performed using cryptography. A key is a piece of information (parameter) that determines the functional output of a cryptographic algorithm — it controls how the data is encrypted or decrypted.\n\nApplications: Encryption is used to protect data in:\n- Internet communications and e-commerce\n- Mobile telephones and wireless systems\n- Bluetooth devices\n- Bank ATMs\n- Any situation where data must be kept confidential during transmission.",
+              "hint": "Encryption = plaintext → cipher-text (scrambled). Decryption = cipher-text → plaintext (readable). Uses cryptography and a key. Applications: internet, e-commerce, mobile, ATMs, Bluetooth."
+            },
+            {
+              "id": "q18",
+              "html": "What are the guidelines to be followed by any computer user?",
+              "answer": "The following ethical guidelines should be observed by all computer users:\n\n1. Honesty: Users should be truthful while using the internet. Do not post false information or create misleading content online.\n\n2. Confidentiality: Users should not share any important or sensitive information with unauthorised people. Private data should be kept private.\n\n3. Respect: Each user should respect the privacy of other users. Do not intrude on others' personal information or accounts.\n\n4. Responsibility: Each user should take ownership and responsibility for their actions online. Be accountable for what you post, share, or do on the internet.\n\nAdditional prevention tips:\n- Set complex passwords for secured surfing.\n- Disconnect the internet when not in use.\n- Do NOT open spam mail or emails with unfamiliar senders.\n- Keep anti-virus software up-to-date.",
+              "hint": "Four ethical guidelines: Honesty (truthful online), Confidentiality (don't share private info), Respect (respect others' privacy), Responsibility (accountable for own actions). Add prevention tips as bonus."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "navLabel": "Part IV -- Long (3 x 6)",
+      "title": "Part IV -- Explain in Detail",
+      "type": "long_essay",
+      "scoreMax": 18,
+      "marksPer": 6,
+      "sections": [
+        {
+          "label": "Long Answers",
+          "questions": [
+            {
+              "id": "q19",
+              "html": "What are the various crimes happening using a computer?",
+              "answer": "Computer crimes (cyber crimes) are intellectual, white-collar crimes where perpetrators manipulate computer systems in an intelligent manner. Various computer crimes:\n\n1. Malware: Malicious programs that monitor user activity without permission, steal data, or damage systems.\n\n2. Harvesting: Collecting login and password information from legitimate users to illegally access their accounts.\n\n3. Spam: Distributing large volumes of unwanted emails to many internet users.\n\n4. Hacking: Gaining unauthorised access to a computer system to steal personal data, alter contents, or cause damage. May be criminal or done for the challenge.\n\n5. Cracking: Editing program source code to bypass passwords or licenses, with intent to steal, corrupt, or view data illegally.\n\n6. Software Piracy: Unauthorised copying, distributing, or selling of copyrighted software.\n\n7. Virus/Trojan: Spreading malicious code — a virus attaches to files and spreads; a Trojan appears legitimate but performs malicious actions.\n\n8. Worms: Self-repeating programs that spread through networks, looking for vulnerabilities.\n\n9. Spyware: Secretly installed software that spies on the user's activities.\n\n10. Ransomware: Locks or encrypts data and demands payment (ransom) for restoration.\n\n11. Phishing: Sending fraudulent emails disguised as legitimate sources to steal passwords and financial information.\n\n12. Pharming: Redirecting website traffic to fraudulent websites without the user's knowledge.",
+              "hint": "Cover at least 6–8 crimes: Malware, Harvesting, Spam, Hacking, Cracking, Software Piracy, Virus/Trojan, Worms, Spyware, Ransomware, Phishing, Pharming. Brief description of each."
+            },
+            {
+              "id": "q20",
+              "html": "What is piracy? Mention the types of piracy. How can it be prevented?",
+              "answer": "Software Piracy is the 'unauthorised copying of software.' It is the copyright violation of software created originally by one person and illegally used, copied, or distributed by someone else.\n\nTypes of Software Piracy:\n1. Soft-lifting: Buying one licensed copy and installing it on multiple computers.\n2. Hard disk loading: Installing unlicensed copies of software on computers being sold.\n3. Counterfeiting: Duplicating and selling copyrighted programs — reproducing and distributing software commercially.\n4. Online piracy (Internet piracy): Downloading software illegally through networks. Sharing copyrighted software via the internet, peer-to-peer networks, or unauthorised websites.\n5. Warez: Commercial programs made available to the public illegally.\n\nShareware: Publishers encourage sharing copies but ask regular users to pay a registration fee — this is legal and promotes trial use.\n\nPrevention of Software Piracy:\n1. Use only licensed, genuine software purchased from authorised sources.\n2. Do not copy or share commercial software without permission.\n3. Use open-source software (like OpenOffice, LibreOffice) as free legal alternatives.\n4. Implement organisational software asset management policies.\n5. Raise awareness about the legal consequences of piracy.\n6. Purchase from reputable online stores and verify authenticity.\n7. Report piracy to software publishers or anti-piracy organisations.",
+              "hint": "Define piracy. Types: soft-lifting, hard disk loading, counterfeiting, online piracy, Warez. Explain Shareware (legal). Prevention: use licensed software, open-source alternatives, policies, awareness, reporting."
+            },
+            {
+              "id": "q21",
+              "html": "Write the different types of cyber attacks.",
+              "answer": "Cyber attacks are launched to cause significant damage to computer systems or steal important information. Types of cyber attacks:\n\n1. Virus: A small piece of computer code that repeats itself and spreads by attaching to another computer file. The most common type is the Trojan virus — a program that appears legitimate (e.g., virus removal) but actually performs malicious activity when executed.\n\n2. Worms: Self-repeating programs that do NOT require a computer program to attach to. They continually look for vulnerabilities and report back to their author when weaknesses are discovered.\n\n3. Spyware: Installed automatically on a computer when the user opens attachments, clicks on links, or downloads infected software. Spies on user activities.\n\n4. Ransomware: A malicious program that demands payment after launching a cyber attack. Increasingly popular among criminals; costs organisations millions each year.\n\n5. Phishing: Attempts to steal user data (login name, password, credit card numbers) through fraudulent emails that appear to come from legitimate institutions like banks.\n\n6. Pharming: Malicious code installed on a personal computer or server that misdirects users to fraudulent websites without their knowledge. Called 'phishing without a trap.' Redirects a website's traffic to a fake site.\n\n7. Malware (general): A broad category of malicious software designed to gain illegal access to software or cause damage. Includes all the above types.",
+              "hint": "7 types: Virus (+ Trojan), Worms (self-repeating, no attachment needed), Spyware (auto-install), Ransomware (demands payment), Phishing (fake emails steal data), Pharming (redirect to fake site), Malware (umbrella term). Include how each works."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "chapterNumber": 3,
+  "title": "Computer Organisation",
+  "subject": "Computer Applications",
+  "classLabel": "Class 11",
+  "curriculum": "Samacheer Kalvi",
+  "sections": [
+    {
+      "id": "intro",
+      "title": "Introduction",
+      "content": "**Computer Organisation** deals with the hardware components of a computer system — Input/Output devices, the CPU, storage devices, and primary memory. It covers how these components operate and how they are interconnected.\n\n**Computer Architecture** deals with the engineering design considerations for a computer, while **Computer Organisation** focuses on hardware components transparent to the programmer. Both are related but distinct terms.",
+      "nav": {
+        "next": "microprocessors",
+        "nextLabel": "Next: Basics of Microprocessors →"
+      }
+    },
+    {
+      "id": "microprocessors",
+      "title": "Basics of Microprocessors",
+      "content": "The **CPU** is the major component of a computer that performs all tasks. This is realised by the **microprocessor** — a programmable, multipurpose silicon chip driven by clock pulses. It accepts binary data as input, processes it according to instructions stored in memory, and provides output.\n\nThe first general-purpose microprocessor, the **Intel 4004**, was developed by Intel Inc. in the early 1970s.\n\n**Three main units of a microprocessor:**\n- **ALU (Arithmetic and Logic Unit):** Performs arithmetic and logical operations.\n- **Control Unit:** Controls all operations via signals.\n- **Registers (Internal Memory):** Hold instructions and data during execution.\n\n**Characteristics of a Microprocessor:**\n\n**a) Clock Speed**\nEvery microprocessor has an internal clock that regulates execution speed. Measured in **MHz (Mega Hertz)** or **GHz (Giga Hertz)**. Higher clock speed = faster instruction execution.\n\n**b) Instruction Set**\nA command given to a computer to perform an operation on data is an **instruction**. The **instruction set** is the basic set of machine-level instructions a microprocessor is designed to execute. Types of operations: data transfer, arithmetic, logical, control flow, input/output.\n\n**c) Word Size**\nThe number of bits processed by a processor in a single instruction is its **word size**. Word size determines how much RAM the processor can access.",
+      "nav": {
+        "back": "intro",
+        "next": "cpu-memory",
+        "nextLabel": "Next: Data Communication between CPU and Memory →"
+      }
+    },
+    {
+      "id": "cpu-memory",
+      "title": "Data Communication between CPU and Memory",
+      "content": "The CPU communicates with memory through special registers and buses:\n\n- **MDR (Memory Data Register):** Holds data being transferred between memory and the CPU.\n- **MAR (Memory Address Register):** Holds the address of the memory location to be accessed.\n- **PC (Program Counter):** A special register that always holds the address of the next instruction to execute.\n\nA **bus** is a collection of wires for communication between internal components. The word size in RAM equals the size of the MDR. An 8-bit processor (like Intel 8085) has an 8-bit MDR and 8-bit words in RAM.\n\n- **Read operation:** Data transfers from RAM word → MDR.\n- **Write operation:** Data transfers from MDR → RAM word.\n\nBinary data is represented as voltages on buses: **5V = 1, 0V = 0**.",
+      "nav": {
+        "back": "microprocessors",
+        "next": "types-microprocessors",
+        "nextLabel": "Next: Types of Microprocessors →"
+      }
+    },
+    {
+      "id": "types-microprocessors",
+      "title": "Types of Microprocessors",
+      "content": "**Classification by Data Width:**\n\n| Type | Description |\n|------|-------------|\n| 8-bit | Processes 8 bits at a time |\n| 16-bit | Processes 16 bits at a time |\n| 32-bit | Processes 32 bits at a time |\n| 64-bit | Processes 64 bits at a time |\n\n**Classification by Instruction Set:**\n\n**RISC (Reduced Instruction Set Computers):**\nUses a small, highly optimised set of instructions. Faster execution per instruction.\nExamples: Pentium IV, Intel P6, AMD K6, AMD K7\n\n**CISC (Complex Instruction Set Computers):**\nUses a large set of instructions, each capable of performing complex operations.\nExamples: Intel 386, Intel 486, Pentium, Pentium II, Pentium III, Motorola 68000",
+      "nav": {
+        "back": "cpu-memory",
+        "next": "memory",
+        "nextLabel": "Next: Memory Devices →"
+      }
+    },
+    {
+      "id": "memory",
+      "title": "Memory Devices",
+      "content": "Memory stores data and instructions. There are two access methods: **sequential access** (ordered from start to end) and **random access** (any byte accessed directly without navigating previous bytes).\n\n**Memory Hierarchy (fastest/smallest/costliest → slowest/largest/cheapest):**\nCache Memory → Main Memory (RAM) → Hard Disk\n\n---\n\n**Random-Access Memory (RAM)**\nThe main memory, also called primary memory. It is an IC that temporarily holds the OS, programs, and current data. The smallest storable unit is a **bit**; accessed in groups of 8 bits (**bytes**). RAM is **volatile** — data is lost when power is turned off. Allows both read and write.\n\n*Two types of RAM:*\n- **DRAM (Dynamic RAM):** Needs frequent refreshing; common type.\n- **SRAM (Static RAM):** Needs less frequent refreshing; faster and more expensive than DRAM.\n\n---\n\n**Read Only Memory (ROM)**\nPre-recorded memory at manufacturing time; **cannot be modified**. Stores critical programs like the **boot program**. ROM is **non-volatile** — contents remain even when power is off.\n\n*Types of ROM:*\n\n**PROM (Programmable ROM):** Data can be written once only and remains permanently. Manufactured blank; programmed using a PROM burner/programmer. Process of writing is called \"burning the PROM\". Unlike ROM (programmed during manufacturing), PROM is programmed by the user.\n\n**EPROM (Erasable Programmable ROM):** Like PROM but contents can be erased using **ultraviolet (UV) rays**, then reprogrammed. Retains content until exposed to UV light. Most EPROM chips have a transparent area on top covered by a sticker; sunlight (which contains UV) can erase it if the sticker is removed. Widely used in personal computers for updatable firmware.\n\n**EEPROM (Electrically Erasable Programmable ROM):** Can be erased by **electrical charge** rather than UV light. Non-volatile. Slower than other ROM types. Used where firmware must be updatable in-circuit.\n\n---\n\n**Cache Memory**\nA very high-speed, expensive memory placed between the CPU and main memory. Stores frequently accessed data so the CPU retrieves it faster (instead of always going to slower main memory). Smaller in size than main memory due to cost. Improves response time (access time = time to respond to a read/write request).",
+      "nav": {
+        "back": "types-microprocessors",
+        "next": "secondary-storage",
+        "nextLabel": "Next: Secondary Storage Devices →"
+      }
+    },
+    {
+      "id": "secondary-storage",
+      "title": "Secondary Storage Devices",
+      "content": "Main memory is expensive and volatile. Secondary storage provides permanent, non-volatile storage. Also called **backup storage**.\n\n**Hard Disk:** Magnetic disk with stacked platters. Each platter accessed by a pair of read/write heads. Available in single or double-sided configurations.\n\n**Compact Disc (CD / CD-ROM):**\n- Made of 1.2mm polycarbonate plastic with a thin aluminium or gold layer.\n- Data encoded as **pits** (indentations) in a spiral track; areas between pits are **lands**.\n- Capacity: **700 MB**. Read by a laser.\n\n**DVD (Digital Versatile Disc / Digital Video Disc):**\n- Optical disc; capacity **4.7 GB** (single-sided, single-layer) — more than 6× a CD.\n- Can have one or two sides with one or two data layers per side.\n- Double-layered = gold colour; single-layered = silver colour.\n- Read by a red laser.\n\n**Flash Memory Devices:**\n- Electronic, solid-state, **non-volatile** storage; electrically erasable and reprogrammable.\n- Based on EEPROM or EPROM technology.\n- Examples: **pen drives, memory cards**.\n- Used in computers, PDAs, digital cameras, mobile phones.\n- Capacity: **1 GB to 2 TB**. Fast access times.\n\n**Blu-Ray Disc:**\n- High-density optical disc; used for PlayStation games and HD movies.\n- Double-layer capacity: **50 GB**.\n- Uses a **blue-violet laser** (shorter wavelength → more data density) vs. red laser in DVDs.",
+      "nav": {
+        "back": "memory",
+        "next": "ports",
+        "nextLabel": "Next: Ports and Interfaces →"
+      }
+    },
+    {
+      "id": "ports",
+      "title": "Ports and Interfaces",
+      "content": "The motherboard has I/O sockets connected to ports on the rear of the computer. External devices connect through these ports.\n\n**Serial Port:** For external devices; found on older computers.\n\n**Parallel Port:** For printers; found on older computers.\n\n**USB (Universal Serial Bus) Ports:** Connect cameras, scanners, mobile phones, external hard disks, and printers.\n- **USB 3.0:** Third major version; transfers data at up to **5 GB/second**. USB 3.1 and 3.2 also available.\n\n**VGA Connector (Video Graphics Array):** Connects monitors and display devices like LCD projectors.\n\n**Audio Plugs:** Connect speakers, microphones, and headphones.\n\n**PS/2 Port:** Connects mouse and keyboard to older PCs.\n\n**SCSI Port:** Connects hard disk drives and network connectors.\n\n**HDMI (High-Definition Multimedia Interface):**\nAn audio/video interface that transfers uncompressed video and audio data from a video controller to a compatible monitor, LCD projector, or digital TV.\n\n**Network Port:** Connects to a local area network (Ethernet).",
+      "nav": {
+        "back": "secondary-storage",
+        "next": "summary",
+        "nextLabel": "Next: Points to Remember →"
+      }
+    },
+    {
+      "id": "summary",
+      "title": "Points to Remember",
+      "content": "- Computer Organisation deals with hardware components; Computer Architecture deals with design specifications.\n- A microprocessor is a programmable silicon chip driven by clock pulses; the first general-purpose one was Intel 4004.\n- Microprocessor characteristics: clock speed (MHz/GHz), instruction set, and word size.\n- RISC processors have fewer, optimised instructions; CISC processors have many complex instructions.\n- RAM is volatile (data lost on power off); ROM is non-volatile (data retained).\n- PROM: written once; EPROM: erased by UV light; EEPROM: erased electrically.\n- Cache memory is between CPU and RAM; speeds up data retrieval.\n- Secondary storage is non-volatile: Hard Disk (magnetic), CD (700 MB), DVD (4.7 GB), Blu-Ray (50 GB), Flash memory (1 GB–2 TB).\n- USB 3.0 transfers data at up to 5 GB/second.",
+      "nav": {
+        "back": "ports",
+        "practice": true
+      }
+    }
+  ]
+}

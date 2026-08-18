@@ -1,0 +1,57 @@
+{
+  "chapterNumber": 16,
+  "title": "Inheritance",
+  "subject": "Computer Science",
+  "classLabel": "Class 11",
+  "curriculum": "Samacheer Kalvi",
+  "sections": [
+    {
+      "id": "intro-need-types",
+      "title": "Introduction, Need & Types of Inheritance",
+      "content": "**16.1 Introduction to Inheritance**\n\nInheritance is one of the most important features of Object Oriented Programming — it enables a new class and its objects to take on the properties of existing classes. A class used as the basis for creating a new class is called a **superclass** or **base class**. A class that inherits from a superclass is called a **subclass** or **derived class**.\n\n**16.2 Need for Inheritance**\n\nInheritance is used for **code reusability** — it is the process of creating new classes (derived classes) from existing classes (base classes). Inheritance allows inheriting ALL code of one class into another (except members declared as private). The class to be inherited is the **base/parent class**; the class that inherits is the **derived/child class**. A derived class is a \"power-packed\" class, as it can add additional attributes and methods, enhancing its functionality.\n\n**Main advantages of inheritance:**\n- It represents real-world relationships well.\n- It provides reusability of code.\n- It supports transitivity.\n\n**16.3 Types of Inheritance**\n\n1. **Single Inheritance:** A derived class inherits from only ONE base class.\n2. **Multiple Inheritance:** A derived class inherits from MULTIPLE base classes.\n3. **Hierarchical Inheritance:** More than one derived class is created from a SINGLE base class.\n4. **Multilevel Inheritance:** A class is derived from a class which is itself a derived class — reflecting the *transitive* nature of inheritance (like a grandfather → father → child relationship). The level of inheritance can extend to any number of levels.\n5. **Hybrid Inheritance:** A combination of more than one type of inheritance — e.g., Multilevel + Multiple, or Hierarchical + Multilevel, or all three combined.",
+      "nav": {
+        "next": "derived-base-syntax",
+        "nextLabel": "Next: Defining a Derived Class →"
+      }
+    },
+    {
+      "id": "derived-base-syntax",
+      "title": "Derived Class Syntax & Examples",
+      "content": "**16.4 Derived Class and Base Class**\n\nWhen defining a derived class, it must identify the class it derives from. Points to observe:\ni. The keyword **class** must be used.\nii. The name of the derived class follows the keyword class.\niii. A single **colon (:)**.\niv. The **type of derivation** (visibility mode) — private, public, or protected. If unspecified, the default visibility mode is **private**.\nv. The name of the **base class** (parent class) — if more than one, separated by commas.\n\nSyntax:\n```\nclass derived_class_name : visibility_mode base_class_name\n{\n    // members of derived class\n};\n```\n\n**16.4.1 Single Inheritance Example**\n\n```\nclass student           // base class\n{\nprivate:\n    char name[20];\n    int rno;\npublic:\n    void acceptname() { ... }\n    void displayname() { ... }\n};\nclass exam : public student   // derived class, single base class\n{\npublic:\n    int mark1, mark2, ...;\n    void acceptmark() { ... }\n    void displaymark() { ... }\n};\n```\nHere, \"exam\" inherits all members of \"student\", but only has access privilege to the base class's **non-private** members. An object of exam (e.g., `exam e1;`) can call both its own functions AND the inherited base class functions like `e1.acceptname()` and `e1.displayname()`.\n\n**16.4.3 Multilevel Inheritance Example**\n\n```\nclass student { ... };                    // base class\nclass exam : public student { ... };      // derived from student\nclass result : public exam { ... };       // derived from exam (which is derived from student)\n```\nHere, \"result\" is derived from \"exam\", which is itself derived from \"student\" — a chain of inheritance. An object of result can call functions from ALL THREE classes (its own, exam's, and student's). Multilevel inheritance can extend to any number of levels, similar to a grandfather–father–child relationship.\n\n**Note:** A class with no declared members still has a size — e.g., `class x{};` occupies 1 byte.",
+      "nav": {
+        "back": "intro-need-types",
+        "next": "visibility-modes",
+        "nextLabel": "Next: Visibility Modes →"
+      }
+    },
+    {
+      "id": "visibility-modes",
+      "title": "Visibility Modes",
+      "content": "**16.5 Visibility Modes**\n\nAn important feature of inheritance is knowing which base-class members the derived class will acquire — controlled by **visibility modes**. The three visibility modes are **private**, **protected**, and **public**; the default is **private**.\n\n**Key distinction:** Access specifiers control accessibility of members WITHIN a class; visibility modes control the access of INHERITED members within the derived class.\n\n**16.5.1 Private Visibility Mode:** When a base class is inherited with private visibility, the base class's **public and protected** members become **private** members of the derived class.\n\n**16.5.2 Protected Visibility Mode:** When inherited with protected visibility, the base class's **protected and public** members become **protected** members of the derived class.\n\n**16.5.3 Public Visibility Mode:** When inherited with public visibility, the base class's **protected** members remain **protected**, and its **public** members remain **public** in the derived class.\n\n**Tip:** Regardless of visibility mode (public, protected, or private), the **private members of the base class are never inherited** — they continue to exist in the derived class's memory layout but cannot be accessed directly by the derived class.\n\n**Choosing a visibility mode:**\n- **Private inheritance:** Use when base class features should be available to the derived class, but NOT to classes further derived from it.\n- **Protected inheritance:** Use when base class features should be available only to derived class members, but NOT to the outside world.\n- **Public inheritance:** Use when base class features should be available to derived class members AND to the outside world.",
+      "nav": {
+        "back": "derived-base-syntax",
+        "next": "constructors-overriding",
+        "nextLabel": "Next: Constructors, Destructors & Overriding →"
+      }
+    },
+    {
+      "id": "constructors-overriding",
+      "title": "Constructors, Destructors & Overriding in Inheritance",
+      "content": "**16.6 Inheritance and Constructors/Destructors**\n\nWhen an object of a derived class is created, the compiler first calls the **base class constructor**, then the **derived class constructor** — because the derived class is built up on the base class's members. When a derived class object expires, the **derived class destructor** is invoked FIRST, followed by the **base class destructor** (reverse order).\n\nFor a three-level chain (base → derived → derived1), the execution order is:\n```\nConstructor of base class...\nConstructor of derived...\nConstructor of derived1...\n[object used]\nDestructor of derived1...\nDestructor of derived...\nDestructor of base class...\n```\n\n**Notes:**\n- Constructors execute in the order of inheritance (base → derived); destructors execute in the reverse order.\n- The size of a derived class object = size of all base class data members + size of all derived class data members.\n\n**16.7 Overriding / Shadowing Base Class Functions in Derived Class**\n\nWhen a base class and a derived class have member functions with the **same name**, calling that function on a derived class object can confuse the compiler about which version to invoke. The **derived class's member function has higher priority**, and shadows (hides) the base class's same-named function — this situation is called **function overriding**.\n\nThis is resolved using the **scope resolution operator (::)** along with the base class name, e.g., `Employee::display();` explicitly calls the base class's version of display() from within the derived class's own display() function — allowing the derived version to first invoke (and extend) the base version rather than completely replacing it.\n\nExample: if both `Employee` and `staff` (derived from Employee) define `getdata()` and `display()`, then inside `staff::display()`, calling `Employee::display();` first prints the base class's fields (name, code), before staff's own display() adds its extra field (experience) — combining both outputs cleanly.",
+      "nav": {
+        "back": "visibility-modes",
+        "next": "summary",
+        "nextLabel": "Next: Points to Remember →"
+      }
+    },
+    {
+      "id": "summary",
+      "title": "Points to Remember",
+      "content": "- The mechanism of deriving a new class from an existing class is called inheritance; its main advantage is reusability of code.\n- The derived class inherits all properties of the base class and can add its own additional attributes/methods.\n- Types of inheritance: Single, Multiple, Hierarchical, Multilevel (reflects transitive nature), and Hybrid (combination of types).\n- In multiple inheritance, base classes are constructed in the order they appear in the derived class's declaration.\n- A sub-class can derive itself publicly, privately, or protectedly (visibility mode) — the private members of a base class are never inherited.\n- Public visibility: base's public stays public, protected stays protected in the derived class. Private visibility: base's public and protected both become private in the derived class. Protected visibility: base's public and protected both become protected in the derived class.\n- Constructors and destructors of the base class are not themselves \"inherited,\" but the base class constructor is automatically invoked when a derived class object is created.\n- Constructors execute base-to-derived; destructors execute derived-to-base (reverse order).\n- The size of a derived class object = size of all base class data members + size of all derived class data members.\n- Overriding of same-named member functions between base and derived classes is resolved using the scope resolution operator (::).\n- The `this` pointer is used to refer to the current object's own members.",
+      "nav": {
+        "back": "constructors-overriding",
+        "practice": true
+      }
+    }
+  ]
+}

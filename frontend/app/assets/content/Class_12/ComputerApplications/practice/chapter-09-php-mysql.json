@@ -1,0 +1,336 @@
+{
+  "meta": {
+    "subject": "Computer Applications -- Class XII",
+    "unit": "Chapter 9 -- Connecting PHP and MySQL",
+    "time": "3.00 hrs",
+    "totalMarks": 47,
+    "instructions": "Samacheer Kalvi -- Answer all questions"
+  },
+  "parts": [
+    {
+      "id": "p1",
+      "navLabel": "Part I -- MCQ (20 x 1)",
+      "title": "Part I -- Objective Type",
+      "type": "mcq",
+      "scoreMax": 20,
+      "marksPer": 1,
+      "sections": [
+        {
+          "label": "PHP MySQL Connection",
+          "questions": [
+            {
+              "id": "q1",
+              "html": "Which is the correct function to execute SQL queries in PHP?",
+              "options": [
+                "a) mysqli_query(\"Connection Object\",\"SQL Query\")",
+                "b) query(\"Connection Object\",\"SQL Query\")",
+                "c) mysql_query(\"Connection Object\",\"SQL Query\")",
+                "d) mysql_query(\"SQL Query\")"
+              ],
+              "answer": 0,
+              "hint": "mysqli_query() is the correct function. It requires two parameters: the Connection Object and the SQL Query string."
+            },
+            {
+              "id": "q2",
+              "html": "Which is the correct function for Closing Connection in PHP?",
+              "options": [
+                "a) mysqli_close(\"Connection Object\");",
+                "b) close(\"Connection Object\");",
+                "c) mysql_close(\"Connection Object\");",
+                "d) mysqli_close(\"Database Object\");"
+              ],
+              "answer": 0,
+              "hint": "mysqli_close(\"Connection Object\") is correct. The parameter is the Connection Object returned by mysqli_connect(), not a Database Object."
+            },
+            {
+              "id": "q3",
+              "html": "Which is the correct function to establish a Connection in PHP?",
+              "options": [
+                "a) mysqli_connect(\"Server Name\",\"User Name\",\"Password\",\"DB Name\");",
+                "b) connect(\"Server Name\",\"User Name\",\"Password\",\"DB Name\");",
+                "c) mysql_connect(\"Server Name\",\"User Name\",\"Password\",\"DB Name\");",
+                "d) mysqli_connect(\"Database Object\");"
+              ],
+              "answer": 0,
+              "hint": "mysqli_connect() with four parameters (Server Name, User Name, Password, DB Name) is the correct syntax."
+            },
+            {
+              "id": "q4",
+              "html": "Which is NOT a correct MySQL Function in PHP?",
+              "options": [
+                "a) mysqli_connect() Function",
+                "b) mysqli_close() Function",
+                "c) mysqli_select_data() Function",
+                "d) mysqli_affected_rows() Function"
+              ],
+              "answer": 2,
+              "hint": "mysqli_select_data() does not exist. The correct functions are mysqli_connect(), mysqli_close(), mysqli_query(), and mysqli_affected_rows()."
+            },
+            {
+              "id": "q5",
+              "html": "How many parameters are required for the mysqli_connect() function in PHP?",
+              "options": [
+                "a) 2",
+                "b) 3",
+                "c) 4",
+                "d) 5"
+              ],
+              "answer": 2,
+              "hint": "mysqli_connect() requires FOUR parameters: Server Name, User Name, Password, and Database Name."
+            },
+            {
+              "id": "q6",
+              "html": "How many parameters are required for the mysqli_query() function in PHP?",
+              "options": [
+                "a) 2",
+                "b) 3",
+                "c) 4",
+                "d) 5"
+              ],
+              "answer": 0,
+              "hint": "mysqli_query() requires TWO parameters: the Connection Object and the SQL Query string."
+            },
+            {
+              "id": "q7",
+              "html": "How many parameters are required for the mysqli_close() function in PHP?",
+              "options": [
+                "a) 1",
+                "b) 2",
+                "c) 3",
+                "d) 5"
+              ],
+              "answer": 0,
+              "hint": "mysqli_close() requires ONE parameter: the Connection Object."
+            },
+            {
+              "id": "q8",
+              "html": "Which version of PHP introduced MySQLi functions?",
+              "options": [
+                "a) Version 2.0",
+                "b) Version 3.0",
+                "c) Version 4.0",
+                "d) Version 5.0"
+              ],
+              "answer": 3,
+              "hint": "MySQLi extension was introduced in PHP version 5.0.0. Earlier versions used the older mysql_ functions."
+            },
+            {
+              "id": "q9",
+              "html": "What does MySQLi stand for?",
+              "options": [
+                "a) MySQL Interface",
+                "b) MySQL Integrated",
+                "c) MySQL Improved",
+                "d) MySQL Internal"
+              ],
+              "answer": 2,
+              "hint": "MySQLi stands for MySQL Improved — it is the improved version of the older MySQL extension for PHP."
+            },
+            {
+              "id": "q10",
+              "html": "Which variable stores the database name in a PHP MySQL connection?",
+              "options": [
+                "a) $servername",
+                "b) $username",
+                "c) $password",
+                "d) $DB_name"
+              ],
+              "answer": 3,
+              "hint": "$DB_name stores the database name. $servername = server IP, $username = DB user, $password = DB password."
+            },
+            {
+              "id": "q11",
+              "html": "What does mysqli_connect_errno() return?",
+              "options": [
+                "a) The number of rows affected",
+                "b) An error code if connection failed",
+                "c) The database name",
+                "d) The server name"
+              ],
+              "answer": 1,
+              "hint": "mysqli_connect_errno() returns an error code if the connection failed. It is used to check whether the connection was successful."
+            },
+            {
+              "id": "q12",
+              "html": "Which PHP function fetches one row at a time from a query result?",
+              "options": [
+                "a) mysqli_num_rows()",
+                "b) mysqli_query()",
+                "c) mysqli_fetch_array()",
+                "d) mysqli_connect()"
+              ],
+              "answer": 2,
+              "hint": "mysqli_fetch_array() fetches one row at a time from the result set as an array. It is used inside a while loop to process all rows."
+            },
+            {
+              "id": "q13",
+              "html": "The combination of PHP and MySQL has become popular because:",
+              "options": [
+                "a) PHP and MySQL are both paid software",
+                "b) They together power most server-side web applications",
+                "c) PHP does not support other databases",
+                "d) MySQL only works with PHP"
+              ],
+              "answer": 1,
+              "hint": "PHP and MySQL together power a very large percentage of server-side web applications. Both are open source, free, and work well together."
+            },
+            {
+              "id": "q14",
+              "html": "Which PHP function returns the number of rows in a query result?",
+              "options": [
+                "a) mysqli_fetch_array()",
+                "b) mysqli_num_rows()",
+                "c) mysqli_query()",
+                "d) mysqli_connect()"
+              ],
+              "answer": 1,
+              "hint": "mysqli_num_rows() returns the number of rows returned by a SELECT query result."
+            },
+            {
+              "id": "q15",
+              "html": "The die() function in PHP is used to:",
+              "options": [
+                "a) Close the database connection",
+                "b) Print an error message and stop script execution",
+                "c) Delete a record from the database",
+                "d) Disconnect from the server"
+              ],
+              "answer": 1,
+              "hint": "die() prints an error message and stops execution of the PHP script. Used with fopen() and mysqli_connect() to handle errors gracefully."
+            },
+            {
+              "id": "q16",
+              "html": "Which of the following is a PHP framework?",
+              "options": [
+                "a) MySQL",
+                "b) Apache",
+                "c) Laravel",
+                "d) Linux"
+              ],
+              "answer": 2,
+              "hint": "Laravel is a PHP framework. Other PHP frameworks include CakePHP, Symfony, CodeIgniter, Yii, Phalcon, and Zend Framework."
+            },
+            {
+              "id": "q17",
+              "html": "In a mysqli_connect() call, the first parameter is:",
+              "options": [
+                "a) Database Name",
+                "b) User Name",
+                "c) Password",
+                "d) Server Name"
+              ],
+              "answer": 3,
+              "hint": "The order of parameters in mysqli_connect() is: (Server Name, User Name, Password, Database Name). Server Name comes first."
+            },
+            {
+              "id": "q18",
+              "html": "PHP is primarily used for:",
+              "options": [
+                "a) Desktop application development",
+                "b) Server-side web development",
+                "c) Operating system programming",
+                "d) Mobile app development"
+              ],
+              "answer": 1,
+              "hint": "PHP is a server-side scripting language designed for web development. It runs on the server and generates dynamic HTML output."
+            },
+            {
+              "id": "q19",
+              "html": "Which social platform originally built its application using PHP?",
+              "options": [
+                "a) Twitter",
+                "b) Instagram",
+                "c) Facebook",
+                "d) LinkedIn"
+              ],
+              "answer": 2,
+              "hint": "Facebook was originally built in PHP. They later created their own PHP compiler (HipHop HPHP'c) to convert PHP to C++ for performance."
+            },
+            {
+              "id": "q20",
+              "html": "After executing a SELECT query with mysqli_query(), to loop through all results you use:",
+              "options": [
+                "a) for loop with mysqli_connect()",
+                "b) while loop with mysqli_fetch_array()",
+                "c) foreach loop with mysqli_query()",
+                "d) do...while with mysqli_close()"
+              ],
+              "answer": 1,
+              "hint": "Use a while loop with mysqli_fetch_array() to process each row: while ($row = mysqli_fetch_array($result)) { ... }"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "navLabel": "Part II -- Short Answers (5 x 2)",
+      "title": "Part II -- Short Answer Questions",
+      "type": "short-essay",
+      "scoreMax": 10,
+      "marksPer": 2,
+      "questions": [
+        {
+          "q": "What are the MySQLi functions available in PHP?",
+          "ans": "The MySQLi extension in PHP contains the following important functions for MySQL database connectivity: 1. mysqli_connect() — used to establish a connection between PHP and the MySQL database server. Requires four parameters: Server Name, User Name, Password, and Database Name. 2. mysqli_query() — used to execute SQL query statements. Requires two parameters: Connection Object and SQL Query. 3. mysqli_close() — used to close an existing open database connection. Requires one parameter: the Connection Object."
+        },
+        {
+          "q": "What is MySQLi?",
+          "ans": "MySQLi stands for MySQL Improved. It is an extension in PHP scripting language that provides access to the MySQL database. MySQLi extension was introduced in PHP version 5.0.0. It is an improved version of the older mysql_ extension, offering better security and functionality. The combination of PHP and MySQLi allows web applications to store, retrieve, update, and delete data from MySQL databases. Approximately 70% of websites use PHP and MySQL together."
+        },
+        {
+          "q": "What are the types of MySQLi functions available in PHP?",
+          "ans": "The three main types of MySQLi functions for database connectivity in PHP are: 1. Connection Functions — mysqli_connect() establishes a connection, mysqli_close() closes it, mysqli_connect_errno() returns error code if connection fails, mysqli_connect_error() returns error description. 2. Query Functions — mysqli_query() executes SQL statements (SELECT, INSERT, UPDATE, DELETE). 3. Result Functions — mysqli_num_rows() returns number of rows, mysqli_fetch_array() fetches one row at a time as an array, mysqli_affected_rows() returns rows affected by INSERT/UPDATE/DELETE."
+        },
+        {
+          "q": "What is the difference between Connection and Close functions?",
+          "ans": "Connection function (mysqli_connect()): Opens a new connection between PHP and the MySQL database server. Requires FOUR parameters: Server Name, User Name, Password, and Database Name. Returns a Connection Object that is used by all subsequent database operations. Example: $conn = mysqli_connect(\"localhost\", \"user\", \"pass\", \"myDB\"); Close function (mysqli_close()): Closes an existing open database connection. Requires ONE parameter: the Connection Object returned by mysqli_connect(). Should always be called after all database operations are complete to free server resources. Example: mysqli_close($conn);"
+        },
+        {
+          "q": "What is a Connection string?",
+          "ans": "A connection string is the set of parameters used to establish a connection between PHP and a MySQL database server using mysqli_connect(). It consists of four parameters: 1. $servername — the server IP address or hostname (e.g., \"localhost\" for local server). 2. $username — the MySQL database username. 3. $password — the MySQL database password. 4. $DB_name — the name of the specific database to connect to. Example: $conn = mysqli_connect(\"localhost\", \"username\", \"password\", \"School_DB\"); The Connection Object returned ($conn) is then used for all queries and finally closed with mysqli_close($conn)."
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "navLabel": "Part III -- Brief Answers (3 x 3)",
+      "title": "Part III -- Brief Answer Questions",
+      "type": "short-essay",
+      "scoreMax": 9,
+      "marksPer": 3,
+      "questions": [
+        {
+          "q": "Write the Syntax for MySQLi Queries.",
+          "ans": "Syntax for mysqli_query() function:\nmysqli_query(\"Connection Object\", \"SQL Query\");\n\nThe function requires two parameters:\n1. Connection Object — the connection returned by mysqli_connect().\n2. SQL Query — any valid SQL statement as a string.\n\nExample:\n$con = mysqli_connect(\"localhost\", \"my_user\", \"my_password\", \"Student_DB\");\n$sql = \"SELECT student_name, student_age FROM student\";\n$result = mysqli_query($con, $sql);\n\nFor INSERT: mysqli_query($con, \"INSERT INTO students (name, age) VALUES ('Ram', 20)\");\nFor UPDATE: mysqli_query($con, \"UPDATE students SET age=21 WHERE name='Ram'\");\nFor DELETE: mysqli_query($con, \"DELETE FROM students WHERE name='Ram'\");"
+        },
+        {
+          "q": "Write the purpose of MySQLi functions available in PHP.",
+          "ans": "The purpose of MySQLi functions in PHP:\n\n1. mysqli_connect() — Establishes a connection between the PHP scripting language and the MySQL database server. Without this connection, PHP cannot access or modify any data in the database. Requires Server Name, User Name, Password, and Database Name.\n\n2. mysqli_query() — Executes SQL query statements against the connected database. This is the main function for all database operations (SELECT to retrieve data, INSERT to add data, UPDATE to modify data, DELETE to remove data).\n\n3. mysqli_close() — Closes the database connection after all operations are complete. This frees server resources and is good programming practice. Should always be called at the end of database operations.\n\nTogether these three functions form the complete cycle: Connect → Query → Close."
+        },
+        {
+          "q": "Write MySQL Connection Syntax with example.",
+          "ans": "Syntax for MySQL Connection:\nmysqli_connect(\"Server Name\", \"User Name\", \"Password\", \"DB Name\");\n\nFull connection management example:\n<?php\n$servername = \"localhost\";     // Server IP address\n$username = \"username\";         // Database username\n$password = \"password\";         // Database password\n$DB_name = \"School_DB\";         // Database name\n\n$conn = mysqli_connect($servername, $username, $password, $DB_name);\n\nif (!$conn) {\n    die(\"Connection failed: \" . mysqli_connect_error());\n}\n\necho \"Connected successfully\";\n\n// Perform database operations here...\n\nmysqli_close($conn);    // Close connection\n?>\n\nIf the connection fails, die() prints the error from mysqli_connect_error() and stops execution. If successful, \"Connected successfully\" is displayed."
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "navLabel": "Part IV -- Long Essays (2 x 4)",
+      "title": "Part IV -- Detailed Answer Questions",
+      "type": "long-essay",
+      "scoreMax": 8,
+      "marksPer": 4,
+      "questions": [
+        {
+          "q": "Discuss in detail about MySQL functions with example.",
+          "ans": "PHP provides MySQLi extension functions to connect to and work with MySQL databases. The three main functions are:\n\n1. mysqli_connect() — Establishes connection\nSyntax: mysqli_connect(\"Server Name\", \"User Name\", \"Password\", \"DB Name\");\nRequires FOUR parameters.\n$conn = mysqli_connect(\"localhost\", \"username\", \"password\", \"School_DB\");\nif (!$conn) { die(\"Connection failed: \" . mysqli_connect_error()); }\necho \"Connected successfully\";\n\n2. mysqli_query() — Executes SQL queries\nSyntax: mysqli_query(\"Connection Object\", \"SQL Query\");\nRequires TWO parameters.\n$sql = \"SELECT * FROM students\";\n$result = mysqli_query($conn, $sql);\n\n3. mysqli_close() — Closes connection\nSyntax: mysqli_close(\"Connection Object\");\nRequires ONE parameter.\nmysqli_close($conn);\n\nAdditional useful functions:\n- mysqli_num_rows($result) — returns number of rows in result\n- mysqli_fetch_array($result) — fetches one row as array\n- mysqli_connect_errno() — returns error code if connection failed\n\nComplete example:\n<?php\n$conn = mysqli_connect(\"localhost\",\"user\",\"pass\",\"school_DB\");\n$result = mysqli_query($conn, \"SELECT * FROM my_contacts\");\nwhile ($row = mysqli_fetch_array($result)) {\n    echo 'ID: ' . $row['id'] . '<br>';\n    echo 'Name: ' . $row['full_names'] . '<br>';\n}\nmysqli_close($conn);\n?>"
+        },
+        {
+          "q": "Explain MySQLi Queries with examples.",
+          "ans": "MySQLi queries are SQL statements executed using the mysqli_query() function in PHP. The function takes two parameters: the Connection Object and the SQL Query string.\n\nSyntax: mysqli_query(\"Connection Object\", \"SQL Query\");\n\n1. SELECT Query — retrieves data from database\n$sql = \"SELECT student_name, student_age FROM student\";\n$result = mysqli_query($con, $sql);\n$rows = mysqli_num_rows($result);\nif ($rows) {\n    while ($row = mysqli_fetch_array($result)) {\n        echo 'Name: ' . $row['student_name'] . '<br>';\n        echo 'Age: ' . $row['student_age'] . '<br>';\n    }\n}\n\n2. INSERT Query — adds new records\n$sql = \"INSERT INTO student (name, age) VALUES ('Ravi', 18)\";\nmysqli_query($con, $sql);\n\n3. UPDATE Query — modifies existing records\n$sql = \"UPDATE student SET age=19 WHERE name='Ravi'\";\nmysqli_query($con, $sql);\n\n4. DELETE Query — removes records\n$sql = \"DELETE FROM student WHERE name='Ravi'\";\nmysqli_query($con, $sql);\n\nFull flow:\n1. Connect with mysqli_connect() (4 params)\n2. Execute query with mysqli_query() (2 params)\n3. Fetch results with mysqli_fetch_array() in while loop\n4. Close with mysqli_close() (1 param)"
+        }
+      ]
+    }
+  ]
+}

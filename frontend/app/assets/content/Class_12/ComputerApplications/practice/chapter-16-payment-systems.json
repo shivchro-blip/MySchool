@@ -1,0 +1,336 @@
+{
+  "meta": {
+    "subject": "Computer Applications -- Class XII",
+    "unit": "Chapter 16 -- Electronic Payment Systems",
+    "time": "3.00 hrs",
+    "totalMarks": 47,
+    "instructions": "Samacheer Kalvi -- Answer all questions"
+  },
+  "parts": [
+    {
+      "id": "p1",
+      "navLabel": "Part I -- MCQ (20 x 1)",
+      "title": "Part I",
+      "type": "mcq",
+      "scoreMax": 20,
+      "marksPer": 1,
+      "sections": [
+        {
+          "label": "Electronic Payment Systems",
+          "questions": [
+            {
+              "id": "q1",
+              "html": "Based on monetary value, e-payment system can be classified into:",
+              "options": [
+                "a) Micro and Macro",
+                "b) Micro and Nano",
+                "c) Maximum and Minimum",
+                "d) Maximum and Macro"
+              ],
+              "answer": 0,
+              "hint": "Electronic payment systems are classified into Micro (small amounts) and Macro (higher value amounts)."
+            },
+            {
+              "id": "q2",
+              "html": "______ refers to a payment made from one bank account to another using electronic methods.",
+              "options": [
+                "a) Electronic payment",
+                "b) Direct payment",
+                "c) Indirect payment",
+                "d) None of the above"
+              ],
+              "answer": 0,
+              "hint": "Electronic payment = payment from one bank account to another using electronic methods, without direct intervention of bank employees."
+            },
+            {
+              "id": "q3",
+              "html": "Macro electronic payment systems support higher value payments. Expensive cryptographic operations are included in macro payments. Both statements are:",
+              "options": [
+                "a) Both correct, R is correct explanation",
+                "b) Both correct, R is NOT correct explanation",
+                "c) A is true, R is false",
+                "d) A is false, R is true"
+              ],
+              "answer": 0,
+              "hint": "Both correct — macro systems support higher value AND use expensive cryptographic operations (which is why they cannot be used for small amounts)."
+            },
+            {
+              "id": "q4",
+              "html": "Which is correctly matched?",
+              "options": [
+                "a) Credit Cards - pay before",
+                "b) Debit Cards - pay now",
+                "c) Stored Value Card - pay later",
+                "d) Smart card – pay anytime"
+              ],
+              "answer": 1,
+              "hint": "Debit = pay NOW (deducted immediately). Credit = pay LATER (deferred payment). Stored Value = pay BEFORE (pre-loaded)."
+            },
+            {
+              "id": "q5",
+              "html": "ECS stands for:",
+              "options": [
+                "a) Electronic Clearing Services",
+                "b) Electronic Cloning Services",
+                "c) Electronic Clearing Station",
+                "d) Electronic Cloning Station"
+              ],
+              "answer": 0,
+              "hint": "ECS = Electronic Clearing Services — repeated transfer of funds between bank accounts using computer and Internet."
+            },
+            {
+              "id": "q6",
+              "html": "Which is an online payment system for small payments?",
+              "options": [
+                "a) Card based payment",
+                "b) Micro electronic payment",
+                "c) Macro electronic payment",
+                "d) Credit card payment"
+              ],
+              "answer": 1,
+              "hint": "Micro electronic payment systems are designed for efficient and frequent payments of SMALL amounts."
+            },
+            {
+              "id": "q7",
+              "html": "Which is true about Virtual Payment Address (VPA)?",
+              "options": [
+                "a) Customers can use their e-mail id as VPA",
+                "b) VPA does not include numbers",
+                "c) VPA is a unique ID",
+                "d) Multiple bank accounts cannot have single VPA"
+              ],
+              "answer": 2,
+              "hint": "VPA (also called UPI-ID) is a unique ID similar to email ID (e.g., name@bankname). Used to send and receive money."
+            },
+            {
+              "id": "q8",
+              "html": "Pick the odd one in credit card transaction:",
+              "options": [
+                "a) Card holder",
+                "b) Merchant",
+                "c) Marketing manager",
+                "d) Acquirer"
+              ],
+              "answer": 2,
+              "hint": "Key players: Bearer (card holder), Merchant, Acquirer (merchant's bank), Credit Card Network, Issuer (bearer's bank). Marketing manager is NOT a key player."
+            },
+            {
+              "id": "q9",
+              "html": "Which is true about debit card?",
+              "options": [
+                "a) Debit cards cannot be used in ATMs",
+                "b) Debit cards cannot be used in online transactions",
+                "c) Debit cards do not need bank accounts",
+                "d) Debit cards and credit cards are identical in physical properties"
+              ],
+              "answer": 3,
+              "hint": "Debit cards and credit cards are identical in physical properties (same size, appearance). The difference is how payment is settled."
+            },
+            {
+              "id": "q10",
+              "html": "First digit of credit card = MII, 9th-15th digit = account number, first 6 digits = BIN, last digit = check digit. Which matching is correct?",
+              "options": [
+                "a) B4, B3, B2, B1",
+                "b) B2, B1, B3, B4",
+                "c) B2, B3, B4, B1",
+                "d) B2, B4, B3, B1"
+              ],
+              "answer": 1,
+              "hint": "1st digit = MII (B2), 9th-15th = account number (B1), first 6 = BIN (B3), last = check digit (B4)."
+            },
+            {
+              "id": "q11",
+              "html": "NEFT was initiated by which organization?",
+              "options": [
+                "a) SEBI",
+                "b) NPCI",
+                "c) Reserve Bank of India (RBI)",
+                "d) IDRBT"
+              ],
+              "answer": 2,
+              "hint": "NEFT (National Electronic Fund Transfer) was initiated by the Reserve Bank of India (RBI) in November 2005."
+            },
+            {
+              "id": "q12",
+              "html": "UPI was developed by:",
+              "options": [
+                "a) RBI",
+                "b) NPCI (National Payments Corporation of India)",
+                "c) SBI",
+                "d) SEBI"
+              ],
+              "answer": 1,
+              "hint": "UPI (Unified Payments Interface) was developed by NPCI (National Payments Corporation of India). It is regulated by RBI."
+            },
+            {
+              "id": "q13",
+              "html": "RTGS transactions are processed:",
+              "options": [
+                "a) In batches at end of day",
+                "b) At real-time",
+                "c) Weekly",
+                "d) Monthly"
+              ],
+              "answer": 1,
+              "hint": "RTGS = Real Time Gross Settlement — transactions are processed in REAL-TIME. NEFT processes in batches."
+            },
+            {
+              "id": "q14",
+              "html": "IFSC code is:",
+              "options": [
+                "a) 8 digit numeric code",
+                "b) 11 digit alpha-numeric code",
+                "c) 16 digit numeric code",
+                "d) 6 digit numeric code"
+              ],
+              "answer": 1,
+              "hint": "IFSC = Indian Financial System Code — 11 digit alpha-numeric code issued by RBI to identify individual bank branches in India for domestic e-payments."
+            },
+            {
+              "id": "q15",
+              "html": "COD stands for:",
+              "options": [
+                "a) Cash on Demand",
+                "b) Collect on Delivery",
+                "c) Cash on Delivery",
+                "d) Both b and c"
+              ],
+              "answer": 3,
+              "hint": "COD = Cash on Delivery (original term) or Collect on Delivery (broader term, as other payment forms also used). Both are correct."
+            },
+            {
+              "id": "q16",
+              "html": "Diners Club card was created in:",
+              "options": [
+                "a) 1887",
+                "b) 1920",
+                "c) 1950",
+                "d) 1955"
+              ],
+              "answer": 2,
+              "hint": "Diners Club card was created in February 1950 by Frank McNamara and Ralph Schneider. Initially made of paper-cardboard, from 1955 it was made of plastic."
+            },
+            {
+              "id": "q17",
+              "html": "The term credit card was first mentioned in the novel \"Looking Backward\" by Edward Bellamy in:",
+              "options": [
+                "a) 1887",
+                "b) 1920",
+                "c) 1950",
+                "d) 1975"
+              ],
+              "answer": 0,
+              "hint": "The term credit card was first mentioned in 1887 in the sci-fi novel \"Looking Backward\" by Edward Bellamy."
+            },
+            {
+              "id": "q18",
+              "html": "UPI is based on which payment service?",
+              "options": [
+                "a) NEFT",
+                "b) RTGS",
+                "c) IMPS (Immediate Payment Service)",
+                "d) ECS"
+              ],
+              "answer": 2,
+              "hint": "UPI is developed on the basis of IMPS (Immediate Payment Service)."
+            },
+            {
+              "id": "q19",
+              "html": "Chennai Metro Rail travel card is an example of which type of stored value card?",
+              "options": [
+                "a) Open loop (multipurpose)",
+                "b) Closed loop (single purpose)",
+                "c) Smart card",
+                "d) Credit card"
+              ],
+              "answer": 1,
+              "hint": "Chennai Metro Rail travel card = Closed loop (single purpose) — can only be used for metro rail. Visa gift cards = Open loop (multipurpose)."
+            },
+            {
+              "id": "q20",
+              "html": "Which is NOT a macro electronic payment system?",
+              "options": [
+                "a) Card-based payment",
+                "b) Electronic account transfer",
+                "c) Online game subscription payment",
+                "d) Mobile payment systems"
+              ],
+              "answer": 2,
+              "hint": "Online game subscription = small amount = Micro electronic payment. Card-based, electronic account transfer, and mobile payment systems are all Macro."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "navLabel": "Part II -- Short Answers (5 x 2)",
+      "title": "Part II",
+      "type": "short-essay",
+      "scoreMax": 10,
+      "marksPer": 2,
+      "questions": [
+        {
+          "q": "Define electronic payment system.",
+          "ans": "Electronic payment refers to a payment made from one bank account to another bank account using electronic methods, forgoing the direct intervention of bank employees. A payment system is an essential part of a company's financial operations. Modern payment systems may be physical or electronic, each with its own procedures and protocols. Electronic payment systems are classified based on value of money transactions, processing time, security issues, and usability into two types: Micro electronic payment systems (for small amounts) and Macro electronic payment systems (for higher value transactions)."
+        },
+        {
+          "q": "Distinguish micro electronic payment and macro electronic payment.",
+          "ans": "Micro Electronic Payment: Designed for efficient and frequent payments of SMALL amounts. Minimizes communication and computational costs. Uses light weight cryptographic primitives and off-line payment verification. Security is comparatively low (but cost of fraud is higher than possible gain). Used for: online game subscriptions, reading journals, listening to songs, watching movies online. Three parties: Customer, Service Provider, Payment Processor.\n\nMacro Electronic Payment: Supports payments of HIGHER value. Security requirements are MORE RIGOROUS. Uses computationally expensive cryptographic operations. Banks impose minimum transaction overhead. Types include: Card-based, Electronic account transfer, Electronic cash, Mobile payment systems."
+        },
+        {
+          "q": "Explain the concept of e-wallet.",
+          "ans": "Electronic wallets (e-wallets) or electronic purses allow users to make electronic transactions quickly and securely over the Internet through smartphones or computers. The electronic wallet functions almost the same as a physical wallet — it holds money electronically. E-wallets were first recognized as a method for storing money in electronic form. They became popular because they provide a convenient way for online shopping. With advanced Internet, e-wallets became efficient transaction tools. Many E-Commerce websites use electronic wallets. Examples: PayPal, SBI Buddy, Paytm, Google Pay."
+        },
+        {
+          "q": "Write a short note on credit card.",
+          "ans": "A credit card is an electronic payment system normally used for retail transactions. It enables the bearer to buy goods or services from a vendor, based on the cardholder's promise to pay back the value later with agreed interest. Every credit card account has a purchase limit set by the issuing bank. Key facts: Term 'credit card' first mentioned in 1887 in the sci-fi novel 'Looking Backward' by Edward Bellamy. Modern concept: USA 1920s. Diners Club card: first modern credit card (1950) by Frank McNamara and Ralph Schneider. Card number: 16 digits. Card network examples: Visa, MasterCard, Rupay."
+        },
+        {
+          "q": "What is a smart card?",
+          "ans": "Smart card is the modern version of card-based payment. Smart cards, along with the regular features of any card-based payment system, hold an EMV chip. This chip is similar in appearance to a SIM card but differs in functionality. Advantages: Can provide identification, authentication, data storage, and application processing. Smart cards are classified into: Contact smart cards (must be inserted into a reader) and Contactless smart cards (uses RFID, just tap to pay). Smart cards are more secure than regular magnetic stripe cards."
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "navLabel": "Part III -- Brief Answers (3 x 3)",
+      "title": "Part III",
+      "type": "short-essay",
+      "scoreMax": 9,
+      "marksPer": 3,
+      "questions": [
+        {
+          "q": "Compare and contrast the credit card and debit card.",
+          "ans": "Credit Card:\n- Payment method: Pay LATER (deferred payment with interest)\n- Money source: Issuing bank lends money to customer\n- Settlement: Cardholder pays the amount at end of billing cycle\n- Limit: Set by issuing bank\n- Risk: If not paid on time, interest is charged\n- Invented: Modern concept USA 1920s, Diners Club 1950\n\nDebit Card:\n- Payment method: Pay NOW (immediate deduction)\n- Money source: Directly from cardholder's bank account\n- Settlement: Amount deducted immediately upon authorization\n- Limit: Limited to available account balance\n- Risk: If account has insufficient funds, transaction fails\n- Functions also as ATM card\n\nPhysical properties: Both are identical in appearance (plastic, same size 85.60mm × 53.98mm, rounded corners). It is difficult to differentiate by appearance unless \"credit\" or \"debit\" is imprinted."
+        },
+        {
+          "q": "Explain briefly Anatomy of a credit card.",
+          "ans": "A credit card has 11 key elements:\n1. Publisher — Emblem/logo of the issuing bank (front, top left).\n2. Credit card number — 16-digit unique identification number. 1st digit = MII, first 6 digits = IIN/BIN, 7-15 = account number, last digit = check digit.\n3. Name of cardholder — Embossed on the front side.\n4. EMV chip — Integrated circuit chip for storing cardholder information (more secure than magnetic stripe).\n5. RFID symbol — Indicates contactless smart card capability.\n6. Expiration date — Month and year; card valid until last day of that month.\n7. Card brand logo — e.g., Visa, MasterCard, Rupay.\n8. Magnetic stripe — Contains encrypted data about card holder and account number.\n9. Hologram — Security feature that prevents duplication.\n10. Signature — Cardholder's signature on the back.\n11. CVC/CVV — 3-digit Card Verification Code on the back panel; validates the card for online transactions."
+        },
+        {
+          "q": "What is Electronic Fund Transfer?",
+          "ans": "Electronic Funds Transfer (EFT) is the \"electronic transfer\" of money over an online network. The amount sent from the sender's bank branch is credited to the receiver's bank branch on the same day in batches. EFT saves the effort of sending a demand draft through post and the inherent delay. Banks may charge a commission for this service.\n\nIn India, EFT is called NEFT (National Electronic Fund Transfer), initiated by the Reserve Bank of India in November 2005. Established and maintained by IDRBT (Institute for Development and Research in Banking Technology). NEFT enables transfer between any two NEFT-enabled bank accounts on a one-to-one basis via electronic messages. Unlike RTGS, NEFT does NOT occur in real-time — it is processed in batches. EFT is widely used in B2B business models."
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "navLabel": "Part IV -- Long Essays (2 x 4)",
+      "title": "Part IV",
+      "type": "long-essay",
+      "scoreMax": 8,
+      "marksPer": 4,
+      "questions": [
+        {
+          "q": "Explain the key players of a credit card payment system.",
+          "ans": "There are 5 key players in a credit card transaction:\n\n1. Bearer (Card Holder):\nThe holder of the credit card account. Responsible for payment of invoices in full (transactor) or a portion of the balance (revolver — rest accrues interest and is carried forward). Makes purchases using the card.\n\n2. Merchant:\nThe storekeeper or vendor who sells goods/services and receives payment through the credit card. The merchant must have a card reader/POS terminal and a merchant account with a bank.\n\n3. Acquirer (Merchant's Bank):\nThe merchant's bank that is responsible for receiving payment on behalf of the merchant. Sends authorization requests to the issuing bank through appropriate channels. Receives the payment and credits the merchant's account.\n\n4. Credit Card Network (e.g., Visa, MasterCard, Rupay):\nActs as the INTERMEDIARY between the acquirer (merchant's bank) and the issuer (bearer's bank). Communicates the transaction between banks. Operates the networks that process credit card payments worldwide. Levies interchange fees for this service.\n\n5. Issuer (Bearer's Bank):\nThe bank that issues the credit card to the bearer. Sets purchase limits, decides approval of transactions, issues invoices for payment, charges holders in case of default, and offers card-linked products such as insurance, additional cards, and rewards plans."
+        },
+        {
+          "q": "Explain in detail: Unified Payments Interface (UPI).",
+          "ans": "Unified Payments Interface (UPI) is a real-time payment system developed by NPCI (National Payments Corporation of India) to facilitate inter-bank transactions.\n\nKey features:\n- Simple, secure, and instant payment facility.\n- Regulated by the Reserve Bank of India (RBI).\n- Used for transferring funds instantly between two bank accounts through mobile devices.\n- Based on IMPS (Immediate Payment Service).\n- Website: http://www.npci.org.in/\n\nHow UPI differs from e-wallets:\n- Traditional e-wallets store money in their own account.\n- UPI withdraws and deposits funds DIRECTLY from the bank account whenever a transaction is requested.\n- Also provides \"peer to peer\" collect request.\n\nUPI Address Types:\n1. Global address — bank account numbers and IFSC.\n2. Local address — Virtual Payment Address (VPA).\n\nVPA (Virtual Payment Address):\n- Also called UPI-ID.\n- Unique ID similar to email (e.g., name@bankname).\n- Generated using phone number linked to Aadhaar number and bank account.\n- Replaces bank account details, hiding critical information.\n\nMPIN (Mobile banking PIN) — required to confirm each payment.\n\nAdvantages:\n1. Immediate money transfers 24×7.\n2. Single mobile app for multiple bank accounts.\n3. Single click authentication.\n4. No need to enter card/account details for every transaction.\n5. Electronic payments without digital wallet or credit/debit card.\n\nUSSD service (*99#): UPI available even without Internet for basic banking."
+        }
+      ]
+    }
+  ]
+}

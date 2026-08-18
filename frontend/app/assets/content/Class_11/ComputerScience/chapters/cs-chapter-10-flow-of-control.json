@@ -1,0 +1,77 @@
+{
+  "chapterNumber": 10,
+  "title": "Flow of Control",
+  "subject": "Computer Science",
+  "classLabel": "Class 11",
+  "curriculum": "Samacheer Kalvi",
+  "sections": [
+    {
+      "id": "statements-intro",
+      "title": "Statements & Control Statements",
+      "content": "**10.1 Introduction**\n\nGenerally a program executes its statements sequentially from beginning to end. However, strict sequential ordering is restrictive — often, the code block executed should depend on a certain condition. In such situations, the flow of control jumps from one part of the code to another; program statements that cause such jumps are called **Control flow**. This chapter covers **Selection**, **Iteration**, and **Jump** statements.\n\n**10.2 Statements**\n\nA program is a set of statements/instructions to perform a specific task — variable declarations, expression evaluations, assignments, decision making, looping, etc. There are two kinds of statements in C++:\n\n**10.2.1 Null Statement:** The \"null or empty statement\" contains only a semicolon (`;`). It's commonly used as a placeholder in iteration statements, or to attach labels at the end of compound statements or functions.\n\n**10.2.2 Compound (Block) Statement:** C++ allows a group of statements enclosed by a pair of braces {}, called a **compound statement** or **block**:\n```\n{\n    statement1;\n    statement2;\n    statement3;\n}\n```\nA block is treated as a single unit and may appear anywhere in the program.\n\n**10.3 Control Statements**\n\nControl statements alter the sequence of flow of instructions. Statements may execute **sequentially**, **selectively**, or **iteratively**:\n\n- **Sequence statement:** Statements executed one after another, only once, from top to bottom, without altering flow — each ends with a semicolon.\n- **Selection statement:** Execution depends on a condition — if true, a \"true block\" executes; if false, a \"false block\" executes. Also called a decision statement, since it helps decide which set of statements to run.\n- **Iteration statement:** A set of statements repetitively executed based on a condition — if true, the \"true block\" (loop body) executes again and again; once the condition becomes false, repetition stops. Also called a looping statement. The condition governing execution/exit is the **exit-condition** or **test-condition**.\n\n**Note:** In C++, any non-zero value is treated as true (including negative numbers); zero is treated as false.",
+      "nav": {
+        "next": "selection-if",
+        "nextLabel": "Next: if / if-else Statements →"
+      }
+    },
+    {
+      "id": "selection-if",
+      "title": "if, if-else & Nested if",
+      "content": "**10.4 Selection Statements**\n\nDecisions in C++ are made mainly with **if...else**, which chooses between two alternatives, and **switch**, which creates branches for multiple alternatives based on a single variable's value.\n\n**10.4.1 if Statement**\n\nEvaluates a condition; if true, the \"true-block\" executes; otherwise it's skipped.\n```\nif (expression)\n    true-block;\nstatement-x;\n```\nIf the expression is true (nonzero), the true-block executes, followed by statement-x. If false, control passes directly to statement-x. The true-block may be a single statement, a compound statement, or empty.\n\n**10.4.2 if-else Statement**\n\nAllows an alternative course of action when the condition is false:\n```\nif (expression)\n{\n    True-block;\n}\nelse\n{\n    False-block;\n}\nstatement-x;\n```\nIf the expression is true, the true-block executes and the false-block is skipped; if false, the false-block executes and the true-block is skipped.\n\n**10.4.3 Nested if**\n\nAn if statement containing another if statement is called a **nested if**. Three forms: (1) if nested inside the if part, (2) if nested inside the else part, (3) if nested inside both the if part and the else part. In form (1): expression-1 is evaluated; if false, control passes to statement-m. Otherwise, expression-2 is evaluated — if true, the Nested-True-block executes (then statement-n); if false, the Nested-False-block executes (then statement-n and statement-m).",
+      "nav": {
+        "back": "statements-intro",
+        "next": "selection-ladder-switch",
+        "nextLabel": "Next: if-else Ladder, Ternary & switch →"
+      }
+    },
+    {
+      "id": "selection-ladder-switch",
+      "title": "if-else Ladder, Conditional Operator & switch",
+      "content": "**10.4.4 if-else-if Ladder**\n\nA multi-path decision-making statement — 'if' is followed by one or more 'else if' statements, ending with a final 'else':\n```\nif (expression1)\n    Statement-1\nelse if (expression2)\n    Statement-2\nelse if (expression3)\n    Statement-3\nelse\n    Statement-4\n```\nWhen a condition becomes true, its associated statement executes and the rest of the ladder is bypassed. If none are true, the final else statement executes.\n\n**10.4.5 The ?: Conditional (Ternary) Operator**\n\nAn alternative to if...else, taking three arguments:\n```\nexpression1 ? expression2 : expression3\n```\nexpression1 (the condition) is evaluated; if true (non-zero), control transfers to expression2; otherwise, to expression3. Example: `largest = (a>b) ? a : b;` stores the larger of a and b.\n\n**10.4.6 switch Statement**\n\nA multi-way branch statement dispatching execution based on the value of an expression, often replacing a long if-else sequence:\n```\nswitch(expression)\n{\n    case constant1:\n        statement(s);\n        break;\n    case constant2:\n        statement(s);\n        break;\n    default:\n        statement(s);\n}\n```\nThe expression is evaluated; if it matches a case's constant, that block executes; otherwise, the default block executes.\n\n**Rules:**\n1. The switch expression must evaluate to a constant value.\n2. Duplicate case values are not allowed.\n3. The default statement is optional.\n4. break terminates the switch — control jumps to the line after the switch.\n5. break is optional — if omitted, execution \"falls through\" into subsequent cases until a break is reached.\n6. Nesting of switch statements is allowed.\n\n**10.4.7 switch vs if-else**\n\n| # | if-else | switch |\n|---|---|---|\n| 1 | Condition decides if/else block | Expression decides which case to run |\n| 2 | Uses multiple conditions for multiple choices | Uses a single expression for multiple choices |\n| 3 | Checks equality and logical expressions | Checks only for equality |\n| 4 | Evaluates int, char, pointer, float, or bool | Evaluates only char or int |\n| 5 | False → else block runs | No match → default runs |\n\nThe if statement is more flexible than the switch statement overall.",
+      "nav": {
+        "back": "selection-if",
+        "next": "iteration-for",
+        "nextLabel": "Next: Iteration & the for Loop →"
+      }
+    },
+    {
+      "id": "iteration-for",
+      "title": "Iteration Statements & the for Loop",
+      "content": "**10.5 Iteration Statements**\n\nAn iteration (looping) is a sequence of statements repeatedly executed until a condition is satisfied — reducing code length, execution time, and memory. C++ supports three iteration types: **for**, **while**, **do-while**. All repeat statements as long as a specified condition (the **loop control**) remains true; a nonzero value is true, zero is false.\n\n**10.5.1 Parts of a Loop** — every loop has four elements:\n- **Initialization expression(s):** initializes the control variable(s), executed once at the start.\n- **Test expression:** decides whether the loop body executes; if true (nonzero), the body executes, otherwise the loop terminates. In an **entry-controlled** loop, this is checked *before* entering the loop; in an **exit-controlled** loop, *after* the body runs at least once.\n- **Update expression:** changes the loop variable's value, executed at the end of each iteration.\n- **The body of the loop:** the repeated statement(s).\n\n**10.5.2 for Loop**\n\nAn **entry-controlled** loop, the easiest looping statement — contains initialization, test-expression, and update expression(s) in one line, separated by semicolons:\n```\nfor (initialization(s); test-expression; update expression(s))\n{\n    Statement1;\n    Statement2;\n}\nstatement-x;\n```\nFlow: initialize once → evaluate test-expression → if false, jump to statement-x; if true, execute the loop body → execute update expression → re-evaluate test-expression → repeat.\n\n**Variations of the for loop:**\n- **Multiple initialization/update expressions:** separated by commas, e.g., `for(i=0, j=10; i<j; i++, j--)` — evaluated in sequential order.\n- **Prefer prefix over postfix** for standalone increment/decrement in update expressions, since prefix operators execute faster when used alone.\n- **Optional expressions:** all three parts (initialization, test, update) are optional. If the initialization or update is omitted, a semicolon placeholder is still required; e.g., `for(; i<=n;)`.\n- **Infinite loop:** occurs if the test-expression is omitted, e.g., `for(i=0;;++i)` — runs forever.\n- **Empty loop:** a loop with no body statement, e.g., `for(i=0; i<=5; ++i);` (note the trailing semicolon making the body a null statement). If a semicolon is placed right after a for loop header and a block follows separately, that block will NOT be treated as the loop body and won't repeat.\n- **Declaring a variable within a for loop:** e.g., `for(int i=0; i<=5; ++i)` — the variable i's scope is limited to the loop body (in modern C++, effectively the enclosing block); a variable declared inside main()'s block, however, is accessible throughout main().",
+      "nav": {
+        "back": "selection-ladder-switch",
+        "next": "iteration-while-nested",
+        "nextLabel": "Next: while, do-while & Nested Loops →"
+      }
+    },
+    {
+      "id": "iteration-while-nested",
+      "title": "while Loop, do-while Loop & Nested Loops",
+      "content": "**10.5.3 while Loop**\n\nAn **entry-controlled** loop — the test-expression is evaluated before entering the loop:\n```\nwhile (Test expression)\n{\n    Body of the loop;\n}\nstatement-x;\n```\nIf the test expression is true, the loop body executes and control returns to re-test the condition; once false, control passes to statement-x.\n\n**while loop variations:** Can be an **empty loop** (body contains only a null statement — e.g., a time-delay loop like `while(++i < 10000);`), or an **infinite loop** if no update statement changes the test condition inside the loop body.\n\n**10.5.4 do-while Loop**\n\nAn **exit-controlled** loop — the condition is evaluated at the *bottom*, after the loop body executes, meaning the body always runs **at least once**, even if the condition is false on the first check:\n```\ndo\n{\n    Body of the loop;\n} while (condition);\n```\n\n**10.5.5 Nesting of Loops**\n\nA loop containing another loop is called a **nested loop** — for loops, while loops, and do-while loops can all be nested (including mixed combinations). Nested for loops are commonly used to generate patterns or tables, such as a multiplication table, where the outer loop controls rows and the inner loop controls columns.",
+      "nav": {
+        "back": "iteration-for",
+        "next": "jump-statements",
+        "nextLabel": "Next: Jump Statements →"
+      }
+    },
+    {
+      "id": "jump-statements",
+      "title": "Jump Statements: goto, break & continue",
+      "content": "**10.6 Jump Statements**\n\nJump statements interrupt the normal flow of a program. C++ has three: **goto**, **break**, **continue**.\n\n**10.6.1 goto Statement**\n\nTransfers control from one place to another *unconditionally*, using a labeled target:\n```\ngoto label;\n...\nlabel:\n...\n```\n(or the label can appear before the goto, for a \"backward jump\"). When `goto label;` executes, control jumps directly to `label:` and continues from there.\n\n**10.6.2 break Statement**\n\nTerminates the execution of a loop (or switch) immediately — control transfers to the statement right after the loop/switch body. Used inside for, while, do-while, and switch. When break executes, the enclosing loop stops entirely, regardless of the loop's normal test condition.\n\n**10.6.3 continue Statement**\n\nSimilar to break, but instead of terminating the loop, it skips the remaining code in the current iteration and forces the loop to proceed to its **next** iteration (re-checking the test condition, or running the update expression first in a for loop).\n\n**Difference between break and continue:**\n\n| Break | Continue |\n|---|---|\n| Terminates execution of the loop | Does NOT terminate the loop |\n| Breaks the iteration entirely | Skips only the current iteration |\n| Control exits the loop, moves to the statement after it | Control jumps to the next iteration of the loop |\n| Used with loops as well as switch | Used only in loops, not in switch |",
+      "nav": {
+        "back": "iteration-while-nested",
+        "next": "summary",
+        "nextLabel": "Next: Points to Remember →"
+      }
+    },
+    {
+      "id": "summary",
+      "title": "Points to Remember",
+      "content": "- A computer program is a set of statements/instructions to perform a specific task.\n- There are two kinds of statements in C++: Null (empty) and Compound (block) statements.\n- Control statements alter the sequence of flow — the three kinds are Sequence, Selection, and Iteration statements.\n- if and switch are Selection statements; the Conditional (?:) Operator is an alternative to if-else; switch is a multi-way branching statement.\n- Iteration (looping) statements execute a set of statements repeatedly until a condition is satisfied — C++ supports three: for, while, do-while.\n- for and while are entry-controlled loops (test-expression checked before the body runs); do-while is exit-controlled (body runs at least once, tested after).\n- Three Jump statements are used in C++: goto, break, and continue — break terminates a loop entirely; continue skips to the next iteration.",
+      "nav": {
+        "back": "jump-statements",
+        "practice": true
+      }
+    }
+  ]
+}

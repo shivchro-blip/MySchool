@@ -723,10 +723,22 @@ class _FlatChapterTile extends StatelessWidget {
             _ActionButton(
               label: 'Learn',
               color: accentColor,
-              onTap: () => context.push(
-                '/sectioned-learn/$classLevel/$subjectSlug/${chapter.slug}',
-                extra: {'chapter': _asChapter, 'section': null},
-              ),
+              onTap: () {
+                // Class 12 Computer Applications content is authored in the
+                // tabs/blocks shape (same as English) — route to rich_learn.
+                // All other CS/CA combos use the sections shape.
+                if (classLevel == '+2' && subjectSlug == 'computer-applications') {
+                  context.push(
+                    '/rich-learn/$classLevel/$subjectSlug/${chapter.slug}',
+                    extra: {'chapter': _asChapter, 'tab': null},
+                  );
+                } else {
+                  context.push(
+                    '/sectioned-learn/$classLevel/$subjectSlug/${chapter.slug}',
+                    extra: {'chapter': _asChapter, 'section': null},
+                  );
+                }
+              },
             ),
             const SizedBox(width: 6),
             _ActionButton(

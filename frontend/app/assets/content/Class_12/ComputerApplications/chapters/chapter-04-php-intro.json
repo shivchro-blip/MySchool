@@ -1,0 +1,528 @@
+{
+  "eyebrow": "Chapter 4 · Class 12 Computer Applications",
+  "title": "PHP: Hypertext Preprocessor",
+  "author": "",
+  "pills": [
+    "Theory",
+    "Programming",
+    "Board Exam Important"
+  ],
+  "tabs": [
+    {
+      "id": "intro",
+      "label": "Introduction",
+      "blocks": [
+        {
+          "type": "teacher-voice",
+          "html": "<p>Have you ever wondered how websites like YouTube or Google show different content for each user? That's because they use server-side programming languages like PHP. PHP is the most widely used language for building dynamic websites. This chapter is very important — PHP syntax, variables, and operators appear in Part I, II, III, and IV questions every year!</p>"
+        },
+        {
+          "type": "section-head",
+          "text": "4.1 Introduction to PHP"
+        },
+        {
+          "type": "gloss-row",
+          "word": "PHP",
+          "def": "PHP: Hypertext Preprocessor. Created by Rasmus Lerdorf in 1994. A server-side scripting language — code is executed on the SERVER, not in the user's browser. Widely used for web development."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Dynamic Web Page",
+          "def": "A page whose content can change each time it is viewed. PHP creates dynamic pages. Example: Your Facebook feed shows different content each time."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Static Web Page",
+          "def": "A page with fixed content that does not change unless manually updated by the developer. Content is the same every time it is viewed."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Interpreted Language",
+          "def": "PHP is interpreted — you do NOT compile it. PHP files are interpreted line by line by the web server. No executable file is created."
+        },
+        {
+          "type": "think-box",
+          "label": "Real-Life Example 🌍",
+          "text": "When you log into your school website and see YOUR name and YOUR marks — that is a dynamic page created using PHP. A static page would show the same content for everyone."
+        },
+        {
+          "type": "section-head",
+          "text": "4.2 Features of PHP"
+        },
+        {
+          "type": "gloss-row",
+          "word": "Server-side scripting",
+          "def": "Scripts execute on the server. Output is sent to the client (browser). Client never sees the actual PHP code — only the result."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Open-source",
+          "def": "PHP source code is available for anyone to view and modify freely."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Platform independent",
+          "def": "PHP runs on Windows, Linux, and macOS — no restriction on operating system."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Database support",
+          "def": "PHP easily connects to databases (like MySQL) to create database-driven websites."
+        },
+        {
+          "type": "section-head",
+          "text": "4.3 PHP with HTML, JavaScript, CSS"
+        },
+        {
+          "type": "gloss-row",
+          "word": "HTML",
+          "def": "HyperText Markup Language — structures and formats content of a web page."
+        },
+        {
+          "type": "gloss-row",
+          "word": "JavaScript",
+          "def": "A client-side scripting language — adds interactivity to web pages. Runs in the browser."
+        },
+        {
+          "type": "gloss-row",
+          "word": "CSS",
+          "def": "Cascading Style Sheets — controls the appearance (layout, font, color) of a web page."
+        },
+        {
+          "type": "think-box",
+          "label": "⭐ Exam Tip",
+          "text": "PHP = server-side (runs on server). JavaScript = client-side (runs in browser). This difference is frequently asked in MCQ. Also: PHP was created by Rasmus Lerdorf in 1994."
+        },
+        {
+          "type": "nav",
+          "next": "syntax-variables",
+          "nextLabel": "Next: Syntax & Variables →"
+        }
+      ]
+    },
+    {
+      "id": "syntax-variables",
+      "label": "Syntax & Variables",
+      "blocks": [
+        {
+          "type": "section-head",
+          "text": "4.4 PHP Syntax"
+        },
+        {
+          "type": "gloss-row",
+          "word": "Opening and Closing Tags",
+          "def": "PHP code is enclosed in <?php and ?> tags. Everything between these tags is PHP code. A PHP statement MUST end with a semicolon (;)."
+        },
+        {
+          "type": "quote-block",
+          "quote": "<?php echo \"Hello, World!\"; ?>",
+          "context": ""
+        },
+        {
+          "type": "section-head",
+          "text": "4.5 Types of PHP Tags"
+        },
+        {
+          "type": "gloss-row",
+          "word": "PHP Default Tags",
+          "def": "<?php ... ?> — Standard way. Always supported."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Short Open Tags",
+          "def": "<? ... ?> — Alternative shorthand. Uses <? instead of <?php."
+        },
+        {
+          "type": "gloss-row",
+          "word": "HTML Script Embed Tags",
+          "def": "<script language=\"php\"> ... </script> — Embeds PHP inside HTML script tags."
+        },
+        {
+          "type": "think-box",
+          "label": "⭐ Exam Tip",
+          "text": "3 types of PHP tags: Default (<?php ?>), Short (<? ?>), HTML Script embed (<script language=\"php\">). The correct opening tag for default PHP is <?php — NOT <php or <:?."
+        },
+        {
+          "type": "section-head",
+          "text": "4.6 & 4.7 Variables in PHP"
+        },
+        {
+          "type": "gloss-row",
+          "word": "Variable",
+          "def": "A named location in memory where a value can be stored. Variables are denoted by a dollar sign ($) followed by the variable name."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Rules for Variable Names",
+          "def": "1. Must start with $ sign. 2. First character after $ must be a letter or underscore (NOT a number). 3. Can contain letters, numbers, and underscores. 4. Variable names are CASE-SENSITIVE ($name and $Name are different variables)."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Valid Variable Names",
+          "def": "$name, $age, $is_admin, $_hidden, $my_report1"
+        },
+        {
+          "type": "gloss-row",
+          "word": "Invalid Variable Names",
+          "def": "$1st_name (starts with number), $full-name (contains hyphen), $full name (contains space)"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>Variable Declaration Example:</p>"
+        },
+        {
+          "type": "quote-block",
+          "quote": "$name = \"Balu\"; $age = 30; $is_admin = true; $prices = array(10, 20, 30);",
+          "context": ""
+        },
+        {
+          "type": "think-box",
+          "label": "⚠️ Common Mistake",
+          "text": "Variable names in PHP are case-sensitive. $Name and $name are DIFFERENT variables. Many students forget this and lose marks in MCQ."
+        },
+        {
+          "type": "section-head",
+          "text": "4.8 Data Types in PHP (8 Types)"
+        },
+        {
+          "type": "gloss-row",
+          "word": "Integer",
+          "def": "Whole numbers (positive, negative, or zero). Example: $age = 30; $count = -10;"
+        },
+        {
+          "type": "gloss-row",
+          "word": "Float",
+          "def": "Decimal numbers. Example: $price = 19.99; $weight = 65.5;"
+        },
+        {
+          "type": "gloss-row",
+          "word": "String",
+          "def": "A sequence of characters enclosed in single or double quotes. Example: $name = \"Barath\"; $msg = 'Hello, World!';"
+        },
+        {
+          "type": "gloss-row",
+          "word": "Boolean",
+          "def": "Contains only True or False. Example: $is_admin = true; $is_logged_in = false;"
+        },
+        {
+          "type": "gloss-row",
+          "word": "Array",
+          "def": "Holds multiple values in a single variable. Example: $prices = array(10, 20, 30);"
+        },
+        {
+          "type": "gloss-row",
+          "word": "Object",
+          "def": "Represents an instance of a class. Example: $user = new User();"
+        },
+        {
+          "type": "gloss-row",
+          "word": "Resource",
+          "def": "A special type representing a connection to an external resource like a file or database. Example: $fp = fopen(\"file.txt\", \"r\");"
+        },
+        {
+          "type": "gloss-row",
+          "word": "NULL",
+          "def": "Contains no value — NULL means empty/no value. The keyword NULL is NOT case-sensitive. Example: $x = null;"
+        },
+        {
+          "type": "think-box",
+          "label": "⭐ Exam Tip",
+          "text": "PHP supports 8 data types: Integer, Float, String, Boolean, Array, Object, Resource, NULL. \"How many data types does PHP support?\" Answer: 8. This is a very common MCQ question."
+        },
+        {
+          "type": "section-head",
+          "text": "4.9 Comments in PHP"
+        },
+        {
+          "type": "gloss-row",
+          "word": "Single-line Comment",
+          "def": "Use # or // before the comment. Example: # This is a comment OR // This is also a comment"
+        },
+        {
+          "type": "gloss-row",
+          "word": "Multi-line Comment",
+          "def": "Enclose in /* ... */. Example: /* This is a multi-line comment */"
+        },
+        {
+          "type": "nav",
+          "back": "intro",
+          "next": "echo-operators",
+          "nextLabel": "Next: Echo & Operators →"
+        }
+      ]
+    },
+    {
+      "id": "echo-operators",
+      "label": "Echo & Operators",
+      "blocks": [
+        {
+          "type": "section-head",
+          "text": "4.10 Echo Statement"
+        },
+        {
+          "type": "gloss-row",
+          "word": "echo",
+          "def": "Used to output a string or other data to the screen. Does not require parentheses (but parentheses are allowed). Example: echo \"Hello, World!\";"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>Different ways to use echo:</p>"
+        },
+        {
+          "type": "gloss-row",
+          "word": "Output a variable",
+          "def": "$name = \"Kumar\"; echo \"My name is $name\";"
+        },
+        {
+          "type": "gloss-row",
+          "word": "Output an expression",
+          "def": "$x = 10; $y = 20; echo $x + $y; // Outputs 30"
+        },
+        {
+          "type": "gloss-row",
+          "word": "Concatenation operator (.)",
+          "def": "Joins two strings. Example: echo \"My name is\" . $name;"
+        },
+        {
+          "type": "gloss-row",
+          "word": "Output single quote inside string",
+          "def": "Use double quotes to enclose: echo \"It's a nice day today.\";"
+        },
+        {
+          "type": "section-head",
+          "text": "4.11 First PHP Script"
+        },
+        {
+          "type": "quote-block",
+          "quote": "<?php echo \"Hello, World!\"; ?>",
+          "context": ""
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>Save with .php extension → place on web server → access via browser → outputs \"Hello, World!\"</p>"
+        },
+        {
+          "type": "section-head",
+          "text": "4.12.1 Arithmetic Operators"
+        },
+        {
+          "type": "gloss-row",
+          "word": "+ (Addition)",
+          "def": "5 + 2 = 7"
+        },
+        {
+          "type": "gloss-row",
+          "word": "- (Subtraction)",
+          "def": "5 - 2 = 3"
+        },
+        {
+          "type": "gloss-row",
+          "word": "* (Multiplication)",
+          "def": "5 * 2 = 10. Note: asterisk (*) is used, NOT the regular multiplication symbol (x)."
+        },
+        {
+          "type": "gloss-row",
+          "word": "/ (Division)",
+          "def": "5 / 2 = 2.5"
+        },
+        {
+          "type": "gloss-row",
+          "word": "% (Modulus)",
+          "def": "5 % 2 = 1. Returns the REMAINDER after division."
+        },
+        {
+          "type": "section-head",
+          "text": "4.12.2 Assignment Operators"
+        },
+        {
+          "type": "gloss-row",
+          "word": "= (Assignment)",
+          "def": "Assigns a value to a variable. $a = 5; stores 5 in $a."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Combined Assignment Operators",
+          "def": "+= (add and assign), -= (subtract and assign), *= (multiply and assign), /= (divide and assign), %= (modulo and assign). Example: $a += $b is same as $a = $a + $b."
+        },
+        {
+          "type": "section-head",
+          "text": "4.12.3 Comparison Operators"
+        },
+        {
+          "type": "gloss-row",
+          "word": "== (Equal to)",
+          "def": "Returns True if values are equal (type may differ). 5 == 5.0 → True."
+        },
+        {
+          "type": "gloss-row",
+          "word": "=== (Identical)",
+          "def": "Returns True if values AND types are both the same. 5 === 5 → True. 5 === 5.0 → False (different types)."
+        },
+        {
+          "type": "gloss-row",
+          "word": "!= (Not equal to)",
+          "def": "Returns True if values are not equal."
+        },
+        {
+          "type": "gloss-row",
+          "word": "!== (Not identical)",
+          "def": "Returns True if values or types are not the same."
+        },
+        {
+          "type": "gloss-row",
+          "word": "> < >= <=",
+          "def": "Greater than, less than, greater than or equal to, less than or equal to."
+        },
+        {
+          "type": "think-box",
+          "label": "⭐ Exam Tip",
+          "text": "Difference between == and ===: == compares values only. === compares values AND data types. 5==5.0 is True. 5===5.0 is False (int vs float). This is asked in MCQ every year."
+        },
+        {
+          "type": "section-head",
+          "text": "4.12.4 Logical Operators"
+        },
+        {
+          "type": "gloss-row",
+          "word": "&& (Logical AND)",
+          "def": "Returns True if BOTH operands are true. (5>3) && (5>7) → False."
+        },
+        {
+          "type": "gloss-row",
+          "word": "|| (Logical OR)",
+          "def": "Returns True if AT LEAST ONE operand is true. (5>3) || (5>7) → True."
+        },
+        {
+          "type": "gloss-row",
+          "word": "xor (XOR)",
+          "def": "Returns True if EXACTLY ONE operand is true. (5>3) xor (5>7) → True."
+        },
+        {
+          "type": "gloss-row",
+          "word": "! (Logical NOT)",
+          "def": "Returns the OPPOSITE. !(5>3) → False (because 5>3 is True)."
+        },
+        {
+          "type": "section-head",
+          "text": "4.12.5 Increment / Decrement Operators"
+        },
+        {
+          "type": "gloss-row",
+          "word": "++$a (Pre-increment)",
+          "def": "First increments $a by 1, THEN returns the value."
+        },
+        {
+          "type": "gloss-row",
+          "word": "$a++ (Post-increment)",
+          "def": "First returns the current value of $a, THEN increments by 1."
+        },
+        {
+          "type": "gloss-row",
+          "word": "--$a (Pre-decrement)",
+          "def": "First decrements $a by 1, THEN returns the value."
+        },
+        {
+          "type": "gloss-row",
+          "word": "$a-- (Post-decrement)",
+          "def": "First returns the current value of $a, THEN decrements by 1."
+        },
+        {
+          "type": "section-head",
+          "text": "4.12.6 String Operators"
+        },
+        {
+          "type": "gloss-row",
+          "word": ". (Concatenation)",
+          "def": "Joins two strings together. $c = $a . $b; Example: 'Hello' . 'World' → 'HelloWorld'"
+        },
+        {
+          "type": "gloss-row",
+          "word": ".= (Concatenation Assignment)",
+          "def": "Appends one string to another and assigns the result. $a .= $b; is same as $a = $a . $b;"
+        },
+        {
+          "type": "nav",
+          "back": "syntax-variables",
+          "next": "php-html",
+          "nextLabel": "Next: PHP in HTML →"
+        }
+      ]
+    },
+    {
+      "id": "php-html",
+      "label": "PHP in HTML",
+      "blocks": [
+        {
+          "type": "section-head",
+          "text": "4.13 Embedding PHP in HTML"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>PHP is almost always used together with HTML. You embed PHP code inside an HTML file using the PHP tags. The PHP runs on the server, and the browser only receives the final HTML output.</p>"
+        },
+        {
+          "type": "quote-block",
+          "quote": "<html><body><?php echo \"Hello, World!\"; ?></body></html>",
+          "context": ""
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>The PHP code <?php echo \"Hello, World!\"; ?> is replaced by its output before the page reaches the browser.</p>"
+        },
+        {
+          "type": "section-head",
+          "text": "4.14 How a PHP Script Works (6 Steps)"
+        },
+        {
+          "type": "gloss-row",
+          "word": "Step 1",
+          "def": "Client (browser) sends a request for a webpage to the server."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Step 2",
+          "def": "Server receives the request. If the page contains PHP code, the server passes it to the PHP interpreter."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Step 3",
+          "def": "PHP interpreter executes the PHP code and generates output."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Step 4",
+          "def": "The output from PHP is combined with the rest of the HTML to create the final webpage."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Step 5",
+          "def": "Server sends the completed webpage to the client's web browser."
+        },
+        {
+          "type": "gloss-row",
+          "word": "Step 6",
+          "def": "Client's browser receives the webpage and renders it for the user to view."
+        },
+        {
+          "type": "think-box",
+          "label": "⭐ Exam Tip",
+          "text": "\"Explain how a PHP script works\" is a Part IV question. Know all 6 steps. Key fact: PHP executes on the SERVER — the client's browser never sees the PHP code, only the HTML output. No special software is needed in the browser to run PHP."
+        },
+        {
+          "type": "section-head",
+          "text": "Chapter Recap — Key Points for Board Exam"
+        },
+        {
+          "type": "think-box",
+          "label": "⭐ Master Checklist",
+          "text": "PHP = PHP: Hypertext Preprocessor. Created by Rasmus Lerdorf in 1994. Server-side scripting language. PHP code enclosed in <?php and ?> tags. Statements end with semicolon (;). 3 tag types: Default, Short open, HTML Script embed. Variables start with $ sign. Variable names are case-sensitive. 8 data types: Integer, Float, String, Boolean, Array, Object, Resource, NULL. 2 comment types: single-line (# or //), multi-line (/* */). echo = output statement. Concatenation operator = dot (.). == checks value, === checks value AND type. Increment: ++$a (pre), $a++ (post). String concat: . and .=. PHP works in 6 steps (request → server → interpreter → combine → send → render)."
+        },
+        {
+          "type": "nav",
+          "back": "echo-operators",
+          "practice": true
+        }
+      ]
+    }
+  ]
+}

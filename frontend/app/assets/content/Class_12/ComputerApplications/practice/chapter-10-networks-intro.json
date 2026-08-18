@@ -1,0 +1,212 @@
+{
+  "meta": {
+    "subject": "Computer Applications -- Class XII",
+    "unit": "Chapter 10 -- Introduction to Computer Networks",
+    "time": "3.00 hrs",
+    "totalMarks": 38,
+    "instructions": "Samacheer Kalvi -- Answer all questions"
+  },
+  "parts": [
+    {
+      "id": "p1",
+      "navLabel": "Part I -- MCQ (10 x 1)",
+      "title": "Part I -- Objective Type",
+      "type": "mcq",
+      "scoreMax": 10,
+      "marksPer": 1,
+      "sections": [
+        {
+          "label": "Computer Networks",
+          "questions": [
+            {
+              "id": "q1",
+              "html": "A set of computers connecting together is called as:",
+              "options": [
+                "a) Network",
+                "b) Server",
+                "c) Hub",
+                "d) Node"
+              ],
+              "answer": 0,
+              "hint": "A set of computers connected together for sharing resources is called a computer network."
+            },
+            {
+              "id": "q2",
+              "html": "Many discussions in an online forum leads to personal attacks and is called:",
+              "options": [
+                "a) Hackers",
+                "b) Virus",
+                "c) Online war",
+                "d) Flame war"
+              ],
+              "answer": 3,
+              "hint": "Flame wars are lengthy exchanges of angry or abusive messages between users of an online forum."
+            },
+            {
+              "id": "q3",
+              "html": "Wi-Fi is short name for:",
+              "options": [
+                "a) Wireless Fidelity",
+                "b) Wired fidelity",
+                "c) Wired fiber optic",
+                "d) Wireless fiber optic"
+              ],
+              "answer": 0,
+              "hint": "Wi-Fi stands for Wireless Fidelity. Technical code for the protocol is 802.11."
+            },
+            {
+              "id": "q4",
+              "html": "Which among them was challenging to business people on computer networking?",
+              "options": [
+                "a) Hacking",
+                "b) Viruses",
+                "c) Both a & b",
+                "d) None of the above"
+              ],
+              "answer": 2,
+              "hint": "Both hacking and viruses are threats/challenges to business people using computer networks."
+            },
+            {
+              "id": "q5",
+              "html": "Which one of the following is NOT social media?",
+              "options": [
+                "a) Gmail",
+                "b) Facebook",
+                "c) Twitter",
+                "d) LinkedIn"
+              ],
+              "answer": 0,
+              "hint": "Gmail is an email service, not social media. Facebook, Twitter, and LinkedIn are social media platforms."
+            },
+            {
+              "id": "q6",
+              "html": "In mobile network, land areas for network coverage was distributed as:",
+              "options": [
+                "a) Firmware",
+                "b) Cells",
+                "c) Range",
+                "d) Service"
+              ],
+              "answer": 1,
+              "hint": "Mobile networks distribute land area coverage as cells — each cell served by a base transceiver station."
+            },
+            {
+              "id": "q7",
+              "html": "Which one of the following is harmful to computers?",
+              "options": [
+                "a) Bloggers",
+                "b) Browser",
+                "c) Hackers",
+                "d) Twitter"
+              ],
+              "answer": 2,
+              "hint": "Hackers are skilled computer experts who use their knowledge to access systems without authorisation."
+            },
+            {
+              "id": "q8",
+              "html": "Who is known as the 'father of the Internet'?",
+              "options": [
+                "a) Tim Berners Lee",
+                "b) Vint Cerf",
+                "c) Charles Babbage",
+                "d) Bill Gates"
+              ],
+              "answer": 1,
+              "hint": "Vint Cerf designed TCP/IP protocols and Internet architecture with Robert E. Kahn — known as the father of the Internet."
+            },
+            {
+              "id": "q9",
+              "html": "Which of the following is NOT a use of computer networks?",
+              "options": [
+                "a) Communication",
+                "b) Resource sharing",
+                "c) Information sharing",
+                "d) File compiling"
+              ],
+              "answer": 3,
+              "hint": "The 3 uses of computer networks are: Communication, Resource Sharing, and Information Sharing. File compiling is not a network use."
+            },
+            {
+              "id": "q10",
+              "html": "ARPANET was developed by which organization?",
+              "options": [
+                "a) NASA",
+                "b) ARPA (Advanced Research Projects Agency)",
+                "c) IEEE",
+                "d) ISO"
+              ],
+              "answer": 1,
+              "hint": "ARPANET was developed by ARPA (Advanced Research Projects Agency) of the U.S. government in 1969."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "navLabel": "Part II -- Short Answers (4 x 2)",
+      "title": "Part II -- Short Answer Questions",
+      "type": "short-essay",
+      "scoreMax": 8,
+      "marksPer": 2,
+      "questions": [
+        {
+          "q": "What is a Computer Network?",
+          "ans": "A computer network is a set of computers connected together for the purpose of sharing resources. The Internet is the most common resource shared today. Computer networking is a technique of digital telecommunication that permits nodes to share resources with one another. Data is exchanged as the main element. Links are transferred over cable media (optic cables, wires) or wireless media (Bluetooth, Wi-Fi)."
+        },
+        {
+          "q": "Write a short note on Internet.",
+          "ans": "Internet stands for INTERconnected NETwork. It is the connection of individual networks operated by academic, industry, government, and private parties. The Internet is a worldwide system of computer networks — a network of networks where users at any computer can get information from any other computer. It is connected by guided, wireless, and fiber-optic technologies. It was developed by ARPA of the U.S. government in 1969 (first known as ARPANet). Internet is a universal source of information for billions of people at work, at home, and at school."
+        },
+        {
+          "q": "What are the common uses of computer networks?",
+          "ans": "The three common uses of computer networks are: 1. Communication — Using computer networks, people can interact with others across the world at very low cost via mobile, e-mail, chatting, video conferencing, SMS, and groupware. 2. Resource Sharing — Allows programs, equipment, and data to be accessed by anyone via the network regardless of physical location. Includes sharing printers, scanners, fax machines. 3. Information Sharing — Applications stored at a central server can be shared among all computers on the network. Provides high reliability and backup."
+        },
+        {
+          "q": "What is a node in Computer Network?",
+          "ans": "A node is a computer which is connected to a network. Data originates and terminates at nodes. The data origin is called the source and the data destination is called the destination. In networking, nodes are identified by their IP addresses (network address). Nodes can include hosts such as mobile phones, tablets, personal computers, large servers, and other networking devices. Connecting more than one device together forms a network."
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "navLabel": "Part III -- Brief Answers (3 x 3)",
+      "title": "Part III -- Brief Answer Questions",
+      "type": "short-essay",
+      "scoreMax": 9,
+      "marksPer": 3,
+      "questions": [
+        {
+          "q": "Write a note on Resource Sharing in computer networks.",
+          "ans": "Resource sharing is one of the major uses of computer networks. It allows all kinds of programs, equipment, and data to be accessed by anyone via the network, irrespective of the physical location of the resource. Simply put, resource sharing means sharing of devices like printers, scanners, PDA, fax machines, and modems among multiple computers connected to a network. This eliminates the need for each computer to have its own separate printer or scanner — one device can be shared by many users. This reduces cost significantly and increases efficiency in offices and organizations."
+        },
+        {
+          "q": "List out some benefits of social networks.",
+          "ans": "Benefits of social networks:\n1. Group information sharing over long distances — Friends and family can share photo albums, videos, and daily wishes through social networks, providing a richer environment than phone calls or text messages.\n2. Broadcast announcements — Quick and easy way to spread information about emergencies, natural calamities, and upcoming events. Venues and businesses can advertise through social networks.\n3. Content contribution — Networks allow members to easily share comments, audio, video, text, and animation files with others.\n4. Frequent visits — Healthy social networks have active members who check in regularly to contribute and receive new updates.\n5. Relationship building — Social networks allow interaction among people, creating stronger connections across different communities."
+        },
+        {
+          "q": "Write a note on Mobile Networks.",
+          "ans": "A mobile network is a network connecting devices without cable (wireless). Mobile computers such as laptops, tablets, and handheld computers are the fastest growing segments. At land areas, the network is distributed as cells, each served by a single-location transceiver (base transceiver station). The base station provides network coverage for voice, data, and content transmission. Joining together all radio coverage creates a wide geographical area. Portable transceivers communicate with one another and with fixed transceivers, moving across more than one cell during transmission. Examples: mobiles, tablets, pagers, laptops with mobile broadband and dongles."
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "navLabel": "Part IV -- Long Essays (2 x 5)",
+      "title": "Part IV -- Detailed Answer Questions",
+      "type": "long-essay",
+      "scoreMax": 11,
+      "marksPer": 5,
+      "questions": [
+        {
+          "q": "Explain uses of Computer Networks.",
+          "ans": "Computer networks play a major role in providing information to large and small organizations and common people. The three major uses are:\n\n1. Communication:\nUsing computer networks, we can interact with people all over the world. People can communicate at very low cost via mobile, social media, telephone, e-mail, chatting, video conferencing, SMS, MMS, and groupware. This has made the world a smaller place.\n\n2. Resource Sharing:\nAllows all kinds of programs, equipment, and data to be accessed by anyone via the network irrespective of physical location. Resource sharing means sharing devices like printers, scanners, PDA, fax machines, and modems. This reduces duplication of equipment and saves cost.\n\n3. Information Sharing:\nUsing computer networks, any application or software can be stored at a central computer or server and shared among other computers. It provides high reliability — backup can be stored at one location for easy availability in case of a crash.\n\nApplications in specific areas:\n- Business: E-banking, cloud computing, B2B/B2C/B2G transactions without geographical boundaries.\n- Home: E-learning, e-governance, e-health, telemedicine, video conferencing.\n- Mobile: Wireless connectivity via cells and base stations.\n- Social: WhatsApp, Facebook, Twitter for sharing thoughts, ideas, and files globally."
+        },
+        {
+          "q": "Explain about social applications in Computer Networks.",
+          "ans": "Social applications in computer networks connect people around the world through social network media. Applications like WhatsApp, Facebook, Twitter, Blogs, Pinterest, and Classmate are in full use.\n\nCommon attributes of social networks:\n1. Membership — Requires user registration with names and accounts. Public networks offer free registration; private networks restrict membership.\n2. Content contribution — Members can share comments, audio, video, text, and animation files.\n3. Frequent visits — Active members check in regularly for new updates.\n4. Relationship building — Creates stronger connections among people of different communities.\n\nBenefits of social networks:\n1. Group information sharing — Share photo albums, videos, and wishes over long distances.\n2. Broadcast announcements — Spread information about emergencies and events quickly.\n3. Fostering diversity of thought — People of different opinions connect and discuss.\n\nDisadvantages of social networks:\n1. Wasting precious time on surfing and searching unwanted content.\n2. Unnecessary wrong information posted on web pages and blogs.\n3. Different types of theft related to money and valuables through hackers and viruses.\n\nWhen people of different opinions get together online, discussions can lead to personal attacks — called flame wars."
+        }
+      ]
+    }
+  ]
+}
