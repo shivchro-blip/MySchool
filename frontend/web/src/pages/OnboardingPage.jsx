@@ -8,6 +8,7 @@ const SUBJECTS = [
   { slug: 'english', name: 'English',     Icon: BookOpen,     bg: '#E6F4F2', color: '#2A7B6F' },
   { slug: 'maths',   name: 'Mathematics', Icon: Calculator,   bg: '#EEEFF9', color: '#5C6BC0' },
   { slug: 'computer-applications', name: 'Computer Applications', Icon: Monitor, bg: '#EAF1FB', color: '#1B4B82' },
+  { slug: 'computer-applications-tamil', name: 'Computer Applications (தமிழ்)', Icon: Monitor, bg: '#E8F5E9', color: '#2E7D32' },
   { slug: 'computer-science', name: 'Computer Science', Icon: Code, bg: '#EDF2FB', color: '#3B5BDB' },
   { slug: 'science', name: 'Science',     Icon: FlaskConical, bg: '#FBEEE0', color: '#D97020' },
 ]
