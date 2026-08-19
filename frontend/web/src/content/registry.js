@@ -107,6 +107,10 @@ const LOADERS = {
   'chapter-14-importing-cpp-in-python':          () => import('./Class_12/ComputerScience/chapters/chapter-14-importing-cpp-in-python'),
   'chapter-15-data-manipulation-sql':            () => import('./Class_12/ComputerScience/chapters/chapter-15-data-manipulation-sql'),
   'chapter-16-data-visualization-pyplot':        () => import('./Class_12/ComputerScience/chapters/chapter-16-data-visualization-pyplot'),
+  'ta-chapter-01-multimedia':  () => import('./Class_12/ComputerApplicationsTamil/chapters/ta-chapter-01-multimedia'),
+  'ta-chapter-02-pagemaker':   () => import('./Class_12/ComputerApplicationsTamil/chapters/ta-chapter-02-pagemaker'),
+  'ta-chapter-03-dbms':        () => import('./Class_12/ComputerApplicationsTamil/chapters/ta-chapter-03-dbms'),
+  'ta-chapter-04-php-intro':   () => import('./Class_12/ComputerApplicationsTamil/chapters/ta-chapter-04-php-intro'),
 }
 
 // Older chapter files (Class 11 CA) predate the { eyebrow, title, author,
