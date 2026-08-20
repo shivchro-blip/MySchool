@@ -111,6 +111,10 @@ const LOADERS = {
   'ta-chapter-02-pagemaker':   () => import('./Class_12/ComputerApplicationsTamil/chapters/ta-chapter-02-pagemaker'),
   'ta-chapter-03-dbms':        () => import('./Class_12/ComputerApplicationsTamil/chapters/ta-chapter-03-dbms'),
   'ta-chapter-04-php-intro':   () => import('./Class_12/ComputerApplicationsTamil/chapters/ta-chapter-04-php-intro'),
+  'ta-chapter-05-php-functions-arrays': () => import('./Class_12/ComputerApplicationsTamil/chapters/ta-chapter-05-php-functions-arrays'),
+  'ta-chapter-06-php-conditionals':     () => import('./Class_12/ComputerApplicationsTamil/chapters/ta-chapter-06-php-conditionals'),
+  'ta-chapter-07-php-loops':            () => import('./Class_12/ComputerApplicationsTamil/chapters/ta-chapter-07-php-loops'),
+  'ta-chapter-08-forms-files':          () => import('./Class_12/ComputerApplicationsTamil/chapters/ta-chapter-08-forms-files'),
 }
 
 // Older chapter files (Class 11 CA) predate the { eyebrow, title, author,
