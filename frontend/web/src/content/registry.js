@@ -115,6 +115,10 @@ const LOADERS = {
   'ta-chapter-06-php-conditionals':     () => import('./Class_12/ComputerApplicationsTamil/chapters/ta-chapter-06-php-conditionals'),
   'ta-chapter-07-php-loops':            () => import('./Class_12/ComputerApplicationsTamil/chapters/ta-chapter-07-php-loops'),
   'ta-chapter-08-forms-files':          () => import('./Class_12/ComputerApplicationsTamil/chapters/ta-chapter-08-forms-files'),
+  'ta-chapter-09-php-mysql':             () => import('./Class_12/ComputerApplicationsTamil/chapters/ta-chapter-09-php-mysql'),
+  'ta-chapter-10-networks-intro':        () => import('./Class_12/ComputerApplicationsTamil/chapters/ta-chapter-10-networks-intro'),
+  'ta-chapter-11-network-protocols':     () => import('./Class_12/ComputerApplicationsTamil/chapters/ta-chapter-11-network-protocols'),
+  'ta-chapter-12-dns':                   () => import('./Class_12/ComputerApplicationsTamil/chapters/ta-chapter-12-dns'),
 }
 
 // Older chapter files (Class 11 CA) predate the { eyebrow, title, author,
