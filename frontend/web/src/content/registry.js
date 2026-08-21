@@ -123,6 +123,8 @@ const LOADERS = {
   'ta-chapter-14-open-source':            () => import('./Class_12/ComputerApplicationsTamil/chapters/ta-chapter-14-open-source'),
   'ta-chapter-15-ecommerce':              () => import('./Class_12/ComputerApplicationsTamil/chapters/ta-chapter-15-ecommerce'),
   'ta-chapter-16-payment-systems':        () => import('./Class_12/ComputerApplicationsTamil/chapters/ta-chapter-16-payment-systems'),
+  'ta-chapter-17-ecommerce-security':     () => import('./Class_12/ComputerApplicationsTamil/chapters/ta-chapter-17-ecommerce-security'),
+  'ta-chapter-18-edi':                    () => import('./Class_12/ComputerApplicationsTamil/chapters/ta-chapter-18-edi'),
 }
 
 // Older chapter files (Class 11 CA) predate the { eyebrow, title, author,

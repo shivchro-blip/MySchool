@@ -1,0 +1,36 @@
+export default {
+  eyebrow: "பாடம் 18 · வகுப்பு 12 கணினி பயன்பாடுகள்",
+  title: "மின்னணு தரவு பரிமாற்றம் (EDI)",
+  author: "",
+  pills: ["கோட்பாடு"],
+
+  tabs: [
+    {
+      id: "edi-intro",
+      label: "EDI அறிமுகம்",
+      blocks: [
+        { type: "section-head", text: "18.1 அறிமுகம்" },
+        { type: "teacher-voice", html: "<p>மின்னணு தரவு பரிமாற்றம் (Electronic Data Interchange — EDI) என்பது கட்டமைக்கப்பட்ட வணிக ஆவணங்களை (Purchase Order, Invoice போன்றவை) நிறுவனங்களுக்கிடையே கணினி மூலம் தானியங்கியாக பரிமாறிக்கொள்ளும் அமைப்பாகும்.</p>" },
+        { type: "gloss-row", word: "EDI-ன் நன்மைகள்", def: "துல்லியம் அதிகரிப்பு (குறைந்த மனித பிழைகள்), செலவு குறைப்பு (பேப்பர் மற்றும் தபால் செலவு தவிர்த்தல்), விரைவான தொடர்பு (உடனடி தரவு பரிமாற்றம்)." },
+        { type: "section-head", text: "EDI-ன் வரலாறு" },
+        { type: "teacher-voice", html: "<p>1960களில் நிறுவனங்கள் தங்கள் ஆவணங்களை (Purchase Order, Invoice) கையால் பரிமாறிக்கொண்டன. 1948-இல் விமான போக்குவரத்துத் துறையின் Transportation Data Coordinating Committee (TDCC) EDI தரவு தொடர்பு அறிமுகங்களை உருவாக்கத் தொடங்கியது. 1975-இல் தொடர்புடைய தொழிற்துறை நிறுவனங்கள் இணைந்து, TDCC Electronic Data Interchange Association (EDIA) என மறுபெயரிடப்பட்டது.</p>" },
+        { type: "gloss-row", word: "தரநிலைப்படுத்தல் வரலாறு", def: "American National Standards Institute — Accredited Standards Committee (ANSI-ASC) ANSI X12 தரநிலையை உருவாக்கியது. 1987-இல் ஐரோப்பிய ஒன்றியம் EDIFACT தரநிலையைப் பயன்படுத்தத் தொடங்கியது. முதன்முதலில் EDI-ஐப் பயன்படுத்திய குழுவினரில் ஒருவரான Edward (Ed) Guilbert, 'EDI-ன் தந்தை' என அழைக்கப்படுகிறார்." },
+        { type: "think-box", label: "நினைவில் கொள்க", text: "தேசிய தர நிர்ணய பரவும் தொழில்நுட்ப நிறுவனத்தின்படி, EDI என்பது 'கணினி மூலம் கட்டமைக்கப்பட்ட தரவை நிறுவனங்களுக்கிடையே தொழில்நுட்ப முறையில் பரிமாறுதல்' என வரையறுக்கப்படுகிறது. கட்டமைப்பு, விமானம், வாகனத் தொழில், மற்றும் சில்லறை வணிகம் ஆகிய துறைகளில் EDI தொழில்நுட்பம் பரவலாகப் பயன்படுத்தப்படுகிறது." }
+      ]
+    },
+    {
+      id: "edi-types",
+      label: "வகைகள் & தரநிலைகள்",
+      blocks: [
+        { type: "section-head", text: "18.2 EDI வழிமுறைகள்" },
+        { type: "gloss-row", word: "EDI அனுப்பும் வழிமுறைகள்", def: "நேரடி புள்ளி-புள்ளி EDI (Point-to-Point/Direct EDI) — இரு நிறுவனங்களுக்கிடையே நேரடியாக இணைப்பு. VAN வழியிலான EDI (Value Added Network) — வணிக பங்குதாரர்களுக்கிடையே EDI செய்திகளை பரிமாறும் தனியார் நெட்வொர்க். FTP/VPN, SFTP, FTPS வழியிலான EDI — இணைய அடிப்படையிலான பாதுகாப்பான கோப்பு பரிமாற்ற நெறிமுறைகள். வலைத்தள EDI (Web EDI) — உலாவி வழியாக EDI செய்திகளை பரிமாறும் முறை." },
+        { type: "section-head", text: "18.5 EDI அடுக்குகள் (EDI Layers)" },
+        { type: "gloss-row", word: "நான்கு EDI அடுக்குகள்", def: "1. பயன்பாட்டு அடுக்கு (Semantic Layer) — பயன்பாட்டு நிரல் புரிந்துகொள்ளும் தரவு வடிவம். 2. தரநிலை அடுக்கு (Standard Layer) — EDI தரவை ANSI X12 அல்லது EDIFACT தரநிலைக்கு மாற்றுதல். 3. போக்குவரத்து அடுக்கு (Transport Layer) — தரவை பாதுகாப்பாக அனுப்புதல் (FTP, VAN, AS2 போன்றவை). 4. பருண்மை அடுக்கு (Physical Layer) — உண்மையான தரவு பரிமாற்ற ஊடகம் (இணையம், WAN)." },
+        { type: "section-head", text: "18.6 EDI தரநிலைகள் (Standards)" },
+        { type: "gloss-row", word: "18.6.1 UN/EDIFACT", def: "United Nations Electronic Data Interchange for Administration, Commerce and Transport (UN/EDIFACT) — ஐக்கிய நாடுகள் சபை உருவாக்கிய EDI தரவு பரிமாற்றத் தரநிலை. 1987-இல் அறிமுகப்படுத்தப்பட்டது." },
+        { type: "gloss-row", word: "EDIFACT கட்டமைப்பு (உயர்நிலையிலிருந்து கீழ்நிலைக்கு)", def: "1. Interchange (உயர்நிலை) — UNB/UNZ பிரிவுகளுக்கு இடையேயான தரவு. 2. Functional Groups — UNG/UNE பிரிவுகளுக்கு இடையேயான தரவு. 3. Messages — UNH/UNT பிரிவுகளுக்கு இடையேயான தரவு. 4. Segment Group — தொடர்புடைய தரவுத் தொகுதி. 5. Segments — எளிய மற்றும் கூட்டு கூறுகளின் கலவை. 6. Composite Elements — தொடர்புடைய எளிய கூறுகளின் தொகுப்பு. 7. Simple Data Elements (கீழ்நிலை) — ஒற்றைத் தரவுத் துண்டு." },
+        { type: "think-box", label: "EDI கலைச்சொற்கள்", text: "FTP (File Transfer Protocol) — கோப்புகளை பரிமாறும் நெறிமுறை. Interchange — EDI பயன்படுத்தும் தரவு தொகுப்பு. TDCC — Transportation Data Coordinating Committee. ANSI-ASC — American National Standards Institute – Accredited Standards Committee. UN/EDIFACT — United Nations Electronic Data Interchange for Administration, Commerce and Transport." }
+      ]
+    }
+  ]
+}
