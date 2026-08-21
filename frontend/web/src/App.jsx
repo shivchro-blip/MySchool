@@ -244,6 +244,19 @@ export default function App() {
         <Route path="/plus1/computer-science/final-exam-prep/paper/:paperId" element={
           <DashShell><ExamPaperViewerPage backPath="/plus1/computer-science/final-exam-prep" /></DashShell>
         } />
+        <Route path="/plus2/computer-applications-tamil/final-exam-prep" element={
+          <DashShell>
+            <CourseContent><FinalExamPrepPage classLevel="plus2" subjectSlug="computer-applications-tamil" /></CourseContent>
+          </DashShell>
+        } />
+        <Route path="/plus2/computer-applications-tamil/final-exam-prep/paper/:paperId" element={
+          <DashShell><ExamPaperViewerPage backPath="/plus2/computer-applications-tamil/final-exam-prep" /></DashShell>
+        } />
+        <Route path="/plus2/computer-applications-tamil/model-exam/:modelId" element={
+          <DashShell>
+            <CourseContent><ModelExamPracticePage classLevel="plus2" subjectSlug="computer-applications-tamil" /></CourseContent>
+          </DashShell>
+        } />
         <Route path="/plus1/computer-science/model-exam/:modelId" element={
           <DashShell>
             <CourseContent><ModelExamPracticePage classLevel="plus1" subjectSlug="computer-science" /></CourseContent>

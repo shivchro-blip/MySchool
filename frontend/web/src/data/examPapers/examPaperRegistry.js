@@ -40,6 +40,11 @@ const LOADERS = {
   'class12-computer-science-model-qa-3': () => import('./class12ComputerScienceModelQA3'),
   'class12-computer-science-model-qa-4': () => import('./class12ComputerScienceModelQA4'),
   'class12-computer-science-model-qa-5': () => import('./class12ComputerScienceModelQA5'),
+  'class12-computer-applications-tamil-model-qa-1': () => import('./class12ComputerApplicationsTamilModelQA1'),
+  'class12-computer-applications-tamil-model-qa-2': () => import('./class12ComputerApplicationsTamilModelQA2'),
+  'class12-computer-applications-tamil-model-qa-3': () => import('./class12ComputerApplicationsTamilModelQA3'),
+  'class12-computer-applications-tamil-model-qa-4': () => import('./class12ComputerApplicationsTamilModelQA4'),
+  'class12-computer-applications-tamil-model-qa-5': () => import('./class12ComputerApplicationsTamilModelQA5'),
 }
 
 export async function getPaperById(paperId) {
