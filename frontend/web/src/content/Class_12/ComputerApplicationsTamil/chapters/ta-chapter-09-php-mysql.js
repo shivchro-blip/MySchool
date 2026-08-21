@@ -75,6 +75,11 @@ export default {
           word: "எடுத்துக்காட்டு",
           def: "$conn=mysqli_connect('localhost','my_user','my_password','Student_DB'); $sq='SELECT student_name,student_age FROM student'; mysqli_query($conn,$sq);",
         },
+        {
+          type: "nav",
+          next: "full-example",
+          nextLabel: "அடுத்து: முழுமையான எடுத்துக்காட்டு →",
+        },
       ],
     },
 
@@ -111,6 +116,11 @@ export default {
           type: "think-box",
           label: "நினைவில் கொள்க",
           text: "PHP மற்றும் MySQL — வலைப் பயன்பாட்டுத் தரவுத்தளத்தை நிர்வகிக்கும் இணைப்பு. mysqli_connect() — தரவுதளத்துடன் இணைப்பை நிறுவும் செயற்கூறு (Login Form அமைப்புகளில் பயன்படும் — Server-side validation). mysqli_query() — SQL வினவலை இயக்கும் செயற்கூறு (பயனர் பெயர் மற்றும் கடவுச்சொல் போன்ற தரவை தரவுதளத்திலிருந்து சரிபார்க்க பயன்படும்).",
+        },
+        {
+          type: "nav",
+          back: "mysqli-functions",
+          practice: true,
         },
       ],
     },

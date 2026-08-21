@@ -53,6 +53,11 @@ export default {
           word: "OODBMS — Object Oriented Database Management System",
           def: "பொருள் நோக்கு தரவுதள மேலாண்மை அமைப்பு — தரவை பொருள்கள் (Objects) வடிவில் சேமித்து நிர்வகிக்கும் அமைப்பு.",
         },
+        {
+          type: "nav",
+          next: "db-models",
+          nextLabel: "அடுத்து: தரவுதள மாதிரிகள் →",
+        },
       ],
     },
 
@@ -120,6 +125,12 @@ export default {
           word: "சேர்க்கை திறவுகோல் (Composite Primary Key)",
           def: "ஒன்றுக்கு மேற்பட்ட நெடுவரிசைகளை இணைத்து ஒரு பதிவை தனித்துவமாக அடையாளப்படுத்தும் திறவுகோல்.",
         },
+        {
+          type: "nav",
+          back: "intro",
+          next: "er-model",
+          nextLabel: "அடுத்து: ER மாதிரி →",
+        },
       ],
     },
 
@@ -167,6 +178,12 @@ export default {
           label: "⭐ உதாரணம்",
           text: "Student — Enrolls — Course: இங்கு Student மற்றும் Course உறுப்பொருள்கள் (செவ்வகங்களாகக் காட்டப்படும்); Enrolls என்பது இரு உறுப்பொருள்களுக்கிடையேயான உறவு (வைரவடிவமாகக் காட்டப்படும்).",
         },
+        {
+          type: "nav",
+          back: "db-models",
+          next: "mysql-sql",
+          nextLabel: "அடுத்து: MySQL →",
+        },
       ],
     },
 
@@ -203,6 +220,12 @@ export default {
           type: "gloss-row",
           word: "3.8.3 XAMPP மூலம் MySQL இயக்குதல்",
           def: "XAMPP என்பது Apache, MySQL, PHP, Perl ஆகியவற்றை உள்ளடக்கிய இலவச மென்பொருள் தொகுப்பாகும். இதை நிறுவி, Control Panel மூலம் MySQL சேவையைத் தொடங்கி, உள்ளூர் கணினியில் தரவுதளத்தை இயக்கலாம்.",
+        },
+        {
+          type: "nav",
+          back: "er-model",
+          next: "sql-commands",
+          nextLabel: "அடுத்து: SQL கட்டளைகள் →",
         },
       ],
     },
@@ -247,6 +270,11 @@ export default {
           type: "gloss-row",
           word: "இணைப்பு (JOIN)",
           def: "இரண்டு அல்லது அதற்கு மேற்பட்ட அட்டவணைகளிலிருந்து தொடர்புடைய தரவை ஒன்றிணைத்துப் பெற JOIN கட்டளை பயன்படுகிறது — SELECT profile.Name, profile.Hobby, SUM(Exams.Marks) AS TOTAL FROM profile, Exams WHERE profile.Rollno=Exams.Rollno GROUP BY profile.Name, profile.Hobby;",
+        },
+        {
+          type: "nav",
+          back: "mysql-sql",
+          practice: true,
         },
       ],
     },

@@ -66,6 +66,11 @@ export default {
           word: "எடுத்துக்காட்டு — 5 வரை உள்ள எண்களை அச்சிடுதல்",
           def: "$i = 1; while ($i <= 5) { echo $i . '<br>'; $i++; } — வெளியீடு: 1 2 3 4 5",
         },
+        {
+          type: "nav",
+          next: "dowhile-foreach",
+          nextLabel: "அடுத்து: do...while & foreach →",
+        },
       ],
     },
 
@@ -135,6 +140,11 @@ export default {
           type: "think-box",
           label: "⭐ நினைவில் கொள்க",
           text: "மடக்கு (loop) என்பது ஒரு குறியீட்டைத் திரும்பத்திரும்ப செயற்படுத்துவதற்கான கட்டமைப்பு. for மற்றும் while மடக்குகள் நுழைவு சோதிப்பு (entry-check) மடக்குகள். do...while மடக்கு வெளியேறும் சோதிப்பு (exit-check) மடக்கு. foreach மடக்கு அணிகளை (arrays) இயக்கச் செய்யப் பயன்படுகிறது.",
+        },
+        {
+          type: "nav",
+          back: "for-while",
+          practice: true,
         },
       ],
     },

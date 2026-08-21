@@ -78,6 +78,11 @@ export default {
           word: "பேஸ்ட்போர்டு (Pasteboard) & பக்கம் (Page)",
           def: "பேஜ்மேக்கர் பக்கம் கருப்பு எல்லைக் கோட்டால் சூழப்பட்டுள்ளது. பேஸ்ட்போர்டு என்பது எல்லைக் கோட்டிற்கு வெளியே உள்ள பகுதி — பிற்காலப் பயன்பாட்டிற்காக பொருள்களை தற்காலிகமாக சேமிக்கப் பயன்படுகிறது.",
         },
+        {
+          type: "nav",
+          next: "toolbox",
+          nextLabel: "அடுத்து: கருவிப்பெட்டி →",
+        },
       ],
     },
 
@@ -109,6 +114,12 @@ export default {
         {
           type: "teacher-voice",
           html: "<p>கருவிப்பெட்டியின் தலைப்புப் பட்டையில் மேல் அல்லது கீழ் அம்புக்குறியை சொடுக்கினால் கருவிப்பெட்டியில் இருந்து மறைந்த கருவிகளையும் காணலாம். கருவிப்பெட்டியில் திரை வழியில் Window > Show tools என்பதன் மூலமும் தேவைக்கேற்ப காட்டலாம் அல்லது மறைக்கலாம் (Window > Hide tools).</p>",
+        },
+        {
+          type: "nav",
+          back: "intro",
+          next: "text-editing",
+          nextLabel: "அடுத்து: உரை பதிப்பித்தல் →",
         },
       ],
     },
@@ -167,6 +178,12 @@ export default {
           type: "gloss-row",
           word: "நீக்குதல் (Delete)",
           def: "தேர்ந்தெடுத்த உரையை Delete விசையைப் பயன்படுத்தி நீக்கலாம்.",
+        },
+        {
+          type: "nav",
+          back: "toolbox",
+          next: "threading-frames",
+          nextLabel: "அடுத்து: திரிக்கப்பட்ட உரை & சட்டகங்கள் →",
         },
       ],
     },
@@ -234,6 +251,12 @@ export default {
           type: "teacher-voice",
           html: "<p>பேஜ்மேக்கர் இல் உள்ள கருவிகளைப் பயன்படுத்தி சட்டகங்களை (Frames) உருவாக்கலாம். சட்டகத்திற்குள் உரை அல்லது வரைபடங்களை இணைக்க (Attach content) Element > Frame > Attach Content பயன்படுத்தலாம். சட்டகத்தில் இருந்து உள்ளடக்கத்தை நீக்க Element > Frame > Detach Content பயன்படுத்தலாம்.</p>",
         },
+        {
+          type: "nav",
+          back: "text-editing",
+          next: "formatting-drawing",
+          nextLabel: "அடுத்து: வடிவமைப்பு & வரைதல் →",
+        },
       ],
     },
 
@@ -289,6 +312,12 @@ export default {
           type: "gloss-row",
           word: "2.18.5 வடிவங்களுக்கு நிறம் பூசுதல்",
           def: "Element > Fill கட்டளை மூலம் வரையப்பட்ட வடிவங்களுக்கு நிற வண்ணம் நிரப்பலாம்.",
+        },
+        {
+          type: "nav",
+          back: "threading-frames",
+          next: "master-pages",
+          nextLabel: "அடுத்து: மாஸ்டர் பக்கங்கள் & அச்சிடல் →",
         },
       ],
     },
@@ -357,6 +386,11 @@ export default {
           type: "think-box",
           label: "இணைப்புக் குறிப்பு",
           text: "இணைய DTP கருவிகளுக்கு பேஜ்மேக்கர், InDesign, QuarkXPress ஆகிய மென்பொருள்கள் பொறிமுறைகளாகும். DTP பயன்பாட்டு நிரல் மென்பொருள் (Adobe PageMaker) கருவிப்பெட்டி மற்றும் திரட்டியல் கருவிகள் ஆகியவை ஆவண உருவாக்கத்தில் முக்கியப் பங்கு வகிக்கின்றன.",
+        },
+        {
+          type: "nav",
+          back: "formatting-drawing",
+          practice: true,
         },
       ],
     },

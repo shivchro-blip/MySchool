@@ -15,7 +15,12 @@ export default {
         { type: "gloss-row", word: "திறந்த மூல மென்பொருளை ஆதரிக்கும் நிறுவனங்கள்", def: "GNU (Free Software Foundation), Apache Software Foundation, Linux Foundation, Open Source Initiative, BOSS (Bharat Operating System Solutions), C-DAC (Centre for Development of Advanced Computing) ஆகிய நிறுவனங்கள் திறந்த மூல மென்பொருள் இயக்கத்தை ஆதரிக்கின்றன." },
         { type: "section-head", text: "14.2 திறந்த மூல அனுமதிகள் (Open Source Licenses)" },
         { type: "gloss-row", word: "முக்கிய அனுமதி வகைகள் (Licenses)", def: "Apache License 2.0 — பயன்பாட்டு, மாற்றியமைப்பு, மறுபகிர்வு உரிமைகளை வழங்குகிறது. BSD 3-Clause ('New' or 'Revised') License — குறைந்த கட்டுப்பாடுகளுடன் மறுபகிர்வை அனுமதிக்கிறது. BSD 2-Clause ('Simplified' or 'FreeBSD') License — இன்னும் எளிமையான வடிவம். GNU General Public License (GPL) — மாற்றியமைக்கப்பட்ட பதிப்புகளும் திறந்த மூலமாகவே இருக்க வேண்டும் என வலியுறுத்தும் அனுமதி." },
-        { type: "think-box", label: "Owner, Contributor & User", text: "திறந்த மூல திட்டங்களில் (OSS Project) மூன்று முக்கியப் பங்குதாரர்கள்: Owner (உரிமையாளர் — மூல திட்டத்தை உருவாக்கியவர்), Contributor (பங்களிப்பாளர் — குறியீட்டை மேம்படுத்துபவர்), User (பயனர் — மென்பொருளைப் பயன்படுத்துபவர்). அனுமதி வகையைப் பொறுத்து, இவர்களுக்கிடையேயான உரிமைகள் மற்றும் கடமைகள் வேறுபடும்." }
+        { type: "think-box", label: "Owner, Contributor & User", text: "திறந்த மூல திட்டங்களில் (OSS Project) மூன்று முக்கியப் பங்குதாரர்கள்: Owner (உரிமையாளர் — மூல திட்டத்தை உருவாக்கியவர்), Contributor (பங்களிப்பாளர் — குறியீட்டை மேம்படுத்துபவர்), User (பயனர் — மென்பொருளைப் பயன்படுத்துபவர்). அனுமதி வகையைப் பொறுத்து, இவர்களுக்கிடையேயான உரிமைகள் மற்றும் கடமைகள் வேறுபடும்." },
+        {
+          type: "nav",
+          next: "simulation-tools",
+          nextLabel: "அடுத்து: NS2 & OpenNMS →",
+        },
       ]
     },
     {
@@ -32,7 +37,12 @@ export default {
         { type: "gloss-row", word: "Discovery Engine", def: "OpenNMS-ல் உள்ள Discovery Engine, வலையமைப்பில் இணைக்கப்பட்டுள்ள சாதனங்களை தானாகவே கண்டறிந்து, தொடர்ந்து கண்காணிப்பதற்கான பட்டியலில் சேர்க்கிறது." },
         { type: "section-head", text: "14.4 திறந்த மூல மென்பொருள் நன்மைகள்" },
         { type: "teacher-voice", html: "<p>திறந்த மூல மென்பொருள் (எ.கா. OpenNMS போன்றவை) IT சூழல் அமைப்புகளின் கண்காணிப்பு (Monitoring), அறிவிப்பு (Notification), மற்றும் மேலாண்மை (Management) பணிகளுக்கு பரவலாகப் பயன்படுத்தப்படுகின்றன — நிகழ்வு மேலாண்மை அறிவிப்புகள் (Event Management Notifications) மூலம் நிர்வாகிகள் உடனுக்குடன் பிரச்சினைகளை அறிந்துகொள்ள முடிகிறது.</p>" },
-        { type: "think-box", label: "நினைவில் கொள்க", text: "திறந்த மூல மென்பொருள் மூல குறியீட்டை பொதுவில் அணுகவும், மாற்றவும் அனுமதிக்கும். OpenNMS முதன்மையாக வலையமைப்பு கண்காணிப்புக்குப் பயன்படும். Trace File என்பது Network Simulator-ல் பதிவு செய்யப்பட்ட நிகழ்வுகளின் கோப்பு. FCAPS = Fault, Configuration, Accounting, Performance, Security. GNU/GPL = GNU General Public License. API = Application Program Interface." }
+        { type: "think-box", label: "நினைவில் கொள்க", text: "திறந்த மூல மென்பொருள் மூல குறியீட்டை பொதுவில் அணுகவும், மாற்றவும் அனுமதிக்கும். OpenNMS முதன்மையாக வலையமைப்பு கண்காணிப்புக்குப் பயன்படும். Trace File என்பது Network Simulator-ல் பதிவு செய்யப்பட்ட நிகழ்வுகளின் கோப்பு. FCAPS = Fault, Configuration, Accounting, Performance, Security. GNU/GPL = GNU General Public License. API = Application Program Interface." },
+        {
+          type: "nav",
+          back: "open-source",
+          practice: true,
+        },
       ]
     }
   ]

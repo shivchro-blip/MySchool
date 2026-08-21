@@ -3,7 +3,10 @@
  * Matches any sequence of non-ASCII codepoints at the start of the string.
  */
 export function stripTabLabel(label) {
-  const m = String(label).match(/^([^\x00-\x7F]+)\s*(.*)/u)
+  // Matches actual emoji glyphs only (Extended_Pictographic + variation
+  // selector/ZWJ) — NOT "any non-ASCII", which used to also swallow
+  // non-Latin-script labels (e.g. Tamil) that have no emoji prefix at all.
+  const m = String(label).match(/^([\p{Extended_Pictographic}\u{FE0F}\u{200D}]+)\s*(.*)/u)
   return m ? m[2].trim() : String(label).trim()
 }
 
@@ -30,9 +33,67 @@ export function stripTabLabel(label) {
  * @param {string} [contentType] - Chapter type hint: 'prose'|'poem'|'drama'|''
  * @returns {string|null}
  */
+// Exact-match icons for Tamil-medium Computer Applications tab labels.
+// Regex keyword-matching (as used below for English literature tabs) isn't
+// safe here — Tamil words share short substrings (e.g. "வடிவ" vs "வடம்")
+// that would collide. Keyed on the same stripped+lowercased text the rest
+// of this function uses, so ASCII portions of mixed labels are lowercased.
+const TAMIL_TAB_ICONS = {
+  'அறிமுகம்': '📝',
+  'கூறுகள்': '🧩',
+  'கோப்பு வடிவங்கள்': '📁',
+  'உருவாக்கம்': '🛠️',
+  'பயன்பாடுகள்': '🎯',
+  'dtp & பேஜ்மேக்கர்': '🖨️',
+  'கருவிப்பெட்டி': '🧰',
+  'உரை பதிப்பித்தல்': '✍️',
+  'திரிக்கப்பட்ட உரை & சட்டகங்கள்': '🖼️',
+  'வடிவமைப்பு & வரைதல்': '🎨',
+  'மாஸ்டர் பக்கங்கள் & அச்சிடல்': '🖨️',
+  'dbms அடிப்படைகள்': '📘',
+  'தரவுதள மாதிரிகள்': '🗂️',
+  'er மாதிரி': '🔗',
+  'mysql': '🗄️',
+  'sql கட்டளைகள்': '⌨️',
+  'கட்டளை அமைப்பு & மாறிகள்': '⌨️',
+  'echo & செயற்குறிகள்': '⚙️',
+  'php & html இணைப்பு': '🔗',
+  'செயற்கூறுகள்': '⚙️',
+  'அணிகள்': '📊',
+  'if கூற்று': '🔀',
+  'if...else': '🔀',
+  'switch கூற்று': '🔀',
+  'for & while': '🔁',
+  'do...while & foreach': '🔁',
+  'html படிவங்கள்': '📋',
+  'சரிபார்ப்பு & கோப்புகள்': '✅',
+  'mysqli செயற்கூறுகள்': '⚙️',
+  'முழுமையான எடுத்துக்காட்டு': '💻',
+  'அடிப்படைகள் & பரிணாம வளர்ச்சி': '📘',
+  'இணையம் / அக / புற இணையம்': '🌐',
+  'நெறிமுறைகள் & osi மாதிரி': '📡',
+  'ip முகவரி & url': '🔗',
+  'dns கூறுகள்': '🧩',
+  'வடங்களின் வகைகள்': '🔌',
+  'ஈத்தர்நெட் வடமிடல்': '🔌',
+  'திறந்த மூல மென்பொருள்': '🌐',
+  'ns2 & opennms': '📡',
+  'அறிமுகம் & பரிணாம வளர்ச்சி': '📝',
+  'வணிக மாதிரிகள்': '💼',
+  'நன்மைகள் & குறைபாடுகள்': '⚖️',
+  'செலுத்தல் முறை வகைகள்': '💳',
+  'ecs, neft, rtgs & மொபைல் வங்கி': '🏦',
+  'அச்சுறுத்தல்கள் & பரிமாணங்கள்': '⚠️',
+  'பாதுகாப்புத் தொழில்நுட்பங்கள்': '🔒',
+  'edi அறிமுகம்': '📝',
+  'வகைகள் & தரநிலைகள்': '🗃️',
+}
+
 export function resolveTabIcon(label, contentType = '') {
   try {
     const text = stripTabLabel(label).toLowerCase()
+
+    if (TAMIL_TAB_ICONS[text]) return TAMIL_TAB_ICONS[text]
 
     // ── Person / author ───────────────────────────────────────────────────
     if (/^(author|poet|about the author|about the poet)/.test(text)) return '👤'

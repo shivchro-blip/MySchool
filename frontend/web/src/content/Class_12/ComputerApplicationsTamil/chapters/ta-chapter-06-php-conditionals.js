@@ -47,6 +47,11 @@ export default {
           word: "எடுத்துக்காட்டு",
           def: "<?php $x = 10; if ($x > 5) { echo 'x is greater than 5'; } ?> — இதில் $x = 10 என்பதால் நிபந்தனை உண்மையாக இருப்பதால், 'x is greater than 5' என்று திரையில் காட்டப்படும்.",
         },
+        {
+          type: "nav",
+          next: "if-else",
+          nextLabel: "அடுத்து: if...else →",
+        },
       ],
     },
 
@@ -93,6 +98,12 @@ export default {
           word: "எடுத்துக்காட்டு",
           def: "<?php $x = 12; if ($x > 20) { echo 'x is greater than 20'; } elseif ($x > 15) { echo 'x is greater than 15 but not greater than 20'; } elseif ($x > 10) { echo 'x is greater than 10 but not greater than 15'; } else { echo 'x is not greater than 10'; } ?> — வெளியீடு: x is greater than 10 but not greater than 15",
         },
+        {
+          type: "nav",
+          back: "if-statement",
+          next: "switch",
+          nextLabel: "அடுத்து: switch கூற்று →",
+        },
       ],
     },
 
@@ -125,6 +136,11 @@ export default {
           type: "think-box",
           label: "⭐ நினைவில் கொள்க",
           text: "நிரலின் நடைபெறும் { } ஆனது கட்டுப்பாட்டு கட்டமைப்பில் உள்ள தொகுதிகளைக் குறிக்கிறது. நிபந்தனை (condition) True எனில் மட்டுமே அத்தொகுதி { } நடைபெறும். elseif என்பதை else if என்று இரண்டு வெவ்வேறு சொற்களாகவும் எழுதலாம். switch கூற்றில் break கூற்றானது ஒரு case-ஐ முடித்து, switch கட்டமைப்பிலிருந்து வெளியேறி நிரலாக்கத்தைத் தொடர அனுமதிக்கிறது.",
+        },
+        {
+          type: "nav",
+          back: "if-else",
+          practice: true,
         },
       ],
     },

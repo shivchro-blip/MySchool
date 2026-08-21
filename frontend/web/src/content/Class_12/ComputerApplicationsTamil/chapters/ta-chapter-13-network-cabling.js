@@ -19,7 +19,12 @@ export default {
         { type: "gloss-row", word: "5. தொடர் மற்றும் இணை வடங்கள் (Serial and Parallel Cables)", def: "தொடர் வடங்கள் தரவை ஒரு நேரத்தில் ஒரு பிட் வீதம் அனுப்பும்; இணை வடங்கள் ஒரே நேரத்தில் பல பிட்களை அனுப்பும்." },
         { type: "gloss-row", word: "6. ஈத்தர்நெட் வடம் (Ethernet Cable)", def: "முறுக்கு இணை (Twisted Pair) வகையைச் சேர்ந்த வடம் — உள்ளூர் வலையமைப்புகளில் (LAN) கணினிகளை இணைக்கப் பரவலாகப் பயன்படுகிறது." },
         { type: "gloss-row", word: "7. RS-232 வடம்", def: "தொடர் தரவு பரிமாற்றத்திற்குப் (Serial communication) பயன்படும் ஒரு பழைய தரநிலை வடம் — Modem, Printer போன்ற சாதனங்களை இணைக்கப் பயன்படுத்தப்பட்டது." },
-        { type: "think-box", label: "டாங்கிள் (Dongle)", text: "சிம் ஸ்லாட் கொண்ட ஒரு சிறிய USB புற சாதனம் — கணினிகளை இணையத்துடன் இணைக்க பயன்படுகிறது (Mobile Broadband USB Dongle)." }
+        { type: "think-box", label: "டாங்கிள் (Dongle)", text: "சிம் ஸ்லாட் கொண்ட ஒரு சிறிய USB புற சாதனம் — கணினிகளை இணையத்துடன் இணைக்க பயன்படுகிறது (Mobile Broadband USB Dongle)." },
+        {
+          type: "nav",
+          next: "ethernet-cabling",
+          nextLabel: "அடுத்து: ஈத்தர்நெட் வடமிடல் →",
+        },
       ]
     },
     {
@@ -37,7 +42,12 @@ export default {
         { type: "section-head", text: "13.3.4 கிரிம்பிங் கருவி (Crimping Tool)" },
         { type: "teacher-voice", html: "<p>Crimping கருவி RJ45 இணைப்பானை வடத்தின் முனையில் அழுத்தி பொருத்தப் பயன்படுகிறது. படிநிலைகள்: (1) கேபிளின் வெளிப் பூச்சை கழற்றுதல்; (2) உள்ளே உள்ள 8 கம்பிகளை T568A/T568B தரநிலைப்படி நேராக்கி வரிசைப்படுத்துதல்; (3) RJ45 இணைப்பானுக்குள் கம்பிகளைச் செருகுதல்; (4) Crimping கருவியால் இணைப்பானை அழுத்தி நிலைநிறுத்துதல்.</p>" },
         { type: "think-box", label: "வரலாற்றுக் குறிப்பு", text: "1973-ஆம் ஆண்டு Bob Metcalfe என்பவர் Xerox PARC ஆய்வகத்தில் ஈத்தர்நெட்டைக் கண்டுபிடித்தார். IEEE 802.3 குழு ஈத்தர்நெட் தரப்படுத்தலுக்கு ஒப்புதல் அளித்தது — CSMA/CD (Carrier Sense Multiple Access/Collision Detection) முறையைப் பயன்படுத்துகிறது." },
-        { type: "think-box", label: "நினைவில் கொள்க", text: "ARPANET = Advanced Research Project Agency Network. WWW-ஐக் கண்டுபிடித்தவர் டிம் பெர்னர்ஸ் லீ. UTP = Unshielded Twisted Pair. RJ45 வடங்களில் 8 ஊசிகள் (Pins) பயன்படுத்தப்படுகின்றன. Cross-over வயரிங் இரு கணினிகளை நேரடியாக இணைக்கப் பயன்படும்." }
+        { type: "think-box", label: "நினைவில் கொள்க", text: "ARPANET = Advanced Research Project Agency Network. WWW-ஐக் கண்டுபிடித்தவர் டிம் பெர்னர்ஸ் லீ. UTP = Unshielded Twisted Pair. RJ45 வடங்களில் 8 ஊசிகள் (Pins) பயன்படுத்தப்படுகின்றன. Cross-over வயரிங் இரு கணினிகளை நேரடியாக இணைக்கப் பயன்படும்." },
+        {
+          type: "nav",
+          back: "cable-types",
+          practice: true,
+        },
       ]
     }
   ]

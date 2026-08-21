@@ -39,6 +39,11 @@ export default {
           word: "PHP, HTML, JavaScript, CSS ஒப்பீடு",
           def: "HTML (HyperText Markup Language) — வலைப்பக்கங்களின் அமைப்பை வரையறுக்கிறது. CSS (Cascading Style Sheets) — வடிவமைப்பு (Styling) மற்றும் தோற்றத்தை வழங்குகிறது. JavaScript — வாடிக்கையாளர்-பக்கத்தில் (Client-side) இயங்கும் மொழி. PHP — சேவையக-பக்கத்தில் (Server-side) இயங்கி, தரவுத்தள இணைப்பு போன்ற இயங்கியல் செயல்பாடுகளை நிகழ்த்துகிறது.",
         },
+        {
+          type: "nav",
+          next: "syntax-variables",
+          nextLabel: "அடுத்து: கட்டளை அமைப்பு & மாறிகள் →",
+        },
       ],
     },
 
@@ -116,6 +121,12 @@ export default {
           word: "7. Resource & 8. NULL",
           def: "Resource — வெளிப்புற வளங்களைக் (எ.கா. தரவுத்தள இணைப்பு) குறிக்கும் சிறப்பு மாறி. NULL — மதிப்பு எதுவும் ஒதுக்கப்படாத மாறியைக் குறிக்கும்.",
         },
+        {
+          type: "nav",
+          back: "intro",
+          next: "echo-operators",
+          nextLabel: "அடுத்து: Echo & செயற்குறிகள் →",
+        },
       ],
     },
 
@@ -186,6 +197,12 @@ export default {
           word: "4.12.6 சரம் செயற்குறிகள் (String Operators)",
           def: ". (Dot) — இரு சரங்களை இணைக்கும் (Concatenation, எ.கா. $a='Hello'; $b='World'; echo $a.$b; // HelloWorld). .= (Dot equal to) — சரத்துடன் இணைத்து மீண்டும் ஒப்படைக்கும்.",
         },
+        {
+          type: "nav",
+          back: "syntax-variables",
+          next: "php-html",
+          nextLabel: "அடுத்து: PHP & HTML இணைப்பு →",
+        },
       ],
     },
 
@@ -221,6 +238,11 @@ export default {
           type: "think-box",
           label: "நினைவில் கொள்க",
           text: "HTML — வலைப்பக்கங்களின் அமைப்பை வரையறுக்கும் Hyper Text Markup Language. PHP — சேவையக-பக்கத்தில் இயங்கும் Hypertext Preprocessor. ECHO — PHP-ல் திரையில் மதிப்பைக் காண்பிக்கும் கூற்று. WAMP — Windows, Apache, MySQL, PHP ஆகியவற்றை உள்ளடக்கிய தொகுப்பு.",
+        },
+        {
+          type: "nav",
+          back: "echo-operators",
+          practice: true,
         },
       ],
     },

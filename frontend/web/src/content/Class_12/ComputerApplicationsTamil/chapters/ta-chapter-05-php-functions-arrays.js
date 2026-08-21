@@ -91,6 +91,11 @@ export default {
           word: "(இ) இரண்டு அளபுருக்களுடன் கூடிய செயற்கூறு",
           def: "<?php function addNumbers($x, $y) { echo $x + $y; } addNumbers(10, 40); // Output will be '50' ?>",
         },
+        {
+          type: "nav",
+          next: "arrays",
+          nextLabel: "அடுத்து: அணிகள் →",
+        },
       ],
     },
 
@@ -172,6 +177,11 @@ export default {
           type: "gloss-row",
           word: "எடுத்துக்காட்டு",
           def: "$arr = array( array(1, 2, 3), array(4, 5, 6), array(7, 8, 9) ); echo $arr[1][2]; // Output will be 6.",
+        },
+        {
+          type: "nav",
+          back: "functions",
+          practice: true,
         },
       ],
     },
