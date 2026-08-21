@@ -119,6 +119,10 @@ const LOADERS = {
   'ta-chapter-10-networks-intro':        () => import('./Class_12/ComputerApplicationsTamil/chapters/ta-chapter-10-networks-intro'),
   'ta-chapter-11-network-protocols':     () => import('./Class_12/ComputerApplicationsTamil/chapters/ta-chapter-11-network-protocols'),
   'ta-chapter-12-dns':                   () => import('./Class_12/ComputerApplicationsTamil/chapters/ta-chapter-12-dns'),
+  'ta-chapter-13-network-cabling':        () => import('./Class_12/ComputerApplicationsTamil/chapters/ta-chapter-13-network-cabling'),
+  'ta-chapter-14-open-source':            () => import('./Class_12/ComputerApplicationsTamil/chapters/ta-chapter-14-open-source'),
+  'ta-chapter-15-ecommerce':              () => import('./Class_12/ComputerApplicationsTamil/chapters/ta-chapter-15-ecommerce'),
+  'ta-chapter-16-payment-systems':        () => import('./Class_12/ComputerApplicationsTamil/chapters/ta-chapter-16-payment-systems'),
 }
 
 // Older chapter files (Class 11 CA) predate the { eyebrow, title, author,
