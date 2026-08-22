@@ -10,6 +10,7 @@ const SUBJECTS = [
   { slug: 'computer-applications', name: 'Computer Applications', Icon: Monitor, bg: '#EAF1FB', color: '#1B4B82' },
   { slug: 'computer-applications-tamil', name: 'Computer Applications (தமிழ்)', Icon: Monitor, bg: '#E8F5E9', color: '#2E7D32' },
   { slug: 'computer-science', name: 'Computer Science', Icon: Code, bg: '#EDF2FB', color: '#3B5BDB' },
+  { slug: 'computer-science-tamil', name: 'Computer Science (தமிழ்)', Icon: Code, bg: '#E8EAF6', color: '#3949AB' },
   { slug: 'science', name: 'Science',     Icon: FlaskConical, bg: '#FBEEE0', color: '#D97020' },
 ]
 
