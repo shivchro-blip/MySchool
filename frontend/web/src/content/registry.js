@@ -125,6 +125,10 @@ const LOADERS = {
   'ta-chapter-16-payment-systems':        () => import('./Class_12/ComputerApplicationsTamil/chapters/ta-chapter-16-payment-systems'),
   'ta-chapter-17-ecommerce-security':     () => import('./Class_12/ComputerApplicationsTamil/chapters/ta-chapter-17-ecommerce-security'),
   'ta-chapter-18-edi':                    () => import('./Class_12/ComputerApplicationsTamil/chapters/ta-chapter-18-edi'),
+  'ta-chapter-01-functions':              () => import('./Class_12/ComputerScienceTamil/chapters/ta-chapter-01-functions'),
+  'ta-chapter-02-data-abstraction':       () => import('./Class_12/ComputerScienceTamil/chapters/ta-chapter-02-data-abstraction'),
+  'ta-chapter-03-scoping':                () => import('./Class_12/ComputerScienceTamil/chapters/ta-chapter-03-scoping'),
+  'ta-chapter-04-algorithmic-strategies': () => import('./Class_12/ComputerScienceTamil/chapters/ta-chapter-04-algorithmic-strategies'),
 }
 
 // Older chapter files (Class 11 CA) predate the { eyebrow, title, author,
