@@ -129,6 +129,10 @@ const LOADERS = {
   'ta-chapter-02-data-abstraction':       () => import('./Class_12/ComputerScienceTamil/chapters/ta-chapter-02-data-abstraction'),
   'ta-chapter-03-scoping':                () => import('./Class_12/ComputerScienceTamil/chapters/ta-chapter-03-scoping'),
   'ta-chapter-04-algorithmic-strategies': () => import('./Class_12/ComputerScienceTamil/chapters/ta-chapter-04-algorithmic-strategies'),
+  'ta-chapter-05-python-variables-operators': () => import('./Class_12/ComputerScienceTamil/chapters/ta-chapter-05-python-variables-operators'),
+  'ta-chapter-06-control-structures':         () => import('./Class_12/ComputerScienceTamil/chapters/ta-chapter-06-control-structures'),
+  'ta-chapter-07-python-functions':           () => import('./Class_12/ComputerScienceTamil/chapters/ta-chapter-07-python-functions'),
+  'ta-chapter-08-strings-manipulation':       () => import('./Class_12/ComputerScienceTamil/chapters/ta-chapter-08-strings-manipulation'),
 }
 
 // Older chapter files (Class 11 CA) predate the { eyebrow, title, author,
