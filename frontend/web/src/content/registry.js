@@ -133,6 +133,14 @@ const LOADERS = {
   'ta-chapter-06-control-structures':         () => import('./Class_12/ComputerScienceTamil/chapters/ta-chapter-06-control-structures'),
   'ta-chapter-07-python-functions':           () => import('./Class_12/ComputerScienceTamil/chapters/ta-chapter-07-python-functions'),
   'ta-chapter-08-strings-manipulation':       () => import('./Class_12/ComputerScienceTamil/chapters/ta-chapter-08-strings-manipulation'),
+  'ta-chapter-09-lists-tuples-sets-dictionary': () => import('./Class_12/ComputerScienceTamil/chapters/ta-chapter-09-lists-tuples-sets-dictionary'),
+  'ta-chapter-10-python-classes-objects':       () => import('./Class_12/ComputerScienceTamil/chapters/ta-chapter-10-python-classes-objects'),
+  'ta-chapter-11-database-concepts':            () => import('./Class_12/ComputerScienceTamil/chapters/ta-chapter-11-database-concepts'),
+  'ta-chapter-12-sql':                          () => import('./Class_12/ComputerScienceTamil/chapters/ta-chapter-12-sql'),
+  'ta-chapter-13-python-csv-files':             () => import('./Class_12/ComputerScienceTamil/chapters/ta-chapter-13-python-csv-files'),
+  'ta-chapter-14-importing-cpp-in-python':      () => import('./Class_12/ComputerScienceTamil/chapters/ta-chapter-14-importing-cpp-in-python'),
+  'ta-chapter-15-data-manipulation-sql':        () => import('./Class_12/ComputerScienceTamil/chapters/ta-chapter-15-data-manipulation-sql'),
+  'ta-chapter-16-data-visualization-pyplot':    () => import('./Class_12/ComputerScienceTamil/chapters/ta-chapter-16-data-visualization-pyplot'),
 }
 
 // Older chapter files (Class 11 CA) predate the { eyebrow, title, author,

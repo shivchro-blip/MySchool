@@ -1,0 +1,94 @@
+export default {
+  "meta": {
+    "subject": "கணினி அறிவியல் -- வகுப்பு 12",
+    "unit": "பாடம் 10 -- பைத்தான் இனக்குழுக்கள் மற்றும் பொருள்கள்",
+    "time": "3.00 மணி நேரம்",
+    "totalMarks": 52,
+    "instructions": "சமச்சீர் கல்வி -- அனைத்து வினாக்களுக்கும் விடையளிக்கவும்"
+  },
+  "parts": [
+    {
+      "id": "p1",
+      "navLabel": "பகுதி I -- பலவுள் தேர்வு (10 x 1)",
+      "title": "பகுதி I -- சரியான விடையைத் தேர்ந்தெடுத்து எழுதுக",
+      "type": "mcq",
+      "scoreMax": 10,
+      "marksPer": 1,
+      "sections": [
+        {
+          "label": "இனக்குழுக்கள் மற்றும் பொருள்கள்",
+          "questions": [
+            { "id": "q1", "html": "Python எந்த வகை நிரலாக்க மொழி?", "options": ["அ) Procedural மட்டும்", "ஆ) Object Oriented Programming Language", "இ) Functional மட்டும்", "ஈ) Assembly"], "answer": 1, "hint": "Python ஒரு Object Oriented Programming Language." },
+            { "id": "q2", "html": "இனக்குழுவை வரையறுக்கப் பயன்படும் சிறப்புச் சொல் எது?", "options": ["அ) object", "ஆ) class", "இ) def", "ஈ) struct"], "answer": 1, "hint": "class சிறப்புச் சொல் இனக்குழுவை வரையறுக்கும்." },
+            { "id": "q3", "html": "இனக்குழுவிற்குள் வரையறுக்கப்படும் செயற்கூறு என்ன எனப்படும்?", "options": ["அ) Function", "ஆ) Method", "இ) Procedure", "ஈ) Module"], "answer": 1, "hint": "இனக்குழுவிற்குள் உள்ள செயற்கூறு Method எனப்படும்." },
+            { "id": "q4", "html": "ஒரு Method-ன் முதல் அளபுருவாக என்ன கண்டிப்பாக இருக்க வேண்டும்?", "options": ["அ) this", "ஆ) self", "இ) obj", "ஈ) cls"], "answer": 1, "hint": "self என்பது Python Method-ன் முதல் அளபுரு." },
+            { "id": "q5", "html": "பொருள் உருவாக்கப்படும்போது தானாகவே அழைக்கப்படும் Method எது?", "options": ["அ) __del__()", "ஆ) __init__()", "இ) __new__()", "ஈ) __create__()"], "answer": 1, "hint": "__init__() வடிவாக்கி (Constructor) பொருள் உருவாகும்போது அழைக்கப்படும்." },
+            { "id": "q6", "html": "பொருள் அழிக்கப்படும்போது தானாகவே அழைக்கப்படும் Method எது?", "options": ["அ) __del__()", "ஆ) __init__()", "இ) __exit__()", "ஈ) __remove__()"], "answer": 0, "hint": "__del__() அழிப்பான் (Destructor) பொருள் அழிக்கப்படும்போது அழைக்கப்படும்." },
+            { "id": "q7", "html": "self.attribute மூலம் வரையறுக்கப்படும் மாறி இயல்பாக என்ன வகை?", "options": ["அ) private", "ஆ) protected", "இ) public", "ஈ) static"], "answer": 2, "hint": "self.attribute இயல்பாக public ஆகும்." },
+            { "id": "q8", "html": "ஒரு உறுப்பினரை private ஆக்க பெயருக்கு முன் என்ன இடப்பட வேண்டும்?", "options": ["அ) ஒற்றை அடிக்கோடு (_)", "ஆ) இரட்டை அடிக்கோடு (__)", "இ) @ குறியீடு", "ஈ) # குறியீடு"], "answer": 1, "hint": "இரட்டை அடிக்கோடு (__) private உறுப்பினரைக் குறிக்கும்." },
+            { "id": "q9", "html": "பொருள் ஒன்றை உருவாக்கும் கட்டளை அமைப்பு எது?", "options": ["அ) Object_name = class_name", "ஆ) Object_name = class_name()", "இ) Object_name := class_name", "ஈ) new class_name()"], "answer": 1, "hint": "Object_name = class_name() பொருளை உருவாக்கும்." },
+            { "id": "q10", "html": "Private உறுப்பினரை வெளியேயிருந்து அணுக முயன்றால் என்ன பிழை ஏற்படும்?", "options": ["அ) TypeError", "ஆ) SyntaxError", "இ) AttributeError", "ஈ) NameError"], "answer": 2, "hint": "Private உறுப்பினரை வெளியேயிருந்து அணுக முயன்றால் AttributeError ஏற்படும்." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "navLabel": "பகுதி II -- சிறு விடை வினாக்கள் (5 x 2)",
+      "title": "பகுதி II -- சிறு விடை வினாக்கள்",
+      "type": "short-essay",
+      "scoreMax": 10,
+      "marksPer": 2,
+      "instruction": "2-3 வாக்கியங்களில் விடையளிக்கவும்.",
+      "questions": [
+        { "q": "இனக்குழு (Class) என்றால் என்ன?", "ans": "இனக்குழு என்பது தரவையும் (attributes) செயல்பாடுகளையும் (methods) ஒன்றாக உள்ளடக்கிய ஒரு வார்ப்புருவாகும் — class class_name: மூலம் வரையறுக்கப்படும்." },
+        { "q": "பொருள் (Object) என்றால் என்ன?", "ans": "பொருள் என்பது ஒரு இனக்குழுவின் நிகழ்வு (Instance) ஆகும் — Object_name = class_name() மூலம் உருவாக்கப்படும்." },
+        { "q": "__init__() Method-ன் பயன் என்ன?", "ans": "__init__() ஒரு வடிவாக்கி (Constructor) ஆகும் — பொருள் உருவாக்கப்படும்போது தானாகவே அழைக்கப்பட்டு, தொடக்க மதிப்புகளை அமைக்கும்." },
+        { "q": "__del__() Method-ன் பயன் என்ன?", "ans": "__del__() ஒரு அழிப்பான் (Destructor) ஆகும் — பொருள் அழிக்கப்படும்போது தானாகவே அழைக்கப்படும்." },
+        { "q": "Public மற்றும் Private உறுப்பினர்களை வேறுபடுத்துக.", "ans": "Public உறுப்பினர் இனக்குழுவுக்கு வெளியேயும் நேரடியாக அணுகக்கூடியது. Private உறுப்பினர் (பெயருக்கு முன் __) வெளியேயிருந்து நேரடியாக அணுக முடியாது." }
+      ]
+    },
+    {
+      "id": "p3",
+      "navLabel": "பகுதி III -- குறு விடை வினாக்கள் (4 x 3)",
+      "title": "பகுதி III -- குறு விடை வினாக்கள்",
+      "type": "short-essay",
+      "scoreMax": 12,
+      "marksPer": 3,
+      "instruction": "4-6 வாக்கியங்களில் விடையளிக்கவும்.",
+      "questions": [
+        { "q": "ஒரு இனக்குழுவை வரையறுத்து, ஒரு பொருளை உருவாக்கும் முழு வழிமுறையை எடுத்துக்காட்டுடன் விளக்குக.", "ans": "class Sample:\n    x, y = 10, 20\n\nS = Sample()  # பொருள் உருவாக்கம்\nprint(S.x, S.y)  # உறுப்பினர்களை அணுகுதல் — 10 20" },
+        { "q": "self அளபுருவின் பங்கை விளக்குக.", "ans": "self என்பது ஒரு Method-ன் முதல் அளபுரு, தற்போதைய பொருளைக் குறிக்கும். இது மூலம் Method-க்குள் இருந்து அந்தந்த பொருளின் attributes-ஐ அணுகவும் மாற்றவும் முடியும்." },
+        { "q": "__init__() Method-ஐ ஒரு எடுத்துக்காட்டுடன் விளக்குக.", "ans": "class Sample:\n    def __init__(self, var):\n        self.num = var\n        print('The value is:', var)\nS = Sample(10)\n# வெளியீடு: The value is: 10 — பொருள் உருவாகும்போது தானாக அழைக்கப்பட்டது." },
+        { "q": "Public மற்றும் Private உறுப்பினர்களை ஓர் எடுத்துக்காட்டுடன் விளக்குக.", "ans": "class Sample:\n    x1 = 1       # public\n    __x2 = 14    # private\nS = Sample()\nprint(S.x1)   # வேலை செய்யும் — 1\nprint(S.__x2) # AttributeError — private, வெளியேயிருந்து அணுக முடியாது" }
+      ]
+    },
+    {
+      "id": "p4",
+      "navLabel": "பகுதி IV -- விரிவான வினாக்கள் (4 x 5)",
+      "title": "பகுதி IV -- விரிவான வினாக்கள்",
+      "type": "long-essay",
+      "scoreMax": 20,
+      "marksPer": 5,
+      "instruction": "விரிவாக விடையளிக்கவும்.",
+      "questions": [
+        {
+          "q": "Python-இல் Class மற்றும் Object கருத்துருக்களை, ஒரு முழுமையான Circle Class எடுத்துக்காட்டுடன் விரிவாக விளக்குக.",
+          "ans": "Class என்பது தரவையும் (attributes) செயல்பாடுகளையும் (methods) ஒன்றாக உள்ளடக்கிய வார்ப்புரு. Object என்பது அந்த Class-ன் ஒரு நிகழ்வு.\n\nclass Circle:\n    pi = 3.14\n    def __init__(self, radius):\n        self.radius = radius\n    def area(self):\n        return (self.radius ** 2) * Circle.pi\n    def circumference(self):\n        return 2 * self.radius * Circle.pi\n\nC = Circle(radius=5)\nprint('Circle Radius', C.radius)\nprint('The Area of Circle:', C.area())\nprint('The Circumference of Circle:', C.circumference())\n\nவெளியீடு: Circle Radius 5, The Area of Circle: 78.5, The Circumference of Circle: 31.4\n\nஇங்கு Circle ஒரு class; C ஒரு object; radius ஒரு attribute; area(), circumference() ஆகியவை methods. __init__() constructor மூலம் radius தொடக்க மதிப்பு அமைக்கப்படுகிறது."
+        },
+        {
+          "q": "வடிவாக்கியையும் (Constructor) அழிப்பானையும் (Destructor) பொருள் எண்ணிக்கையைக் கண்காணிக்கும் ஒரு முழுமையான எடுத்துக்காட்டுடன் விரிவாக விளக்குக.",
+          "ans": "வடிவாக்கி (__init__()) பொருள் உருவாகும்போதும், அழிப்பான் (__del__()) பொருள் அழிக்கப்படும்போதும் தானாகவே அழைக்கப்படும்.\n\nclass Sample:\n    num = 0\n    def __init__(self, var):\n        Sample.num = Sample.num + 1\n        self.var = var\n        print('The object value is:', self.var)\n        print('The count of object created:', Sample.num)\n    def __del__(self):\n        Sample.num = Sample.num - 1\n        print('Object with value', self.var, 'is exit from the scope')\n\nS1 = Sample(15)\n# object value: 15, count: 1\nS2 = Sample(25)\n# object value: 25, count: 2\nS3 = Sample(45)\n# object value: 45, count: 3\ndel S1, S2, S3\n# ஒவ்வொரு del-க்கும் __del__() அழைக்கப்பட்டு count குறையும்\n\nஇந்த எடுத்துக்காட்டு, Sample.num என்ற class variable மூலம், அனைத்து பொருள்களுக்கும் பொதுவான ஒரு எண்ணிக்கையை எவ்வாறு கண்காணிக்கலாம் என்பதைக் காட்டுகிறது — constructor எண்ணிக்கையை அதிகரிக்கும், destructor குறைக்கும்."
+        },
+        {
+          "q": "Public மற்றும் Private தரவு உறுப்பினர்களை (Data Members) ஒரு முழுமையான எடுத்துக்காட்டுடன் ஒப்பிட்டு விரிவாக விளக்குக.",
+          "ans": "Python-ல் self.attribute மூலம் வரையறுக்கப்படும் மாறிகள் இயல்பாக Public ஆகும் — class-க்கு வெளியேயும் நேரடியாக அணுகக்கூடியவை. ஒரு உறுப்பினரை Private ஆக்க, பெயருக்கு முன் இரட்டை அடிக்கோடு (__) இடப்படும்.\n\nclass Sample:\n    x1 = 1        # public\n    __x2 = 14     # private\n    def display(self):\n        print('Class variable x1 =', self.x1)\n        print('Class variable x2 =', self.__x2)\n\nS = Sample()\nprint('Value 1 =', S.x1)      # வேலை செய்யும்: Value 1 = 1\nprint('Value 2 =', S.__x2)    # AttributeError!\n\nS.display()   # class-க்குள் இருந்து __x2-ஐ அணுகலாம், display() output: Class variable x2 = 14\n\nமுக்கிய வேறுபாடு: Public உறுப்பினர்களை class-க்கு வெளியேயும் உள்ளேயும் அணுகலாம். Private உறுப்பினர்களை class-க்குள் உள்ள methods மூலம் மட்டுமே அணுக முடியும் — வெளியேயிருந்து நேரடியாக அணுக முயன்றால் AttributeError ஏற்படும். இது தரவைப் பாதுகாக்கும் encapsulation (உள்ளடக்கல்) கொள்கையை செயல்படுத்த உதவுகிறது."
+        },
+        {
+          "q": "Class Methods-ஐ Student class-ன் மதிப்பெண் கணக்கீடு எடுத்துக்காட்டுடன் விரிவாக விளக்குக.",
+          "ans": "Class-க்குள் வரையறுக்கப்படும் செயற்கூறுகள் Methods எனப்படும், self என்ற முதல் அளபுருவைக் கொண்டிருக்க வேண்டும்.\n\nclass Student:\n    def process(self):\n        mark1, mark2, mark3 = 69, 71, 74\n        sum = mark1 + mark2 + mark3\n        avg = sum / 3\n        print('Total Marks =', sum)\n        print('Average Marks =', avg)\n\nS = Student()\nS.process()\n\nவெளியீடு: Total Marks = 214, Average Marks = 71.33\n\nஇதேபோல், Odd/Even சரிபார்க்கும் ஒரு method:\nclass Odd_Even:\n    def check(self, num):\n        if num % 2 == 0:\n            print(num, 'is Even number')\n        else:\n            print(num, 'is Odd number')\n\nx = Odd_Even()\nx.check(15)  # 15 is Odd number\n\nMethods, ஒரு class-ன் நடத்தையை (Behaviour) வரையறுக்கின்றன — ஒரு பொருளின் மீது என்ன செயல்கள் செய்யலாம் என்பதை Method-கள் தீர்மானிக்கின்றன, self அளபுரு மூலம் அந்தந்த பொருளின் தரவை அணுகவும் மாற்றவும் முடிகிறது."
+        }
+      ]
+    }
+  ]
+}

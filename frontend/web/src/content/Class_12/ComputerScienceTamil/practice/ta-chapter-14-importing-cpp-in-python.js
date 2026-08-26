@@ -1,0 +1,94 @@
+export default {
+  "meta": {
+    "subject": "கணினி அறிவியல் -- வகுப்பு 12",
+    "unit": "பாடம் 14 -- பைத்தானில் C++ நிரல்களை தருவித்தல்",
+    "time": "3.00 மணி நேரம்",
+    "totalMarks": 52,
+    "instructions": "சமச்சீர் கல்வி -- அனைத்து வினாக்களுக்கும் விடையளிக்கவும்"
+  },
+  "parts": [
+    {
+      "id": "p1",
+      "navLabel": "பகுதி I -- பலவுள் தேர்வு (10 x 1)",
+      "title": "பகுதி I -- சரியான விடையைத் தேர்ந்தெடுத்து எழுதுக",
+      "type": "mcq",
+      "scoreMax": 10,
+      "marksPer": 1,
+      "sections": [
+        {
+          "label": "C++ நிரல்களை Python-டன் தருவித்தல்",
+          "questions": [
+            { "id": "q1", "html": "Scripting மொழி எவ்வாறு இயங்கும்?", "options": ["அ) Compiled", "ஆ) Interpreted", "இ) Assembled", "ஈ) Linked"], "answer": 1, "hint": "Scripting மொழிகள் Interpreted வடிவில் இயங்கும்." },
+            { "id": "q2", "html": "C++ எந்த வகை தரவு வகைப்படுத்தலைக் கொண்டது?", "options": ["அ) Dynamically Typed", "ஆ) Statically Typed", "இ) Untyped", "ஈ) Weakly Typed"], "answer": 1, "hint": "C++ Statically Typed மொழி." },
+            { "id": "q3", "html": "C++ கோப்பை .exe ஆக Compile செய்யப் பயன்படும் கருவி எது?", "options": ["அ) Python", "ஆ) g++", "இ) getopt", "ஈ) sys"], "answer": 1, "hint": "g++ (GCC-அடிப்படையிலான) C++ கம்பைலர்." },
+            { "id": "q4", "html": "கட்டளை வரி அளபுருக்களைக் கையாள பயன்படும் தொகுதி எது?", "options": ["அ) os", "ஆ) sys", "இ) getopt", "ஈ) csv"], "answer": 1, "hint": "sys தொகுதி கட்டளை வரி அளபுருக்களைக் கையாளும்." },
+            { "id": "q5", "html": "OS கட்டளையை நேரடியாக இயக்கப் பயன்படும் செயற்கூறு எது?", "options": ["அ) os.getcwd()", "ஆ) os.chdir()", "இ) os.system()", "ஈ) os.run()"], "answer": 2, "hint": "os.system() OS கட்டளையை நேரடியாக இயக்கும்." },
+            { "id": "q6", "html": "நடப்பு directory-ஐ திருப்பித் தரும் செயற்கூறு எது?", "options": ["அ) os.getcwd()", "ஆ) os.chdir()", "இ) os.system()", "ஈ) os.path()"], "answer": 0, "hint": "os.getcwd() நடப்பு directory-ஐ திருப்பித் தரும்." },
+            { "id": "q7", "html": "கட்டளை வரி அளபுருக்களைப் பாகுபடுத்தப் பயன்படும் தொகுதி எது?", "options": ["அ) sys", "ஆ) os", "இ) getopt", "ஈ) csv"], "answer": 2, "hint": "getopt தொகுதி கட்டளை வரி அளபுருக்களைப் பாகுபடுத்தும்." },
+            { "id": "q8", "html": "Python-ஆனது நினைவகத்தை தானாகவே நிர்வகிக்கும் நுட்பம் என்ன எனப்படும்?", "options": ["அ) Compilation", "ஆ) Garbage Collection", "இ) Linking", "ஈ) Wrapping"], "answer": 1, "hint": "Garbage Collection Python-ல் தானியங்கி நினைவக நிர்வாகம்." },
+            { "id": "q9", "html": "C++ நூலகங்களை Python-டன் இணைக்க பயன்படும் கருவிகளில் ஒன்று எது?", "options": ["அ) csv", "ஆ) Cython", "இ) getopt", "ஈ) sys"], "answer": 1, "hint": "Cython C++/C-அடிப்படையிலான வேகமான Python குறியீட்டை உருவாக்கும்." },
+            { "id": "q10", "html": "sys.argv[0] என்பது எதைக் குறிக்கிறது?", "options": ["அ) முதல் அளபுரு", "ஆ) Script-ன் பெயர்", "இ) கடைசி அளபுரு", "ஈ) அளபுருக்களின் எண்ணிக்கை"], "answer": 1, "hint": "sys.argv[0] என்பது Script-ன் பெயரைக் குறிக்கும்." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "navLabel": "பகுதி II -- சிறு விடை வினாக்கள் (5 x 2)",
+      "title": "பகுதி II -- சிறு விடை வினாக்கள்",
+      "type": "short-essay",
+      "scoreMax": 10,
+      "marksPer": 2,
+      "instruction": "2-3 வாக்கியங்களில் விடையளிக்கவும்.",
+      "questions": [
+        { "q": "Scripting மொழி என்றால் என்ன?", "ans": "Scripting மொழி என்பது ஒரு இயங்குதளத்தால் நேரடியாக இயக்கப்படும், Interpreted வடிவில் இயங்கும் மொழியாகும்." },
+        { "q": "C++ மற்றும் Python-ஐ தரவு வகைப்படுத்தல் அடிப்படையில் வேறுபடுத்துக.", "ans": "C++ Statically Typed மொழி — மாறியின் தரவு வகை compile time-ல் தீர்மானிக்கப்படும். Python Dynamically Typed — தரவு வகை runtime-ல் தீர்மானிக்கப்படும்." },
+        { "q": "sys தொகுதியின் பயன் என்ன?", "ans": "sys தொகுதி கட்டளை வரி அளபுருக்களைக் (command-line arguments) கையாள உதவும் — sys.argv மூலம் அளபுருக்களை அணுகலாம்." },
+        { "q": "os.system() செயற்கூறின் பயனை விளக்குக.", "ans": "os.system() ஒரு இயங்குதள கட்டளையை (OS command) நேரடியாக Python நிரலிலிருந்தே இயக்கப் பயன்படும் — எடுத்துக்காட்டு: C++ கோப்பை compile செய்யவும், exe கோப்பை இயக்கவும்." },
+        { "q": "getopt.getopt() செயற்கூறின் மூன்று அளபுருக்களைப் பெயரிடுக.", "ans": "getopt.getopt(args, options, [long_options]) — args கட்டளை வரி அளபுருக்களின் பட்டியல்; options single character options; long_options full name options." }
+      ]
+    },
+    {
+      "id": "p3",
+      "navLabel": "பகுதி III -- குறு விடை வினாக்கள் (4 x 3)",
+      "title": "பகுதி III -- குறு விடை வினாக்கள்",
+      "type": "short-essay",
+      "scoreMax": 12,
+      "marksPer": 3,
+      "instruction": "4-6 வாக்கியங்களில் விடையளிக்கவும்.",
+      "questions": [
+        { "q": "C++ கோப்பை Python மூலம் இயக்கும் படிநிலைகளை விளக்குக.", "ans": "1. C++ கோப்பை g++ கம்பைலர் மூலம் .exe ஆக compile செய்ய வேண்டும். 2. os.system() மூலம் அந்த .exe கோப்பை Python நிரலிலிருந்து இயக்க வேண்டும். இந்த இரு படிகளும் ஒரு Python wrapper நிரலில் இணைக்கப்படும்." },
+        { "q": "sys, os, getopt ஆகிய மூன்று தொகுதிகளையும் அவற்றின் முதன்மைப் பயன்பாட்டுடன் பட்டியலிடுக.", "ans": "sys — கட்டளை வரி அளபுருக்களைக் கையாள (sys.argv). os — இயங்குதள கட்டளைகளை இயக்க (os.system, os.getcwd, os.chdir). getopt — கட்டளை வரி அளபுருக்களைப் பாகுபடுத்த (getopt.getopt)." },
+        { "q": "MinGW/g++ கம்பைலரின் பயனை விளக்குக.", "ans": "MinGW-W64 Windows-க்கு C++ கம்பைலரை வழங்குகிறது. g++ கருவி மூலம் ஒரு .cpp கோப்பை .exe கோப்பாக Compile செய்யலாம் — இந்த exe கோப்பை பின்னர் Python நிரலிலிருந்து os.system() மூலம் இயக்கலாம்." },
+        { "q": "Python-ஐ C++-டன் இணைக்கும் ஏதேனும் மூன்று கருவிகளைப் பட்டியலிடுக.", "ans": "1. Python C API, 2. Ctypes, 3. SWIG (Simplified Wrapper Interface Generator) — இவை தவிர Cython, Boost.Python ஆகியவையும் பயன்படுத்தப்படுகின்றன." }
+      ]
+    },
+    {
+      "id": "p4",
+      "navLabel": "பகுதி IV -- விரிவான வினாக்கள் (4 x 5)",
+      "title": "பகுதி IV -- விரிவான வினாக்கள்",
+      "type": "long-essay",
+      "scoreMax": 20,
+      "marksPer": 5,
+      "instruction": "விரிவாக விடையளிக்கவும்.",
+      "questions": [
+        {
+          "q": "C++ மற்றும் Python-ஐ ஒப்பிட்டு, ஒவ்வொரு மொழியின் தனிச் சிறப்பியல்புகளை விரிவாக விளக்குக.",
+          "ans": "C++: Statically Typed மொழி — மாறியின் தரவு வகை compile time-லேயே தீர்மானிக்கப்படும். நினைவகத்தை நேரடியாக நிரலாசிரியரே கையாள வேண்டும் (Manual Memory Management) — malloc/free, new/delete போன்ற கட்டளைகள் மூலம். செயல்திறன் அதிகம், ஆனால் நிரலாக்கம் சிக்கலானது.\n\nPython: Dynamically Typed மொழி — மாறியின் தரவு வகை Runtime-ல் தீர்மானிக்கப்படும். Garbage Collection மூலம் நினைவகத்தை தானாகவே நிர்வகிக்கும் — நிரலாசிரியர் நினைவகத்தை கைமுறையாக விடுவிக்க வேண்டிய தேவையில்லை. நிரலாக்கம் எளிமையானது, ஆனால் ஒப்பீட்டளவில் மெதுவானது.\n\nஇரண்டு மொழிகளுக்கும் அவற்றின் சொந்த பலம் இருப்பதால், C++-ன் செயல்திறனையும் Python-ன் எளிமையையும் இணைத்துப் பயன்படுத்த, C++ நிரல்களை Python-லிருந்து அழைத்து இயக்கும் நுட்பம் பயன்படுத்தப்படுகிறது."
+        },
+        {
+          "q": "sys, os, getopt ஆகிய மூன்று தொகுதிகளையும் ஒரு முழுமையான எடுத்துக்காட்டுடன் விரிவாக விளக்குக.",
+          "ans": "1. sys தொகுதி: கட்டளை வரி அளபுருக்களைக் கையாளும்.\nimport sys\nif __name__ == '__main__':\n    main(sys.argv[1:])\n\n2. os தொகுதி: இயங்குதள கட்டளைகளை இயக்கும்.\nos.system('g++ ' + inp_file + ' -o ' + exe_file)\nos.system(exe_file)\n\n3. getopt தொகுதி: கட்டளை வரி அளபுருக்களைப் பாகுபடுத்தும்.\nopts, args = getopt.getopt(argv, 'i:')\nfor o, a in opts:\n    if o == '-i':\n        run(a)\n\nஇம்மூன்று தொகுதிகளும் இணைந்து, ஒரு பயனர் கட்டளை வரியில் கொடுக்கும் அளபுருவை (எ.கா. C++ கோப்பின் பெயர்) பெற்று, அதை compile செய்து இயக்க உதவுகின்றன — இது Python-ஐ C++ நிரல்களை இயக்கும் ஒரு 'கட்டுப்பாட்டு அடுக்காக' (Control Layer) பயன்படுத்த அனுமதிக்கிறது."
+        },
+        {
+          "q": "பாலிண்ட்ரோம் சரிபார்க்கும் C++ நிரலை Python wrapper மூலம் இயக்கும் முழுமையான செயல்முறையை விரிவாக விளக்குக.",
+          "ans": "படிநிலை 1 — C++ நிரலை எழுதுதல் (pali.cpp):\nஎண்ணை உள்ளிட்டு, அதன் தலைகீழ் மதிப்பைக் கணக்கிட்டு, மூல எண்ணுடன் ஒப்பிட்டு பாலிண்ட்ரோம் என்பதைச் சரிபார்க்கும் C++ நிரல்.\n\nபடிநிலை 2 — Python Wrapper நிரலை எழுதுதல் (pyg.py):\nimport sys, os, getopt\ndef main(argv):\n    opts, args = getopt.getopt(argv, 'i:')\n    for o, a in opts:\n        if o == '-i':\n            run(a)\ndef run(a):\n    inp_file = a + '.cpp'\n    exe_file = a + '.exe'\n    os.system('g++ ' + inp_file + ' -o ' + exe_file)\n    os.system(exe_file)\nif __name__ == '__main__':\n    main(sys.argv[1:])\n\nபடிநிலை 3 — இயக்குதல்:\nC:\\Users\\DellX>python pyg.py -i pali\nEnter a positive number: 56763\nThe reverse of the number is: 36765\nThe number is a palindrome\n\nவிளக்கம்: Python getopt() மூலம் '-i pali' என்ற அளபுருவைப் பெற்று, run() செயற்கூறு pali.cpp-ஐ g++ மூலம் pali.exe ஆக Compile செய்து, பின்னர் அந்த exe கோப்பை os.system() மூலம் இயக்குகிறது — பயனர் C++ நிரலின் output-ஐ Python வழியாகவே பார்க்க முடிகிறது."
+        },
+        {
+          "q": "Python-ஐ C++-டன் இணைக்கும் கருவிகளை (Python C API, Ctypes, SWIG, Cython, Boost.Python) ஒவ்வொன்றுக்கும் சுருக்கமாக விரிவாக விளக்குக.",
+          "ans": "1. Python C API (Application Programming Interface): C அல்லது C++ மொழியில் எழுதப்பட்ட கருவிகளை Python-டன் நேரடியாக இணைக்கும் அடிப்படை இடைமுகம்.\n\n2. Ctypes: Python-ல் இருந்தே C நூலகங்களை (Libraries) நேரடியாக அணுகவும் அழைக்கவும் அனுமதிக்கும் built-in தொகுதி — கூடுதல் compile படி தேவையின்றி பயன்படுத்தலாம்.\n\n3. SWIG (Simplified Wrapper Interface Generator): C/C++ குறியீட்டைப் பல மொழிகளுடன் (Python உட்பட) இணைக்கும் ஒரு தானியங்கி wrapper உருவாக்கும் கருவி.\n\n4. Cython: C-அடிப்படையிலான, வேகமான Python குறியீட்டை உருவாக்க உதவும் — Python குறியீட்டை C-ஆக மொழிபெயர்த்து, செயல்திறனை மேம்படுத்தும்.\n\n5. Boost.Python: C++ வகுப்புகளையும் செயற்கூறுகளையும் Python-ல் நேரடியாகப் பயன்படுத்த அனுமதிக்கும் ஒரு நூலகம் (GNU திட்டத்தின் ஒரு பகுதி).\n\nஇந்த ஒவ்வொரு கருவியும், Python-ன் எளிமையையும் C++-ன் செயல்திறனையும் இணைத்துப் பயன்படுத்த வெவ்வேறு அணுகுமுறைகளை வழங்குகின்றன — திட்டத்தின் தேவைக்கேற்ப பொருத்தமான கருவி தேர்ந்தெடுக்கப்பட வேண்டும்."
+        }
+      ]
+    }
+  ]
+}

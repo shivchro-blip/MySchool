@@ -1,0 +1,94 @@
+export default {
+  "meta": {
+    "subject": "கணினி அறிவியல் -- வகுப்பு 12",
+    "unit": "பாடம் 15 -- SQL மூலம் தரவுகளைக் கையாளுதல்",
+    "time": "3.00 மணி நேரம்",
+    "totalMarks": 52,
+    "instructions": "சமச்சீர் கல்வி -- அனைத்து வினாக்களுக்கும் விடையளிக்கவும்"
+  },
+  "parts": [
+    {
+      "id": "p1",
+      "navLabel": "பகுதி I -- பலவுள் தேர்வு (10 x 1)",
+      "title": "பகுதி I -- சரியான விடையைத் தேர்ந்தெடுத்து எழுதுக",
+      "type": "mcq",
+      "scoreMax": 10,
+      "marksPer": 1,
+      "sections": [
+        {
+          "label": "SQL மூலம் தரவுகளைக் கையாளுதல்",
+          "questions": [
+            { "id": "q1", "html": "Python-ல் SQLite தரவுதளத்தைக் கையாள பயன்படும் தொகுதி எது?", "options": ["அ) mysql", "ஆ) sqlite3", "இ) db", "ஈ) pandas"], "answer": 1, "hint": "sqlite3 தொகுதி Python-ல் built-in ஆக உள்ளது." },
+            { "id": "q2", "html": "தரவுதளத்துடன் இணைப்பை நிறுவப் பயன்படும் செயற்கூறு எது?", "options": ["அ) sqlite3.open()", "ஆ) sqlite3.connect()", "இ) sqlite3.link()", "ஈ) sqlite3.start()"], "answer": 1, "hint": "sqlite3.connect() தரவுதளத்துடன் இணைப்பை நிறுவும்." },
+            { "id": "q3", "html": "அனைத்து பதிவுகளையும் ஒரே முறையில் பெற பயன்படும் செயற்கூறு எது?", "options": ["அ) fetchone()", "ஆ) fetchall()", "இ) fetchmany()", "ஈ) fetch()"], "answer": 1, "hint": "fetchall() அனைத்து பதிவுகளையும் ஒரே முறையில் பெறும்." },
+            { "id": "q4", "html": "ஒரே ஒரு பதிவை மட்டும் பெற பயன்படும் செயற்கூறு எது?", "options": ["அ) fetchone()", "ஆ) fetchall()", "இ) fetchmany()", "ஈ) fetch()"], "answer": 0, "hint": "fetchone() ஒரே ஒரு பதிவை மட்டும் பெறும்." },
+            { "id": "q5", "html": "மீண்டும் வரும் மதிப்புகளை நீக்கி தனித்துவமான மதிப்புகளை மட்டும் தரும் தணைவகை எது?", "options": ["அ) WHERE", "ஆ) DISTINCT", "இ) GROUP BY", "ஈ) ORDER BY"], "answer": 1, "hint": "DISTINCT தனித்துவமான மதிப்புகளை மட்டும் தரும்." },
+            { "id": "q6", "html": "ஒத்த மதிப்புகளைத் தொகுக்கப் பயன்படும் தணைவகை எது?", "options": ["அ) WHERE", "ஆ) HAVING", "இ) GROUP BY", "ஈ) ORDER BY"], "answer": 2, "hint": "GROUP BY ஒத்த மதிப்புகளைத் தொகுக்கும்." },
+            { "id": "q7", "html": "அட்டவணையில் உள்ள மொத்த பதிவுகளின் எண்ணிக்கையைத் தரும் திரட்டல் செயற்கூறு எது?", "options": ["அ) SUM()", "ஆ) COUNT()", "இ) AVG()", "ஈ) MAX()"], "answer": 1, "hint": "COUNT() பதிவுகளின் எண்ணிக்கையைத் தரும்." },
+            { "id": "q8", "html": "மாற்றங்களை தரவுதளத்தில் நிரந்தரமாக்கப் பயன்படும் செயற்கூறு எது?", "options": ["அ) connection.close()", "ஆ) connection.commit()", "இ) connection.save()", "ஈ) connection.update()"], "answer": 1, "hint": "connection.commit() மாற்றங்களை நிரந்தரமாக்கும்." },
+            { "id": "q9", "html": "பதிவுகளை நீக்கப் பயன்படும் SQL கட்டளை எது?", "options": ["அ) DROP", "ஆ) DELETE", "இ) TRUNCATE", "ஈ) REMOVE"], "answer": 1, "hint": "DELETE குறிப்பிட்ட பதிவுகளை நீக்கும்." },
+            { "id": "q10", "html": "NULL மதிப்புகள் திரட்டல் செயற்கூறுகளால் (COUNT, AVG) எவ்வாறு கையாளப்படுகின்றன?", "options": ["அ) 0 ஆகக் கணக்கிடப்படும்", "ஆ) கணக்கிடப்படாது", "இ) பிழை ஏற்படும்", "ஈ) தானாக நீக்கப்படும்"], "answer": 1, "hint": "NULL மதிப்புகள் திரட்டல் செயற்கூறுகளால் கணக்கிடப்படாது." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "navLabel": "பகுதி II -- சிறு விடை வினாக்கள் (5 x 2)",
+      "title": "பகுதி II -- சிறு விடை வினாக்கள்",
+      "type": "short-essay",
+      "scoreMax": 10,
+      "marksPer": 2,
+      "instruction": "2-3 வாக்கியங்களில் விடையளிக்கவும்.",
+      "questions": [
+        { "q": "SQLite என்றால் என்ன?", "ans": "SQLite என்பது ஒரு லேசான (Lightweight), Server-less தரவுதள மேலாண்மை அமைப்பு — Python-ல் sqlite3 தொகுதி built-in ஆக உள்ளது." },
+        { "q": "fetchall() மற்றும் fetchone() ஐ வேறுபடுத்துக.", "ans": "fetchall() அனைத்து பதிவுகளையும் ஒரே முறையில் பெறும். fetchone() ஒரே ஒரு பதிவை மட்டும் பெறும் — அடுத்த முறை அழைக்கும்போது அடுத்த பதிவைத் தரும்." },
+        { "q": "GROUP BY தணைவகையின் பயன் என்ன?", "ans": "GROUP BY தணைவகை ஒத்த மதிப்புகளைத் தொகுத்து, COUNT/SUM/AVG போன்ற திரட்டல் செயற்கூறுகளுடன் இணைந்து சுருக்கமான தகவலை உருவாக்கும்." },
+        { "q": "UPDATE கட்டளையை ஒரு எடுத்துக்காட்டுடன் விளக்குக.", "ans": "conn.execute(\"UPDATE Student SET sname='Priyanka' WHERE RollNo=6\"); conn.commit() — இது RollNo=6 உள்ள பதிவின் sname மதிப்பை மாற்றி, commit() மூலம் நிரந்தரமாக்கும்." },
+        { "q": "AND, OR, NOT செயற்குறிகளின் பயனை விளக்குக.", "ans": "AND, OR, NOT ஆகியவை WHERE தணைவகையில் பல நிபந்தனைகளை இணைக்கப் பயன்படும் — AND இரண்டும் உண்மையாக இருக்க வேண்டும், OR ஏதேனும் ஒன்று உண்மையாக இருந்தால் போதும், NOT நிபந்தனையை மறுக்கும்." }
+      ]
+    },
+    {
+      "id": "p3",
+      "navLabel": "பகுதி III -- குறு விடை வினாக்கள் (4 x 3)",
+      "title": "பகுதி III -- குறு விடை வினாக்கள்",
+      "type": "short-essay",
+      "scoreMax": 12,
+      "marksPer": 3,
+      "instruction": "4-6 வாக்கியங்களில் விடையளிக்கவும்.",
+      "questions": [
+        { "q": "Python-ல் SQLite தரவுதளத்துடன் இணைப்பை நிறுவும் படிகளை விளக்குக.", "ans": "1. import sqlite3 — தொகுதியை உள்ளிடுதல். 2. connection = sqlite3.connect('dbname') — தரவுதளத்துடன் இணைத்தல். 3. cursor = connection.cursor() — cursor பொருளை உருவாக்குதல். இதன் மூலம் SQL கட்டளைகளை இயக்கலாம்." },
+        { "q": "திரட்டல் செயற்கூறுகளை (COUNT, AVG, SUM, MAX, MIN) பட்டியலிட்டு விளக்குக.", "ans": "COUNT() பதிவுகளின் எண்ணிக்கையைத் தரும். AVG() சராசரி மதிப்பைத் தரும். SUM() கூட்டுத்தொகையைத் தரும். MAX() அதிகபட்ச மதிப்பைத் தரும். MIN() குறைந்தபட்ச மதிப்பைத் தரும்." },
+        { "q": "DELETE கட்டளையை ஒரு எடுத்துக்காட்டுடன் விளக்குக.", "ans": "conn.execute(\"DELETE FROM Student WHERE RollNo=2\"); conn.commit(); print(\"Total number of rows deleted:\", conn.total_changes) — இது RollNo=2 உள்ள பதிவை நீக்கி, மொத்த நீக்கப்பட்ட வரிசைகளின் எண்ணிக்கையையும் காண்பிக்கும்." },
+        { "q": "பல அட்டவணைகளை இணைத்து வினவும் முறையை (Join) ஒரு எடுத்துக்காட்டுடன் விளக்குக.", "ans": "SELECT student.Rollno, student.Sname, Appointment.Duty FROM student, Appointment WHERE student.Rollno = Appointment.Rollno — இது இரு அட்டவணைகளையும் பொதுவான Rollno நெடுவரிசை மூலம் இணைத்து, தொடர்புடைய தகவலை ஒன்றாகக் காண்பிக்கும்." }
+      ]
+    },
+    {
+      "id": "p4",
+      "navLabel": "பகுதி IV -- விரிவான வினாக்கள் (4 x 5)",
+      "title": "பகுதி IV -- விரிவான வினாக்கள்",
+      "type": "long-essay",
+      "scoreMax": 20,
+      "marksPer": 5,
+      "instruction": "விரிவாக விடையளிக்கவும்.",
+      "questions": [
+        {
+          "q": "Python-ல் SQLite தரவுதளத்தை உருவாக்கி, அட்டவணையை உருவாக்கி, பதிவுகளைச் செருகும் முழுமையான நிரலை விரிவாக விளக்குக.",
+          "ans": "import sqlite3\nconnection = sqlite3.connect('AcademyDB')\ncursor = connection.cursor()\n\n# அட்டவணையை உருவாக்குதல்\nsql_command = '''CREATE TABLE STUDENT (\n    Rollno INTEGER PRIMARY KEY,\n    Sname VARCHAR(20),\n    Grade CHAR(1),\n    Gender CHAR(1),\n    Average DECIMAL(3,2),\n    birth_date DATE);'''\ncursor.execute(sql_command)\n\n# பதிவுகளைச் செருகுதல்\nstudent_data = [('BASKAR','C','M',75.2,'1998-05-17'), ('SAJINI','A','F',86.4,'2002-11-01')]\nfor p in student_data:\n    format_str = '''INSERT INTO Student (Rollno,Sname,Grade,gender,Average,birth_date)\n                     VALUES (NULL,'{name}','{grd}','{gender}','{avg}','{birthdate}');'''\n    sql_command = format_str.format(name=p[0],grd=p[1],gender=p[2],avg=p[3],birthdate=p[4])\n    cursor.execute(sql_command)\n\nconnection.commit()\nconnection.close()\nprint('RECORDS ADDED TO STUDENT TABLE')\n\nஇந்த நிரல் ஒரு புதிய தரவுதளத்தை உருவாக்கி, ஒரு அட்டவணையை வரையறுத்து, பட்டியலிலிருந்து பல பதிவுகளை ஒரே சுற்றில் (loop) செருகுகிறது — commit() மூலம் மாற்றங்கள் நிரந்தரமாக்கப்படுகின்றன."
+        },
+        {
+          "q": "fetchall(), fetchone(), fetchmany(n) ஆகிய மூன்று fetch முறைகளையும் ஒவ்வொன்றுக்கும் எடுத்துக்காட்டுடன் விரிவாக விளக்குக.",
+          "ans": "1. fetchall(): அனைத்து பதிவுகளையும் ஒரே முறையில் ஒரு பட்டியலாகப் பெறும்.\ncursor.execute('SELECT * FROM Student')\nresult = cursor.fetchall()\nfor i in result: print(i)\n\n2. fetchone(): ஒரே ஒரு பதிவை மட்டும் பெறும் — அடுத்த அழைப்பில் அடுத்த பதிவைத் தரும்.\ncursor.execute('SELECT * FROM student')\nprint(cursor.fetchone())  # முதல் பதிவு\nprint(cursor.fetchone())  # இரண்டாம் பதிவு\n\n3. fetchmany(n): குறிப்பிட்ட எண்ணிக்கையிலான பதிவுகளை மட்டும் பெறும்.\ncursor.execute('SELECT * FROM student')\nresult = cursor.fetchmany(3)  # முதல் 3 பதிவுகள்\n\nஇந்த மூன்று முறைகளும் தரவின் அளவைப் பொறுத்து, திறமையான தரவு மீட்டெடுப்பு உத்தியைத் தேர்ந்தெடுக்க உதவுகின்றன — பெரிய அட்டவணைகளுக்கு fetchmany() நினைவக பயன்பாட்டை மேம்படுத்தும்."
+        },
+        {
+          "q": "SQL தணைவகைகளான (WHERE, GROUP BY, ORDER BY, HAVING) ஒவ்வொன்றையும் Python-sqlite3 எடுத்துக்காட்டுடன் விரிவாக விளக்குக.",
+          "ans": "1. WHERE: நிபந்தனையின்படி பதிவுகளை வடிகட்டும்.\ncursor.execute(\"SELECT * FROM student WHERE gender='M'\")\n\n2. GROUP BY: ஒத்த மதிப்புகளைத் தொகுக்கும்.\ncursor.execute(\"SELECT gender, count(gender) FROM student GROUP BY gender\")\n# வெளியீடு: ('F',2), ('M',3)\n\n3. ORDER BY: முடிவுகளை வரிசைப்படுத்தும்.\ncursor.execute(\"SELECT Rollno, sname FROM student ORDER BY sname\")\n\n4. HAVING: GROUP BY-க்குப் பிறகு தொகுக்கப்பட்ட முடிவுகளுக்கு நிபந்தனை வைக்கும்.\ncursor.execute(\"SELECT gender, COUNT(GENDER) FROM student GROUP BY gender HAVING count(gender) > 2\")\n\nமுக்கிய வேறுபாடு: WHERE தனிப்பட்ட பதிவுகளுக்கு நிபந்தனை வைக்கும்; HAVING GROUP BY-க்குப் பிறகான தொகுக்கப்பட்ட முடிவுகளுக்கு நிபந்தனை வைக்கும் — இதனால் HAVING எப்போதும் GROUP BY-க்குப் பிறகே பயன்படுத்தப்பட வேண்டும்."
+        },
+        {
+          "q": "பல அட்டவணைகளை இணைத்து வினவும் முறையையும், UPDATE/DELETE செயல்பாடுகளையும் முழுமையான எடுத்துக்காட்டுகளுடன் விரிவாக விளக்குக.",
+          "ans": "பல அட்டவணைகளை இணைத்து வினவுதல்:\n\nimport sqlite3\nconnection = sqlite3.connect('Academy.db')\ncursor = connection.cursor()\n\ncursor.execute('''CREATE TABLE Appointment (\n    Rollno INTEGER, Duty VARCHAR(10), age INT);''')\ncursor.execute(\"INSERT INTO Appointment VALUES (1,'Prefect',17)\")\nconnection.commit()\n\ncursor.execute('''SELECT student.Rollno, student.Sname, Appointment.Duty\n                   FROM student, Appointment\n                   WHERE student.Rollno = Appointment.Rollno''')\nresult = cursor.fetchall()\nfor row in result: print(row)\n# வெளியீடு: (1, 'Akshay', 'Prefect')\n\nUPDATE செயல்பாடு:\nconn = sqlite3.connect('AcademyDB')\nconn.execute(\"UPDATE Student SET sname='Priyanka' WHERE RollNo=6\")\nconn.commit()\nprint('Total number of rows updated:', conn.total_changes)\n\nDELETE செயல்பாடு:\nconn.execute(\"DELETE FROM Student WHERE RollNo=2\")\nconn.commit()\nprint('Total number of rows deleted:', conn.total_changes)\n\nஇணைப்பு வினவல் (Join Query) இரு அட்டவணைகளிலும் பொதுவான நெடுவரிசை (Rollno) மூலம் தொடர்புடைய தரவை ஒன்றாகக் கொண்டுவருகிறது — UPDATE/DELETE ஆகியவை தரவை மாற்றியமைக்கவும் நீக்கவும் பயன்படுகின்றன, ஒவ்வொரு மாற்றத்தையும் commit() மூலம் நிரந்தரமாக்க வேண்டும்."
+        }
+      ]
+    }
+  ]
+}
