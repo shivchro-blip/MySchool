@@ -15,6 +15,7 @@ import {
   finalExamPrepModelPapersComputerSciencePlus1,
   finalExamPrepModelPapersComputerSciencePlus2,
   finalExamPrepModelPapersComputerApplicationsTamilPlus2,
+  finalExamPrepModelPapersComputerScienceTamilPlus2,
   finalExamPrepPriorityLessons,
   finalExamPrepPriorityLessonsPlus2,
 } from '../../data/finalExamPrepData'
@@ -27,6 +28,7 @@ const PAPERS_BY_KEY = {
   'plus1-computer-science': [],
   'plus2-computer-science': [],
   'plus2-computer-applications-tamil': [],
+  'plus2-computer-science-tamil': [],
 }
 const MODEL_PAPERS_BY_KEY = {
   'plus1-english': finalExamPrepModelPapers,
@@ -36,6 +38,7 @@ const MODEL_PAPERS_BY_KEY = {
   'plus1-computer-science': finalExamPrepModelPapersComputerSciencePlus1,
   'plus2-computer-science': finalExamPrepModelPapersComputerSciencePlus2,
   'plus2-computer-applications-tamil': finalExamPrepModelPapersComputerApplicationsTamilPlus2,
+  'plus2-computer-science-tamil': finalExamPrepModelPapersComputerScienceTamilPlus2,
 }
 const LESSONS_BY_KEY = {
   'plus1-english': finalExamPrepPriorityLessons,
@@ -44,6 +47,7 @@ const LESSONS_BY_KEY = {
   'plus1-computer-applications': [],
   'plus1-computer-science': [],
   'plus2-computer-science': [],
+  'plus2-computer-science-tamil': [],
 }
 
 export default function FinalExamPrepPage({ classLevel = 'plus1', subjectSlug = 'english' }) {

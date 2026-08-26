@@ -367,13 +367,15 @@ function ChapterRow({ ch, year, subject }) {
           {/* Final Exam Prep */}
           {(subject === 'computer-applications' && (year === 'plus2' || year === 'plus1')) ||
           (subject === 'computer-science' && (year === 'plus2' || year === 'plus1')) ||
-          (subject === 'computer-applications-tamil' && year === 'plus2') ? (
+          (subject === 'computer-applications-tamil' && year === 'plus2') ||
+          (subject === 'computer-science-tamil' && year === 'plus2') ? (
             <FinalExamPrepEntryCard
               dest={`/${year}/${subject}/final-exam-prep`}
               classLabel={year === 'plus2' ? 'Class 12' : 'Class 11'}
               subjectLabel={
                 subject === 'computer-science' ? 'Computer Science' :
                 subject === 'computer-applications-tamil' ? 'Computer Applications (தமிழ்)' :
+                subject === 'computer-science-tamil' ? 'Computer Science (தமிழ்)' :
                 'Computer Applications'
               }
             />
