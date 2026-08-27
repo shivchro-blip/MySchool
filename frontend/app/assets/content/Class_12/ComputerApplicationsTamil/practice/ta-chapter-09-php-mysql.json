@@ -1,0 +1,223 @@
+{
+  "meta": {
+    "subject": "கணினி பயன்பாடுகள் -- வகுப்பு 12",
+    "unit": "பாடம் 9 -- PHP-உடன் MySQL-ஐ இணைத்தல்",
+    "time": "3.00 மணி நேரம்",
+    "totalMarks": 47,
+    "instructions": "சமச்சீர் கல்வி -- அனைத்து வினாக்களுக்கும் விடையளிக்கவும்"
+  },
+  "parts": [
+    {
+      "id": "p1",
+      "navLabel": "பகுதி I -- பலவுள் தேர்வு (10 x 1)",
+      "title": "பகுதி I -- சரியான விடையைத் தேர்ந்தெடுத்து எழுதுக",
+      "type": "mcq",
+      "scoreMax": 10,
+      "marksPer": 1,
+      "sections": [
+        {
+          "label": "PHP-உடன் MySQL இணைத்தல்",
+          "questions": [
+            {
+              "id": "q1",
+              "html": "PHP-இல் SQL வினவல்களை இயக்க கீழ்க்கண்டவற்றுள் எது சரியான செயற்கூறு?",
+              "options": [
+                "அ) mysqli_query(\"Connection Object\",\"SQL Query\")",
+                "ஆ) query(\"Connection Object\",\"SQL Query\")",
+                "இ) sql_query(\"SQL Query\")",
+                "ஈ) mysqli_query(\"SQL Query\")"
+              ],
+              "answer": 0,
+              "hint": "mysqli_query() இரு அளபுருக்களுடன் (Connection Object, SQL Query) அழைக்கப்படும்."
+            },
+            {
+              "id": "q2",
+              "html": "PHP-இல் இணைப்பை மூடுவதற்கு கீழ்க்கண்டவற்றுள் எது சரியான செயற்கூறு?",
+              "options": [
+                "அ) mysqli_close(\"Connection Object\")",
+                "ஆ) close(\"Connection Object\")",
+                "இ) end(\"Connection Object\")",
+                "ஈ) mysqli_close(\"Database Object\")"
+              ],
+              "answer": 0,
+              "hint": "mysqli_close() இணைப்புப் பொருளுடன் அழைக்கப்படும்."
+            },
+            {
+              "id": "q3",
+              "html": "இணைப்பை நிறுவுவதற்கு கீழ்க்கண்டவற்றுள் எது சரியான செயற்கூறு?",
+              "options": [
+                "அ) mysqli_connect(ServerName, UserName, Password, DBName)",
+                "ஆ) connect(ServerName, UserName, Password, DBName)",
+                "இ) db_connect(ServerName, DBName)",
+                "ஈ) mysqli_connect(DatabaseObject)"
+              ],
+              "answer": 0,
+              "hint": "mysqli_connect() நான்கு அளபுருக்களுடன் அழைக்கப்படும்."
+            },
+            {
+              "id": "q4",
+              "html": "கீழ்க்கண்டவற்றுள் எது PHP-இன் சரியான MySQLi செயற்கூறு அல்ல?",
+              "options": [
+                "அ) mysqli_connect() Function",
+                "ஆ) mysqli_close() Function",
+                "இ) mysqli_select_data() Function",
+                "ஈ) mysqli_affected_rows() Function"
+              ],
+              "answer": 2,
+              "hint": "mysqli_select_data() என்பது PHP-இல் இல்லாத ஒரு கற்பனையான செயற்கூறு."
+            },
+            {
+              "id": "q5",
+              "html": "PHP-இல் MySQLi இணைக்க (connect) எத்தனை அளபுருக்கள் தேவைப்படுகின்றன?",
+              "options": [
+                "அ) 2",
+                "ஆ) 3",
+                "இ) 4",
+                "ஈ) 5"
+              ],
+              "answer": 2,
+              "hint": "mysqli_connect() நான்கு அளபுருக்கள் (server, user, password, dbname) கொண்டது."
+            },
+            {
+              "id": "q6",
+              "html": "PHP-இல் வினவல் செயற்படுத்த எத்தனை அளபுருக்கள் தேவைப்படுகின்றன?",
+              "options": [
+                "அ) 2",
+                "ஆ) 3",
+                "இ) 4",
+                "ஈ) 5"
+              ],
+              "answer": 0,
+              "hint": "mysqli_query() இரண்டு அளபுருக்கள் (connection, query) கொண்டது."
+            },
+            {
+              "id": "q7",
+              "html": "PHP-இல் MySQL இணைப்பை மூட (Close) எத்தனை அளபுருக்கள் தேவைப்படுகின்றன?",
+              "options": [
+                "அ) 1",
+                "ஆ) 2",
+                "இ) 3",
+                "ஈ) 5"
+              ],
+              "answer": 0,
+              "hint": "mysqli_close() ஒரே ஒரு அளபுரு (connection object) மட்டும் கொண்டது."
+            },
+            {
+              "id": "q8",
+              "html": "PHP-இன் எந்த பதிப்பில் MySQLi அறிமுகப்படுத்தப்பட்டது?",
+              "options": [
+                "அ) Version 2.0",
+                "ஆ) Version 3.0",
+                "இ) Version 4.0",
+                "ஈ) Version 5.0"
+              ],
+              "answer": 3,
+              "hint": "MySQLi PHP பதிப்பு 5.0-ல் அறிமுகப்படுத்தப்பட்டது."
+            },
+            {
+              "id": "q9",
+              "html": "வினவலின் முடிவுகளை ஒரு வரிசையாகப் பெற பயன்படும் செயற்கூறு எது?",
+              "options": [
+                "அ) mysqli_fetch_array()",
+                "ஆ) mysqli_get_array()",
+                "இ) mysqli_result_array()",
+                "ஈ) mysqli_read_array()"
+              ],
+              "answer": 0,
+              "hint": "mysqli_fetch_array() வினவலின் முடிவுகளை வரிசையாகப் பெறும்."
+            },
+            {
+              "id": "q10",
+              "html": "திரும்பக் கிடைத்த வரிசைகளின் எண்ணிக்கையைப் பெற பயன்படும் செயற்கூறு எது?",
+              "options": [
+                "அ) mysqli_count_rows()",
+                "ஆ) mysqli_num_rows()",
+                "இ) mysqli_row_count()",
+                "ஈ) mysqli_total_rows()"
+              ],
+              "answer": 1,
+              "hint": "mysqli_num_rows() திரும்பக் கிடைத்த வரிசைகளின் எண்ணிக்கையைத் தரும்."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "navLabel": "பகுதி II -- சிறு விடை வினாக்கள் (5 x 2)",
+      "title": "பகுதி II -- சிறு விடை வினாக்கள்",
+      "type": "short-essay",
+      "scoreMax": 10,
+      "marksPer": 2,
+      "instruction": "2-3 வாக்கியங்களில் விடையளிக்கவும்.",
+      "questions": [
+        {
+          "q": "PHP-இல் உள்ள MySQLi செயற்கூறுகளைக் கூறு.",
+          "ans": "PHP-இல் முக்கிய MySQLi செயற்கூறுகள்: mysqli_connect() (இணைக்க), mysqli_query() (வினவலை இயக்க), mysqli_close() (இணைப்பை மூட), mysqli_fetch_array() (முடிவுகளைப் பெற), mysqli_num_rows() (வரிசைகளின் எண்ணிக்கையைப் பெற)."
+        },
+        {
+          "q": "MySQLi செயற்கூறு என்றால் என்ன?",
+          "ans": "MySQLi (MySQL Improved) செயற்கூறுகள் என்பவை PHP-ஐ MySQL தரவுதளத்துடன் இணைத்து, வினவல்களை இயக்கவும், முடிவுகளைப் பெறவும் பயன்படும் உள்ளிணைந்த செயற்கூறுகள் ஆகும்."
+        },
+        {
+          "q": "PHP-இல் எத்தனை வகையான MySQLi செயற்கூறுகள் உள்ளன?",
+          "ans": "MySQLi செயற்கூறுகளை முக்கியமாக மூன்று வகைகளாகப் பிரிக்கலாம்: இணைப்பு செயற்கூறுகள் (mysqli_connect, mysqli_close), வினவல் செயற்கூறுகள் (mysqli_query), மற்றும் முடிவு செயற்கூறுகள் (mysqli_fetch_array, mysqli_num_rows)."
+        },
+        {
+          "q": "இணைத்தல் (Connection) மற்றும் மூடல் (Close) செயற்கூறுகள் எவ்வாறு வேறுபடுகின்றன?",
+          "ans": "mysqli_connect() நான்கு அளபுருக்களைப் (சேவையகம், பயனர் பெயர், கடவுச்சொல், தரவுதள பெயர்) பெற்று ஒரு புதிய இணைப்பை உருவாக்குகிறது. mysqli_close() ஒரே ஒரு அளபுருவை (இணைப்புப் பொருள்) பெற்று, ஏற்கனவே உள்ள இணைப்பை மூடுகிறது."
+        },
+        {
+          "q": "இணைப்புச் சரம் (Connection String) என்றால் என்ன?",
+          "ans": "இணைப்புச் சரம் என்பது ஒரு தரவுதளத்துடன் இணைவதற்குத் தேவையான தகவல்களை — சேவையக பெயர், பயனர் பெயர், கடவுச்சொல், தரவுதள பெயர் — உள்ளடக்கிய அளபுருக்களின் தொகுப்பாகும்."
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "navLabel": "பகுதி III -- குறு விடை வினாக்கள் (3 x 3)",
+      "title": "பகுதி III -- குறு விடை வினாக்கள்",
+      "type": "short-essay",
+      "scoreMax": 9,
+      "marksPer": 3,
+      "instruction": "4-6 வாக்கியங்களில் விடையளிக்கவும்.",
+      "questions": [
+        {
+          "q": "MySQLi வினவல்களின் கட்டளை அமைப்பை எழுதுக.",
+          "ans": "MySQLi வினவல் இயக்குவதற்கான கட்டளை அமைப்பு: mysqli_query('Connection Object', 'SQL query.'); — இதற்கு இரண்டு அளபுருக்கள் தேவை: ஏற்கனவே நிறுவப்பட்ட இணைப்புப் பொருள், மற்றும் இயக்கப்பட வேண்டிய SQL வினவல் சரம்."
+        },
+        {
+          "q": "MySQLi-இல் உள்ள செயற்கூறுகளின் பயன்களை எழுதுக.",
+          "ans": "MySQLi செயற்கூறுகளின் பயன்கள்: (1) PHP-ஐ MySQL தரவுதளத்துடன் எளிதாக இணைக்க உதவும்; (2) SQL வினவல்களை இயக்கி தரவைப் பெறவும் மாற்றவும் உதவும்; (3) தரவுதள இணைப்பை பாதுகாப்பாக மூடவும், வளங்களை விடுவிக்கவும் உதவும்."
+        },
+        {
+          "q": "MySQL-ஐ இணைப்பதற்கான கட்டமைப்பை எடுத்துக்காட்டுடன் எழுதுக.",
+          "ans": "$servername = 'localhost';\n$username = 'username';\n$password = 'password';\n$DB_Name = 'school_DB';\n$conn = mysqli_connect($servername, $username, $password, $DB_Name);\nif (!$conn) {\n    die('Connection failed: ' . mysqli_connect_error());\n}\necho 'Connected successfully';"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "navLabel": "பகுதி IV -- விரிவான வினாக்கள் (3 x 6)",
+      "title": "பகுதி IV -- விரிவான வினாக்கள்",
+      "type": "long-essay",
+      "scoreMax": 18,
+      "marksPer": 6,
+      "instruction": "விரிவாக விடையளிக்கவும்.",
+      "questions": [
+        {
+          "q": "MySQL-இல் உள்ள முக்கிய செயற்கூறுகளை (mysqli_connect, mysqli_query, mysqli_close) எடுத்துக்காட்டுகளுடன் விரிவாக விவரி.",
+          "ans": "1. mysqli_connect(): MySQL தரவுதளத்துடன் இணைக்க பயன்படுகிறது. நான்கு அளபுருக்கள் தேவை: சேவையக பெயர், பயனர் பெயர், கடவுச்சொல், தரவுதள பெயர்.\nmysqli_connect('localhost', 'username', 'password', 'DB_Name');\n\n2. mysqli_query(): இணைக்கப்பட்ட தரவுதளத்தில் SQL வினவலை இயக்க பயன்படுகிறது. இரண்டு அளபுருக்கள் தேவை: இணைப்புப் பொருள், SQL வினவல்.\nmysqli_query($conn, 'SELECT * FROM student');\n\n3. mysqli_close(): தரவுதள இணைப்பை மூட பயன்படுகிறது. ஒரே ஒரு அளபுரு தேவை: இணைப்புப் பொருள்.\nmysqli_close($conn);\n\nஇம்மூன்று செயற்கூறுகளும் இணைந்து PHP-MySQL தொடர்பின் அடிப்படை வாழ்க்கைச் சுழற்சியை (இணைத்தல் → வினவுதல் → மூடுதல்) நிறைவேற்றுகின்றன."
+        },
+        {
+          "q": "PHP மற்றும் MySQL-ஐ இணைப்பதற்கான வழிமுறைகளை படிநிலைகளாக விரிவாக விளக்குக.",
+          "ans": "PHP-ஐ MySQL-உடன் இணைக்கும் படிநிலைகள்:\n\n1. இணைப்பு விவரங்களை மாறிகளில் சேமித்தல்: servername, username, password, dbname ஆகியவற்றை மாறிகளாக அமைத்தல்.\n\n2. mysqli_connect() அழைத்து இணைப்பை நிறுவுதல்: $conn = mysqli_connect($servername, $username, $password, $dbname);\n\n3. இணைப்பு வெற்றியடைந்ததா என சரிபார்த்தல்: if (!$conn) { die('Connection failed: ' . mysqli_connect_error()); }\n\n4. மற்றும் தேவையான SQL வினவல்களை mysqli_query() மூலம் இயக்குதல்.\n\n5. வேண்டிய தரவை mysqli_fetch_array() போன்ற செயற்கூறுகள் மூலம் பெற்று பயன்படுத்துதல்.\n\n6. பணி முடிந்ததும் mysqli_close() மூலம் இணைப்பை மூடி, வளங்களை விடுவித்தல்.\n\nஇந்த ஆறு படிநிலைகளும் PHP வலைப் பயன்பாட்டை MySQL தரவுதளத்துடன் பாதுகாப்பாகவும் திறமையாகவும் இணைக்க உதவுகின்றன — Login Form, Search bar போன்ற பல வலை அம்சங்களுக்கு இந்த அடிப்படை மிக முக்கியமானது."
+        },
+        {
+          "q": "MySQL வினவல்களை (Queries) ஒரு முழுமையான PHP நிரல் எடுத்துக்காட்டுடன் விளக்குக.",
+          "ans": "MySQL வினவல் என்பது தரவுதளத்திடம் தரவைப் பெறவோ, மாற்றவோ கோரும் SQL கூற்று ஆகும். PHP-இல் mysqli_query() செயற்கூறு மூலம் இதை இயக்கலாம்.\n\nமுழுமையான எடுத்துக்காட்டு:\n<?php\n$servername='localhost';\n$username='username';\n$password='password';\n$dbname='school_DB';\n$connection = mysqli_connect($servername,$username,$password,$dbname);\n\nif(mysqli_connect_errno()) {\n    echo 'Failed to connect to MySQL: ' . mysqli_connect_error();\n}\n\n$sql_stmt='SELECT * FROM my_contacts';\n$result=mysqli_query($connection,$sql_stmt);\n$rows=mysqli_num_rows($result);\n\nif($rows){\n    while($row=mysqli_fetch_array($result)){\n        echo 'ID: '.$row['id'].'<br>';\n        echo 'Email: '.$row['email'].'<br>';\n    }\n}\nmysqli_close($connection);\n?>\n\nஇந்த நிரல் தரவுதளத்துடன் இணைந்து, 'my_contacts' அட்டவணையின் அனைத்து பதிவுகளையும் பெற்று, ஒவ்வொரு பதிவின் ID மற்றும் Email மதிப்புகளையும் திரையில் காட்டி, இறுதியில் இணைப்பை மூடுகிறது."
+        }
+      ]
+    }
+  ]
+}

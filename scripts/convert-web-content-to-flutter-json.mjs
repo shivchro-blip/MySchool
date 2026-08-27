@@ -45,6 +45,32 @@ const CONVERSIONS = [
   ],
 ];
 
+// Batch 2 — Chapters 5-18 (learn + practice), same subject.
+const BATCH2_SLUGS = [
+  'ta-chapter-05-php-functions-arrays',
+  'ta-chapter-06-php-conditionals',
+  'ta-chapter-07-php-loops',
+  'ta-chapter-08-forms-files',
+  'ta-chapter-09-php-mysql',
+  'ta-chapter-10-networks-intro',
+  'ta-chapter-11-network-protocols',
+  'ta-chapter-12-dns',
+  'ta-chapter-13-network-cabling',
+  'ta-chapter-14-open-source',
+  'ta-chapter-15-ecommerce',
+  'ta-chapter-16-payment-systems',
+  'ta-chapter-17-ecommerce-security',
+  'ta-chapter-18-edi',
+];
+for (const kind of ['chapters', 'practice']) {
+  for (const slug of BATCH2_SLUGS) {
+    CONVERSIONS.push([
+      `${ROOT}/frontend/web/src/content/Class_12/ComputerApplicationsTamil/${kind}/${slug}.js`,
+      `${ROOT}/frontend/app/assets/content/Class_12/ComputerApplicationsTamil/${kind}/${slug}.json`,
+    ]);
+  }
+}
+
 for (const [sourcePath, targetPath] of CONVERSIONS) {
   const mod = await import(pathToFileURL(sourcePath).href);
   const data = mod.default;

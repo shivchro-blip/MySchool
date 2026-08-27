@@ -1,0 +1,114 @@
+{
+  "eyebrow": "பாடம் 11 · வகுப்பு 12 கணினி பயன்பாடுகள்",
+  "title": "வலையமைப்பு எடுத்துக்காட்டுகள் மற்றும் நெறிமுறைகள்",
+  "author": "",
+  "pills": [
+    "கோட்பாடு"
+  ],
+  "tabs": [
+    {
+      "id": "internet-intranet",
+      "label": "இணையம் / அக / புற இணையம்",
+      "blocks": [
+        {
+          "type": "section-head",
+          "text": "11.2 இணையம் / அக இணையம் / புற இணையம் (Internet / Intranet / Extranet)"
+        },
+        {
+          "type": "gloss-row",
+          "word": "இணையம் (Internet / Net)",
+          "def": "உலகளாவிய கணினிகளின் தொடர்பமைப்பு. 1969-இல் ARPANET (Advanced Research Projects Agency Network) என்ற முதல் திட்டம் அமெரிக்க பல்கலைக்கழகங்களை இணைக்க உருவாக்கப்பட்டது -- இதுவே இணையத்தின் ஆரம்ப வடிவம்."
+        },
+        {
+          "type": "gloss-row",
+          "word": "அக இணையம் (Intranet)",
+          "def": "ஒரு நிறுவனத்திற்குள் மட்டும் கிடைக்கும் தனியார் வலையமைப்பு -- LAN (Local Area Network) மூலம் இணைக்கப்பட்ட கணினிகளைக் கொண்டது. நிறுவனத்தின் உறுப்பினர்கள் மட்டுமே இதை அணுக முடியும்."
+        },
+        {
+          "type": "gloss-row",
+          "word": "புற இணையம் (Extranet)",
+          "def": "ஒரு நிறுவனத்தின் அக இணையத்தை நம்பகமான வெளிப்புற பங்குதாரர்களுக்கும் (வாடிக்கையாளர்கள், விற்பனையாளர்கள்) கட்டுப்படுத்தப்பட்ட அணுகலுடன் விரிவுபடுத்தும் வலையமைப்பு."
+        },
+        {
+          "type": "think-box",
+          "label": "IoT (Internet of Things)",
+          "text": "பொருள்கள் இணையத்துடன் இணைந்து, சென்சார்கள் மற்றும் மென்பொருள் மூலம் தரவைப் பரிமாறிக்கொள்ளும் கருத்தாகும் -- வீட்டு உபகரணங்கள், வாகனங்கள் போன்றவை இணையத்துடன் இணைக்கப்பட்டு தானியங்கியாகச் செயல்படுகின்றன."
+        },
+        {
+          "type": "section-head",
+          "text": "11.3 மொபைல் வலையமைப்புகள் (Mobile Networks -- தலைமுறைகள்)"
+        },
+        {
+          "type": "gloss-row",
+          "word": "மொபைல் தொழில்நுட்பத் தலைமுறைகள்",
+          "def": "1G (1981) -- NMT உடன் ஒத்திசைவானது, ஒப்பீட்டளவில் மெதுவான வேகம் (2.4kb/s). 2G (1991) -- GSM உடன் ஒத்திசைவானது (64kb/s). 3G (2000) -- GPRS உடன் ஒத்திசைவானது (2Mb/s). 4G (2007) -- அதிவேக இணைய அணுகல் (100Mb/s). 5G (2019) -- மிக அதிவேக இணைப்பு (1Gb/s) -- IMT 2020 தரநிலைப்படி ஒரு விநாடிக்கு 20Gbit/s வரை வேகம் கொடுக்கக்கூடியது."
+        },
+        {
+          "type": "nav",
+          "next": "protocols",
+          "nextLabel": "அடுத்து: நெறிமுறைகள் & OSI மாதிரி →"
+        }
+      ]
+    },
+    {
+      "id": "protocols",
+      "label": "நெறிமுறைகள் & OSI மாதிரி",
+      "blocks": [
+        {
+          "type": "section-head",
+          "text": "11.4 WLAN 802.11 (Wi-Fi)"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>Wi-Fi (Wireless Fidelity) என்பது கம்பியில்லா தொழில்நுட்பம் மூலம் கணினிகளை உள்ளூர் வலையமைப்பில் (LAN) இணைக்கும் முறை. Li-Fi (Light Fidelity) என்பது ஒளியைப் பயன்படுத்தி (LED) தரவை அனுப்பும் புதிய தொழில்நுட்பம்.</p>"
+        },
+        {
+          "type": "gloss-row",
+          "word": "RFID (Radio Frequency Identification)",
+          "def": "வானொலி அலைவரிசைகளைப் பயன்படுத்தி பொருள்களை அடையாளம் காணும் தொழில்நுட்பம் -- கடைகளில் பொருள் கண்காணிப்புக்கும், அட்டைகளுக்கும் (Access cards) பயன்படுத்தப்படுகிறது."
+        },
+        {
+          "type": "section-head",
+          "text": "11.5 OSI மாதிரி (OSI Reference Model)"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>OSI (Open System Interconnection) மாதிரியானது 1984-ஆம் ஆண்டு ISO (International Standards Organization) நிறுவனத்தால் ஏழு அடுக்குகளாகப் பிரிக்கப்பட்டது.</p>"
+        },
+        {
+          "type": "gloss-row",
+          "word": "OSI-ன் ஏழு அடுக்குகள்",
+          "def": "1. பருண்மை அடுக்கு (Physical Layer). 2. தரவு இணைப்பு அடுக்கு (Datalink Layer). 3. வலையமைப்பு அடுக்கு (Network Layer). 4. போக்குவரத்து அடுக்கு (Transport Layer). 5. அமர்வு அடுக்கு (Session Layer). 6. வழங்கீட்டு அடுக்கு (Presentation Layer). 7. பயன்பாட்டு அடுக்கு (Application Layer)."
+        },
+        {
+          "type": "think-box",
+          "label": "தரவு தொகுதி பெயர்கள் (Datagrams per Layer)",
+          "text": "Application/Presentation/Session அடுக்குகளில் -- Upper Layer Data. Transport அடுக்கில் -- Segment. Network அடுக்கில் -- Packet. Data Link அடுக்கில் -- Frame. Physical அடுக்கில் -- Bits."
+        },
+        {
+          "type": "section-head",
+          "text": "11.5.2 TCP/IP"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>TCP/IP (Transmission Control Protocol / Internet Protocol) என்பது இணையத்தில் இயங்கும் நெறிமுறைகளின் தொகுப்பாகும்.</p>"
+        },
+        {
+          "type": "gloss-row",
+          "word": "முக்கியமான TCP/IP நெறிமுறைகள்",
+          "def": "HTTP (Hypertext Transfer Protocol) -- வலைப் பக்கங்களைப் பெறவும் அனுப்பவும் பயன்படும் நெறிமுறை. HTTPS -- HTTP-ன் பாதுகாப்பான வடிவம். FTP (File Transfer Protocol) -- கோப்புகளைப் பதிவேற்ற/பதிவிறக்க பயன்படும் நெறிமுறை. SMTP (Simple Mail Transfer Protocol) -- மின்னஞ்சல் அனுப்ப பயன்படும் நெறிமுறை. DNS (Domain Name System) -- IP முகவரிகளை நினைவில் வைத்திருக்க எளிதான டொமைன் பெயர்களாக மாற்றும் அமைப்பு."
+        },
+        {
+          "type": "think-box",
+          "label": "நினைவில் கொள்க",
+          "text": "ARPANET 1969-இல் அமெரிக்க கல்வி நிறுவனங்களை இணைக்க உருவாக்கப்பட்ட முதல் திட்டம். OSI மாதிரி வலையமைப்பு தொடர்பை ஏழு அடுக்குகளாகப் பிரிக்கிறது. TCP/IP இணையத்தில் தரவு பரிமாற்றத்தை நிர்வகிக்கும் நெறிமுறைகளின் தொகுப்பு."
+        },
+        {
+          "type": "nav",
+          "back": "internet-intranet",
+          "practice": true
+        }
+      ]
+    }
+  ]
+}

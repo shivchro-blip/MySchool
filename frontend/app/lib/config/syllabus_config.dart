@@ -487,6 +487,20 @@ class SyllabusConfig {
     FlatChapter(number: 2, title: 'அடோப் பேஜ்மேக்கர் – ஓர் அறிமுகம்', slug: 'ta-chapter-02-pagemaker'),
     FlatChapter(number: 3, title: 'தரவுதள மேலாண்மை அமைப்பு – ஓர் அறிமுகம்', slug: 'ta-chapter-03-dbms'),
     FlatChapter(number: 4, title: 'மீவுரை முன்செயலி (PHP) – ஓர் அறிமுகம்', slug: 'ta-chapter-04-php-intro'),
+    FlatChapter(number: 5, title: 'PHP செயற்கூறுகள் மற்றும் அணிகள்', slug: 'ta-chapter-05-php-functions-arrays'),
+    FlatChapter(number: 6, title: 'PHPஇல் உள்ள நிபந்தனைக் கூற்றுகள்', slug: 'ta-chapter-06-php-conditionals'),
+    FlatChapter(number: 7, title: 'PHPஇல் மடக்குகள்', slug: 'ta-chapter-07-php-loops'),
+    FlatChapter(number: 8, title: 'படிவங்கள் மற்றும் கோப்புகள்', slug: 'ta-chapter-08-forms-files'),
+    FlatChapter(number: 9, title: 'PHP-உடன் MySQL-ஐ இணைத்தல்', slug: 'ta-chapter-09-php-mysql'),
+    FlatChapter(number: 10, title: 'கணினி வலையமைப்பு ஓர் அறிமுகம்', slug: 'ta-chapter-10-networks-intro'),
+    FlatChapter(number: 11, title: 'வலையமைப்பு எடுத்துக்காட்டுகள் மற்றும் நெறிமுறைகள்', slug: 'ta-chapter-11-network-protocols'),
+    FlatChapter(number: 12, title: 'களப்பெயர் முறைமை (DNS)', slug: 'ta-chapter-12-dns'),
+    FlatChapter(number: 13, title: 'வலையமைப்பு வடமிடல்', slug: 'ta-chapter-13-network-cabling'),
+    FlatChapter(number: 14, title: 'திறந்த மூல கருத்துருக்கள்', slug: 'ta-chapter-14-open-source'),
+    FlatChapter(number: 15, title: 'மின்-வணிகம்', slug: 'ta-chapter-15-ecommerce'),
+    FlatChapter(number: 16, title: 'மின்னணு செலுத்தல் முறைகள்', slug: 'ta-chapter-16-payment-systems'),
+    FlatChapter(number: 17, title: 'மின்-வணிக பாதுகாப்பு அமைப்புகள்', slug: 'ta-chapter-17-ecommerce-security'),
+    FlatChapter(number: 18, title: 'மின்னணு தரவு பரிமாற்றம்', slug: 'ta-chapter-18-edi'),
   ];
 
   static const _plus2ComputerScience = [
