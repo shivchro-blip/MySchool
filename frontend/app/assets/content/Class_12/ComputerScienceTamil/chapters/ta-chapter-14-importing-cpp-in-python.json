@@ -1,0 +1,57 @@
+{
+  "chapterNumber": 14,
+  "title": "பைத்தானில் C++ நிரல்களை தருவித்தல்",
+  "subject": "கணினி அறிவியல்",
+  "classLabel": "வகுப்பு 12",
+  "curriculum": "சமச்சீர் கல்வி",
+  "sections": [
+    {
+      "id": "intro-python-vs-cpp",
+      "title": "Scripting மொழிகள் & Python vs C++",
+      "content": "**14.2 Scripting மொழி**\n\nScripting மொழி என்பது ஒரு இயங்குதளத்தால் நேரடியாக இயக்கப்படும், விளக்கம் (Interpreted) வடிவில் இயங்கும் மொழியாகும் — நிரலாக்கத் தொகுப்பு (Compile) படி தேவைப்படாமல் நேரடியாக இயக்கப்படும்.\n\n**14.2.1 Scripting மொழிகளின் பயன்பாடுகள்**\n\n1. திரும்பத் திரும்ப நடைபெறும் பணிகளை தானியங்கியாக்குதல்.\n2. சிக்கலான பணிகளை எளிதாக்குதல்.\n3. வெவ்வேறு பயன்பாடுகளை ஒன்றிணைத்தல்.\n4. விரைவான முன்மாதிரி (Prototyping) உருவாக்கம்.\n\n**14.3 C++ மற்றும் Python — ஒப்பீடு**\n\n- C++ நிலையான தரவு வகைப்படுத்தல் (Statically Typed) கொண்டது — மாறியின் தரவு வகை நிரல் தொகுக்கும்போதே (Compile time) தீர்மானிக்கப்படும்.\n- C++ நினைவகச் சார்ந்த நிரலாக்கத்தை நேரடியாகக் கையாளும்; Python தானியங்கி நினைவகச் சேமிப்பு நீக்கத்தை (Garbage Collection) தானாகவே செய்யும்.\n- Python-ன் மையக் கருத்தியல் நிரலாக்க எளிமை; C++-ன் மையக் கருத்தியல் செயல்திறன் மற்றும் நினைவக கட்டுப்பாடு.\n\n**14.3.1 C++ மற்றும் Python இணைக்கும் கருவிகள்**\n\n- **Python C API (Application Programming Interface):** C அல்லது C++ கருவிகளுடன் இணைக்கும்.\n- **Ctypes:** C-நூலகங்களைப் பயன்படுத்த உதவும்.\n- **SWIG (Simplified Wrapper Interface Generator):** C/C++ இணைப்புகளை உருவாக்கும் கருவி.\n- **Cython:** C-அடிப்படையிலான வேகமான Python குறியீட்டை உருவாக்கும்.\n- **Boost.Python:** C++-க்கும் Python-க்கும் இடையேயான இணைப்பை வழங்கும் நூலகம் (GNU).",
+      "nav": {
+        "next": "wrapping-mingw",
+        "nextLabel": "அடுத்து: MinGW & C++ கோப்பினை Compile செய்தல் →"
+      }
+    },
+    {
+      "id": "wrapping-mingw",
+      "title": "MinGW & C++ கோப்பினை Compile செய்தல்",
+      "content": "**14.3.1 MinGW**\n\nMinGW-W64 (MinGW-ன் புதிய பதிப்பு) Windows-க்கு C++ கம்பைலரையும் தொடர்புடைய கருவிகளையும் வழங்குகிறது — இதைப் பயன்படுத்தி C++ நிரல்களை Python-ல் இணைக்கலாம்.\n\n**g++ கம்பைலர்:** GCC (GNU Compiler Collection)-ன் ஒரு பகுதியான g++ கருவியைப் பயன்படுத்தி C++ கோப்பை .exe கோப்பாக Compile செய்யலாம்.\n\n**14.3.2 நிரலை இயக்கத் தயார் செய்தல்**\n\n1. Command Prompt-ஐ திறக்க வேண்டும்.\n2. cd கட்டளையைப் பயன்படுத்தி directory-ஐ மாற்ற வேண்டும்.\n3. C++ கோப்பினை Compile செய்ய வேண்டும் (python.exe C++ கோப்பினை Wrap செய்யும்).\n\n```\nC:\\calculator path> g++ pali.cpp -o pali.exe\n```\n\nஇதன் மூலம் pali.cpp கோப்பு pali.exe என்ற இயங்கக்கூடிய கோப்பாக மாற்றப்படுகிறது.",
+      "nav": {
+        "back": "intro-python-vs-cpp",
+        "next": "modules-sys-os-getopt",
+        "nextLabel": "அடுத்து: sys, os, getopt தொகுதிகள் →"
+      }
+    },
+    {
+      "id": "modules-sys-os-getopt",
+      "title": "sys, os, getopt தொகுதிகள்",
+      "content": "**14.4 தொகுதிகள் (Modules)**\n\nPython-ன் sys, os, getopt போன்ற உள்ளமைந்த தொகுதிகள் C++ நிரலை Python-டன் இணைக்க உதவுகின்றன.\n\n**14.4.1 sys தொகுதி**\n\nsys தொகுதி கட்டளை வரி அளபுருக்களை (command-line arguments) கையாள உதவும்.\n\n```\nimport sys\nif __name__ == '__main__':\n    main(sys.argv[1:])\n```\n\n- `sys.argv[0]` — Script-ன் பெயர்.\n- `sys.argv[1]` — முதல் அளபுரு (argument).\n\n**14.4.2 os தொகுதி**\n\n```\nos.getcwd()   # நடப்பு directory-ஐ திருப்பித் தரும்\nos.chdir()    # directory-ஐ மாற்றும்\nos.system()   # OS கட்டளையை நேரடியாக இயக்கும்\n```\n\n```\nos.system('g++ ' + inp_file + ' -o ' + exe_file)\nos.system(exe_file)\n```\n\n**14.5 getopt தொகுதி**\n\ngetopt தொகுதி, கட்டளை வரியில் கொடுக்கப்படும் அளபுருக்களைப் பாகுபடுத்த (Parse) பயன்படும்.\n\n```\ngetopt.getopt(args, options, [long_options])\n```\n\n- `args` — கட்டளை வரியில் கொடுக்கப்படும் அளபுருக்களின் பட்டியல்.\n- `options` — single character options (எ.கா. 'i:').\n- `long_options` — full name options.\n\n```\nopts, args = getopt.getopt(sys.argv[1:], \"hi:o:\", [\"ifile=\", \"ofile=\"])\n```",
+      "nav": {
+        "back": "wrapping-mingw",
+        "next": "executing-cpp-errors",
+        "nextLabel": "அடுத்து: முழுமையான எடுத்துக்காட்டு →"
+      }
+    },
+    {
+      "id": "executing-cpp-errors",
+      "title": "C++ நிரலை Python மூலம் இயக்குதல் — முழுமையான எடுத்துக்காட்டு",
+      "content": "**14.7 பாலிண்ட்ரோம் (Palindrome) சரிபார்ப்பு — C++ & Python இணைப்பு**\n\n**C++ நிரல் (pali.cpp):**\n\n```cpp\n#include<iostream.h>\nusing namespace std;\nint main()\n{\n    int n, sum, digit, rev = 0;\n    cout << \"Enter a positive number: \";\n    cin >> n;\n    int num = n;\n    while(num) {\n        digit = num % 10;\n        rev = (rev * 10) + digit;\n        num = num / 10;\n    }\n    cout << \"The reverse of the number is: \" << rev << endl;\n    if(n == rev)\n        cout << \"The number is a palindrome\";\n    else\n        cout << \"The number is not a palindrome\";\n    return 0;\n}\n```\n\n**Python Wrapper நிரல் (pyg.py):**\n\n```python\nimport sys, os, getopt\n\ndef main(argv):\n    opts, args = getopt.getopt(argv, \"i:\")\n    for o, a in opts:\n        if o == '-i':\n            run(a)\n\ndef run(a):\n    inp_file = a + '.cpp'\n    exe_file = a + '.exe'\n    os.system('g++ ' + inp_file + ' -o ' + exe_file)\n    os.system(exe_file)\n\nif __name__ == '__main__':\n    main(sys.argv[1:])\n```\n\n**இயக்குதல்:**\n```\nC:\\Users\\DellX>python pyg.py -i pali\nEnter a positive number: 56763\nThe reverse of the number is: 36765\nThe number is a palindrome\n```\n\n**இயக்குதல் (இரண்டாம் எடுத்துக்காட்டு):**\n```\nC:\\Users\\DellX>python pyg.py -i pali\nEnter a positive number: 56758\nThe reverse of the number is: 85765\nThe number is not a palindrome\n```\n\nPython getopt() மூலம் `-i` அளபுருவைப் பெற்று, அந்த பெயருடைய .cpp கோப்பை g++ கம்பைலர் மூலம் compile செய்து, பிறகு உருவான .exe கோப்பை os.system() மூலம் இயக்குகிறது — இதுவே C++ நிரலை Python மூலம் \"wrap\" செய்து இயக்கும் அடிப்படை நுட்பமாகும்.",
+      "nav": {
+        "back": "modules-sys-os-getopt",
+        "next": "summary",
+        "nextLabel": "அடுத்து: நினைவில் கொள்க →"
+      }
+    },
+    {
+      "id": "summary",
+      "title": "நினைவில் கொள்க",
+      "content": "- Scripting மொழி நேரடியாக இயக்கப்படும், Interpreted வடிவில் செயல்படும் மொழி.\n- C++ Statically Typed மொழி; Python Garbage Collection மூலம் நினைவகத்தை தானாக நிர்வகிக்கும்.\n- Python C API, Ctypes, SWIG, Cython, Boost.Python ஆகியவை C++-ஐ Python-டன் இணைக்கும் கருவிகள்.\n- MinGW/g++ மூலம் C++ கோப்பை .exe ஆக Compile செய்யலாம்.\n- sys தொகுதி கட்டளை வரி அளபுருக்களைக் கையாளும்; os தொகுதி இயங்குதள கட்டளைகளை இயக்கும்; getopt தொகுதி கட்டளை வரி அளபுருக்களைப் பாகுபடுத்தும்.\n- os.system() மூலம் ஒரு .exe கோப்பை Python நிரலிலிருந்தே இயக்கலாம்.",
+      "nav": {
+        "back": "executing-cpp-errors",
+        "practice": true
+      }
+    }
+  ]
+}

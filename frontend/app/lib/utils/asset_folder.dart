@@ -5,6 +5,7 @@ class AssetFolder {
     'computer-applications':       'ComputerApplications',
     'computer-science':            'ComputerScience',
     'computer-applications-tamil': 'ComputerApplicationsTamil',
+    'computer-science-tamil':      'ComputerScienceTamil',
   };
 
   static String toFolder(String classLevel, String subjectSlug) {

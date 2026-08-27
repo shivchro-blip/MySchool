@@ -1,0 +1,231 @@
+{
+  "meta": {
+    "subject": "கணினி அறிவியல் -- வகுப்பு 12",
+    "unit": "பாடம் 12 -- வினவல் அமைப்பு மொழி (SQL)",
+    "time": "3.00 மணி நேரம்",
+    "totalMarks": 52,
+    "instructions": "சமச்சீர் கல்வி -- அனைத்து வினாக்களுக்கும் விடையளிக்கவும்"
+  },
+  "parts": [
+    {
+      "id": "p1",
+      "navLabel": "பகுதி I -- பலவுள் தேர்வு (10 x 1)",
+      "title": "பகுதி I -- சரியான விடையைத் தேர்ந்தெடுத்து எழுதுக",
+      "type": "mcq",
+      "scoreMax": 10,
+      "marksPer": 1,
+      "sections": [
+        {
+          "label": "SQL",
+          "questions": [
+            {
+              "id": "q1",
+              "html": "SQL-ன் விரிவாக்கம் என்ன?",
+              "options": [
+                "அ) Structured Query Language",
+                "ஆ) Simple Query Language",
+                "இ) Standard Query Language",
+                "ஈ) Sequential Query Language"
+              ],
+              "answer": 0,
+              "hint": "SQL = Structured Query Language."
+            },
+            {
+              "id": "q2",
+              "html": "அட்டவணைகளை உருவாக்க பயன்படும் SQL கட்டளை எது?",
+              "options": [
+                "அ) INSERT",
+                "ஆ) CREATE TABLE",
+                "இ) SELECT",
+                "ஈ) UPDATE"
+              ],
+              "answer": 1,
+              "hint": "CREATE TABLE அட்டவணையை உருவாக்கும்."
+            },
+            {
+              "id": "q3",
+              "html": "புதிய பதிவைச் சேர்க்க பயன்படும் SQL கட்டளை எது?",
+              "options": [
+                "அ) INSERT",
+                "ஆ) CREATE",
+                "இ) SELECT",
+                "ஈ) DROP"
+              ],
+              "answer": 0,
+              "hint": "INSERT புதிய பதிவைச் சேர்க்கும்."
+            },
+            {
+              "id": "q4",
+              "html": "ஒரு நெடுவரிசைக்கு NULL மதிப்பு அனுமதிக்கப்படாது என்பதைக் குறிக்கும் கட்டுப்பாடு எது?",
+              "options": [
+                "அ) UNIQUE",
+                "ஆ) DEFAULT",
+                "இ) NOT NULL",
+                "ஈ) CHECK"
+              ],
+              "answer": 2,
+              "hint": "NOT NULL கட்டுப்பாடு NULL மதிப்பை அனுமதிக்காது."
+            },
+            {
+              "id": "q5",
+              "html": "ஒவ்வொரு வரிசையையும் தனித்துவமாக அடையாளப்படுத்தும் கட்டுப்பாடு எது?",
+              "options": [
+                "அ) UNIQUE",
+                "ஆ) PRIMARY KEY",
+                "இ) DEFAULT",
+                "ஈ) CHECK"
+              ],
+              "answer": 1,
+              "hint": "PRIMARY KEY ஒவ்வொரு வரிசையையும் தனித்துவமாக அடையாளப்படுத்தும்."
+            },
+            {
+              "id": "q6",
+              "html": "அட்டவணையின் தரவுகளை மட்டும் நீக்கி, கட்டமைப்பை வைத்திருக்கும் கட்டளை எது?",
+              "options": [
+                "அ) DELETE",
+                "ஆ) DROP",
+                "இ) TRUNCATE",
+                "ஈ) ALTER"
+              ],
+              "answer": 2,
+              "hint": "TRUNCATE தரவுகளை மட்டும் நீக்கும், கட்டமைப்பு இருக்கும்."
+            },
+            {
+              "id": "q7",
+              "html": "மீண்டும் வரும் மதிப்புகளை நீக்கி தனித்துவமான மதிப்புகளை மட்டும் தரும் சிறப்புச் சொல் எது?",
+              "options": [
+                "அ) ALL",
+                "ஆ) DISTINCT",
+                "இ) UNIQUE",
+                "ஈ) ONLY"
+              ],
+              "answer": 1,
+              "hint": "DISTINCT தனித்துவமான மதிப்புகளை மட்டும் தரும்."
+            },
+            {
+              "id": "q8",
+              "html": "முடிவுகளை வரிசைப்படுத்தப் பயன்படும் clause எது?",
+              "options": [
+                "அ) GROUP BY",
+                "ஆ) HAVING",
+                "இ) ORDER BY",
+                "ஈ) WHERE"
+              ],
+              "answer": 2,
+              "hint": "ORDER BY முடிவுகளை வரிசைப்படுத்தும்."
+            },
+            {
+              "id": "q9",
+              "html": "GROUP BY உடன் இணைந்து தொகுக்கப்பட்ட முடிவுகளுக்கு நிபந்தனை வைக்கும் clause எது?",
+              "options": [
+                "அ) WHERE",
+                "ஆ) HAVING",
+                "இ) ORDER BY",
+                "ஈ) DISTINCT"
+              ],
+              "answer": 1,
+              "hint": "HAVING GROUP BY-உடன் இணைந்து பயன்படும்."
+            },
+            {
+              "id": "q10",
+              "html": "தரவுதள மாற்றங்களை நிரந்தரமாக்கும் TCL கட்டளை எது?",
+              "options": [
+                "அ) ROLLBACK",
+                "ஆ) SAVEPOINT",
+                "இ) COMMIT",
+                "ஈ) UPDATE"
+              ],
+              "answer": 2,
+              "hint": "COMMIT மாற்றங்களை நிரந்தரமாக்கும்."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "navLabel": "பகுதி II -- சிறு விடை வினாக்கள் (5 x 2)",
+      "title": "பகுதி II -- சிறு விடை வினாக்கள்",
+      "type": "short-essay",
+      "scoreMax": 10,
+      "marksPer": 2,
+      "instruction": "2-3 வாக்கியங்களில் விடையளிக்கவும்.",
+      "questions": [
+        {
+          "q": "SQL என்றால் என்ன?",
+          "ans": "SQL (Structured Query Language) என்பது தரவுதள மேலாண்மை அமைப்புகளுடன் தொடர்பு கொள்ளப் பயன்படும் தரப்படுத்தப்பட்ட மொழி."
+        },
+        {
+          "q": "DDL மற்றும் DML-ஐ வேறுபடுத்துக.",
+          "ans": "DDL (Data Definition Language) அட்டவணைகளை உருவாக்க/மாற்ற பயன்படும் (CREATE, ALTER, DROP). DML (Data Manipulation Language) பதிவுகளைச் சேர்க்க/மாற்ற/நீக்க பயன்படும் (INSERT, UPDATE, DELETE)."
+        },
+        {
+          "q": "PRIMARY KEY கட்டுப்பாடு என்றால் என்ன?",
+          "ans": "PRIMARY KEY ஒவ்வொரு வரிசையையும் தனித்துவமாக அடையாளப்படுத்தும் கட்டுப்பாடு — NOT NULL மற்றும் UNIQUE ஆகிய இரு பண்புகளையும் இணைத்துக் கொண்டது."
+        },
+        {
+          "q": "DISTINCT சிறப்புச் சொல்லின் பயனை எடுத்துக்காட்டுடன் விளக்குக.",
+          "ans": "DISTINCT மீண்டும் வரும் மதிப்புகளை நீக்கி, தனித்துவமான மதிப்புகளை மட்டும் தரும். எடுத்துக்காட்டு: SELECT DISTINCT Place FROM Student;"
+        },
+        {
+          "q": "TCL கட்டளைகளின் மூன்று வகைகளைப் பட்டியலிடுக.",
+          "ans": "COMMIT (மாற்றங்களை நிரந்தரமாக்கும்), ROLLBACK (மாற்றங்களைத் திரும்பப் பெறும்), SAVEPOINT (தற்காலிக புள்ளியை நிர்ணயிக்கும்)."
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "navLabel": "பகுதி III -- குறு விடை வினாக்கள் (4 x 3)",
+      "title": "பகுதி III -- குறு விடை வினாக்கள்",
+      "type": "short-essay",
+      "scoreMax": 12,
+      "marksPer": 3,
+      "instruction": "4-6 வாக்கியங்களில் விடையளிக்கவும்.",
+      "questions": [
+        {
+          "q": "CREATE TABLE கட்டளையை ஒரு எடுத்துக்காட்டுடன் விளக்குக.",
+          "ans": "CREATE TABLE <table_name> (<column_name> <data_type>(<size>), ...); எடுத்துக்காட்டு: CREATE TABLE Student (Adno integer, Name char(20), Age integer);"
+        },
+        {
+          "q": "INSERT, UPDATE, DELETE கட்டளைகளின் கட்டளை அமைப்பை எழுதுக.",
+          "ans": "INSERT INTO table_name (columns) VALUES (values); UPDATE table_name SET column=value WHERE condition; DELETE FROM table_name WHERE condition."
+        },
+        {
+          "q": "DELETE, TRUNCATE, DROP ஆகிய மூன்று கட்டளைகளையும் வேறுபடுத்துக.",
+          "ans": "DELETE குறிப்பிட்ட வரிசைகளை மட்டும் நீக்கும் (WHERE உடன் பயன்படுத்தலாம்). TRUNCATE அனைத்து வரிசைகளையும் நீக்கும், கட்டமைப்பு இருக்கும். DROP அட்டவணையை முழுவதுமாக நீக்கும் (தரவும் கட்டமைப்பும்)."
+        },
+        {
+          "q": "GROUP BY மற்றும் HAVING clauses-ஐ ஒரு எடுத்துக்காட்டுடன் விளக்குக.",
+          "ans": "GROUP BY ஒத்த மதிப்புகளைத் தொகுக்கும்: SELECT Gender, count(*) FROM Student GROUP BY Gender; HAVING தொகுக்கப்பட்ட முடிவுகளுக்கு நிபந்தனை வைக்கும்: SELECT Place, count(*) FROM Student GROUP BY Place HAVING Place='Chennai';"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "navLabel": "பகுதி IV -- விரிவான வினாக்கள் (4 x 5)",
+      "title": "பகுதி IV -- விரிவான வினாக்கள்",
+      "type": "long-essay",
+      "scoreMax": 20,
+      "marksPer": 5,
+      "instruction": "விரிவாக விடையளிக்கவும்.",
+      "questions": [
+        {
+          "q": "SQL-ன் நான்கு கூறுகளையும் (DDL, DML, DCL, TCL) அவற்றின் கட்டளைகளுடன் விரிவாக விளக்குக.",
+          "ans": "1. DDL (Data Definition Language): அட்டவணைகளின் கட்டமைப்பை உருவாக்க/மாற்ற பயன்படும். கட்டளைகள்: CREATE, ALTER, DROP, TRUNCATE.\n\n2. DML (Data Manipulation Language): பதிவுகளைக் கையாள பயன்படும். கட்டளைகள்: INSERT, UPDATE, DELETE.\n\n3. DCL (Data Control Language): அணுகல் அனுமதிகளை நிர்வகிக்க பயன்படும். கட்டளைகள்: GRANT, REVOKE.\n\n4. TCL (Transaction Control Language): தரவுதள பரிமாற்றங்களை நிர்வகிக்க பயன்படும். கட்டளைகள்: COMMIT, ROLLBACK, SAVEPOINT.\n\nஇந்த நான்கு கூறுகளும் இணைந்து, ஒரு RDBMS-ஐ முழுமையாக நிர்வகிக்க தேவையான அனைத்து செயல்பாடுகளையும் வழங்குகின்றன — கட்டமைப்பு உருவாக்கம் முதல் தரவு பாதுகாப்பு வரை."
+        },
+        {
+          "q": "SQL கட்டுப்பாடுகளை (Constraints — NOT NULL, UNIQUE, PRIMARY KEY, DEFAULT, CHECK) ஒரு முழுமையான CREATE TABLE எடுத்துக்காட்டுடன் விரிவாக விளக்குக.",
+          "ans": "கட்டுப்பாடுகள் (Constraints) அட்டவணையில் சேமிக்கப்படும் தரவின் தரத்தையும் துல்லியத்தையும் உறுதி செய்கின்றன:\n\n1. NOT NULL: நெடுவரிசைக்கு NULL மதிப்பு அனுமதிக்கப்படாது.\n2. UNIQUE: நெடுவரிசையின் மதிப்புகள் தனித்துவமாக இருக்க வேண்டும்.\n3. PRIMARY KEY: NOT NULL + UNIQUE இணைந்தது — ஒவ்வொரு வரிசையையும் தனித்துவமாக அடையாளப்படுத்தும்.\n4. DEFAULT: மதிப்பு கொடுக்கப்படாவிட்டால் இயல்பு மதிப்பை அமைக்கும்.\n5. CHECK: ஒரு நிபந்தனையை பூர்த்தி செய்யும் மதிப்புகளை மட்டும் அனுமதிக்கும்.\n\nமுழுமையான எடுத்துக்காட்டு:\nCREATE TABLE Student (\n  Adno integer PRIMARY KEY,\n  Name char(20) NOT NULL,\n  Gender char(1) DEFAULT 'M',\n  Age integer CHECK (Age >= 0),\n  Place char(20)\n);\n\nஇந்த கட்டுப்பாடுகள் தரவுத் தரத்தை (Data Quality) பேணவும், தவறான தரவு உள்ளீட்டைத் தடுக்கவும் உதவுகின்றன."
+        },
+        {
+          "q": "SELECT கட்டளையின் WHERE, ORDER BY, GROUP BY, HAVING clauses-ஐ முழுமையான எடுத்துக்காட்டுகளுடன் விரிவாக விளக்குக.",
+          "ans": "1. WHERE clause: நிபந்தனையின்படி வரிசைகளை வடிகட்டும்.\nSELECT Adno, Name FROM Student WHERE Age >= 18;\n\n2. ORDER BY clause: முடிவுகளை ஏறு (ASC) அல்லது இறங்கு (DESC) வரிசையில் வரிசைப்படுத்தும்.\nSELECT * FROM Student ORDER BY Name DESC;\n\n3. GROUP BY clause: ஒத்த மதிப்புகளைத் தொகுத்து சுருக்கமான தகவலை உருவாக்கும்.\nSELECT Gender, count(*) FROM Student GROUP BY Gender;\nவெளியீடு: M→5, F→3\n\n4. HAVING clause: GROUP BY உடன் இணைந்து, தொகுக்கப்பட்ட முடிவுகளுக்கு நிபந்தனை வைக்கும்.\nSELECT Place, count(*) FROM Student GROUP BY Place HAVING Place='Chennai';\n\nமுக்கிய வேறுபாடு: WHERE தனிப்பட்ட வரிசைகளுக்கு நிபந்தனை வைக்கும்; HAVING தொகுக்கப்பட்ட (GROUP BY-க்குப் பிறகான) முடிவுகளுக்கு நிபந்தனை வைக்கும் — HAVING எப்போதும் GROUP BY-க்குப் பிறகே பயன்படுத்தப்பட வேண்டும்."
+        },
+        {
+          "q": "DDL-ன் கூடுதல் கட்டளைகளான ALTER, TRUNCATE, DROP ஆகியவற்றை ஒப்பிட்டு, ஒவ்வொன்றுக்கும் எடுத்துக்காட்டுடன் விரிவாக விளக்குக.",
+          "ans": "1. ALTER TABLE: ஏற்கனவே உள்ள அட்டவணையின் அமைப்பை மாற்றியமைக்கும்.\nALTER TABLE Student ADD City char(20); # புதிய நெடுவரிசை சேர்த்தல்\nALTER TABLE Student MODIFY Address char(25); # நெடுவரிசையின் தரவு வகையை மாற்றுதல்\nALTER TABLE Student CHANGE City old_city new_city char(20); # பெயர் மாற்றுதல்\nALTER TABLE Student DROP COLUMN City; # நெடுவரிசையை நீக்குதல்\n\n2. TRUNCATE TABLE: அட்டவணையின் அனைத்து தரவுகளையும் நீக்கும், ஆனால் கட்டமைப்பு (columns, constraints) அப்படியே இருக்கும் — புதிய பதிவுகளைச் சேர்க்கலாம்.\nTRUNCATE TABLE Student;\n\n3. DROP TABLE: அட்டவணையையும் அதன் தரவுகளையும் முழுவதுமாக நினைவகத்திலிருந்து நீக்கும் — கட்டமைப்பும் இல்லாமல் போகும்.\nDROP TABLE Student;\n\nஒப்பீடு: ALTER கட்டமைப்பை மாற்றும் (தரவு பாதிக்கப்படாது); TRUNCATE தரவை நீக்கும் (கட்டமைப்பு இருக்கும்); DROP இரண்டையும் நீக்கும் (எதுவும் மிச்சம் இருக்காது). இந்த மூன்று கட்டளைகளும் அட்டவணை மேலாண்மையின் வெவ்வேறு தேவைகளுக்கு ஏற்ப பயன்படுத்தப்படுகின்றன."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "chapterNumber": 10,
+  "title": "பைத்தான் இனக்குழுக்கள் மற்றும் பொருள்கள்",
+  "subject": "கணினி அறிவியல்",
+  "classLabel": "வகுப்பு 12",
+  "curriculum": "சமச்சீர் கல்வி",
+  "sections": [
+    {
+      "id": "intro-defining-classes",
+      "title": "அறிமுகம் & இனக்குழு வரையறை",
+      "content": "**10.1 அறிமுகம்**\n\nPython ஒரு பொருள் நோக்கு நிரலாக்க மொழி (Object Oriented Programming Language — OOPL) ஆகும் — இனக்குழு (Class) மற்றும் பொருள் (Object) கருத்துருக்களைக் கொண்டு அமைந்தது. C++, Java போன்ற மொழிகளைப் போலவே Python-லும் இதே கருத்துக்கள் பயன்படுத்தப்படுகின்றன.\n\n**10.2 இனக்குழுவை வரையறுத்தல்**\n\n```\nclass class_name:\n    statement_1\n    statement_2\n    ....\n```\n\n**10.2.1 இனக்குழு வரையறை நிரல்**\n\n```\nclass Sample:\n    x, y = 10, 20   # class variables\n```\n\n**10.3 பொருள்களை உருவாக்குதல் (Creating Objects)**\n\n```\nObject_name = class_name()\n```\n\n**10.4 இனக்குழு உறுப்புகளை அணுகுதல்**\n\n```\nObject_name.class_member\n```",
+      "nav": {
+        "next": "creating-accessing-objects",
+        "nextLabel": "அடுத்து: பொருள்களை உருவாக்குதல் & அணுகுதல் →"
+      }
+    },
+    {
+      "id": "creating-accessing-objects",
+      "title": "பொருள்களை உருவாக்குதல் & அணுகுதல்",
+      "content": "**10.5 இனக்குழு முறைகள் (Class Methods)**\n\nஇனக்குழுவிற்குள் வரையறுக்கப்படும் செயற்கூறு **'முறை' (Method)** எனப்படும். `self` என்பது ஒவ்வொரு Method-ன் முதல் அளபுருவாகவும் இருக்க வேண்டும் — அது தற்போதைய பொருளைக் (current object) குறிக்கும்.\n\n**எடுத்துக்காட்டு (Student Class):**\n\n```\nclass Student:\n    def process(self):\n        mark1, mark2, mark3 = 69, 71, 74\n        sum = mark1 + mark2 + mark3\n        avg = sum / 3\n        print(\"Total Marks =\", sum)\n        print(\"Average Marks =\", avg)\n\nS = Student()\nS.process()\n```\nவெளியீடு: Total Marks = 214, Average Marks = 71.33...\n\n**10.5.1 Odd/Even சரிபார்க்கும் Method எடுத்துக்காட்டு:**\n\n```\nclass Odd_Even:\n    def check(self, num):\n        if num % 2 == 0:\n            print(num, \"is Even number\")\n        else:\n            print(num, \"is Odd number\")\n\nx = Odd_Even()\nx1 = int(input(\"Enter a value: \"))\nx.check(x1)\n```",
+      "nav": {
+        "back": "intro-defining-classes",
+        "next": "class-methods",
+        "nextLabel": "அடுத்து: வடிவாக்கிகள் & அழிப்பான்கள் →"
+      }
+    },
+    {
+      "id": "class-methods",
+      "title": "வடிவாக்கிகள் (Constructor) & அழிப்பான்கள் (Destructor)",
+      "content": "**10.6 வடிவாக்கிகள் மற்றும் அழிப்பான்கள் (Constructors and Destructors)**\n\n**வடிவாக்கி (Constructor):** `__init__()` முறை — ஒரு பொருள் உருவாக்கப்படும்போது தானாகவே அழைக்கப்படும்.\n\n```\nclass Sample:\n    def __init__(self, var):\n        print(\"Constructor of class Sample...\")\n        self.num = var\n        print(\"The value is:\", var)\n\nS = Sample(10)\n```\nவெளியீடு: Constructor of class Sample..., The value is: 10\n\n**பொருள்களை எண்ணும் எடுத்துக்காட்டு:**\n\n```\nclass Sample:\n    num = 0\n    def __init__(self, var):\n        Sample.num = Sample.num + 1\n        self.var = var\n        print(\"The object value is:\", self.var)\n        print(\"The count of object created:\", Sample.num)\n\nS1 = Sample(15)\nS2 = Sample(25)\nS3 = Sample(45)\n```\nவெளியீடு: object 1-க்கு count=1, object 2-க்கு count=2, object 3-க்கு count=3.",
+      "nav": {
+        "back": "creating-accessing-objects",
+        "next": "constructor-destructor",
+        "nextLabel": "அடுத்து: __del__() அழிப்பான் →"
+      }
+    },
+    {
+      "id": "constructor-destructor",
+      "title": "__del__() அழிப்பான் (Destructor)",
+      "content": "**10.6.1 __del__() அழிப்பான்**\n\n**அழிப்பான் (Destructor):** `__del__()` முறை — ஒரு பொருள் அழிக்கப்படும்போது (del கூற்று மூலமோ, திட்ட முடிவிலோ) தானாகவே அழைக்கப்படும்.\n\n```\nclass Sample:\n    num = 0\n    def __init__(self, var):\n        Sample.num = Sample.num + 1\n        self.var = var\n        print(\"The object value is:\", self.var)\n        print(\"The count of object created:\", Sample.num)\n    def __del__(self):\n        Sample.num = Sample.num - 1\n        print(\"The value 'The object with value %d is exit from the scope'\" % (self.var))\n\nS1 = Sample(15)\nS2 = Sample(25)\nS3 = Sample(45)\ndel S1, S2, S3\n```\n\ndel கூற்று ஒவ்வொரு பொருளுக்கும் `__del__()` முறையை தானியங்கியாக அழைத்து, count-ஐ ஒவ்வொரு முறையும் குறைக்கும்.",
+      "nav": {
+        "back": "class-methods",
+        "next": "public-private",
+        "nextLabel": "அடுத்து: Public & Private உறுப்பினர்கள் →"
+      }
+    },
+    {
+      "id": "public-private",
+      "title": "Public & Private உறுப்பினர்கள்",
+      "content": "**10.7 Public மற்றும் Private அறிமுகம்**\n\nPython-ல் `self.attribute` மூலம் வரையறுக்கப்படும் மாறிகள் இயல்பாக **public** ஆகும் — இனக்குழுவுக்கு வெளியேயும் நேரடியாக அணுகக்கூடியவை. ஒரு உறுப்பினரை **private** ஆக்க, பெயருக்கு முன் இரட்டை அடிக்கோடு (`__`) இடப்படும்.\n\n```\nclass Sample:\n    x1 = 1\n    __x2 = 14\n    def display(self):\n        print(\"Class variable x1 =\", self.x1)\n        print(\"Class variable x2 =\", self.__x2)\n\nS = Sample()\nprint(\"Value 1 =\", S.x1)      # சரியாக வேலை செய்யும்\nprint(\"Value 2 =\", S.__x2)    # பிழை!\n```\n\nவெளியீடு:\n```\nValue 1 = 1\nTraceback (most recent call last):\nAttributeError: 'Sample' object has no attribute '__x2'\n```\n\n**10.8 முழுமையான எடுத்துக்காட்டு — Circle Class**\n\n```\nclass Circle:\n    pi = 3.14\n    def __init__(self, radius):\n        self.radius = radius\n    def area(self):\n        return (self.radius ** 2) * Circle.pi\n    def circumference(self):\n        return 2 * self.radius * Circle.pi\n\nC = Circle(radius=5)\nprint(\"Circle Radius\", C.radius)\nprint(\"The Area of Circle:\", C.area())\nprint(\"The Circumference of Circle:\", C.circumference())\n```\nவெளியீடு: Circle Radius 5, The Area of Circle: 78.5, The Circumference of Circle: 31.4",
+      "nav": {
+        "back": "constructor-destructor",
+        "next": "summary",
+        "nextLabel": "அடுத்து: நினைவில் கொள்க →"
+      }
+    },
+    {
+      "id": "summary",
+      "title": "நினைவில் கொள்க",
+      "content": "- Python ஒரு பொருள் நோக்கு நிரலாக்க மொழி — Class மற்றும் Object கருத்துருக்களைக் கொண்டது.\n- class class_name: மூலம் இனக்குழு வரையறுக்கப்படும்; Object_name = class_name() மூலம் பொருள் உருவாக்கப்படும்.\n- இனக்குழுவிற்குள் வரையறுக்கப்படும் செயற்கூறு 'முறை' (Method) எனப்படும்; self முதல் அளபுருவாக இருக்க வேண்டும்.\n- __init__() வடிவாக்கி (Constructor) — பொருள் உருவாக்கப்படும்போது தானாகவே அழைக்கப்படும்.\n- __del__() அழிப்பான் (Destructor) — பொருள் அழிக்கப்படும்போது தானாகவே அழைக்கப்படும்.\n- self.attribute இயல்பாக public; பெயருக்கு முன் __ (இரட்டை அடிக்கோடு) இட்டால் private ஆகும்.",
+      "nav": {
+        "back": "public-private",
+        "practice": true
+      }
+    }
+  ]
+}

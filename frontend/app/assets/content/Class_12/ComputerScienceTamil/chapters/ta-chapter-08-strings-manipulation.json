@@ -1,0 +1,77 @@
+{
+  "chapterNumber": 8,
+  "title": "சரங்கள் மற்றும் சரங்களைக் கையாளுதல்",
+  "subject": "கணினி அறிவியல்",
+  "classLabel": "வகுப்பு 12",
+  "curriculum": "சமச்சீர் கல்வி",
+  "sections": [
+    {
+      "id": "intro-creating",
+      "title": "அறிமுகம் & சரம் உருவாக்குதல்",
+      "content": "**8.1 அறிமுகம்**\n\nPython-ல் தொடர்ச்சியான எழுத்துக்களின் தொகுப்பு **சரம் (String)** என அழைக்கப்படுகிறது.\n\n**8.2 சரம் உருவாக்குதல் (Creating Strings)**\n\n```\nstr1 = 'Welcome to learning Python'\nstr2 = \"Welcome to learning Python\"\nstr3 = '''Welcome to learning Python'''\n```\n\n**முக்கியம்: Python-ல் சரங்கள் மாற்ற முடியாதவை (Immutable)** — ஒரு சரத்தை உருவாக்கியப் பிறகு, அதன் உள்ளடக்கத்தை நேரடியாக மாற்ற முடியாது.\n\n```\n>>> str1 = \"Strings\"\n>>> str1[0] = 'P'\nTypeError: 'str' object does not support item assignment\n```\n\nபுதிய மதிப்பை வேண்டுமெனில், ஒரு புதிய சரமே உருவாக்க வேண்டும் — பழைய சரத்தை மாற்ற முடியாது.",
+      "nav": {
+        "next": "accessing-modifying",
+        "nextLabel": "அடுத்து: துணைச்சரங்களை அணுகுதல் →"
+      }
+    },
+    {
+      "id": "accessing-modifying",
+      "title": "துணைச்சரங்களை அணுகுதல் & மாற்றுதல்",
+      "content": "**8.3 சரத்தில் உள்ள துணைச்சரங்களை அணுகுதல்**\n\nஒவ்வொரு எழுத்துக்கும் ஒரு குறியீட்டு எண் (Index) உள்ளது — நேர்நோக்கிய குறியீடு 0-லிருந்தும், எதிர்நோக்கிய குறியீடு -1-லிருந்தும் தொடங்கும்.\n\nஎடுத்துக்காட்டு (நேர்நோக்கிய குறியீடு):\n```\nstr1 = input('Enter a string: ')\nindex = 0\nfor i in str1:\n    print(\"Subscript[\", index, \"]: \", i)\n    index += 1\n```\nவெளியீடு: Subscript[0]: w, Subscript[1]: e, Subscript[2]: l...\n\nஎடுத்துக்காட்டு (எதிர்நோக்கிய குறியீடு):\n```\nstr1 = input('Enter a string: ')\nindex = -1\nwhile abs(index) <= len(str1):\n    print(\"Subscript[\", index, \"]: \", str1[index])\n    index += -1\n```\n\n**8.4 சரம் திருத்துதல் (Modifying Strings)**\n\nசரங்கள் மாற்ற முடியாதவை என்பதால், ஒரு எழுத்தை நேரடியாக மாற்ற முடியாது; ஒரு புதிய சரத்தையே மறு-ஒதுக்கீடு (Re-assign) செய்ய வேண்டும்.\n\n```\n>>> x1 = 'How are you'\n>>> x1[0] = 'I'\nTypeError: 'str' object does not support item assignment\n\n>>> x1 = 'How about you'   # புதிய சரம் ஒதுக்கீடு\n>>> print(x1)\nHow about you\n```\n\n**replace() செயற்கூறு:** ஒரு எழுத்து/சொல்லை மற்றொன்றால் மாற்றி, ஒரு புதிய சரத்தை உருவாக்கும் — மூல சரம் மாறாது.\n\n```\n>>> x1 = 'How are you'\n>>> print(x1.replace('are', 'were'))\nHow were you\n```\n\n**del கூற்று:** ஒரு சரம் மாறியை முழுவதுமாக நீக்கும் (ஒரு எழுத்தை மட்டும் நீக்க முடியாது).\n```\n>>> del str1\n>>> print(str1)\nNameError: name 'str1' is not defined\n```",
+      "nav": {
+        "back": "intro-creating",
+        "next": "string-operators",
+        "nextLabel": "அடுத்து: சர செயற்குறிகள் & Slicing →"
+      }
+    },
+    {
+      "id": "string-operators",
+      "title": "சர செயற்குறிகள் & Slicing",
+      "content": "**8.6 சர செயற்குறிகள் (String Operators)**\n\n**8.6.1 இணைத்தல் (Concatenation +)**\n```\n'welcome' + 'Python'   # 'welcomePython'\n```\n\n**8.6.2 சேர்த்தல் (Append +=)**\n```\nstr1 = 'welcome'\nstr1 += 'Python'   # 'welcomePython'\n```\n\n**8.6.3 மறுபடி (Repeating *)**\n```\nstr1 = 'Welcome'\nprint(str1 * 4)\n```\nவெளியீடு: WelcomeWelcomeWelcomeWelcome\n\n**8.5 சரத்தை துண்டு-பிரித்தல் (Slicing)**\n\n`str1[start:end:step]` — start தொடக்க இடம், end இறுதி இடம் (சேர்க்கப்படாது), step படிமுறை அளவு.\n\n```\nstr1 = 'THEKKURAI'\nprint(str1[0])        # T\nprint(str1[0:5])      # THEKK\nprint(str1[0:8:3])    # TKR\nprint(str1[3:])       # KKURAI\nprint(str1[::-1])     # IARUKKEHT (reversed)\n```\n\n**8.6 துன்றல் (Stride) — எதிர்மறை படிமுறை**\n\n```\nstr1 = 'Welcome to learn Python'\nprint(str1[10:18:1])    # 'learn'\nprint(str1[18:10:-1])   # 'nrael' (பின்நோக்கி)\n```",
+      "nav": {
+        "back": "accessing-modifying",
+        "next": "formatting",
+        "nextLabel": "அடுத்து: சர வடிவூட்டம் →"
+      }
+    },
+    {
+      "id": "formatting",
+      "title": "சர வடிவூட்டச் செயற்குறிகள் & format()",
+      "content": "**8.7 சரவடிவூட்டச் செயற்குறிகள் (String Formatting Operators)**\n\n```\n\"String to be displayed with %s1 and %s2\" % (val1, val2)\n```\n\nஎடுத்துக்காட்டு:\n```\nname = 'Rajarajan'\nmark = 98\nprint(\"Name: %s and Marks: %d\" % (name, mark))\n```\nவெளியீடு: Name: Rajarajan and Marks: 98\n\n**8.8 வடிவமைப்பு குறியீடுகள் (Format Specifiers)**\n\n| குறியீடு | விளக்கம் |\n|---|---|\n| %c | எழுத்து |\n| %d | முழு எண் (decimal) |\n| %s | சரம் |\n| %u | குறியில்லா decimal |\n| %o | octal எண் |\n| %x/%X | hex எண் |\n| %e/%E | அறிவியல் குறியீடு |\n| %f | தசம எண் |\n\n**8.9 விடுபடு தொடர் (Escape Sequences)**\n\n\\n (புதிய வரி), \\t (தத்தல்), \\\\ (backslash), \\' (ஒற்றை மேற்கோள்), \\\" (இரட்டை மேற்கோள்).\n\n```\nprint(\"They said, \\\"What's there?\\\"\")\n```\nவெளியீடு: They said, \"What's there?\"\n\n**8.10 format() செயற்குறி**\n\n```\nnum1 = 34\nnum2 = 34\nprint(\"The sum of {} and {} is {}\".format(num1, num2, num1+num2))\n```\nவெளியீடு: The sum of 34 and 34 is 68",
+      "nav": {
+        "back": "string-operators",
+        "next": "builtin-functions",
+        "nextLabel": "அடுத்து: உள்ளிணைந்த சரச் செயற்கூறுகள் →"
+      }
+    },
+    {
+      "id": "builtin-functions",
+      "title": "உள்ளிணைந்த சரச் செயற்கூறுகள்",
+      "content": "**8.11 உள்ளிணைந்த சரச் செயற்கூறுகள் (Built-in String Functions)**\n\n| செயற்கூறு | விளக்கம் | எடுத்துக்காட்டு |\n|---|---|---|\n| len(str) | சரத்தின் நீளம் | len('AI Corporation') → 14 |\n| capitalize() | முதல் எழுத்தை பெரிதாக்கும் | 'chennai'.capitalize() → 'Chennai' |\n| center(width, fillchar) | நடுவில் சீரமைக்கும் | 'welcome'.center(15,'*') → '****welcome****' |\n| find(sub) | துணைச்சரத்தின் இடத்தைக் கண்டுபிடிக்கும் | 'India'.find('n') → 1 |\n| isalnum() | எழுத்து+எண் மட்டும் உள்ளதா எனச் சரிபார்க்கும் | 'Save Earth'.isalnum() → False |\n| isalpha() | எழுத்துக்கள் மட்டும் உள்ளதா எனச் சரிபார்க்கும் | 'India'.isalpha() → True |\n| isdigit() | எண்கள் மட்டும் உள்ளதா எனச் சரிபார்க்கும் | '12345'.isdigit() → True |\n| lower() | சிற்றெழுத்தாக்கும் | 'INDIA'.lower() → 'india' |\n| upper() | பேரெழுத்தாக்கும் | 'india'.upper() → 'INDIA' |\n| title() | ஒவ்வொரு சொல்லின் முதலெழுத்தையும் பெரிதாக்கும் | 'tamil nadu'.title() → 'Tamil Nadu' |\n| swapcase() | பெரிய/சிறிய எழுத்துக்களை மாற்றும் | 'Tamil Nadu'.swapcase() → 'tAMIL nADU' |\n| count(str) | சரம்/எழுத்து எத்தனை முறை உள்ளது என எண்ணும் | 'chennai'.count('n') → 2 |\n| ord(char) | எழுத்தின் ASCII எண்ணைத் தரும் | ord('A') → 65 |\n| chr(ASCII) | ASCII எண்ணிற்குரிய எழுத்தைத் தரும் | chr(87) → 'W' |\n\nஇந்த செயற்கூறுகள் அனைத்தும் சர.செயற்கூறு() (str.function()) என்ற வடிவில் அழைக்கப்படுகின்றன.",
+      "nav": {
+        "back": "formatting",
+        "next": "example-programs",
+        "nextLabel": "அடுத்து: முழுமையான எடுத்துக்காட்டுகள் →"
+      }
+    },
+    {
+      "id": "example-programs",
+      "title": "முழுமையான எடுத்துக்காட்டு நிரல்கள்",
+      "content": "**சரங்களைப் பயன்படுத்தும் எடுத்துக்காட்டு நிரல்கள்**\n\n**1. ஒரு சரத்தில் உள்ள ஒவ்வொரு எழுத்தையும் அச்சிடுதல்:**\n```\nstr1 = 'COMPUTER'\nindex = 0\nfor i in str1:\n    print(str1[0:index+1])\n    index += 1\n```\nவெளியீடு: C, CO, COM, COMP, COMPU, COMPUT, COMPUTE, COMPUTER\n\n**2. ஒரு சரத்தை பின்நோக்கி அச்சிடுதல்:**\n```\nstr1 = 'Welcome to learn Python'\nprint(str1[::-1])\n```\nவெளியீடு: nohtyP nrael ot emocleW\n\n**3. பெயரும் மதிப்பெண்ணும் வடிவமைத்து அச்சிடுதல்:**\n```\nname = 'Rajarajan'\nmark = 98\nprint(\"Name: %s and Marks: %d\" % (name, mark))\n```\nவெளியீடு: Name: Rajarajan and Marks: 98",
+      "nav": {
+        "back": "builtin-functions",
+        "next": "summary",
+        "nextLabel": "அடுத்து: நினைவில் கொள்க →"
+      }
+    },
+    {
+      "id": "summary",
+      "title": "நினைவில் கொள்க",
+      "content": "- சரம் (String) என்பது Python-ல் தொடர்ச்சியான எழுத்துக்களின் தொகுப்பு.\n- Python-ல் சரங்கள் மாற்ற முடியாதவை (Immutable) — உருவாக்கியப் பிறகு மாற்ற முடியாது, புதிய சரமாக மறு-ஒதுக்கீடு செய்ய வேண்டும்.\n- நேர்நோக்கிய குறியீடு 0-லிருந்தும், எதிர்நோக்கிய குறியீடு -1-லிருந்தும் தொடங்கும்.\n- Slicing (str[start:end:step]) மூலம் சரத்தின் துணைப்பகுதிகளை எடுக்கலாம்.\n- +, +=, * ஆகியவை சர செயற்குறிகள் — இணைத்தல், சேர்த்தல், மறுபடி செய்தல்.\n- format() மற்றும் % ஆகியவை சர வடிவூட்டத்திற்குப் பயன்படும்.\n- len(), capitalize(), find(), upper(), lower(), count() போன்றவை உள்ளிணைந்த சரச் செயற்கூறுகள்.",
+      "nav": {
+        "back": "example-programs",
+        "practice": true
+      }
+    }
+  ]
+}

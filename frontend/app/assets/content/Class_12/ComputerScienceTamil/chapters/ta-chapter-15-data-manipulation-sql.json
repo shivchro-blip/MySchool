@@ -1,0 +1,67 @@
+{
+  "chapterNumber": 15,
+  "title": "SQL மூலம் தரவுகளைக் கையாளுதல்",
+  "subject": "கணினி அறிவியல்",
+  "classLabel": "வகுப்பு 12",
+  "curriculum": "சமச்சீர் கல்வி",
+  "sections": [
+    {
+      "id": "intro-sqlite-setup",
+      "title": "அறிமுகம் & SQLite அட்டவணை உருவாக்கம்",
+      "content": "**15.1 அறிமுகம்**\n\nPython மொழியிலிருந்தே ஒரு தரவுதளத்தை உருவாக்கவும், தரவுகளை சேமிக்கவும், அணுகவும், புதுப்பிக்கவும் SQL பயன்படுத்தப்படுகிறது.\n\n**15.3.3 SQLite**\n\nSQLite என்பது ஒரு லேசான (Lightweight), Server-less தரவுதள மேலாண்மை அமைப்பாகும் — Python-ல் sqlite3 தொகுதி built-in ஆக உள்ளது. SQLite ஒரு ஒற்றைக் கோப்பு தரவுதளமாக இயங்குகிறது.\n\n**15.3.1 தரவுதளத்துடன் இணைப்பை நிறுவுதல்**\n\n```python\nimport sqlite3\nconnection = sqlite3.connect('AcademyDB')\ncursor = connection.cursor()\n```\n\n**அட்டவணையை உருவாக்குதல்:**\n\n```python\nsql_command = \"\"\"CREATE TABLE STUDENT (\n    Rollno INTEGER PRIMARY KEY,\n    Sname VARCHAR(20),\n    Grade CHAR(1),\n    Gender CHAR(1),\n    Average DECIMAL(3,2),\n    birth_date DATE);\"\"\"\ncursor.execute(sql_command)\n```\n\n**15.3.2.2 பதிவுகளைச் செருகுதல் (INSERT)**\n\n```python\nstudent_data = [\n    ('BASKAR', 'C', 'M', 75.2, '1998-05-17'),\n    ('SAJINI', 'A', 'F', 86.4, '2002-11-01'),\n    ('VARUN', 'B', 'M', 86.0, '2001-03-14')\n]\nfor p in student_data:\n    format_str = \"\"\"INSERT INTO Student (Rollno, Sname, Grade, gender, Average, birth_date)\n                     VALUES (NULL, '{name}', '{grd}', '{gender}', '{avg}', '{birthdate}');\"\"\"\n    sql_command = format_str.format(name=p[0], grd=p[1], gender=p[2], avg=p[3], birthdate=p[4])\n    cursor.execute(sql_command)\n\nconnection.commit()\nconnection.close()\nprint('RECORDS ADDED TO STUDENT TABLE')\n```",
+      "nav": {
+        "next": "select-fetch-methods",
+        "nextLabel": "அடுத்து: SELECT வினவல்கள் & Fetch முறைகள் →"
+      }
+    },
+    {
+      "id": "select-fetch-methods",
+      "title": "SELECT வினவல்கள் & Fetch முறைகள்",
+      "content": "**15.4 SELECT கூற்று**\n\nSELECT ஆனது SQL-ல் மிக அதிகமாகப் பயன்படுத்தப்படும் கூற்றாகும் — அட்டவணையிலிருந்து தரவை தேர்வு செய்யப் பயன்படும்.\n\n**15.4.1 fetchall() — அனைத்து பதிவுகளையும் பெறுதல்**\n\n```python\nimport sqlite3\nconnection = sqlite3.connect('Academy.db')\ncursor = connection.cursor()\ncursor.execute('SELECT * FROM Student')\nresult = cursor.fetchall()\nfor i in result:\n    print(i)\n```\n\n**15.4.1.2 fetchone() — ஒரே ஒரு பதிவை மட்டும் பெறுதல்**\n\nfetchone() ஒரே ஒரு பதிவை மட்டும் திருப்பித் தரும் — அடுத்த முறை அழைக்கும்போது அடுத்த பதிவை திருப்பித் தரும்.\n\n```python\ncursor.execute('SELECT * FROM student')\nprint(cursor.fetchone())\n```\n\n**15.4.1.3 fetchmany(n) — குறிப்பிட்ட எண்ணிக்கையிலான பதிவுகளைப் பெறுதல்**\n\n```python\ncursor.execute('SELECT * FROM student')\nresult = cursor.fetchmany(3)   # முதல் 3 பதிவுகள்\nfor row in result:\n    print(row)\n```",
+      "nav": {
+        "back": "intro-sqlite-setup",
+        "next": "clauses-operators",
+        "nextLabel": "அடுத்து: SQL Clauses & AND/OR/NOT →"
+      }
+    },
+    {
+      "id": "clauses-operators",
+      "title": "SQL Clauses, AND/OR/NOT & தேதி வினவல்கள்",
+      "content": "**15.4.2 SQL-ல் தணைவகைகள் (Clauses)**\n\nDISTINCT, WHERE, GROUP BY, ORDER BY, HAVING.\n\n**DISTINCT:** மீண்டும் வரும் மதிப்புகளை நீக்கும்.\n```python\ncursor.execute('SELECT DISTINCT(Grade) FROM student')\n```\n\n**WHERE:** நிபந்தனையின்படி வடிகட்டும்.\n```python\ncursor.execute(\"SELECT DISTINCT(Grade) FROM student WHERE gender='M'\")\n```\n\n**GROUP BY:** ஒத்த மதிப்புகளைத் தொகுக்கும், COUNT/MAX/MIN/SUM/AVG உடன் இணைந்து பயன்படும்.\n```python\ncursor.execute(\"SELECT gender, count(gender) FROM student GROUP BY gender\")\n# வெளியீடு: ('F', 2), ('M', 3)\n```\n\n**ORDER BY:** முடிவுகளை வரிசைப்படுத்தும் (இயல்பாக ஏறுவரிசை).\n```python\ncursor.execute(\"SELECT Rollno, sname FROM student ORDER BY sname\")\n```\n\n**HAVING:** GROUP BY-க்குப் பிறகு தொகுக்கப்பட்ட முடிவுகளுக்கு நிபந்தனை வைக்கும்.\n```python\ncursor.execute(\"SELECT gender, COUNT(GENDER) FROM student GROUP BY gender HAVING count(gender) > 2\")\n```\n\n**15.5.5 AND, OR, NOT செயற்குறிகள்**\n\n```python\ncursor.execute(\"SELECT * FROM student WHERE Grade='C' AND Gender='M'\")\ncursor.execute(\"SELECT * FROM student WHERE Average>60 OR Average>90\")\n```\n\n**தேதி வினவல் (Date Query):**\n```python\ncursor.execute(\"SELECT Rollno,sname,grade FROM student WHERE birth_date > '2001-01-01' AND birth_date < '2001-12-31'\")\n```",
+      "nav": {
+        "back": "select-fetch-methods",
+        "next": "aggregate-update-delete",
+        "nextLabel": "அடுத்து: திரட்டல் செயற்கூறுகள், UPDATE, DELETE →"
+      }
+    },
+    {
+      "id": "aggregate-update-delete",
+      "title": "திரட்டல் செயற்கூறுகள், UPDATE, DELETE",
+      "content": "**15.7 திரட்டல் செயற்கூறுகள் (Aggregate Functions)**\n\nCOUNT(), AVG(), SUM(), MAX(), MIN().\n\n```python\ncursor.execute(\"SELECT COUNT(*) FROM student\")     # [(7,)]\ncursor.execute(\"SELECT AVG(AVERAGE) FROM student\")  # சராசரி\ncursor.execute(\"SELECT SUM(AVERAGE) FROM student\")  # கூட்டுத்தொகை\ncursor.execute(\"SELECT sname, MAX(AVERAGE) FROM student\")  # அதிகபட்ச மதிப்பு\ncursor.execute(\"SELECT sname, MIN(AVERAGE) FROM student\")  # குறைந்தபட்ச மதிப்பு\n```\n\n**குறிப்பு:** NULL மதிப்புகள் COUNT(), AVG() போன்ற திரட்டல் செயற்கூறுகளால் கணக்கிடப்படாது.\n\n**15.8 பதிவுகளைப் புதுப்பித்தல் (UPDATE)**\n\n```python\nimport sqlite3\nconn = sqlite3.connect('AcademyDB')\nconn.execute(\"UPDATE Student SET sname='Priyanka' WHERE RollNo=6\")\nconn.commit()\nprint(\"Total number of rows updated:\", conn.total_changes)\nfor row in conn.execute(\"SELECT * FROM student\"):\n    print(row)\nconn.close()\n```\n\n**15.9 பதிவுகளை நீக்குதல் (DELETE)**\n\n```python\nimport sqlite3\nconn = sqlite3.connect('AcademyDB')\nconn.execute(\"DELETE FROM Student WHERE RollNo=2\")\nconn.commit()\nprint(\"Total number of rows deleted:\", conn.total_changes)\ncursor = conn.execute(\"SELECT * FROM Student\")\nfor row in cursor:\n    print(row)\nconn.close()\n```\n\n**15.10 பயனரிடமிருந்து உள்ளீடு பெறுதல்**\n\n```python\nimport sqlite3\ncon = sqlite3.connect('Academydb')\ncur = con.cursor()\ncur.execute(\"CREATE TABLE Person(name, age, id)\")\nfor i in range(5):\n    name = input(\"Enter name: \")\n    age = int(input(\"Enter age: \"))\n    cur.execute(\"INSERT INTO Person VALUES (?,?,?)\", (name, age, i+1))\ncon.commit()\ncur.execute(\"SELECT * FROM Person\")\nprint(cur.fetchall())\n```",
+      "nav": {
+        "back": "clauses-operators",
+        "next": "joining-csv-export",
+        "nextLabel": "அடுத்து: பல அட்டவணைகள் & CSV ஒருங்கிணைப்பு →"
+      }
+    },
+    {
+      "id": "joining-csv-export",
+      "title": "பல அட்டவணைகளை வினவுதல் & CSV ஒருங்கிணைப்பு",
+      "content": "**15.11 பல அட்டவணைகளைப் பயன்படுத்தி வினவுதல்**\n\nஇரு அட்டவணைகளிலிருந்தும் தொடர்புடைய தரவை ஒன்றாகப் பெற, அட்டவணைகளை இணைத்து (Join) வினவலாம்.\n\n```python\nimport sqlite3\nconnection = sqlite3.connect('Academy.db')\ncursor = connection.cursor()\n\nsql_command = \"\"\"CREATE TABLE Appointment (\n    Rollno INTEGER, Duty VARCHAR(10), age INT);\"\"\"\ncursor.execute(sql_command)\n\ncursor.execute(\"INSERT INTO Appointment (Rollno,Duty,age) VALUES (1,'Prefect',17)\")\ncursor.execute(\"INSERT INTO Appointment (Rollno,Duty,age) VALUES (2,'Secretary',16)\")\nconnection.commit()\n\ncursor.execute(\"\"\"SELECT student.Rollno, student.Sname, Appointment.Duty, Appointment.age\n                   FROM student, Appointment\n                   WHERE student.Rollno = Appointment.Rollno\"\"\")\nresult = cursor.fetchall()\nfor row in result:\n    print(row)\n```\nவெளியீடு: (1, 'Akshay', 'Prefect', 17), (2, 'Aravind', 'Secretary', 16)\n\n**15.12 CSV கோப்புகளுடன் ஒருங்கிணைப்பு**\n\nSQL வினவலின் (Query) முடிவுகளை நேரடியாக ஒரு CSV கோப்பாக ஏற்றுமதி செய்யலாம் — இதன் மூலம் SQL தரவுதளத் தகவலை பிற அமைப்புகளுடன் எளிதாகப் பகிர்ந்துகொள்ளலாம். csv.writer() மற்றும் SQL fetchall() ஆகியவற்றை இணைத்துப் பயன்படுத்தி, தேவைப்பட்ட வினவல் முடிவுகளை CSV வடிவில் சேமிக்கலாம்.",
+      "nav": {
+        "back": "aggregate-update-delete",
+        "next": "summary",
+        "nextLabel": "அடுத்து: நினைவில் கொள்க →"
+      }
+    },
+    {
+      "id": "summary",
+      "title": "நினைவில் கொள்க",
+      "content": "- Python-ன் sqlite3 தொகுதி SQLite தரவுதளங்களை உருவாக்கவும், கையாளவும் பயன்படுகிறது.\n- cursor.execute() ஒரு SQL கட்டளையை இயக்கும்; fetchall(), fetchone(), fetchmany(n) ஆகியவை முடிவுகளைப் பெறும் முறைகள்.\n- DISTINCT, WHERE, GROUP BY, ORDER BY, HAVING ஆகியவை SQL தணைவகைகள்.\n- AND, OR, NOT ஆகியவை பல நிபந்தனைகளை இணைக்க பயன்படும்.\n- COUNT(), AVG(), SUM(), MAX(), MIN() ஆகியவை திரட்டல் செயற்கூறுகள்.\n- connection.commit() மாற்றங்களை நிரந்தரமாக்கும்; connection.close() இணைப்பை மூடும்.\n- பல அட்டவணைகளையும் இணைத்து (WHERE condition மூலம்) ஒன்றாக வினவலாம்.",
+      "nav": {
+        "back": "joining-csv-export",
+        "practice": true
+      }
+    }
+  ]
+}

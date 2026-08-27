@@ -1,0 +1,67 @@
+{
+  "chapterNumber": 12,
+  "title": "வினவல் அமைப்பு மொழி (SQL)",
+  "subject": "கணினி அறிவியல்",
+  "classLabel": "வகுப்பு 12",
+  "curriculum": "சமச்சீர் கல்வி",
+  "sections": [
+    {
+      "id": "intro-sql-components",
+      "title": "SQL அறிமுகம் & கூறுகள்",
+      "content": "**12.1 அறிமுகம்**\n\nSQL (Structured Query Language) என்பது தரவுதள மேலாண்மை அமைப்புகளுடன் தொடர்பு கொள்ளப் பயன்படும் தரப்படுத்தப்பட்ட மொழியாகும் — American National Standard Institute (ANSI) 1986-இல் தரப்படுத்தியது, ISO 1987-இல் ஏற்றுக்கொண்டது. Oracle, MySQL, MS SQL Server, IBM DB2 போன்ற RDBMS-கள் SQL-ஐப் பயன்படுத்துகின்றன.\n\n**12.1.2 SQL-ன் கூறுகள் (Components of SQL)**\n\n1. **தரவு வரையறை மொழி (DDL — Data Definition Language):** அட்டவணைகளை உருவாக்குதல், மாற்றுதல்.\n2. **தரவு கையாளும் மொழி (DML — Data Manipulation Language):** பதிவுகளைச் செருகுதல், நீக்குதல், மாற்றியமைத்தல்.\n3. **தரவுக் கட்டுப்பாட்டு மொழி (DCL — Data Control Language):** அணுகல் அனுமதி வழங்குதல்/திரும்பப் பெறுதல்.\n4. **முரண்பாட்டுக் கட்டுப்பாடு (TCL — Transaction Control Language):** தரவுதள மாற்றங்களை உறுதிப்படுத்துதல்/திரும்பப்பெறுதல்.\n\n**12.1.5 SQL-ன் வகைகள்**\n\nDDL (தரவு வரையறை மொழி), DML (தரவு கையாளும் மொழி), TCL (முரண்பாட்டுக் கட்டுப்பாடு), DQL (தரவு வினவல் மொழி).\n\n**தரவுதளத்தை உருவாக்குதல்:**\n```sql\nCREATE DATABASE database_name;\nUSE database_name;\n```",
+      "nav": {
+        "next": "datatypes-create-table",
+        "nextLabel": "அடுத்து: தரவு வகைகள் & CREATE TABLE →"
+      }
+    },
+    {
+      "id": "datatypes-create-table",
+      "title": "தரவு வகைகள் & CREATE TABLE",
+      "content": "**12.6 SQL தரவு வகைகள்**\n\n| தரவு வகை | விளக்கம் |\n|---|---|\n| char(size) | நிலையான நீளம் கொண்ட எழுத்துச் சேர்க்கை |\n| varchar(size) | மாறும் நீளம் கொண்ட எழுத்துச் சேர்க்கை |\n| int | முழு எண் |\n| smallint | சிறிய அளவு முழு எண் |\n| dec/numeric | தசம எண் (துல்லிய இடங்களுடன்) |\n| float/real | தசம எண் (approximate) |\n| double | இரட்டை துல்லியம் கொண்ட தசம எண் |\n\n**12.7.1 CREATE TABLE கட்டளை**\n\n```sql\nCREATE TABLE <table_name> (\n  <column_name1> <data type>(<size>),\n  <column_name2> <data type>(<size>)\n  ....\n);\n```\n\nஎடுத்துக்காட்டு:\n```sql\nCREATE TABLE Student (\n  Adno integer,\n  Name char(20),\n  Gender char(1),\n  Age integer,\n  Place char(20)\n);\n```\n\n**12.7.2 கட்டுப்பாடுகளின் வகைகள் (Constraints)**\n\n- **NOT NULL:** ஒரு நெடுவரிசைக்கு NULL மதிப்பு அனுமதிக்கப்படாது.\n- **UNIQUE:** ஒரு நெடுவரிசையின் மதிப்புகள் தனித்துவமாக இருக்க வேண்டும்.\n- **PRIMARY KEY:** ஒவ்வொரு வரிசையையும் தனித்துவமாக அடையாளப்படுத்தும், NOT NULL + UNIQUE இணைந்தது.\n- **DEFAULT:** மதிப்பு கொடுக்கப்படாவிட்டால் ஒரு இயல்பு மதிப்பை அமைக்கும்.\n- **CHECK:** ஒரு நிபந்தனையை பூர்த்தி செய்யும் மதிப்புகளை மட்டும் அனுமதிக்கும்.\n\nஎடுத்துக்காட்டு:\n```sql\nCREATE TABLE Student (\n  Adno integer PRIMARY KEY,\n  Name char(20) NOT NULL,\n  Gender char(1),\n  Age integer CHECK (Age >= 0),\n  Place char(20)\n);\n```",
+      "nav": {
+        "back": "intro-sql-components",
+        "next": "dml-alter-drop",
+        "nextLabel": "அடுத்து: DML கட்டளைகள் & ALTER/DROP →"
+      }
+    },
+    {
+      "id": "dml-alter-drop",
+      "title": "DML கட்டளைகள் & ALTER/TRUNCATE/DROP",
+      "content": "**12.7.3 DML கட்டளைகள்**\n\n**INSERT கட்டளை:**\n```sql\nINSERT INTO <table_name> [column-list] VALUES (<values>);\n```\n```sql\nINSERT INTO Student (Adno, Name, Gender, Age, Place)\nVALUES (100, 'Ashvik', 'M', 17, 'Chennai');\n```\n\n**DELETE கட்டளை:**\n```sql\nDELETE FROM <table_name> WHERE condition;\n```\n```sql\nDELETE FROM Student WHERE Adno=104;\n```\n\n**UPDATE கட்டளை:**\n```sql\nUPDATE <table_name> SET column_name=value WHERE condition;\n```\n```sql\nUPDATE Student SET Age=18 WHERE Place='Bangalore';\n```\n\n**12.7.4 கூடுதல் DDL கட்டளைகள்**\n\n**ALTER TABLE:** அட்டவணையின் அமைப்பை மாற்றியமைக்கும்.\n```sql\nALTER TABLE Student ADD column_name data_type;\nALTER TABLE Student MODIFY column_name data_type;\nALTER TABLE Student CHANGE old_col new_col data_type;\n```\n\n**TRUNCATE TABLE:** அட்டவணையின் தரவுகளை மட்டும் நீக்கும் (கட்டமைப்பு அப்படியே இருக்கும்).\n```sql\nTRUNCATE TABLE Student;\n```\n\n**DROP TABLE:** அட்டவணை மற்றும் அதன் தரவுகளையும் முழுவதுமாக நீக்கும்.\n```sql\nDROP TABLE Student;\n```\n\n| கட்டளை | செயல் |\n|---|---|\n| DELETE | குறிப்பிட்ட வரிசைகளை மட்டும் நீக்கும் (WHERE உடன்) |\n| TRUNCATE | அனைத்து வரிசைகளையும் நீக்கும், கட்டமைப்பு இருக்கும் |\n| DROP | அட்டவணை முழுவதையும் நீக்கும் |",
+      "nav": {
+        "back": "datatypes-create-table",
+        "next": "select-queries",
+        "nextLabel": "அடுத்து: SELECT — WHERE, ORDER BY, GROUP BY →"
+      }
+    },
+    {
+      "id": "select-queries",
+      "title": "SELECT — WHERE, DISTINCT, ORDER BY, GROUP BY, HAVING",
+      "content": "**12.7.5 DQL — SELECT கட்டளை**\n\n```sql\nSELECT column-name1, [column-name2, ...] FROM table-name [WHERE condition];\n```\n```sql\nSELECT * FROM STUDENT;\nSELECT Adno, Name FROM Student;\n```\n\n**DISTINCT:** மீண்டும் வரும் மதிப்புகளை நீக்கி, தனித்துவமான மதிப்புகளை மட்டும் தரும்.\n```sql\nSELECT DISTINCT Place FROM Student;\n```\n\n**WHERE clause:** நிபந்தனையின்படி வரிசைகளை வடிகட்டும்.\n```sql\nSELECT Adno, Name, Place FROM Student WHERE Place='Chennai';\nSELECT Adno, Name, Age FROM Student WHERE Age >= 18;\n```\n\n**BETWEEN / NOT BETWEEN:**\n```sql\nSELECT Adno, Name, Age FROM Student WHERE Age BETWEEN 18 AND 19;\n```\n\n**IN / NOT IN:**\n```sql\nSELECT Adno, Name, Place FROM Student WHERE Place IN ('Chennai', 'Delhi');\n```\n\n**NULL சோதனை:**\n```sql\nSELECT * FROM Student WHERE column IS NULL;\n```\n\n**ORDER BY clause:** முடிவுகளை ஏறு (ASC — இயல்பு) அல்லது இறங்கு (DESC) வரிசையில் வரிசைப்படுத்தும்.\n```sql\nSELECT * FROM Student ORDER BY Name;\nSELECT * FROM Student WHERE Age>=18 ORDER BY Name DESC;\n```\n\n**GROUP BY clause:** ஒத்த மதிப்புகளைத் தொகுத்து சுருக்கமான தகவலை உருவாக்கும்.\n```sql\nSELECT Gender, count(*) FROM Student GROUP BY Gender;\n```\nவெளியீடு: M → 5, F → 3\n\n**HAVING clause:** GROUP BY உடன் இணைந்து, தொகுக்கப்பட்ட முடிவுகளுக்கு நிபந்தனை வைக்கும்.\n```sql\nSELECT Place, count(*) FROM Student GROUP BY Place HAVING Place='Chennai';\n```",
+      "nav": {
+        "back": "dml-alter-drop",
+        "next": "tcl-commands",
+        "nextLabel": "அடுத்து: TCL கட்டளைகள் →"
+      }
+    },
+    {
+      "id": "tcl-commands",
+      "title": "TCL கட்டளைகள் (Transaction Control)",
+      "content": "**12.7.6 TCL கட்டளைகள் (Transaction Control Language)**\n\n**12.7.6.1 COMMIT கட்டளை**\n\nCOMMIT கட்டளை, தரவுதளத்தில் நடந்த மாற்றங்களை (INSERT, UPDATE, DELETE) நிரந்தரமாக்கும்.\n\n```sql\nCOMMIT;\n```\n\n**12.7.6.2 ROLLBACK கட்டளை**\n\nROLLBACK கட்டளை, கடைசி COMMIT முதல் ஏற்பட்ட மாற்றங்களைத் திரும்பப் பெறும் — SAVEPOINT வரையிலும் திரும்பப் பெறலாம்.\n\n```sql\nROLLBACK;\nROLLBACK TO savepoint_name;\n```\n\n**12.7.6.3 SAVEPOINT கட்டளை**\n\nSAVEPOINT கட்டளை ஒரு தற்காலிக புள்ளியை நிர்ணயிக்கும் — பின்னர் ROLLBACK-ஐ அந்த புள்ளிக்கு மட்டும் திரும்பப் பெறலாம் (முழுமையாக அல்ல).\n\n```sql\nSAVEPOINT savepoint_name;\nINSERT INTO Student VALUES (107, 'Reena', 'F', 20, 'Cochin');\nCOMMIT;\n```\n\nஇந்த மூன்று TCL கட்டளைகளும் இணைந்து, தரவுதள பரிமாற்றங்களை (Transactions) பாதுகாப்பாகவும் கட்டுப்படுத்தப்பட்ட முறையிலும் நிர்வகிக்க உதவுகின்றன.",
+      "nav": {
+        "back": "select-queries",
+        "next": "summary",
+        "nextLabel": "அடுத்து: நினைவில் கொள்க →"
+      }
+    },
+    {
+      "id": "summary",
+      "title": "நினைவில் கொள்க",
+      "content": "- SQL (Structured Query Language) தரவுதள மேலாண்மை அமைப்புகளுடன் தொடர்பு கொள்ளப் பயன்படும் தரப்படுத்தப்பட்ட மொழி.\n- SQL-ன் நான்கு கூறுகள்: DDL, DML, DCL, TCL.\n- DDL கட்டளைகள்: CREATE, ALTER, DROP, TRUNCATE.\n- DML கட்டளைகள்: INSERT, UPDATE, DELETE.\n- SELECT கட்டளை DQL-ஐச் சேர்ந்தது — WHERE, DISTINCT, BETWEEN, IN, ORDER BY, GROUP BY, HAVING ஆகிய clauses-உடன் பயன்படுத்தப்படும்.\n- NOT NULL, UNIQUE, PRIMARY KEY, DEFAULT, CHECK ஆகியவை முக்கிய கட்டுப்பாடுகள் (Constraints).\n- TCL கட்டளைகள் (COMMIT, ROLLBACK, SAVEPOINT) தரவுதள பரிமாற்றங்களை நிர்வகிக்கும்.",
+      "nav": {
+        "back": "tcl-commands",
+        "practice": true
+      }
+    }
+  ]
+}

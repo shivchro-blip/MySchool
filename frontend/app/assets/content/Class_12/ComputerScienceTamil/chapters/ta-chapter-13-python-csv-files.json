@@ -1,0 +1,67 @@
+{
+  "chapterNumber": 13,
+  "title": "பைத்தான் மற்றும் CSV கோப்புகள்",
+  "subject": "கணினி அறிவியல்",
+  "classLabel": "வகுப்பு 12",
+  "curriculum": "சமச்சீர் கல்வி",
+  "sections": [
+    {
+      "id": "intro-csv-excel",
+      "title": "CSV அறிமுகம் & Excel ஒப்பீடு",
+      "content": "**13.1 அறிமுகம்**\n\nCSV (Comma Separated Values) என்பது தரவை காற்புள்ளியால் பிரித்து சேமிக்கும் ஒரு எளிய, உரை (Plain Text) அடிப்படையிலான கோப்பு வடிவமாகும்.\n\n**13.2 CSV மற்றும் XLS கோப்புகளுக்கிடையேயான வேறுபாடு**\n\n| CSV | Excel (XLS) |\n|---|---|\n| காற்புள்ளியால் பிரிக்கப்பட்ட, Plain Text வடிவம் | வடிவூட்டல்கள் (Formatting), வண்ணங்கள் கொண்டிருக்கலாம் |\n| Notepad, MS Excel, OpenOffice உள்ளிட்ட பலவகையான செயலிகளில் திறக்கலாம் | Windows இயங்குதளச் செயலிகளில் மட்டும் திறக்கக்கூடியது |\n| சிறிய கோப்பு அளவு | ஒப்பீட்டளவில் பெரிய கோப்பு அளவு |\n\nCSV கோப்புகள் தரவைப் பரிமாறிக்கொள்ளவும், வெவ்வேறு மென்பொருள்களுக்கிடையே எளிதாக இறக்குமதி/ஏற்றுமதி செய்யவும் பரவலாகப் பயன்படுத்தப்படுகின்றன.",
+      "nav": {
+        "next": "creating-csv-textformat",
+        "nextLabel": "அடுத்து: CSV கோப்பு உருவாக்கம் & வடிவமைப்பு விதிகள் →"
+      }
+    },
+    {
+      "id": "creating-csv-textformat",
+      "title": "CSV கோப்பு உருவாக்கம் & வடிவமைப்பு விதிகள்",
+      "content": "**13.3 CSV கோப்பினை உருவாக்குதல்**\n\n**13.3.1 Notepad மூலம் உருவாக்குதல்:**\n\n```\nTopic1,Topic2,Topic3\none,two,three\nExample1,Example2,Example3\n```\n\n.csv என்ற நீட்சிப் பெயருடன் சேமிக்க வேண்டும்.\n\n**13.3.2 MS Excel மூலம் உருவாக்குதல்:**\n\n| RollNo | Name | Address |\n|---|---|---|\n| 12101 | Nivetha | Mylapore, Chennai |\n| 12102 | Lavanya | Adyar, Chennai |\n\nFile → Save As → CSV (Comma delimited) (*.csv) என தேர்ந்தெடுக்க வேண்டும்.\n\n**13.3.3 வடிவமைப்பு விதிகள் (Formatting Rules)**\n\n- ஒவ்வொரு தரவு மதிப்பும் காற்புள்ளியால் (,) பிரிக்கப்படும்.\n- ஒவ்வொரு புதிய வரியும் (\\n) புதிய பதிவைக் (row) குறிக்கும்.\n- ஒரு தரவு மதிப்பினுள்ளேயே காற்புள்ளி இருந்தால், அந்த மதிப்பு இரட்டை மேற்கோள்களுக்குள் (\" \") அடைக்கப்பட வேண்டும்.\n  ```\n  \"Red\",\"Blue\",\"Green\"\n  ```\n- ஒரு மதிப்பினுள் இரட்டை மேற்கோள் குறி இருந்தால், அதை இரட்டிப்பாக்கி (escape) எழுத வேண்டும்: `\"\"`\n- வரி முறிவுகள் (Line breaks) கொண்ட மதிப்புகளும் மேற்கோள்களுக்குள் அடைக்கப்பட வேண்டும்.",
+      "nav": {
+        "back": "intro-csv-excel",
+        "next": "file-basics-reading",
+        "nextLabel": "அடுத்து: கோப்பு கையாளுதல் அடிப்படை & CSV படித்தல் →"
+      }
+    },
+    {
+      "id": "file-basics-reading",
+      "title": "கோப்பு கையாளுதல் அடிப்படை & CSV படித்தல்",
+      "content": "**13.5 கோப்பு பயன்முறைகள் (File Modes)**\n\n| முறை | விளக்கம் |\n|---|---|\n| r | Read — படித்தல் (இயல்பு முறை) |\n| w | Write — எழுதுதல் (ஏற்கனவே உள்ளதை அழிக்கும்) |\n| a | Append — இறுதியில் சேர்த்தல் |\n\n```\nfile_object = open(filename, mode)\n```\n\n**13.6 CSV கோப்புகளைப் பைத்தான் மூலம் படித்தல்**\n\n```\nimport csv\nf = open('sample.csv')\ncsv_reader = csv.reader(f)\nfor row in csv_reader:\n    print(row)\nf.close()\n```\n\nவெளியீடு:\n```\n['SNO', 'NAME', 'CITY']\n['1', 'RAM', 'CHENNAI']\n['2', 'LAVANYA', 'TIRUCHY']\n['3', 'LAKSHYA', 'MADURAI']\n```\n\n**13.6.1.1 delimiter அளபுருவைப் பயன்படுத்துதல்**\n\nஇயல்பாக csv.reader() காற்புள்ளியை (,) delimiter ஆகக் கருதும்; வேறு குறியீட்டையும் delimiter ஆகக் குறிப்பிடலாம்:\n\n```\ncsv_reader = csv.reader(f, delimiter=';')\n```\n\n**with கூற்றுடன் கோப்பைத் திறத்தல் (பரிந்துரைக்கப்படும் முறை):**\n\n```\nwith open('sample.csv', newline='') as f:\n    reader = csv.reader(f)\n    for row in reader:\n        print(row)\n# கோப்பு தானாகவே மூடிவிடும்\n```\n\n**csv.DictReader() — ஒவ்வொரு வரிசையையும் Dictionary-ஆக படித்தல்:**\n\n```\nwith open('sample.csv') as f:\n    reader = csv.DictReader(f)\n    for row in reader:\n        print(row)\n```",
+      "nav": {
+        "back": "creating-csv-textformat",
+        "next": "reading-columns-lists-dict",
+        "nextLabel": "அடுத்து: குறிப்பிட்ட நெடுவரிசைகளைப் படித்தல் →"
+      }
+    },
+    {
+      "id": "reading-columns-lists-dict",
+      "title": "குறிப்பிட்ட நெடுவரிசைகளைப் படித்தல்",
+      "content": "**13.6.2 குறிப்பிட்ட நெடுவரிசைகளை மட்டும் படித்தல்**\n\n```\nimport csv\nwith open('sample.csv', 'r') as f:\n    reader = csv.reader(f)\n    next(reader)   # தலைப்பு வரியைத் தவிர்க்க\n    for row in reader:\n        print(row[0], row[2])   # முதல் & மூன்றாவது நெடுவரிசைகள் மட்டும்\n```\n\n**List ஆக CSV தரவை சேமித்தல்:**\n\n```\nimport csv\ndata_list = []\nwith open('sample.csv') as f:\n    reader = csv.reader(f)\n    for row in reader:\n        data_list.append(row)\nprint(data_list)\n```\n\n**Dictionary ஆக CSV தரவை சேமித்தல் (DictReader):**\n\n```\nimport csv\nwith open('sample.csv') as f:\n    reader = csv.DictReader(f)\n    for row in reader:\n        print(row['Name'], row['City'])\n```\n\n**QUOTE_ALL, quoting விருப்பங்கள்:** csv.writer() பயன்படுத்தும்போது, quoting=csv.QUOTE_ALL என்ற அளபுரு அனைத்து மதிப்புகளையும் மேற்கோள்களுக்குள் வைக்கும்.",
+      "nav": {
+        "back": "file-basics-reading",
+        "next": "writing-csv-files",
+        "nextLabel": "அடுத்து: CSV கோப்பில் தரவு எழுதுதல் →"
+      }
+    },
+    {
+      "id": "writing-csv-files",
+      "title": "CSV கோப்பில் தரவு எழுதுதல்",
+      "content": "**13.6.3 CSV கோப்பில் தரவு எழுதுதல் (Writing Data to CSV)**\n\n```\nimport csv\nlist = []\nlist.append(row_1)\nlist.append(row_2)\n\nwith open('sample1.csv', 'w', newline='') as f:\n    writer = csv.writer(f)\n    # declaring array\n    arrayValue = []\n    # displaying the content of the list\n    for row in list:\n        arrayValue.append(row)\n        writer.writerow(row)\n```\n\n**csv.writer() மூலம் ஒரு புதிய CSV கோப்பை உருவாக்குதல்:**\n\n```\nimport csv\nwith open('sample.csv', 'w', newline='') as f:\n    writer = csv.writer(f)\n    writer.writerow(['Item Name', 'Cost-Rs', 'Quantity', 'Profit'])\n    writer.writerow(['Keyboard', 400, 12, 1152])\n    writer.writerow(['Monitor', 5200, 10, 10400])\n    writer.writerow(['Mouse', 100, 90, 2000])\n```\n\nஇதன் விளைவாக sample.csv கோப்பில் பின்வரும் தரவு உருவாகும்:\n\n| Item Name | Cost-Rs | Quantity | Profit |\n|---|---|---|---|\n| Keyboard | 400 | 12 | 1152 |\n| Monitor | 5200 | 10 | 10400 |\n| Mouse | 100 | 90 | 2000 |\n\n**writerows() மூலம் பல வரிசைகளை ஒரே முறையில் எழுதுதல்:**\n\n```\nwriter.writerows([['a',1],['b',2],['c',3]])\n```",
+      "nav": {
+        "back": "reading-columns-lists-dict",
+        "next": "summary",
+        "nextLabel": "அடுத்து: நினைவில் கொள்க →"
+      }
+    },
+    {
+      "id": "summary",
+      "title": "நினைவில் கொள்க",
+      "content": "- CSV (Comma Separated Values) தரவை காற்புள்ளியால் பிரித்து சேமிக்கும் Plain Text கோப்பு வடிவம்.\n- CSV, Excel-ஐ விட எளிமையானது, பல செயலிகளிலும் திறக்கக்கூடியது.\n- csv.reader() CSV கோப்பிலிருந்து ஒவ்வொரு வரிசையையும் பட்டியலாகப் படிக்கும்.\n- csv.DictReader() ஒவ்வொரு வரிசையையும் Dictionary வடிவில் படிக்கும்.\n- csv.writer() ஒரு புதிய CSV கோப்பில் தரவை எழுத உதவும்; writerow() ஒரு வரிசையை, writerows() பல வரிசைகளை எழுதும்.\n- with கூற்று கோப்பைத் தானாகவே மூடுவதை உறுதி செய்யும்.\n- delimiter அளபுரு வேறு பிரிப்புக் குறியீட்டைப் பயன்படுத்த அனுமதிக்கும்.",
+      "nav": {
+        "back": "writing-csv-files",
+        "practice": true
+      }
+    }
+  ]
+}

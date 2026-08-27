@@ -83,6 +83,7 @@ class SyllabusConfig {
     SubjectConfig(slug: 'computer-applications', name: 'Computer Applications', classLevel: '+2'),
     SubjectConfig(slug: 'computer-science', name: 'Computer Science', classLevel: '+2'),
     SubjectConfig(slug: 'computer-applications-tamil', name: 'Computer Applications (தமிழ்)', classLevel: '+2'),
+    SubjectConfig(slug: 'computer-science-tamil', name: 'Computer Science (தமிழ்)', classLevel: '+2'),
   ];
 
   static List<Subject> getSubjects() =>
@@ -522,6 +523,25 @@ class SyllabusConfig {
     FlatChapter(number: 16, title: 'Data Visualization using pyplot', slug: 'chapter-16-data-visualization-pyplot'),
   ];
 
+  static const _plus2ComputerScienceTamil = [
+    FlatChapter(number: 1, title: 'செயற்கூறு', slug: 'ta-chapter-01-functions'),
+    FlatChapter(number: 2, title: 'தரவு அருவமாக்கம்', slug: 'ta-chapter-02-data-abstraction'),
+    FlatChapter(number: 3, title: 'வரையெல்லை', slug: 'ta-chapter-03-scoping'),
+    FlatChapter(number: 4, title: 'நெறிமுறையின் யுக்திகள்', slug: 'ta-chapter-04-algorithmic-strategies'),
+    FlatChapter(number: 5, title: 'பைத்தான் அறிமுகம் – மாறிகள் மற்றும் செயற்குறிகள்', slug: 'ta-chapter-05-python-variables-operators'),
+    FlatChapter(number: 6, title: 'கட்டுப்பாட்டு கட்டமைப்புகள்', slug: 'ta-chapter-06-control-structures'),
+    FlatChapter(number: 7, title: 'பைத்தான் செயற்கூறுகள்', slug: 'ta-chapter-07-python-functions'),
+    FlatChapter(number: 8, title: 'சரங்கள் மற்றும் சரங்களைக் கையாளுதல்', slug: 'ta-chapter-08-strings-manipulation'),
+    FlatChapter(number: 9, title: 'தொகுப்பு தரவினங்கள் (List, Tuples, Set மற்றும் Dictionary)', slug: 'ta-chapter-09-lists-tuples-sets-dictionary'),
+    FlatChapter(number: 10, title: 'பைத்தான் இனக்குழுக்கள் மற்றும் பொருள்கள்', slug: 'ta-chapter-10-python-classes-objects'),
+    FlatChapter(number: 11, title: 'தரவுதள கருத்துருக்கள்', slug: 'ta-chapter-11-database-concepts'),
+    FlatChapter(number: 12, title: 'வினவல் அமைப்பு மொழி (SQL)', slug: 'ta-chapter-12-sql'),
+    FlatChapter(number: 13, title: 'பைத்தான் மற்றும் CSV கோப்புகள்', slug: 'ta-chapter-13-python-csv-files'),
+    FlatChapter(number: 14, title: 'பைத்தானில் C++ நிரல்களை தருவித்தல்', slug: 'ta-chapter-14-importing-cpp-in-python'),
+    FlatChapter(number: 15, title: 'SQL மூலம் தரவுகளைக் கையாளுதல்', slug: 'ta-chapter-15-data-manipulation-sql'),
+    FlatChapter(number: 16, title: 'தரவு காட்சிப்படுத்துதல் – PYPLOT (கோட்டு, வட்ட, பட்டை வரைபடங்கள்)', slug: 'ta-chapter-16-data-visualization-pyplot'),
+  ];
+
   static List<UnitConfig>? getUnits(String classLevel, String subjectSlug) {
     final key = '${classLevel.toLowerCase()}/${subjectSlug.toLowerCase()}';
     return switch (key) {
@@ -549,6 +569,7 @@ class SyllabusConfig {
       '+2/computer-applications' => _plus2ComputerApplications,
       '+2/computer-science' => _plus2ComputerScience,
       '+2/computer-applications-tamil' => _plus2ComputerApplicationsTamil,
+      '+2/computer-science-tamil' => _plus2ComputerScienceTamil,
       _ => null,
     };
   }

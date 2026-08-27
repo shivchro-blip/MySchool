@@ -1,4 +1,4 @@
-// Converts Shape-B web content modules (export default {...}) to Flutter JSON assets.
+// Converts Shape-B/Shape-A web content modules (export default {...}) to Flutter JSON assets.
 // Usage: node scripts/convert-web-content-to-flutter-json.mjs
 //
 // Reused across CA/CS Tamil Medium batches — add new [sourcePath, targetPath] pairs
@@ -10,63 +10,32 @@ import { pathToFileURL } from 'node:url';
 
 const ROOT = 'C:/Projects/TNSchool';
 
-const CONVERSIONS = [
-  [
-    `${ROOT}/frontend/web/src/content/Class_12/ComputerApplicationsTamil/chapters/ta-chapter-01-multimedia.js`,
-    `${ROOT}/frontend/app/assets/content/Class_12/ComputerApplicationsTamil/chapters/ta-chapter-01-multimedia.json`,
-  ],
-  [
-    `${ROOT}/frontend/web/src/content/Class_12/ComputerApplicationsTamil/chapters/ta-chapter-02-pagemaker.js`,
-    `${ROOT}/frontend/app/assets/content/Class_12/ComputerApplicationsTamil/chapters/ta-chapter-02-pagemaker.json`,
-  ],
-  [
-    `${ROOT}/frontend/web/src/content/Class_12/ComputerApplicationsTamil/chapters/ta-chapter-03-dbms.js`,
-    `${ROOT}/frontend/app/assets/content/Class_12/ComputerApplicationsTamil/chapters/ta-chapter-03-dbms.json`,
-  ],
-  [
-    `${ROOT}/frontend/web/src/content/Class_12/ComputerApplicationsTamil/chapters/ta-chapter-04-php-intro.js`,
-    `${ROOT}/frontend/app/assets/content/Class_12/ComputerApplicationsTamil/chapters/ta-chapter-04-php-intro.json`,
-  ],
-  [
-    `${ROOT}/frontend/web/src/content/Class_12/ComputerApplicationsTamil/practice/ta-chapter-01-multimedia.js`,
-    `${ROOT}/frontend/app/assets/content/Class_12/ComputerApplicationsTamil/practice/ta-chapter-01-multimedia.json`,
-  ],
-  [
-    `${ROOT}/frontend/web/src/content/Class_12/ComputerApplicationsTamil/practice/ta-chapter-02-pagemaker.js`,
-    `${ROOT}/frontend/app/assets/content/Class_12/ComputerApplicationsTamil/practice/ta-chapter-02-pagemaker.json`,
-  ],
-  [
-    `${ROOT}/frontend/web/src/content/Class_12/ComputerApplicationsTamil/practice/ta-chapter-03-dbms.js`,
-    `${ROOT}/frontend/app/assets/content/Class_12/ComputerApplicationsTamil/practice/ta-chapter-03-dbms.json`,
-  ],
-  [
-    `${ROOT}/frontend/web/src/content/Class_12/ComputerApplicationsTamil/practice/ta-chapter-04-php-intro.js`,
-    `${ROOT}/frontend/app/assets/content/Class_12/ComputerApplicationsTamil/practice/ta-chapter-04-php-intro.json`,
-  ],
-];
+const CONVERSIONS = [];
 
-// Batch 2 — Chapters 5-18 (learn + practice), same subject.
-const BATCH2_SLUGS = [
-  'ta-chapter-05-php-functions-arrays',
-  'ta-chapter-06-php-conditionals',
-  'ta-chapter-07-php-loops',
-  'ta-chapter-08-forms-files',
-  'ta-chapter-09-php-mysql',
-  'ta-chapter-10-networks-intro',
-  'ta-chapter-11-network-protocols',
-  'ta-chapter-12-dns',
-  'ta-chapter-13-network-cabling',
-  'ta-chapter-14-open-source',
-  'ta-chapter-15-ecommerce',
-  'ta-chapter-16-payment-systems',
-  'ta-chapter-17-ecommerce-security',
-  'ta-chapter-18-edi',
+// CS Tamil — all 16 chapters (learn + practice), Shape A (sections[]).
+const CS_TAMIL_SLUGS = [
+  'ta-chapter-01-functions',
+  'ta-chapter-02-data-abstraction',
+  'ta-chapter-03-scoping',
+  'ta-chapter-04-algorithmic-strategies',
+  'ta-chapter-05-python-variables-operators',
+  'ta-chapter-06-control-structures',
+  'ta-chapter-07-python-functions',
+  'ta-chapter-08-strings-manipulation',
+  'ta-chapter-09-lists-tuples-sets-dictionary',
+  'ta-chapter-10-python-classes-objects',
+  'ta-chapter-11-database-concepts',
+  'ta-chapter-12-sql',
+  'ta-chapter-13-python-csv-files',
+  'ta-chapter-14-importing-cpp-in-python',
+  'ta-chapter-15-data-manipulation-sql',
+  'ta-chapter-16-data-visualization-pyplot',
 ];
 for (const kind of ['chapters', 'practice']) {
-  for (const slug of BATCH2_SLUGS) {
+  for (const slug of CS_TAMIL_SLUGS) {
     CONVERSIONS.push([
-      `${ROOT}/frontend/web/src/content/Class_12/ComputerApplicationsTamil/${kind}/${slug}.js`,
-      `${ROOT}/frontend/app/assets/content/Class_12/ComputerApplicationsTamil/${kind}/${slug}.json`,
+      `${ROOT}/frontend/web/src/content/Class_12/ComputerScienceTamil/${kind}/${slug}.js`,
+      `${ROOT}/frontend/app/assets/content/Class_12/ComputerScienceTamil/${kind}/${slug}.json`,
     ]);
   }
 }

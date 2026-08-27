@@ -1,0 +1,67 @@
+{
+  "chapterNumber": 6,
+  "title": "கட்டுப்பாட்டு கட்டமைப்புகள்",
+  "subject": "கணினி அறிவியல்",
+  "classLabel": "வகுப்பு 12",
+  "curriculum": "சமச்சீர் கல்வி",
+  "sections": [
+    {
+      "id": "intro-sequential",
+      "title": "அறிமுகம் & வரிசை முறை கூற்றுகள்",
+      "content": "**6.1 அறிமுகம்**\n\nநிரல் என்பது வரிசையாக இயங்கும் கூற்றுகளின் தொகுப்பாகும். **6.2 கட்டுப்பாட்டு கட்டமைப்புகள் (Control Structures)** என்பவை, நிரலின் இயக்கம் எந்த வரிசையில் நடைபெறும் என்பதைக் கட்டுப்படுத்தும் கூறுகளாகும். Python-ல் மூன்று வகையான கட்டுப்பாட்டு கட்டமைப்புகள் உள்ளன:\n\n1. **வரிசை முறை கூற்றுகள் (Sequential Statements)**\n2. **மாற்று அல்லது கிளை கூற்றுகள் (Alternative or Branching Statements)**\n3. **மறுநிகழ்வு அல்லது கூறு கூற்றுகள் (Iterative or Looping Statements)**\n\n**6.2.1 வரிசை முறை கூற்றுகள் (Sequential Statements)**\n\nஇக்கூற்றுகள் எழுதப்பட்ட வரிசையில் ஒன்றன்பின் ஒன்றாக இயங்கும்.\n\n```\nprint(\"Hello! This is Shyam\")\nprint(\"A1, Second Lane, North Car Street, TN\")\n```\n\nவெளியீடு:\n```\nHello! This is Shyam\nA1, Second Lane, North Car Street, TN\n```",
+      "nav": {
+        "next": "if-statements",
+        "nextLabel": "அடுத்து: மாற்று/கிளை கூற்றுகள் →"
+      }
+    },
+    {
+      "id": "if-statements",
+      "title": "மாற்று / கிளை கூற்றுகள் (if, if-else, if-elif-else)",
+      "content": "**6.2.2 மாற்று அல்லது கிளை கூற்றுகள் (Alternative/Branching Statements)**\n\n**6.2.2.1 Simple if கூற்று**\n\n```\nif <condition>:\n    statements-block1\n```\n\nஎடுத்துக்காட்டு:\n```\nage = int(input(\"Enter your age: \"))\nif age >= 18:\n    print(\"You are eligible for voting\")\n```\nவெளியீடு:\n```\nEnter your age: 24\nYou are eligible for voting\n```\n\n**6.2.2.2 if...else கூற்று**\n\n```\nif <condition>:\n    statements-Block 1\nelse:\n    statements-Block 2\n```\n\nஎடுத்துக்காட்டு:\n```\nn = int(input(\"Enter any number: \"))\nif n % 2 == 0:\n    print(n, \"is an even number\")\nelse:\n    print(n, \"is an odd number\")\n```\nவெளியீடு:\n```\nEnter any number: 56\n56 is an even number\n```\n\nநிபந்தனை/மும்ம சுருக்க வடிவம்: `variable = variable1 if condition else variable2`\n\n**6.2.2.3 if...elif...else கூற்று**\n\n```\nif <condition-1>:\n    statements-block-1\nelif <condition-2>:\n    statements-block-2\n...\nelse:\n    statements-block-n\n```\n\ncondition-1 True எனில் statements-block-1 இயங்கும். False எனில், condition-2 சோதிக்கப்படும் — இப்படி வரிசையாக ஒவ்வொரு நிபந்தனையும் சோதிக்கப்படும்.\n\nஎடுத்துக்காட்டு (Grade கணக்கீடு):\n```\navg = int(input(\"Enter average mark: \"))\nif avg >= 90 and avg <= 100:\n    print(\"Grade: A\")\nelif avg >= 80 and avg < 90:\n    print(\"Grade: B\")\nelif avg >= 70 and avg < 80:\n    print(\"Grade: C\")\nelif avg >= 60 and avg < 70:\n    print(\"Grade: D\")\nelse:\n    print(\"Grade: E\")\n```",
+      "nav": {
+        "back": "intro-sequential",
+        "next": "while-loop",
+        "nextLabel": "அடுத்து: while மடக்கு →"
+      }
+    },
+    {
+      "id": "while-loop",
+      "title": "மறுநிகழ்வு கூற்றுகள் — while மடக்கு",
+      "content": "**6.2.3 மறுநிகழ்வு அல்லது கூறு கூற்றுகள் (Iterative/Looping Statements)**\n\n**6.2.3.1 while கூற்று**\n\n```\nwhile <condition>:\n    statement block 1\nelse:\n    statement block 2\n```\n\nwhile கூற்று, நிபந்தனை True ஆக இருக்கும் வரை தொகுதியை மீண்டும் மீண்டும் இயக்கும்.\n\nஎடுத்துக்காட்டு:\n```\ni = 10\nwhile (i <= 14):\n    print(i, end=' ')\n    i = i + 1\n```\nவெளியீடு: 10 11 12 13 14\n\nelse பிரிவுடன்:\n```\ni = 10\nwhile (i <= 14):\n    print(i, end=' ')\n    i = i + 1\nelse:\n    print(\"\\nValue of i when the loop exit\", i)\n```\nவெளியீடு: 10 11 12 13 14, Value of i when the loop exit 15",
+      "nav": {
+        "back": "if-statements",
+        "next": "for-loop",
+        "nextLabel": "அடுத்து: for மடக்கு & நேர்த்தப்பட்ட கூறுகள் →"
+      }
+    },
+    {
+      "id": "for-loop",
+      "title": "for மடக்கு & நேர்த்தப்பட்ட கூறுகள்",
+      "content": "**6.2.3.2 for கூற்று**\n\n```\nfor iterator_variable in sequence:\n    statements-block 1\n[else:\n    statements-block 2]\n```\n\n**range() செயற்குறி:** `range(start, stop, step)` — start (தொடக்க எண், இயல்பாக 0), stop (எல்லை, இது சேர்க்கப்படாது), step (அடுத்த மதிப்புக்கு தாவும் அளவு, இயல்பாக 1).\n\nஎடுத்துக்காட்டு (சரம் மீது மறுநிகழ்வு):\n```\nfor i in \"Hello World\":\n    print(i, end=\" \")\n```\nவெளியீடு: H e l l o   W o r l d\n\nஎடுத்துக்காட்டு (range() step உடன்):\n```\nfor i in range(2, 10, 2):\n    print(i, end=\" \")\n```\nவெளியீடு: 2 4 6 8\n\nஎடுத்துக்காட்டு (கூட்டுத்தொகை கணக்கிடல்):\n```\nn = 100\nsum = 0\nfor counter in range(1, n+1):\n    sum = sum + counter\nprint(\"Sum of 1 until\", n, \":\", sum)\n```\nவெளியீடு: Sum of 1 until 100 : 5050\n\n**6.2.3.3 நேர்த்தப்பட்ட கூறு கூற்றுகள் (Nested Loops)**\n\nஒரு கூறின் உள்ளே மற்றொரு கூறை வைக்கலாம் — while-க்குள் for, for-க்குள் while என பலவகையில் நேர்த்தலாம்.\n\nஎடுத்துக்காட்டு:\n```\ni = 1\nwhile (i < 4):\n    for j in range(1, i):\n        print(j, end=\" \")\n    print(end=\"\\n\")\n    i = i + 1\n```\nவெளியீடு:\n```\n\n1\n1 2\n```",
+      "nav": {
+        "back": "while-loop",
+        "next": "jump-statements",
+        "nextLabel": "அடுத்து: Jump கூற்றுகள் →"
+      }
+    },
+    {
+      "id": "jump-statements",
+      "title": "Jump கூற்றுகள் — break, continue, pass",
+      "content": "**6.2.4 மறுநிகழ்வு கூற்றுகளின் Jump கூற்றுகள்**\n\nPython-ல் மூன்று வகையான Jump Statements உள்ளன: **break, continue, pass**.\n\n**6.2.4.1 break கூற்று**\n\nbreak கூற்று ஒரு கூறின் (loop) இயக்கத்தை உடனடியாக நிறுத்தி, கூறிலிருந்து முழுவதுமாக வெளியேறப் பயன்படும்.\n\nஎடுத்துக்காட்டு:\n```\nfor word in \"Jump Statement\":\n    if word == 'S':\n        break\n    print(word, end='')\n```\nவெளியீடு: Jump Sta\n\n**6.2.4.2 continue கூற்று**\n\ncontinue கூற்று, break-ஐப் போல் இல்லாமல், மீதமுள்ள தொகுதியைத் தவிர்த்துவிட்டு அடுத்த சுற்றுக்கு நேரடியாகச் செல்லும்.\n\nஎடுத்துக்காட்டு:\n```\nfor word in \"Jump Statement\":\n    if word == 's':\n        continue\n    print(word, end='')\nelse:\n    print(\"\\nEnd of the program\")\n```\nவெளியீடு: Jump tatement, End of the program\n\n**6.2.4.3 pass கூற்று**\n\npass ஒரு Null கூற்று ஆகும் — எந்த செயலையும் செய்யாது, வெறும் இட நிரப்பியாக (Placeholder) பயன்படுத்தப்படும், பின்னர் குறியீட்டை நிரப்ப திட்டமிடும்போது பயனுள்ளதாக இருக்கும்.\n\nஎடுத்துக்காட்டு:\n```\nfor val in \"Computer\":\n    pass\nprint(\"End of the loop, the loop structure will be built in future\")\n```",
+      "nav": {
+        "back": "for-loop",
+        "next": "summary",
+        "nextLabel": "அடுத்து: நினைவில் கொள்க →"
+      }
+    },
+    {
+      "id": "summary",
+      "title": "நினைவில் கொள்க",
+      "content": "- நிரல் என்பது வரிசையாக இயங்கும் கூற்றுகளின் தொகுப்பு.\n- கட்டுப்பாட்டு கட்டமைப்பு, நிரலின் இயக்க வரிசையைக் கட்டுப்படுத்தும் கூறுகளின் தொகுப்பு.\n- Simple if, if-else, if-elif-else ஆகியவை மாற்று (Branching) கட்டமைப்புகள்.\n- while மற்றும் for கூறுகள் மறுநிகழ்வு (Iterative) கட்டமைப்புகள்.\n- range() ஒரு வரிசையான எண் தொடரை வழங்குகிறது.\n- for கூறு அணிகள், சரங்கள் போன்ற தொடர்வரிசைப் பொருள்கள் மீது மறுநிகழ்வு செய்யப் பயன்படும்.\n- break, continue, pass ஆகிய மூன்று வகையான Jump Statements உள்ளன.\n- break கூறிலிருந்து முழுவதுமாக வெளியேறும்; continue அடுத்த சுற்றுக்குச் செல்லும்; pass எந்த செயலும் செய்யாது.",
+      "nav": {
+        "back": "jump-statements",
+        "practice": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "chapterNumber": 5,
+  "title": "பைத்தான் அறிமுகம் – மாறிகள் மற்றும் செயற்குறிகள்",
+  "subject": "கணினி அறிவியல்",
+  "classLabel": "வகுப்பு 12",
+  "curriculum": "சமச்சீர் கல்வி",
+  "sections": [
+    {
+      "id": "intro-python",
+      "title": "பைத்தான் அறிமுகம்",
+      "content": "**5.1 அறிமுகம்**\n\nPython ஒரு உயர்நிலை, பொதுப்பயன் நிரலாக்க மொழியாகும் — Guido van Rossum என்பவரால் உருவாக்கப்பட்டது. இது இன்று உலகின் மிகவும் பிரபலமான நிரலாக்க மொழிகளில் ஒன்றாகும்.\n\n**5.2 பைத்தானின் சிறப்பியல்புகள்**\n\n- **பொது நோக்க மொழி:** வலை மேம்பாடு, தரவு அறிவியல், செயற்கை நுண்ணறிவு உள்ளிட்ட பல்வேறு துறைகளில் பயன்படுத்தப்படுகிறது.\n- **இலவசமும் திறந்த மூலமும்:** யாரும் இலவசமாகப் பயன்படுத்தலாம், மாற்றியமைக்கலாம்.\n- **எளிய தொடரியல் (Syntax):** எளிதாகக் கற்கக்கூடிய, படிக்கக்கூடிய குறியீட்டு அமைப்பு.\n- **இயக்கக் கருவி மொழி (Interpreted Language):** குறியீட்டை வரிக்கு வரி இயக்கும்.\n- **பல தளங்களில் இயங்கும் (Portable):** Windows, Linux, macOS ஆகிய அனைத்திலும் இயங்கும்.",
+      "nav": {
+        "next": "programming-modes",
+        "nextLabel": "அடுத்து: நிரலாக்க முறைகள் →"
+      }
+    },
+    {
+      "id": "programming-modes",
+      "title": "IDLE — கூட்டறை & ஸ்கிரிப்ட் முறைகள்",
+      "content": "**5.3 பைத்தான் நிரலாக்க முறைகள்**\n\n**5.3.1 IDLE (Integrated Development Learning Environment)**\n\nIDLE பைத்தானுடன் இணைந்து வரும் ஒரு ஒருங்கிணைந்த மேம்பாட்டு சூழல் (Integrated Development Environment) ஆகும்.\n\n**5.3.1.1 IDLE-க்குள் நுழைதல்:** Start → All Programs → Python 3.x → IDLE (Python 3.x)\n\n**5.3.1.2 கூட்டறைப் பயன்முறை (Interactive Mode)**\n\n`>>>` எனும் குறியீடு (prompt) தோன்றி, ஒரு நேரத்தில் ஒரு கூற்றை உள்ளிட்டு, உடனடியாக விடையைப் பெறலாம்.\n\n```\n>>> 15 + 13\n28\n>>> 5 * 10 * 50\n2500\n```\n\n```\n>>> print(\"Python Programming Language\")\nPython Programming Language\n>>> x = 10\n>>> x = x + 2\n>>> print(x)\n12\n>>> print(\"The Sum\", x)\nThe Sum 12\n```\n\n**5.3.2 ஸ்கிரிப்ட் பயன்முறை (Script Mode)**\n\n**5.3.2.1 ஸ்கிரிப்ட் எழுதுதல்:** File → New File (Ctrl+N) மூலம் புதிய Untitled Editor திறக்கப்படும்.\n\n```\na = 100\nb = 350\nc = a - b\nprint(\"The Name\", c)\n```\n\n**5.3.2.2 ஸ்கிரிப்ட் சேமித்தல்:** File → Save As (Ctrl+S) — .py நீட்சிப் பெயருடன் சேமிக்கப்படும்.\n\n**5.3.2.3 ஸ்கிரிப்ட் இயக்குதல்:** Run → Run Module (F5) மூலம் ஸ்கிரிப்ட் இயக்கப்படும், விடை Shell சாளரத்தில் காண்பிக்கப்படும்.",
+      "nav": {
+        "back": "intro-python",
+        "next": "io-functions",
+        "nextLabel": "அடுத்து: உள்ளீடு/வெளியீடு செயற்குறிகள் →"
+      }
+    },
+    {
+      "id": "io-functions",
+      "title": "உள்ளீடு மற்றும் வெளியீடு செயற்குறிகள்",
+      "content": "**5.4 உள்ளீடு மற்றும் வெளியீடு செயற்குறிகள்**\n\n**5.4.1 print() செயற்குறி**\n\n```\nprint(\"string to be displayed as output.\")\nprint(variable)\nprint(\"String to be displayed as output\", variable)\nprint(\"String1\", variable1, \"String2\", variable2, ...)\n```\n\nஎடுத்துக்காட்டு:\n```\n>>> print(\"Welcome to Python Programming!\")\nWelcome to Python Programming!\n>>> x = 5\n>>> y = 6\n>>> a = x + y\n>>> print(a)\n11\n>>> print(\"The sum is\", a)\nThe sum is 11\n>>> print(\"The sum of\", x, \"and\", y, \"is\", a)\nThe sum of 5 and 6 is 11\n```\n\nprint() செயற்குறிக்குக் கொடுக்கப்பட்ட ஒவ்வொரு அளபுருவும் இயல்பாக ஒற்றை வெற்றிடத்தால் (space) பிரிக்கப்பட்டு காண்பிக்கப்படும்.\n\n**5.4.2 input() செயற்குறி**\n\n```\nVariable = input(\"prompt string\")\n```\n\ninput() செயற்குறி விசைப்பலகையிலிருந்து உள்ளீட்டைப் பெறப் பயன்படுகிறது. இது எப்போதும் ஒரு சரம் (String) தரவு வகை மதிப்பையே திருப்பித் தரும்.\n\nஎடுத்துக்காட்டு 1:\n```\n>>> city = input(\"Enter Your City: \")\nEnter Your City: Madurai\n>>> print(\"I am from\", city)\nI am from Madurai\n```\n\nஎடுத்துக்காட்டு 2 (எண் உள்ளீடு — int() மாற்றம் தேவை):\n```\nx = int(input(\"Enter Number 1: \"))\ny = int(input(\"Enter Number 2: \"))\nprint(\"The sum =\", x + y)\n```\nவெளியீடு:\n```\nEnter Number 1: 34\nEnter Number 2: 90\nThe sum = 124\n```",
+      "nav": {
+        "back": "programming-modes",
+        "next": "comments-tokens",
+        "nextLabel": "அடுத்து: குறிப்புரைகள் & விவரக்குறிகள் →"
+      }
+    },
+    {
+      "id": "comments-tokens",
+      "title": "குறிப்புரைகள், உள்தள்ளல் & விவரக்குறிகள்",
+      "content": "**5.5 குறிப்புரைகள் (Comments)**\n\n`# இது ஒரு வரிக் குறிப்புரை` — # குறியீட்டுக்குப் பிறகு உள்ளது யாவும் புறக்கணிக்கப்படும்.\n\n```\n'''\nஇது பலவரிக் குறிப்புரை\n'''\n```\n\n**5.6 உள்தள்ளல் (Indentation)**\n\nபைத்தானில், வெற்றிடங்கள் (Spaces) மற்றும் தத்தல் (Tabs) கொண்டு நிரலின் தொகுதிகள் (blocks) பிரிக்கப்படுகின்றன — இது பிற மொழிகளின் {} அடைப்புக்குறிகளுக்குப் பதிலாகப் பயன்படுகிறது.\n\n**5.7 விவரக்குறிகள் (Tokens)**\n\nநிரலின் மிகச்சிறிய கூறுகள் (Lexical Components) Tokens எனப்படும். ஐந்து வகை Tokens உள்ளன:\n\n1. அடையாளங்கள் (Identifiers)\n2. சாவிச்சொற்கள் (Keywords)\n3. செயற்குறிகள் (Operators)\n4. வரம்புக்குறிகள் (Delimiters)\n5. நிலைத்தரங்கள் (Literals)\n\n**5.7.1 அடையாளங்கள் (Identifiers)**\n\nமாறிகள், செயற்கூறுகள், வகுப்புகள் (Class) அல்லது பிற பொருள்களை அடையாளம் காணப் பயன்படும் பெயர்கள்.\n\nவிதிகள்:\n- எழுத்துக்களால் (A-Z அல்லது a-z) அல்லது அடிக்கோட்டால் (_) தொடங்க வேண்டும்.\n- எண்களை (0-9) சேர்க்கலாம், ஆனால் தொடக்கத்தில் அல்ல.\n- Case-sensitive — Sum மற்றும் sum வேறுபட்டவை.\n- எந்த நீளமும் இருக்கலாம்.\n- Python keyword-ஐ அடையாளமாகப் பயன்படுத்த முடியாது.\n\nசரியான எடுத்துக்காட்டுகள்: Sum, total, marks, regno, name1\nதவறான எடுத்துக்காட்டுகள்: 12Name, sum#3, total-marks, continue (இது keyword)\n\n**5.7.2 சாவிச்சொற்கள் (Keywords)**\n\nPython மொழியால் ஏற்கனவே ஒதுக்கப்பட்ட, சிறப்பு அர்த்தம் கொண்ட சொற்கள் — இவற்றை மாறி/செயற்கூறு பெயராகப் பயன்படுத்த முடியாது.\n\nஎடுத்துக்காட்டுகள் (35 keywords): False, None, True, and, as, assert, break, class, continue, def, del, elif, else, except, finally, for, from, global, if, import, in, is, lambda, nonlocal, not, or, pass, raise, return, try, while, with, yield",
+      "nav": {
+        "back": "io-functions",
+        "next": "operators",
+        "nextLabel": "அடுத்து: செயற்குறிகள் →"
+      }
+    },
+    {
+      "id": "operators",
+      "title": "செயற்குறிகள் (Operators)",
+      "content": "**5.7.3 செயற்குறிகள் (Operators)**\n\n**5.7.3.1 கணித செயற்குறிகள் (Arithmetic Operators)**\n\na = 100, b = 90 எனில்:\n\n| செயற்குறி | எடுத்துக்காட்டு | விடை |\n|---|---|---|\n| + (கூட்டல்) | a+b | 190 |\n| − (கழித்தல்) | a−b | 10 |\n| * (பெருக்கல்) | a*b | 9000 |\n| / (வகுத்தல்) | a/b | 1.11 |\n| % (மீதி) | a%b | 10 |\n| ** (அடுக்கு) | a**2 | 10000 |\n| // (முழு எண் வகுத்தல்) | a//b | 1 |\n\n**5.7.3.2 ஒப்பீட்டு செயற்குறிகள் (Relational Operators)**\n\n==, !=, >, <, >=, <= — இவை True அல்லது False மதிப்பைத் தரும்.\n\n```\na = 100, b = 90\na == b  → False\na != b  → True\na > b   → True\na < b   → False\na >= b  → True\na <= b  → False\n```\n\n**5.7.3.3 தருக்க செயற்குறிகள் (Logical Operators)**\n\nor, and, not — நிபந்தனைகளை இணைக்கப் பயன்படும்.\n\n**5.7.3.4 மதிப்பீட்டுச் செயற்குறிகள் (Assignment Operators)**\n\n=, +=, −=, *=, /=, %=, **=, //= — மதிப்பை மாறிக்கு ஒதுக்கவும், அதே நேரத்தில் கணிதச் செயலையும் செய்யவும் பயன்படும்.\n\n**5.7.3.5 நிபந்தனை செயற்குறி (Conditional/Ternary Expression)**\n\n```\nVariable_Name = [on_true] if [Test_expression] else [on_false]\n```\n\nஎடுத்துக்காட்டு:\n```\nmin = a if a < b else b\n```",
+      "nav": {
+        "back": "comments-tokens",
+        "next": "delimiters-literals",
+        "nextLabel": "அடுத்து: வரம்புக்குறிகள் & நிலைத்தரங்கள் →"
+      }
+    },
+    {
+      "id": "delimiters-literals",
+      "title": "வரம்புக்குறிகள் & நிலைத்தரங்கள்",
+      "content": "**5.7.4 வரம்புக்குறிகள் (Delimiters)**\n\nபைத்தான், சொற்றொடர்களை, பட்டியல்களை, செயற்குறித் தொகுதிகளை பிரிக்கப் பயன்படுத்தும் குறியீடுகள்: ( ) [ ] { } , : . ' = ; += −= *= /= //= %= **=\n\n**5.7.5 நிலைத்தரங்கள் (Literals)**\n\n**5.7.5.1 எண் நிலைத்தரங்கள் (Numeric Literals):** Integer, Float, Complex\n```\nInteger Literal: 10, 100, 200\nFloat Literal: 15.20, 3.14\nComplex Literal: 3.14j\n```\n\n**5.7.5.2 சர நிலைத்தரங்கள் (String Literals):** ஒற்றை மேற்கோள் (' '), இரட்டை மேற்கோள் (\" \"), முப்படை மேற்கோள் (''' ''') மூலம் எழுதப்படும்.\n```\nstrings = \"This is Python\"\nchar = 'C'\nmultiline_str = '''This is a multiline string with more than one line code.'''\n```\n\n**5.7.5.3 முன்னிலை நிலைத்தரங்கள் (Boolean Literals):** True, False\n\n**5.7.5.4 விடுபடு தொடர் (Escape Sequences):** \\n (புதிய வரி), \\t (தத்தல்) போன்றவை.\n```\nprint(\"It's raining\")\n```\n\n**5.8 கையாளும் தரவு வகைகள் (Data Types)**\n\n**5.8.1 எண் தரவு வகை (Number):** int (Decimal, Octal, Hexadecimal, Long), float (123.34), complex\n\n**5.8.2 முன்னிலை தரவு வகை (Boolean):** True/False\n\n**5.8.3 சர தரவு வகை (String):**\n```\nChar_data = 'A'\nString_data = \"Computer Science\"\nMultiline_data = \"\"\"String data can be enclosed with single quote or double quote or triple quote.\"\"\"\n```",
+      "nav": {
+        "back": "operators",
+        "next": "summary",
+        "nextLabel": "அடுத்து: நினைவில் கொள்க →"
+      }
+    },
+    {
+      "id": "summary",
+      "title": "நினைவில் கொள்க",
+      "content": "- Python, Guido van Rossum என்பவரால் உருவாக்கப்பட்ட ஒரு பொதுப்பயன் நிரலாக்க மொழி.\n- Python, கூட்டறை முறை (Interactive Mode) மற்றும் ஸ்கிரிப்ட் முறை (Script Mode) என்று இரு வழிகளில் செயல்படுத்தப்படும்.\n- Python-ல் வெற்றிடம் (உள்தள்ளல்) கொண்டு நிரலின் தொகுதிகள் பிரிக்கப்படுகின்றன.\n- Tokens, வெற்றிடத்தால் பிரிக்கப்படும் நிரலின் மிகச்சிறிய கூறுகள்.\n- print() மற்றும் input() ஆகியவை வெளியீடு மற்றும் உள்ளீட்டுக்கான அடிப்படைச் செயற்குறிகள்.\n- Python-ன் ஒவ்வொரு தரவு வகையும் அடிப்படை மொழித் தொகுதிகளாகப் பிரிக்கப்படும், அவை நிலைத்தரங்கள் (Literals) எனப்படும்.\n- சிறப்புச் சொற்கள் (Keywords) மூலம் Python வரிமொழி நிரலின் அமைப்பை அறிந்துகொள்ளும்.",
+      "nav": {
+        "back": "delimiters-literals",
+        "practice": true
+      }
+    }
+  ]
+}
