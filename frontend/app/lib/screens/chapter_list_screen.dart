@@ -159,7 +159,9 @@ class _ChapterListScreenState extends State<ChapterListScreen> {
   bool get _showsFinalExamPrep =>
       (widget.subjectSlug == 'english' ||
           widget.subjectSlug == 'computer-applications' ||
-          widget.subjectSlug == 'computer-science') &&
+          widget.subjectSlug == 'computer-science' ||
+          widget.subjectSlug == 'computer-applications-tamil' ||
+          widget.subjectSlug == 'computer-science-tamil') &&
       (widget.classLevel == '+1' || widget.classLevel == '+2');
 
   Widget _buildEmptyStaticList() {
@@ -736,7 +738,9 @@ class _FlatChapterTile extends StatelessWidget {
                 // Class 12 Computer Applications content is authored in the
                 // tabs/blocks shape (same as English) — route to rich_learn.
                 // All other CS/CA combos use the sections shape.
-                if (classLevel == '+2' && subjectSlug == 'computer-applications') {
+                if (classLevel == '+2' &&
+                    (subjectSlug == 'computer-applications' ||
+                        subjectSlug == 'computer-applications-tamil')) {
                   context.push(
                     '/rich-learn/$classLevel/$subjectSlug/${chapter.slug}',
                     extra: {'chapter': _asChapter, 'tab': null},

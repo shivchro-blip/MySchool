@@ -58,5 +58,9 @@ flutter:
     - assets/content/Class_12/ComputerApplications/practice/
     - assets/content/Class_12/ComputerScience/chapters/
     - assets/content/Class_12/ComputerScience/practice/
+    - assets/content/Class_12/ComputerApplicationsTamil/chapters/
+    - assets/content/Class_12/ComputerApplicationsTamil/practice/
+    - assets/content/Class_12/ComputerScienceTamil/chapters/
+    - assets/content/Class_12/ComputerScienceTamil/practice/
     - assets/content/legal/
     - assets/model_papers/

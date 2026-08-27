@@ -67,6 +67,22 @@ const _kSubjects = [
     color:       AppTheme.computerScience,
     bg:          AppTheme.computerScienceBg,
   ),
+  _SubjectDef(
+    slug:        'computer-applications-tamil',
+    name:        'Computer Applications (தமிழ்)',
+    description: 'Concepts and practical skills',
+    icon:        Icons.desktop_windows_outlined,
+    color:       AppTheme.computerApplications,
+    bg:          AppTheme.computerApplicationsBg,
+  ),
+  _SubjectDef(
+    slug:        'computer-science-tamil',
+    name:        'Computer Science (தமிழ்)',
+    description: 'Programming and theory',
+    icon:        Icons.code_rounded,
+    color:       AppTheme.computerScience,
+    bg:          AppTheme.computerScienceBg,
+  ),
 ];
 
 class _ClassDef {

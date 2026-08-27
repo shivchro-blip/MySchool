@@ -281,6 +281,28 @@ class ModelPaperService {
       title: 'Full Syllabus Model Paper — Set 5',
       assetName: 'class12ComputerScienceModelQA5.js',
     ),
+    // TODO: Tamil model paper assets pending — Batch 1 conversion.
+    // Uncomment once assets/model_papers/class12ComputerApplicationsTamilModelQA*.js
+    // and assets/model_papers/class12ComputerScienceTamilModelQA*.js exist, matching
+    // the naming convention used by the English entries above.
+    // _ModelPaperAsset(
+    //   classLevel: '+2',
+    //   subjectSlug: 'computer-applications-tamil',
+    //   id: 'class12-computer-applications-tamil-model-qa-1',
+    //   modelId: 'model-qa-1',
+    //   label: 'Set 1',
+    //   title: 'Full Syllabus Model Paper — Set 1',
+    //   assetName: 'class12ComputerApplicationsTamilModelQA1.js',
+    // ),
+    // _ModelPaperAsset(
+    //   classLevel: '+2',
+    //   subjectSlug: 'computer-science-tamil',
+    //   id: 'class12-computer-science-tamil-model-qa-1',
+    //   modelId: 'model-qa-1',
+    //   label: 'Set 1',
+    //   title: 'Full Syllabus Model Paper — Set 1',
+    //   assetName: 'class12ComputerScienceTamilModelQA1.js',
+    // ),
   ];
 
   static final Map<String, Map<String, dynamic>> _rawCache = {};
