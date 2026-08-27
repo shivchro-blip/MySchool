@@ -2,8 +2,9 @@
 // Shared by ChapterContentService and ExamPracticeService so both stay in sync.
 class AssetFolder {
   static const _explicitSubjectFolders = {
-    'computer-applications': 'ComputerApplications',
-    'computer-science':      'ComputerScience',
+    'computer-applications':       'ComputerApplications',
+    'computer-science':            'ComputerScience',
+    'computer-applications-tamil': 'ComputerApplicationsTamil',
   };
 
   static String toFolder(String classLevel, String subjectSlug) {

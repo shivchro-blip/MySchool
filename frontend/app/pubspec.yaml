@@ -64,3 +64,12 @@ flutter:
     - assets/content/Class_12/ComputerScienceTamil/practice/
     - assets/content/legal/
     - assets/model_papers/
+
+  fonts:
+    - family: NotoSansTamil
+      fonts:
+        - asset: assets/fonts/NotoSansTamil-Regular.ttf
+        - asset: assets/fonts/NotoSansTamil-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/NotoSansTamil-Bold.ttf
+          weight: 700

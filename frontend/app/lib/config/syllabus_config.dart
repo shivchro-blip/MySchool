@@ -82,6 +82,7 @@ class SyllabusConfig {
     SubjectConfig(slug: 'maths', name: 'Mathematics', classLevel: '+2'),
     SubjectConfig(slug: 'computer-applications', name: 'Computer Applications', classLevel: '+2'),
     SubjectConfig(slug: 'computer-science', name: 'Computer Science', classLevel: '+2'),
+    SubjectConfig(slug: 'computer-applications-tamil', name: 'Computer Applications (தமிழ்)', classLevel: '+2'),
   ];
 
   static List<Subject> getSubjects() =>
@@ -481,6 +482,13 @@ class SyllabusConfig {
     FlatChapter(number: 18, title: 'Electronic Data Interchange (EDI)', slug: 'chapter-18-edi'),
   ];
 
+  static const _plus2ComputerApplicationsTamil = [
+    FlatChapter(number: 1, title: 'பல்லூடகம்', slug: 'ta-chapter-01-multimedia'),
+    FlatChapter(number: 2, title: 'அடோப் பேஜ்மேக்கர் – ஓர் அறிமுகம்', slug: 'ta-chapter-02-pagemaker'),
+    FlatChapter(number: 3, title: 'தரவுதள மேலாண்மை அமைப்பு – ஓர் அறிமுகம்', slug: 'ta-chapter-03-dbms'),
+    FlatChapter(number: 4, title: 'மீவுரை முன்செயலி (PHP) – ஓர் அறிமுகம்', slug: 'ta-chapter-04-php-intro'),
+  ];
+
   static const _plus2ComputerScience = [
     FlatChapter(number: 1, title: 'Function', slug: 'chapter-01-functions'),
     FlatChapter(number: 2, title: 'Data Abstraction', slug: 'chapter-02-data-abstraction'),
@@ -526,6 +534,7 @@ class SyllabusConfig {
       '+1/computer-science' => _plus1ComputerScience,
       '+2/computer-applications' => _plus2ComputerApplications,
       '+2/computer-science' => _plus2ComputerScience,
+      '+2/computer-applications-tamil' => _plus2ComputerApplicationsTamil,
       _ => null,
     };
   }
