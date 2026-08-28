@@ -156,6 +156,17 @@ export const SYLLABUS = {
           { number: 18, title: "Tamil Computing",                                  slug: "chapter-18-tamil-computing" },
         ],
       },
+      "computer-applications-tamil": {
+        label: "Computer Applications (தமிழ்)",
+        slug: "computer-applications-tamil",
+        chapters: [
+          { number: 1, title: "கணினி அறிமுகம்", slug: "ta-chapter-01-introduction-to-computers" },
+          { number: 2, title: "எண் முறைகள்", slug: "ta-chapter-02-number-systems" },
+          { number: 3, title: "கணினி அமைப்பு", slug: "ta-chapter-03-computer-organization" },
+          { number: 4, title: "இயக்க அமைப்பின் கோட்பாட்டு கருத்துக்கள்", slug: "ta-chapter-04-operating-system-concepts" }
+          // chapters 5-18 to be appended in later batches
+        ],
+      },
       "computer-science": {
         label: "Computer Science",
         slug: "computer-science",

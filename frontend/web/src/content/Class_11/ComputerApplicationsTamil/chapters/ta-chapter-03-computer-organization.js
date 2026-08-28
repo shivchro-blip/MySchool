@@ -1,0 +1,57 @@
+export default {
+  eyebrow: "பாடம் 3 · வகுப்பு 11 கணினி பயன்பாடுகள்",
+  title: "கணினி அமைப்பு",
+  author: "",
+  pills: ["கோட்பாடு", "ஜூன் பாடத்திட்டம்"],
+  tabs: [
+    {
+      id: "intro",
+      label: "செயல்பாட்டு அலகுகள்",
+      blocks: [
+        { type: "section-head", text: "3.1 கணினியின் செயல்பாட்டு அலகுகள் (Functional Units)" },
+        { type: "teacher-voice", html: "<p>ஒரு கணினி அமைப்பு நான்கு முக்கிய செயல்பாட்டு அலகுகளைக் கொண்டது: <b>உள்ளீட்டு அலகு (Input Unit)</b>, <b>மைய செயலக அலகு (CPU)</b>, <b>நினைவக அலகு (Memory Unit)</b>, மற்றும் <b>வெளியீட்டு அலகு (Output Unit)</b>. தரவு உள்ளீட்டு அலகு வழியாக நுழைந்து, நினைவகத்தில் தற்காலிகமாகச் சேமிக்கப்பட்டு, CPU-வால் செயலாக்கம் செய்யப்பட்டு, இறுதியில் வெளியீட்டு அலகு வழியாக வெளிவருகிறது.</p><p>நினைவகம், அணுகல் வேகம் மற்றும் விலையின் அடிப்படையில் ஒரு <b>படிநிலைக் கோபுரமாக (Memory Hierarchy)</b> அமைக்கப்படுகிறது: மிக மேலே <b>பதிவேடுகள் (Registers)</b> (மிக வேகமானது, மிகச் சிறியது), அதற்குக் கீழே <b>இடையக நினைவகம் (Cache)</b>, அதற்குக் கீழே <b>முதன்மை நினைவகம் (Main Memory - RAM)</b>, மிகக் கீழே <b>துணை நினைவகம் (Secondary Storage - Hard Disk)</b> (மெதுவானது, ஆனால் மிகப் பெரியது, மலிவானது).</p>" },
+        { type: "gloss-row", word: "🗂️ பதிவேடு (Register)", def: "CPU-வுக்குள் இருக்கும் மிக வேகமான, மிகச் சிறிய அளவிலான தற்காலிக சேமிப்பகம்." },
+        { type: "gloss-row", word: "⚡ இடையக நினைவகம் (Cache Memory)", def: "CPU-க்கும் முதன்மை நினைவகத்திற்கும் இடையே அமைந்து, அடிக்கடி பயன்படுத்தப்படும் தரவை வேகமாக அணுக உதவும் நினைவகம்." },
+        { type: "think-box", label: "படிநிலைக் கோபுரம் 🏔️", text: "Register → Cache → RAM → Hard Disk. மேலிருந்து கீழாகச் செல்லும்போது வேகம் குறையும், ஆனால் சேமிப்புத் திறன் அதிகரிக்கும், விலையும் குறையும்." },
+        { type: "nav", next: "primary-memory", nextLabel: "அடுத்து: முதன்மை நினைவகம் →" }
+      ]
+    },
+    {
+      id: "primary-memory",
+      label: "முதன்மை நினைவகம்",
+      blocks: [
+        { type: "section-head", text: "3.2 முதன்மை நினைவகம் (Primary Memory)" },
+        { type: "teacher-voice", html: "<p>முதன்மை நினைவகம் இரு வகைப்படும்:</p><ul><li><b>RAM (Random Access Memory):</b> தற்காலிக நினைவகம்; மின்சாரம் நிறுத்தப்பட்டால் தரவு அழிந்துவிடும் (Volatile). கணினி இயங்கும்போது தற்போதைய நிரல்கள், தரவு இதில் சேமிக்கப்படும்.</li><li><b>ROM (Read Only Memory):</b> நிரந்தர நினைவகம்; மின்சாரம் நிறுத்தப்பட்டாலும் தரவு அழியாது (Non-Volatile). கணினி தொடங்கும்போது தேவைப்படும் BIOS போன்ற அடிப்படைத் தகவல்கள் இதில் சேமிக்கப்படும்.</li></ul><p>ROM-இன் துணை வகைகள்:</p><ul><li><b>PROM (Programmable ROM):</b> ஒரு முறை மட்டும் நிரலாக்கம் செய்யக்கூடியது.</li><li><b>EPROM (Erasable Programmable ROM):</b> புற ஊதா ஒளி (UV Light) மூலம் தரவை அழித்து மீண்டும் நிரலாக்கம் செய்யக்கூடியது.</li><li><b>EEPROM (Electrically Erasable Programmable ROM):</b> மின்சாரம் மூலமே தரவை அழித்து மீண்டும் நிரலாக்கம் செய்யக்கூடியது; இன்றைய Flash Memory-இன் அடிப்படை.</li></ul>" },
+        { type: "gloss-row", word: "💨 RAM (Random Access Memory)", def: "தற்காலிக, மின்சாரம் நின்றால் அழியும் (Volatile) நினைவகம்; தற்போதைய நிரல்கள் இதில் இயங்கும்." },
+        { type: "gloss-row", word: "🔒 ROM (Read Only Memory)", def: "நிரந்தர, மின்சாரம் நின்றாலும் அழியாத (Non-Volatile) நினைவகம்; BIOS போன்ற அடிப்படைத் தகவல்கள் இதில்." },
+        { type: "gloss-row", word: "☀️ EPROM", def: "புற ஊதா ஒளி மூலம் அழித்து மீண்டும் நிரலாக்கம் செய்யக்கூடிய ROM வகை." },
+        { type: "gloss-row", word: "⚡ EEPROM", def: "மின்சாரம் மூலமே அழித்து மீண்டும் நிரலாக்கம் செய்யக்கூடிய ROM வகை; Flash Memory-இன் அடிப்படை." },
+        { type: "think-box", label: "RAM vs ROM நினைவில் கொள்ள 🧠", text: "RAM = Read/Write + Volatile (மறையக்கூடியது). ROM = Read Only + Non-Volatile (நிரந்தரமானது)." },
+        { type: "nav", back: "intro", next: "secondary-storage", nextLabel: "அடுத்து: துணை நினைவகச் சாதனங்கள் →" }
+      ]
+    },
+    {
+      id: "secondary-storage",
+      label: "துணை நினைவகம்",
+      blocks: [
+        { type: "section-head", text: "3.3 துணை நினைவகச் சாதனங்கள் (Secondary Storage Devices)" },
+        { type: "teacher-voice", html: "<p>துணை நினைவகம் நிரந்தரமாகத் (Non-Volatile) தரவை அதிக அளவில் மலிவான விலையில் சேமிக்கப் பயன்படுகிறது.</p><ul><li><b>வன் வட்டு (Hard Disk Drive - HDD):</b> காந்தப்புலத் தட்டுகளைக் (Magnetic Platters) கொண்டு தரவை சேமிக்கும் இயந்திரவியல் சாதனம்; பெரிய சேமிப்புத் திறன் கொண்டது.</li><li><b>திண்மநிலைக் கோப்பு (Solid State Drive - SSD):</b> Flash Memory தொழில்நுட்பத்தைப் பயன்படுத்தி இயந்திர பாகங்கள் இல்லாமல் தரவைச் சேமிக்கும் சாதனம்; HDD-ஐ விட மிக வேகமானது, ஆனால் விலை அதிகம்.</li><li><b>ஒளியியல் வட்டுகள் (Optical Disks):</b> CD (700 MB), DVD (4.7 GB), Blu-ray Disc (25 GB) — லேசர் ஒளி மூலம் தரவை படிக்கவும் எழுதவும் பயன்படும் வட்டுகள்.</li><li><b>USB / Flash Drive:</b> சிறிய, நகர்த்தக்கூடிய Flash Memory அடிப்படையிலான சேமிப்பகம்.</li></ul>" },
+        { type: "gloss-row", word: "🧲 HDD (Hard Disk Drive)", def: "காந்தப்புலத் தட்டுகள் மூலம் தரவை சேமிக்கும் இயந்திரவியல் துணை நினைவகச் சாதனம்." },
+        { type: "gloss-row", word: "⚡ SSD (Solid State Drive)", def: "Flash Memory தொழில்நுட்பத்தில் இயங்கும், இயந்திரப் பாகங்கள் இல்லாத வேகமான சேமிப்பகம்." },
+        { type: "gloss-row", word: "💿 DVD (Digital Versatile Disc)", def: "லேசர் ஒளி மூலம் தரவைப் படிக்கும்/எழுதும் ஒளியியல் வட்டு; சுமார் 4.7 GB சேமிப்புத் திறன் கொண்டது." },
+        { type: "nav", back: "primary-memory", next: "ports", nextLabel: "அடுத்து: இணைப்பு முனையங்கள் →" }
+      ]
+    },
+    {
+      id: "ports",
+      label: "இணைப்பு முனையங்கள்",
+      blocks: [
+        { type: "section-head", text: "3.4 இணைப்பு முனையங்கள் (Ports and Connectors)" },
+        { type: "teacher-voice", html: "<p>கணினியுடன் புற சாதனங்களை (Peripherals) இணைக்க பல்வேறு இணைப்பு முனையங்கள் பயன்படுத்தப்படுகின்றன:</p><ul><li><b>USB (Universal Serial Bus):</b> விசைப்பலகை, சொடுக்கி, Flash Drive போன்றவற்றை இணைக்கப் பயன்படும் பொதுவான முனையம்.</li><li><b>VGA (Video Graphics Array):</b> மானிட்டரை இணைக்கப் பயன்படும் பழைய அனலாக் காட்சி முனையம்.</li><li><b>HDMI (High-Definition Multimedia Interface):</b> உயர்தர காட்சி மற்றும் ஒலியை ஒரே கம்பி வழியே அனுப்பும் டிஜிட்டல் முனையம்.</li><li><b>PS/2 முனையம்:</b> பழைய விசைப்பலகை/சொடுக்கி இணைப்புக்கான வட்ட வடிவ முனையம்.</li></ul>" },
+        { type: "gloss-row", word: "🔌 USB (Universal Serial Bus)", def: "விசைப்பலகை, Flash Drive போன்ற பல புற சாதனங்களை இணைக்கப் பயன்படும் பொதுவான, பரவலாகப் பயன்படுத்தப்படும் முனையம்." },
+        { type: "gloss-row", word: "📺 HDMI", def: "காட்சி மற்றும் ஒலியை ஒரே கம்பி வழியே உயர்தரமாக அனுப்பும் டிஜிட்டல் இணைப்பு முனையம்." },
+        { type: "nav", back: "secondary-storage", practice: true }
+      ]
+    }
+  ]
+}
