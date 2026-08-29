@@ -84,6 +84,14 @@ export const finalExamPrepModelPapersComputerApplicationsTamilPlus2 = [
   { id: 'class12-computer-applications-tamil-model-qa-5', modelId: 'model-qa-5', label: 'Set 5', title: 'Full Syllabus Model Paper — Set 5', viewStatus: 'ready', practiceStatus: 'ready' },
 ]
 
+export const finalExamPrepModelPapersComputerApplicationsTamilPlus1 = [
+  { id: 'class11-computer-applications-tamil-model-qa-1', modelId: 'model-qa-1', label: 'Set 1', title: 'Full Syllabus Model Paper — Set 1', viewStatus: 'ready', practiceStatus: 'ready' },
+  { id: 'class11-computer-applications-tamil-model-qa-2', modelId: 'model-qa-2', label: 'Set 2', title: 'Full Syllabus Model Paper — Set 2', viewStatus: 'placeholder', practiceStatus: 'placeholder' },
+  { id: 'class11-computer-applications-tamil-model-qa-3', modelId: 'model-qa-3', label: 'Set 3', title: 'Full Syllabus Model Paper — Set 3', viewStatus: 'placeholder', practiceStatus: 'placeholder' },
+  { id: 'class11-computer-applications-tamil-model-qa-4', modelId: 'model-qa-4', label: 'Set 4', title: 'Full Syllabus Model Paper — Set 4', viewStatus: 'placeholder', practiceStatus: 'placeholder' },
+  { id: 'class11-computer-applications-tamil-model-qa-5', modelId: 'model-qa-5', label: 'Set 5', title: 'Full Syllabus Model Paper — Set 5', viewStatus: 'placeholder', practiceStatus: 'placeholder' },
+]
+
 export const finalExamPrepModelPapersComputerScienceTamilPlus2 = [
   { id: 'class12-computer-science-tamil-model-qa-1', modelId: 'model-qa-1', label: 'தொகுப்பு 1', title: 'மாதிரி வினா-விடை 1 — முழுப் பாடத்திட்டம்', viewStatus: 'ready', practiceStatus: 'ready' },
   { id: 'class12-computer-science-tamil-model-qa-2', modelId: 'model-qa-2', label: 'தொகுப்பு 2', title: 'மாதிரி வினா-விடை 2 — முழுப் பாடத்திட்டம்', viewStatus: 'ready', practiceStatus: 'ready' },

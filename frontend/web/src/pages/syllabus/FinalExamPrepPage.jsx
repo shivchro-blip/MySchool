@@ -15,6 +15,7 @@ import {
   finalExamPrepModelPapersComputerSciencePlus1,
   finalExamPrepModelPapersComputerSciencePlus2,
   finalExamPrepModelPapersComputerApplicationsTamilPlus2,
+  finalExamPrepModelPapersComputerApplicationsTamilPlus1,
   finalExamPrepModelPapersComputerScienceTamilPlus2,
   finalExamPrepPriorityLessons,
   finalExamPrepPriorityLessonsPlus2,
@@ -38,6 +39,7 @@ const MODEL_PAPERS_BY_KEY = {
   'plus1-computer-science': finalExamPrepModelPapersComputerSciencePlus1,
   'plus2-computer-science': finalExamPrepModelPapersComputerSciencePlus2,
   'plus2-computer-applications-tamil': finalExamPrepModelPapersComputerApplicationsTamilPlus2,
+  'plus1-computer-applications-tamil': finalExamPrepModelPapersComputerApplicationsTamilPlus1,
   'plus2-computer-science-tamil': finalExamPrepModelPapersComputerScienceTamilPlus2,
 }
 const LESSONS_BY_KEY = {
