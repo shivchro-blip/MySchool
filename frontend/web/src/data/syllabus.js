@@ -204,6 +204,16 @@ export const SYLLABUS = {
           { number: 18, title: "Tamil Computing",                              slug: "cs-chapter-18-tamil-computing" },
         ],
       },
+      "computer-science-tamil": {
+        label: "Computer Science (தமிழ்)",
+        slug: "computer-science-tamil",
+        chapters: [
+          { number: 1, title: "கணினி அறிமுகம்", slug: "ta-chapter-01-computer-science-basics" },
+          { number: 2, title: "எண் முறைகள்", slug: "ta-chapter-02-number-systems-cs" },
+          { number: 3, title: "கணினி அமைப்பு", slug: "ta-chapter-03-computer-architecture" },
+          { number: 4, title: "இயக்க அமைப்பின் கோட்பாட்டு கருத்துக்கள்", slug: "ta-chapter-04-os-theory-cs" },
+        ],
+      },
     },
   },
 
