@@ -1,0 +1,80 @@
+export default {
+  "meta": {
+    "subject": "கணினி பயன்பாடுகள் -- வகுப்பு XI",
+    "unit": "பாடம் 14 -- ஜாவாஸ்கிரிப்ட்டின் அறிமுகம்",
+    "time": "3.00 மணி நேரம்",
+    "totalMarks": 47,
+    "instructions": "சமச்சீர் கல்வி -- அனைத்து வினாக்களுக்கும் விடையளிக்கவும்"
+  },
+  "parts": [
+    {
+      "id": "p1",
+      "navLabel": "பகுதி - அ (10 x 1)",
+      "title": "பகுதி - அ: சரியான விடையைத் தேர்ந்தெடுக்கவும்",
+      "type": "mcq",
+      "scoreMax": 10,
+      "marksPer": 1,
+      "sections": [
+        {
+          "label": "ஜாவாஸ்கிரிப்ட்",
+          "questions": [
+            { "id": "q1", "html": "JavaScript எத்தகைய மொழி __________", "options": ["அ) Server-side", "ஆ) Client-side Scripting", "இ) Markup", "ஈ) Style Sheet"], "answer": 1, "hint": "வலைப்பக்கத்தை ஊடாடும்படி ஆக்கும்." },
+            { "id": "q2", "html": "JavaScript-ஐ HTML-இல் சேர்க்கும் ஒட்டு __________", "options": ["அ) &lt;js&gt;", "ஆ) &lt;script&gt;", "இ) &lt;style&gt;", "ஈ) &lt;code&gt;"], "answer": 1, "hint": "script tag." },
+            { "id": "q3", "html": "மாறியை அறிவிக்கப் பயன்படும் சொல் __________", "options": ["அ) int", "ஆ) var", "இ) def", "ஈ) dim"], "answer": 1, "hint": "var/let." },
+            { "id": "q4", "html": "மாறிப்பெயர் தொடங்க முடியாதது __________", "options": ["அ) எழுத்து", "ஆ) அடிக்கோடு", "இ) எண்", "ஈ) $ குறியீடு"], "answer": 2, "hint": "எண்ணால் தொடங்கக்கூடாது." },
+            { "id": "q5", "html": "மீதியைக் (Remainder) கணக்கிடும் செயலி __________", "options": ["அ) /", "ஆ) *", "இ) %", "ஈ) +"], "answer": 2, "hint": "Modulus operator." },
+            { "id": "q6", "html": "x += 5 என்பதற்குச் சமமானது __________", "options": ["அ) x = 5", "ஆ) x = x + 5", "இ) x = x - 5", "ஈ) x == 5"], "answer": 1, "hint": "Shorthand assignment." },
+            { "id": "q7", "html": "இரண்டும் true ஆக இருந்தால் மட்டும் true தரும் செயலி __________", "options": ["அ) ||", "ஆ) &&", "இ) !", "ஈ) =="], "answer": 1, "hint": "AND operator." },
+            { "id": "q8", "html": "ஒரு மாறியின் தரவு வகையைக் கண்டறியும் செயலி __________", "options": ["அ) typeof", "ஆ) valueof", "இ) datatype", "ஈ) kindof"], "answer": 0, "hint": "typeof operator." },
+            { "id": "q9", "html": "பயனாளரிடமிருந்து உள்ளீட்டைப் பெறும் Dialog Box __________", "options": ["அ) alert()", "ஆ) confirm()", "இ) prompt()", "ஈ) write()"], "answer": 2, "hint": "prompt Dialog Box." },
+            { "id": "q10", "html": "ஒரு வரிக் கருத்துரைக்கான குறியீடு __________", "options": ["அ) /* */", "ஆ) //", "இ) &lt;!-- --&gt;", "ஈ) #"], "answer": 1, "hint": "Single line comment." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "navLabel": "பகுதி - ஆ (5 x 2)",
+      "title": "பகுதி - ஆ: குறுகிய விடையளி",
+      "type": "short-essay",
+      "scoreMax": 10,
+      "marksPer": 2,
+      "instruction": "2-3 வாக்கியங்களில் விடையளிக்கவும்.",
+      "questions": [
+        { "q": "JavaScript என்றால் என்ன?", "ans": "JavaScript என்பது வலைப்பக்கங்களை ஊடாடும் தன்மை கொண்டதாக ஆக்கப் பயன்படும் Client-side Scripting Language ஆகும்." },
+        { "q": "மாறி (Variable) என்றால் என்ன?", "ans": "மாறி என்பது ஒரு மதிப்பைச் சேமிக்கப் பயன்படும் பெயரிடப்பட்ட நினைவகக் கூடு; var அல்லது let மூலம் அறிவிக்கப்படும்." },
+        { "q": "Global Scope மற்றும் Local Scope வேறுபடுத்துக.", "ans": "Global Scope முழு நிரலிலும் அணுகக்கூடிய மாறி. Local Scope ஒரு செயற்கூற்றுக்குள் மட்டும் அணுகக்கூடிய மாறி." },
+        { "q": "alert() மற்றும் confirm() வேறுபடுத்துக.", "ans": "alert() ஒரு தகவலை மட்டும் காட்டும். confirm() OK/Cancel தேர்வுடன் பயனாளரிடம் உறுதிப்படுத்த பயன்படும்." },
+        { "q": "&& மற்றும் || செயலிகளை விளக்குக.", "ans": "&& (AND) இரண்டு நிபந்தனைகளும் true ஆக இருந்தால் மட்டும் true தரும். || (OR) ஏதேனும் ஒரு நிபந்தனை true ஆக இருந்தால் true தரும்." }
+      ]
+    },
+    {
+      "id": "p3",
+      "navLabel": "பகுதி - இ (3 x 3)",
+      "title": "பகுதி - இ: சுருக்கமாக விடையளி",
+      "type": "short-essay",
+      "scoreMax": 9,
+      "marksPer": 3,
+      "instruction": "5-6 வாக்கியங்களில் விடையளிக்கவும்.",
+      "questions": [
+        { "q": "மாறிப் பெயரிடல் விதிகளை (Rules for Naming Variables) விளக்குக.", "ans": "1. எழுத்து/அடிக்கோட்டால் தொடங்க வேண்டும், எண்ணால் அல்ல.\n2. வெற்றிடங்கள் அனுமதிக்கப்படாது.\n3. Reserved Words பெயராகப் பயன்படுத்தக் கூடாது.\n4. Case-sensitive — பெரிய/சிறிய எழுத்துகள் வேறுபடும்." },
+        { "q": "JavaScript செயலிகளின் (Arithmetic, Comparison, Logical) வகைகளை விளக்குக.", "ans": "1. Arithmetic — +, −, *, /, %.\n2. Comparison — ==, !=, &gt;, &lt;, &gt;=, &lt;=.\n3. Logical — && (AND), || (OR), ! (NOT)." },
+        { "q": "JavaScript-இன் மூன்று Dialog Box-களை (Alert, Confirm, Prompt) விளக்குக.", "ans": "1. Alert — தகவலை மட்டும் காட்ட.\n2. Confirm — OK/Cancel மூலம் உறுதிப்படுத்த.\n3. Prompt — பயனாளரிடமிருந்து உள்ளீட்டைப் பெற." }
+      ]
+    },
+    {
+      "id": "p4",
+      "navLabel": "பகுதி - ஈ (3 x 6)",
+      "title": "பகுதி - ஈ: விரிவாக விடையளி",
+      "type": "long-essay",
+      "scoreMax": 18,
+      "marksPer": 6,
+      "instruction": "விரிவாக, குறியீடு எடுத்துக்காட்டுகளுடன் விடையளிக்கவும்.",
+      "questions": [
+        { "q": "JavaScript-ஐ HTML-இல் சேர்க்கும் முறையையும் மாறி அறிவிக்கும் முறையையும் குறியீட்டு எடுத்துக்காட்டுடன் விரிவாக விளக்குக.", "ans": "&lt;html&gt;\n&lt;head&gt;&lt;title&gt;Demo&lt;/title&gt;&lt;/head&gt;\n&lt;body&gt;\n&lt;script language=\"javascript\" type=\"text/javascript\"&gt;\nvar num1 = 10;\nvar num2 = 20;\ndocument.write(\"Sum: \" + (num1+num2));\n&lt;/script&gt;\n&lt;/body&gt;\n&lt;/html&gt;\n\n&lt;script&gt; ஒட்டு &lt;head&gt; அல்லது &lt;body&gt;-க்குள் வைக்கப்படலாம். var மூலம் மாறி அறிவிக்கப்படுகிறது; document.write() மூலம் வெளியீடு காட்டப்படுகிறது." },
+        { "q": "JavaScript செயலிகளின் (Arithmetic, Assignment, Comparison, Logical) அனைத்து வகைகளையும் எடுத்துக்காட்டுடன் விரிவாக விளக்குக.", "ans": "Arithmetic: +, −, *, /, % — எ.கா. sum = a+b;\n\nAssignment (Shorthand): +=, -=, *=, /= — எ.கா. x += 5;\n\nComparison: ==, !=, &gt;, &lt;, &gt;=, &lt;= — true/false தரும்.\n\nLogical: && (AND), || (OR), ! (NOT) — நிபந்தனைகளை இணைக்க.\n\nஇவை அனைத்தும் JavaScript-இல் கணக்கீடு, ஒப்பீடு, தர்க்கரீதியான முடிவெடுப்புக்கு அடிப்படையாக அமைகின்றன." },
+        { "q": "JavaScript-இன் Dialog Box-களை (Alert, Confirm, Prompt) குறியீட்டு எடுத்துக்காட்டுடன் விரிவாக விளக்குக.", "ans": "Alert:\n&lt;script&gt;alert(\"Welcome!\");&lt;/script&gt;\n\nConfirm:\n&lt;script&gt;var result = confirm(\"Do you want to continue?\");\ndocument.write(result);&lt;/script&gt;\n\nPrompt:\n&lt;script&gt;var name = prompt(\"Enter your name\", \"\");\ndocument.write(\"Hello \" + name);&lt;/script&gt;\n\nAlert ஒரு தகவலை மட்டும் காட்டும். Confirm OK/Cancel மூலம் உறுதிப்படுத்தும் (true/false தரும்). Prompt பயனாளர் உள்ளீட்டைப் பெறும்." }
+      ]
+    }
+  ]
+}

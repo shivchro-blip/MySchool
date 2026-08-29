@@ -166,8 +166,18 @@ export const SYLLABUS = {
           { number: 4, title: "இயக்க அமைப்பின் கோட்பாட்டு கருத்துக்கள்", slug: "ta-chapter-04-operating-system-concepts" },
           { number: 5, title: "விண்டோஸ் - ல் வேலை செய்தல்", slug: "ta-chapter-05-working-with-windows" },
           { number: 6, title: "சொற்செயலி (Basics)", slug: "ta-chapter-06-word-processor-basics" },
-          { number: 7, title: "ஓபன் ஆஃபீஸ் கால்க்-ல் வேலை செய்தல்", slug: "ta-chapter-07-openoffice-calc-basics" }
-          // chapters 8-18 to be appended in later batches
+          { number: 7, title: "ஓபன் ஆஃபீஸ் கால்க்-ல் வேலை செய்தல்", slug: "ta-chapter-07-openoffice-calc-basics" },
+          { number: 8, title: "நிகழ்த்துதல் (Basics)", slug: "ta-chapter-08-presentation-basics" },
+          { number: 9, title: "இணைய தளம் மற்றும் மின்னஞ்சல் - ஓர் அறிமுகம்", slug: "ta-chapter-09-website-and-email-introduction" },
+          { number: 10, title: "HTML - கட்டமைப்பு ஒட்டுகள்", slug: "ta-chapter-10-html-structural-tags" },
+          { number: 11, title: "HTML உரை வடிவூட்டல், அட்டவணை உருவாக்குதல், பட்டியல்கள் மற்றும் இணைப்புகள்", slug: "ta-chapter-11-html-text-tables-lists-links" },
+          { number: 12, title: "HTML – பல்லூடகக் கூறுகள் மற்றும் படிவங்கள் இணைத்தல்", slug: "ta-chapter-12-html-multimedia-forms" },
+          { number: 13, title: "CSS – தொடரும் பணி தாள்கள்", slug: "ta-chapter-13-css-basics" },
+          { number: 14, title: "ஜாவாஸ்கிரிப்ட்டின் அறிமுகம்", slug: "ta-chapter-14-javascript-introduction" },
+          { number: 15, title: "ஜாவாஸ்கிரிப்ட்-ல் உள்ள கட்டுப்பாட்டு கட்டமைப்பு", slug: "ta-chapter-15-javascript-control-structures" },
+          { number: 16, title: "ஜாவா எழுத்துவடிவ செயற்கூறுகள்", slug: "ta-chapter-16-javascript-functions" },
+          { number: 17, title: "கணிப்பொறி நன்னெறி மற்றும் இணையப் பாதுகாப்பு", slug: "ta-chapter-17-computer-ethics-cyber-security" },
+          { number: 18, title: "கணிப்பொறியில் தமிழ்", slug: "ta-chapter-18-tamil-computing" }
         ],
       },
       "computer-science": {

@@ -1,0 +1,55 @@
+export default {
+  eyebrow: "பாடம் 11 · வகுப்பு 11 கணினி பயன்பாடுகள்",
+  title: "HTML உரை வடிவூட்டல், அட்டவணை உருவாக்குதல், பட்டியல்கள் மற்றும் இணைப்புகள்",
+  author: "",
+  pills: ["செயல்முறை", "ஆகஸ்ட் பாடத்திட்டம்"],
+  tabs: [
+    {
+      id: "text-formatting",
+      label: "உரை வடிவூட்டல்",
+      blocks: [
+        { type: "section-head", text: "11.1 உரை வடிவூட்டல் ஒட்டுகள் (Text Formatting Tags)" },
+        { type: "teacher-voice", html: "<p>HTML பல்வேறு உரை வடிவூட்டல் ஒட்டுகளை வழங்குகிறது:</p><ul><li><b>&lt;b&gt;:</b> தடித்த எழுத்து (Bold).</li><li><b>&lt;i&gt;:</b> சாய்வு எழுத்து (Italic).</li><li><b>&lt;u&gt;:</b> அடிக்கோடு (Underline).</li><li><b>&lt;strong&gt;:</b> முக்கியத்துவம் வாய்ந்த உரை (பொதுவாக தடிப்பாகக் காட்டப்படும்).</li><li><b>&lt;em&gt;:</b> வலியுறுத்தப்பட்ட உரை (பொதுவாக சாய்வாகக் காட்டப்படும்).</li><li><b>&lt;small&gt; / &lt;big&gt;:</b> சிறிய/பெரிய எழுத்து.</li><li><b>&lt;mark&gt;:</b> முன்னிலைப்படுத்தப்பட்ட (Highlight) உரை.</li><li><b>&lt;sub&gt; / &lt;sup&gt;:</b> கீழ்/மேல் எழுத்து (Subscript/Superscript — உ.ம். H&lt;sub&gt;2&lt;/sub&gt;O).</li><li><b>&lt;del&gt; / &lt;ins&gt;:</b> நீக்கப்பட்ட/சேர்க்கப்பட்ட உரை (Deleting and Inserting text).</li></ul><p><b>&lt;font&gt; ஒட்டு:</b> face, size, color பண்புக்கூறுகள் மூலம் எழுத்துருவை மாற்றலாம் (உ.ம். &lt;font face=\"Arial\" size=\"5\" color=\"red\"&gt;).</p><p><b>&lt;center&gt;:</b> உள்ளடக்கத்தை நடுவில் சீரமைக்கும்.</p>" },
+        { type: "gloss-row", word: "🔤 &lt;b&gt; / &lt;i&gt; / &lt;u&gt;", def: "Bold (தடிப்பு) / Italic (சாய்வு) / Underline (அடிக்கோடு) உரை வடிவூட்டல் ஒட்டுகள்." },
+        { type: "gloss-row", word: "🖍️ &lt;mark&gt;", def: "உரையை முன்னிலைப்படுத்தி (Highlight) காட்டும் ஒட்டு." },
+        { type: "gloss-row", word: "🔢 &lt;sub&gt; / &lt;sup&gt;", def: "Subscript (கீழ் எழுத்து) / Superscript (மேல் எழுத்து) — உ.ம். H₂O, x²." },
+        { type: "nav", next: "tables", nextLabel: "அடுத்து: அட்டவணை உருவாக்குதல் →" }
+      ]
+    },
+    {
+      id: "tables",
+      label: "அட்டவணை",
+      blocks: [
+        { type: "section-head", text: "11.4 HTML-இல் அட்டவணை உருவாக்குதல் (Tables in HTML)" },
+        { type: "teacher-voice", html: "<p>அட்டவணைகளை உருவாக்க பின்வரும் ஒட்டுகள் பயன்படுகின்றன:</p><ul><li><b>&lt;table&gt;:</b> முழு அட்டவணையையும் சூழும் ஒட்டு.</li><li><b>&lt;tr&gt; (Table Row):</b> ஒரு வரிசையைக் குறிக்கும்.</li><li><b>&lt;th&gt; (Table Heading):</b> தலைப்பு கலம் (தடிப்பாகவும் நடுவிலும் தோன்றும்).</li><li><b>&lt;td&gt; (Table Data):</b> சாதாரண தரவு கலம்.</li><li><b>&lt;caption&gt;:</b> அட்டவணையின் தலைப்பு/விளக்கம்.</li></ul><p><b>முக்கியப் பண்புக்கூறுகள்:</b></p><ul><li><b>border:</b> அட்டவணையின் விளிம்புக் கோட்டு தடிமன்.</li><li><b>width:</b> அட்டவணையின் அகலம்.</li><li><b>bgcolor:</b> பின்னணி நிறம்.</li><li><b>align / valign:</b> கல உள்ளடக்கத்தின் கிடைமட்ட/செங்குத்து சீரமைப்பு.</li><li><b>colspan:</b> ஒரு கலம் பல நெடுவரிசைகளை உள்ளடக்க.</li><li><b>rowspan:</b> ஒரு கலம் பல வரிசைகளை உள்ளடக்க.</li></ul>" },
+        { type: "gloss-row", word: "📊 &lt;table&gt; / &lt;tr&gt; / &lt;td&gt; / &lt;th&gt;", def: "table — முழு அட்டவணை; tr — வரிசை; td — தரவு கலம்; th — தலைப்பு கலம்." },
+        { type: "gloss-row", word: "🔀 colspan / rowspan", def: "colspan ஒரு கலம் பல நெடுவரிசைகளை உள்ளடக்க; rowspan ஒரு கலம் பல வரிசைகளை உள்ளடக்கப் பயன்படும்." },
+        { type: "nav", back: "text-formatting", next: "lists", nextLabel: "அடுத்து: பட்டியல்கள் →" }
+      ]
+    },
+    {
+      id: "lists",
+      label: "பட்டியல்கள்",
+      blocks: [
+        { type: "section-head", text: "11.4 HTML-இல் பட்டியல்கள் (Lists in HTML)" },
+        { type: "teacher-voice", html: "<p>HTML மூன்று வகையான பட்டியல்களை வழங்குகிறது:</p><ul><li><b>வரிசையிடப்படாத பட்டியல் (Unordered List) — &lt;ul&gt;&lt;li&gt;:</b> புள்ளிகளுடன் (Bullet) கூடிய பட்டியல்; type பண்புக்கூறு மூலம் disc, square, circle என வடிவத்தை மாற்றலாம்.</li><li><b>வரிசையிடப்பட்ட பட்டியல் (Ordered List) — &lt;ol&gt;&lt;li&gt;:</b> எண்களுடன் (1,2,3...) கூடிய பட்டியல்; type பண்புக்கூறு மூலம் 1, A, a, I, i வடிவங்களை மாற்றலாம். start பண்புக்கூறு மூலம் தொடக்க எண்ணையும் மாற்றலாம்.</li><li><b>வரையறைப் பட்டியல் (Definition List) — &lt;dl&gt;&lt;dt&gt;&lt;dd&gt;:</b> ஒரு சொல்லையும் (&lt;dt&gt;) அதன் விளக்கத்தையும் (&lt;dd&gt;) இணைத்துக் காட்ட.</li></ul><p><b>கூடு பட்டியல் (Nested List):</b> ஒரு பட்டியலுக்குள் இன்னொரு பட்டியலை வைப்பது (உ.ம். ஒரு &lt;ul&gt;-க்குள் மற்றொரு &lt;ol&gt;).</p>" },
+        { type: "gloss-row", word: "🔘 &lt;ul&gt; / &lt;ol&gt;", def: "ul — வரிசையிடப்படாத (புள்ளிகள்) பட்டியல்; ol — வரிசையிடப்பட்ட (எண்கள்) பட்டியல்." },
+        { type: "gloss-row", word: "📖 &lt;dl&gt;&lt;dt&gt;&lt;dd&gt;", def: "வரையறைப் பட்டியல்: dt — சொல்; dd — அதன் விளக்கம்." },
+        { type: "gloss-row", word: "🪆 Nested List", def: "ஒரு பட்டியலுக்குள் இன்னொரு பட்டியலை வைக்கும் அமைப்பு." },
+        { type: "nav", back: "tables", next: "links", nextLabel: "அடுத்து: இணைப்புகள் →" }
+      ]
+    },
+    {
+      id: "links",
+      label: "இணைப்புகள்",
+      blocks: [
+        { type: "section-head", text: "11.5 HTML இணைப்புகள் (Hyperlinks)" },
+        { type: "teacher-voice", html: "<p><b>&lt;a&gt; (Anchor Tag):</b> ஒரு வலைப்பக்கத்திலிருந்து இன்னொரு பக்கத்திற்கு அல்லது ஆவணத்தின் வேறு பகுதிக்கு இணைக்கப் பயன்படும் ஒட்டு.</p><p>எடுத்துக்காட்டு: &lt;a href=\"http://www.tnschools.gov.in\"&gt; TN Schools &lt;/a&gt;</p><p><b>முக்கியப் பண்புக்கூறுகள்:</b></p><ul><li><b>href:</b> இணைக்கப்பட வேண்டிய URL அல்லது கோப்புப் பாதை.</li><li><b>target:</b> இணைப்பு எங்கே திறக்க வேண்டும் என்பதைக் குறிக்கும் (_blank — புதிய சாளரத்தில், _self — அதே சாளரத்தில்).</li></ul><p><b>வகைகள்:</b></p><ul><li><b>வெளி இணைப்பு (External Link):</b> வேறு வலைத்தளத்திற்கான இணைப்பு.</li><li><b>உள் இணைப்பு (Internal Link):</b> அதே வலைத்தளத்திலுள்ள மற்றொரு பக்கத்திற்கான இணைப்பு.</li><li><b>மின்னஞ்சல் இணைப்பு (Mailto Link):</b> &lt;a href=\"mailto:someone@example.com\"&gt; — கிளிக் செய்தால் மின்னஞ்சல் திறக்கும்.</li></ul>" },
+        { type: "gloss-row", word: "🔗 &lt;a&gt; (Anchor Tag)", def: "ஒரு பக்கத்திலிருந்து இன்னொரு பக்கம்/இடத்திற்கு இணைக்கப் பயன்படும் HTML ஒட்டு; href பண்புக்கூறு இணைப்பு முகவரியைக் குறிக்கும்." },
+        { type: "gloss-row", word: "🆕 target=\"_blank\"", def: "இணைப்பைப் புதிய சாளரம்/தாவலில் திறக்கும் பண்புக்கூறு மதிப்பு." },
+        { type: "gloss-row", word: "📧 Mailto Link", def: "&lt;a href=\"mailto:...\"&gt; — கிளிக் செய்தால் மின்னஞ்சல் மென்பொருளைத் திறக்கும் இணைப்பு." },
+        { type: "nav", back: "lists", practice: true }
+      ]
+    }
+  ]
+}

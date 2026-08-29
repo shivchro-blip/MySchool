@@ -1,0 +1,80 @@
+export default {
+  "meta": {
+    "subject": "கணினி பயன்பாடுகள் -- வகுப்பு XI",
+    "unit": "பாடம் 11 -- HTML உரை வடிவூட்டல், அட்டவணை, பட்டியல்கள் மற்றும் இணைப்புகள்",
+    "time": "3.00 மணி நேரம்",
+    "totalMarks": 47,
+    "instructions": "சமச்சீர் கல்வி -- அனைத்து வினாக்களுக்கும் விடையளிக்கவும்"
+  },
+  "parts": [
+    {
+      "id": "p1",
+      "navLabel": "பகுதி - அ (10 x 1)",
+      "title": "பகுதி - அ: சரியான விடையைத் தேர்ந்தெடுக்கவும்",
+      "type": "mcq",
+      "scoreMax": 10,
+      "marksPer": 1,
+      "sections": [
+        {
+          "label": "உரை / அட்டவணை / பட்டியல் / இணைப்பு",
+          "questions": [
+            { "id": "q1", "html": "தடித்த எழுத்திற்கான ஒட்டு __________", "options": ["அ) &lt;i&gt;", "ஆ) &lt;u&gt;", "இ) &lt;b&gt;", "ஈ) &lt;mark&gt;"], "answer": 2, "hint": "Bold." },
+            { "id": "q2", "html": "H₂O எழுத, பயன்படும் ஒட்டு __________", "options": ["அ) &lt;sup&gt;", "ஆ) &lt;sub&gt;", "இ) &lt;small&gt;", "ஈ) &lt;mark&gt;"], "answer": 1, "hint": "Subscript." },
+            { "id": "q3", "html": "அட்டவணையின் தலைப்பு கலத்தைக் குறிக்கும் ஒட்டு __________", "options": ["அ) &lt;td&gt;", "ஆ) &lt;tr&gt;", "இ) &lt;th&gt;", "ஈ) &lt;table&gt;"], "answer": 2, "hint": "Table Heading." },
+            { "id": "q4", "html": "ஒரு கலம் பல நெடுவரிசைகளை உள்ளடக்க பயன்படும் பண்புக்கூறு __________", "options": ["அ) rowspan", "ஆ) colspan", "இ) border", "ஈ) align"], "answer": 1, "hint": "column span." },
+            { "id": "q5", "html": "வரிசையிடப்படாத பட்டியலுக்கான ஒட்டு __________", "options": ["அ) &lt;ol&gt;", "ஆ) &lt;ul&gt;", "இ) &lt;dl&gt;", "ஈ) &lt;li&gt;"], "answer": 1, "hint": "Bullet points." },
+            { "id": "q6", "html": "வரையறைப் பட்டியலில் விளக்கத்தைக் குறிக்கும் ஒட்டு __________", "options": ["அ) &lt;dt&gt;", "ஆ) &lt;dl&gt;", "இ) &lt;dd&gt;", "ஈ) &lt;li&gt;"], "answer": 2, "hint": "Definition Description." },
+            { "id": "q7", "html": "இணைப்பிற்கான HTML ஒட்டு __________", "options": ["அ) &lt;link&gt;", "ஆ) &lt;a&gt;", "இ) &lt;href&gt;", "ஈ) &lt;url&gt;"], "answer": 1, "hint": "Anchor Tag." },
+            { "id": "q8", "html": "இணைப்பை புதிய சாளரத்தில் திறக்கும் மதிப்பு __________", "options": ["அ) _self", "ஆ) _blank", "இ) _top", "ஈ) _new"], "answer": 1, "hint": "target attribute." },
+            { "id": "q9", "html": "மின்னஞ்சல் திறக்கும் இணைப்பு உருவாக்க பயன்படும் __________", "options": ["அ) href=\"http:\"", "ஆ) href=\"mailto:\"", "இ) href=\"email:\"", "ஈ) href=\"ftp:\""], "answer": 1, "hint": "Mailto Link." },
+            { "id": "q10", "html": "உரையை நடுவில் சீரமைக்கும் ஒட்டு __________", "options": ["அ) &lt;align&gt;", "ஆ) &lt;center&gt;", "இ) &lt;mid&gt;", "ஈ) &lt;middle&gt;"], "answer": 1, "hint": "நடுவில் சீரமைப்பு." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "navLabel": "பகுதி - ஆ (5 x 2)",
+      "title": "பகுதி - ஆ: குறுகிய விடையளி",
+      "type": "short-essay",
+      "scoreMax": 10,
+      "marksPer": 2,
+      "instruction": "2-3 வாக்கியங்களில் விடையளிக்கவும்.",
+      "questions": [
+        { "q": "&lt;strong&gt; மற்றும் &lt;em&gt; ஒட்டுகளை விளக்குக.", "ans": "&lt;strong&gt; முக்கியத்துவம் வாய்ந்த உரையைக் காட்ட (பொதுவாக தடிப்பாக), &lt;em&gt; வலியுறுத்தப்பட்ட உரையைக் காட்ட (பொதுவாக சாய்வாக) பயன்படுகின்றன." },
+        { "q": "&lt;th&gt; மற்றும் &lt;td&gt; வேறுபடுத்துக.", "ans": "&lt;th&gt; அட்டவணையின் தலைப்பு கலம் (தடிப்பாகவும் நடுவிலும் தோன்றும்). &lt;td&gt; சாதாரண தரவு கலம்." },
+        { "q": "&lt;ol&gt; மற்றும் &lt;ul&gt; வேறுபடுத்துக.", "ans": "&lt;ol&gt; வரிசையிடப்பட்ட பட்டியல் (எண்களுடன்). &lt;ul&gt; வரிசையிடப்படாத பட்டியல் (புள்ளிகளுடன்)." },
+        { "q": "External Link மற்றும் Internal Link வேறுபடுத்துக.", "ans": "External Link வேறு வலைத்தளத்திற்கான இணைப்பு. Internal Link அதே வலைத்தளத்திலுள்ள மற்றொரு பக்கத்திற்கான இணைப்பு." },
+        { "q": "colspan மற்றும் rowspan வேறுபடுத்துக.", "ans": "colspan ஒரு கலம் பல நெடுவரிசைகளை உள்ளடக்க பயன்படும். rowspan ஒரு கலம் பல வரிசைகளை உள்ளடக்க பயன்படும்." }
+      ]
+    },
+    {
+      "id": "p3",
+      "navLabel": "பகுதி - இ (3 x 3)",
+      "title": "பகுதி - இ: சுருக்கமாக விடையளி",
+      "type": "short-essay",
+      "scoreMax": 9,
+      "marksPer": 3,
+      "instruction": "5-6 வாக்கியங்களில் விடையளிக்கவும்.",
+      "questions": [
+        { "q": "HTML உரை வடிவூட்டல் ஒட்டுகளை (b, i, u, mark, sub, sup) விளக்குக.", "ans": "1. &lt;b&gt; — தடிப்பு.\n2. &lt;i&gt; — சாய்வு.\n3. &lt;u&gt; — அடிக்கோடு.\n4. &lt;mark&gt; — முன்னிலைப்படுத்துதல்.\n5. &lt;sub&gt; — கீழ் எழுத்து (H₂O).\n6. &lt;sup&gt; — மேல் எழுத்து (x²)." },
+        { "q": "அட்டவணை உருவாக்க பயன்படும் ஒட்டுகளை (table, tr, th, td) விளக்குக.", "ans": "&lt;table&gt; முழு அட்டவணையையும் சூழும். &lt;tr&gt; ஒரு வரிசையைக் குறிக்கும். &lt;th&gt; தலைப்பு கலம். &lt;td&gt; தரவு கலம். &lt;caption&gt; அட்டவணையின் தலைப்பு/விளக்கம்." },
+        { "q": "மூன்று வகையான பட்டியல்களை (Ordered, Unordered, Definition) விளக்குக.", "ans": "1. Ordered List (&lt;ol&gt;) — எண்களுடன் கூடிய பட்டியல்.\n2. Unordered List (&lt;ul&gt;) — புள்ளிகளுடன் கூடிய பட்டியல்.\n3. Definition List (&lt;dl&gt;&lt;dt&gt;&lt;dd&gt;) — சொல்லும் அதன் விளக்கமும் இணைத்துக் காட்டும் பட்டியல்." }
+      ]
+    },
+    {
+      "id": "p4",
+      "navLabel": "பகுதி - ஈ (3 x 6)",
+      "title": "பகுதி - ஈ: விரிவாக விடையளி",
+      "type": "long-essay",
+      "scoreMax": 18,
+      "marksPer": 6,
+      "instruction": "விரிவாக, HTML குறியீடு எடுத்துக்காட்டுகளுடன் விடையளிக்கவும்.",
+      "questions": [
+        { "q": "HTML உரை வடிவூட்டல் ஒட்டுகளை (b/i/u/strong/em/mark/sub/sup/del/ins) HTML குறியீட்டு எடுத்துக்காட்டுடன் விரிவாக விளக்குக.", "ans": "&lt;b&gt;Bold&lt;/b&gt;, &lt;i&gt;Italic&lt;/i&gt;, &lt;u&gt;Underline&lt;/u&gt;, &lt;strong&gt;Important&lt;/strong&gt;, &lt;em&gt;Emphasis&lt;/em&gt;, &lt;mark&gt;Highlighted&lt;/mark&gt;, H&lt;sub&gt;2&lt;/sub&gt;O, x&lt;sup&gt;2&lt;/sup&gt;, &lt;del&gt;removed&lt;/del&gt;, &lt;ins&gt;added&lt;/ins&gt;.\n\n&lt;font face=\"Arial\" size=\"5\" color=\"red\"&gt; மூலம் எழுத்துருவையும் மாற்றலாம். இவை அனைத்தும் உரையை வாசகருக்கு தெளிவாகவும் கவர்ச்சிகரமாகவும் காட்ட உதவும்." },
+        { "q": "HTML-இல் அட்டவணை உருவாக்கும் முழு முறையையும் அதன் பண்புக்கூறுகளையும் (border, colspan, rowspan) குறியீட்டு எடுத்துக்காட்டுடன் விரிவாக விளக்குக.", "ans": "&lt;table border=\"1\"&gt;\n&lt;tr&gt;&lt;th&gt;Name&lt;/th&gt;&lt;th&gt;Marks&lt;/th&gt;&lt;/tr&gt;\n&lt;tr&gt;&lt;td&gt;Ravi&lt;/td&gt;&lt;td colspan=\"2\"&gt;95&lt;/td&gt;&lt;/tr&gt;\n&lt;/table&gt;\n\nborder — விளிம்புக் கோடு. colspan — கலம் பல நெடுவரிசை உள்ளடக்க. rowspan — கலம் பல வரிசை உள்ளடக்க. bgcolor, align, valign — நிறம், சீரமைப்புக்கு." },
+        { "q": "HTML பட்டியல்களையும் இணைப்புகளையும் (Ordered/Unordered/Definition, Anchor tag, target, mailto) குறியீட்டு எடுத்துக்காட்டுடன் விரிவாக விளக்குக.", "ans": "பட்டியல்கள்:\n&lt;ul&gt;&lt;li&gt;Tamil&lt;/li&gt;&lt;li&gt;English&lt;/li&gt;&lt;/ul&gt;\n&lt;ol&gt;&lt;li&gt;First&lt;/li&gt;&lt;li&gt;Second&lt;/li&gt;&lt;/ol&gt;\n&lt;dl&gt;&lt;dt&gt;HTML&lt;/dt&gt;&lt;dd&gt;Hyper Text Markup Language&lt;/dd&gt;&lt;/dl&gt;\n\nஇணைப்புகள்:\n&lt;a href=\"http://www.tnschools.gov.in\" target=\"_blank\"&gt;TN Schools&lt;/a&gt;\n&lt;a href=\"mailto:info@example.com\"&gt;Email Us&lt;/a&gt;\n\nhref — இணைப்பு முகவரி. target=\"_blank\" — புதிய சாளரத்தில் திறக்க." }
+      ]
+    }
+  ]
+}

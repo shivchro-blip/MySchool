@@ -1,0 +1,43 @@
+export default {
+  eyebrow: "பாடம் 15 · வகுப்பு 11 கணினி பயன்பாடுகள்",
+  title: "ஜாவாஸ்கிரிப்ட்-ல் உள்ள கட்டுப்பாட்டு கட்டமைப்பு",
+  author: "",
+  pills: ["செயல்முறை", "செப்டம்பர் பாடத்திட்டம்"],
+  tabs: [
+    {
+      id: "conditional",
+      label: "நிபந்தனை கட்டளைகள்",
+      blocks: [
+        { type: "section-head", text: "15.1 நிபந்தனை கட்டளைகள் (Conditional Statements)" },
+        { type: "teacher-voice", html: "<p><b>if:</b> ஒரு நிபந்தனை true ஆக இருந்தால் மட்டும் ஒரு தொகுதி நிரலை இயக்கும்.</p><p>if (condition) { statements }</p><p><b>if...else:</b> நிபந்தனை true ஆக இருந்தால் ஒரு தொகுதியையும், false ஆக இருந்தால் இன்னொரு தொகுதியையும் இயக்கும்.</p><p><b>if...else if...else:</b> பல நிபந்தனைகளை வரிசையாகச் சரிபார்க்க.</p><p><b>switch:</b> ஒரு மாறியின் மதிப்புக்கேற்ப பல case-களில் ஒன்றை இயக்க; break கட்டளை ஒவ்வொரு case-இன் முடிவிலும் பயன்படுத்தப்பட வேண்டும், இல்லையெனில் அடுத்த case-க்கும் இயக்கம் தொடரும் (Fall-through).</p>" },
+        { type: "gloss-row", word: "❓ if / if-else", def: "if ஒரு நிபந்தனை true ஆனால் மட்டும் தொகுதியை இயக்கும்; if-else true/false இரு தொகுதிகளையும் கையாளும்." },
+        { type: "gloss-row", word: "🔀 switch", def: "ஒரு மாறியின் மதிப்புக்கேற்ப பல case-களில் ஒன்றை இயக்கும் கட்டமைப்பு; break இல்லாவிடில் Fall-through நிகழும்." },
+        { type: "think-box", label: "நினைவில் கொள்ள ⚠️", text: "switch-இல் ஒவ்வொரு case-இன் முடிவிலும் break சேர்க்க மறக்காதீர்கள் — இல்லையெனில் அடுத்த case-களும் தொடர்ந்து இயங்கிவிடும் (Fall-through error)." },
+        { type: "nav", next: "loops", nextLabel: "அடுத்து: மறுசெயல்கள் →" }
+      ]
+    },
+    {
+      id: "loops",
+      label: "மறுசெயல்கள்",
+      blocks: [
+        { type: "section-head", text: "15.2 மறுசெயல்கள் (Loops)" },
+        { type: "teacher-voice", html: "<p>ஒரு தொகுதி நிரலை பலமுறை மீண்டும் மீண்டும் இயக்க <b>Loops</b> பயன்படுகின்றன:</p><ul><li><b>for loop:</b> for (initialization; condition; increment/decrement) { statements } — தொடக்க மதிப்பு, நிபந்தனை, அதிகரிப்பு/குறைப்பு மூன்றும் ஒரே வரியில் குறிப்பிடப்படும்.</li><li><b>while loop:</b> while (condition) { statements } — நிபந்தனை true ஆக இருக்கும் வரை தொடரும்; நிபந்தனை முதலில் சரிபார்க்கப்படும்.</li><li><b>do...while loop:</b> do { statements } while (condition); — தொகுதி குறைந்தது ஒரு முறையாவது இயங்கும், பின்பே நிபந்தனை சரிபார்க்கப்படும்.</li></ul>" },
+        { type: "gloss-row", word: "🔁 for loop", def: "தொடக்கம், நிபந்தனை, அதிகரிப்பு மூன்றையும் ஒரே வரியில் கொண்ட மறுசெயல் கட்டமைப்பு." },
+        { type: "gloss-row", word: "🔄 while / do-while", def: "while நிபந்தனையை முதலில் சரிபார்க்கும்; do-while தொகுதியை முதலில் ஒரு முறை இயக்கிவிட்டு பின் நிபந்தனையைச் சரிபார்க்கும்." },
+        { type: "nav", back: "conditional", next: "break-continue", nextLabel: "அடுத்து: break / continue →" }
+      ]
+    },
+    {
+      id: "break-continue",
+      label: "break / continue",
+      blocks: [
+        { type: "section-head", text: "15.3 break மற்றும் continue கட்டளைகள்" },
+        { type: "teacher-voice", html: "<p><b>break:</b> ஒரு loop-இலிருந்து உடனடியாக வெளியேற பயன்படும் கட்டளை; குறிப்பிட்ட நிபந்தனை நிறைவேறியதும் மீதமுள்ள மறுசெயல்களைத் தவிர்க்க உதவும்.</p><p><b>continue:</b> தற்போதைய மறுசெயலை மட்டும் தவிர்த்து, அடுத்த மறுசெயலுக்குச் செல்ல பயன்படும் கட்டளை (loop முழுவதையும் நிறுத்தாது).</p>" },
+        { type: "gloss-row", word: "🛑 break", def: "loop-இலிருந்து உடனடியாக முழுமையாக வெளியேற பயன்படும் கட்டளை." },
+        { type: "gloss-row", word: "⏭️ continue", def: "தற்போதைய மறுசெயலை மட்டும் தவிர்த்து, அடுத்த மறுசெயலுக்குச் செல்லும் கட்டளை." },
+        { type: "think-box", label: "வேறுபாடு நினைவில் கொள்ள 🎯", text: "break — loop-ஐ முழுமையாக நிறுத்தும் (\"Exit\"). continue — இந்த ஒரு சுற்றை மட்டும் தவிர்த்து அடுத்த சுற்றுக்குச் செல்லும் (\"Skip\")." },
+        { type: "nav", back: "loops", practice: true }
+      ]
+    }
+  ]
+}

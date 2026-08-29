@@ -1,0 +1,80 @@
+export default {
+  "meta": {
+    "subject": "கணினி பயன்பாடுகள் -- வகுப்பு XI",
+    "unit": "பாடம் 12 -- HTML – பல்லூடகக் கூறுகள் மற்றும் படிவங்கள் இணைத்தல்",
+    "time": "3.00 மணி நேரம்",
+    "totalMarks": 47,
+    "instructions": "சமச்சீர் கல்வி -- அனைத்து வினாக்களுக்கும் விடையளிக்கவும்"
+  },
+  "parts": [
+    {
+      "id": "p1",
+      "navLabel": "பகுதி - அ (10 x 1)",
+      "title": "பகுதி - அ: சரியான விடையைத் தேர்ந்தெடுக்கவும்",
+      "type": "mcq",
+      "scoreMax": 10,
+      "marksPer": 1,
+      "sections": [
+        {
+          "label": "பல்லூடகம் / படிவங்கள்",
+          "questions": [
+            { "id": "q1", "html": "படத்தைச் செருக பயன்படும் ஒட்டு __________", "options": ["அ) &lt;pic&gt;", "ஆ) &lt;img&gt;", "இ) &lt;image&gt;", "ஈ) &lt;src&gt;"], "answer": 1, "hint": "Empty Element." },
+            { "id": "q2", "html": "படம் ஏற்றப்படாதபோது காட்டப்படும் மாற்று உரையைக் குறிக்கும் பண்புக்கூறு __________", "options": ["அ) src", "ஆ) alt", "இ) width", "ஈ) align"], "answer": 1, "hint": "Alternate Text." },
+            { "id": "q3", "html": "வெளிப்படைத்தன்மையுடன் கூடிய வலைப்பட வடிவம் __________", "options": ["அ) JPEG", "ஆ) PNG", "இ) BMP", "ஈ) TIFF"], "answer": 1, "hint": "Portable Network Graphics." },
+            { "id": "q4", "html": "உரையை நகர்த்திக் காட்டப் பயன்படும் ஒட்டு __________", "options": ["அ) &lt;scroll&gt;", "ஆ) &lt;marquee&gt;", "இ) &lt;move&gt;", "ஈ) &lt;slide&gt;"], "answer": 1, "hint": "Scrolling text." },
+            { "id": "q5", "html": "காணொலியை உட்பொதிக்கப் பயன்படும் HTML5 ஒட்டு __________", "options": ["அ) &lt;audio&gt;", "ஆ) &lt;video&gt;", "இ) &lt;movie&gt;", "ஈ) &lt;media&gt;"], "answer": 1, "hint": "வீடியோ." },
+            { "id": "q6", "html": "படிவத் தரவை அனுப்பும் இடத்தைக் குறிக்கும் பண்புக்கூறு __________", "options": ["அ) method", "ஆ) action", "இ) type", "ஈ) src"], "answer": 1, "hint": "Server Script URL." },
+            { "id": "q7", "html": "உள்ளிடும் எழுத்துகளை மறைக்கும் input வகை __________", "options": ["அ) text", "ஆ) password", "இ) checkbox", "ஈ) radio"], "answer": 1, "hint": "இரகசிய உள்ளீடு." },
+            { "id": "q8", "html": "ஒரே ஒரு தேர்வை மட்டும் தேர்ந்தெடுக்கும் input வகை __________", "options": ["அ) checkbox", "ஆ) radio", "இ) text", "ஈ) submit"], "answer": 1, "hint": "Radio Button." },
+            { "id": "q9", "html": "கீழிறங்கு பட்டியலை உருவாக்கும் ஒட்டு __________", "options": ["அ) &lt;input&gt;", "ஆ) &lt;select&gt;", "இ) &lt;list&gt;", "ஈ) &lt;dropdown&gt;"], "answer": 1, "hint": "select/option." },
+            { "id": "q10", "html": "பல வரி உரையை உள்ளிட பயன்படும் ஒட்டு __________", "options": ["அ) &lt;input&gt;", "ஆ) &lt;textarea&gt;", "இ) &lt;text&gt;", "ஈ) &lt;multiline&gt;"], "answer": 1, "hint": "rows/cols பண்புக்கூறு." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "navLabel": "பகுதி - ஆ (5 x 2)",
+      "title": "பகுதி - ஆ: குறுகிய விடையளி",
+      "type": "short-essay",
+      "scoreMax": 10,
+      "marksPer": 2,
+      "instruction": "2-3 வாக்கியங்களில் விடையளிக்கவும்.",
+      "questions": [
+        { "q": "&lt;img&gt; ஒட்டின் src மற்றும் alt பண்புக்கூறுகளை விளக்குக.", "ans": "src படக் கோப்பின் பெயர்/URL-ஐக் குறிக்கும். alt படம் ஏற்றப்படாதபோது காட்டப்படும் மாற்று உரையைக் குறிக்கும்." },
+        { "q": "&lt;marquee&gt; ஒட்டின் பயன் யாது?", "ans": "&lt;marquee&gt; உரையையோ படத்தையோ ஸ்லைடிங் விளைவுடன் நகர்த்திக் காட்டப் பயன்படுகிறது." },
+        { "q": "form-இன் action மற்றும் method பண்புக்கூறுகளை விளக்குக.", "ans": "action படிவத் தரவு அனுப்பப்பட வேண்டிய இடத்தைக் (Server Script URL) குறிக்கும். method தரவை அனுப்பும் முறையை (GET/POST) குறிக்கும்." },
+        { "q": "radio மற்றும் checkbox input வகைகளை வேறுபடுத்துக.", "ans": "radio ஒரே ஒரு தேர்வை மட்டும் தேர்ந்தெடுக்க அனுமதிக்கும். checkbox பல தேர்வுகளைத் தேர்ந்தெடுக்க அனுமதிக்கும்." },
+        { "q": "&lt;select&gt; மற்றும் &lt;option&gt; ஒட்டுகளை விளக்குக.", "ans": "&lt;select&gt; ஒரு கீழிறங்கு பட்டியலை உருவாக்கும். &lt;option&gt; அந்தப் பட்டியலில் ஒவ்வொரு தேர்வையும் குறிக்கும்." }
+      ]
+    },
+    {
+      "id": "p3",
+      "navLabel": "பகுதி - இ (3 x 3)",
+      "title": "பகுதி - இ: சுருக்கமாக விடையளி",
+      "type": "short-essay",
+      "scoreMax": 9,
+      "marksPer": 3,
+      "instruction": "5-6 வாக்கியங்களில் விடையளிக்கவும்.",
+      "questions": [
+        { "q": "&lt;img&gt; ஒட்டின் முக்கியப் பண்புக்கூறுகளை (src, alt, width, height, align) விளக்குக.", "ans": "1. src — படக் கோப்பின் பாதை/URL.\n2. alt — மாற்று உரை.\n3. width/height — படத்தின் அளவு.\n4. align — படத்தைச் சுற்றி உரையின் சீரமைப்பு (top/middle/bottom)." },
+        { "q": "input வகைகளை (text, password, checkbox, radio, submit, reset) விளக்குக.", "ans": "1. text — ஒற்றை வரி உரை.\n2. password — மறைக்கப்பட்ட உள்ளீடு.\n3. checkbox — பல தேர்வுகள்.\n4. radio — ஒரே ஒரு தேர்வு.\n5. submit — படிவம் சமர்ப்பிக்க.\n6. reset — படிவம் அழிக்க." },
+        { "q": "HTML5-இல் காணொலி மற்றும் ஒலி உட்பொதிக்கும் முறையை விளக்குக.", "ans": "&lt;video src=\"clip.mp4\" controls&gt;&lt;/video&gt; — காணொலியை உட்பொதிக்க. &lt;audio src=\"song.mp3\" controls&gt;&lt;/audio&gt; — ஒலியை உட்பொதிக்க. controls பண்புக்கூறு play/pause பொத்தான்களைக் காட்டும்." }
+      ]
+    },
+    {
+      "id": "p4",
+      "navLabel": "பகுதி - ஈ (3 x 6)",
+      "title": "பகுதி - ஈ: விரிவாக விடையளி",
+      "type": "long-essay",
+      "scoreMax": 18,
+      "marksPer": 6,
+      "instruction": "விரிவாக, HTML குறியீடு எடுத்துக்காட்டுகளுடன் விடையளிக்கவும்.",
+      "questions": [
+        { "q": "HTML-இல் படங்கள், marquee, காணொலி/ஒலி செருகும் முழு முறையையும் குறியீட்டு எடுத்துக்காட்டுடன் விரிவாக விளக்குக.", "ans": "படம்:\n&lt;img src=\"bharathiyar.gif\" alt=\"National Poet of India\" width=\"25%\" height=\"25%\"&gt;\n\nMarquee:\n&lt;marquee behavior=\"scroll\" direction=\"left\"&gt;Welcome to our School&lt;/marquee&gt;\n\nகாணொலி/ஒலி:\n&lt;video src=\"clip.mp4\" width=\"320\" height=\"240\" controls&gt;&lt;/video&gt;\n&lt;audio src=\"song.mp3\" controls&gt;&lt;/audio&gt;\n\nஇவை அனைத்தும் வலைப்பக்கத்தை காட்சிரீதியாக ஈர்க்கக்கூடியதாக ஆக்குகின்றன." },
+        { "q": "படிவம் (form) உருவாக்கும் முழு முறையையும் (action, method, input types) குறியீட்டு எடுத்துக்காட்டுடன் விரிவாக விளக்குக.", "ans": "&lt;form action=\"submit.php\" method=\"post\"&gt;\nName: &lt;input type=\"text\" name=\"uname\"&gt;&lt;br&gt;\nPassword: &lt;input type=\"password\" name=\"pwd\"&gt;&lt;br&gt;\nGender: &lt;input type=\"radio\" name=\"gender\" value=\"M\"&gt;Male &lt;input type=\"radio\" name=\"gender\" value=\"F\"&gt;Female&lt;br&gt;\nSubjects: &lt;input type=\"checkbox\" name=\"sub\" value=\"Tamil\"&gt;Tamil&lt;br&gt;\n&lt;input type=\"submit\" value=\"Submit\"&gt;\n&lt;input type=\"reset\" value=\"Clear\"&gt;\n&lt;/form&gt;\n\naction படிவம் அனுப்பப்படும் இடத்தையும், method (GET/POST) அனுப்பும் முறையையும் குறிக்கும்." },
+        { "q": "மேம்பட்ட படிவக் கட்டுப்பாடுகளை (select/option, textarea) குறியீட்டு எடுத்துக்காட்டுடன் விரிவாக விளக்குக.", "ans": "&lt;select name=\"city\"&gt;\n&lt;option value=\"CHN\"&gt;Chennai&lt;/option&gt;\n&lt;option value=\"MDU\"&gt;Madurai&lt;/option&gt;\n&lt;/select&gt;\n\n&lt;textarea rows=\"5\" cols=\"30\"&gt;Enter your comments here&lt;/textarea&gt;\n\nselect/option கீழிறங்கு பட்டியலை உருவாக்க பயன்படுகிறது; textarea பல வரி உரையை (உ.ம். கருத்துகள்) உள்ளிட பயன்படுகிறது, rows/cols மூலம் அளவு கட்டுப்படுத்தப்படும்." }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+export default {
+  eyebrow: "பாடம் 13 · வகுப்பு 11 கணினி பயன்பாடுகள்",
+  title: "CSS – தொடரும் பணி தாள்கள்",
+  author: "",
+  pills: ["செயல்முறை", "செப்டம்பர் பாடத்திட்டம்"],
+  tabs: [
+    {
+      id: "intro",
+      label: "அறிமுகம்",
+      blocks: [
+        { type: "section-head", text: "13.1 CSS — ஓர் அறிமுகம்" },
+        { type: "teacher-voice", html: "<p><b>CSS (Cascading Style Sheets)</b> என்பது HTML ஆவணங்களின் தோற்றத்தை (நிறம், எழுத்துரு, இடைவெளி) கட்டுப்படுத்தப் பயன்படும் பாணி மொழி (Style Sheet Language) ஆகும். CSS 1994-இல் Håkon Wium Lie என்பவரால் முன்மொழியப்பட்டு, W3C-இனால் தரப்படுத்தப்பட்டது.</p><p><b>CSS-இன் நன்மைகள்:</b></p><ul><li>பராமரிப்பு எளிது (Maintainability) — ஒரு CSS கோப்பை மாற்றினால் பல பக்கங்களின் தோற்றமும் தானாக மாறும்.</li><li>தோற்றத்தையும் உள்ளடக்கத்தையும் தனித்தனியாக வைத்திருக்கலாம் (Separation of Content and Presentation).</li><li>பக்கம் ஏற்றும் வேகம் அதிகரிக்கும்.</li></ul>" },
+        { type: "gloss-row", word: "🎨 CSS (Cascading Style Sheets)", def: "HTML ஆவணங்களின் தோற்றத்தைக் (நிறம், எழுத்துரு) கட்டுப்படுத்தப் பயன்படும் பாணி மொழி." },
+        { type: "nav", next: "syntax-types", nextLabel: "அடுத்து: CSS தொடரமைப்பும் வகைகளும் →" }
+      ]
+    },
+    {
+      id: "syntax-types",
+      label: "தொடரமைப்பு / வகைகள்",
+      blocks: [
+        { type: "section-head", text: "13.2 CSS தொடரமைப்பும் (Syntax) வகைகளும்" },
+        { type: "teacher-voice", html: "<p>CSS விதி (Rule) மூன்று பகுதிகளைக் கொண்டது: <b>selector { property: value; }</b></p><p>எடுத்துக்காட்டு: p { color: blue; font-size: 12pt; }</p><p><b>CSS சேர்க்கும் மூன்று வழிகள்:</b></p><ul><li><b>Inline CSS:</b> ஒரு HTML ஒட்டின் style பண்புக்கூறில் நேரடியாகச் சேர்ப்பது. உ.ம். &lt;p style=\"color:red;\"&gt;</li><li><b>Internal CSS:</b> &lt;head&gt;-இற்குள் &lt;style&gt;...&lt;/style&gt; ஒட்டில் சேர்ப்பது; அந்த ஒரு பக்கத்திற்கு மட்டும் பொருந்தும்.</li><li><b>External CSS:</b> தனி .css கோப்பில் எழுதி, &lt;link rel=\"stylesheet\" href=\"style.css\"&gt; மூலம் இணைப்பது; பல பக்கங்களுக்கும் பொதுவாகப் பயன்படுத்தலாம்.</li></ul>" },
+        { type: "gloss-row", word: "🎯 Selector / Property / Value", def: "Selector எந்த ஒட்டிற்குப் பாணி பொருந்துமெனக் குறிக்கும்; Property எந்தப் பண்பை (உ.ம். color) மாற்ற வேண்டும் எனக் குறிக்கும்; Value அதன் மதிப்பு." },
+        { type: "gloss-row", word: "🔗 External CSS", def: "தனி .css கோப்பில் எழுதி &lt;link&gt; ஒட்டு மூலம் இணைக்கப்படும் CSS வகை; பல பக்கங்களுக்கும் பொதுவானது." },
+        { type: "think-box", label: "எது சிறந்தது? 🤔", text: "External CSS பராமரிப்புக்கு மிகவும் ஏற்றது — ஒரே .css கோப்பை மாற்றினால் இணைக்கப்பட்ட அனைத்து HTML பக்கங்களின் தோற்றமும் தானாக மாறும்." },
+        { type: "nav", back: "intro", next: "properties", nextLabel: "அடுத்து: CSS பண்புகள் →" }
+      ]
+    },
+    {
+      id: "properties",
+      label: "CSS பண்புகள்",
+      blocks: [
+        { type: "section-head", text: "13.3 அடிக்கடி பயன்படும் CSS பண்புகள் (Properties)" },
+        { type: "teacher-voice", html: "<p><b>உரை பாணி (Text Styling):</b></p><table><tr><th>பண்பு</th><th>பயன்</th></tr><tr><td>color</td><td>உரையின் நிறம்</td></tr><tr><td>font-family</td><td>எழுத்துரு பெயர்</td></tr><tr><td>font-size</td><td>எழுத்தின் அளவு</td></tr><tr><td>font-style</td><td>Normal/Italic</td></tr><tr><td>font-weight</td><td>Normal/Bold</td></tr><tr><td>text-align</td><td>Left/Right/Center/Justify</td></tr></table><p><b>பின்னணி/விளிம்பு:</b></p><ul><li><b>background-color:</b> பின்னணி நிறம்.</li><li><b>background-image:</b> பின்னணிப் படம்.</li><li><b>border:</b> விளிம்புக் கோட்டின் தடிமன், பாணி, நிறம் (உ.ம். border: 2px solid blue;).</li></ul>" },
+        { type: "gloss-row", word: "🖌️ font-family / font-size", def: "font-family எழுத்துருவின் பெயரையும் (உ.ம். Arial), font-size எழுத்தளவையும் (உ.ம். 12pt) குறிக்கும் CSS பண்புகள்." },
+        { type: "gloss-row", word: "🖼️ background-color / background-image", def: "background-color பின்னணி நிறத்தையும், background-image பின்னணிப் படத்தையும் அமைக்கும் CSS பண்புகள்." },
+        { type: "nav", back: "syntax-types", practice: true }
+      ]
+    }
+  ]
+}
