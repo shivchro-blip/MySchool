@@ -163,8 +163,10 @@ export const SYLLABUS = {
           { number: 1, title: "கணினி அறிமுகம்", slug: "ta-chapter-01-introduction-to-computers" },
           { number: 2, title: "எண் முறைகள்", slug: "ta-chapter-02-number-systems" },
           { number: 3, title: "கணினி அமைப்பு", slug: "ta-chapter-03-computer-organization" },
-          { number: 4, title: "இயக்க அமைப்பின் கோட்பாட்டு கருத்துக்கள்", slug: "ta-chapter-04-operating-system-concepts" }
-          // chapters 5-18 to be appended in later batches
+          { number: 4, title: "இயக்க அமைப்பின் கோட்பாட்டு கருத்துக்கள்", slug: "ta-chapter-04-operating-system-concepts" },
+          { number: 5, title: "விண்டோஸ் - ல் வேலை செய்தல்", slug: "ta-chapter-05-working-with-windows" },
+          { number: 6, title: "சொற்செயலி (Basics)", slug: "ta-chapter-06-word-processor-basics" }
+          // chapters 7-18 to be appended in later batches
         ],
       },
       "computer-science": {
