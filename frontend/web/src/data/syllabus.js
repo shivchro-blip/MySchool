@@ -216,6 +216,8 @@ export const SYLLABUS = {
           { number: 6, title: "விவரக்குறிப்பு மற்றும் அருவமாக்கம்", slug: "ta-chapter-06-specification-abstraction" },
           { number: 7, title: "பிரித்தல் மற்றும் ஒருங்கிணைத்தல்", slug: "ta-chapter-07-divide-and-conquer" },
           { number: 8, title: "சுழற்சியும், தற்சுழற்சியும்", slug: "ta-chapter-08-iteration-recursion" },
+          { number: 9, title: "C++ ஓர் அறிமுகம்", slug: "ta-chapter-09-cpp-introduction" },
+          { number: 10, title: "பாய்வுக் கட்டுப்பாடு", slug: "ta-chapter-10-cpp-control-structures" },
         ],
       },
     },
