@@ -176,6 +176,11 @@ const LOADERS = {
 // subject, classLabel, curriculum, sections: [{ id, title, content: mdString }] }.
 // Normalize here, once, so every consumer of registry.load() (LessonDetailPage,
 // SectionPage → LearnRichPage) always receives the tabs shape.
+const escapeHtml = s => s
+  .replace(/&/g, '&amp;')
+  .replace(/</g, '&lt;')
+  .replace(/>/g, '&gt;')
+
 function mdToHtml(md) {
   if (!md) return ''
   const boldify = s => s
@@ -192,12 +197,30 @@ function mdToHtml(md) {
     if (paraBuf.length) html += `<p>${boldify(paraBuf.join(' '))}</p>`
     paraBuf = []
   }
-  for (const raw of md.split('\n')) {
-    const line = raw.trim()
-    if (!line) { flushList(); flushPara(); continue }
-    if (line.startsWith('- ')) { flushPara(); listBuf.push(line.slice(2)); continue }
+  const lines = md.split('\n')
+  let i = 0
+  while (i < lines.length) {
+    const line = lines[i].trim()
+    const fence = line.match(/^```(\S*)$/)
+    if (fence) {
+      flushList(); flushPara()
+      const lang = fence[1]
+      const codeLines = []
+      i++
+      while (i < lines.length && lines[i].trim() !== '```') {
+        codeLines.push(lines[i])
+        i++
+      }
+      i++ // skip closing fence
+      const cls = lang ? ` class="language-${lang}"` : ''
+      html += `<pre><code${cls}>${escapeHtml(codeLines.join('\n'))}</code></pre>`
+      continue
+    }
+    if (!line) { flushList(); flushPara(); i++; continue }
+    if (line.startsWith('- ')) { flushPara(); listBuf.push(line.slice(2)); i++; continue }
     flushList()
     paraBuf.push(line)
+    i++
   }
   flushList()
   flushPara()
