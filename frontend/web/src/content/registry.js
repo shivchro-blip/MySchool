@@ -135,6 +135,7 @@ const LOADERS = {
   'ta-chapter-04-operating-system-concepts': () => import('./Class_11/ComputerApplicationsTamil/chapters/ta-chapter-04-operating-system-concepts'),
   'ta-chapter-05-working-with-windows':      () => import('./Class_11/ComputerApplicationsTamil/chapters/ta-chapter-05-working-with-windows'),
   'ta-chapter-06-word-processor-basics':     () => import('./Class_11/ComputerApplicationsTamil/chapters/ta-chapter-06-word-processor-basics'),
+  'ta-chapter-07-openoffice-calc-basics':    () => import('./Class_11/ComputerApplicationsTamil/chapters/ta-chapter-07-openoffice-calc-basics'),
   'ta-chapter-05-python-variables-operators': () => import('./Class_12/ComputerScienceTamil/chapters/ta-chapter-05-python-variables-operators'),
   'ta-chapter-06-control-structures':         () => import('./Class_12/ComputerScienceTamil/chapters/ta-chapter-06-control-structures'),
   'ta-chapter-07-python-functions':           () => import('./Class_12/ComputerScienceTamil/chapters/ta-chapter-07-python-functions'),
