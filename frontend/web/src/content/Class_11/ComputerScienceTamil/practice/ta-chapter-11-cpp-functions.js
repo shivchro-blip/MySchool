@@ -1,0 +1,63 @@
+export default {
+  "meta": {
+    "subject": "கணினி அறிவியல் -- வகுப்பு XI",
+    "unit": "பாடம் 11 -- C++ - ன் செயற்கூறுகள்",
+    "time": "3.00 மணி நேரம்",
+    "totalMarks": 52,
+    "instructions": "சமச்சீர் கல்வி -- அனைத்து வினாக்களுக்கும் விடையளிக்கவும்"
+  },
+  "parts": [
+    {
+      "id": "p1", "navLabel": "பகுதி - அ (10 x 1)", "title": "பகுதி - அ: சரியான விடையைத் தேர்ந்தெடுக்கவும்",
+      "type": "mcq", "scoreMax": 10, "marksPer": 1,
+      "sections": [
+        {
+          "label": "செயற்கூறுகள்",
+          "questions": [
+            { "id": "q1", "html": "வர்க்க மூலம் காணப் பயன்படும் செயற்கூறு எது?", "options": ["அ) pow()", "ஆ) sqrt()", "இ) abs()", "ஈ) round()"], "answer": 1, "hint": "&lt;cmath&gt;." },
+            { "id": "q2", "html": "ஒரு சரத்தை மற்றொன்றுக்கு நகலெடுக்கும் செயற்கூறு எது?", "options": ["அ) strcat()", "ஆ) strcpy()", "இ) strcmp()", "ஈ) strlen()"], "answer": 1, "hint": "String copy." },
+            { "id": "q3", "html": "ஒரு சரத்தின் நீளத்தைத் தரும் செயற்கூறு எது?", "options": ["அ) strlen()", "ஆ) strcpy()", "இ) strcat()", "ஈ) strcmp()"], "answer": 0, "hint": "String length." },
+            { "id": "q4", "html": "செயற்கூறு அழைக்கப்படுவதற்கு முன் தொகுப்பாளருக்குத் தெரிவிக்கும் கூற்று எது?", "options": ["அ) Function Definition", "ஆ) Function Prototype", "இ) Function Call", "ஈ) Return Statement"], "answer": 1, "hint": "முன்னறிவிப்பு." },
+            { "id": "q5", "html": "மாறியின் மதிப்பு மட்டும் நகலெடுக்கப்பட்டு அனுப்பப்படும் முறை எது?", "options": ["அ) Call by Reference", "ஆ) Call by Value", "இ) Call by Address", "ஈ) Call by Pointer"], "answer": 1, "hint": "அசல் மாறி பாதிக்கப்படாது." },
+            { "id": "q6", "html": "& குறியீட்டைப் பயன்படுத்தி மாறியின் முகவரியை அனுப்பும் முறை எது?", "options": ["அ) Call by Value", "ஆ) Call by Reference", "இ) Call by Copy", "ஈ) Call by Name"], "answer": 1, "hint": "அசல் மாறி மாற்றப்படும்." },
+            { "id": "q7", "html": "எதையும் திருப்பி அனுப்பாத return type எது?", "options": ["அ) int", "ஆ) void", "இ) float", "ஈ) char"], "answer": 1, "hint": "Void function." },
+            { "id": "q8", "html": "ஒரு செயற்கூறு தன்னைத்தானே அழைத்துக்கொள்வது எது?", "options": ["அ) Iteration", "ஆ) Recursion", "இ) Prototype", "ஈ) Call by Reference"], "answer": 1, "hint": "தற்சுழற்சி." },
+            { "id": "q9", "html": "செயற்கூற்றுக்குள் மட்டும் வரையறுக்கப்பட்ட மாறி எது?", "options": ["அ) Global Variable", "ஆ) Local Variable", "இ) Static Variable", "ஈ) External Variable"], "answer": 1, "hint": "உள்ளூர் மாறி." },
+            { "id": "q10", "html": "நிரல் முழுவதும் அணுகக்கூடிய மாறி எது?", "options": ["அ) Local Variable", "ஆ) Global Variable", "இ) Parameter", "ஈ) Constant"], "answer": 1, "hint": "மொத்த மாறி." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p2", "navLabel": "பகுதி - ஆ (5 x 2)", "title": "பகுதி - ஆ: குறு வினா",
+      "type": "short-essay", "scoreMax": 10, "marksPer": 2,
+      "questions": [
+        { "q": "செயற்கூறு (Function) என்றால் என்ன?", "ans": "ஒரு குறிப்பிட்ட பணியைச் செய்யும், பெயரிடப்பட்ட நிரல் தொகுதியே செயற்கூறு ஆகும்." },
+        { "q": "Built-in மற்றும் User-defined செயற்கூறுகள் வேறுபடுத்துக.", "ans": "Built-in செயற்கூறுகள் ஏற்கெனவே வரையறுக்கப்பட்டவை (sqrt()). User-defined செயற்கூறுகள் நிரலாளரால் உருவாக்கப்படுபவை." },
+        { "q": "Call by Value மற்றும் Call by Reference வேறுபடுத்துக.", "ans": "Call by Value மதிப்பு மட்டும் நகலெடுக்கப்படும். Call by Reference முகவரி அனுப்பப்பட்டு, அசல் மாறியையும் மாற்றும்." },
+        { "q": "Recursive Function என்றால் என்ன?", "ans": "ஒரு செயற்கூறு தன்னைத்தானே அழைத்துக்கொள்வதே Recursive Function ஆகும்." },
+        { "q": "Local மற்றும் Global Variable வேறுபடுத்துக.", "ans": "Local Variable ஒரு செயற்கூற்றுக்குள் மட்டும் அணுகக்கூடியது. Global Variable நிரல் முழுவதும் அணுகக்கூடியது." }
+      ]
+    },
+    {
+      "id": "p3", "navLabel": "பகுதி - இ (4 x 3)", "title": "பகுதி - இ: சிறு வினா",
+      "type": "short-essay", "scoreMax": 12, "marksPer": 3,
+      "questions": [
+        { "q": "செயற்கூறு வரையறையின் அடிப்படை அமைப்பை (Definition) விளக்குக.", "ans": "return_type function_name(parameter list) { // body\nreturn expression; }\n\nreturn_type — திருப்பும் மதிப்பின் வகை. function_name — செயற்கூற்றின் பெயர். parameter list — அளவுருக்கள்." },
+        { "q": "நான்கு string செயற்கூறுகளை (strcpy, strcat, strcmp, strlen) விளக்குக.", "ans": "strcpy — நகலெடுக்கும். strcat — இணைக்கும். strcmp — ஒப்பிடும். strlen — நீளத்தைத் தரும்." },
+        { "q": "Actual Parameters மற்றும் Formal Parameters வேறுபடுத்துக.", "ans": "Actual Parameters அழைக்கும்போது கொடுக்கப்படும் மதிப்புகள். Formal Parameters செயற்கூறு வரையறையில் உள்ள அளவுருக்கள்." },
+        { "q": "Storage Classes-இன் நான்கு வகைகளை (auto, static, extern, register) பட்டியலிடுக.", "ans": "1. auto — இயல்புநிலை, local scope.\n2. static — மதிப்பு அழைப்புகளுக்கிடையே தக்கவைக்கப்படும்.\n3. extern — வேறு கோப்பிலிருந்து அணுக.\n4. register — வேகமான அணுகலுக்கு CPU register-இல் சேமிக்க." }
+      ]
+    },
+    {
+      "id": "p4", "navLabel": "பகுதி - ஈ (4 x 5)", "title": "பகுதி - ஈ: பெரு வினா",
+      "type": "long-essay", "scoreMax": 20, "marksPer": 5,
+      "questions": [
+        { "q": "செயற்கூறு வரையறை, முன்னறிவிப்பு, அழைப்பு ஆகியவற்றை குறியீட்டு எடுத்துக்காட்டுடன் விரிவாக விளக்குக.", "ans": "int add(int a, int b); // Prototype\n\nint main() {\n  cout << add(5,3); // Call\n}\n\nint add(int a, int b) { // Definition\n  return a+b;\n}\n\nPrototype தொகுப்பாளருக்கு முன்கூட்டியே தெரிவிக்கும்; Definition உண்மையான குறியீடு; Call செயற்கூற்றை இயக்கும்." },
+        { "q": "Call by Value மற்றும் Call by Reference ஆகியவற்றை குறியீட்டு எடுத்துக்காட்டுடன் விரிவாக விளக்குக.", "ans": "Call by Value:\nvoid change(int a){ a=100; } // அசல் மாறாது\n\nCall by Reference:\nvoid change(int &a){ a=100; } // அசல் மாறும்\n\nCall by Value நகலை மாற்றும்; Call by Reference & மூலம் அசல் மாறியையே மாற்றும்." },
+        { "q": "Recursive Function-ஐ Factorial எடுத்துக்காட்டுடன் விரிவாக விளக்குக.", "ans": "int factorial(int n) {\n  if(n<=1) return 1; // Base Case\n  else return n*factorial(n-1); // Recursive Step\n}\n\nn=5 எனில் 5×4×3×2×1=120. ஒவ்வொரு அழைப்பும் n-ஐக் குறைத்து, n=1 அடையும்போது நிறுத்தப்படும்." },
+        { "q": "மாறிகளின் எல்லையையும் (Scope) Storage Classes-ஐயும் விரிவாக விளக்குக.", "ans": "Scope: Local (செயற்கூற்றுக்குள் மட்டும்), Global (நிரல் முழுவதும்).\n\nStorage Classes:\n1. auto — இயல்புநிலை.\n2. static — மதிப்பு தக்கவைக்கப்படும்.\n3. extern — வேறு கோப்பிலிருந்து அணுக.\n4. register — வேகமான அணுகல்.\n\nஇவை மாறியின் வாழ்நாளையும் (Lifetime) பார்வைத்தன்மையையும் (Visibility) தீர்மானிக்கின்றன." }
+      ]
+    }
+  ]
+}

@@ -218,6 +218,8 @@ export const SYLLABUS = {
           { number: 8, title: "சுழற்சியும், தற்சுழற்சியும்", slug: "ta-chapter-08-iteration-recursion" },
           { number: 9, title: "C++ ஓர் அறிமுகம்", slug: "ta-chapter-09-cpp-introduction" },
           { number: 10, title: "பாய்வுக் கட்டுப்பாடு", slug: "ta-chapter-10-cpp-control-structures" },
+          { number: 11, title: "C++ - ன் செயற்கூறுகள்", slug: "ta-chapter-11-cpp-functions" },
+          { number: 12, title: "அணிகள் மற்றும் கட்டுருக்கள்", slug: "ta-chapter-12-arrays-structures" },
         ],
       },
     },
