@@ -14,7 +14,7 @@ export default {
 - **உள்ளமைந்த செயற்கூறுகள் (Built-in / Library Functions):** ஏற்கெனவே வரையறுக்கப்பட்டவை (உ.ம். sqrt(), pow()).
 - **பயனாளர் வரையறுத்த செயற்கூறுகள் (User-defined Functions):** நிரலாளரால் உருவாக்கப்படுபவை.
 
-**கணிதச் செயற்கூறுகள் (Math Functions — &lt;cmath&gt;):**
+**கணிதச் செயற்கூறுகள் (Math Functions — <cmath>):**
 
 \`\`\`cpp
 #include <iostream>
@@ -34,7 +34,7 @@ sqrt() (வர்க்க மூலம்), pow(base,exp) (அடுக்க�
     {
       id: "string-functions",
       title: "சரம் (String) செயற்கூறுகள்",
-      content: `**&lt;cstring&gt;** தலைப்புக் கோப்பில் பல உள்ளமைந்த சரம் செயற்கூறுகள் உள்ளன:
+      content: `**<cstring>** தலைப்புக் கோப்பில் பல உள்ளமைந்த சரம் செயற்கூறுகள் உள்ளன:
 
 | செயற்கூறு | பயன் |
 |---|---|

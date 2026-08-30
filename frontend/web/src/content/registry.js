@@ -230,11 +230,11 @@ function mdToHtml(md) {
   let listBuf = []
   let paraBuf = []
   const flushList = () => {
-    if (listBuf.length) html += `<ul>${listBuf.map(l => `<li>${boldify(l)}</li>`).join('')}</ul>`
+    if (listBuf.length) html += `<ul>${listBuf.map(l => `<li>${boldify(escapeHtml(l))}</li>`).join('')}</ul>`
     listBuf = []
   }
   const flushPara = () => {
-    if (paraBuf.length) html += `<p>${boldify(paraBuf.join(' '))}</p>`
+    if (paraBuf.length) html += `<p>${boldify(escapeHtml(paraBuf.join(' ')))}</p>`
     paraBuf = []
   }
   const lines = md.split('\n')
