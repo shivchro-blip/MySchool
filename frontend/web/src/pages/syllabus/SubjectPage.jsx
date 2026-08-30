@@ -368,7 +368,7 @@ function ChapterRow({ ch, year, subject }) {
           {(subject === 'computer-applications' && (year === 'plus2' || year === 'plus1')) ||
           (subject === 'computer-science' && (year === 'plus2' || year === 'plus1')) ||
           (subject === 'computer-applications-tamil' && (year === 'plus2' || year === 'plus1')) ||
-          (subject === 'computer-science-tamil' && year === 'plus2') ? (
+          (subject === 'computer-science-tamil' && (year === 'plus2' || year === 'plus1')) ? (
             <FinalExamPrepEntryCard
               dest={`/${year}/${subject}/final-exam-prep`}
               classLabel={year === 'plus2' ? 'Class 12' : 'Class 11'}
