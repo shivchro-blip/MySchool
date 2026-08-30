@@ -189,6 +189,38 @@ const escapeHtml = s => s
   .replace(/</g, '&lt;')
   .replace(/>/g, '&gt;')
 
+// Splits a `| a | b\| c |` row into ['a', 'b| c'] — a backslash-escaped pipe
+// stays literal inside a cell instead of acting as a column delimiter.
+const splitTableRow = row => {
+  let s = row.trim()
+  if (s.startsWith('|')) s = s.slice(1)
+  if (s.endsWith('|')) s = s.slice(0, -1)
+  const cells = []
+  let cur = ''
+  for (let j = 0; j < s.length; j++) {
+    const c = s[j]
+    if (c === '\\' && s[j + 1] === '|') { cur += '|'; j++; continue }
+    if (c === '|') { cells.push(cur.trim()); cur = ''; continue }
+    cur += c
+  }
+  cells.push(cur.trim())
+  return cells
+}
+
+// Returns per-column alignment ('left'|'right'|'center'|null) if `row` is a
+// valid `|---|:---|---:|` separator row, else null (not a table).
+const tableSeparatorAligns = row => {
+  const cells = splitTableRow(row)
+  if (!cells.length) return null
+  const aligns = []
+  for (const cell of cells) {
+    const m = cell.match(/^(:)?-+(:)?$/)
+    if (!m) return null
+    aligns.push(m[1] && m[2] ? 'center' : m[2] ? 'right' : m[1] ? 'left' : null)
+  }
+  return aligns
+}
+
 function mdToHtml(md) {
   if (!md) return ''
   const boldify = s => s
@@ -223,6 +255,28 @@ function mdToHtml(md) {
       const cls = lang ? ` class="language-${lang}"` : ''
       html += `<pre><code${cls}>${escapeHtml(codeLines.join('\n'))}</code></pre>`
       continue
+    }
+    if (line.includes('|') && i + 1 < lines.length) {
+      const aligns = tableSeparatorAligns(lines[i + 1].trim())
+      const headerCells = aligns ? splitTableRow(line) : null
+      if (aligns && headerCells.length === aligns.length) {
+        flushList(); flushPara()
+        const cell = (text, tag, align) => {
+          const style = align ? ` style="text-align:${align}"` : ''
+          return `<${tag}${style}>${boldify(escapeHtml(text))}</${tag}>`
+        }
+        html += '<table><thead><tr>' +
+          headerCells.map((c, idx) => cell(c, 'th', aligns[idx])).join('') +
+          '</tr></thead><tbody>'
+        i += 2
+        while (i < lines.length && lines[i].trim() && lines[i].includes('|')) {
+          const rowCells = splitTableRow(lines[i])
+          html += '<tr>' + rowCells.map((c, idx) => cell(c, 'td', aligns[idx])).join('') + '</tr>'
+          i++
+        }
+        html += '</tbody></table>'
+        continue
+      }
     }
     if (!line) { flushList(); flushPara(); i++; continue }
     if (line.startsWith('- ')) { flushPara(); listBuf.push(line.slice(2)); i++; continue }
