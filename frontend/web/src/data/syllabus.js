@@ -224,6 +224,8 @@ export const SYLLABUS = {
           { number: 14, title: "இனக்குழுக்கள் மற்றும் பொருள்கள்", slug: "ta-chapter-14-classes-and-objects" },
           { number: 15, title: "பல்லுருவாக்கம்", slug: "ta-chapter-15-polymorphism" },
           { number: 16, title: "மரபுரிமம்", slug: "ta-chapter-16-inheritance" },
+          { number: 17, title: "கணிப்பொறி நன்னெறி மற்றும் இணையப் பாதுகாப்பு", slug: "ta-chapter-17-ethics-cyber-security-cs" },
+          { number: 18, title: "கணிப்பொறியில் தமிழ்", slug: "ta-chapter-18-tamil-computing-cs" },
         ],
       },
     },
