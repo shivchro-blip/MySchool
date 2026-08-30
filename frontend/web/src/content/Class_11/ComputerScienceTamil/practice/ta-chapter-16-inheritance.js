@@ -1,0 +1,63 @@
+export default {
+  "meta": {
+    "subject": "கணினி அறிவியல் -- வகுப்பு XI",
+    "unit": "பாடம் 16 -- மரபுரிமம்",
+    "time": "3.00 மணி நேரம்",
+    "totalMarks": 52,
+    "instructions": "சமச்சீர் கல்வி -- அனைத்து வினாக்களுக்கும் விடையளிக்கவும்"
+  },
+  "parts": [
+    {
+      "id": "p1", "navLabel": "பகுதி - அ (10 x 1)", "title": "பகுதி - அ: சரியான விடையைத் தேர்ந்தெடுக்கவும்",
+      "type": "mcq", "scoreMax": 10, "marksPer": 1,
+      "sections": [
+        {
+          "label": "மரபுரிமம்",
+          "questions": [
+            { "id": "q1", "html": "ஒரு புதிய Class ஏற்கெனவே உள்ள Class-இன் பண்புகளைப் பெறுவது எது?", "options": ["அ) Polymorphism", "ஆ) Inheritance", "இ) Encapsulation", "ஈ) Abstraction"], "answer": 1, "hint": "மரபுரிமம்." },
+            { "id": "q2", "html": "ஒரு Base Class-இலிருந்து ஒரு Derived Class பெறும் மரபுரிமை வகை எது?", "options": ["அ) Multiple", "ஆ) Single", "இ) Hierarchical", "ஈ) Hybrid"], "answer": 1, "hint": "Single Inheritance." },
+            { "id": "q3", "html": "A→B→C எனத் தொடர் அடுக்குகளாக மரபுரிமை பெறுவது எது?", "options": ["அ) Single", "ஆ) Multiple", "இ) Multilevel", "ஈ) Hierarchical"], "answer": 2, "hint": "Multilevel Inheritance." },
+            { "id": "q4", "html": "பல Base Class-களிலிருந்து ஒரு Derived Class பெறும் மரபுரிமை எது?", "options": ["அ) Single", "ஆ) Multiple", "இ) Multilevel", "ஈ) Hierarchical"], "answer": 1, "hint": "Multiple Inheritance." },
+            { "id": "q5", "html": "ஒரு Base Class-இலிருந்து பல Derived Class-கள் உருவாகும் மரபுரிமை எது?", "options": ["அ) Single", "ஆ) Multiple", "இ) Hierarchical", "ஈ) Multilevel"], "answer": 2, "hint": "Hierarchical Inheritance." },
+            { "id": "q6", "html": "Public Base Class-இன் protected உறுப்பு Derived Class-இல் எப்படி மாறும்?", "options": ["அ) private", "ஆ) protected", "இ) public", "ஈ) அணுக முடியாது"], "answer": 1, "hint": "protected ஆகவே தொடரும்." },
+            { "id": "q7", "html": "Derived Class பொருள் உருவாகும்போது முதலில் அழைக்கப்படுவது எது?", "options": ["அ) Derived Constructor", "ஆ) Base Constructor", "இ) Destructor", "ஈ) main()"], "answer": 1, "hint": "Base முதலில்." },
+            { "id": "q8", "html": "Base Class-இல் உள்ள செயற்கூற்றை Derived Class-இல் மீண்டும் வரையறுப்பது எது?", "options": ["அ) Overloading", "ஆ) Overriding", "இ) Encapsulation", "ஈ) Abstraction"], "answer": 1, "hint": "Function Overriding." },
+            { "id": "q9", "html": "Private Base Class-இன் public உறுப்பு Derived Class-இல் எப்படி மாறும்?", "options": ["அ) public", "ஆ) protected", "இ) private", "ஈ) அணுக முடியாது"], "answer": 2, "hint": "private inheritance." },
+            { "id": "q10", "html": "மரபுரிமத்தின் முக்கிய நோக்கம் என்ன?", "options": ["அ) வேகம் அதிகரிப்பு", "ஆ) குறியீட்டு மறு பயன்பாடு", "இ) நினைவகம் குறைத்தல்", "ஈ) பாதுகாப்பு மட்டும்"], "answer": 1, "hint": "Reusability." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p2", "navLabel": "பகுதி - ஆ (5 x 2)", "title": "பகுதி - ஆ: குறு வினா",
+      "type": "short-essay", "scoreMax": 10, "marksPer": 2,
+      "questions": [
+        { "q": "மரபுரிமம் (Inheritance) என்றால் என்ன?", "ans": "ஒரு புதிய Class (Derived), ஏற்கெனவே உள்ள Class-இன் (Base) பண்புகளையும் செயல்பாடுகளையும் பெறுவதே Inheritance ஆகும்." },
+        { "q": "Single மற்றும் Multiple Inheritance வேறுபடுத்துக.", "ans": "Single Inheritance ஒரு Base Class-இலிருந்து ஒரு Derived Class. Multiple Inheritance பல Base Class-களிலிருந்து ஒரு Derived Class." },
+        { "q": "Multilevel Inheritance என்றால் என்ன?", "ans": "A→B→C எனத் தொடர் அடுக்குகளாக மரபுரிமை பெறுவதே Multilevel Inheritance ஆகும்." },
+        { "q": "Function Overriding என்றால் என்ன?", "ans": "Base Class-இல் உள்ள ஒரு செயற்கூற்றை, Derived Class-இல் அதே பெயர்/அளவுருக்களுடன் மீண்டும் வரையறுத்து புதிய செயல்பாடு தருவதே Function Overriding ஆகும்." },
+        { "q": "Derived Class பொருள் உருவாகும்போது Constructor-கள் அழைக்கப்படும் வரிசையைத் தருக.", "ans": "முதலில் Base Class Constructor, பின்னர் Derived Class Constructor அழைக்கப்படும்." }
+      ]
+    },
+    {
+      "id": "p3", "navLabel": "பகுதி - இ (4 x 3)", "title": "பகுதி - இ: சிறு வினா",
+      "type": "short-essay", "scoreMax": 12, "marksPer": 3,
+      "questions": [
+        { "q": "மரபுரிமத்தின் ஐந்து வகைகளை (Single, Multiple, Multilevel, Hierarchical, Hybrid) பட்டியலிடுக.", "ans": "1. Single — ஒரு Base, ஒரு Derived.\n2. Multiple — பல Base, ஒரு Derived.\n3. Multilevel — தொடர் அடுக்குகள்.\n4. Hierarchical — ஒரு Base, பல Derived.\n5. Hybrid — கலவை." },
+        { "q": "Public, Protected, Private மரபுரிமை முறைகளை (Visibility Modes) விளக்குக.", "ans": "Public inheritance — Base-இன் public/protected உறுப்புகள் அதே மட்டத்தில் தொடரும். Protected inheritance — அனைத்தும் protected ஆகும். Private inheritance — அனைத்தும் private ஆகும்." },
+        { "q": "மரபுரிமத்தில் Constructor-கள் எவ்வாறு அழைக்கப்படுகின்றன என்பதை எடுத்துக்காட்டுடன் விளக்குக.", "ans": "class base{ public: base(){cout<<\"Base\";} };\nclass derived:public base{ public: derived(){cout<<\"Derived\";} };\n\nஒரு derived பொருள் உருவாகும்போது, முதலில் Base Constructor, பின் Derived Constructor அழைக்கப்படும்." },
+        { "q": "Function Overriding-ஐ எடுத்துக்காட்டுடன் விளக்குக.", "ans": "class base{ public: void display(){cout<<\"Base\";} };\nclass derived:public base{ public: void display(){cout<<\"Derived\";} };\n\nDerived class-இன் display() Base-இன் display()-ஐ மேலெழுதுகிறது (overrides)." }
+      ]
+    },
+    {
+      "id": "p4", "navLabel": "பகுதி - ஈ (4 x 5)", "title": "பகுதி - ஈ: பெரு வினா",
+      "type": "long-essay", "scoreMax": 20, "marksPer": 5,
+      "questions": [
+        { "q": "மரபுரிமத்தின் அனைத்து வகைகளையும் (Single, Multiple, Multilevel, Hierarchical) குறியீட்டு எடுத்துக்காட்டுடன் விரிவாக விளக்குக.", "ans": "Single: class A{}; class B:public A{};\n\nMultilevel: class A{}; class B:public A{}; class C:public B{};\n\nMultiple: class A{}; class B{}; class C:public A,public B{};\n\nHierarchical: class A{}; class B:public A{}; class C:public A{}; class D:public A{};\n\nஇவை ஒவ்வொன்றும் வெவ்வேறு வடிவமைப்புத் தேவைகளுக்கு ஏற்ப பயன்படுத்தப்படுகின்றன." },
+        { "q": "மரபுரிமப் பார்வைத்தன்மை முறைகளை (Public, Protected, Private) அட்டவணையுடன் விரிவாக விளக்குக.", "ans": "Base Class உறுப்பு → Public inheritance → Protected inheritance → Private inheritance\nprivate → அணுக முடியாது → அணுக முடியாது → அணுக முடியாது\nprotected → protected → protected → private\npublic → public → protected → private\n\nஇந்த அட்டவணை Derived Class-இல் Base-இன் உறுப்புகள் என்ன access level பெறும் எனத் தீர்மானிக்கிறது." },
+        { "q": "மரபுரிமத்தில் Constructor-கள் மற்றும் Function Overriding-ஐ முழு எடுத்துக்காட்டுடன் விரிவாக விளக்குக.", "ans": "class base {\npublic:\n  base(){ cout<<\"Base Constructor\\\\n\"; }\n  void display(){ cout<<\"Base display\\\\n\"; }\n};\nclass derived : public base {\npublic:\n  derived(){ cout<<\"Derived Constructor\\\\n\"; }\n  void display(){ cout<<\"Derived display\\\\n\"; } // Overriding\n};\nint main(){\n  derived d;\n  d.display(); // Derived display\n}\n\nவெளியீடு: Base Constructor, Derived Constructor, Derived display — Constructor வரிசை Base→Derived; display() overridden ஆனதால் Derived-இன் version அழைக்கப்படும்." },
+        { "q": "மரபுரிமத்தின் நன்மைகளை (Reusability, Extensibility) எடுத்துக்காட்டுகளுடன் விரிவாக விளக்குக.", "ans": "மரபுரிமம் குறியீட்டு மறு பயன்பாட்டை (Reusability) சாத்தியமாக்குகிறது — Base Class-இல் எழுதப்பட்ட பொதுவான பண்புகளை/செயல்பாடுகளை பல Derived Class-கள் மீண்டும் எழுதாமல் பயன்படுத்தலாம். உ.ம்: class Vehicle (பொதுவான பண்புகள்) → class Car, class Bike (Vehicle-இலிருந்து மரபுரிமை பெறுதல்). இது நிரலின் நீளத்தைக் குறைத்து, விரிவாக்கத்தையும் (Extensibility) பராமரிப்பையும் எளிதாக்குகிறது." }
+      ]
+    }
+  ]
+}
