@@ -1,0 +1,174 @@
+{
+  "eyebrow": "பாடம் 9 · வகுப்பு 11 கணினி பயன்பாடுகள்",
+  "title": "இணைய தளம் மற்றும் மின்னஞ்சல் - ஓர் அறிமுகம்",
+  "author": "",
+  "pills": [
+    "கோட்பாடு",
+    "ஆகஸ்ட் பாடத்திட்டம்"
+  ],
+  "tabs": [
+    {
+      "id": "intro",
+      "label": "இணையம் அறிமுகம்",
+      "blocks": [
+        {
+          "type": "section-head",
+          "text": "9.1 இணையம் (Internet) — ஓர் அறிமுகம்"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p><b>இணையம் (Internet)</b> என்பது உலகம் முழுவதும் உள்ள கோடிக்கணக்கான கணினிகளை இணைக்கும் ஒரு பெரிய வலையமைப்பு ஆகும். <b>WWW (World Wide Web)</b> என்பது இணையத்தில் இணைக்கப்பட்டுள்ள ஆவணங்களின் (Web Pages) தொகுப்பு.</p><p><b>TCP/IP (Transmission Control Protocol/Internet Protocol)</b> என்பது இணையத்தில் தரவுகளை அனுப்பவும் பெறவும் பயன்படும் அடிப்படை நெறிமுறைகளின் (Protocols) தொகுப்பு ஆகும்.</p><p><b>IP முகவரி (IP Address):</b> இணையத்தில் இணைக்கப்பட்ட ஒவ்வொரு சாதனத்திற்கும் அளிக்கப்படும் தனித்துவ எண் முகவரி (உ.ம். 192.168.1.1).</p>"
+        },
+        {
+          "type": "gloss-row",
+          "word": "🌐 WWW (World Wide Web)",
+          "def": "இணையத்தில் இணைக்கப்பட்டுள்ள வலைப்பக்கங்களின் (Web Pages) தொகுப்பு."
+        },
+        {
+          "type": "gloss-row",
+          "word": "🔗 TCP/IP",
+          "def": "இணையத்தில் தரவுகளை அனுப்பவும் பெறவும் பயன்படும் அடிப்படை நெறிமுறைகளின் தொகுப்பு."
+        },
+        {
+          "type": "gloss-row",
+          "word": "🔢 IP Address",
+          "def": "இணையத்தில் இணைக்கப்பட்ட ஒவ்வொரு சாதனத்திற்கும் அளிக்கப்படும் தனித்துவ எண் முகவரி."
+        },
+        {
+          "type": "nav",
+          "next": "domain-url",
+          "nextLabel": "அடுத்து: டொமைன் பெயரும் URL-உம் →"
+        }
+      ]
+    },
+    {
+      "id": "domain-url",
+      "label": "டொமைன் / URL",
+      "blocks": [
+        {
+          "type": "section-head",
+          "text": "9.2 டொமைன் பெயரும் URL-உம் (Domain Name & URL)"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p><b>டொமைன் பெயர் (Domain Name):</b> ஒரு இணைய முகவரியை மனிதர்கள் எளிதில் நினைவில் வைத்திருக்கும் வகையில் குறிக்கும் பெயர் (உ.ம். www.google.com). எண் IP முகவரிகளை பெயர்களாக மாற்றும் அமைப்பே <b>DNS (Domain Name System)</b> ஆகும்.</p><p>பொதுவான டொமைன் பெயர் நீட்டிப்புகள் (Domain Extensions): .com (வணிகம்), .org (இலாப நோக்கமற்றது), .gov (அரசு), .edu (கல்வி), .net (வலையமைப்பு).</p><p><b>URL (Uniform Resource Locator):</b> ஒரு வலைப்பக்கத்தின் முழுமையான முகவரி (உ.ம். http://www.example.com/page.html).</p><p><b>ISP (Internet Service Provider):</b> பயனாளர்களுக்கு இணைய இணைப்பை வழங்கும் நிறுவனம்.</p>"
+        },
+        {
+          "type": "gloss-row",
+          "word": "🏷️ DNS (Domain Name System)",
+          "def": "எண் IP முகவரிகளை மனிதர் எளிதில் நினைவில் வைக்கக்கூடிய டொமைன் பெயர்களாக மாற்றும் அமைப்பு."
+        },
+        {
+          "type": "gloss-row",
+          "word": "🔗 URL (Uniform Resource Locator)",
+          "def": "ஒரு வலைப்பக்கத்தின் முழுமையான முகவரி (உ.ம். http://www.example.com)."
+        },
+        {
+          "type": "gloss-row",
+          "word": "📡 ISP (Internet Service Provider)",
+          "def": "பயனாளர்களுக்கு இணைய இணைப்பை வழங்கும் நிறுவனம்."
+        },
+        {
+          "type": "nav",
+          "back": "intro",
+          "next": "network-types",
+          "nextLabel": "அடுத்து: வலையமைப்பு வகைகள் →"
+        }
+      ]
+    },
+    {
+      "id": "network-types",
+      "label": "வலையமைப்பு வகைகள்",
+      "blocks": [
+        {
+          "type": "section-head",
+          "text": "9.3 வலையமைப்பு வகைகள் (Types of Networks)"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>கணினி வலையமைப்புகள் அவற்றின் புவியியல் பரவலின் அடிப்படையில் பல வகைகளாகப் பிரிக்கப்படுகின்றன:</p><ul><li><b>LAN (Local Area Network):</b> ஒரு கட்டிடம் அல்லது வளாகத்திற்குள் அமைந்த சிறிய வலையமைப்பு.</li><li><b>MAN (Metropolitan Area Network):</b> ஒரு நகரம் அளவிலான வலையமைப்பு.</li><li><b>WAN (Wide Area Network):</b> நாடு/கண்டம் அளவிலான பரந்த வலையமைப்பு; இணையமே மிகப் பெரிய WAN-இன் எடுத்துக்காட்டு.</li><li><b>PAN (Personal Area Network):</b> தனிநபர் சாதனங்களை (மொபைல், லேப்டாப்) இணைக்கும் மிகச் சிறிய வலையமைப்பு.</li><li><b>WLAN (Wireless LAN):</b> Wi-Fi வாயிலாக இணைக்கப்படும் கம்பியில்லா LAN.</li></ul>"
+        },
+        {
+          "type": "gloss-row",
+          "word": "🏢 LAN (Local Area Network)",
+          "def": "ஒரு கட்டிடம் அல்லது வளாகத்திற்குள் அமைந்த சிறிய வலையமைப்பு."
+        },
+        {
+          "type": "gloss-row",
+          "word": "🌍 WAN (Wide Area Network)",
+          "def": "நாடு/கண்டம் அளவிலான பரந்த வலையமைப்பு; இணையம் இதன் மிகப்பெரிய எடுத்துக்காட்டு."
+        },
+        {
+          "type": "nav",
+          "back": "domain-url",
+          "next": "connectivity",
+          "nextLabel": "அடுத்து: இணைப்பு வழிகள் →"
+        }
+      ]
+    },
+    {
+      "id": "connectivity",
+      "label": "இணைப்பு வழிகள்",
+      "blocks": [
+        {
+          "type": "section-head",
+          "text": "9.4 இணைய இணைப்பு வழிகள் (Internet Connectivity)"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>இணையத்துடன் இணைய பல வழிகள் உள்ளன:</p><ul><li><b>Dial-Up:</b> தொலைபேசி இணைப்பு வழியாக மெதுவான இணையம்.</li><li><b>Broadband:</b> அதிக வேகம் கொண்ட நிரந்தர இணைய இணைப்பு.</li><li><b>ADSL (Asymmetric Digital Subscriber Line):</b> தொலைபேசி கம்பி வழியாக அதிவேக இணைய இணைப்பு.</li><li><b>ISDN (Integrated Services Digital Network):</b> குரல், தரவு, படம் ஆகியவற்றை ஒரே கம்பி வழியாக டிஜிட்டல் முறையில் அனுப்பும் இணைப்பு.</li></ul><p><b>வலை உலாவி (Web Browser):</b> வலைப்பக்கங்களைப் பார்வையிட உதவும் மென்பொருள் (உ.ம். Google Chrome, Mozilla Firefox, Safari).</p>"
+        },
+        {
+          "type": "gloss-row",
+          "word": "🌐 Web Browser",
+          "def": "வலைப்பக்கங்களைப் பார்வையிட உதவும் மென்பொருள் (உ.ம். Chrome, Firefox)."
+        },
+        {
+          "type": "gloss-row",
+          "word": "📶 Broadband",
+          "def": "அதிக வேகம் கொண்ட நிரந்தர இணைய இணைப்பு வகை."
+        },
+        {
+          "type": "nav",
+          "back": "network-types",
+          "next": "services",
+          "nextLabel": "அடுத்து: இணைய சேவைகள் →"
+        }
+      ]
+    },
+    {
+      "id": "services",
+      "label": "இணைய சேவைகள்",
+      "blocks": [
+        {
+          "type": "section-head",
+          "text": "9.5 இணையம் வழங்கும் சேவைகள் (Internet Services)"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>இணையம் பல்வேறு சேவைகளை வழங்குகிறது:</p><ul><li><b>மின்னஞ்சல் (Email):</b> மின்னணு வழி செய்திகளை அனுப்பவும் பெறவும்.</li><li><b>இணைய வணிகம் (e-Commerce):</b> ஆன்லைனில் பொருட்களை வாங்குதல்/விற்றல் (உ.ம். Amazon, Flipkart).</li><li><b>காணொலி மாநாடு (Video Conferencing):</b> தொலைவில் உள்ளவர்களுடன் நேரடி காணொளி வழியாகக் கலந்துரையாடல்.</li><li><b>மின் கற்றல் (e-Learning):</b> இணையம் வழியாகக் கற்றல் (உ.ம். ஆன்லைன் வகுப்புகள்).</li><li><b>மின் ஆளுகை (e-Governance):</b> அரசு சேவைகளை இணையம் வழியாக வழங்குதல்.</li><li><b>இணைய வங்கி (Internet Banking):</b> வங்கிச் சேவைகளை ஆன்லைனில் பயன்படுத்துதல்.</li></ul>"
+        },
+        {
+          "type": "gloss-row",
+          "word": "📧 மின்னஞ்சல் (Email)",
+          "def": "மின்னணு வழியாகச் செய்திகளை அனுப்பவும் பெறவும் உதவும் இணைய சேவை."
+        },
+        {
+          "type": "gloss-row",
+          "word": "🛒 e-Commerce",
+          "def": "ஆன்லைனில் பொருட்களை வாங்குதல்/விற்றல் நடைபெறும் இணைய வணிக சேவை."
+        },
+        {
+          "type": "think-box",
+          "label": "நினைவில் கொள்ள 🌐",
+          "text": "e- முன்னொட்டு (electronic) — e-Commerce, e-Learning, e-Governance, e-Banking என அனைத்தும் \"மின்னணு வழி\" சேவைகளைக் குறிக்கும்."
+        },
+        {
+          "type": "nav",
+          "back": "connectivity",
+          "practice": true
+        }
+      ]
+    }
+  ]
+}

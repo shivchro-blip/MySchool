@@ -1,0 +1,228 @@
+{
+  "meta": {
+    "subject": "கணினி அறிவியல் -- வகுப்பு XI",
+    "unit": "பாடம் 10 -- பாய்வுக் கட்டுப்பாடு",
+    "time": "3.00 மணி நேரம்",
+    "totalMarks": 52,
+    "instructions": "சமச்சீர் கல்வி -- அனைத்து வினாக்களுக்கும் விடையளிக்கவும்"
+  },
+  "parts": [
+    {
+      "id": "p1",
+      "navLabel": "பகுதி - அ (10 x 1)",
+      "title": "பகுதி - அ: சரியான விடையைத் தேர்ந்தெடுக்கவும்",
+      "type": "mcq",
+      "scoreMax": 10,
+      "marksPer": 1,
+      "sections": [
+        {
+          "label": "கட்டுப்பாட்டு கூற்றுகள்",
+          "questions": [
+            {
+              "id": "q1",
+              "html": "படிகள் வரிசையாக இயங்கும் கூற்று வகை எது?",
+              "options": [
+                "அ) Selection",
+                "ஆ) Sequence",
+                "இ) Iteration",
+                "ஈ) Jump"
+              ],
+              "answer": 1,
+              "hint": "Sequence Statement."
+            },
+            {
+              "id": "q2",
+              "html": "நிபந்தனை true எனில் மட்டும் தொகுதியை இயக்கும் கூற்று எது?",
+              "options": [
+                "அ) for",
+                "ஆ) if",
+                "இ) switch",
+                "ஈ) while"
+              ],
+              "answer": 1,
+              "hint": "எளிய நிபந்தனை."
+            },
+            {
+              "id": "q3",
+              "html": "switch-இல் ஒவ்வொரு case-இன் முடிவிலும் தேவைப்படுவது எது?",
+              "options": [
+                "அ) continue",
+                "ஆ) break",
+                "இ) return",
+                "ஈ) exit"
+              ],
+              "answer": 1,
+              "hint": "Fall-through தவிர்க்க."
+            },
+            {
+              "id": "q4",
+              "html": "தொடக்கம், நிபந்தனை, அதிகரிப்பு மூன்றும் ஒரே வரியில் கொண்ட loop எது?",
+              "options": [
+                "அ) while",
+                "ஆ) do-while",
+                "இ) for",
+                "ஈ) switch"
+              ],
+              "answer": 2,
+              "hint": "for(init;cond;incr)."
+            },
+            {
+              "id": "q5",
+              "html": "தொகுதி குறைந்தது ஒரு முறையாவது இயங்கும் loop எது?",
+              "options": [
+                "அ) for",
+                "ஆ) while",
+                "இ) do-while",
+                "ஈ) if"
+              ],
+              "answer": 2,
+              "hint": "பின்பே நிபந்தனை சரிபார்க்கப்படும்."
+            },
+            {
+              "id": "q6",
+              "html": "நிபந்தனையை முதலில் சரிபார்க்கும் loop எது?",
+              "options": [
+                "அ) do-while",
+                "ஆ) while",
+                "இ) switch",
+                "ஈ) if"
+              ],
+              "answer": 1,
+              "hint": "while(condition){...}"
+            },
+            {
+              "id": "q7",
+              "html": "loop-இலிருந்து முழுமையாக வெளியேற பயன்படும் கூற்று எது?",
+              "options": [
+                "அ) continue",
+                "ஆ) break",
+                "இ) return",
+                "ஈ) exit"
+              ],
+              "answer": 1,
+              "hint": "loop-ஐ நிறுத்தும்."
+            },
+            {
+              "id": "q8",
+              "html": "தற்போதைய மறுசெயலை மட்டும் தவிர்த்து அடுத்ததற்குச் செல்லும் கூற்று எது?",
+              "options": [
+                "அ) break",
+                "ஆ) continue",
+                "இ) return",
+                "ஈ) skip"
+              ],
+              "answer": 1,
+              "hint": "loop முழுமையாக நிறுத்தாது."
+            },
+            {
+              "id": "q9",
+              "html": "நிரலின் இயக்கத்தை ஒரு குறிப்பிட்ட லேபிளுக்கு நேரடியாக மாற்றும் கூற்று எது?",
+              "options": [
+                "அ) break",
+                "ஆ) continue",
+                "இ) goto",
+                "ஈ) switch"
+              ],
+              "answer": 2,
+              "hint": "goto label."
+            },
+            {
+              "id": "q10",
+              "html": "ஒரு for loop-க்குள் இன்னொரு for loop உள்ளதை என்னவென்பர்?",
+              "options": [
+                "அ) Empty loop",
+                "ஆ) Nested loop",
+                "இ) Delay loop",
+                "ஈ) Infinite loop"
+              ],
+              "answer": 1,
+              "hint": "loop-க்குள் loop."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "navLabel": "பகுதி - ஆ (5 x 2)",
+      "title": "பகுதி - ஆ: குறு வினா",
+      "type": "short-essay",
+      "scoreMax": 10,
+      "marksPer": 2,
+      "questions": [
+        {
+          "q": "if மற்றும் if-else வேறுபடுத்துக.",
+          "ans": "if நிபந்தனை true ஆனால் மட்டும் தொகுதியை இயக்கும். if-else true/false இரு நிலைகளுக்கும் தனித்தனித் தொகுதியை இயக்கும்."
+        },
+        {
+          "q": "switch கட்டமைப்பின் பயன் என்ன?",
+          "ans": "ஒரு மாறியின் மதிப்புக்கேற்ப பல case-களில் ஒன்றை இயக்க switch கட்டமைப்பு பயன்படுகிறது."
+        },
+        {
+          "q": "for loop மற்றும் while loop வேறுபடுத்துக.",
+          "ans": "for loop தொடக்கம்/நிபந்தனை/அதிகரிப்பு மூன்றையும் ஒரே வரியில் கொண்டது. while loop நிபந்தனையை மட்டும் சரிபார்க்கும்."
+        },
+        {
+          "q": "break மற்றும் continue வேறுபடுத்துக.",
+          "ans": "break loop-இலிருந்து முழுமையாக வெளியேறும். continue தற்போதைய மறுசெயலை மட்டும் தவிர்த்து அடுத்ததற்குச் செல்லும்."
+        },
+        {
+          "q": "goto கூற்றின் பயன் யாது?",
+          "ans": "நிரலின் இயக்கத்தை ஒரு குறிப்பிட்ட லேபிளுக்கு நேரடியாக மாற்ற goto பயன்படுகிறது; அதிகமாகப் பயன்படுத்தினால் நிரலின் தெளிவைக் குறைக்கும்."
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "navLabel": "பகுதி - இ (4 x 3)",
+      "title": "பகுதி - இ: சிறு வினா",
+      "type": "short-essay",
+      "scoreMax": 12,
+      "marksPer": 3,
+      "questions": [
+        {
+          "q": "மூன்று அடிப்படைக் கட்டுப்பாட்டுக் கூற்று வகைகளை (Sequence, Selection, Iteration) விளக்குக.",
+          "ans": "1. Sequence — படிகள் வரிசையாக.\n2. Selection — நிபந்தனை அடிப்படையில் தேர்வு (if/switch).\n3. Iteration — மீண்டும் மீண்டும் இயக்கம் (for/while)."
+        },
+        {
+          "q": "switch கட்டமைப்பை எடுத்துக்காட்டுடன் விளக்குக.",
+          "ans": "switch(day) { case 1: cout<<\"Sunday\"; break; case 2: cout<<\"Monday\"; break; default: cout<<\"Invalid\"; }\n\nஒவ்வொரு case-இன் முடிவிலும் break தேவை, இல்லையெனில் Fall-through நிகழும்."
+        },
+        {
+          "q": "for loop மற்றும் while loop-ஐ எடுத்துக்காட்டுடன் விளக்குக.",
+          "ans": "for(i=1;i<=10;i++){cout<<i;} — தொடக்கம்/நிபந்தனை/அதிகரிப்பு ஒரே வரியில்.\n\nwhile(i<=10){cout<<i;i++;} — நிபந்தனையை முதலில் சரிபார்க்கும்."
+        },
+        {
+          "q": "break, continue, goto ஆகியவற்றை ஒப்பிட்டு விளக்குக.",
+          "ans": "break — loop/switch-இலிருந்து முழுமையாக வெளியேறும். continue — ஒரு மறுசெயலை மட்டும் தவிர்க்கும். goto — குறிப்பிட்ட லேபிளுக்கு நேரடியாகத் தாவும்."
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "navLabel": "பகுதி - ஈ (4 x 5)",
+      "title": "பகுதி - ஈ: பெரு வினா",
+      "type": "long-essay",
+      "scoreMax": 20,
+      "marksPer": 5,
+      "questions": [
+        {
+          "q": "தேர்வுக் கூற்றுகளை (if, if-else, nested if, switch) குறியீட்டு எடுத்துக்காட்டுடன் விரிவாக விளக்குக.",
+          "ans": "if(a>b) cout<<\"a is greater\";\n\nif(a>b) cout<<\"a\"; else cout<<\"b\";\n\nஉள் if (Nested if) — பல நிபந்தனைகளை வரிசையாகச் சரிபார்க்க.\n\nswitch(grade) { case 'A': cout<<\"Excellent\"; break; default: cout<<\"Average\"; }"
+        },
+        {
+          "q": "மூன்று மறுசெயல் கூற்றுகளையும் (for, while, do-while) குறியீட்டு எடுத்துக்காட்டுடன் விரிவாக விளக்குக.",
+          "ans": "for(i=1;i<=5;i++) cout<<i;\n\nwhile(i<=5){ cout<<i; i++; }\n\ndo{ cout<<i; i++; } while(i<=5);\n\nமூன்றும் 1-5 எண்களைக் காட்டும்; for தொடக்கம்/நிபந்தனை/அதிகரிப்பு ஒரே வரியில், while நிபந்தனையை முன்பே சரிபார்க்கும், do-while தொகுதியை ஒரு முறையாவது இயக்கும்."
+        },
+        {
+          "q": "Nested for loop-ஐ (Multiplication Table எடுத்துக்காட்டுடன்) விரிவாக விளக்குக.",
+          "ans": "for(i=1;i<=10;i++){\n  for(j=1;j<=10;j++){\n    cout<<i*j<<\"\\\\t\";\n  }\n  cout<<endl;\n}\n\nவெளிப்புற loop வரிசைகளையும், உள்புற loop நெடுவரிசைகளையும் கட்டுப்படுத்தி, 10×10 பெருக்கல் அட்டவணையை உருவாக்கும்."
+        },
+        {
+          "q": "Jump கூற்றுகளை (break, continue, goto) loop-உடன் இணைத்து குறியீட்டு எடுத்துக்காட்டுடன் விரிவாக விளக்குக.",
+          "ans": "break எடுத்துக்காட்டு:\nfor(i=1;i<=10;i++){ if(i==5) break; cout<<i; }\n// 1 2 3 4\n\ncontinue எடுத்துக்காட்டு:\nfor(i=1;i<=5;i++){ if(i==3) continue; cout<<i; }\n// 1 2 4 5\n\ngoto எடுத்துக்காட்டு:\nif(error) goto end;\n...\nend: cout<<\"Program ended\";"
+        }
+      ]
+    }
+  ]
+}

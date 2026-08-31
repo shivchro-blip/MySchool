@@ -1,0 +1,47 @@
+{
+  "chapterNumber": 14,
+  "title": "இனக்குழுக்கள் மற்றும் பொருள்கள்",
+  "subject": "கணினி அறிவியல்",
+  "classLabel": "வகுப்பு XI",
+  "curriculum": "சமச்சீர் கல்வி",
+  "sections": [
+    {
+      "id": "intro",
+      "title": "இனக்குழு வரையறை",
+      "content": "**இனக்குழு (Class)** ஒரு பயனாளர் வரையறுத்த தரவு வகை; தரவு உறுப்புகளையும் (Data Members) செயற்கூறுகளையும் (Member Functions) கொண்டது.\n\n```cpp\nclass class_name\n{\n  private:\n    // data members\n  protected:\n    // data members\n  public:\n    // member functions\n};\n```\n\n**அணுகல் மட்ட வகைப்படுத்திகள் (Access Specifiers):**\n- **private:** இனக்குழுவுக்குள் மட்டுமே அணுகக்கூடியது (இயல்புநிலை).\n- **protected:** இனக்குழுவுக்குள்ளும், அதன் மரபுரிமைப் பெறும் இனக்குழுக்களுக்குள்ளும் அணுகக்கூடியது.\n- **public:** வெளியிலிருந்தும் அணுகக்கூடியது.",
+      "nav": {
+        "next": "member-functions",
+        "nextLabel": "அடுத்து: உறுப்புச் செயற்கூறுகள் →"
+      }
+    },
+    {
+      "id": "member-functions",
+      "title": "உறுப்புச் செயற்கூறுகள் (Member Functions)",
+      "content": "இனக்குழுவின் உறுப்புச் செயற்கூறுகளை இரு வழிகளில் வரையறுக்கலாம்:\n\n**Inline (இனக்குழுவுக்குள்ளேயே வரையறை):**\n\n```cpp\nclass Box {\n  public:\n    double width;\n    void printWidth() {\n        cout << \"Width: \" << width;\n    }\n};\n```\n\n**Outline (இனக்குழுவுக்கு வெளியே, Scope Resolution Operator :: பயன்படுத்தி):**\n\n```cpp\nvoid Box::printWidth() {\n    cout << \"Width: \" << width;\n}\n```\n\n**பொருள்கள் (Objects):** Global Object (செயற்கூற்றுக்கு வெளியே அறிவிக்கப்பட்டது) மற்றும் Local Object (ஒரு செயற்கூற்றுக்குள் மட்டும் அணுகக்கூடியது) என இரு வகை.",
+      "nav": {
+        "back": "intro",
+        "next": "constructors",
+        "nextLabel": "அடுத்து: Constructors →"
+      }
+    },
+    {
+      "id": "constructors",
+      "title": "Constructors",
+      "content": "**Constructor** என்பது இனக்குழுவின் பெயருடன் அதே பெயர் கொண்ட, ஒரு பொருள் உருவாகும்போது தானாக அழைக்கப்படும் ஒரு சிறப்புச் செயற்கூறு; return type இருக்காது.\n\n**வகைகள்:**\n- **Default Constructor:** அளவுருக்கள் இல்லாதது.\n- **Parameterized Constructor:** தொடக்க மதிப்புகளை அளவுருக்களாகப் பெறுவது.\n- **Copy Constructor:** ஏற்கெனவே உள்ள ஒரு பொருளின் மதிப்புகளை நகலெடுத்து புதிய பொருளை உருவாக்குவது.\n\n```cpp\nclass Data {\n  public:\n    int x, y;\n    Data() { cout << \"Non Parameterized constructor\"; }\n    Data(int a, int b) { x=a; y=b; }\n};\n```\n\n**Destructor:** ~class_name() எனும் பெயருடன், பொருள் அழிக்கப்படும்போது தானாக அழைக்கப்படும் செயற்கூறு; நினைவகத்தை விடுவிக்கப் பயன்படும்.",
+      "nav": {
+        "back": "member-functions",
+        "next": "array-of-objects",
+        "nextLabel": "அடுத்து: பொருள்களின் அணி →"
+      }
+    },
+    {
+      "id": "array-of-objects",
+      "title": "பொருள்களின் அணி",
+      "content": "ஒரே இனக்குழுவைச் சேர்ந்த பல பொருள்களை ஒரு அணியில் சேமிக்கலாம் — **பொருள்களின் அணி (Array of Objects)**.\n\n```cpp\nclass Student {\n  public:\n    int rollno;\n    float avg;\n};\n\nint main() {\n    Student s[3];\n    for(int i=0;i<3;i++) {\n        cin >> s[i].rollno >> s[i].avg;\n    }\n}\n```\n\nஇது பல மாணவர்களின் தரவை ஒரே அணியில், ஒவ்வொருவருக்கும் தனி Object-ஆக சேமிக்க உதவுகிறது.",
+      "nav": {
+        "back": "constructors",
+        "practice": true
+      }
+    }
+  ]
+}

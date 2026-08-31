@@ -1,0 +1,228 @@
+{
+  "meta": {
+    "subject": "கணினி அறிவியல் -- வகுப்பு XI",
+    "unit": "பாடம் 9 -- C++ ஓர் அறிமுகம்",
+    "time": "3.00 மணி நேரம்",
+    "totalMarks": 52,
+    "instructions": "சமச்சீர் கல்வி -- அனைத்து வினாக்களுக்கும் விடையளிக்கவும்"
+  },
+  "parts": [
+    {
+      "id": "p1",
+      "navLabel": "பகுதி - அ (10 x 1)",
+      "title": "பகுதி - அ: சரியான விடையைத் தேர்ந்தெடுக்கவும்",
+      "type": "mcq",
+      "scoreMax": 10,
+      "marksPer": 1,
+      "sections": [
+        {
+          "label": "C++ அறிமுகம்",
+          "questions": [
+            {
+              "id": "q1",
+              "html": "C++ மொழியை உருவாக்கியவர் யார்?",
+              "options": [
+                "அ) Dennis Ritchie",
+                "ஆ) Bjarne Stroustrup",
+                "இ) James Gosling",
+                "ஈ) Guido van Rossum"
+              ],
+              "answer": 1,
+              "hint": "1979-இல் AT&T Bell ஆய்வகம்."
+            },
+            {
+              "id": "q2",
+              "html": "C++ நிரலின் இயக்கம் தொடங்கும் செயற்கூறு எது?",
+              "options": [
+                "அ) start()",
+                "ஆ) main()",
+                "இ) begin()",
+                "ஈ) init()"
+              ],
+              "answer": 1,
+              "hint": "int main()."
+            },
+            {
+              "id": "q3",
+              "html": "பயனாளர் மாறிப் பெயராகப் பயன்படுத்த முடியாத குறியீடு வகை எது?",
+              "options": [
+                "அ) Identifier",
+                "ஆ) Keyword",
+                "இ) Constant",
+                "ஈ) Operator"
+              ],
+              "answer": 1,
+              "hint": "int, float போன்றவை."
+            },
+            {
+              "id": "q4",
+              "html": "எத்தனை ASCII மதிப்புகள் உள்ளன?",
+              "options": [
+                "அ) 0-100",
+                "ஆ) 0-255",
+                "இ) 0-127",
+                "ஈ) 0-999"
+              ],
+              "answer": 1,
+              "hint": "American Standard Code."
+            },
+            {
+              "id": "q5",
+              "html": "ஒரு வரியில் if-else-க்குச் சமமான முடிவை அளிக்கும் செயலி எது?",
+              "options": [
+                "அ) Assignment",
+                "ஆ) Conditional (Ternary)",
+                "இ) Logical",
+                "ஈ) Relational"
+              ],
+              "answer": 1,
+              "hint": "condition ? a : b."
+            },
+            {
+              "id": "q6",
+              "html": "வெளியீட்டைத் திரையில் காட்டப் பயன்படும் கூற்று எது?",
+              "options": [
+                "அ) cin",
+                "ஆ) cout",
+                "இ) get",
+                "ஈ) put"
+              ],
+              "answer": 1,
+              "hint": "<< பயன்படுத்தும்."
+            },
+            {
+              "id": "q7",
+              "html": "பயனாளரிடமிருந்து உள்ளீட்டைப் பெறப் பயன்படும் கூற்று எது?",
+              "options": [
+                "அ) cin",
+                "ஆ) cout",
+                "இ) scan",
+                "ஈ) read"
+              ],
+              "answer": 0,
+              "hint": ">> பயன்படுத்தும்."
+            },
+            {
+              "id": "q8",
+              "html": "மொழி இலக்கண விதிகளை மீறும் பிழை எது?",
+              "options": [
+                "அ) Semantic Error",
+                "ஆ) Syntax Error",
+                "இ) Run-time Error",
+                "ஈ) Logic Error"
+              ],
+              "answer": 1,
+              "hint": "; இல்லாமை போன்றது."
+            },
+            {
+              "id": "q9",
+              "html": "int, float, char ஆகியவை எந்த வகை தரவு வகை?",
+              "options": [
+                "அ) Derived",
+                "ஆ) Fundamental",
+                "இ) User-defined",
+                "ஈ) Pointer"
+              ],
+              "answer": 1,
+              "hint": "அடிப்படைத் தரவு வகைகள்."
+            },
+            {
+              "id": "q10",
+              "html": "நினைவக அளவைக் கண்டறிய பயன்படும் செயலி எது?",
+              "options": [
+                "அ) size()",
+                "ஆ) sizeof()",
+                "இ) memsize()",
+                "ஈ) length()"
+              ],
+              "answer": 1,
+              "hint": "sizeof() function."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "navLabel": "பகுதி - ஆ (5 x 2)",
+      "title": "பகுதி - ஆ: குறு வினா",
+      "type": "short-essay",
+      "scoreMax": 10,
+      "marksPer": 2,
+      "questions": [
+        {
+          "q": "C++ என்றால் என்ன?",
+          "ans": "C++ என்பது 1979-இல் Bjarne Stroustrup என்பவரால் உருவாக்கப்பட்ட ஒரு பொருள்நோக்கு நிரலாக்க மொழி ஆகும்; இது C மொழியின் வளர்ச்சி வடிவமாகும்."
+        },
+        {
+          "q": "Keyword மற்றும் Identifier வேறுபடுத்துக.",
+          "ans": "Keyword ஒதுக்கப்பட்ட சொல் (int, float); மாறிப் பெயராகப் பயன்படுத்த முடியாது. Identifier மாறிகள்/செயற்கூறுகளுக்கான பயனாளர் தேர்ந்தெடுக்கும் பெயர்."
+        },
+        {
+          "q": "cin மற்றும் cout வேறுபடுத்துக.",
+          "ans": "cin உள்ளீட்டைப் பெற (>> பயன்படுத்தும்). cout வெளியீட்டைக் காட்ட (<< பயன்படுத்தும்)."
+        },
+        {
+          "q": "Syntax Error மற்றும் Run-time Error வேறுபடுத்துக.",
+          "ans": "Syntax Error மொழி இலக்கண விதி மீறல். Run-time Error நிரல் இயங்கும்போது நிகழும் பிழை (உ.ம். பூஜ்ஜியத்தால் வகுத்தல்)."
+        },
+        {
+          "q": "Implicit மற்றும் Explicit Type Conversion வேறுபடுத்துக.",
+          "ans": "Implicit Conversion தானாக நடக்கும். Explicit Conversion Type Casting மூலம் வெளிப்படையாகச் செய்யப்படும்."
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "navLabel": "பகுதி - இ (4 x 3)",
+      "title": "பகுதி - இ: சிறு வினா",
+      "type": "short-essay",
+      "scoreMax": 12,
+      "marksPer": 3,
+      "questions": [
+        {
+          "q": "C++ நிரலின் அடிப்படை அமைப்பை (Structure) விளக்குக.",
+          "ans": "1. #include <iostream> — தலைப்புக் கோப்பு.\n2. using namespace std — Standard namespace.\n3. int main() — முதன்மைச் செயற்கூறு.\n4. return 0 — வெற்றிகர முடிவு."
+        },
+        {
+          "q": "C++ செயலி வகைகளை (Arithmetic, Relational, Logical) விளக்குக.",
+          "ans": "1. Arithmetic — +, −, *, /, %.\n2. Relational — &gt;, &lt;, ==, != — true/false தரும்.\n3. Logical — && (AND), || (OR), ! (NOT)."
+        },
+        {
+          "q": "பிழை வகைகளை (Syntax, Semantic, Run-time) விளக்குக.",
+          "ans": "1. Syntax Error — இலக்கண மீறல்.\n2. Semantic Error — தர்க்கரீதியாகச் சரியில்லாதது.\n3. Run-time Error — இயங்கும்போது நிகழும் பிழை."
+        },
+        {
+          "q": "தரவு வகைகளின் (Fundamental, Derived, User-defined) மூன்று வகைகளை விளக்குக.",
+          "ans": "1. Fundamental — int, float, char, double, bool.\n2. Derived — array, pointer, function, reference.\n3. User-defined — structure, union, class, enumeration."
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "navLabel": "பகுதி - ஈ (4 x 5)",
+      "title": "பகுதி - ஈ: பெரு வினா",
+      "type": "long-essay",
+      "scoreMax": 20,
+      "marksPer": 5,
+      "questions": [
+        {
+          "q": "C++ குறியீடுகளை (Keywords, Identifiers, Constants, Operators, Punctuators) எடுத்துக்காட்டுடன் விரிவாக விளக்குக.",
+          "ans": "1. Keywords — int, float, if, else (ஒதுக்கப்பட்டவை).\n2. Identifiers — மாறி/செயற்கூறு பெயர்கள் (num, sum).\n3. Constants — மதிப்பு மாறாதவை (123, 'A').\n4. Operators — +, −, ==, && போன்றவை.\n5. Punctuators — {}, (), ; ."
+        },
+        {
+          "q": "C++ செயலிகளின் அனைத்து வகைகளையும் (Arithmetic, Relational, Logical, Assignment, Conditional) எடுத்துக்காட்டுடன் விரிவாக விளக்குக.",
+          "ans": "Arithmetic: a+b, a-b, a*b, a/b, a%b\nRelational: a&gt;b, a==b\nLogical: a&&b, a||b, !a\nAssignment: a=b, a+=b\nConditional: (a&gt;b) ? a : b\n\nஇவை நிரலின் கணக்கீடு, ஒப்பீடு, தர்க்கரீதியான முடிவெடுப்புக்கு அடிப்படையாக அமைகின்றன."
+        },
+        {
+          "q": "cin, cout, cascading, escape sequences ஆகியவற்றை குறியீட்டு எடுத்துக்காட்டுடன் விரிவாக விளக்குக.",
+          "ans": "cout << \"Enter a number: \";\ncin >> num;\ncout << \"The number is \" << num << endl;\n\ncin >> num; உள்ளீட்டைப் பெறும். cout << ஒன்றுக்கு மேற்பட்ட முறை cascading செய்யலாம். \\\\n புதிய வரிக்கு, \\\\t Tab-க்கு பயன்படும்."
+        },
+        {
+          "q": "Dev C++ IDE-இல் நிரல் எழுதி, தொகுத்து, இயக்கும் முழு செயல்முறையையும் தரவு வகைகளையும் விரிவாக விளக்குக.",
+          "ans": "1. File → New → Source File — புதிய .cpp கோப்பு உருவாக்குதல்.\n2. நிரல் எழுதுதல்.\n3. Compile (F9) — தொகுத்தல், பிழைகள் சரிபார்த்தல்.\n4. Execute (F11) — இயக்குதல், வெளியீடு காணுதல்.\n\nதரவு வகைகள்: Fundamental (int, float, char), Derived (array, pointer), User-defined (structure, class). ஒவ்வொரு வகைக்கும் sizeof() மூலம் நினைவக அளவைக் காணலாம்."
+        }
+      ]
+    }
+  ]
+}

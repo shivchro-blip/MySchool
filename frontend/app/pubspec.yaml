@@ -54,6 +54,10 @@ flutter:
     - assets/content/Class_11/ComputerApplications/practice/
     - assets/content/Class_11/ComputerScience/chapters/
     - assets/content/Class_11/ComputerScience/practice/
+    - assets/content/Class_11/ComputerApplicationsTamil/chapters/
+    - assets/content/Class_11/ComputerApplicationsTamil/practice/
+    - assets/content/Class_11/ComputerScienceTamil/chapters/
+    - assets/content/Class_11/ComputerScienceTamil/practice/
     - assets/content/Class_12/ComputerApplications/chapters/
     - assets/content/Class_12/ComputerApplications/practice/
     - assets/content/Class_12/ComputerScience/chapters/

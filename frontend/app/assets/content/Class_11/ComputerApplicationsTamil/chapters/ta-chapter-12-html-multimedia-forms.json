@@ -1,0 +1,139 @@
+{
+  "eyebrow": "பாடம் 12 · வகுப்பு 11 கணினி பயன்பாடுகள்",
+  "title": "HTML – பல்லூடகக் கூறுகள் மற்றும் படிவங்கள் இணைத்தல்",
+  "author": "",
+  "pills": [
+    "செயல்முறை",
+    "செப்டம்பர் பாடத்திட்டம்"
+  ],
+  "tabs": [
+    {
+      "id": "images",
+      "label": "படங்கள் செருகுதல்",
+      "blocks": [
+        {
+          "type": "section-head",
+          "text": "12.1 படங்கள் செருகுதல் (Inserting Images)"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p><b>&lt;img&gt;</b> ஒட்டு ஒரு படத்தை வலைப்பக்கத்தில் செருகப் பயன்படும் Empty Element ஆகும்.</p><p>எடுத்துக்காட்டு: &lt;img src=\"bharathiyar.gif\" alt=\"National Poet of India\" width=\"25%\" height=\"25%\"&gt;</p><p><b>முக்கியப் பண்புக்கூறுகள்:</b></p><ul><li><b>src (Source):</b> படக் கோப்பின் பெயர்/URL.</li><li><b>alt:</b> படம் ஏற்றப்படாத போது காட்டப்படும் மாற்று உரை (Alternate Text); Screen Readers-க்கும் பயன்படும்.</li><li><b>width / height:</b> படத்தின் அகலம்/உயரம்.</li><li><b>align:</b> படத்தைச் சுற்றி உரையின் சீரமைப்பு (top, middle, bottom).</li></ul><p><b>வலைப்பட வடிவங்கள் (Image Formats):</b> GIF (Graphical Interchange Format), JPEG (Joint Photographic Experts Group), PNG (Portable Network Graphics), SVG (Scalable Vector Graphics).</p>"
+        },
+        {
+          "type": "gloss-row",
+          "word": "🖼️ &lt;img&gt;",
+          "def": "வலைப்பக்கத்தில் ஒரு படத்தைச் செருகப் பயன்படும் Empty Element ஒட்டு."
+        },
+        {
+          "type": "gloss-row",
+          "word": "📝 alt பண்புக்கூறு",
+          "def": "படம் ஏற்றப்படாதபோது காட்டப்படும் மாற்று உரை; அணுகல்தன்மைக்கும் (Accessibility) பயன்படும்."
+        },
+        {
+          "type": "gloss-row",
+          "word": "🎞️ GIF / JPEG / PNG",
+          "def": "பொதுவான வலைப்பட வடிவங்கள்: GIF (எளிய அசைவூட்டம்), JPEG (புகைப்படங்கள்), PNG (வெளிப்படைத்தன்மையுடன்)."
+        },
+        {
+          "type": "nav",
+          "next": "marquee-media",
+          "nextLabel": "அடுத்து: Marquee / காணொலி / ஒலி →"
+        }
+      ]
+    },
+    {
+      "id": "marquee-media",
+      "label": "Marquee / ஊடகம்",
+      "blocks": [
+        {
+          "type": "section-head",
+          "text": "12.2 நகரும் உரை (Marquee) மற்றும் காணொலி/ஒலி சேர்த்தல்"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p><b>&lt;marquee&gt;:</b> உரையையோ படத்தையோ ஸ்லைடிங் விளைவுடன் நகர்த்திக் காட்டப் பயன்படும் ஒட்டு (Scrolling Text).</p><p>எடுத்துக்காட்டு: &lt;marquee&gt;Welcome to our School&lt;/marquee&gt;. Behaviour (scroll/slide/alternate), Direction (left/right/up/down), Loop, Scrollamount ஆகிய பண்புக்கூறுகள் மூலம் நகர்வின் தன்மையை மாற்றலாம்.</p><p><b>&lt;video&gt;:</b> காணொலியை உட்பொதிக்கப் பயன்படும் HTML5 ஒட்டு. எடுத்துக்காட்டு: &lt;video src=\"clip.mp4\" width=\"320\" height=\"240\" controls&gt;&lt;/video&gt;</p><p><b>&lt;audio&gt;:</b> ஒலியை உட்பொதிக்கப் பயன்படும் ஒட்டு. எடுத்துக்காட்டு: &lt;audio src=\"song.mp3\" controls&gt;&lt;/audio&gt;</p>"
+        },
+        {
+          "type": "gloss-row",
+          "word": "🔁 &lt;marquee&gt;",
+          "def": "உரை/படத்தை ஸ்லைடிங் விளைவுடன் நகர்த்திக் காட்டப் பயன்படும் HTML ஒட்டு."
+        },
+        {
+          "type": "gloss-row",
+          "word": "🎬 &lt;video&gt; / &lt;audio&gt;",
+          "def": "HTML5-இல் காணொலி/ஒலியை நேரடியாக வலைப்பக்கத்தில் உட்பொதிக்கப் பயன்படும் ஒட்டுகள்."
+        },
+        {
+          "type": "nav",
+          "back": "images",
+          "next": "forms-intro",
+          "nextLabel": "அடுத்து: படிவங்கள் அறிமுகம் →"
+        }
+      ]
+    },
+    {
+      "id": "forms-intro",
+      "label": "படிவங்கள் அறிமுகம்",
+      "blocks": [
+        {
+          "type": "section-head",
+          "text": "12.4 படிவங்களுடன் வேலை செய்தல் (Working with Forms)"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p><b>&lt;form&gt;</b> ஒட்டு பயனாளரிடமிருந்து தரவைச் சேகரிக்கும் படிவத்தை உருவாக்கப் பயன்படுகிறது. முக்கியப் பண்புக்கூறுகள்:</p><ul><li><b>action:</b> படிவத் தரவு அனுப்பப்பட வேண்டிய இடம் (Server Script URL).</li><li><b>method:</b> தரவை அனுப்பும் முறை — GET அல்லது POST.</li></ul><p><b>&lt;input&gt; ஒட்டின் type பண்புக்கூறு மதிப்புகள்:</b></p><table><tr><th>Type மதிப்பு</th><th>விளக்கம்</th></tr><tr><td>text</td><td>ஒற்றை வரி உரை உள்ளீடு</td></tr><tr><td>password</td><td>உள்ளிடும் எழுத்துகள் மறைக்கப்படும்</td></tr><tr><td>checkbox</td><td>பல தேர்வுகளைத் தேர்ந்தெடுக்க</td></tr><tr><td>radio</td><td>ஒரே ஒரு தேர்வை மட்டும் தேர்ந்தெடுக்க</td></tr><tr><td>submit</td><td>படிவத்தைச் சமர்ப்பிக்க</td></tr><tr><td>reset</td><td>படிவத்தை அழிக்க</td></tr></table>"
+        },
+        {
+          "type": "gloss-row",
+          "word": "📝 &lt;form&gt;",
+          "def": "பயனாளரிடமிருந்து தரவைச் சேகரிக்கும் படிவத்தை உருவாக்கும் HTML ஒட்டு; action, method பண்புக்கூறுகளைக் கொண்டது."
+        },
+        {
+          "type": "gloss-row",
+          "word": "🔘 radio / checkbox",
+          "def": "radio — ஒரே ஒரு தேர்வை மட்டும் தேர்ந்தெடுக்க; checkbox — பல தேர்வுகளைத் தேர்ந்தெடுக்க பயன்படும் input வகைகள்."
+        },
+        {
+          "type": "nav",
+          "back": "marquee-media",
+          "next": "form-controls",
+          "nextLabel": "அடுத்து: படிவக் கட்டுப்பாடுகள் →"
+        }
+      ]
+    },
+    {
+      "id": "form-controls",
+      "label": "படிவக் கட்டுப்பாடுகள்",
+      "blocks": [
+        {
+          "type": "section-head",
+          "text": "12.4.2 மேம்பட்ட படிவக் கட்டுப்பாடுகள் (select, textarea)"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p><b>&lt;select&gt; மற்றும் &lt;option&gt;:</b> கீழிறங்கு பட்டியலை (Dropdown List) உருவாக்க. ஒவ்வொரு தேர்வும் &lt;option&gt; ஒட்டால் குறிக்கப்படும்.</p><p>எடுத்துக்காட்டு:</p><p>&lt;select name=\"city\"&gt;&lt;option value=\"CHN\"&gt;Chennai&lt;/option&gt;&lt;option value=\"MDU\"&gt;Madurai&lt;/option&gt;&lt;/select&gt;</p><p><b>&lt;textarea&gt;:</b> பல வரி உரையை உள்ளிட (Text area — Comments போன்றவற்றுக்கு). rows, cols பண்புக்கூறுகள் மூலம் அளவைக் கட்டுப்படுத்தலாம்.</p><p>எடுத்துக்காட்டு: &lt;textarea rows=\"5\" cols=\"30\"&gt;&lt;/textarea&gt;</p>"
+        },
+        {
+          "type": "gloss-row",
+          "word": "📋 &lt;select&gt; / &lt;option&gt;",
+          "def": "select கீழிறங்கு பட்டியலை உருவாக்கும்; option ஒவ்வொரு தேர்வையும் குறிக்கும்."
+        },
+        {
+          "type": "gloss-row",
+          "word": "📄 &lt;textarea&gt;",
+          "def": "பல வரி உரையை உள்ளிட பயன்படும் ஒட்டு; rows/cols பண்புக்கூறுகள் மூலம் அளவு கட்டுப்படுத்தப்படும்."
+        },
+        {
+          "type": "think-box",
+          "label": "நினைவில் கொள்ள 📋",
+          "text": "Form Controls சுருக்கம்: text/password (உரை உள்ளீடு), radio/checkbox (தேர்வு), select (பட்டியல்), textarea (பல வரி), submit/reset (செயல்பாடு)."
+        },
+        {
+          "type": "nav",
+          "back": "forms-intro",
+          "practice": true
+        }
+      ]
+    }
+  ]
+}

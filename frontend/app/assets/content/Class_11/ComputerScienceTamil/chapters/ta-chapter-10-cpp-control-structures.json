@@ -1,0 +1,57 @@
+{
+  "chapterNumber": 10,
+  "title": "பாய்வுக் கட்டுப்பாடு",
+  "subject": "கணினி அறிவியல்",
+  "classLabel": "வகுப்பு XI",
+  "curriculum": "சமச்சீர் கல்வி",
+  "sections": [
+    {
+      "id": "intro",
+      "title": "கட்டுப்பாட்டு கூற்றுகள் — அறிமுகம்",
+      "content": "நிரலின் இயக்க வரிசையைக் கட்டுப்படுத்த **கட்டுப்பாட்டுக் கூற்றுகள் (Control Statements)** பயன்படுத்தப்படுகின்றன. மூன்று அடிப்படை வகைகள்:\n\n1. **வரிசைக் கூற்று (Sequence Statement):** படிகள் வரிசையாக இயங்கும்.\n2. **தேர்வுக் கூற்று (Selection Statement):** நிபந்தனை அடிப்படையில் பாதை தேர்வு (if, if-else, switch).\n3. **மறுசெயல் கூற்று (Iteration Statement):** தொகுதி மீண்டும் மீண்டும் இயங்கும் (for, while, do-while).",
+      "nav": {
+        "next": "selection",
+        "nextLabel": "அடுத்து: தேர்வுக் கூற்றுகள் →"
+      }
+    },
+    {
+      "id": "selection",
+      "title": "தேர்வுக் கூற்றுகள் (if, if-else, switch)",
+      "content": "**if:** நிபந்தனை true எனில் மட்டும் தொகுதியை இயக்கும்.\n\n**if...else:** true/false இரு நிலைகளுக்கும் தனித்தனித் தொகுதிகளை இயக்கும்.\n\n**Nested if / else-if Ladder:** பல நிபந்தனைகளை வரிசையாகச் சரிபார்க்க.\n\n**switch:** ஒரு மாறியின் மதிப்புக்கேற்ப case-களில் ஒன்றை இயக்கும்; ஒவ்வொரு case-இன் முடிவிலும் break தேவை, இல்லையெனில் Fall-through நிகழும்.\n\n```\nswitch (day) {\n  case 1: cout << \"Sunday\"; break;\n  case 2: cout << \"Monday\"; break;\n  default: cout << \"Invalid\"; break;\n}\n```",
+      "nav": {
+        "back": "intro",
+        "next": "for-loop",
+        "nextLabel": "அடுத்து: for மறுசெயல் →"
+      }
+    },
+    {
+      "id": "for-loop",
+      "title": "for மறுசெயல் கூற்று",
+      "content": "**for loop:** தொடக்க மதிப்பு, நிபந்தனை, அதிகரிப்பு/குறைப்பு மூன்றும் ஒரே வரியில் குறிப்பிடப்படும் மறுசெயல் கட்டமைப்பு.\n\n```\nfor (i=1; i<=10; i++) {\n  cout << \"value of i\" << i;\n}\n```\n\n**Nested for loop:** ஒரு for loop-க்குள் இன்னொரு for loop; multiplication table போன்ற இரு பரிமாண (2D) சிக்கல்களைத் தீர்க்க பயன்படும்.\n\n**Empty loop:** தொகுதிக்குள் எந்த கூற்றும் இல்லாத, ஒரு காலதாமத நோக்கத்திற்காக மட்டும் பயன்படும் loop.",
+      "nav": {
+        "back": "selection",
+        "next": "while-loop",
+        "nextLabel": "அடுத்து: while / do-while →"
+      }
+    },
+    {
+      "id": "while-loop",
+      "title": "while மற்றும் do-while மறுசெயல்கள்",
+      "content": "**while loop:** நிபந்தனையை முதலில் சரிபார்த்து, true ஆக இருக்கும் வரை தொகுதியை இயக்கும்.\n\n```\nwhile (condition) {\n  statements;\n}\n```\n\n**do-while loop:** தொகுதி குறைந்தது ஒரு முறையாவது இயங்கும், பின்னரே நிபந்தனை சரிபார்க்கப்படும்.\n\n```\ndo {\n  statements;\n} while (condition);\n```\n\n**Delay Loop:** ஒரு சிறிய நேர இடைவெளியை உருவாக்க பயன்படும் காலி மறுசெயல்.",
+      "nav": {
+        "back": "for-loop",
+        "next": "jump-statements",
+        "nextLabel": "அடுத்து: Jump கூற்றுகள் →"
+      }
+    },
+    {
+      "id": "jump-statements",
+      "title": "Jump கூற்றுகள் (break, continue, goto)",
+      "content": "**break:** loop அல்லது switch-இலிருந்து உடனடியாக வெளியேற பயன்படும்.\n\n**continue:** தற்போதைய மறுசெயலை மட்டும் தவிர்த்து, அடுத்த மறுசெயலுக்குச் செல்ல பயன்படும்.\n\n**goto:** நிரலின் இயக்கத்தை ஒரு குறிப்பிட்ட லேபிளுக்கு (label) நேரடியாக மாற்ற பயன்படும்; அதிகமாகப் பயன்படுத்தினால் நிரலின் தெளிவைக் குறைக்கும்.\n\n| Break | Continue |\n|---|---|\n| loop-ஐ முழுமையாக நிறுத்தும் | தற்போதைய மறுசெயலை மட்டும் தவிர்க்கும் |\n| switch-இலும் பயன்படும் | switch-இல் பயன்படாது |",
+      "nav": {
+        "back": "while-loop",
+        "practice": true
+      }
+    }
+  ]
+}

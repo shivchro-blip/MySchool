@@ -1,0 +1,223 @@
+{
+  "meta": {
+    "subject": "கணினி பயன்பாடுகள் -- வகுப்பு XI",
+    "unit": "பாடம் 16 -- ஜாவா எழுத்துவடிவ செயற்கூறுகள்",
+    "time": "3.00 மணி நேரம்",
+    "totalMarks": 47,
+    "instructions": "சமச்சீர் கல்வி -- அனைத்து வினாக்களுக்கும் விடையளிக்கவும்"
+  },
+  "parts": [
+    {
+      "id": "p1",
+      "navLabel": "பகுதி - அ (10 x 1)",
+      "title": "பகுதி - அ: சரியான விடையைத் தேர்ந்தெடுக்கவும்",
+      "type": "mcq",
+      "scoreMax": 10,
+      "marksPer": 1,
+      "sections": [
+        {
+          "label": "செயற்கூறுகள்",
+          "questions": [
+            {
+              "id": "q1",
+              "html": "எழுத்துகளை பெரிய எழுத்தாக மாற்றும் செயற்கூறு __________",
+              "options": [
+                "அ) toLowerCase()",
+                "ஆ) toUpperCase()",
+                "இ) length",
+                "ஈ) charAt()"
+              ],
+              "answer": 1,
+              "hint": "UPPER."
+            },
+            {
+              "id": "q2",
+              "html": "\"India\".length-இன் மதிப்பு __________",
+              "options": [
+                "அ) 4",
+                "ஆ) 5",
+                "இ) 6",
+                "ஈ) 0"
+              ],
+              "answer": 1,
+              "hint": "எழுத்துகளின் எண்ணிக்கை."
+            },
+            {
+              "id": "q3",
+              "html": "\"India\".charAt(1)-இன் விடை __________",
+              "options": [
+                "அ) I",
+                "ஆ) n",
+                "இ) d",
+                "ஈ) a"
+              ],
+              "answer": 1,
+              "hint": "index 1 (0-இலிருந்து தொடங்கும்)."
+            },
+            {
+              "id": "q4",
+              "html": "சரத்தை முழு எண்ணாக மாற்றும் செயற்கூறு __________",
+              "options": [
+                "அ) parseFloat()",
+                "ஆ) parseInt()",
+                "இ) toUpperCase()",
+                "ஈ) length"
+              ],
+              "answer": 1,
+              "hint": "integer மாற்றம்."
+            },
+            {
+              "id": "q5",
+              "html": "ஒரு சொல் முதலில் தோன்றும் இடத்தைத் தரும் செயற்கூறு __________",
+              "options": [
+                "அ) charAt()",
+                "ஆ) indexOf()",
+                "இ) length",
+                "ஈ) parseInt()"
+              ],
+              "answer": 1,
+              "hint": "இடத்தைக் கண்டறிய."
+            },
+            {
+              "id": "q6",
+              "html": "Function-ஐ வரையறுக்கத் தொடங்கும் சொல் __________",
+              "options": [
+                "அ) def",
+                "ஆ) function",
+                "இ) var",
+                "ஈ) sub"
+              ],
+              "answer": 1,
+              "hint": "function keyword."
+            },
+            {
+              "id": "q7",
+              "html": "Function-க்கு வெளியிலிருந்து மதிப்பு அனுப்பப் பயன்படுவது __________",
+              "options": [
+                "அ) Return",
+                "ஆ) Parameter",
+                "இ) Loop",
+                "ஈ) Array"
+              ],
+              "answer": 1,
+              "hint": "function argument."
+            },
+            {
+              "id": "q8",
+              "html": "Function ஒரு மதிப்பைத் திருப்பி அனுப்ப பயன்படும் கட்டளை __________",
+              "options": [
+                "அ) break",
+                "ஆ) return",
+                "இ) continue",
+                "ஈ) exit"
+              ],
+              "answer": 1,
+              "hint": "return statement."
+            },
+            {
+              "id": "q9",
+              "html": "Function-இன் முக்கிய நன்மை __________",
+              "options": [
+                "அ) வேகம் குறைதல்",
+                "ஆ) Code Reusability",
+                "இ) அளவு அதிகரிப்பு",
+                "ஈ) பிழை அதிகரிப்பு"
+              ],
+              "answer": 1,
+              "hint": "மீண்டும் மீண்டும் பயன்படுத்தலாம்."
+            },
+            {
+              "id": "q10",
+              "html": "சரத்தை தசம எண்ணாக மாற்றும் செயற்கூறு __________",
+              "options": [
+                "அ) parseInt()",
+                "ஆ) parseFloat()",
+                "இ) toUpperCase()",
+                "ஈ) charAt()"
+              ],
+              "answer": 1,
+              "hint": "decimal மாற்றம்."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "navLabel": "பகுதி - ஆ (5 x 2)",
+      "title": "பகுதி - ஆ: குறுகிய விடையளி",
+      "type": "short-essay",
+      "scoreMax": 10,
+      "marksPer": 2,
+      "instruction": "2-3 வாக்கியங்களில் விடையளிக்கவும்.",
+      "questions": [
+        {
+          "q": "Function என்றால் என்ன?",
+          "ans": "ஒரு குறிப்பிட்ட பணியைச் செய்யும், மீண்டும் மீண்டும் அழைக்கக்கூடிய நிரல் தொகுதியே Function ஆகும்."
+        },
+        {
+          "q": "toUpperCase() மற்றும் toLowerCase() வேறுபடுத்துக.",
+          "ans": "toUpperCase() சரத்தின் எழுத்துகளை பெரிய எழுத்தாக மாற்றும். toLowerCase() சிறிய எழுத்தாக மாற்றும்."
+        },
+        {
+          "q": "Parameter என்றால் என்ன?",
+          "ans": "Function-க்கு வெளியிலிருந்து மதிப்புகளை அனுப்ப பயன்படும் மாறிகளின் பட்டியலே Parameter ஆகும்."
+        },
+        {
+          "q": "length பண்பின் பயன் யாது?",
+          "ans": "length ஒரு சரத்தில் உள்ள எழுத்துகளின் எண்ணிக்கையைத் தரும் பண்பாகும்; உ.ம். \"India\".length → 5."
+        },
+        {
+          "q": "return கட்டளையின் பயன் என்ன?",
+          "ans": "Function ஒரு மதிப்பைக் கணக்கிட்ட பின், அந்த மதிப்பை அழைத்த இடத்திற்குத் திருப்பி அனுப்ப return கட்டளை பயன்படுகிறது."
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "navLabel": "பகுதி - இ (3 x 3)",
+      "title": "பகுதி - இ: சுருக்கமாக விடையளி",
+      "type": "short-essay",
+      "scoreMax": 9,
+      "marksPer": 3,
+      "instruction": "5-6 வாக்கியங்களில் விடையளிக்கவும்.",
+      "questions": [
+        {
+          "q": "String முன்வரையறுக்கப்பட்ட செயற்கூறுகளை (toUpperCase, length, charAt, indexOf) விளக்குக.",
+          "ans": "1. toUpperCase() — பெரிய எழுத்தாக மாற்றும்.\n2. length — எழுத்துகளின் எண்ணிக்கை.\n3. charAt(n) — n-வது இடத்தில் உள்ள எழுத்து.\n4. indexOf() — ஒரு எழுத்து/சொல் முதலில் தோன்றும் இடம்."
+        },
+        {
+          "q": "Function உருவாக்கும் தொடரமைப்பையும் அழைக்கும் முறையையும் விளக்குக.",
+          "ans": "தொடரமைப்பு: function functionName(parameter_list) { statements; }\nஅழைக்கும் முறை: functionName(arguments); — Function பெயரைக் குறிப்பிட்டு, தேவையான மதிப்புகளை அடைப்புக்குறிக்குள் கொடுத்து அழைக்கப்படும்."
+        },
+        {
+          "q": "parseInt() மற்றும் parseFloat() ஆகியவற்றை எடுத்துக்காட்டுடன் விளக்குக.",
+          "ans": "parseInt() ஒரு சரத்தை முழு எண்ணாக மாற்றும்; எ.கா. parseInt(\"25\") → 25. parseFloat() ஒரு சரத்தை தசம எண்ணாக மாற்றும்; எ.கா. parseFloat(\"25.5\") → 25.5."
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "navLabel": "பகுதி - ஈ (3 x 6)",
+      "title": "பகுதி - ஈ: விரிவாக விடையளி",
+      "type": "long-essay",
+      "scoreMax": 18,
+      "marksPer": 6,
+      "instruction": "விரிவாக, குறியீடு எடுத்துக்காட்டுகளுடன் விடையளிக்கவும்.",
+      "questions": [
+        {
+          "q": "JavaScript முன்வரையறுக்கப்பட்ட செயற்கூறுகளை (toUpperCase, toLowerCase, length, charAt, indexOf, parseInt, parseFloat) அனைத்தையும் எடுத்துக்காட்டுடன் விரிவாக விளக்குக.",
+          "ans": "\"java\".toUpperCase() → \"JAVA\"\n\"JAVA\".toLowerCase() → \"java\"\n\"India\".length → 5\n\"India\".charAt(1) → \"n\"\n\"India\".indexOf(\"d\") → 2\nparseInt(\"25\") → 25\nparseFloat(\"25.5\") → 25.5\n\nஇச்செயற்கூறுகள் string-களைக் கையாள்வதற்கும், எண் மாற்றங்களுக்கும் அடிக்கடி பயன்படுத்தப்படுகின்றன."
+        },
+        {
+          "q": "பயனாளர் வரையறுத்த செயற்கூறை (User-defined Function) முழு தொடரமைப்புடன் குறியீட்டு எடுத்துக்காட்டுடன் விரிவாக விளக்குக.",
+          "ans": "function sum(x, y) {\nvar s = x + y;\nreturn s;\n}\n\ndocument.write(sum(5,3)); // 8\n\nfunction — Function-ஐ வரையறுக்கத் தொடங்கும் சொல். sum — Function பெயர். (x,y) — Parameter List. return s; — கணக்கிடப்பட்ட மதிப்பைத் திருப்பி அனுப்பும். sum(5,3) — Function அழைக்கப்படும் முறை."
+        },
+        {
+          "q": "Function-இன் நன்மைகளையும் (Code Reusability) ஒரு முழு எடுத்துக்காட்டையும் (Function அழைப்புடன்) விரிவாக விளக்குக.",
+          "ans": "Function-இன் நன்மைகள்:\n1. Code Reusability — ஒரு முறை எழுதி பலமுறை பயன்படுத்தலாம்.\n2. நிரலின் நீளத்தைக் குறைக்கும்.\n3. பராமரிப்பு எளிது — ஒரே இடத்தில் மாற்றம் செய்தால் அனைத்து அழைப்புகளிலும் பிரதிபலிக்கும்.\n\nஎடுத்துக்காட்டு:\nfunction greet(name) {\ndocument.write(\"Hello \" + name);\n}\ngreet(\"Kumar\");\ngreet(\"Priya\");\n\nஇங்கு ஒரே Function இரண்டு வெவ்வேறு பெயர்களுக்கும் அழைக்கப்படுகிறது."
+        }
+      ]
+    }
+  ]
+}

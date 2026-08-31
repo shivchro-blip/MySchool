@@ -1,0 +1,224 @@
+{
+  "eyebrow": "பாடம் 6 · வகுப்பு 11 கணினி பயன்பாடுகள்",
+  "title": "சொற்செயலி (Basics)",
+  "author": "",
+  "pills": [
+    "செயல்முறை",
+    "ஜூலை பாடத்திட்டம்"
+  ],
+  "tabs": [
+    {
+      "id": "intro",
+      "label": "அறிமுகம்",
+      "blocks": [
+        {
+          "type": "section-head",
+          "text": "6.1 சொற்செயலி — ஓர் அறிமுகம் (Word Processor)"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p><b>சொற்செயலி (Word Processor)</b> என்பது ஆவணங்களை உருவாக்கவும், திருத்தவும், வடிவமைக்கவும் பயன்படும் பயன்பாட்டு மென்பொருள் ஆகும். எடுத்துக்காட்டுகள்: <b>Microsoft Word</b>, <b>OpenOffice Writer</b>, <b>LibreOffice Writer</b>, <b>WordPad</b>.</p><p>இப்பாடத்தில் <b>OpenOffice Writer</b> பயன்படுத்தப்படுகிறது — இது ஒரு <b>திறந்த மூல (Open Source)</b> மென்பொருள் தொகுப்பான OpenOffice-இன் ஒரு பகுதி; இலவசமாகக் கிடைக்கும்.</p><p><b>திறத்தல்:</b> Start → All Programs → OpenOffice → OpenOffice Writer வழியாகத் திறக்கலாம்.</p><p>Writer சாளரத்தின் முக்கியக் கூறுகள்: <b>தலைப்புப் பட்டை (Title Bar)</b>, <b>மெனுப் பட்டை (Menu Bar)</b>, <b>கருவிப் பட்டைகள் (Toolbars — Standard, Formatting)</b>, <b>ஆட்சிக்கோல் (Ruler)</b>, மற்றும் <b>நிலைப் பட்டை (Status Bar)</b>.</p>"
+        },
+        {
+          "type": "gloss-row",
+          "word": "📝 சொற்செயலி (Word Processor)",
+          "def": "ஆவணங்களை உருவாக்க, திருத்த, வடிவமைக்கப் பயன்படும் மென்பொருள் (உ.ம். MS Word, OpenOffice Writer)."
+        },
+        {
+          "type": "gloss-row",
+          "word": "🆓 OpenOffice Writer",
+          "def": "திறந்த மூல (Open Source), இலவசமாகக் கிடைக்கும் சொற்செயலி மென்பொருள்."
+        },
+        {
+          "type": "nav",
+          "next": "document-basics",
+          "nextLabel": "அடுத்து: ஆவணப் பணிகள் →"
+        }
+      ]
+    },
+    {
+      "id": "document-basics",
+      "label": "ஆவணப் பணிகள்",
+      "blocks": [
+        {
+          "type": "section-head",
+          "text": "6.2 ஆவணத்தை உருவாக்குதல் / சேமித்தல் / திறத்தல்"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p><b>புதிய ஆவணம் (New):</b> File → New → Text Document, அல்லது Ctrl+N.</p><p><b>சேமித்தல் (Save):</b> File → Save, அல்லது Ctrl+S. முதல் முறை சேமிக்கும்போது கோப்பின் பெயரையும் இடத்தையும் தேர்வு செய்யவேண்டும்.</p><p><b>வேறு பெயரில் சேமித்தல் (Save As):</b> File → Save As, அல்லது Ctrl+Shift+S — வேறு பெயரில் அல்லது வேறு கோப்பு வடிவத்தில் (உ.ம். .docx, .pdf) சேமிக்க உதவும்.</p><p><b>கடவுச்சொல் பாதுகாப்பு:</b> Save As சாளரத்தில் \"Save with password\" தேர்வு செய்து, ஆவணத்திற்குக் கடவுச்சொல் அமைக்கலாம்.</p><p><b>திறத்தல் (Open):</b> File → Open, அல்லது Ctrl+O — ஏற்கெனவே சேமிக்கப்பட்ட ஆவணத்தைத் திறக்க.</p><p><b>மூடுதல் (Close):</b> File → Close — தற்போதைய ஆவணத்தை மூட.</p>"
+        },
+        {
+          "type": "gloss-row",
+          "word": "💾 Save / Save As",
+          "def": "Save (Ctrl+S) தற்போதைய பெயரிலேயே சேமிக்கும். Save As (Ctrl+Shift+S) வேறு பெயரில்/வடிவத்தில் சேமிக்க உதவும்."
+        },
+        {
+          "type": "gloss-row",
+          "word": "🔑 கடவுச்சொல் பாதுகாப்பு (Password Protection)",
+          "def": "ஆவணத்தைத் திறக்க கடவுச்சொல் தேவைப்படும்படி பாதுகாக்கும் அம்சம்; Save As சாளரத்தில் அமைக்கலாம்."
+        },
+        {
+          "type": "nav",
+          "back": "intro",
+          "next": "text-formatting",
+          "nextLabel": "அடுத்து: எழுத்து வடிவூட்டல் →"
+        }
+      ]
+    },
+    {
+      "id": "text-formatting",
+      "label": "எழுத்து வடிவூட்டல்",
+      "blocks": [
+        {
+          "type": "section-head",
+          "text": "6.3 எழுத்து வடிவூட்டல் (Character Formatting)"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>Formatting கருவிப் பட்டையிலிருந்து அல்லது Format → Character மெனு வழியாக பின்வரும் மாற்றங்களைச் செய்யலாம்:</p><ul><li><b>எழுத்துரு (Font Name):</b> உ.ம். Times New Roman, Arial.</li><li><b>எழுத்து அளவு (Font Size):</b> புள்ளிகளில் (Points) அளவிடப்படும்.</li><li><b>தடித்த எழுத்து (Bold) — Ctrl+B, சாய்வு எழுத்து (Italic) — Ctrl+I, அடிக்கோடு (Underline) — Ctrl+U.</b></li><li><b>எழுத்து நிறம் (Font Color):</b> உரையின் நிறத்தை மாற்ற.</li></ul><p>Format → Character சாளரம் மேலும் விரிவான கட்டுப்பாடுகளை (எழுத்துரு விளைவுகள், இடைவெளி) வழங்குகிறது.</p>"
+        },
+        {
+          "type": "gloss-row",
+          "word": "🔤 Bold / Italic / Underline",
+          "def": "Ctrl+B (தடிப்பு), Ctrl+I (சாய்வு), Ctrl+U (அடிக்கோடு) — எழுத்து வடிவூட்டலுக்கான குறுக்குவழிகள்."
+        },
+        {
+          "type": "nav",
+          "back": "document-basics",
+          "next": "paragraph-formatting",
+          "nextLabel": "அடுத்து: பத்தி வடிவூட்டல் →"
+        }
+      ]
+    },
+    {
+      "id": "paragraph-formatting",
+      "label": "பத்தி வடிவூட்டல்",
+      "blocks": [
+        {
+          "type": "section-head",
+          "text": "6.4 பத்தி வடிவூட்டல் (Paragraph Formatting)"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p><b>சீரமைப்பு (Alignment):</b> நான்கு வகைகள் — Left (இடது), Right (வலது), Center (நடு), Justified (இருபுறமும் சமன்).</p><p><b>வரி இடைவெளி (Line Spacing):</b> Format → Paragraph → Indents & Spacing வழியாக வரிகளுக்கு இடையேயான இடைவெளியை மாற்றலாம் (உ.ம். 1.0, 1.5, 2.0).</p><p><b>உள்தள்ளல் (Indent):</b> பத்தியின் இடது/வலது ஓரத்தை உள்தள்ள (Before Text, After Text) அல்லது முதல் வரியை மட்டும் உள்தள்ள (First Line Indent) செய்யலாம்.</p><p><b>Bullets and Numbering:</b> Format → Bullets and Numbering — பட்டியல் உருப்படிகளுக்கு முன் புள்ளிகள் அல்லது எண்களைச் சேர்க்க.</p>"
+        },
+        {
+          "type": "gloss-row",
+          "word": "↔️ சீரமைப்பு (Alignment)",
+          "def": "பத்தியின் உரையை இடது, வலது, நடு, அல்லது இருபுறமும் சமனாக (Justified) வரிசைப்படுத்தும் அமைப்பு."
+        },
+        {
+          "type": "gloss-row",
+          "word": "🔢 Bullets and Numbering",
+          "def": "பட்டியல் உருப்படிகளுக்கு முன் புள்ளிகள் அல்லது எண்களை தானாகச் சேர்க்கும் அம்சம்."
+        },
+        {
+          "type": "nav",
+          "back": "text-formatting",
+          "next": "page-formatting",
+          "nextLabel": "அடுத்து: பக்க வடிவூட்டல் →"
+        }
+      ]
+    },
+    {
+      "id": "page-formatting",
+      "label": "பக்க வடிவூட்டல்",
+      "blocks": [
+        {
+          "type": "section-head",
+          "text": "6.5 பக்க வடிவூட்டல் (Page Formatting)"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p>Format → Page Style சாளரம் வழியாகப் பக்க அமைப்புகளை மாற்றலாம்:</p><ul><li><b>Page Orientation:</b> Portrait (நீள்நிலை) அல்லது Landscape (அகல்நிலை).</li><li><b>Margins:</b> பக்கத்தின் நான்கு ஓரங்களிலும் இருக்கும் வெற்றிடம்.</li><li><b>Background Color:</b> பக்கத்தின் பின்னணி நிறத்தை மாற்ற.</li></ul><p><b>தலைப்பு/அடிக்குறிப்பு (Header/Footer):</b> Insert → Header/Footer → Default — ஒவ்வொரு பக்கத்திலும் தொடர்ந்து தோன்றும் தகவலைச் (உ.ம். பக்க எண், தேதி) சேர்க்க.</p><p><b>பக்க எண் சேர்க்க:</b> Insert → Fields → Page Number.</p>"
+        },
+        {
+          "type": "gloss-row",
+          "word": "📄 Page Orientation",
+          "def": "பக்கத்தின் திசையமைப்பு — Portrait (நீள்நிலை) அல்லது Landscape (அகல்நிலை)."
+        },
+        {
+          "type": "gloss-row",
+          "word": "📋 Header / Footer",
+          "def": "ஒவ்வொரு பக்கத்திலும் தொடர்ந்து தோன்றும் மேல்/கீழ் பகுதி; பக்க எண், தேதி போன்ற தகவல்களைச் சேர்க்கப் பயன்படும்."
+        },
+        {
+          "type": "nav",
+          "back": "paragraph-formatting",
+          "next": "editing-tools",
+          "nextLabel": "அடுத்து: திருத்தும் கருவிகள் →"
+        }
+      ]
+    },
+    {
+      "id": "editing-tools",
+      "label": "திருத்தும் கருவிகள்",
+      "blocks": [
+        {
+          "type": "section-head",
+          "text": "6.6 திருத்தும் கருவிகள் (Editing Tools)"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p><b>Find & Replace (Ctrl+H):</b> ஆவணத்தில் ஒரு சொல்லைத் தேடி, வேறு சொல்லால் மாற்ற உதவும்.</p><p><b>Spelling and Grammar (F7):</b> எழுத்துப் பிழைகளையும் இலக்கணப் பிழைகளையும் கண்டறிந்து திருத்த உதவும் கருவி; சிவப்பு அலை-கோட்டால் பிழையான சொற்கள் அடிக்கோடிடப்படும்.</p><p><b>AutoCorrect:</b> Tools → AutoCorrect Options — தட்டச்சு செய்யும்போது பொதுவான எழுத்துப் பிழைகளைத் தானாகத் திருத்தும் அம்சம்.</p>"
+        },
+        {
+          "type": "gloss-row",
+          "word": "🔍 Find & Replace",
+          "def": "Ctrl+H — ஆவணத்தில் ஒரு சொல்லைத் தேடி, வேறு சொல்லால் மாற்ற உதவும் கருவி."
+        },
+        {
+          "type": "gloss-row",
+          "word": "✅ Spelling and Grammar",
+          "def": "F7 — எழுத்துப் பிழைகளையும் இலக்கணப் பிழைகளையும் கண்டறிந்து திருத்த உதவும் கருவி."
+        },
+        {
+          "type": "gloss-row",
+          "word": "🔄 AutoCorrect",
+          "def": "தட்டச்சு செய்யும்போது பொதுவான எழுத்துப் பிழைகளைத் தானாகத் திருத்தும் அம்சம்."
+        },
+        {
+          "type": "nav",
+          "back": "page-formatting",
+          "next": "tables-print",
+          "nextLabel": "அடுத்து: அட்டவணை / அச்சிடல் →"
+        }
+      ]
+    },
+    {
+      "id": "tables-print",
+      "label": "அட்டவணை / அச்சிடல்",
+      "blocks": [
+        {
+          "type": "section-head",
+          "text": "6.7 அட்டவணை சேர்த்தல் மற்றும் அச்சிடுதல்"
+        },
+        {
+          "type": "teacher-voice",
+          "html": "<p><b>அட்டவணை சேர்க்க:</b> Table → Insert Table (Ctrl+F12) — வரிசைகள் (Rows), நெடுவரிசைகள் (Columns) எண்ணிக்கையைக் குறிப்பிடவேண்டும். Merge Cells (பல கலங்களை ஒன்றாக்க) மற்றும் Split Cells (ஒரு கலத்தைப் பிரிக்க) பயன்படுத்தலாம்.</p><p><b>Drawing Toolbar:</b> View → Toolbars → Drawing — வரிகள், வடிவங்கள், அம்புக்குறிகள் வரைய உதவும்.</p><p><b>சிறப்பு எழுத்துகள் (Special Character):</b> Insert → Special Character — கீபோர்டில் இல்லாத குறியீடுகளைச் செருக.</p><p><b>அச்சிடல் (Print):</b> File → Print (Ctrl+P) — அச்சடிப்பானையும், பிரதிகளின் எண்ணிக்கையையும், பக்க வரம்பையும் தேர்வு செய்யலாம். File → Print Preview — அச்சிடும் முன் பக்கம் எவ்வாறு தோன்றும் எனப் பார்வையிட உதவும்.</p>"
+        },
+        {
+          "type": "gloss-row",
+          "word": "🔗 Merge / Split Cells",
+          "def": "Merge Cells பல அட்டவணைக் கலங்களை ஒன்றிணைக்கும்; Split Cells ஒரு கலத்தைப் பல கலங்களாகப் பிரிக்கும்."
+        },
+        {
+          "type": "gloss-row",
+          "word": "🖨️ Print Preview",
+          "def": "அச்சிடும் முன் ஆவணம் அச்சுப் பக்கத்தில் எவ்வாறு தோன்றும் என்பதைப் பார்வையிட உதவும் கருவி."
+        },
+        {
+          "type": "think-box",
+          "label": "நினைவில் கொள்ள ⌨️",
+          "text": "Ctrl+N (புதியது), Ctrl+O (திற), Ctrl+S (சேமி), Ctrl+P (அச்சிடு), Ctrl+H (தேடி மாற்று), F7 (எழுத்துப் பிழை சரிபார்ப்பு) — இவை Writer-இல் அடிக்கடி பயன்படும் குறுக்குவழிகள்."
+        },
+        {
+          "type": "nav",
+          "back": "editing-tools",
+          "practice": true
+        }
+      ]
+    }
+  ]
+}

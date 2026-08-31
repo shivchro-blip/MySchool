@@ -1,0 +1,37 @@
+{
+  "chapterNumber": 15,
+  "title": "பல்லுருவாக்கம்",
+  "subject": "கணினி அறிவியல்",
+  "classLabel": "வகுப்பு XI",
+  "curriculum": "சமச்சீர் கல்வி",
+  "sections": [
+    {
+      "id": "intro",
+      "title": "பல்லுருவாக்கம் — அறிமுகம்",
+      "content": "**பல்லுருவாக்கம் (Polymorphism)** என்பது \"பல வடிவங்கள்\" எனப் பொருள்படும்; ஒரே பெயர் கொண்ட செயற்கூறு அல்லது செயலி, வெவ்வேறு சூழல்களில் வெவ்வேறு வகையில் செயல்படும் திறன் ஆகும்.\n\n**வகைகள்:**\n- **தொகுத்தல் நேரப் பல்லுருவாக்கம் (Compile-time Polymorphism):** செயற்கூறு மிகைப்படுத்தல் (Function Overloading), செயலி மிகைப்படுத்தல் (Operator Overloading).\n- **இயக்க நேரப் பல்லுருவாக்கம் (Run-time Polymorphism):** Virtual Functions மூலம் (மேல்நிலைப் பாடத்தில் விரிவாகக் கற்பீர்கள்).",
+      "nav": {
+        "next": "function-overloading",
+        "nextLabel": "அடுத்து: செயற்கூறு மிகைப்படுத்தல் →"
+      }
+    },
+    {
+      "id": "function-overloading",
+      "title": "செயற்கூறு மிகைப்படுத்தல் (Function Overloading)",
+      "content": "**Function Overloading:** ஒரே பெயர் கொண்ட பல செயற்கூறுகளை, வெவ்வேறு அளவுருக்களின் எண்ணிக்கை அல்லது தரவு வகையுடன் வரையறுப்பது.\n\n```cpp\nint add(int a, int b) {\n    return a + b;\n}\nfloat add(float a, float b) {\n    return a + b;\n}\nint add(int a, int b, int c) {\n    return a + b + c;\n}\n```\n\nதொகுப்பாளர் (Compiler) அழைக்கப்படும் செயற்கூற்றின் அளவுருக்களைப் பொருத்து, சரியான செயற்கூற்றைத் தானாகத் தேர்ந்தெடுக்கும்.\n\n**கட்டுப்பாடுகள் (Restrictions on Overloading):** return type மட்டும் மாறினால் Overloading சாத்தியமில்லை; அளவுருக்களின் எண்ணிக்கை அல்லது வகை மாற வேண்டும்.",
+      "nav": {
+        "back": "intro",
+        "next": "operator-overloading",
+        "nextLabel": "அடுத்து: செயலி மிகைப்படுத்தல் →"
+      }
+    },
+    {
+      "id": "operator-overloading",
+      "title": "செயலி மிகைப்படுத்தல் (Operator Overloading)",
+      "content": "**Operator Overloading:** C++-இல் ஏற்கெனவே உள்ள செயலிகளுக்கு (+, -, ==) பயனாளர் வரையறுத்த இனக்குழுக்களுக்கான புதிய பொருள் கொடுப்பது.\n\n```cpp\nclass complex {\n  public:\n    int real, imag;\n    complex operator + (complex c2) {\n        complex c3;\n        c3.real = real + c2.real;\n        c3.imag = imag + c2.imag;\n        return c3;\n    }\n};\n```\n\n**தொடரமைப்பு (Operator Function Syntax):**\n\n```\nReturnType classname :: operator Symbol (arguments)\n{\n    // function body\n}\n```\n\nஇதன் மூலம் இரு complex எண்களை c3 = c1 + c2 என நேரடியாகக் கூட்டலாம்.",
+      "nav": {
+        "back": "function-overloading",
+        "practice": true
+      }
+    }
+  ]
+}

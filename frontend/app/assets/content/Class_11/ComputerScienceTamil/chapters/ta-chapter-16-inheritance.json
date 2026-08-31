@@ -1,0 +1,47 @@
+{
+  "chapterNumber": 16,
+  "title": "மரபுரிமம்",
+  "subject": "கணினி அறிவியல்",
+  "classLabel": "வகுப்பு XI",
+  "curriculum": "சமச்சீர் கல்வி",
+  "sections": [
+    {
+      "id": "intro",
+      "title": "மரபுரிமம் — அறிமுகம்",
+      "content": "**மரபுரிமம் (Inheritance)** என்பது ஒரு புதிய இனக்குழு (Derived Class), ஏற்கெனவே உள்ள ஒரு இனக்குழுவின் (Base Class) பண்புகளையும் செயல்பாடுகளையும் பெறும் OOP நுட்பம் ஆகும். இது குறியீட்டு மறு பயன்பாட்டை (Reusability) அதிகரிக்கிறது.\n\n```cpp\nclass Base {\n  public:\n    int x;\n};\nclass Derived : public Base {\n  public:\n    int y;\n};\n```\n\n**மரபுரிமத்தின் வகைகள்:**\n- **Single Inheritance:** ஒரு Base Class-இலிருந்து ஒரு Derived Class.\n- **Multiple Inheritance:** பல Base Class-களிலிருந்து ஒரு Derived Class.\n- **Multilevel Inheritance:** A→B→C எனத் தொடர் அடுக்குகளாக மரபுரிமை.\n- **Hierarchical Inheritance:** ஒரு Base Class-இலிருந்து பல Derived Class-கள்.\n- **Hybrid Inheritance:** மேற்கண்ட வகைகளின் கலவை.",
+      "nav": {
+        "next": "types",
+        "nextLabel": "அடுத்து: மரபுரிமத்தின் விரிவான வகைகள் →"
+      }
+    },
+    {
+      "id": "types",
+      "title": "மரபுரிமத்தின் விரிவான வகைகள்",
+      "content": "**Single Inheritance:**\n\n```cpp\nclass A { };\nclass B : public A { };\n```\n\n**Multilevel Inheritance:**\n\n```cpp\nclass A { };\nclass B : public A { };\nclass C : public B { };\n```\n\n**Multiple Inheritance:**\n\n```cpp\nclass A { };\nclass B { };\nclass C : public A, public B { };\n```\n\n**Hierarchical Inheritance:** ஒரு Base Class A-விலிருந்து B, C, D எனப் பல Derived Class-கள் உருவாகும்.",
+      "nav": {
+        "back": "intro",
+        "next": "visibility-modes",
+        "nextLabel": "அடுத்து: பார்வைத்தன்மை முறைகள் →"
+      }
+    },
+    {
+      "id": "visibility-modes",
+      "title": "மரபுரிமப் பார்வைத்தன்மை முறைகள்",
+      "content": "Derived Class Base Class-இன் உறுப்புகளை எவ்வாறு பெறும் என்பதை **மரபுரிமப் பார்வைத்தன்மை (Visibility Mode)** தீர்மானிக்கிறது:\n\n| Base Class உறுப்பு | Private மரபுரிமை | Protected மரபுரிமை | Public மரபுரிமை |\n|---|---|---|---|\n| private | அணுக முடியாது | அணுக முடியாது | அணுக முடியாது |\n| protected | private ஆகிறது | protected ஆகிறது | protected ஆகிறது |\n| public | private ஆகிறது | protected ஆகிறது | public ஆகிறது |\n\n```cpp\nclass Derived : public Base { };     // public inheritance\nclass Derived : protected Base { };  // protected inheritance\nclass Derived : private Base { };    // private inheritance\n```",
+      "nav": {
+        "back": "types",
+        "next": "constructors-overriding",
+        "nextLabel": "அடுத்து: Constructors / Function Overriding →"
+      }
+    },
+    {
+      "id": "constructors-overriding",
+      "title": "மரபுரிமத்தில் Constructors-உம் Function Overriding-உம்",
+      "content": "ஒரு Derived Class பொருள் உருவாகும்போது, முதலில் **Base Class-இன் Constructor**, பின்னர் **Derived Class-இன் Constructor** அழைக்கப்படும்.\n\n```cpp\nclass base {\n  public:\n    base() { cout << \"Constructor of base class\"; }\n};\nclass derived : public base {\n  public:\n    derived() { cout << \"Constructor of derived class\"; }\n};\n```\n\n**Function Overriding:** Base Class-இல் உள்ள ஒரு செயற்கூற்றை, Derived Class-இல் அதே பெயர், அதே அளவுருக்களுடன் மீண்டும் வரையறுத்து, புதிய செயல்பாட்டைத் தருவது.\n\n```cpp\nclass base {\n  public:\n    void display() { cout << \"Base class\"; }\n};\nclass derived : public base {\n  public:\n    void display() { cout << \"Derived class\"; } // Overriding\n};\n```",
+      "nav": {
+        "back": "visibility-modes",
+        "practice": true
+      }
+    }
+  ]
+}
