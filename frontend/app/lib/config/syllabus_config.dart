@@ -78,6 +78,8 @@ class SyllabusConfig {
     SubjectConfig(slug: 'science', name: 'Science', classLevel: '+1'),
     SubjectConfig(slug: 'computer-applications', name: 'Computer Applications', classLevel: '+1'),
     SubjectConfig(slug: 'computer-science', name: 'Computer Science', classLevel: '+1'),
+    SubjectConfig(slug: 'computer-applications-tamil', name: 'Computer Applications (தமிழ்)', classLevel: '+1'),
+    SubjectConfig(slug: 'computer-science-tamil', name: 'Computer Science (தமிழ்)', classLevel: '+1'),
     SubjectConfig(slug: 'english', name: 'English', classLevel: '+2'),
     SubjectConfig(slug: 'maths', name: 'Mathematics', classLevel: '+2'),
     SubjectConfig(slug: 'computer-applications', name: 'Computer Applications', classLevel: '+2'),
@@ -462,6 +464,48 @@ class SyllabusConfig {
     FlatChapter(number: 18, title: 'Tamil Computing', slug: 'cs-chapter-18-tamil-computing'),
   ];
 
+  static const _plus1ComputerApplicationsTamil = [
+    FlatChapter(number: 1, title: 'கணினி அறிமுகம்', slug: 'ta-chapter-01-introduction-to-computers'),
+    FlatChapter(number: 2, title: 'எண் முறைகள்', slug: 'ta-chapter-02-number-systems'),
+    FlatChapter(number: 3, title: 'கணினி அமைப்பு', slug: 'ta-chapter-03-computer-organization'),
+    FlatChapter(number: 4, title: 'இயக்க அமைப்பின் கோட்பாட்டு கருத்துக்கள்', slug: 'ta-chapter-04-operating-system-concepts'),
+    FlatChapter(number: 5, title: 'விண்டோஸ் - ல் வேலை செய்தல்', slug: 'ta-chapter-05-working-with-windows'),
+    FlatChapter(number: 6, title: 'சொற்செயலி (Basics)', slug: 'ta-chapter-06-word-processor-basics'),
+    FlatChapter(number: 7, title: 'ஓபன் ஆஃபீஸ் கால்க்-ல் வேலை செய்தல்', slug: 'ta-chapter-07-openoffice-calc-basics'),
+    FlatChapter(number: 8, title: 'நிகழ்த்துதல் (Basics)', slug: 'ta-chapter-08-presentation-basics'),
+    FlatChapter(number: 9, title: 'இணைய தளம் மற்றும் மின்னஞ்சல் - ஓர் அறிமுகம்', slug: 'ta-chapter-09-website-and-email-introduction'),
+    FlatChapter(number: 10, title: 'HTML - கட்டமைப்பு ஒட்டுகள்', slug: 'ta-chapter-10-html-structural-tags'),
+    FlatChapter(number: 11, title: 'HTML உரை வடிவூட்டல், அட்டவணை உருவாக்குதல், பட்டியல்கள் மற்றும் இணைப்புகள்', slug: 'ta-chapter-11-html-text-tables-lists-links'),
+    FlatChapter(number: 12, title: 'HTML – பல்லூடகக் கூறுகள் மற்றும் படிவங்கள் இணைத்தல்', slug: 'ta-chapter-12-html-multimedia-forms'),
+    FlatChapter(number: 13, title: 'CSS – தொடரும் பணி தாள்கள்', slug: 'ta-chapter-13-css-basics'),
+    FlatChapter(number: 14, title: 'ஜாவாஸ்கிரிப்ட்டின் அறிமுகம்', slug: 'ta-chapter-14-javascript-introduction'),
+    FlatChapter(number: 15, title: 'ஜாவாஸ்கிரிப்ட்-ல் உள்ள கட்டுப்பாட்டு கட்டமைப்பு', slug: 'ta-chapter-15-javascript-control-structures'),
+    FlatChapter(number: 16, title: 'ஜாவா எழுத்துவடிவ செயற்கூறுகள்', slug: 'ta-chapter-16-javascript-functions'),
+    FlatChapter(number: 17, title: 'கணிப்பொறி நன்னெறி மற்றும் இணையப் பாதுகாப்பு', slug: 'ta-chapter-17-computer-ethics-cyber-security'),
+    FlatChapter(number: 18, title: 'கணிப்பொறியில் தமிழ்', slug: 'ta-chapter-18-tamil-computing'),
+  ];
+
+  static const _plus1ComputerScienceTamil = [
+    FlatChapter(number: 1, title: 'கணினி அறிமுகம்', slug: 'ta-chapter-01-computer-science-basics'),
+    FlatChapter(number: 2, title: 'எண் முறைகள்', slug: 'ta-chapter-02-number-systems-cs'),
+    FlatChapter(number: 3, title: 'கணினி அமைப்பு', slug: 'ta-chapter-03-computer-architecture'),
+    FlatChapter(number: 4, title: 'இயக்க அமைப்பின் கோட்பாட்டு கருத்துக்கள்', slug: 'ta-chapter-04-os-theory-cs'),
+    FlatChapter(number: 5, title: 'விண்டோஸ் - ல் வேலை செய்தல்', slug: 'ta-chapter-05-windows-basics-cs'),
+    FlatChapter(number: 6, title: 'விவரக்குறிப்பு மற்றும் அருவமாக்கம்', slug: 'ta-chapter-06-specification-abstraction'),
+    FlatChapter(number: 7, title: 'பிரித்தல் மற்றும் ஒருங்கிணைத்தல்', slug: 'ta-chapter-07-divide-and-conquer'),
+    FlatChapter(number: 8, title: 'சுழற்சியும், தற்சுழற்சியும்', slug: 'ta-chapter-08-iteration-recursion'),
+    FlatChapter(number: 9, title: 'C++ ஓர் அறிமுகம்', slug: 'ta-chapter-09-cpp-introduction'),
+    FlatChapter(number: 10, title: 'பாய்வுக் கட்டுப்பாடு', slug: 'ta-chapter-10-cpp-control-structures'),
+    FlatChapter(number: 11, title: 'C++ - ன் செயற்கூறுகள்', slug: 'ta-chapter-11-cpp-functions'),
+    FlatChapter(number: 12, title: 'அணிகள் மற்றும் கட்டுருக்கள்', slug: 'ta-chapter-12-arrays-structures'),
+    FlatChapter(number: 13, title: 'அறிமுகம் – பொருள்நோக்கு நிரலாக்க நுட்பங்கள்', slug: 'ta-chapter-13-oop-introduction'),
+    FlatChapter(number: 14, title: 'இனக்குழுக்கள் மற்றும் பொருள்கள்', slug: 'ta-chapter-14-classes-and-objects'),
+    FlatChapter(number: 15, title: 'பல்லுருவாக்கம்', slug: 'ta-chapter-15-polymorphism'),
+    FlatChapter(number: 16, title: 'மரபுரிமம்', slug: 'ta-chapter-16-inheritance'),
+    FlatChapter(number: 17, title: 'கணிப்பொறி நன்னெறி மற்றும் இணையப் பாதுகாப்பு', slug: 'ta-chapter-17-ethics-cyber-security-cs'),
+    FlatChapter(number: 18, title: 'கணிப்பொறியில் தமிழ்', slug: 'ta-chapter-18-tamil-computing-cs'),
+  ];
+
   static const _plus2ComputerApplications = [
     FlatChapter(number: 1, title: 'Multimedia', slug: 'chapter-01-multimedia'),
     FlatChapter(number: 2, title: 'An Introduction to Adobe PageMaker', slug: 'chapter-02-pagemaker'),
@@ -566,6 +610,8 @@ class SyllabusConfig {
     return switch (key) {
       '+1/computer-applications' => _plus1ComputerApplications,
       '+1/computer-science' => _plus1ComputerScience,
+      '+1/computer-applications-tamil' => _plus1ComputerApplicationsTamil,
+      '+1/computer-science-tamil' => _plus1ComputerScienceTamil,
       '+2/computer-applications' => _plus2ComputerApplications,
       '+2/computer-science' => _plus2ComputerScience,
       '+2/computer-applications-tamil' => _plus2ComputerApplicationsTamil,
