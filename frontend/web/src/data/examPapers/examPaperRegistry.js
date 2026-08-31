@@ -59,6 +59,7 @@ const LOADERS = {
   'class11-computer-science-tamil-model-qa-2': () => import('./class11ComputerScienceTamilModelQA2'),
   'class11-computer-science-tamil-model-qa-3': () => import('./class11ComputerScienceTamilModelQA3'),
   'class11-computer-science-tamil-model-qa-4': () => import('./class11ComputerScienceTamilModelQA4'),
+  'class11-computer-science-tamil-model-qa-5': () => import('./class11ComputerScienceTamilModelQA5'),
 }
 
 export async function getPaperById(paperId) {
