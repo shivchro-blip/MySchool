@@ -42,6 +42,28 @@ class AuthService {
   // so ApiService never needs a UserProvider/BuildContext reference.
   static final ValueNotifier<int> sessionGeneration = ValueNotifier<int>(0);
 
+  // One-shot reason flag for the NEXT clearLocalSession(), read by
+  // LoginScreen after the router redirects there. Deliberately not on
+  // UserProvider: UserProvider's sessionGeneration listener resets its own
+  // state on every bump (including this one), so anything living there
+  // would be wiped before the login screen could read it. Kept off the
+  // ValueNotifier entirely — sessionGeneration stays the only Listenable
+  // the router hangs off; this is just metadata read once, not a second
+  // notification path.
+  static bool _evicted = false;
+
+  // Called only from ApiService's 401 SESSION_INVALIDATED branch, before
+  // clearLocalSession(). Never set for explicit logout.
+  static void markEvicted() => _evicted = true;
+
+  // Read-and-clear so the message shows exactly once — not on a later
+  // visit to /login, not after an app restart (in-memory only).
+  static bool consumeEvictionFlag() {
+    final was = _evicted;
+    _evicted = false;
+    return was;
+  }
+
   // ── Single-session enforcement ─────────────────────────────────────────────
   //
   // After every successful Supabase login the client must claim the single

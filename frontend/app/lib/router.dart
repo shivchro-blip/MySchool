@@ -31,6 +31,13 @@ import 'widgets/shell_scaffold.dart';
 
 final router = GoRouter(
   initialLocation: '/dashboard',
+  // Bumped by AuthService.clearLocalSession() on both eviction (401
+  // SESSION_INVALIDATED) and explicit logout. Without this, nothing
+  // re-runs `redirect` after a token clear that didn't happen via an
+  // explicit context.go() call — a 401 from any screen would clear the
+  // token and just sit there showing its now-unauthenticated fallback
+  // state instead of bouncing to /login.
+  refreshListenable: AuthService.sessionGeneration,
   redirect: (context, state) async {
     if (state.matchedLocation == '/') return '/dashboard';
 

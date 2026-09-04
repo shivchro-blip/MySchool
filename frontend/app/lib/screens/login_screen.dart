@@ -28,6 +28,17 @@ class _LoginScreenState extends State<LoginScreen> {
   String? _ageConfirmation;  // 'adult' or 'minor_with_consent'
   bool    _consentChecked   = false;
 
+  // Read once in initState — AuthService.consumeEvictionFlag() clears it on
+  // read, so a hot restart, a later visit to /login, or an app relaunch
+  // never shows it again.
+  bool _evictedNotice = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _evictedNotice = AuthService.consumeEvictionFlag();
+  }
+
   Future<void> _signInWithGoogle() async {
     setState(() { _loading = true; _error = ''; _notice = ''; });
     try {
@@ -145,6 +156,25 @@ class _LoginScreenState extends State<LoginScreen> {
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 13, color: AppTheme.text2Of(context)),
               ),
+
+              if (_evictedNotice) ...[
+                const SizedBox(height: 16),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+                  decoration: BoxDecoration(
+                    color:        AppTheme.surfaceOf(context),
+                    borderRadius: BorderRadius.circular(10),
+                    border:       Border.all(color: AppTheme.borderOf(context)),
+                  ),
+                  child: Text(
+                    'You were signed out because your account was used on '
+                    'another device.',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 13, color: AppTheme.text2Of(context)),
+                  ),
+                ),
+              ],
+
               const SizedBox(height: 32),
 
               // Mode-specific heading

@@ -126,6 +126,10 @@ class ApiService {
       }
       final invalidated = detail == 'SESSION_INVALIDATED';
       if (invalidated) {
+        // Set before clearing so the flag is already in place by the time
+        // sessionGeneration's bump (inside clearLocalSession) triggers the
+        // router's refreshListenable redirect to /login.
+        AuthService.markEvicted();
         // Awaited, not fire-and-forget: callers react to the throw below by
         // navigating, and the router's guard reads storage on the way.
         await AuthService().clearLocalSession();
