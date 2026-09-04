@@ -33,6 +33,7 @@ class UpdateProfileRequest(BaseModel):
 class SessionClaimResponse(BaseModel):
     """Returned once at login; the raw token is never stored server-side."""
     session_token: str
+    profile: UserProfileResponse | None = None
 
 
 class UsageStatsResponse(BaseModel):

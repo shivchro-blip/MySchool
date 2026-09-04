@@ -41,15 +41,21 @@ class SessionsRepository:
         token_hash: str,
         device_hint: str | None,
     ) -> None:
-        """Invalidate every existing session for the user, then store the
-        new one. Two steps; the UNIQUE index on user_id is the backstop
-        against concurrent claims leaving two rows."""
-        self._db.table("user_sessions").delete().eq("user_id", user_id).execute()
-        self._db.table("user_sessions").insert({
-            "user_id":            user_id,
-            "session_token_hash": token_hash,
-            "device_hint":        device_hint,
-        }).execute()
+        """Invalidate any existing session for the user and store the new
+        one, in a single round-trip. Relies on the UNIQUE index on user_id
+        (user_sessions_user_id_uidx, migration 012) via INSERT ... ON
+        CONFLICT DO UPDATE — the same row is reused across claims for a
+        given user (id and created_at are not regenerated), only
+        session_token_hash / device_hint / last_seen_at change."""
+        self._db.table("user_sessions").upsert(
+            {
+                "user_id":            user_id,
+                "session_token_hash": token_hash,
+                "device_hint":        device_hint,
+                "last_seen_at":       datetime.now(timezone.utc).isoformat(),
+            },
+            on_conflict="user_id",
+        ).execute()
 
     def touch(self, user_id: str, last_seen_at: str | None = None) -> None:
         """Update last_seen_at, throttled to one write per TOUCH_INTERVAL."""

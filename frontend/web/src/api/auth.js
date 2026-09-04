@@ -1,4 +1,4 @@
-import { invalidateProfileCache, getCachedProfile } from './users'
+import { invalidateProfileCache, getCachedProfile, seedProfileCache } from './users'
 
 const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL
 const SUPABASE_ANON = import.meta.env.VITE_SUPABASE_ANON_KEY
@@ -21,6 +21,9 @@ export async function claimSession() {
   const data = await res.json()
   if (data.session_token) {
     localStorage.setItem('exam_coach_session', data.session_token)
+  }
+  if (data.profile) {
+    seedProfileCache(data.profile)
   }
 }
 
@@ -115,10 +118,11 @@ export async function loginWithEmail(email, password) {
   if (data.access_token) {
     localStorage.setItem('exam_coach_token', data.access_token)
     await claimSession()
-    // Start /users/me now (must come after claimSession — the endpoint
-    // requires X-Session-Token). Guard joins this in-flight promise instead
-    // of starting the fetch after its first commit. Deliberately not awaited;
-    // errors are already swallowed inside getCachedProfile.
+    // claimSession() already seeded the profile cache from its own response,
+    // so this normally resolves from memory with no network call. Kept as a
+    // fallback fetch for the case where /claim didn't return a profile
+    // (e.g. an older cached frontend build talking to this backend).
+    // Deliberately not awaited; errors are already swallowed inside getCachedProfile.
     getCachedProfile().catch(() => {})
   }
   return data

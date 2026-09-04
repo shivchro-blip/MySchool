@@ -1,6 +1,9 @@
 import logging
+import time
 
-from fastapi import FastAPI, Response
+import httpx
+from fastapi import FastAPI, HTTPException, Response
+from fastapi.concurrency import run_in_threadpool
 from fastapi.middleware.cors import CORSMiddleware
 from slowapi import _rate_limit_exceeded_handler
 from slowapi.errors import RateLimitExceeded
@@ -95,3 +98,54 @@ async def health_check(response: Response):
         supabase=supabase_status,
         chromadb=chroma_status,
     )
+
+
+# ── Temporary latency diagnostic (Yadhum perf investigation, 2026-09) ───────
+# Unauthenticated by design — gated only by DIAG_TOKEN so it can be deployed
+# briefly without exposing the app. Disabled entirely (404) unless DIAG_TOKEN
+# is set. Remove this endpoint, and diag_token in config.py, once the
+# keep-alive/CPU-throttle question below is settled.
+
+_DIAG_NOOP_ITERATIONS = 200_000  # tuned to ~1ms of pure-Python work
+
+
+def _diag_noop_ms() -> float:
+    start = time.perf_counter()
+    total = 0
+    for i in range(_DIAG_NOOP_ITERATIONS):
+        total += i * i
+    return (time.perf_counter() - start) * 1000
+
+
+def _diag_supabase_call_ms() -> float:
+    from db.client import get_db
+    start = time.perf_counter()
+    get_db().table("subjects").select("id").limit(1).execute()
+    return (time.perf_counter() - start) * 1000
+
+
+@app.get("/health/diag", tags=["Health"])
+async def health_diag(token: str = ""):
+    if not settings.diag_token or token != settings.diag_token:
+        raise HTTPException(status_code=404, detail="Not found")
+
+    t_noop_ms = _diag_noop_ms()
+    t_call1_ms = await run_in_threadpool(_diag_supabase_call_ms)
+    t_call2_ms = await run_in_threadpool(_diag_supabase_call_ms)
+    t_call3_ms = await run_in_threadpool(_diag_supabase_call_ms)
+
+    start = time.perf_counter()
+    try:
+        async with httpx.AsyncClient() as fresh_client:
+            await fresh_client.get(f"{settings.supabase_url}/rest/v1/", timeout=10.0)
+    except Exception:
+        pass
+    t_dns_tcp_tls_ms = (time.perf_counter() - start) * 1000
+
+    return {
+        "t_noop_ms":         round(t_noop_ms, 2),
+        "t_call1_ms":        round(t_call1_ms, 2),
+        "t_call2_ms":        round(t_call2_ms, 2),
+        "t_call3_ms":        round(t_call3_ms, 2),
+        "t_dns_tcp_tls_ms":  round(t_dns_tcp_tls_ms, 2),
+    }

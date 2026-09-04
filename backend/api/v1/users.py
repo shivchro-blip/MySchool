@@ -27,7 +27,8 @@ async def claim_session(
     """Called once after a successful Supabase login. Deletes any existing
     session rows for this user (kicking other devices), stores the SHA-256
     hash of a fresh token, and returns the raw token — the only time it
-    ever leaves the server."""
+    ever leaves the server. Also returns the caller's profile (same payload
+    as GET /me) so the login path doesn't need a separate round-trip."""
     raw_token = issue_session_token()
     repo = SessionsRepository()
     device_hint = (request.headers.get("user-agent") or "")[:80] or None
@@ -37,7 +38,8 @@ async def claim_session(
         repo.hash_token(raw_token),
         device_hint,
     )
-    return SessionClaimResponse(session_token=raw_token)
+    profile = await run_in_threadpool(UsersRepository().get_by_id, user["id"])
+    return SessionClaimResponse(session_token=raw_token, profile=profile)
 
 
 @router.delete("/session")

@@ -29,6 +29,20 @@ export function invalidateProfileCache() {
   localStorage.removeItem(PROFILE_STORE_KEY)
 }
 
+// Seeds the cache directly from a payload the backend already sent (e.g. the
+// /session/claim response), so the next getCachedProfile() call resolves
+// from memory instead of issuing a GET /users/me.
+export function seedProfileCache(profile) {
+  if (!profile) return
+  const token = localStorage.getItem('exam_coach_token')
+  if (!token) return
+  _cachedProfile = profile
+  _cacheToken    = token
+  try {
+    localStorage.setItem(PROFILE_STORE_KEY, JSON.stringify({ token, profile }))
+  } catch {}
+}
+
 export async function getCachedProfile() {
   const token = localStorage.getItem('exam_coach_token')
   if (!token) return null

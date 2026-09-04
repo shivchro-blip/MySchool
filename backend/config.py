@@ -26,5 +26,10 @@ class Settings(BaseSettings):
     redis_url: str = ""
     cache_ttl_seconds: int = 604800
 
+    # Gates the temporary GET /health/diag endpoint (Yadhum perf investigation,
+    # 2026-09). Empty (default) disables the endpoint entirely. Remove this
+    # setting and the endpoint together once the investigation is closed.
+    diag_token: str = ""
+
 
 settings = Settings()
