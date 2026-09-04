@@ -1,3 +1,5 @@
+import { invalidateProfileCache } from './users'
+
 const BASE_URL = (import.meta.env.VITE_API_BASE_URL ?? '') + '/v1'
 
 function getToken() {
@@ -11,6 +13,15 @@ function getSessionToken() {
 function clearAuthAndRedirect(sessionInvalidated) {
   localStorage.removeItem('exam_coach_token')
   localStorage.removeItem('exam_coach_session')
+  // Eviction (another device claimed the session) redirects via
+  // window.location.replace, which happens to reset in-memory module state
+  // via the page reload — but it never touched the profile's localStorage
+  // entry. On a shared device that left the evicted user's profile sitting
+  // in localStorage indefinitely. invalidateProfileCache() is imported from
+  // ./users, which imports { api } from here — a cycle, but a safe one:
+  // both sides only reference the import inside function bodies, never at
+  // module-evaluation time.
+  invalidateProfileCache()
   if (sessionInvalidated) {
     // Read by LoginPage to show the "signed in elsewhere" banner.
     sessionStorage.setItem('logout_reason', 'session_invalidated')
