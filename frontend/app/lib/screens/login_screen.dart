@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
+import '../providers/user_provider.dart';
 import '../services/auth_service.dart';
 import '../services/user_service.dart';
 import '../config/theme.dart';
@@ -79,8 +81,13 @@ class _LoginScreenState extends State<LoginScreen> {
         }
         if (mounted) context.go('/onboarding');
       } else {
-        await _auth.loginWithEmail(email, password);
-        if (mounted) context.go('/');
+        final (_, claim) = await _auth.loginWithEmail(email, password);
+        if (!mounted) return;
+        final profile = claim.profile;
+        if (profile != null) {
+          context.read<UserProvider>().seed(profile);
+        }
+        context.go('/');
       }
     } catch (e) {
       setState(() => _error = e.toString().replaceFirst('Exception: ', ''));

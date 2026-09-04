@@ -2,12 +2,34 @@ import 'package:flutter/material.dart';
 import '../config/app_config.dart';
 import '../models/user_model.dart';
 import '../services/api_service.dart';
+import '../services/auth_service.dart';
 import '../services/user_preferences_service.dart';
 import '../services/user_service.dart';
 
 class UserProvider extends ChangeNotifier {
   final UserService _svc;
-  UserProvider([UserService? svc]) : _svc = svc ?? UserService();
+  UserProvider([UserService? svc]) : _svc = svc ?? UserService() {
+    AuthService.sessionGeneration.addListener(_onSessionGenerationChanged);
+  }
+
+  // Fires on every clearLocalSession() — explicit logout OR a 401
+  // SESSION_INVALIDATED eviction. Without this, a stale in-memory profile
+  // from a previous sign-in on this device would survive an eviction that
+  // didn't happen to go through UserProvider.load() itself, and the next
+  // sibling to log in would see it via loadIfNeeded()'s _loaded guard.
+  void _onSessionGenerationChanged() {
+    _profile = null;
+    _loaded = false;
+    _error = null;
+    _sessionInvalidated = false;
+    notifyListeners();
+  }
+
+  @override
+  void dispose() {
+    AuthService.sessionGeneration.removeListener(_onSessionGenerationChanged);
+    super.dispose();
+  }
 
   UserProfile? _profile;
   bool _loading = false;
@@ -75,6 +97,19 @@ class UserProvider extends ChangeNotifier {
   void clear() {
     _profile = null;
     _loaded = false;
+    _error = null;
+    _sessionInvalidated = false;
+    notifyListeners();
+  }
+
+  // Seeds the profile from POST /users/session/claim's response, skipping
+  // the follow-up GET /users/me on the login critical path. Callers must
+  // only invoke this with a non-null profile — a null claim.profile means
+  // fall back to load()/loadIfNeeded() instead.
+  void seed(UserProfile profile) {
+    _profile = profile;
+    _loaded = true;
+    _loading = false;
     _error = null;
     _sessionInvalidated = false;
     notifyListeners();

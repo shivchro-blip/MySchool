@@ -1,7 +1,10 @@
 import 'package:app_links/app_links.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 import '../config/theme.dart';
+import '../models/user_model.dart';
+import '../providers/user_provider.dart';
 import '../services/auth_service.dart';
 import '../services/user_service.dart';
 import '../services/api_service.dart';
@@ -72,16 +75,24 @@ class _AuthCallbackScreenState extends State<AuthCallbackScreen> {
 
       // Claim the single-session slot before the first authenticated call —
       // /users/me requires X-Session-Token and 401s without it.
+      ClaimResponse claim;
       try {
-        await AuthService().claimSession();
+        claim = await AuthService().claimSession();
       } catch (_) {
         _setError('Could not start your session. Please try again.');
         return;
       }
 
       try {
-        final profile = await UserService().getProfile();
+        // claim.profile is null on an older backend or a partial failure —
+        // fall back to the original GET /users/me exactly as before. This
+        // fallback also covers the first-ever Google sign-in: the backend
+        // returns profile: null (no 404) when no row exists yet, so it
+        // still reaches getProfile() below, which raises the 404 that
+        // triggers the consent flow.
+        final profile = claim.profile ?? await UserService().getProfile();
         if (!mounted) return;
+        context.read<UserProvider>().seed(profile);
         if (profile.onboardingCompleted == true) {
           context.go('/dashboard');
         } else {

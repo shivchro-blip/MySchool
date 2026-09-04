@@ -36,6 +36,33 @@ class UserProfile {
   String get displayName => fullName?.isNotEmpty == true ? fullName! : 'Student';
 }
 
+// POST /users/session/claim response. `profile` is the same payload GET
+// /users/me returns — present on current backends, absent (null) on an
+// older backend or any partial failure. Never throws: a malformed or
+// missing `profile` sub-object degrades to null rather than blocking login.
+class ClaimResponse {
+  final String?      sessionToken;
+  final UserProfile? profile;
+
+  const ClaimResponse({this.sessionToken, this.profile});
+
+  factory ClaimResponse.fromJson(Map<String, dynamic> json) {
+    UserProfile? profile;
+    final profileJson = json['profile'];
+    if (profileJson is Map<String, dynamic>) {
+      try {
+        profile = UserProfile.fromJson(profileJson);
+      } catch (_) {
+        profile = null;
+      }
+    }
+    return ClaimResponse(
+      sessionToken: json['session_token'] as String?,
+      profile: profile,
+    );
+  }
+}
+
 class UsageStats {
   final int    dailyAiCalls;
   final int    dailyLimit;

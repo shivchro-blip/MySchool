@@ -1,8 +1,10 @@
 import 'dart:convert';
+import 'package:flutter/foundation.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:http/http.dart' as http;
 import '../config/app_config.dart';
+import '../models/user_model.dart';
 
 String get _supabaseUrl  => AppConfig.supabaseUrl;
 String get _supabaseAnon => AppConfig.supabaseAnonKey;
@@ -32,6 +34,14 @@ class AuthService {
   // Mirrors the web app's 'exam_coach_session' localStorage key.
   static const _sessionKey = 'exam_coach_session';
 
+  // Bumped whenever clearLocalSession() runs (explicit logout OR a 401
+  // SESSION_INVALIDATED eviction). UserProvider listens and resets its
+  // in-memory profile/loaded state on every bump, so a second sibling
+  // logging in on the same device never inherits the previous user's
+  // cached profile. Owned here rather than a static callback in main.dart
+  // so ApiService never needs a UserProvider/BuildContext reference.
+  static final ValueNotifier<int> sessionGeneration = ValueNotifier<int>(0);
+
   // ── Single-session enforcement ─────────────────────────────────────────────
   //
   // After every successful Supabase login the client must claim the single
@@ -41,9 +51,9 @@ class AuthService {
   //
   // Mirrors frontend/web/src/api/auth.js claimSession/releaseSession.
 
-  Future<void> claimSession() async {
+  Future<ClaimResponse> claimSession() async {
     final token = await getToken();
-    if (token == null || token.isEmpty) return;
+    if (token == null || token.isEmpty) return const ClaimResponse();
     final res = await http.post(
       Uri.parse('${AppConfig.apiBaseUrl}/users/session/claim'),
       headers: {'Authorization': 'Bearer $token'},
@@ -54,10 +64,11 @@ class AuthService {
     final data = res.body.isNotEmpty
         ? jsonDecode(res.body) as Map<String, dynamic>
         : <String, dynamic>{};
-    final sessionToken = data['session_token'] as String?;
-    if (sessionToken != null && sessionToken.isNotEmpty) {
-      await _storage.write(key: _sessionKey, value: sessionToken);
+    final claim = ClaimResponse.fromJson(data);
+    if (claim.sessionToken != null && claim.sessionToken!.isNotEmpty) {
+      await _storage.write(key: _sessionKey, value: claim.sessionToken!);
     }
+    return claim;
   }
 
   // Server-side row delete. Local state is cleared by the caller regardless of
@@ -81,7 +92,8 @@ class AuthService {
     return _storage.read(key: _sessionKey);
   }
 
-  Future<Map<String, dynamic>> loginWithEmail(String email, String password) async {
+  Future<(Map<String, dynamic>, ClaimResponse)> loginWithEmail(
+      String email, String password) async {
     final res = await http.post(
       Uri.parse('$_supabaseUrl/auth/v1/token?grant_type=password'),
       headers: {
@@ -98,13 +110,14 @@ class AuthService {
     }
     final data = jsonDecode(res.body) as Map<String, dynamic>;
     final token = data['access_token'] as String?;
+    var claim = const ClaimResponse();
     if (token != null && token.isNotEmpty) {
       await _storage.write(key: _tokenKey, value: token);
       // Must complete before any authenticated call — every protected backend
       // route requires X-Session-Token and 401s without it.
-      await claimSession();
+      claim = await claimSession();
     }
-    return data;
+    return (data, claim);
   }
 
   Future<Map<String, dynamic>> signupWithEmail(String email, String password) async {
@@ -188,6 +201,7 @@ class AuthService {
   Future<void> clearLocalSession() async {
     await _storage.delete(key: _tokenKey);
     await _storage.delete(key: _sessionKey);
+    sessionGeneration.value++;
   }
 
   Future<String?> getToken() async {
