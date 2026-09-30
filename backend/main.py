@@ -1,13 +1,28 @@
+import asyncio
+from contextlib import asynccontextmanager
+
 from fastapi import FastAPI, Response
 from fastapi.middleware.cors import CORSMiddleware
 
 from config import settings
+from core.auth import warm_jwks
 from core.errors import register_error_handlers
+from core.observability import RequestTimingMiddleware, configure_logging
 from api.v1.router import router as api_router
 from models.common import HealthResponse
 
 
+configure_logging()
+
+
+@asynccontextmanager
+async def lifespan(_app: FastAPI):
+    await warm_jwks()
+    yield
+
+
 app = FastAPI(
+    lifespan=lifespan,
     title="AI Exam Coach API",
     version="0.1.0",
     description="Syllabus-aware AI for Tamil Nadu +1 and +2 students",
@@ -25,7 +40,11 @@ app.add_middleware(
     allow_credentials=_origins != ["*"],
     allow_methods=["*"],
     allow_headers=["*"],
+    max_age=settings.cors_max_age_seconds,
 )
+
+# Added last → outermost: times the full request including CORS handling.
+app.add_middleware(RequestTimingMiddleware)
 
 register_error_handlers(app)
 app.include_router(api_router)
@@ -48,7 +67,9 @@ async def health_check(response: Response):
     try:
         from db.client import get_db
         db = get_db()
-        db.table("subjects").select("id").limit(1).execute()
+        await asyncio.to_thread(
+            lambda: db.table("subjects").select("id").limit(1).execute()
+        )
         supabase_status = "ok"
     except Exception:
         supabase_status = "unavailable"

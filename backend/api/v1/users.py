@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Depends, HTTPException
-from uuid import UUID
+from starlette.concurrency import run_in_threadpool
 from models import UserProfileResponse, UpdateProfileRequest, UsageStatsResponse
 from api.v1.deps import get_current_user
 from db.repositories import UsersRepository
@@ -7,10 +7,13 @@ from db.repositories.users_repo import FREE_DAILY_LIMIT
 
 router = APIRouter()
 
+# The Supabase client is synchronous; repository calls run in the threadpool so
+# a slow DB round trip never blocks the event loop (and every other request).
+
 
 @router.get("/me", response_model=UserProfileResponse)
 async def get_profile(user: dict = Depends(get_current_user)):
-    data = UsersRepository().get_by_id(user["id"])
+    data = await run_in_threadpool(lambda: UsersRepository().get_by_id(user["id"]))
     if not data:
         raise HTTPException(status_code=404, detail="User profile not found")
     return data
@@ -21,9 +24,10 @@ async def update_profile(
     body: UpdateProfileRequest,
     user: dict = Depends(get_current_user),
 ):
-    updated = UsersRepository().update_profile(
-        user["id"],
-        body.model_dump(exclude_none=True),
+    # mode="json": datetimes → ISO strings; supabase-py can't serialise datetime.
+    fields = body.model_dump(mode="json", exclude_none=True)
+    updated = await run_in_threadpool(
+        lambda: UsersRepository().update_profile(user["id"], fields)
     )
     if not updated:
         raise HTTPException(status_code=404, detail="User not found")
@@ -32,7 +36,9 @@ async def update_profile(
 
 @router.get("/me/usage", response_model=UsageStatsResponse)
 async def get_usage(user: dict = Depends(get_current_user)):
-    data  = UsersRepository().get_plan_and_calls(user["id"])
+    data  = await run_in_threadpool(
+        lambda: UsersRepository().get_plan_and_calls(user["id"])
+    )
     plan  = data["plan"]            if data else "free"
     calls = data["daily_ai_calls"]  if data else 0
     limit = FREE_DAILY_LIMIT if plan == "free" else 9999

@@ -8,15 +8,22 @@ class UsersRepository:
     def __init__(self):
         self._db = get_db()
 
+    @staticmethod
+    def get_auth_user(jwt: str):
+        """Blocking Supabase Auth lookup — call via asyncio.to_thread."""
+        return get_db().auth.get_user(jwt)
+
     def get_by_id(self, user_id: str) -> dict | None:
+        # limit(1) rather than single(): a missing row must be None (→ 404),
+        # not a PGRST116 exception (→ 500).
         result = (
             self._db.table("users")
             .select("*")
             .eq("id", user_id)
-            .single()
+            .limit(1)
             .execute()
         )
-        return result.data
+        return result.data[0] if result.data else None
 
     def get_plan_and_calls(self, user_id: str) -> dict | None:
         result = (
@@ -39,8 +46,12 @@ class UsersRepository:
         return new_count
 
     def update_profile(self, user_id: str, fields: dict) -> dict | None:
-        self._db.table("users").update(fields).eq("id", user_id).execute()
-        return self.get_by_id(user_id)
+        if not fields:
+            return self.get_by_id(user_id)
+        # PostgREST returns the updated row (Prefer: return=representation),
+        # so no second SELECT round trip is needed.
+        result = self._db.table("users").update(fields).eq("id", user_id).execute()
+        return result.data[0] if result.data else None
 
     def is_over_limit(self, user_id: str) -> bool:
         user = self.get_plan_and_calls(user_id)
