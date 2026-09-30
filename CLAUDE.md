@@ -146,6 +146,7 @@ npm run dev     # http://localhost:5174
 | `pipeline_test.py` | Test the content pipeline end-to-end |
 | `test_evaluation.py` | Standalone evaluation smoke test |
 | `test_ollama.py` | Verify Ollama connectivity |
+| `latency_report.py` | p50/p95/p99 + error rates per route from backend JSON logs |
 
 ---
 

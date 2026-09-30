@@ -4,6 +4,37 @@ const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL
 const SUPABASE_ANON = import.meta.env.VITE_SUPABASE_ANON_KEY
 const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL ?? '') + '/v1'
 
+// Supabase Auth normally answers in well under a second; the backend can take
+// 50s+ when Render has spun the free instance down, so its budget is longer.
+const AUTH_TIMEOUT_MS    = Number(import.meta.env.VITE_AUTH_TIMEOUT_MS) || 20000
+const BACKEND_TIMEOUT_MS = Number(import.meta.env.VITE_BACKEND_TIMEOUT_MS) || 90000
+
+// fetch with a timeout; network failures and timeouts become readable errors.
+async function fetchWithTimeout(url, options, timeoutMs) {
+  const controller = new AbortController()
+  const timer = setTimeout(() => controller.abort(), timeoutMs)
+  try {
+    return await fetch(url, { ...options, signal: controller.signal })
+  } catch (err) {
+    throw new Error(err?.name === 'AbortError'
+      ? 'The server took too long to respond. Please try again.'
+      : 'Network error. Check your connection and try again.')
+  } finally {
+    clearTimeout(timer)
+  }
+}
+
+// Wake the backend while the user is still typing on /login: a Render free
+// instance that has spun down takes 50s+ to start, and this lets that happen
+// in parallel with the user entering credentials instead of after "Login".
+// No auth headers → a simple CORS request (no preflight). Response ignored.
+let warmed = false
+export function warmBackend() {
+  if (warmed) return
+  warmed = true
+  fetch(`${API_BASE_URL}/ping`, { cache: 'no-store' }).catch(() => {})
+}
+
 // ── Single-session enforcement ────────────────────────────────────────────────
 // After every successful Supabase login the client must claim the single
 // active session slot. The backend deletes any previous session row (kicking
@@ -13,10 +44,10 @@ const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL ?? '') + '/v1'
 export async function claimSession() {
   const token = getToken()
   if (!token) return
-  const res = await fetch(`${API_BASE_URL}/users/session/claim`, {
+  const res = await fetchWithTimeout(`${API_BASE_URL}/users/session/claim`, {
     method: 'POST',
     headers: { 'Authorization': `Bearer ${token}` },
-  })
+  }, BACKEND_TIMEOUT_MS)
   if (!res.ok) throw new Error('Could not start session')
   const data = await res.json()
   if (data.session_token) {
@@ -107,13 +138,21 @@ function authError(data, fallback) {
   )
 }
 
-export async function loginWithEmail(email, password) {
-  const res = await fetch(`${SUPABASE_URL}/auth/v1/token?grant_type=password`, {
+// POST to Supabase Auth; tolerates non-JSON error bodies (e.g. an HTML 502).
+async function supabaseAuthPost(path, body) {
+  const res = await fetchWithTimeout(`${SUPABASE_URL}${path}`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'apikey': SUPABASE_ANON },
-    body: JSON.stringify({ email, password }),
-  })
-  const data = await res.json()
+    body: JSON.stringify(body),
+  }, AUTH_TIMEOUT_MS)
+  const data = await res.json().catch(() => ({}))
+  return { res, data }
+}
+
+export async function loginWithEmail(email, password) {
+  const { res, data } = await supabaseAuthPost(
+    '/auth/v1/token?grant_type=password', { email, password },
+  )
   if (!res.ok) throw new Error(authError(data, 'Login failed'))
   if (data.access_token) {
     localStorage.setItem('exam_coach_token', data.access_token)
@@ -129,12 +168,7 @@ export async function loginWithEmail(email, password) {
 }
 
 export async function signupWithEmail(email, password) {
-  const res = await fetch(`${SUPABASE_URL}/auth/v1/signup`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'apikey': SUPABASE_ANON },
-    body: JSON.stringify({ email, password }),
-  })
-  const data = await res.json()
+  const { res, data } = await supabaseAuthPost('/auth/v1/signup', { email, password })
   if (!res.ok) throw new Error(authError(data, 'Signup failed'))
   if (data.access_token) localStorage.setItem('exam_coach_token', data.access_token)
   if (data.session?.access_token) localStorage.setItem('exam_coach_token', data.session.access_token)
@@ -143,12 +177,7 @@ export async function signupWithEmail(email, password) {
 }
 
 export async function resendConfirmationEmail(email) {
-  const res = await fetch(`${SUPABASE_URL}/auth/v1/resend`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'apikey': SUPABASE_ANON },
-    body: JSON.stringify({ email, type: 'signup' }),
-  })
-  const data = await res.json().catch(() => ({}))
+  const { res, data } = await supabaseAuthPost('/auth/v1/resend', { email, type: 'signup' })
   if (!res.ok) throw new Error(authError(data, 'Could not resend confirmation email'))
   return data
 }

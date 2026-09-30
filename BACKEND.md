@@ -26,6 +26,8 @@ pytest tests/test_evaluation.py -v  # single file
 | `test_content_pipeline.py` | PDF extraction + embedding |
 | `test_learning.py` | explain topic logic |
 | `test_syllabus.py` | syllabus DB queries |
+| `test_auth.py` | local JWT verification (HS256 + JWKS), remote fallback/cache, `get_db` race, `/ping` |
+| `test_observability.py` | request timing middleware, JSON logs, Server-Timing |
 
 ---
 
@@ -101,8 +103,9 @@ pytest tests/test_evaluation.py -v  # single file
 | `backend/api/v1/admin.py` | Admin routes | — |
 | `backend/core/ai_gate.py` | **Single entry point for ALL AI calls** | `AIGate` class |
 | `backend/core/admin_auth.py` | Admin auth dependency | `get_admin_user` |
-| `backend/core/auth.py` | Student auth dependency | `get_current_user`, `get_optional_user`, `_resolve_user` |
+| `backend/core/auth.py` | Student auth dependency — local JWT verification (JWKS / HS256), remote fallback | `get_current_user`, `get_optional_user`, `_resolve_user` |
 | `backend/core/errors.py` | Custom exception classes | — |
+| `backend/core/observability.py` | Request timing middleware, JSON logs, Server-Timing / X-Request-ID | `RequestTimingMiddleware`, `log_event` |
 | `backend/core/llm_response.py` | LLM response parsing helpers | — |
 | `backend/core/tn_board.py` | **TN Board constraints — single source of truth** | — |
 | `backend/ai/router.py` | Pure LLM dispatch (Ollama → OpenRouter) — called **only** by AIGate | — |
@@ -200,6 +203,47 @@ When adding a new class level, mark level, or content type:
 | `ALLOWED_ORIGINS` | CORS allowed origins (default: `http://localhost:5173`) |
 | `REDIS_URL` | Redis URL (optional — falls back to Supabase cache table) |
 | `CACHE_TTL_SECONDS` | Cache TTL in seconds (default: `604800` = 7 days) |
+| `AUTH_LOCAL_JWT` | `true` (default) verify tokens locally; `false` = always ask Supabase Auth |
+| `AUTH_REMOTE_CACHE_SECONDS` | Cache for the remote fallback, student path only (default `60`) |
+| `LOG_LEVEL` | `examcoach.*` JSON log level (default `INFO`) |
+| `SLOW_REQUEST_MS` | Requests slower than this log at WARNING with `"slow": true` (default `1000`) |
+| `CORS_MAX_AGE_SECONDS` | Preflight cache lifetime (default `7200`) |
+
+---
+
+## Auth token verification (`core/auth.py`)
+
+Access tokens are verified locally: signature, `exp`, `aud == "authenticated"`,
+`iss == {SUPABASE_URL}/auth/v1`, `sub`.
+
+1. `ES256`/`RS256` → public key from `{SUPABASE_URL}/auth/v1/.well-known/jwks.json`
+   (warmed at startup, cached, refetched on unknown `kid`). No config needed.
+2. `HS256` → `SUPABASE_JWT_SECRET`.
+3. Anything else that fails locally (no key, bad signature, claim mismatch) falls
+   back to a live GoTrue lookup in the threadpool — a misconfigured secret degrades
+   to the slow path instead of locking users out. Expired tokens are rejected
+   directly. Student-path remote results are cached ≤60s (never past `exp`).
+4. The admin gate uses `allow_local=False`: always a live, uncached lookup.
+
+## Cold starts (Render free tier)
+
+The free instance spins down when idle; the next request waits 50s+.
+- `GET/HEAD /ping` and `/api/v1/ping` — liveness only, always 200, touches nothing.
+  Point an external keep-alive monitor here (not `/health`, which checks Ollama
+  and returns 503 on Render).
+- The web and Flutter login screens call `/api/v1/ping` on load so the instance
+  wakes while the user types.
+- `db/client.get_db()` builds the shared client (and its PostgREST sub-client)
+  under a lock and at startup — the post-wake request burst used to build one
+  client per thread (~2s p95).
+
+## Observability
+
+- One JSON line per request (`examcoach.http`): `route`, `status`, `duration_ms`,
+  `auth_method` (`local_jwks` / `local_hs256` / `remote` / `remote_cached`), `auth_ms`, `request_id`.
+- `auth_rejected` (with `reason`), `local_verify_failed`, `jwks_fetch_failed`, `remote_auth_error`.
+- Responses carry `X-Request-ID` and `Server-Timing: app;dur=..,auth;dur=..`.
+- `python scripts/latency_report.py < logs` → p50/p95/p99, 5xx/401 rates, auth method mix.
 
 ---
 
