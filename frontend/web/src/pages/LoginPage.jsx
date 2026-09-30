@@ -1,8 +1,10 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { loginWithEmail, signupWithEmail, resendConfirmationEmail, signInWithGoogle } from '../api/auth'
-import { recordSignupConsent } from '../api/users'
+import { loadProfile, recordSignupConsent } from '../api/users'
 import { Button, Input } from '../components/ui'
+import { startAuthTimer } from '../lib/authTelemetry'
+import { prefetchPostLoginRoutes } from '../lib/prefetch'
 
 export default function LoginPage() {
   const navigate                 = useNavigate()
@@ -15,25 +17,38 @@ export default function LoginPage() {
   const [ageConfirmation, setAge]       = useState('')
   const [consentChecked,  setConsent]   = useState(false)
 
+  useEffect(() => { prefetchPostLoginRoutes() }, [])
+
   async function handleSubmit(e) {
     e.preventDefault()
     setError('')
     setResendStatus('')
     setLoading(true)
+    const timer = startAuthTimer(mode)
     try {
       if (mode === 'login') {
         await loginWithEmail(email, password)
+        timer.stage('token')
+        // Start GET /users/me now so it overlaps the route transition;
+        // the Guard picks up the same in-flight request.
+        loadProfile().catch(() => {})
       } else {
         const signupData = await signupWithEmail(email, password)
+        timer.stage('signup')
         const sessionToken = signupData?.session?.access_token || signupData?.access_token
         if (!sessionToken) {
+          timer.finish('pending_confirmation')
           setError('Account created. Check your email to confirm your account, then sign in.')
           return
         }
+        // Returns the updated profile and seeds the cache → no extra GET after redirect.
         await recordSignupConsent(ageConfirmation)
+        timer.stage('consent')
       }
+      timer.finish('success')
       navigate('/', { replace: true })
     } catch (err) {
+      timer.finish('failure', err)
       setError(err.message)
     } finally {
       setLoading(false)

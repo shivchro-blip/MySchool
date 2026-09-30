@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 // ignore: avoid_web_libraries_in_flutter
 import 'dart:html' as html;
@@ -22,6 +23,34 @@ String _authError(Map<String, dynamic> data, String fallback) {
   return fallback;
 }
 
+// Error bodies aren't always JSON (e.g. an HTML 502 from a proxy).
+Map<String, dynamic> _decodeBody(String body) {
+  if (body.isEmpty) return <String, dynamic>{};
+  try {
+    final data = jsonDecode(body);
+    return data is Map<String, dynamic> ? data : <String, dynamic>{};
+  } on FormatException {
+    return <String, dynamic>{};
+  }
+}
+
+Future<http.Response> _authPost(String path, Map<String, dynamic> body) async {
+  try {
+    return await http
+        .post(
+          Uri.parse('$_supabaseUrl$path'),
+          headers: {
+            'Content-Type': 'application/json',
+            'apikey': _supabaseAnon,
+          },
+          body: jsonEncode(body),
+        )
+        .timeout(const Duration(seconds: AppConfig.authTimeoutSeconds));
+  } on TimeoutException {
+    throw Exception('The sign-in server took too long to respond. Please try again.');
+  }
+}
+
 class AuthService {
   static final AuthService _instance = AuthService._();
   factory AuthService() => _instance;
@@ -31,21 +60,14 @@ class AuthService {
   static const _tokenKey = 'exam_coach_token';
 
   Future<Map<String, dynamic>> loginWithEmail(String email, String password) async {
-    final res = await http.post(
-      Uri.parse('$_supabaseUrl/auth/v1/token?grant_type=password'),
-      headers: {
-        'Content-Type': 'application/json',
-        'apikey': _supabaseAnon,
-      },
-      body: jsonEncode({'email': email, 'password': password}),
+    final res = await _authPost(
+      '/auth/v1/token?grant_type=password',
+      {'email': email, 'password': password},
     );
+    final data = _decodeBody(res.body);
     if (res.statusCode != 200) {
-      final data = res.body.isNotEmpty
-          ? jsonDecode(res.body) as Map<String, dynamic>
-          : <String, dynamic>{};
       throw Exception(_authError(data, 'Login failed'));
     }
-    final data = jsonDecode(res.body) as Map<String, dynamic>;
     final token = data['access_token'] as String?;
     if (token != null && token.isNotEmpty) {
       await _storage.write(key: _tokenKey, value: token);
@@ -54,21 +76,14 @@ class AuthService {
   }
 
   Future<Map<String, dynamic>> signupWithEmail(String email, String password) async {
-    final res = await http.post(
-      Uri.parse('$_supabaseUrl/auth/v1/signup'),
-      headers: {
-        'Content-Type': 'application/json',
-        'apikey': _supabaseAnon,
-      },
-      body: jsonEncode({'email': email, 'password': password}),
+    final res = await _authPost(
+      '/auth/v1/signup',
+      {'email': email, 'password': password},
     );
+    final data = _decodeBody(res.body);
     if (res.statusCode != 200 && res.statusCode != 201) {
-      final data = res.body.isNotEmpty
-          ? jsonDecode(res.body) as Map<String, dynamic>
-          : <String, dynamic>{};
       throw Exception(_authError(data, 'Signup failed'));
     }
-    final data = jsonDecode(res.body) as Map<String, dynamic>;
     final token = data['access_token'] as String?;
     final session = data['session'];
     final sessionToken = session is Map ? session['access_token'] as String? : null;
@@ -80,19 +95,14 @@ class AuthService {
   }
 
   Future<void> resendConfirmationEmail(String email) async {
-    final res = await http.post(
-      Uri.parse('$_supabaseUrl/auth/v1/resend'),
-      headers: {
-        'Content-Type': 'application/json',
-        'apikey': _supabaseAnon,
-      },
-      body: jsonEncode({'email': email, 'type': 'signup'}),
+    final res = await _authPost(
+      '/auth/v1/resend',
+      {'email': email, 'type': 'signup'},
     );
     if (res.statusCode != 200 && res.statusCode != 201) {
-      final data = res.body.isNotEmpty
-          ? jsonDecode(res.body) as Map<String, dynamic>
-          : <String, dynamic>{};
-      throw Exception(_authError(data, 'Could not resend confirmation email'));
+      throw Exception(
+        _authError(_decodeBody(res.body), 'Could not resend confirmation email'),
+      );
     }
   }
 

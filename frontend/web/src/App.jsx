@@ -1,56 +1,100 @@
-import { useEffect, useState } from 'react'
+import { lazy, Suspense, useEffect, useState } from 'react'
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import { isLoggedIn } from './api/auth'
-import { getCachedProfile } from './api/users'
+import { loadProfile, peekCachedProfile } from './api/users'
 
+// Only the auth entry points ship in the initial bundle. Everything behind the
+// Guard is code-split so /login renders without downloading course content,
+// exam papers, framer-motion, etc. (lib/prefetch.js warms these on idle).
 import LoginPage        from './pages/LoginPage'
 import AuthCallbackPage from './pages/AuthCallbackPage'
-import OnboardingPage   from './pages/OnboardingPage'
-import ProgressPage     from './pages/ProgressPage'
-import DashboardPage    from './pages/DashboardPage'
-import CoursesIndexPage from './pages/CoursesIndexPage'
-import ActivityPage     from './pages/ActivityPage'
-import CertificatePage  from './pages/CertificatePage'
-import AssignmentsPage  from './pages/AssignmentsPage'
-import MessagesPage     from './pages/MessagesPage'
-import PrivacyPage      from './pages/PrivacyPage'
-import TermsPage        from './pages/TermsPage'
-import ContactPage      from './pages/ContactPage'
+import CookieBanner     from './components/CookieBanner'
 
-import DashboardShell from './components/layout/DashboardShell'
-import CookieBanner   from './components/CookieBanner'
+const OnboardingPage   = lazy(() => import('./pages/OnboardingPage'))
+const ProgressPage     = lazy(() => import('./pages/ProgressPage'))
+const DashboardPage    = lazy(() => import('./pages/DashboardPage'))
+const CoursesIndexPage = lazy(() => import('./pages/CoursesIndexPage'))
+const ActivityPage     = lazy(() => import('./pages/ActivityPage'))
+const CertificatePage  = lazy(() => import('./pages/CertificatePage'))
+const AssignmentsPage  = lazy(() => import('./pages/AssignmentsPage'))
+const MessagesPage     = lazy(() => import('./pages/MessagesPage'))
+const PrivacyPage      = lazy(() => import('./pages/PrivacyPage'))
+const TermsPage        = lazy(() => import('./pages/TermsPage'))
+const ContactPage      = lazy(() => import('./pages/ContactPage'))
 
-import YearPage         from './pages/syllabus/YearPage'
-import SubjectPage      from './pages/syllabus/SubjectPage'
-import LessonListPage   from './pages/syllabus/LessonListPage'
-import LessonDetailPage         from './pages/syllabus/LessonDetailPage'
-import SectionPage              from './pages/syllabus/SectionPage'
-import NotFound                 from './pages/syllabus/NotFound'
-import ChapterPracticeExamPage  from './pages/ChapterPracticeExamPage'
-import FinalExamPrepPage        from './pages/syllabus/FinalExamPrepPage'
-import ExamPaperViewerPage      from './pages/ExamPaperViewerPage'
-import ExamPaperPracticePage    from './pages/ExamPaperPracticePage'
-import ModelExamPracticePage    from './pages/ModelExamPracticePage'
+const DashboardShell = lazy(() => import('./components/layout/DashboardShell'))
+
+const YearPage                = lazy(() => import('./pages/syllabus/YearPage'))
+const SubjectPage             = lazy(() => import('./pages/syllabus/SubjectPage'))
+const LessonListPage          = lazy(() => import('./pages/syllabus/LessonListPage'))
+const LessonDetailPage        = lazy(() => import('./pages/syllabus/LessonDetailPage'))
+const SectionPage             = lazy(() => import('./pages/syllabus/SectionPage'))
+const NotFound                = lazy(() => import('./pages/syllabus/NotFound'))
+const ChapterPracticeExamPage = lazy(() => import('./pages/ChapterPracticeExamPage'))
+const FinalExamPrepPage       = lazy(() => import('./pages/syllabus/FinalExamPrepPage'))
+const ExamPaperViewerPage     = lazy(() => import('./pages/ExamPaperViewerPage'))
+const ExamPaperPracticePage   = lazy(() => import('./pages/ExamPaperPracticePage'))
+const ModelExamPracticePage   = lazy(() => import('./pages/ModelExamPracticePage'))
+
+function FullPageLoading() {
+  return (
+    <div className="min-h-screen bg-bg-canvas flex items-center justify-center">
+      <div className="text-text-muted text-sm">Loading…</div>
+    </div>
+  )
+}
 
 function Guard({ children }) {
   const location = useLocation()
-  const [state, setState] = useState({ loading: true, profile: null })
   const loggedIn = isLoggedIn()
+  const [attempt, setAttempt] = useState(0)
+  const [state, setState] = useState(() => {
+    const cached = peekCachedProfile()
+    return cached
+      ? { loading: false, profile: cached, failed: false }
+      : { loading: true,  profile: null,   failed: false }
+  })
 
   useEffect(() => {
     if (!loggedIn) return
-    getCachedProfile()
-      .then(profile => setState({ loading: false, profile }))
-  }, [loggedIn])
+    let active = true
+    loadProfile()
+      .then(profile => {
+        if (active) setState({ loading: false, profile, failed: false })
+      })
+      .catch(err => {
+        // 404 = no profile row → onboarding. Any other failure gets a retry
+        // instead of silently sending an onboarded user back to onboarding.
+        if (active) setState({ loading: false, profile: null, failed: err?.status !== 404 })
+      })
+    return () => { active = false }
+  }, [loggedIn, attempt])
 
   if (!loggedIn) {
     return <Navigate to="/login" replace />
   }
 
   if (state.loading) {
+    return <FullPageLoading />
+  }
+
+  if (state.failed) {
     return (
-      <div className="min-h-screen bg-bg-canvas flex items-center justify-center">
-        <div className="text-text-muted text-sm">Loading…</div>
+      <div className="min-h-screen bg-bg-canvas flex items-center justify-center px-4">
+        <div className="text-center">
+          <div className="text-text-muted text-sm mb-3">
+            We couldn’t load your account. Check your connection and try again.
+          </div>
+          <button
+            onClick={() => {
+              setState({ loading: true, profile: null, failed: false })
+              setAttempt(a => a + 1)
+            }}
+            className="text-sm text-brand underline hover:text-brand-strong"
+          >
+            Retry
+          </button>
+        </div>
       </div>
     )
   }
@@ -99,6 +143,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <CookieBanner />
+      <Suspense fallback={<FullPageLoading />}>
       <Routes key={authKey}>
 
         <Route path="/login"          element={<LoginPage />} />
@@ -222,6 +267,7 @@ export default function App() {
         } />
 
       </Routes>
+      </Suspense>
     </BrowserRouter>
   )
 }

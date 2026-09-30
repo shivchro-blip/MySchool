@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { getUserIdFromToken, createUserProfile } from '../api/auth'
-import { fetchMyProfile } from '../api/users'
+import { loadProfile } from '../api/users'
+import { startAuthTimer } from '../lib/authTelemetry'
 import { Button } from '../components/ui'
 import BrandLogo from '../components/ui/BrandLogo'
 
@@ -51,8 +52,13 @@ export default function AuthCallbackPage() {
 
       localStorage.setItem('exam_coach_token', accessToken)
 
+      const timer = startAuthTimer('google_callback')
       try {
-        const profile = await fetchMyProfile()
+        // loadProfile caches the result, so the Guard on the next route
+        // doesn't repeat GET /users/me.
+        const profile = await loadProfile()
+        timer.stage('profile')
+        timer.finish('success')
         if (profile?.onboarding_completed) {
           navigate('/', { replace: true })
         } else {
@@ -60,9 +66,11 @@ export default function AuthCallbackPage() {
         }
       } catch (err) {
         if (err.status === 404) {
+          timer.finish('pending_consent')
           setUserId(getUserIdFromToken(accessToken))
           setPhase('consent')
         } else {
+          timer.finish('failure', err)
           setError('Failed to load your profile. Please try again.')
           setPhase('error')
         }

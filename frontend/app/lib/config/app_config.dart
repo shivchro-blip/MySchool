@@ -24,6 +24,8 @@ class AppConfig {
   static const String appName = 'AI Exam Coach';
   static const int freeAiCallsPerDay = 20;
   static const int requestTimeoutSeconds = 90;
+  // Supabase Auth calls (login / signup / resend) — mirrors VITE_AUTH_TIMEOUT_MS on web.
+  static const int authTimeoutSeconds = 20;
 
   static void assertConfigured() {
     assert(supabaseUrl.isNotEmpty,

@@ -53,40 +53,59 @@ function authError(data, fallback) {
   )
 }
 
+const AUTH_TIMEOUT_MS = Number(import.meta.env.VITE_AUTH_TIMEOUT_MS) || 20000
+
+// POST to Supabase Auth with a timeout, tolerant of non-JSON error bodies
+// (e.g. an HTML 502 from a proxy). Errors carry .status / .category for telemetry.
+async function authPost(path, body, fallbackMessage) {
+  const controller = new AbortController()
+  const timer = setTimeout(() => controller.abort(), AUTH_TIMEOUT_MS)
+  let res
+  try {
+    res = await fetch(`${SUPABASE_URL}${path}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'apikey': SUPABASE_ANON },
+      body: JSON.stringify(body),
+      signal: controller.signal,
+    })
+  } catch (err) {
+    const timedOut = err?.name === 'AbortError'
+    const error = new Error(timedOut
+      ? 'The sign-in server took too long to respond. Please try again.'
+      : 'Network error. Check your connection and try again.')
+    error.category = timedOut ? 'timeout' : 'network'
+    throw error
+  } finally {
+    clearTimeout(timer)
+  }
+  const data = await res.json().catch(() => ({}))
+  if (!res.ok) {
+    const error = new Error(authError(data, fallbackMessage))
+    error.status = res.status
+    throw error
+  }
+  return data
+}
+
 export async function loginWithEmail(email, password) {
-  const res = await fetch(`${SUPABASE_URL}/auth/v1/token?grant_type=password`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'apikey': SUPABASE_ANON },
-    body: JSON.stringify({ email, password }),
-  })
-  const data = await res.json()
-  if (!res.ok) throw new Error(authError(data, 'Login failed'))
+  const data = await authPost(
+    '/auth/v1/token?grant_type=password', { email, password }, 'Login failed',
+  )
   if (data.access_token) localStorage.setItem('exam_coach_token', data.access_token)
   return data
 }
 
 export async function signupWithEmail(email, password) {
-  const res = await fetch(`${SUPABASE_URL}/auth/v1/signup`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'apikey': SUPABASE_ANON },
-    body: JSON.stringify({ email, password }),
-  })
-  const data = await res.json()
-  if (!res.ok) throw new Error(authError(data, 'Signup failed'))
+  const data = await authPost('/auth/v1/signup', { email, password }, 'Signup failed')
   if (data.access_token) localStorage.setItem('exam_coach_token', data.access_token)
   if (data.session?.access_token) localStorage.setItem('exam_coach_token', data.session.access_token)
   return data
 }
 
 export async function resendConfirmationEmail(email) {
-  const res = await fetch(`${SUPABASE_URL}/auth/v1/resend`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'apikey': SUPABASE_ANON },
-    body: JSON.stringify({ email, type: 'signup' }),
-  })
-  const data = await res.json().catch(() => ({}))
-  if (!res.ok) throw new Error(authError(data, 'Could not resend confirmation email'))
-  return data
+  return authPost(
+    '/auth/v1/resend', { email, type: 'signup' }, 'Could not resend confirmation email',
+  )
 }
 
 export function logout() {

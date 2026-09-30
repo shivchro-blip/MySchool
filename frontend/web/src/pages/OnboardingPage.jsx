@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ArrowLeft, GraduationCap, Check, BookOpen, Calculator, FlaskConical } from 'lucide-react'
-import { completeOnboarding, invalidateProfileCache } from '../api/users'
+import { completeOnboarding } from '../api/users'
 
 const SUBJECTS = [
   { slug: 'english', name: 'English',     Icon: BookOpen,     bg: '#E6F4F2', color: '#2A7B6F' },
@@ -234,8 +234,8 @@ export default function OnboardingPage() {
     setLoading(true)
     setError('')
     try {
+      // completeOnboarding seeds the profile cache with the updated row
       await completeOnboarding({ classLevel, subjects })
-      invalidateProfileCache()
       setStep(3)
     } catch (e) {
       setError(e.message)
