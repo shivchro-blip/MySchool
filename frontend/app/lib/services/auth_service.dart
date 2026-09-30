@@ -157,7 +157,7 @@ class AuthService {
     _warmed = true;
     http
         .get(Uri.parse('${AppConfig.apiBaseUrl}/ping'))
-        .timeout(Duration(seconds: AppConfig.requestTimeoutSeconds))
+        .timeout(const Duration(seconds: AppConfig.requestTimeoutSeconds))
         .then((_) {}, onError: (_) {});
   }
 
