@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -21,6 +22,44 @@ String _authError(Map<String, dynamic> data, String fallback) {
     if (value is String && value.trim().isNotEmpty) return value;
   }
   return fallback;
+}
+
+// Error bodies aren't always JSON (e.g. an HTML 502 from a proxy).
+Map<String, dynamic> _decodeBody(String body) {
+  if (body.isEmpty) return <String, dynamic>{};
+  try {
+    final data = jsonDecode(body);
+    return data is Map<String, dynamic> ? data : <String, dynamic>{};
+  } on FormatException {
+    return <String, dynamic>{};
+  }
+}
+
+Future<http.Response> _postWithTimeout(
+  Uri url, {
+  required Map<String, String> headers,
+  Object? body,
+  required int timeoutSeconds,
+}) async {
+  try {
+    return await http
+        .post(url, headers: headers, body: body)
+        .timeout(Duration(seconds: timeoutSeconds));
+  } on TimeoutException {
+    throw Exception('The server took too long to respond. Please try again.');
+  }
+}
+
+Future<http.Response> _supabaseAuthPost(String path, Map<String, dynamic> body) {
+  return _postWithTimeout(
+    Uri.parse('$_supabaseUrl$path'),
+    headers: {
+      'Content-Type': 'application/json',
+      'apikey': _supabaseAnon,
+    },
+    body: jsonEncode(body),
+    timeoutSeconds: AppConfig.authTimeoutSeconds,
+  );
 }
 
 class AuthService {
@@ -76,17 +115,17 @@ class AuthService {
   Future<ClaimResponse> claimSession() async {
     final token = await getToken();
     if (token == null || token.isEmpty) return const ClaimResponse();
-    final res = await http.post(
+    // Backend budget, not the auth one: a spun-down Render instance can take
+    // 50s+ to answer the first request.
+    final res = await _postWithTimeout(
       Uri.parse('${AppConfig.apiBaseUrl}/users/session/claim'),
       headers: {'Authorization': 'Bearer $token'},
+      timeoutSeconds: AppConfig.requestTimeoutSeconds,
     );
     if (res.statusCode < 200 || res.statusCode >= 300) {
       throw Exception('Could not start session');
     }
-    final data = res.body.isNotEmpty
-        ? jsonDecode(res.body) as Map<String, dynamic>
-        : <String, dynamic>{};
-    final claim = ClaimResponse.fromJson(data);
+    final claim = ClaimResponse.fromJson(_decodeBody(res.body));
     if (claim.sessionToken != null && claim.sessionToken!.isNotEmpty) {
       await _storage.write(key: _sessionKey, value: claim.sessionToken!);
     }
@@ -110,27 +149,32 @@ class AuthService {
     }
   }
 
+  // Wake the backend while the user is still on the login screen (Render's
+  // free instance spins down when idle). Fire-and-forget; errors ignored.
+  bool _warmed = false;
+  void warmBackend() {
+    if (_warmed) return;
+    _warmed = true;
+    http
+        .get(Uri.parse('${AppConfig.apiBaseUrl}/ping'))
+        .timeout(Duration(seconds: AppConfig.requestTimeoutSeconds))
+        .then((_) {}, onError: (_) {});
+  }
+
   Future<String?> getSessionToken() async {
     return _storage.read(key: _sessionKey);
   }
 
   Future<(Map<String, dynamic>, ClaimResponse)> loginWithEmail(
       String email, String password) async {
-    final res = await http.post(
-      Uri.parse('$_supabaseUrl/auth/v1/token?grant_type=password'),
-      headers: {
-        'Content-Type': 'application/json',
-        'apikey': _supabaseAnon,
-      },
-      body: jsonEncode({'email': email, 'password': password}),
+    final res = await _supabaseAuthPost(
+      '/auth/v1/token?grant_type=password',
+      {'email': email, 'password': password},
     );
+    final data = _decodeBody(res.body);
     if (res.statusCode != 200) {
-      final data = res.body.isNotEmpty
-          ? jsonDecode(res.body) as Map<String, dynamic>
-          : <String, dynamic>{};
       throw Exception(_authError(data, 'Login failed'));
     }
-    final data = jsonDecode(res.body) as Map<String, dynamic>;
     final token = data['access_token'] as String?;
     var claim = const ClaimResponse();
     if (token != null && token.isNotEmpty) {
@@ -143,21 +187,14 @@ class AuthService {
   }
 
   Future<Map<String, dynamic>> signupWithEmail(String email, String password) async {
-    final res = await http.post(
-      Uri.parse('$_supabaseUrl/auth/v1/signup'),
-      headers: {
-        'Content-Type': 'application/json',
-        'apikey': _supabaseAnon,
-      },
-      body: jsonEncode({'email': email, 'password': password}),
+    final res = await _supabaseAuthPost(
+      '/auth/v1/signup',
+      {'email': email, 'password': password},
     );
+    final data = _decodeBody(res.body);
     if (res.statusCode != 200 && res.statusCode != 201) {
-      final data = res.body.isNotEmpty
-          ? jsonDecode(res.body) as Map<String, dynamic>
-          : <String, dynamic>{};
       throw Exception(_authError(data, 'Signup failed'));
     }
-    final data = jsonDecode(res.body) as Map<String, dynamic>;
     final token = data['access_token'] as String?;
     final session = data['session'];
     final sessionToken = session is Map ? session['access_token'] as String? : null;
@@ -170,19 +207,14 @@ class AuthService {
   }
 
   Future<void> resendConfirmationEmail(String email) async {
-    final res = await http.post(
-      Uri.parse('$_supabaseUrl/auth/v1/resend'),
-      headers: {
-        'Content-Type': 'application/json',
-        'apikey': _supabaseAnon,
-      },
-      body: jsonEncode({'email': email, 'type': 'signup'}),
+    final res = await _supabaseAuthPost(
+      '/auth/v1/resend',
+      {'email': email, 'type': 'signup'},
     );
     if (res.statusCode != 200 && res.statusCode != 201) {
-      final data = res.body.isNotEmpty
-          ? jsonDecode(res.body) as Map<String, dynamic>
-          : <String, dynamic>{};
-      throw Exception(_authError(data, 'Could not resend confirmation email'));
+      throw Exception(
+        _authError(_decodeBody(res.body), 'Could not resend confirmation email'),
+      );
     }
   }
 

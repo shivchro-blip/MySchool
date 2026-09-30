@@ -37,6 +37,8 @@ class _LoginScreenState extends State<LoginScreen> {
   void initState() {
     super.initState();
     _evictedNotice = AuthService.consumeEvictionFlag();
+    // Start waking a spun-down backend while the user types credentials.
+    _auth.warmBackend();
   }
 
   Future<void> _signInWithGoogle() async {

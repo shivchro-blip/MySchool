@@ -11,14 +11,17 @@ class UsersRepository:
         self._db = get_db()
 
     def get_by_id(self, user_id: str) -> dict | None:
+        # limit(1) rather than single(): a missing row must be None (→ 404 on
+        # /me, profile=None on /session/claim), not a PGRST116 exception (→ 500,
+        # which failed the whole login).
         result = (
             self._db.table("users")
             .select("*")
             .eq("id", user_id)
-            .single()
+            .limit(1)
             .execute()
         )
-        return result.data
+        return result.data[0] if result.data else None
 
     def get_plan_and_calls(self, user_id: str) -> dict | None:
         result = (
@@ -60,8 +63,12 @@ class UsersRepository:
             k: v.isoformat() if isinstance(v, datetime) else v
             for k, v in fields.items()
         }
-        self._db.table("users").update(serialized).eq("id", user_id).execute()
-        return self.get_by_id(user_id)
+        if not serialized:
+            return self.get_by_id(user_id)
+        # PostgREST returns the updated row (Prefer: return=representation),
+        # so no second SELECT round trip is needed.
+        result = self._db.table("users").update(serialized).eq("id", user_id).execute()
+        return result.data[0] if result.data else None
 
     def is_over_limit(self, user_id: str) -> bool:
         user = self.get_plan_and_calls(user_id)
