@@ -1,6 +1,7 @@
 import asyncio
 import logging
 import time
+from contextlib import asynccontextmanager
 
 import httpx
 from fastapi import FastAPI, HTTPException, Response
@@ -10,13 +11,33 @@ from slowapi import _rate_limit_exceeded_handler
 from slowapi.errors import RateLimitExceeded
 
 from config import settings
+from core.auth import warm_jwks
 from core.errors import register_error_handlers
+from core.observability import RequestTimingMiddleware, configure_logging
 from core.rate_limit import limiter
 from api.v1.router import router as api_router
 from models.common import HealthResponse
 
 
+configure_logging()
+
+
+@asynccontextmanager
+async def lifespan(_app: FastAPI):
+    await warm_jwks()
+    # Build the shared Supabase client before the first request arrives (after
+    # a Render cold start, requests arrive in a burst). Non-fatal: get_db()
+    # raises again on first use if credentials are missing.
+    try:
+        from db.client import get_db
+        await run_in_threadpool(get_db)
+    except Exception as exc:
+        logging.getLogger("uvicorn.error").warning("Supabase client warm-up failed: %s", exc)
+    yield
+
+
 app = FastAPI(
+    lifespan=lifespan,
     title="AI Exam Coach API",
     version="0.1.0",
     description="Syllabus-aware AI for Tamil Nadu +1 and +2 students",
@@ -40,22 +61,36 @@ app.add_middleware(
     # instead of wildcards.
     allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allow_headers=["Authorization", "Content-Type", "X-Session-Token"],
+    # Every authenticated call from yadhum.net → api.yadhum.net is preflighted
+    # (Authorization / X-Session-Token headers). Let browsers cache it.
+    max_age=settings.cors_max_age_seconds,
 )
+
+# Added last → outermost: times the full request including CORS handling.
+app.add_middleware(RequestTimingMiddleware)
 
 register_error_handlers(app)
 app.include_router(api_router)
 
-# Startup visibility for the auth fast path: with no JWT secret, core/auth.py
-# silently skips local verification and every authenticated request pays a
-# remote GoTrue round-trip. Logged via uvicorn.error — the app configures no
-# logging of its own, and uvicorn's default config only attaches handlers to
-# its own loggers. Fires once per worker.
+# Startup visibility for the auth fast path. ES256/RS256 tokens verify
+# locally via JWKS with no config; HS256 tokens need SUPABASE_JWT_SECRET or
+# every authenticated request pays a remote GoTrue round-trip. The
+# http_request log's auth_method field shows which path is live.
 if not settings.supabase_jwt_secret:
     logging.getLogger("uvicorn.error").warning(
-        "SUPABASE_JWT_SECRET is unset — local JWT verification is disabled and "
-        "every authenticated request performs a remote GoTrue round-trip "
-        "(latency optimisation INACTIVE)."
+        "SUPABASE_JWT_SECRET is unset — HS256 tokens fall back to a remote GoTrue "
+        "round-trip (fine if the project uses ES256/RS256 signing keys; check "
+        "auth_method in the http_request logs)."
     )
+
+
+# Liveness only — no Ollama/Supabase/Chroma calls, always 200. Used by the web
+# app to wake a sleeping Render instance while the user is still on /login, and
+# by external keep-alive monitors (UptimeRobot etc. send HEAD by default).
+@app.api_route("/ping", methods=["GET", "HEAD"], tags=["Health"], include_in_schema=False)
+@app.api_route("/api/v1/ping", methods=["GET", "HEAD"], tags=["Health"])
+async def ping():
+    return {"status": "ok"}
 
 
 @app.get("/health", response_model=HealthResponse, tags=["Health"])

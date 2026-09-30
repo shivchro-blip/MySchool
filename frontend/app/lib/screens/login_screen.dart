@@ -26,6 +26,13 @@ class _LoginScreenState extends State<LoginScreen> {
   String? _ageConfirmation;  // 'adult' or 'minor_with_consent'
   bool    _consentChecked   = false;
 
+  @override
+  void initState() {
+    super.initState();
+    // Start waking a spun-down backend while the user types credentials.
+    _auth.warmBackend();
+  }
+
   Future<void> _signInWithGoogle() async {
     setState(() { _loading = true; _error = ''; _notice = ''; });
     try {

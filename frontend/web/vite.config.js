@@ -25,18 +25,31 @@ export default defineConfig({
     },
   },
   build: {
-    rollupOptions: {
+    // Vite 8 bundles with rolldown. The old rollup `manualChunks` function
+    // mis-grouped shared CJS modules (React's jsx-runtime landed in `motion`),
+    // which forced framer-motion (~39 KB gzip) onto /login despite the lazy
+    // routes. Explicit groups with priorities keep React in react-vendor and
+    // motion out of the login page.
+    rolldownOptions: {
       output: {
-        manualChunks(id) {
-          if (id.includes('node_modules/react/') || id.includes('node_modules/react-dom/') || id.includes('node_modules/react-router-dom/') || id.includes('node_modules/react-router/')) {
-            return 'react-vendor'
-          }
-          if (id.includes('node_modules/framer-motion/')) {
-            return 'motion'
-          }
-          if (id.includes('node_modules/lucide-react/')) {
-            return 'icons'
-          }
+        codeSplitting: {
+          groups: [
+            {
+              name: 'react-vendor',
+              test: /node_modules[\\/](react|react-dom|react-router|react-router-dom|scheduler|@remix-run)[\\/]/,
+              priority: 30,
+            },
+            {
+              name: 'motion',
+              test: /node_modules[\\/](framer-motion|motion-dom|motion-utils)[\\/]/,
+              priority: 20,
+            },
+            {
+              name: 'icons',
+              test: /node_modules[\\/]lucide-react[\\/]/,
+              priority: 20,
+            },
+          ],
         },
       },
     },

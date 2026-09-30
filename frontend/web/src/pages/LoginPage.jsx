@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
-import { loginWithEmail, signupWithEmail, resendConfirmationEmail, signInWithGoogle } from '../api/auth'
+import { loginWithEmail, signupWithEmail, resendConfirmationEmail, signInWithGoogle, warmBackend } from '../api/auth'
 import { recordSignupConsent } from '../api/users'
 import { Button, Input } from '../components/ui'
 import { Eye, EyeOff } from 'lucide-react'
@@ -33,9 +33,19 @@ export default function LoginPage() {
   // lazy-loads despite the different relative specifiers. A failed prefetch
   // is harmless — React.lazy simply fetches the chunk again on render.
   useEffect(() => {
+    warmBackend()
     import('./DashboardPage').catch(() => {})
     import('./OnboardingPage').catch(() => {})
   }, [])
+
+  // A sleeping backend (Render free tier) can take 50s+ to answer the first
+  // request. Tell the user instead of leaving a silent spinner.
+  const [slow, setSlow] = useState(false)
+  useEffect(() => {
+    if (!loading) { setSlow(false); return }
+    const timer = setTimeout(() => setSlow(true), 6000)
+    return () => clearTimeout(timer)
+  }, [loading])
 
   async function handleSubmit(e) {
     e.preventDefault()
@@ -252,6 +262,12 @@ export default function LoginPage() {
               <div className="text-sm text-good-ink bg-good-soft border border-good-soft
                               rounded-xl px-3 py-2">
                 {resendStatus}
+              </div>
+            )}
+            {slow && (
+              <div className="text-sm text-text-secondary bg-surface-alt border border-line-soft
+                              rounded-xl px-3 py-2" role="status">
+                Waking up the server — this can take up to a minute the first time.
               </div>
             )}
 
