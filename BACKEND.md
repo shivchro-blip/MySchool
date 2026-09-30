@@ -26,6 +26,8 @@ pytest tests/test_evaluation.py -v  # single file
 | `test_content_pipeline.py` | PDF extraction + embedding |
 | `test_learning.py` | explain topic logic |
 | `test_syllabus.py` | syllabus DB queries |
+| `test_auth.py` | local JWT verification, remote fallback, `/users/me` login + sign-up path |
+| `test_observability.py` | request timing middleware, structured logs, Server-Timing |
 
 ---
 
@@ -101,8 +103,9 @@ pytest tests/test_evaluation.py -v  # single file
 | `backend/api/v1/admin.py` | Admin routes | — |
 | `backend/core/ai_gate.py` | **Single entry point for ALL AI calls** | `AIGate` class |
 | `backend/core/admin_auth.py` | Admin auth dependency | `get_admin_user` |
-| `backend/core/auth.py` | Student auth dependency | `get_current_user`, `get_optional_user`, `_resolve_user` |
+| `backend/core/auth.py` | Student auth dependency — local JWT verification (JWKS / HS256), remote fallback | `get_current_user`, `get_optional_user`, `_resolve_user`, `AuthUser` |
 | `backend/core/errors.py` | Custom exception classes | — |
+| `backend/core/observability.py` | Request timing middleware, JSON logs, Server-Timing / X-Request-ID | `RequestTimingMiddleware`, `log_event` |
 | `backend/core/llm_response.py` | LLM response parsing helpers | — |
 | `backend/core/tn_board.py` | **TN Board constraints — single source of truth** | — |
 | `backend/ai/router.py` | Pure LLM dispatch (Ollama → OpenRouter) — called **only** by AIGate | — |
@@ -200,6 +203,47 @@ When adding a new class level, mark level, or content type:
 | `ALLOWED_ORIGINS` | CORS allowed origins (default: `http://localhost:5173`) |
 | `REDIS_URL` | Redis URL (optional — falls back to Supabase cache table) |
 | `CACHE_TTL_SECONDS` | Cache TTL in seconds (default: `604800` = 7 days) |
+| `SUPABASE_JWT_SECRET` | Legacy HS256 JWT secret. Not needed on ES256/RS256 signing keys (JWKS) |
+| `AUTH_LOCAL_JWT` | `true` (default) verify tokens locally; `false` = always ask Supabase Auth |
+| `AUTH_REMOTE_CACHE_SECONDS` | Positive cache for the remote fallback path (default `60`) |
+| `LOG_LEVEL` | `examcoach.*` JSON log level (default `INFO`) |
+| `SLOW_REQUEST_MS` | Requests slower than this log at WARNING with `"slow": true` (default `1000`) |
+| `CORS_MAX_AGE_SECONDS` | Preflight cache lifetime (default `7200`) |
+
+---
+
+## Auth token verification (`core/auth.py`)
+
+Every authenticated request verifies the Supabase access token **locally**:
+signature, `exp`, `aud == "authenticated"`, `iss == {SUPABASE_URL}/auth/v1`, `sub`.
+
+1. `ES256`/`RS256` → public key from `{SUPABASE_URL}/auth/v1/.well-known/jwks.json`
+   (warmed at startup, cached `AUTH_JWKS_CACHE_SECONDS`, refetched on unknown `kid`)
+2. `HS256` → `SUPABASE_JWT_SECRET`
+3. No key available → `supabase.auth.get_user()` **in the threadpool**, cached ≤60s
+   (never past the token's `exp`)
+
+A token that fails local verification is rejected; it never falls back to the
+remote path. Trade-off: a signed-out session's access token stays valid until its
+`exp` (≤1h, Supabase default) — same model as Supabase's own `getClaims()`. Set
+`AUTH_LOCAL_JWT=false` if instant revocation matters more than latency.
+
+**Never call the sync Supabase client directly inside an `async def` route** —
+wrap repository calls in `run_in_threadpool` (see `api/v1/users.py`). A blocking
+call on the event loop stalls every in-flight request on that worker.
+
+## Observability
+
+- One JSON line per request on the `examcoach.http` logger:
+  `{"event":"http_request","route":"/api/v1/users/me","status":200,"duration_ms":..,"auth_method":"local_jwks","auth_ms":..,"request_id":..}`
+- Auth rejections: `{"event":"auth_rejected","reason":"expired|bad_signature|bad_claims|..."}`;
+  upstream trouble: `jwks_fetch_failed`, `remote_auth_error` (WARNING)
+- Responses carry `X-Request-ID` (nginx `$request_id` is forwarded) and
+  `Server-Timing: app;dur=..,auth;dur=..`
+- Suggested alerts (journald → your log shipper):
+  p95 `duration_ms` for `route=/api/v1/users/me` > 500ms over 5 min;
+  `status>=500` rate > 1%; any `jwks_fetch_failed` / `remote_auth_error` burst;
+  `auth_method=remote` share > 5% (means local verification isn't configured)
 
 ---
 

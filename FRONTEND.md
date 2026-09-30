@@ -33,11 +33,11 @@ VITE_SUPABASE_ANON_KEY=
 ```
 frontend/web/src/
 ├── api/
-│   ├── auth.js             ← Supabase auth helpers (sign in, sign out, callbacks)
+│   ├── auth.js             ← Supabase auth helpers (sign in, sign out, callbacks); 20s timeout (VITE_AUTH_TIMEOUT_MS)
 │   ├── client.js           ← fetch wrapper; auth token in localStorage key exam_coach_token
 │   ├── evaluation.js       ← evaluation API calls
 │   ├── learning.js         ← learning API calls
-│   └── users.js            ← user profile API calls
+│   └── users.js            ← user profile API calls; loadProfile() dedupes GET /users/me, PUT seeds the cache
 ├── assets/                 ← static assets
 ├── components/
 │   ├── layout/
@@ -72,6 +72,8 @@ frontend/web/src/
 ├── hooks/
 │   └── useTheme.js         ← light/dark theme hook
 ├── lib/
+│   ├── authTelemetry.js    ← login/sign-up stage timings → GA4 (only with analytics consent)
+│   ├── prefetch.js         ← idle-prefetch of post-login route chunks from /login
 │   ├── legal-constants.js  ← CONTACT_EMAIL, LEGAL_LAST_UPDATED, privacy/terms text
 │   ├── nav.js              ← nav helper utilities
 │   └── userAccess.js       ← user access/gating helpers
@@ -135,6 +137,13 @@ frontend/web/src/
 | `/:year/:subject/:category` | `LessonListPage` | requires auth |
 | `/:year/:subject/:category/:lesson` | `LessonDetailPage` | requires auth |
 | `/:year/:subject/:category/:lesson/:section` | `SectionPage` → `LearnRichPage` or `PracticeRichPage` | requires auth |
+
+**Code splitting:** only `LoginPage`, `AuthCallbackPage` and `CookieBanner` are
+imported eagerly in `App.jsx`; every other page (and `DashboardShell`) is
+`React.lazy`. Keep it that way — importing a page statically into `App.jsx`
+pulls course content / exam papers / framer-motion back into the `/login`
+bundle (was 552 KB gzip, now ~74 KB). Vendor chunks are defined with rolldown
+`codeSplitting.groups` in `vite.config.js`, not rollup `manualChunks`.
 
 ---
 
